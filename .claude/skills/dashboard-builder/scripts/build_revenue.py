@@ -41,6 +41,13 @@ def main():
     all_orders = settlement_orders + general_orders + excluded_orders
     gross_revenue = sum(o.get("amount", 0) for o in all_orders)
 
+    # 주문 파일에 금액 정보 없을 시(COL_AMOUNT=-1) → 정산 금액 합계로 대체
+    if gross_revenue == 0 and settlement_data.get("summaries"):
+        gross_revenue = sum(
+            s.get("settlement_amount") or 0
+            for s in settlement_data["summaries"]
+        )
+
     # 버킷이 비어있으면(신규 0건 재실행) settlement.json 누계에서 주문/수량 복원
     if not all_orders and settlement_data.get("summaries"):
         order_count = sum(s.get("order_count", 0) for s in settlement_data["summaries"])

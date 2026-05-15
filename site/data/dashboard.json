@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-05-15T12:52:32",
+  "generated_at": "2026-05-15T16:27:20",
   "current_month": "2026-05",
   "revenue": {
     "order_count": 31,
     "unit_count": 38,
-    "gross_revenue": 0,
+    "gross_revenue": 500000,
     "influencer_cost": 500000,
     "personal_fee": 310000,
     "misc_cost": 1550000,
-    "net_profit": -2360000
+    "net_profit": -1860000
   },
   "mail_funnel": {
     "total_sent": 1331,
@@ -17,13 +17,13 @@
     "reply_rate": 0.0992,
     "meeting_total": 60,
     "meeting_rate": 0.0451,
-    "exp_total": 27,
-    "exp_rate": 0.0203,
+    "exp_total": 28,
+    "exp_rate": 0.021,
     "ad_total": 5,
     "ad_rate": 0.0038
   },
   "inf_status": {
-    "체험진행_1차": 19,
+    "체험진행_1차": 20,
     "체험진행_2차": 1,
     "체험진행_3차": 2,
     "광고예정_1차": 3,
@@ -85,16 +85,16 @@
       0.0992
     ],
     "exp_rate": [
-      0.0225
+      0.021
     ],
     "ad_rate": [
-      0.0045
+      0.0038
     ],
     "gross_revenue": [
-      0
+      500000
     ],
     "net_profit": [
-      -2360000
+      -1860000
     ]
   },
   "alerts": {}

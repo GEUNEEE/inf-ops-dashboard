@@ -54,10 +54,13 @@
     const s = {};
     for (const [name, d] of Object.entries(influencers)) {
       s[name] = {
-        '금액':     d.amount,
+        '건수':     d.order_count ?? 0,
+        '수량':     d.qty ?? 0,
+        '누적수량': d.cumulative_qty ?? null,
+        '현재단가': d.unit_price   ?? null,
+        '금액':     d.amount       ?? null,
         '정산대상': !d.is_general,
         '현재상태': '',
-        // 누적수량·현재단가는 없음 → undefined → money/표시 시 '-'
       };
     }
     return s;
