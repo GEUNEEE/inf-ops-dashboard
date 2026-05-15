@@ -31,6 +31,18 @@
     return 29 * 20000 + 70 * 22000 + (n - 99) * 25000;
   }
 
+  // prevCum ~ cum 구간에 걸치는 티어별 {qty, price} 배열
+  function tierBreakdownRange(prevCum, cum) {
+    const tiers = [];
+    const t1 = Math.min(cum, 29)                       - Math.min(prevCum, 29);
+    const t2 = Math.min(Math.max(cum, 29), 99)         - Math.min(Math.max(prevCum, 29), 99);
+    const t3 = Math.max(cum, 99)                       - Math.max(prevCum, 99);
+    if (t1 > 0) tiers.push({ qty: t1, price: 20000 });
+    if (t2 > 0) tiers.push({ qty: t2, price: 22000 });
+    if (t3 > 0) tiers.push({ qty: t3, price: 25000 });
+    return tiers;
+  }
+
   // ── 유틸 ──────────────────────────────────────────────────────────────────
   async function fetchData(path) {
     const res = await fetch(path + '?v=' + Date.now());
@@ -369,7 +381,7 @@
     const grid = el('inf-grid');
     if (!grid) return;
 
-    const amountLabel = month ? monthLabel(month) : '누적 정산액';
+    const amountLabel = month ? monthLabel(month) + ' 정산액' : '누적 정산액';
 
     const items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
     items.sort((a, b) => {
@@ -386,10 +398,42 @@
         ? `<span class="pill pill-target">정산대상</span>`
         : `<span class="pill pill-general">기타/일반</span>`;
 
-      // 차등 단가 배지 (30개 이상 도달 시 강조)
-      const priceTag = (isTarget && item['현재단가'] && item['현재단가'] > 20000)
-        ? `<span style="font-size:9px;color:#3B6D11;font-weight:500;margin-left:4px">▲구간단가</span>`
-        : '';
+      let statsHtml;
+      if (isTarget) {
+        const cum     = item['누적수량'] ?? 0;
+        const qty     = item['수량'] ?? 0;
+        const prevCum = Math.max(cum - qty, 0);
+        const tiers   = tierBreakdownRange(prevCum, cum);
+        const isMulti = tiers.length > 1;
+        const total   = tiers.reduce((s, t) => s + t.qty * t.price, 0);
+
+        const rows = tiers.map(t => `
+          <div class="tier-row">
+            <span>${t.qty}개 × ${money(t.price)}${t.price > 20000 ? '<span class="tier-up">▲</span>' : ''}</span>
+            <span class="stat-val">${money(t.qty * t.price)}</span>
+          </div>`).join('');
+
+        const totalRow = isMulti ? `
+          <div class="tier-total">
+            <span style="color:var(--text3)">합계</span>
+            <span class="stat-val">${money(total)}</span>
+          </div>` : '';
+
+        statsHtml = `
+          <div style="margin-top:8px">
+            <span class="stat-lbl">${amountLabel}</span>
+            <div class="tier-section">${rows}${totalRow}</div>
+          </div>
+          <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
+            <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+            <div><span class="stat-lbl">누적수량</span><span class="stat-val">${cum}개</span></div>
+          </div>`;
+      } else {
+        statsHtml = `
+          <div class="inf-card-stats" style="margin-top:8px">
+            <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+          </div>`;
+      }
 
       return `
         <${tag} class="inf-card" ${href}>
@@ -397,21 +441,8 @@
             <span class="inf-card-name">${item.name}</span>
             ${badge}
           </div>
-          <div style="margin-bottom:6px">${statusPill(item['현재상태'] || '')}</div>
-          <div class="inf-card-stats">
-            <div>
-              <span class="stat-lbl">${amountLabel}</span>
-              <span class="stat-val">${money(item['금액'])}</span>
-            </div>
-            <div>
-              <span class="stat-lbl">누적수량</span>
-              <span class="stat-val">${item['누적수량'] != null ? item['누적수량'] + '개' : '-'}</span>
-            </div>
-            <div>
-              <span class="stat-lbl">단가${priceTag}</span>
-              <span class="stat-val">${money(item['현재단가'])}</span>
-            </div>
-          </div>
+          <div style="margin-bottom:4px">${statusPill(item['현재상태'] || '')}</div>
+          ${statsHtml}
         </${tag}>`;
     }).join('');
   }
