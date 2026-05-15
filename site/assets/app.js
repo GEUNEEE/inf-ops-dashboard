@@ -23,6 +23,14 @@
     return 20000;
   }
 
+  // 누적 수량 전체에 대한 구간별 정산액 (1~29: 2만 / 30~99: 2.2만 / 100+: 2.5만)
+  function calcTieredAmount(n) {
+    if (n <= 0)  return 0;
+    if (n < 30)  return n * 20000;
+    if (n < 100) return 29 * 20000 + (n - 29) * 22000;
+    return 29 * 20000 + 70 * 22000 + (n - 99) * 25000;
+  }
+
   // ── 유틸 ──────────────────────────────────────────────────────────────────
   async function fetchData(path) {
     const res = await fetch(path + '?v=' + Date.now());
@@ -110,11 +118,12 @@
       }
     }
 
-    // 누적수량 기반 차등 단가 적용
+    // 누적 수량 기반으로 구간 단가 + 정산액 재계산
     for (const d of Object.values(infMap)) {
       if (!d.is_general) {
         d.cumulative_qty = d.qty;
         d.unit_price     = tierPrice(d.qty);
+        d.amount         = calcTieredAmount(d.qty);  // 누적 기준으로 재계산
       } else {
         d.cumulative_qty = null;
         d.unit_price     = null;
@@ -152,7 +161,7 @@
     return result;
   }
 
-  // 월 필터 → settlement_summary 형식 (누적수량 기반 차등 단가 적용)
+  // 월 필터 → settlement_summary 형식 (누적수량 기반 차등 단가 + 해당 월 금액)
   function historyToSummary(influencers) {
     const s = {};
     for (const [name, d] of Object.entries(influencers)) {
@@ -162,7 +171,8 @@
         '수량':     d.qty ?? 0,
         '누적수량': cum ?? null,
         '현재단가': d.is_general ? null : tierPrice(cum || 0),
-        '금액':     d.amount ?? null,
+        // 이번 달 정산액 = 누적 기준 총액 - 이전 누적 기준 총액
+        '금액':     d.is_general ? null : calcTieredAmount(cum || 0) - calcTieredAmount((cum || 0) - (d.qty || 0)),
         '정산대상': !d.is_general,
         '현재상태': '',
       };
