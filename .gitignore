@@ -1,0 +1,22 @@
+# 비밀번호 / 환경변수
+.env
+
+# Python 가상환경
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# 엑셀 파일 (개인정보·비밀번호 포함)
+*.xlsx
+*.xls
+
+# 주문 드롭 폴더
+input/
+
+# 로컬 출력물 (site/data/ 제외)
+output/
+
+# 임시 파일
+*.tmp
+*.log

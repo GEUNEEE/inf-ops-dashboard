@@ -1,0 +1,16 @@
+{
+  "name_map": {
+    "마성민 러닝라이프": "마성민",
+    "마성민 라이프러너": "마성민"
+  },
+  "exclude": ["우리의 서술집"],
+  "tier_pricing": [
+    { "min_qty": 1,   "unit_price": 20000 },
+    { "min_qty": 30,  "unit_price": 22000 },
+    { "min_qty": 100, "unit_price": 25000 }
+  ],
+  "personal_fee_per_order": 10000,
+  "fixed_misc_cost_per_order": 50000,
+  "vat_rate": 0.10,
+  "general_sales_label": "기타/일반"
+}

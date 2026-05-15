@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>인플루언서 상세</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+  <style>
+    body { background: #111827; color: #f9fafb; font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; }
+    .card { background: #1f2937; border-radius: 12px; padding: 1.25rem; }
+    .kpi-card { background: #1f2937; border-radius: 12px; padding: 1.25rem; }
+    .kpi-label { color: #9ca3af; font-size: .8rem; margin-bottom: .25rem; }
+    .kpi-val { font-size: 1.5rem; font-weight: 700; color: #e0e7ff; }
+    .section-title { font-size: 1.05rem; font-weight: 700; color: #c7d2fe; margin-bottom: .75rem; }
+    .chart-wrap { overflow-x: auto; }
+    .chart-wrap canvas { min-width: 280px; }
+    ul { list-style: disc; padding-left: 1.25rem; }
+    li { margin-bottom: .35rem; }
+  </style>
+</head>
+<body data-page="influencer">
+
+  <div id="error-banner" class="hidden bg-red-900 text-red-200 px-4 py-2 text-sm"></div>
+
+  <div class="max-w-3xl mx-auto px-4 py-6">
+
+    <!-- 뒤로가기 + 이름 -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="index.html" class="text-indigo-400 hover:underline text-sm">← 뒤로</a>
+      <h1 class="text-2xl font-bold text-white" id="inf-name"></h1>
+    </div>
+
+    <!-- KPI 요약 카드 3칸 -->
+    <div class="grid grid-cols-3 gap-4 mb-6">
+      <div class="kpi-card">
+        <div class="kpi-label">현재 상태</div>
+        <div class="kpi-val text-base" id="inf-status">-</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">누적 수량</div>
+        <div class="kpi-val" id="inf-cum-qty">-</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">현재 단가</div>
+        <div class="kpi-val" id="inf-unit-price">-</div>
+      </div>
+    </div>
+
+    <!-- 월별 주문 추이 -->
+    <div class="card mb-6">
+      <div class="section-title">📅 월별 주문 추이</div>
+      <div class="chart-wrap"><canvas id="monthly-chart" height="200"></canvas></div>
+    </div>
+
+    <!-- 향후 일정 -->
+    <div class="card">
+      <div class="section-title">🗓️ 향후 일정</div>
+      <ul id="upcoming-schedule" class="text-sm text-gray-300">
+        <li class="text-gray-500">일정 없음</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

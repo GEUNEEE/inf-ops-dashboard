@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-05-15T00:00:00",
+  "current_month": "2026-05",
+  "revenue": {
+    "order_count": 0,
+    "unit_count": 0,
+    "gross_revenue": 0,
+    "influencer_cost": 0,
+    "personal_fee": 0,
+    "misc_cost": 0,
+    "net_profit": 0
+  },
+  "mail_funnel": {
+    "total_sent": 0,
+    "etc_excluded": 0,
+    "replied": 0,
+    "reply_rate": 0,
+    "meeting_total": 0,
+    "meeting_rate": 0,
+    "exp_total": 0,
+    "exp_rate": 0,
+    "ad_total": 0,
+    "ad_rate": 0
+  },
+  "inf_status": {},
+  "settlement_month": 5,
+  "settlement_summary": {},
+  "trends": {
+    "months": [],
+    "reply_rate": [],
+    "exp_rate": [],
+    "ad_rate": [],
+    "gross_revenue": [],
+    "net_profit": []
+  },
+  "alerts": {}
+}
