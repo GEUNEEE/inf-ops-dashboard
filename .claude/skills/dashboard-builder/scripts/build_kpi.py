@@ -21,7 +21,7 @@ INF_DIR    = SITE_DIR / "influencer"
 def load_json(path_or_dash: str) -> dict:
     if path_or_dash == "-":
         return json.load(sys.stdin)
-    with open(path_or_dash, encoding="utf-8") as f:
+    with open(path_or_dash, encoding="utf-8-sig") as f:
         return json.load(f)
 
 

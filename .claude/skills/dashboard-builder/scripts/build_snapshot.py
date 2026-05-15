@@ -22,13 +22,13 @@ def main():
               file=sys.stderr)
         sys.exit(1)
 
-    with open(sys.argv[1], encoding="utf-8") as f:
+    with open(sys.argv[1], encoding="utf-8-sig") as f:
         revenue = json.load(f)
-    with open(sys.argv[2], encoding="utf-8") as f:
+    with open(sys.argv[2], encoding="utf-8-sig") as f:
         mail_kpi = json.load(f)
-    with open(sys.argv[3], encoding="utf-8") as f:
+    with open(sys.argv[3], encoding="utf-8-sig") as f:
         inf_data = json.load(f)
-    with open(sys.argv[4], encoding="utf-8") as f:
+    with open(sys.argv[4], encoding="utf-8-sig") as f:
         settlement = json.load(f)
 
     target_month = sys.argv[5]  # "YYYY-MM"

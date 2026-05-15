@@ -24,9 +24,9 @@ def main():
         print("사용법: python build_revenue.py <bucket_json> <settlement_summary_json>", file=sys.stderr)
         sys.exit(1)
 
-    with open(sys.argv[1], encoding="utf-8") as f:
+    with open(sys.argv[1], encoding="utf-8-sig") as f:
         bucket_data = json.load(f)
-    with open(sys.argv[2], encoding="utf-8") as f:
+    with open(sys.argv[2], encoding="utf-8-sig") as f:
         settlement_data = json.load(f)
 
     config = load_config()
@@ -39,9 +39,15 @@ def main():
 
     # 매출: 정산대상 + 기타/일반 + 정산제외 합산 (완전제외 제외)
     all_orders = settlement_orders + general_orders + excluded_orders
-    order_count  = len(all_orders)
-    unit_count   = sum(o.get("qty", 0) for o in all_orders)
     gross_revenue = sum(o.get("amount", 0) for o in all_orders)
+
+    # 버킷이 비어있으면(신규 0건 재실행) settlement.json 누계에서 주문/수량 복원
+    if not all_orders and settlement_data.get("summaries"):
+        order_count = sum(s.get("order_count", 0) for s in settlement_data["summaries"])
+        unit_count  = sum(s.get("qty", 0) for s in settlement_data["summaries"])
+    else:
+        order_count = len(all_orders)
+        unit_count  = sum(o.get("qty", 0) for o in all_orders)
 
     # 인플루언서 정산 비용 (settlement 버킷만)
     influencer_cost = sum(
