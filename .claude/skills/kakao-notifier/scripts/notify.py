@@ -25,11 +25,11 @@ def main():
         print("사용법: python notify.py <revenue_json> <bucket_json> <settlement_json>", file=sys.stderr)
         sys.exit(1)
 
-    with open(sys.argv[1], encoding="utf-8") as f:
+    with open(sys.argv[1], encoding="utf-8-sig") as f:
         revenue = json.load(f)
-    with open(sys.argv[2], encoding="utf-8") as f:
+    with open(sys.argv[2], encoding="utf-8-sig") as f:
         bucket = json.load(f)
-    with open(sys.argv[3], encoding="utf-8") as f:
+    with open(sys.argv[3], encoding="utf-8-sig") as f:
         settlement = json.load(f)
 
     new_count      = bucket.get("new_count", 0)
