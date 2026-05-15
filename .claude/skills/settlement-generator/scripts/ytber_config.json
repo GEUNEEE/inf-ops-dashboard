@@ -12,5 +12,32 @@
   "personal_fee_per_order": 10000,
   "fixed_misc_cost_per_order": 50000,
   "vat_rate": 0.10,
-  "general_sales_label": "기타/일반"
+  "general_sales_label": "기타/일반",
+  "product_name": "흑장녹삼",
+  "ytber_info": {
+    "마성민": {
+      "account_name": "마성민",
+      "account_bank": "카카오뱅크",
+      "account_no": "***REMOVED***",
+      "smartstore_link": ""
+    },
+    "나이스부부": {
+      "account_name": "***REMOVED***",
+      "account_bank": "카카오뱅크",
+      "account_no": "***REMOVED***",
+      "smartstore_link": ""
+    },
+    "C맹씨": {
+      "account_name": "***REMOVED***",
+      "account_bank": "신한",
+      "account_no": "***REMOVED***",
+      "smartstore_link": ""
+    },
+    "The 조치 패밀리": {
+      "account_name": "***REMOVED***",
+      "account_bank": "신한은행",
+      "account_no": "",
+      "smartstore_link": ""
+    }
+  }
 }
