@@ -7,18 +7,15 @@
   const el    = id => document.getElementById(id);
   const set   = (id, val) => { const e = el(id); if (e) e.textContent = val; };
 
-  // Chart.js 전역 기본값 — 라이트 테마
   Chart.defaults.color       = '#A8A69C';
   Chart.defaults.borderColor = '#E5E3D6';
   Chart.defaults.font.family = "'Pretendard', -apple-system, sans-serif";
   Chart.defaults.font.size   = 11;
 
-  // ── 전역 상태 ─────────────────────────────────────────────────────────────
-  let gData  = null;   // dashboard.json 전체 데이터
-  let _donut = null;   // 도넛 Chart 인스턴스 (재렌더 시 destroy 필요)
-  const hCache = {};   // month key → history JSON 캐시
+  let gData  = null;
+  let _donut = null;
+  const hCache = {};
 
-  // ── 유틸 ──────────────────────────────────────────────────────────────────
   async function fetchData(path) {
     const res = await fetch(path + '?v=' + Date.now());
     if (!res.ok) throw new Error('fetch 실패: ' + path);
@@ -28,25 +25,47 @@
   function statusPill(status) {
     if (!status) return `<span class="pill pill-etc">-</span>`;
     let cls = 'pill-etc';
-    if (status.includes('체험'))         cls = 'pill-exp';
-    else if (status.includes('광고예정')) cls = 'pill-adplan';
-    else if (status.includes('광고완료')) cls = 'pill-addone';
+    if      (status.includes('체험'))         cls = 'pill-exp';
+    else if (status.includes('광고완료'))     cls = 'pill-addone';
+    else if (status.includes('광고예정'))     cls = 'pill-adplan';
+    else if (status.includes('미팅진행'))     cls = 'pill-meeting-active';
+    else if (status.includes('미팅예정'))     cls = 'pill-meeting-plan';
+    else if (status.includes('미팅대기'))     cls = 'pill-meeting';
+    else if (status.includes('미팅'))         cls = 'pill-meeting';
+    else if (status.includes('거절'))         cls = 'pill-reject';
     return `<span class="pill ${cls}">${status}</span>`;
   }
 
   function monthLabel(ym) {
-    // "2026-04" → "4월"
     return parseInt(ym.slice(5), 10) + '월';
   }
 
-  // ── KPI 업데이트 (필터 전환마다 호출) ────────────────────────────────────
+  // ── KPI 업데이트 ────────────────────────────────────────────────────────────
   function updateKPIs(r, f) {
-    set('kpi-revenue',    money(r.gross_revenue));
-    set('kpi-orders',     (r.order_count || 0) + '건');
-    set('kpi-profit',     money(r.net_profit));
+    set('kpi-revenue', money(r.gross_revenue));
+    set('kpi-orders',  (r.order_count || 0) + '건');
     set('kpi-reply-rate', pct(f.reply_rate));
     set('kpi-ad-rate',    pct(f.ad_rate));
     set('kpi-exp-rate',   pct(f.exp_rate));
+
+    // 수익: 양수=녹, 음수=적
+    const profit = r.net_profit;
+    set('kpi-profit', money(profit));
+    const pe = el('kpi-profit');
+    if (pe) pe.style.color = profit > 0 ? '#3B6D11' : profit < 0 ? '#A32D2D' : '';
+  }
+
+  function setKPISubs(r, f) {
+    set('kpi-revenue-sub', r.unit_count != null ? r.unit_count + '개 판매' : '');
+    set('kpi-orders-sub',  r.unit_count != null ? r.unit_count + '개 단위' : '');
+    set('kpi-profit-sub',  r.net_profit > 0 ? '흑자' : r.net_profit < 0 ? '적자' : '');
+    set('kpi-reply-sub',   f.total_sent    ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
+    set('kpi-ad-sub',      f.meeting_total ? Number(f.meeting_total).toLocaleString() + '건 미팅 기준' : '');
+  }
+
+  function clearKPISubs() {
+    ['kpi-revenue-sub','kpi-orders-sub','kpi-profit-sub','kpi-reply-sub','kpi-ad-sub']
+      .forEach(id => set(id, ''));
   }
 
   // ── 히스토리 → settlement_summary 형식 변환 ──────────────────────────────
@@ -66,41 +85,33 @@
     return s;
   }
 
-  // ── 월별 필터 버튼 렌더 ───────────────────────────────────────────────────
+  // ── 월별 필터 버튼 ────────────────────────────────────────────────────────
   function renderFilterButtons(months) {
     const c = el('month-filter');
     if (!c) return;
-
-    // 최신 월이 앞 (내림차순)
     const sorted = months.slice().sort().reverse();
-
     c.innerHTML = [''].concat(sorted).map((m, i) =>
       `<button class="filter-chip${i === 0 ? ' active' : ''}" data-month="${m}">${m ? monthLabel(m) : '전체'}</button>`
     ).join('');
-
     c.addEventListener('click', e => {
       const btn = e.target.closest('.filter-chip');
       if (btn) selectMonth(btn);
     });
   }
 
-  // ── 월별 필터 선택 ────────────────────────────────────────────────────────
   async function selectMonth(btn) {
-    document.querySelectorAll('#month-filter .filter-chip')
-      .forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#month-filter .filter-chip').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const month = btn.dataset.month;
 
     if (!month) {
-      // 전체 — dashboard.json 원본으로 복원
       updateKPIs(gData.revenue || {}, gData.mail_funnel || {});
+      setKPISubs(gData.revenue || {}, gData.mail_funnel || {});
       renderDonutChart(gData.inf_status || {});
-      renderInfluencerGrid(gData.settlement_summary || {});
+      renderInfluencerGrid(gData.settlement_summary || {}, null);
       return;
     }
 
-    // 해당 월 히스토리 로드 (캐시 우선)
     if (!hCache[month]) {
       try {
         hCache[month] = await fetchData('data/history/' + month + '.json');
@@ -112,14 +123,15 @@
     const h = hCache[month];
 
     updateKPIs(
-      { gross_revenue: h.gross_revenue, net_profit: h.net_profit, order_count: h.order_count },
+      { gross_revenue: h.gross_revenue, net_profit: h.net_profit, order_count: h.order_count, unit_count: h.unit_count },
       { reply_rate: h.reply_rate, ad_rate: h.ad_rate, exp_rate: h.exp_rate }
     );
+    clearKPISubs();
     renderDonutChart(h.inf_status || {});
-    renderInfluencerGrid(historyToSummary(h.influencers || {}));
+    renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
   }
 
-  // ── 메인 대시보드 초기화 ──────────────────────────────────────────────────
+  // ── 메인 초기화 ───────────────────────────────────────────────────────────
   async function renderDashboard() {
     try {
       gData = await fetchData('data/dashboard.json');
@@ -137,28 +149,24 @@
 
     const unreg = (gData.alerts || {}).unregistered_influencers || [];
     if (unreg.length && el('alert-banner')) {
-      el('alert-banner').textContent =
-        '미등재 인플루언서: ' + unreg.map(u => u.name + ' (' + u['건수'] + '건)').join(', ');
+      el('alert-banner').textContent = '미등재 인플루언서: ' + unreg.map(u => u.name + ' (' + u['건수'] + '건)').join(', ');
       el('alert-banner').classList.remove('hidden');
     }
 
-    // 필터 버튼 (trends.months 기준)
     renderFilterButtons(t.months || []);
-
-    // 전체 기본값으로 렌더
     updateKPIs(r, f);
-    renderFunnelBars(f);          // 퍼널 바는 항상 누적 데이터 (필터 불변)
+    setKPISubs(r, f);
+    renderFunnelBars(f);
     renderDonutChart(gData.inf_status || {});
-    renderInfluencerGrid(gData.settlement_summary || {});
+    renderInfluencerGrid(gData.settlement_summary || {}, null);
 
-    // 추세 차트는 한 번만 렌더 (필터와 무관)
     if (t.months && t.months.length > 0) {
       renderTrendChart(t);
       renderRevenueChart(t);
     }
   }
 
-  // ── 퍼널 바 ──────────────────────────────────────────────────────────────
+  // ── 퍼널 바 (미팅 단계 포함) ──────────────────────────────────────────────
   function renderFunnelBars(f) {
     const c = el('funnel-bars');
     if (!c) return;
@@ -181,14 +189,15 @@
     }
 
     c.innerHTML = [
-      bar('총 발송',   f.total_sent || 0, '#D3D1C7'),
-      bar('응답',      f.replied    || 0, '#85B7EB'),
-      bar('체험 전환', f.exp_total  || 0, '#7F77DD'),
-      bar('광고 수락', f.ad_total   || 0, '#97C459'),
+      bar('총 발송',   f.total_sent    || 0, '#D3D1C7'),
+      bar('응답',      f.replied       || 0, '#85B7EB'),
+      bar('미팅',      f.meeting_total || 0, '#EF9F27'),
+      bar('체험 전환', f.exp_total     || 0, '#7F77DD'),
+      bar('광고 수락', f.ad_total      || 0, '#97C459'),
     ].join('');
   }
 
-  // ── 도넛 차트 (재렌더 가능) ───────────────────────────────────────────────
+  // ── 도넛 차트 ─────────────────────────────────────────────────────────────
   function renderDonutChart(infStatus) {
     const ctx = el('donut-chart');
     if (!ctx) return;
@@ -204,6 +213,17 @@
       ['기타',         '기타',         '#B4B2A9'],
     ];
     const total = cfg.reduce((s, [k]) => s + (infStatus[k] || 0), 0);
+    const leg = el('donut-legend');
+
+    if (!total) {
+      _donut = new Chart(ctx, {
+        type: 'doughnut',
+        data: { labels: ['없음'], datasets: [{ data: [1], backgroundColor: ['#E5E3D6'], borderWidth: 0 }] },
+        options: { cutout: '62%', plugins: { legend: { display: false }, tooltip: { enabled: false } } },
+      });
+      if (leg) leg.innerHTML = '<div style="font-size:10px;color:var(--text3);padding:10px 0;text-align:center">현황 데이터 없음</div>';
+      return;
+    }
 
     _donut = new Chart(ctx, {
       type: 'doughnut',
@@ -221,19 +241,17 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: ctx =>
-                ` ${ctx.label}: ${ctx.raw}명 (${total ? Math.round(ctx.raw / total * 100) : 0}%)`,
+              label: ctx => ` ${ctx.label}: ${ctx.raw}명 (${Math.round(ctx.raw / total * 100)}%)`,
             },
           },
         },
       },
     });
 
-    const leg = el('donut-legend');
     if (leg) {
       leg.innerHTML = cfg.map(([k, label, color]) => {
         const count = infStatus[k] || 0;
-        const p = total ? Math.round(count / total * 100) : 0;
+        const p = Math.round(count / total * 100);
         return `
           <div class="legend-row">
             <div class="legend-left">
@@ -246,10 +264,12 @@
     }
   }
 
-  // ── 인플루언서 카드 그리드 (재렌더 가능) ─────────────────────────────────
-  function renderInfluencerGrid(summary) {
+  // ── 인플루언서 카드 그리드 ────────────────────────────────────────────────
+  function renderInfluencerGrid(summary, month) {
     const grid = el('inf-grid');
     if (!grid) return;
+
+    const amountLabel = month ? monthLabel(month) : '이번달';
 
     const items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
     items.sort((a, b) => {
@@ -261,9 +281,7 @@
     grid.innerHTML = items.map(item => {
       const isTarget = item['정산대상'];
       const tag  = isTarget ? 'a' : 'div';
-      const href = isTarget
-        ? `href="influencer.html?name=${encodeURIComponent(item.name)}"`
-        : '';
+      const href = isTarget ? `href="influencer.html?name=${encodeURIComponent(item.name)}"` : '';
       const badge = isTarget
         ? `<span class="pill pill-target">정산대상</span>`
         : `<span class="pill pill-general">기타/일반</span>`;
@@ -277,7 +295,7 @@
           <div style="margin-bottom:6px">${statusPill(item['현재상태'] || '')}</div>
           <div class="inf-card-stats">
             <div>
-              <span class="stat-lbl">이번달</span>
+              <span class="stat-lbl">${amountLabel}</span>
               <span class="stat-val">${money(item['금액'])}</span>
             </div>
             <div>
@@ -293,14 +311,14 @@
     }).join('');
   }
 
-  // ── 추세 차트 (정적 — 필터와 무관하게 한 번만 렌더) ──────────────────────
+  // ── 추세 차트 ─────────────────────────────────────────────────────────────
   function renderTrendChart(t) {
     const ctx = el('trend-chart');
     if (!ctx) return;
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: t.months,
+        labels: t.months.map(monthLabel),
         datasets: [
           { label: '응답률',    data: t.reply_rate.map(v => +(v * 100).toFixed(1)), borderColor: '#85B7EB', tension: 0.4, fill: false, pointRadius: 3 },
           { label: '체험전환율', data: t.exp_rate.map(v => +(v * 100).toFixed(1)),   borderColor: '#7F77DD', tension: 0.4, fill: false, pointRadius: 3 },
@@ -312,7 +330,8 @@
         plugins: { legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } } },
         scales: {
           x: { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
-          y: { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } }, title: { display: true, text: '%', font: { size: 10 }, color: '#A8A69C' } },
+          y: { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } },
+               title: { display: true, text: '%', font: { size: 10 }, color: '#A8A69C' } },
         },
       },
     });
@@ -324,7 +343,7 @@
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: t.months,
+        labels: t.months.map(monthLabel),
         datasets: [
           { type: 'bar',  label: '매출', data: t.gross_revenue, backgroundColor: 'rgba(127,119,221,0.5)' },
           { type: 'line', label: '수익', data: t.net_profit,    borderColor: '#97C459', tension: 0.4, fill: false, yAxisID: 'y1', pointRadius: 3 },
@@ -335,14 +354,16 @@
         plugins: { legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } } },
         scales: {
           x:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
-          y:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } }, title: { display: true, text: '매출 (₩)', font: { size: 10 }, color: '#A8A69C' } },
-          y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { font: { size: 10 } }, title: { display: true, text: '수익 (₩)', font: { size: 10 }, color: '#A8A69C' } },
+          y:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } },
+                title: { display: true, text: '매출 (₩)', font: { size: 10 }, color: '#A8A69C' } },
+          y1: { position: 'right', grid: { drawOnChartArea: false }, ticks: { font: { size: 10 } },
+                title: { display: true, text: '수익 (₩)', font: { size: 10 }, color: '#A8A69C' } },
         },
       },
     });
   }
 
-  // ── 드릴다운 페이지 ───────────────────────────────────────────────────────
+  // ── 인플루언서 드릴다운 페이지 ───────────────────────────────────────────
   async function renderInfluencer() {
     const name = new URLSearchParams(window.location.search).get('name');
     if (!name) {
@@ -370,7 +391,7 @@
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: monthly.map(m => m.month),
+          labels: monthly.map(m => monthLabel(m.month)),
           datasets: [{
             label: '수량',
             data: monthly.map(m => m.qty),
@@ -396,7 +417,6 @@
     }
   }
 
-  // ── 초기화 ────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     if (document.body.dataset.page === 'dashboard')  renderDashboard();
     if (document.body.dataset.page === 'influencer') renderInfluencer();
