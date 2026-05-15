@@ -1,73 +1,99 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>인플루언서 상세</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' };
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark');
-    }
-  </script>
   <style>
-    body { background: #111827; color: #f9fafb; font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif; }
-    .card { background: #1f2937; border-radius: 12px; padding: 1.25rem; }
-    .kpi-card { background: #1f2937; border-radius: 12px; padding: 1.25rem; }
-    .kpi-label { color: #9ca3af; font-size: .8rem; margin-bottom: .25rem; }
-    .kpi-val { font-size: 1.5rem; font-weight: 700; color: #e0e7ff; }
-    .section-title { font-size: 1.05rem; font-weight: 700; color: #c7d2fe; margin-bottom: .75rem; }
-    .chart-wrap { overflow-x: auto; }
-    .chart-wrap canvas { min-width: 280px; }
-    ul { list-style: disc; padding-left: 1.25rem; }
-    li { margin-bottom: .35rem; }
+    :root {
+      --bg:  #FAFAF8;
+      --bg2: #F2F0E8;
+      --border:  #E5E3D6;
+      --text1: #1A1A18;
+      --text2: #666660;
+      --text3: #A8A69C;
+      --r: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text1);
+      font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    .wrap { max-width: 680px; margin: 0 auto; padding: 24px 20px; }
+
+    .card     { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; }
+    .kpi-card { background: var(--bg2); border-radius: var(--r); padding: 11px 13px; }
+    .kpi-lbl  { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+    .kpi-val  { font-size: 22px; font-weight: 500; color: var(--text1); }
+    .slbl { font-size: 10px; font-weight: 500; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-bottom: 12px; }
+
+    .banner     { border-radius: var(--r); padding: 10px 13px; font-size: 11px; font-weight: 500; margin-bottom: 12px; }
+    .banner-err { background: #FCEBEB; border: 0.5px solid #E8AAAA; color: #A32D2D; }
+    .hidden     { display: none !important; }
+
+    .page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .back-link   { font-size: 11px; color: var(--text3); }
+    .back-link:hover { color: var(--text1); }
+    .page-name   { font-size: 15px; font-weight: 500; }
+
+    .mb12 { margin-bottom: 12px; }
+
+    .pill        { display: inline-flex; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 9px; white-space: nowrap; }
+    .pill-exp    { background: #EEEDFE; color: #3C3489; }
+    .pill-adplan { background: #EAF3DE; color: #3B6D11; }
+    .pill-addone { background: #C0DD97; color: #27500A; }
+    .pill-etc    { background: var(--bg2); color: var(--text3); }
+
+    ul { list-style: none; }
+    li { font-size: 11px; padding: 6px 0; border-bottom: 0.5px solid var(--border); color: var(--text2); }
+    li:last-child { border-bottom: none; }
   </style>
 </head>
 <body data-page="influencer">
 
-  <div id="error-banner" class="hidden bg-red-900 text-red-200 px-4 py-2 text-sm"></div>
+  <div id="error-banner" class="banner banner-err hidden"></div>
 
-  <div class="max-w-3xl mx-auto px-4 py-6">
-
-    <!-- 뒤로가기 + 이름 -->
-    <div class="flex items-center gap-3 mb-6">
-      <a href="index.html" class="text-indigo-400 hover:underline text-sm">← 뒤로</a>
-      <h1 class="text-2xl font-bold text-white" id="inf-name"></h1>
+  <div class="wrap">
+    <div class="page-header">
+      <a href="index.html" class="back-link">← 뒤로</a>
+      <span class="page-name" id="inf-name"></span>
     </div>
 
-    <!-- KPI 요약 카드 3칸 -->
-    <div class="grid grid-cols-3 gap-4 mb-6">
+    <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-label">현재 상태</div>
-        <div class="kpi-val text-base" id="inf-status">-</div>
+        <div class="kpi-lbl">현재 상태</div>
+        <div style="font-size:14px;font-weight:500;margin-top:6px" id="inf-status">-</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">누적 수량</div>
+        <div class="kpi-lbl">누적 수량</div>
         <div class="kpi-val" id="inf-cum-qty">-</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">현재 단가</div>
+        <div class="kpi-lbl">현재 단가</div>
         <div class="kpi-val" id="inf-unit-price">-</div>
       </div>
     </div>
 
-    <!-- 월별 주문 추이 -->
-    <div class="card mb-6">
-      <div class="section-title">📅 월별 주문 추이</div>
-      <div class="chart-wrap"><canvas id="monthly-chart" height="200"></canvas></div>
+    <div class="card mb12">
+      <div class="slbl">월별 주문 추이</div>
+      <canvas id="monthly-chart" height="180"></canvas>
     </div>
 
-    <!-- 향후 일정 -->
     <div class="card">
-      <div class="section-title">🗓️ 향후 일정</div>
-      <ul id="upcoming-schedule" class="text-sm text-gray-300">
-        <li class="text-gray-500">일정 없음</li>
+      <div class="slbl">향후 일정</div>
+      <ul id="upcoming-schedule">
+        <li style="color:var(--text3)">일정 없음</li>
       </ul>
     </div>
-
   </div>
 
   <script src="assets/app.js"></script>

@@ -4,6 +4,7 @@
 # 모든 인수를 파일 경로 또는 '-' (stdin)로 받음. 순서 고정.
 import sys
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -16,6 +17,16 @@ BASE_DIR   = Path(r"C:\Users\user\비서")
 SITE_DIR   = BASE_DIR / "site" / "data"
 HISTORY_DIR = SITE_DIR / "history"
 INF_DIR    = SITE_DIR / "influencer"
+
+DISPLAY_STATUS_MAP = {
+    "체험진행_1차": "1차 체험진행",
+    "체험진행_2차": "2차 체험진행",
+    "체험진행_3차": "3차 체험진행",
+    "광고예정_1차": "1차 광고예정",
+    "광고예정_2차": "2차 광고예정",
+    "광고완료_1차": "1차 광고완료",
+    "기타": "기타",
+}
 
 
 def load_json(path_or_dash: str) -> dict:
@@ -51,16 +62,19 @@ def load_history() -> dict:
     }
 
 
-def build_settlement_summary(settlement_data: dict) -> dict:
+def build_settlement_summary(settlement_data: dict, per_influencer: dict) -> dict:
     summary = {}
     for s in settlement_data.get("summaries", []):
         ytber = s.get("ytber", "")
+        status_key = per_influencer.get(ytber, "")
+        display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
         if s.get("is_general"):
             summary[ytber] = {
                 "건수": s.get("order_count", 0),
                 "수량": s.get("qty", 0),
                 "금액": None,
                 "정산대상": False,
+                "현재상태": display_status,
             }
         else:
             summary[ytber] = {
@@ -70,8 +84,49 @@ def build_settlement_summary(settlement_data: dict) -> dict:
                 "현재단가": s.get("unit_price"),
                 "금액": s.get("settlement_amount"),
                 "정산대상": True,
+                "현재상태": display_status,
             }
     return summary
+
+
+def build_influencer_files(settlement_data: dict, per_influencer: dict) -> None:
+    INF_DIR.mkdir(parents=True, exist_ok=True)
+
+    history_by_ytber: dict[str, list] = {}
+    if HISTORY_DIR.exists():
+        for p in sorted(HISTORY_DIR.glob("*.json")):
+            try:
+                d = json.loads(p.read_text(encoding="utf-8"))
+                month = d.get("month", p.stem)
+                for ytber, info in d.get("influencers", {}).items():
+                    history_by_ytber.setdefault(ytber, []).append({
+                        "month": month,
+                        "qty": info.get("qty", 0),
+                        "amount": info.get("amount"),
+                    })
+            except Exception:
+                pass
+
+    for s in settlement_data.get("summaries", []):
+        if s.get("is_general"):
+            continue
+        ytber = s.get("ytber", "")
+        safe_name = re.sub(r'[<>:"/\\|?*]', '_', ytber)
+        status_key = per_influencer.get(ytber, "")
+        display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
+
+        data = {
+            "name": ytber,
+            "current_status": display_status,
+            "cumulative_qty": s.get("cumulative_qty"),
+            "current_tier_price": s.get("unit_price"),
+            "monthly_orders": history_by_ytber.get(ytber, []),
+            "upcoming_schedule": [],
+        }
+
+        out_path = INF_DIR / f"{safe_name}.json"
+        out_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"[INFO] 인플루언서 JSON: {out_path.name}", file=sys.stderr)
 
 
 def main():
@@ -105,6 +160,9 @@ def main():
         "ad_rate":       round(ad_total / total_sent, 4) if total_sent else 0,
     }
 
+    per_influencer = inf_data.get("per_influencer", {})
+    build_influencer_files(settlement, per_influencer)
+
     trends = load_history()
 
     alerts = {}
@@ -127,7 +185,7 @@ def main():
         "mail_funnel":       mail_funnel,
         "inf_status":        inf_data.get("inf_status", {}),
         "settlement_month":  int(current_month.split("-")[1]),
-        "settlement_summary": build_settlement_summary(settlement),
+        "settlement_summary": build_settlement_summary(settlement, per_influencer),
         "trends":            trends,
         "alerts":            alerts,
     }
