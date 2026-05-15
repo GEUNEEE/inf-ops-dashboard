@@ -37,11 +37,19 @@ YTBER_PATTERN = re.compile(r"\[([^\]]+?)\s*구독자")
 
 # 주문 파일 열 인덱스 (0-based) — 실제 스마트스토어 주문조회 파일 기준
 COL_ORDER_NO     = 0   # 상품주문번호
+COL_ORDER_NO2    = 1   # 주문번호
 COL_ORDER_DATE   = 2   # 주문일시
 COL_ORDER_STATUS = 3   # 주문상태
+COL_DELIVERY     = 4   # 배송속성
 COL_CLAIM_STATUS = 6   # 클레임상태
+COL_CLAIM_QTY    = 7   # 수량클레임 여부
+COL_PRODUCT_ID   = 8   # 상품번호
 COL_PRODUCT_NAME = 9   # 상품명
+COL_OPTION1      = 10  # 옵션정보
+COL_OPTION2      = 11  # 판매옵션정보
 COL_QTY          = 12  # 수량
+COL_BUYER_NAME   = 13  # 구매자명
+COL_BUYER_ID     = 14  # 구매자ID
 COL_AMOUNT       = -1  # 주문금액 (이 파일에는 없음 → 0 처리)
 
 
@@ -165,8 +173,9 @@ def main():
     if RAWDATA_SHEET not in rawdata_wb.sheetnames:
         ws_raw = rawdata_wb.create_sheet(RAWDATA_SHEET)
         ws_raw.append([
-            "상품주문번호", "주문일", "유튜버명", "상품명", "수량", "주문금액",
-            "주문상태", "클레임상태", "버킷", "반영일시"
+            "상품주문번호", "주문번호", "주문일시", "주문상태", "배송속성",
+            "유튜버 이름", "클레임상태", "수량클레임 여부", "상품번호", "상품명",
+            "옵션정보", "판매옵션정보", "수량", "구매자명", "구매자ID"
         ])
     else:
         ws_raw = rawdata_wb[RAWDATA_SHEET]
@@ -192,61 +201,78 @@ def main():
             return row[idx] if 0 <= idx < n_cols else default
 
         order_no     = safe_str(_col(COL_ORDER_NO))
+        order_no2    = safe_str(_col(COL_ORDER_NO2))
         order_date   = safe_str(_col(COL_ORDER_DATE))
-        product_name = safe_str(_col(COL_PRODUCT_NAME))
-        qty          = safe_int(_col(COL_QTY), 1)
-        amount       = safe_float(_col(COL_AMOUNT)) if COL_AMOUNT >= 0 else 0.0
         order_status = safe_str(_col(COL_ORDER_STATUS))
+        delivery     = safe_str(_col(COL_DELIVERY))
         claim_status = safe_str(_col(COL_CLAIM_STATUS))
+        claim_qty    = safe_str(_col(COL_CLAIM_QTY))
+        product_id   = safe_str(_col(COL_PRODUCT_ID))
+        product_name = safe_str(_col(COL_PRODUCT_NAME))
+        option1      = safe_str(_col(COL_OPTION1))
+        option2      = safe_str(_col(COL_OPTION2))
+        qty          = safe_int(_col(COL_QTY), 1)
+        buyer_name   = safe_str(_col(COL_BUYER_NAME))
+        buyer_id     = safe_str(_col(COL_BUYER_ID))
+        amount       = safe_float(_col(COL_AMOUNT)) if COL_AMOUNT >= 0 else 0.0
 
-        # 취소 건 스킵
-        if is_cancelled(order_status, claim_status):
-            buckets["skipped"].append({"order_no": order_no, "reason": "취소"})
+        cancelled = is_cancelled(order_status, claim_status)
+
+        # 유튜버명 추출 (취소 건도 포함해서 분류)
+        ytber = extract_ytber(product_name, name_map)
+
+        # 완전 제외 ytber는 Raw_Data 자체 차단
+        if ytber in excludes:
+            buckets["skipped"].append({"order_no": order_no, "ytber": ytber, "reason": "완전제외"})
             continue
 
-        # 중복 체크
+        # 중복 체크 (취소 건도 중복이면 스킵)
         if order_no in existing_nos:
             continue
 
-        # 유튜버명 추출
-        ytber = extract_ytber(product_name, name_map)
+        ytber_label = ytber or config.get("general_sales_label", "기타/일반")
 
-        if ytber is None:
-            # 기타/일반
+        if cancelled:
+            # 취소 건: Raw_Data 기록 + cancelled 버킷
+            bucket = "cancelled"
+            buckets["skipped"].append({"order_no": order_no, "ytber": ytber_label, "reason": "취소"})
+        elif ytber is None:
             bucket = "general"
-        elif ytber in excludes:
-            # 완전 제외
-            bucket = "skipped"
-            buckets["skipped"].append({"order_no": order_no, "ytber": ytber, "reason": "완전제외"})
-            continue
         elif ytber in managed_set:
-            # 정산 대상
             bucket = "settlement"
         else:
-            # 정산 제외 (미등재)
             bucket = "excluded"
             unregistered.append({"name": ytber, "order_no": order_no, "qty": qty})
             _write_skip_log(ytber, qty, order_no)
 
         order_record = {
-            "order_no":    order_no,
-            "order_date":  order_date,
-            "ytber":       ytber or config.get("general_sales_label", "기타/일반"),
+            "order_no":     order_no,
+            "order_no2":    order_no2,
+            "order_date":   order_date,
+            "ytber":        ytber_label,
             "product_name": product_name,
-            "qty":         qty,
-            "amount":      amount,
-            "bucket":      bucket,
+            "qty":          qty,
+            "buyer_name":   buyer_name,
+            "amount":       amount,
+            "bucket":       bucket,
+            "is_cancelled": cancelled,
         }
-        buckets[bucket].append(order_record)
+
+        if cancelled:
+            # 취소 건은 settlement/general 집계 제외, cancelled_by_ytber에 기록
+            buckets.setdefault("cancelled_by_ytber", {}).setdefault(ytber_label, []).append(order_record)
+        else:
+            buckets[bucket].append(order_record)
+
         existing_nos.add(order_no)
         new_count += 1
 
-        # Raw_Data 반영 (완전제외·취소 제외)
+        # Raw_Data 반영 (양식 포맷: 스마트스토어 원본 컬럼 + 유튜버 이름)
         ws_raw.append([
-            order_no, order_date,
-            ytber or config.get("general_sales_label", "기타/일반"),
-            product_name, qty, amount,
-            order_status, claim_status, bucket, now_str
+            order_no, order_no2, order_date, order_status, delivery,
+            ytber_label,
+            claim_status, claim_qty, product_id, product_name,
+            option1, option2, qty, buyer_name, buyer_id
         ])
 
     order_wb.close()
@@ -258,12 +284,13 @@ def main():
     print(f"[INFO] Raw_Data 저장: {RAWDATA_PATH} (신규 {new_count}건)", file=sys.stderr)
 
     result = {
-        "new_count":     new_count,
-        "settlement":    buckets["settlement"],
-        "general":       buckets["general"],
-        "excluded":      buckets["excluded"],
-        "skipped_count": len(buckets["skipped"]),
-        "unregistered":  unregistered,
+        "new_count":          new_count,
+        "settlement":         buckets["settlement"],
+        "general":            buckets["general"],
+        "excluded":           buckets["excluded"],
+        "cancelled_by_ytber": buckets.get("cancelled_by_ytber", {}),
+        "skipped_count":      len(buckets["skipped"]),
+        "unregistered":       unregistered,
     }
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
