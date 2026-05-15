@@ -4,11 +4,8 @@
   "cumulative_qty": 4,
   "current_tier_price": 20000,
   "monthly_orders": [
-    {
-      "month": "2026-04",
-      "qty": 4,
-      "amount": 80000
-    }
+    { "month": "2026-03", "qty": 1, "amount": 20000 },
+    { "month": "2026-04", "qty": 3, "amount": 60000 }
   ],
   "upcoming_schedule": []
 }
