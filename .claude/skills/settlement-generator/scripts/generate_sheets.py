@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-# generate_sheets.py — STEP 5: 정산서 생성 (양식 포맷)
+# generate_sheets.py — STEP 5: 정산서 생성 (송부용 - 템플릿 복사 방식)
 # 사용법: python generate_sheets.py <bucket_json_path> <YYYY-MM>
-# 출력: 정산DB_업데이트.xlsx 갱신 + stdout JSON (정산 요약)
+# 출력: 유튜버별 월정산시트 작성 YYYY-MM_송부용.xlsx 생성 + stdout JSON (정산 요약)
 import sys
 import json
+import shutil
 import re
-import calendar
-from typing import Optional
 from pathlib import Path
-from datetime import datetime, date
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -16,18 +14,30 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 import openpyxl
-from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
-from openpyxl.utils import get_column_letter
 
-BASE_DIR     = Path(r"C:\Users\user\비서")
-RAWDATA_PATH = BASE_DIR / "스케줄" / "정산DB_업데이트.xlsx"
-CONFIG_PATH  = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "ytber_config.json"
+BASE_DIR      = Path(r"C:\Users\user\비서")
+RAWDATA_PATH  = BASE_DIR / "스케줄" / "정산DB_업데이트.xlsx"
+CONFIG_PATH   = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "ytber_config.json"
+TEMPLATE_PATH = BASE_DIR / "스케줄" / "유튜버별 월정산시트 작성 4월분_송부용.xlsx"
 
-# Raw_Data 컬럼 인덱스 (0-based, 양식 포맷)
-RAW_COL_YTBER  = 5   # 유튜버 이름
+# 정산DB Raw_Data 컬럼 인덱스 (0-based)
+RAW_COL_DATE   = 2   # 주문일시
 RAW_COL_STATUS = 3   # 주문상태
+RAW_COL_YTBER  = 5   # 유튜버 이름
 RAW_COL_CLAIM  = 6   # 클레임상태
 RAW_COL_QTY    = 12  # 수량
+
+# 템플릿 시트명 → ytber명 매핑 (처리 순서 포함)
+TEMPLATE_SHEET_MAP = [
+    ("마성민 4월",       "마성민"),
+    ("나이스부부 4월",   "나이스부부"),
+    ("C맹씨 4월",        "C맹씨"),
+    ("The조치패밀리 4월", "The 조치 패밀리"),
+    ("기타일반 4월",     "기타/일반"),
+]
+
+# 삭제할 구형 시트 (이전 월 히스토리 등)
+OLD_SHEETS = ["Raw_Data3월", "마성민 3월", "나이스부부 3월", "유튜버별 정산 시트 만들기"]
 
 
 def load_config():
@@ -43,17 +53,51 @@ def get_tier_price(cumulative_qty: int, tier_pricing: list) -> int:
     return price
 
 
-def get_cumulative_qty(rawdata_ws, ytber_name: str) -> int:
-    """Raw_Data에서 해당 유튜버의 비취소 누적 수량 합산"""
+def get_month_orders(rawdata_ws, target_month: str) -> list:
+    """정산DB Raw_Data에서 해당 월 주문 전체(취소 포함) 추출"""
+    orders = []
+    for row in rawdata_ws.iter_rows(min_row=2, values_only=True):
+        if not row or row[0] is None:
+            continue
+        order_date_str = str(row[RAW_COL_DATE] or "")
+        if not order_date_str.startswith(target_month):
+            continue
+        status = str(row[RAW_COL_STATUS] or "")
+        claim  = str(row[RAW_COL_CLAIM]  or "")
+        orders.append({
+            "order_no":     str(row[0]  or ""),
+            "order_no2":    str(row[1]  or ""),
+            "order_date":   order_date_str,
+            "order_status": status,
+            "delivery":     str(row[4]  or ""),
+            "ytber":        str(row[RAW_COL_YTBER] or ""),
+            "claim_status": claim,
+            "claim_qty":    str(row[7]  or ""),
+            "product_id":   str(row[8]  or ""),
+            "product_name": str(row[9]  or ""),
+            "option1":      str(row[10] or ""),
+            "option2":      str(row[11] or ""),
+            "qty":          int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0,
+            "buyer_name":   str(row[13] or ""),
+            "buyer_id":     str(row[14] or ""),
+            "is_cancelled": ("취소" in status or "취소완료" in claim),
+        })
+    return orders
+
+
+def get_cumulative_qty_before(rawdata_ws, ytber_name: str, target_month: str) -> int:
+    """해당 월 이전까지의 해당 ytber 비취소 누적 수량"""
     total = 0
     for row in rawdata_ws.iter_rows(min_row=2, values_only=True):
         if not row or row[RAW_COL_YTBER] is None:
             continue
         if str(row[RAW_COL_YTBER]).strip() != ytber_name:
             continue
-        order_status = str(row[RAW_COL_STATUS] or "")
-        claim_status = str(row[RAW_COL_CLAIM] or "")
-        if "취소" in order_status or "취소완료" in claim_status:
+        if str(row[RAW_COL_DATE] or "").startswith(target_month):
+            continue
+        status = str(row[RAW_COL_STATUS] or "")
+        claim  = str(row[RAW_COL_CLAIM]  or "")
+        if "취소" in status or "취소완료" in claim:
             continue
         try:
             total += int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
@@ -62,185 +106,12 @@ def get_cumulative_qty(rawdata_ws, ytber_name: str) -> int:
     return total
 
 
-def month_range(year: int, month: int) -> tuple[str, str]:
-    last_day = calendar.monthrange(year, month)[1]
-    return f"{year}-{month:02d}-01", f"{year}-{month:02d}-{last_day}"
-
-
-def set_cell(ws, row, col, value, bold=False, size=None, color=None, align=None, number_fmt=None):
-    cell = ws.cell(row=row, column=col, value=value)
-    font_kwargs = {"bold": bold}
-    if size:
-        font_kwargs["size"] = size
-    if color:
-        font_kwargs["color"] = color
-    cell.font = Font(**font_kwargs)
-    if align:
-        cell.alignment = Alignment(horizontal=align, vertical="center", wrap_text=True)
-    if number_fmt:
-        cell.number_format = number_fmt
-    return cell
-
-
-def write_settlement_sheet(wb, ytber_name: str, orders: list, cancelled: list,
-                            cumulative_before: int, tier_pricing: list,
-                            vat_rate: float, year: int, month: int,
-                            config: dict) -> dict:
-    """양식 포맷으로 정산 시트 생성"""
-    safe_name = re.sub(r'[\\/*?:\[\]]', '', ytber_name)
-    sheet_name = f"{safe_name} {month}월"[:31]
-    if sheet_name in wb.sheetnames:
-        del wb[sheet_name]
-    ws = wb.create_sheet(sheet_name)
-
-    is_general = (ytber_name == config.get("general_sales_label", "기타/일반"))
-    ytber_info = config.get("ytber_info", {}).get(ytber_name, {})
-    product_name = config.get("product_name", "흑장녹삼")
-    start_date, end_date = month_range(year, month)
-    settlement_date = datetime.now().strftime("%Y-%m-%d")
-
-    # 열 너비 설정 (A~K)
-    col_widths = {"A": 2, "B": 14, "C": 28, "D": 22, "E": 14, "F": 7, "G": 10, "H": 2, "I": 14, "J": 10}
-    for col_letter, width in col_widths.items():
-        ws.column_dimensions[col_letter].width = width
-    ws.row_dimensions[1].height = 8
-
-    # --- 헤더 섹션 ---
-    # row 2: 제목
-    title = f"{year}년 {month}월 광고수익 정산 내역서"
-    set_cell(ws, 2, 2, title, bold=True, size=13, align="left")
-    ws.row_dimensions[2].height = 22
-
-    # row 4: 파트너명 / 기준 월
-    set_cell(ws, 4, 2, "파트너명", bold=True)
-    set_cell(ws, 4, 3, ytber_name)
-    set_cell(ws, 4, 9, "기준 월", bold=True)
-    set_cell(ws, 4, 10, month)
-
-    # row 5: 판매 상품
-    set_cell(ws, 5, 2, "판매 상품", bold=True)
-    set_cell(ws, 5, 3, product_name)
-
-    # row 6: 개인 판매 링크
-    link = ytber_info.get("smartstore_link", "")
-    set_cell(ws, 6, 2, "개인 판매 링크", bold=True)
-    set_cell(ws, 6, 3, link if link else "-")
-
-    # row 7: 정산 기간
-    set_cell(ws, 7, 2, "정산 기간", bold=True)
-    set_cell(ws, 7, 3, f"{start_date} ~ {end_date}")
-
-    # row 8: 정산 일자
-    set_cell(ws, 8, 2, "정산 일자", bold=True)
-    set_cell(ws, 8, 3, settlement_date)
-
-    # row 9: 계좌 (비기타 인플루언서만)
-    if not is_general:
-        acct_name = ytber_info.get("account_name", "")
-        acct_bank = ytber_info.get("account_bank", "")
-        acct_no   = ytber_info.get("account_no", "")
-        acct_str = ""
-        if acct_name and acct_bank and acct_no:
-            acct_str = f"{acct_name}\n{acct_bank} {acct_no}"
-        elif acct_name or acct_no:
-            acct_str = f"{acct_name} {acct_bank} {acct_no}".strip()
-        set_cell(ws, 9, 2, "계좌", bold=True)
-        cell = ws.cell(row=9, column=3, value=acct_str)
-        cell.alignment = Alignment(wrap_text=True, vertical="top")
-        ws.row_dimensions[9].height = 30
-
-    # --- 집계 섹션 (row 11-15) ---
-    total_cancelled_qty = sum(c.get("qty", 0) for c in cancelled)
-    final_qty = sum(o.get("qty", 0) for o in orders)
-    total_orders = len(orders) + len(cancelled)
-    cancel_count = len(cancelled)
-
-    # 구간 단가 계산 (누적 기준)
-    current_cumulative = cumulative_before
-    if not is_general:
-        for o in orders:
-            current_cumulative += o.get("qty", 0)
-        unit_price = get_tier_price(current_cumulative, tier_pricing)
-        settlement_amount = final_qty * unit_price
-    else:
-        unit_price = None
-        settlement_amount = None
-
-    set_cell(ws, 11, 2, "총 주문 건수", bold=True)
-    set_cell(ws, 11, 3, total_orders)
-
-    set_cell(ws, 12, 2, "주문 취소 건수", bold=True)
-    set_cell(ws, 12, 3, cancel_count)
-
-    set_cell(ws, 13, 2, "최종 판매 수량", bold=True)
-    set_cell(ws, 13, 3, final_qty)
-
-    set_cell(ws, 14, 2, "정산 단가", bold=True)
-    set_cell(ws, 14, 3, unit_price if unit_price else "-")
-    set_cell(ws, 14, 9, "*2.0 2.2 2.5")
-
-    label_15 = "최종 정산 금액 (세전)" if not is_general else "최종 정산 금액"
-    set_cell(ws, 15, 2, label_15, bold=True)
-    set_cell(ws, 15, 3, settlement_amount if settlement_amount is not None else "-",
-             number_fmt='#,##0' if settlement_amount else None)
-
-    # --- 주문 목록 (row 29+) ---
-    # 헤더 (row 29)
-    order_headers = ["주문번호", "상품명", "주문일시", "구매자명", "수량", "취소여부"]
-    header_fill = PatternFill("solid", fgColor="1F3864")
-    header_font = Font(bold=True, color="FFFFFF", size=10)
-    for ci, hdr in enumerate(order_headers):
-        cell = ws.cell(row=29, column=2 + ci, value=hdr)
-        cell.fill = header_fill
-        cell.font = header_font
-        cell.alignment = Alignment(horizontal="center", vertical="center")
-    ws.row_dimensions[29].height = 18
-
-    # 정상 주문 + 취소 주문 합쳐서 날짜순 정렬
-    all_rows = []
-    for o in orders:
-        all_rows.append({**o, "is_cancelled": False})
-    for c in cancelled:
-        all_rows.append({**c, "is_cancelled": True})
-    all_rows.sort(key=lambda x: str(x.get("order_date", "")))
-
-    sum_qty = 0
-    for r_idx, o in enumerate(all_rows):
-        r = 30 + r_idx
-        order_no2 = o.get("order_no2") or o.get("order_no", "")
-        ws.cell(row=r, column=2, value=order_no2)
-        ws.cell(row=r, column=3, value=o.get("product_name", "")[:40])
-        ws.cell(row=r, column=4, value=o.get("order_date", ""))
-        ws.cell(row=r, column=5, value=o.get("buyer_name", ""))
-        ws.cell(row=r, column=6, value=o.get("qty", 0))
-        ws.cell(row=r, column=7, value="취소" if o["is_cancelled"] else "-")
-        if not o["is_cancelled"]:
-            sum_qty += o.get("qty", 0)
-
-    # 합계 행
-    sum_row = 30 + len(all_rows)
-    ws.cell(row=sum_row, column=2, value="합계").font = Font(bold=True)
-    ws.cell(row=sum_row, column=6, value=sum_qty).font = Font(bold=True)
-    if settlement_amount is not None:
-        ws.cell(row=sum_row, column=8, value=settlement_amount).number_format = '#,##0'
-
-    return {
-        "ytber":             ytber_name,
-        "order_count":       len(orders),
-        "qty":               final_qty,
-        "cumulative_qty":    current_cumulative if not is_general else None,
-        "unit_price":        unit_price,
-        "settlement_amount": settlement_amount,
-        "is_general":        is_general,
-    }
-
-
 def main():
     if len(sys.argv) < 3:
         print("사용법: python generate_sheets.py <bucket_json_path> <YYYY-MM>", file=sys.stderr)
         sys.exit(1)
 
-    bucket_path = sys.argv[1]
+    bucket_path      = sys.argv[1]
     settlement_month = sys.argv[2]  # "YYYY-MM"
 
     if bucket_path == "-":
@@ -249,66 +120,145 @@ def main():
         with open(bucket_path, encoding="utf-8-sig") as f:
             bucket_data = json.load(f)
 
-    year, month = int(settlement_month[:4]), int(settlement_month[5:7])
-
-    config       = load_config()
-    tier_pricing = config["tier_pricing"]
-    vat_rate     = config.get("vat_rate", 0.10)
+    year, month   = int(settlement_month[:4]), int(settlement_month[5:7])
+    config        = load_config()
+    tier_pricing  = config["tier_pricing"]
     general_label = config.get("general_sales_label", "기타/일반")
+    ytber_info_map = config.get("ytber_info", {})
 
-    # Raw_Data 로드 (누적 수량 조회용)
-    if RAWDATA_PATH.exists():
-        wb = openpyxl.load_workbook(RAWDATA_PATH)
-    else:
-        wb = openpyxl.Workbook()
+    # 정산DB 로드 (현월 주문 추출 + 누적 수량 계산)
+    if not RAWDATA_PATH.exists():
+        print(f"[ERROR] 정산DB 없음: {RAWDATA_PATH}", file=sys.stderr)
+        sys.exit(1)
 
-    if "Raw_Data" not in wb.sheetnames:
-        ws_raw = wb.create_sheet("Raw_Data")
+    rawdata_wb = openpyxl.load_workbook(RAWDATA_PATH, data_only=True, read_only=True)
+    if "Raw_Data" not in rawdata_wb.sheetnames:
+        print("[ERROR] 정산DB에 Raw_Data 시트 없음", file=sys.stderr)
+        rawdata_wb.close()
+        sys.exit(1)
+    rawdata_ws = rawdata_wb["Raw_Data"]
+
+    month_orders = get_month_orders(rawdata_ws, settlement_month)
+    print(f"[INFO] {settlement_month} 주문 {len(month_orders)}건 (취소 포함)", file=sys.stderr)
+
+    # ytber별 정상/취소 분류
+    ytber_ok  = {}   # ytber → 비취소 주문 리스트
+    ytber_can = {}   # ytber → 취소 주문 리스트
+    for o in month_orders:
+        ytber = o["ytber"]
+        if o["is_cancelled"]:
+            ytber_can.setdefault(ytber, []).append(o)
+        else:
+            ytber_ok.setdefault(ytber, []).append(o)
+
+    # 템플릿 복사
+    output_name = f"유튜버별 월정산시트 작성 {settlement_month}_송부용.xlsx"
+    output_path = BASE_DIR / "스케줄" / output_name
+    shutil.copy(TEMPLATE_PATH, output_path)
+    print(f"[INFO] 템플릿 복사: {output_path.name}", file=sys.stderr)
+
+    # 출력 파일 열기 (수식 보존)
+    wb = openpyxl.load_workbook(output_path)
+
+    # ── Raw_Data 갱신 ──────────────────────────────────────────────────────
+    ws_raw = wb["Raw_Data"]
+    if ws_raw.max_row > 1:
+        ws_raw.delete_rows(2, ws_raw.max_row - 1)
+    for o in month_orders:
         ws_raw.append([
-            "상품주문번호", "주문번호", "주문일시", "주문상태", "배송속성",
-            "유튜버 이름", "클레임상태", "수량클레임 여부", "상품번호", "상품명",
-            "옵션정보", "판매옵션정보", "수량", "구매자명", "구매자ID"
+            o["order_no"], o["order_no2"], o["order_date"],
+            o["order_status"], o["delivery"],
+            o["ytber"],          # F열: 직접 ytber명 (수식 대신 값 기입)
+            o["claim_status"], o["claim_qty"],
+            o["product_id"], o["product_name"],
+            o["option1"], o["option2"],
+            o["qty"], o["buyer_name"], o["buyer_id"],
         ])
-    rawdata_ws = wb["Raw_Data"]
 
-    settlement_orders  = bucket_data.get("settlement", [])
-    general_orders     = bucket_data.get("general", [])
-    cancelled_by_ytber = bucket_data.get("cancelled_by_ytber", {})
-
-    # 인플루언서별 그룹핑
-    ytber_groups: dict[str, list] = {}
-    for order in settlement_orders:
-        ytber = order.get("ytber", "")
-        ytber_groups.setdefault(ytber, []).append(order)
-
+    # ── 정산 시트별 처리 ───────────────────────────────────────────────────
     summaries = []
 
-    for ytber, orders in ytber_groups.items():
-        cumulative_before = get_cumulative_qty(rawdata_ws, ytber)
-        cancelled = cancelled_by_ytber.get(ytber, [])
-        summary = write_settlement_sheet(
-            wb, ytber, orders, cancelled,
-            cumulative_before, tier_pricing, vat_rate,
-            year, month, config
-        )
-        summaries.append(summary)
-        print(f"[INFO] 정산 시트 생성: {ytber} (정상 {len(orders)}건, 취소 {len(cancelled)}건)", file=sys.stderr)
+    for tmpl_sheet, ytber_name in TEMPLATE_SHEET_MAP:
+        if tmpl_sheet not in wb.sheetnames:
+            print(f"[WARN] 템플릿 시트 없음: {tmpl_sheet}", file=sys.stderr)
+            continue
 
-    # 기타/일반 시트
-    if general_orders:
-        cancelled_general = cancelled_by_ytber.get(general_label, [])
-        summary = write_settlement_sheet(
-            wb, general_label, general_orders, cancelled_general,
-            0, tier_pricing, vat_rate, year, month, config
-        )
-        summaries.append(summary)
-        print(f"[INFO] 기타/일반 시트 생성 ({len(general_orders)}건)", file=sys.stderr)
+        ws = wb[tmpl_sheet]
+        is_general = (ytber_name == general_label)
+        ytber_info = ytber_info_map.get(ytber_name, {})
 
-    wb.save(RAWDATA_PATH)
+        # 기준 월 업데이트
+        if is_general:
+            ws["C17"] = month   # 기타일반 시트는 C17 참조
+        else:
+            ws["I4"] = month    # 일반 인플루언서 시트는 I4 참조
+
+        # 개인 판매 링크 (모든 시트)
+        link = ytber_info.get("smartstore_link", "")
+        if link:
+            ws["C6"] = link
+
+        # 계좌 정보 (비기타 인플루언서만)
+        if not is_general:
+            acct_name = ytber_info.get("account_name", "")
+            acct_bank = ytber_info.get("account_bank", "")
+            acct_no   = ytber_info.get("account_no", "")
+            if acct_name and acct_bank and acct_no:
+                ws["C9"] = f"{acct_name}\n{acct_bank} {acct_no}"
+
+        # 정산 단가 업데이트 (기타일반 제외)
+        cum_before = 0
+        unit_price = None
+        if not is_general:
+            cum_before = get_cumulative_qty_before(rawdata_ws, ytber_name, settlement_month)
+            ok_list    = ytber_ok.get(ytber_name, [])
+            month_qty  = sum(o["qty"] for o in ok_list)
+            total_cum  = cum_before + month_qty
+            unit_price = get_tier_price(total_cum, tier_pricing)
+            ws["C14"] = unit_price
+
+        # 시트명 변경 (템플릿 4월 → 현재 월)
+        safe_name  = re.sub(r'[\\/*?:\[\]/]', '', ytber_name)
+        ws.title   = f"{safe_name} {month}월"[:31]
+
+        # 집계 (summaries용)
+        ok_list   = ytber_ok.get(ytber_name, [])
+        can_list  = ytber_can.get(ytber_name, [])
+        final_qty = sum(o["qty"] for o in ok_list)
+        cum_total = (cum_before + final_qty) if not is_general else None
+        amount    = (final_qty * unit_price) if (not is_general and unit_price is not None) else None
+
+        summaries.append({
+            "ytber":             ytber_name,
+            "order_count":       len(ok_list),
+            "qty":               final_qty,
+            "cumulative_qty":    cum_total,
+            "unit_price":        unit_price,
+            "settlement_amount": amount,
+            "is_general":        is_general,
+        })
+        print(
+            f"[INFO] 정산 시트: {ytber_name} → {ws.title} "
+            f"(정상 {len(ok_list)}건/{final_qty}개, 취소 {len(can_list)}건)",
+            file=sys.stderr,
+        )
+
+    # ── 구형 시트 삭제 ─────────────────────────────────────────────────────
+    for old in OLD_SHEETS:
+        if old in wb.sheetnames:
+            del wb[old]
+            print(f"[INFO] 구형 시트 삭제: {old}", file=sys.stderr)
+
+    rawdata_wb.close()
+
+    wb.calculation.calcMode = "auto"
+    wb.save(output_path)
     wb.close()
+    print(f"[INFO] 저장 완료: {output_path}", file=sys.stderr)
 
     result = {
         "settlement_month": settlement_month,
+        "output_path":      str(output_path),
         "sheet_count":      len(summaries),
         "summaries":        summaries,
         "unregistered":     bucket_data.get("unregistered", []),

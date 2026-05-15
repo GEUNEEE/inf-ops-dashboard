@@ -14,8 +14,9 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import openpyxl
 
-EXCEL_DIR  = Path(r"C:\Users\user\비서\스케줄")
-SHEET_NAME = "인플루언서관리"
+EXCEL_DIR   = Path(r"C:\Users\user\비서\스케줄")
+SHEET_NAME  = "인플루언서관리"
+CONFIG_PATH = Path(r"C:\Users\user\비서\.claude\skills\settlement-generator\scripts\ytber_config.json")
 
 # 0-based 행 인덱스 (전치형: 행=항목, 열=인플루언서)
 ROW_STATUS = 9   # Excel Row 10: 현재상태
@@ -30,6 +31,14 @@ STATUS_CATEGORIES = {
     "1차광고완료": "광고완료_1차",
     "기타": "기타",
 }
+
+
+def load_name_map() -> dict:
+    try:
+        with open(CONFIG_PATH, encoding="utf-8") as f:
+            return json.load(f).get("name_map", {})
+    except Exception:
+        return {}
 
 
 def find_latest_excel(excel_dir: Path) -> Path:
@@ -90,7 +99,8 @@ def main():
     status_counter = {v: 0 for v in STATUS_CATEGORIES.values()}
     status_counter["기타"] = 0
 
-    ad_counts = {"광고예정_1차": 0, "광고예정_2차": 0, "광고완료_1차": 0}
+    name_map = load_name_map()
+    per_influencer = {}
 
     for col_idx in range(start_col, len(name_row)):
         name = safe_str(name_row[col_idx])
@@ -101,11 +111,14 @@ def main():
         if ROW_STATUS < n_rows and col_idx < len(rows[ROW_STATUS]):
             status_raw = safe_str(rows[ROW_STATUS][col_idx])
 
-        normalized = re.sub(r"\s+", "", status_raw)
+        normalized_status = re.sub(r"\s+", "", status_raw)
         managed_set.append(name)
 
-        category = STATUS_CATEGORIES.get(normalized, "기타")
+        category = STATUS_CATEGORIES.get(normalized_status, "기타")
         status_counter[category] = status_counter.get(category, 0) + 1
+
+        normalized_name = name_map.get(name, name)
+        per_influencer[normalized_name] = category
 
     wb.close()
 
@@ -128,6 +141,7 @@ def main():
         "inf_status": status_counter,
         "exp_total": exp_total,
         "ad_total": ad_total,
+        "per_influencer": per_influencer,
     }
 
     print(json.dumps(result, ensure_ascii=False, indent=2))

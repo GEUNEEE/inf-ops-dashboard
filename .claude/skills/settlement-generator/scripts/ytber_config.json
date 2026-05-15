@@ -19,25 +19,28 @@
       "account_name": "마성민",
       "account_bank": "카카오뱅크",
       "account_no": "***REMOVED***",
-      "smartstore_link": ""
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13238067417"
     },
     "나이스부부": {
       "account_name": "***REMOVED***",
       "account_bank": "카카오뱅크",
       "account_no": "***REMOVED***",
-      "smartstore_link": ""
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13326234707"
     },
     "C맹씨": {
       "account_name": "***REMOVED***",
       "account_bank": "신한",
       "account_no": "***REMOVED***",
-      "smartstore_link": ""
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13358927996"
     },
     "The 조치 패밀리": {
       "account_name": "***REMOVED***",
       "account_bank": "신한은행",
-      "account_no": "",
-      "smartstore_link": ""
+      "account_no": "***REMOVED***",
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13425364650"
+    },
+    "기타/일반": {
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/12281591813"
     }
   }
 }

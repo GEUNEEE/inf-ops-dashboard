@@ -26,7 +26,7 @@ def push_site(month: str) -> bool:
     today = datetime.now().strftime("%Y-%m-%d")
     commit_msg = f"data: {today} 주문 반영 ({month})"
 
-    code, out = git(["add", "site/data/"], BASE_DIR)
+    code, out = git(["add", "site/"], BASE_DIR)
     if code != 0:
         print(f"[ERROR] git add 실패: {out}", file=sys.stderr)
         return False
