@@ -72,8 +72,8 @@
     set('kpi-revenue',    money(r.gross_revenue));
     set('kpi-orders',     (r.order_count || 0) + '건');
     set('kpi-reply-rate', pct(f.reply_rate));
-    set('kpi-ad-rate',    pct(f.ad_rate));
     set('kpi-exp-rate',   pct(f.exp_rate));
+    set('kpi-ad-rate',    pct(f.ad_rate));
 
     const profit = r.net_profit;
     set('kpi-profit', money(profit));
@@ -85,12 +85,13 @@
     set('kpi-revenue-sub', r.unit_count != null ? r.unit_count + '개 판매' : '');
     set('kpi-orders-sub',  r.unit_count != null ? r.unit_count + '개 단위' : '');
     set('kpi-profit-sub',  r.net_profit > 0 ? '흑자' : r.net_profit < 0 ? '적자' : '');
-    set('kpi-reply-sub',   f.total_sent    ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
-    set('kpi-ad-sub',      f.meeting_total ? Number(f.meeting_total).toLocaleString() + '건 미팅 기준' : '');
+    set('kpi-reply-sub',   f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
+    set('kpi-exp-sub',     f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
+    set('kpi-ad-sub',      f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
   }
 
   function clearKPISubs() {
-    ['kpi-revenue-sub','kpi-orders-sub','kpi-profit-sub','kpi-reply-sub','kpi-ad-sub']
+    ['kpi-revenue-sub','kpi-orders-sub','kpi-profit-sub','kpi-reply-sub','kpi-exp-sub','kpi-ad-sub']
       .forEach(id => set(id, ''));
   }
 
@@ -234,7 +235,7 @@
 
     updateKPIs(
       { gross_revenue: h.gross_revenue, net_profit: h.net_profit, order_count: h.order_count, unit_count: h.unit_count },
-      { reply_rate: h.reply_rate, ad_rate: h.ad_rate, exp_rate: h.exp_rate }
+      { reply_rate: h.reply_rate, exp_rate: h.exp_rate, ad_rate: h.ad_rate, total_sent: h.total_sent }
     );
     clearKPISubs();
     renderDonutChart(h.inf_status || {});
@@ -429,9 +430,11 @@
             <div><span class="stat-lbl">누적수량</span><span class="stat-val">${cum}개</span></div>
           </div>`;
       } else {
+        const genQty = item['수량'] ?? 0;
         statsHtml = `
-          <div class="inf-card-stats" style="margin-top:8px">
-            <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+          <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:8px">
+            <div><span class="stat-lbl">주문건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+            <div><span class="stat-lbl">수량</span><span class="stat-val">${genQty}개</span></div>
           </div>`;
       }
 
