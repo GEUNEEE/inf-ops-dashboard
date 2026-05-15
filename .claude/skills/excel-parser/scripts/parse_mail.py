@@ -17,11 +17,11 @@ import openpyxl
 EXCEL_DIR  = Path(r"C:\Users\user\비서\스케줄")
 SHEET_NAME = "메일발송현황"
 
-# 0-based 열 인덱스 (Excel 열 번호 - 1)
-COL_SEND_DATE   = 24  # 열 25 = 발송일
-COL_REPLY_DATE  = 26  # 열 27 = 회신일
-COL_STATUS      = 27  # 열 28 = 진행상태
-COL_ACCEPT_DATE = 29  # 열 30 = 협찬수락일
+# 0-based 열 인덱스 (실제 메일발송현황 시트 기준)
+COL_SEND_DATE   = 25  # 발송일
+COL_REPLY_DATE  = 27  # 회신일
+COL_STATUS      = 28  # 진행 상태
+COL_ACCEPT_DATE = 30  # 협찬 수락일
 DATA_START_ROW  = 7   # 1-based
 
 ETC_KEYWORDS = {"검토", "진행불가", "우리측거절", "기타"}
@@ -87,7 +87,6 @@ def main():
         sys.exit(1)
 
     ws = wb[SHEET_NAME]
-    max_row = ws.max_row or 0
 
     total_sent = 0
     etc_count  = 0
@@ -95,12 +94,24 @@ def main():
     meeting    = 0
     exp_total  = 0  # 인플루언서관리 시트에서 채움 — 여기선 협찬수락일로 근사
     ad_total   = 0
+    empty_streak = 0
 
-    for row in range(DATA_START_ROW, max_row + 1):
-        send_date   = cell_val(ws, row, COL_SEND_DATE)
-        reply_date  = cell_val(ws, row, COL_REPLY_DATE)
-        status_raw  = cell_val(ws, row, COL_STATUS)
-        accept_date = cell_val(ws, row, COL_ACCEPT_DATE)
+    for row_idx, row_vals in enumerate(ws.iter_rows(min_row=DATA_START_ROW, values_only=True)):
+        # 빈 행 연속 10줄이면 종료 (엑셀 max_row=1048576 방지)
+        if all(v is None for v in row_vals):
+            empty_streak += 1
+            if empty_streak >= 10:
+                break
+            continue
+        empty_streak = 0
+
+        def _get(col_0based):
+            return row_vals[col_0based] if col_0based < len(row_vals) else None
+
+        send_date   = _get(COL_SEND_DATE)
+        reply_date  = _get(COL_REPLY_DATE)
+        status_raw  = _get(COL_STATUS)
+        accept_date = _get(COL_ACCEPT_DATE)
 
         if not is_date(send_date):
             continue

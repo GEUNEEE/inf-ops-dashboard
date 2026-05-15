@@ -35,14 +35,14 @@ RAWDATA_SHEET  = "Raw_Data"
 # 상품명에서 유튜버명 추출 패턴
 YTBER_PATTERN = re.compile(r"\[([^\]]+?)\s*구독자")
 
-# 주문 파일 열 인덱스 (0-based)
-COL_ORDER_NO    = 0   # 상품주문번호
-COL_ORDER_DATE  = 1   # 주문일
-COL_PRODUCT_NAME = 10 # 상품명
-COL_QTY         = 17  # 수량
-COL_AMOUNT      = 18  # 주문금액
-COL_ORDER_STATUS = 4  # 주문상태
-COL_CLAIM_STATUS = 5  # 클레임상태
+# 주문 파일 열 인덱스 (0-based) — 실제 스마트스토어 주문조회 파일 기준
+COL_ORDER_NO     = 0   # 상품주문번호
+COL_ORDER_DATE   = 2   # 주문일시
+COL_ORDER_STATUS = 3   # 주문상태
+COL_CLAIM_STATUS = 6   # 클레임상태
+COL_PRODUCT_NAME = 9   # 상품명
+COL_QTY          = 12  # 수량
+COL_AMOUNT       = -1  # 주문금액 (이 파일에는 없음 → 0 처리)
 
 
 def load_config():
@@ -187,13 +187,17 @@ def main():
         if not row or row[COL_ORDER_NO] is None:
             continue
 
-        order_no     = safe_str(row[COL_ORDER_NO])
-        order_date   = safe_str(row[COL_ORDER_DATE])
-        product_name = safe_str(row[COL_PRODUCT_NAME])
-        qty          = safe_int(row[COL_QTY], 1)
-        amount       = safe_float(row[COL_AMOUNT])
-        order_status = safe_str(row[COL_ORDER_STATUS])
-        claim_status = safe_str(row[COL_CLAIM_STATUS])
+        n_cols = len(row)
+        def _col(idx, default=None):
+            return row[idx] if 0 <= idx < n_cols else default
+
+        order_no     = safe_str(_col(COL_ORDER_NO))
+        order_date   = safe_str(_col(COL_ORDER_DATE))
+        product_name = safe_str(_col(COL_PRODUCT_NAME))
+        qty          = safe_int(_col(COL_QTY), 1)
+        amount       = safe_float(_col(COL_AMOUNT)) if COL_AMOUNT >= 0 else 0.0
+        order_status = safe_str(_col(COL_ORDER_STATUS))
+        claim_status = safe_str(_col(COL_CLAIM_STATUS))
 
         # 취소 건 스킵
         if is_cancelled(order_status, claim_status):

@@ -1,0 +1,48 @@
+{
+  "month": "2026-04",
+  "generated_at": "2026-05-15T10:21:47",
+  "gross_revenue": 0,
+  "net_profit": -2360000,
+  "order_count": 31,
+  "unit_count": 38,
+  "reply_rate": 0.0992,
+  "exp_rate": 0.0225,
+  "ad_rate": 0.0045,
+  "meeting_rate": 0.0451,
+  "inf_status": {
+    "체험진행_1차": 21,
+    "체험진행_2차": 1,
+    "체험진행_3차": 2,
+    "광고예정_1차": 3,
+    "광고예정_2차": 1,
+    "광고완료_1차": 2,
+    "기타": 11
+  },
+  "influencers": {
+    "C맹씨": {
+      "qty": 15,
+      "amount": 300000,
+      "is_general": false
+    },
+    "나이스부부": {
+      "qty": 4,
+      "amount": 80000,
+      "is_general": false
+    },
+    "마성민": {
+      "qty": 4,
+      "amount": 80000,
+      "is_general": false
+    },
+    "The 조치 패밀리": {
+      "qty": 2,
+      "amount": 40000,
+      "is_general": false
+    },
+    "기타/일반": {
+      "qty": 13,
+      "amount": null,
+      "is_general": true
+    }
+  }
+}

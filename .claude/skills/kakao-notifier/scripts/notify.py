@@ -13,7 +13,7 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 BASE_DIR   = Path(r"C:\Users\user\비서")
-SITE_URL   = "https://{YOUR_GITHUB_PAGES_URL}"  # 실제 URL로 교체
+SITE_URL   = "https://geuneee.github.io/inf-ops-dashboard/"
 
 
 def fmt_money(v: int) -> str:

@@ -1,37 +1,96 @@
 {
-  "generated_at": "2026-05-15T00:00:00",
+  "generated_at": "2026-05-15T10:21:47",
   "current_month": "2026-05",
   "revenue": {
-    "order_count": 0,
-    "unit_count": 0,
+    "order_count": 31,
+    "unit_count": 38,
     "gross_revenue": 0,
-    "influencer_cost": 0,
-    "personal_fee": 0,
-    "misc_cost": 0,
-    "net_profit": 0
+    "influencer_cost": 500000,
+    "personal_fee": 310000,
+    "misc_cost": 1550000,
+    "net_profit": -2360000
   },
   "mail_funnel": {
-    "total_sent": 0,
-    "etc_excluded": 0,
-    "replied": 0,
-    "reply_rate": 0,
-    "meeting_total": 0,
-    "meeting_rate": 0,
-    "exp_total": 0,
-    "exp_rate": 0,
-    "ad_total": 0,
-    "ad_rate": 0
+    "total_sent": 1331,
+    "etc_excluded": 64,
+    "replied": 132,
+    "reply_rate": 0.0992,
+    "meeting_total": 60,
+    "meeting_rate": 0.0451,
+    "exp_total": 30,
+    "exp_rate": 0.0225,
+    "ad_total": 6,
+    "ad_rate": 0.0045
   },
-  "inf_status": {},
+  "inf_status": {
+    "체험진행_1차": 21,
+    "체험진행_2차": 1,
+    "체험진행_3차": 2,
+    "광고예정_1차": 3,
+    "광고예정_2차": 1,
+    "광고완료_1차": 2,
+    "기타": 11
+  },
   "settlement_month": 5,
-  "settlement_summary": {},
+  "settlement_summary": {
+    "C맹씨": {
+      "건수": 15,
+      "수량": 15,
+      "누적수량": 15,
+      "현재단가": 20000,
+      "금액": 300000,
+      "정산대상": true
+    },
+    "나이스부부": {
+      "건수": 3,
+      "수량": 4,
+      "누적수량": 4,
+      "현재단가": 20000,
+      "금액": 80000,
+      "정산대상": true
+    },
+    "마성민": {
+      "건수": 3,
+      "수량": 4,
+      "누적수량": 4,
+      "현재단가": 20000,
+      "금액": 80000,
+      "정산대상": true
+    },
+    "The 조치 패밀리": {
+      "건수": 2,
+      "수량": 2,
+      "누적수량": 2,
+      "현재단가": 20000,
+      "금액": 40000,
+      "정산대상": true
+    },
+    "기타/일반": {
+      "건수": 8,
+      "수량": 13,
+      "금액": null,
+      "정산대상": false
+    }
+  },
   "trends": {
-    "months": [],
-    "reply_rate": [],
-    "exp_rate": [],
-    "ad_rate": [],
-    "gross_revenue": [],
-    "net_profit": []
+    "months": [
+      "2026-04"
+    ],
+    "reply_rate": [
+      0.0992
+    ],
+    "exp_rate": [
+      0.0225
+    ],
+    "ad_rate": [
+      0.0045
+    ],
+    "gross_revenue": [
+      0
+    ],
+    "net_profit": [
+      -2360000
+    ]
   },
   "alerts": {}
 }
