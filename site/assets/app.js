@@ -123,11 +123,13 @@
     for (const h of histories) {
       for (const [name, d] of Object.entries(h.influencers || {})) {
         if (!infMap[name]) {
-          infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general };
+          infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general, unit_price: d.unit_price ?? null };
         }
         infMap[name].order_count += d.order_count || 0;
         infMap[name].qty         += d.qty || 0;
-        if (!d.is_general && d.amount != null) infMap[name].amount += d.amount;
+        if (d.amount != null) infMap[name].amount += d.amount;  // 기타/일반도 포함
+        if (d.unit_price != null && infMap[name].unit_price == null)
+          infMap[name].unit_price = d.unit_price;
       }
     }
 
@@ -136,11 +138,10 @@
       if (!d.is_general) {
         d.cumulative_qty = d.qty;
         d.unit_price     = tierPrice(d.qty);
-        d.amount         = calcTieredAmount(d.qty);  // 누적 기준으로 재계산
+        d.amount         = calcTieredAmount(d.qty);
       } else {
         d.cumulative_qty = null;
-        d.unit_price     = null;
-        d.amount         = null;
+        // unit_price, amount는 history에서 합산된 값 유지
       }
     }
 
@@ -156,7 +157,7 @@
         '수량':     d.qty,
         '누적수량': d.cumulative_qty,
         '현재단가': d.unit_price,
-        '금액':     d.is_general ? null : d.amount,
+        '금액':     d.amount ?? null,
         '정산대상': !d.is_general,
         '현재상태': (currentSummary[name] || {})['현재상태'] || '',
       };
@@ -183,9 +184,11 @@
         '건수':     d.order_count ?? 0,
         '수량':     d.qty ?? 0,
         '누적수량': cum ?? null,
-        '현재단가': d.is_general ? null : tierPrice(cum || 0),
-        // 이번 달 정산액 = 누적 기준 총액 - 이전 누적 기준 총액
-        '금액':     d.is_general ? null : calcTieredAmount(cum || 0) - calcTieredAmount((cum || 0) - (d.qty || 0)),
+        '현재단가': d.is_general ? (d.unit_price ?? null) : tierPrice(cum || 0),
+        // 기타/일반: history 저장 금액 / 정산대상: 누적 기준 구간 정산액
+        '금액':     d.is_general
+          ? (d.amount ?? null)
+          : calcTieredAmount(cum || 0) - calcTieredAmount((cum || 0) - (d.qty || 0)),
         '정산대상': !d.is_general,
         '현재상태': '',
       };
@@ -430,9 +433,21 @@
             <div><span class="stat-lbl">누적수량</span><span class="stat-val">${cum}개</span></div>
           </div>`;
       } else {
-        const genQty = item['수량'] ?? 0;
+        const genAmt   = item['금액'];
+        const genPrice = item['현재단가'];
+        const genQty   = item['수량'] ?? 0;
+        const amtRow = (genAmt != null && genPrice != null)
+          ? `<div class="tier-row" style="margin-top:4px">
+               <span>${genQty}개 × ${money(genPrice)}</span>
+               <span class="stat-val">${money(genAmt)}</span>
+             </div>`
+          : '';
         statsHtml = `
-          <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:8px">
+          <div style="margin-top:8px">
+            <span class="stat-lbl">${amountLabel}</span>
+            <div class="tier-section">${amtRow || '<span style="color:var(--text3);font-size:11px">-</span>'}</div>
+          </div>
+          <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
             <div><span class="stat-lbl">주문건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
             <div><span class="stat-lbl">수량</span><span class="stat-val">${genQty}개</span></div>
           </div>`;

@@ -56,8 +56,8 @@
       "order_count": 8,
       "qty": 12,
       "cumulative_qty": null,
-      "unit_price": null,
-      "amount": null,
+      "unit_price": 20000,
+      "amount": 240000,
       "is_general": true
     }
   }
