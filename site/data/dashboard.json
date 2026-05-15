@@ -15,12 +15,12 @@
     "etc_excluded": 64,
     "replied": 132,
     "reply_rate": 0.0992,
-    "meeting_total": 60,
-    "meeting_rate": 0.0451,
-    "exp_total": 28,
-    "exp_rate": 0.021,
-    "ad_total": 5,
-    "ad_rate": 0.0038
+    "meeting_total": 59,
+    "meeting_rate": 0.0443,
+    "exp_total": 36,
+    "exp_rate": 0.0270,
+    "ad_total": 16,
+    "ad_rate": 0.0120
   },
   "inf_status": {
     "체험진행_1차": 20,
@@ -83,16 +83,16 @@
       "2026-04"
     ],
     "reply_rate": [
-      0,
-      0.0992
+      0.1212,
+      0.1147
     ],
     "exp_rate": [
-      0,
-      0.021
+      0.0404,
+      0.0282
     ],
     "ad_rate": [
-      0,
-      0.0038
+      0.0253,
+      0.0155
     ],
     "gross_revenue": [
       1200000,

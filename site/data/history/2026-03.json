@@ -5,10 +5,11 @@
   "net_profit": 250000,
   "order_count": 10,
   "unit_count": 10,
-  "reply_rate": 0,
-  "exp_rate": 0,
-  "ad_rate": 0,
-  "meeting_rate": 0,
+  "total_sent": 396,
+  "reply_rate": 0.1212,
+  "exp_rate": 0.0404,
+  "ad_rate": 0.0253,
+  "meeting_rate": 0.0328,
   "inf_status": {},
   "influencers": {
     "마성민": {
