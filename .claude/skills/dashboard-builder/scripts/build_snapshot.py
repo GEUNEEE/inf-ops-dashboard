@@ -37,14 +37,17 @@ def main():
     exp_total  = inf_data.get("exp_total", 0)
     ad_total   = inf_data.get("ad_total", 0)
 
-    # 인플루언서별 집계
+    # 인플루언서별 집계 (정산시트 수식 계산 결과 전체 보존)
     inf_summary = {}
     for s in settlement.get("summaries", []):
         ytber = s.get("ytber", "")
         inf_summary[ytber] = {
-            "qty": s.get("qty", 0),
-            "amount": s.get("settlement_amount"),
-            "is_general": s.get("is_general", False),
+            "order_count":   s.get("order_count", 0),       # 총 주문 건수 (C11)
+            "qty":           s.get("qty", 0),                # 최종 판매 수량 (C13)
+            "cumulative_qty": s.get("cumulative_qty"),       # 누적 수량
+            "unit_price":    s.get("unit_price"),            # 정산 단가 (C14)
+            "amount":        s.get("settlement_amount"),     # 최종 정산 금액 (C15)
+            "is_general":    s.get("is_general", False),
         }
 
     snapshot = {
