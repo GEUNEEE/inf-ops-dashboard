@@ -86,6 +86,13 @@
     .pill-target       { background: #EAF3DE; color: #3B6D11; }
     .pill-general      { background: var(--bg2); color: var(--text3); }
 
+    /* Tier breakdown */
+    .tier-section { margin-top: 4px; }
+    .tier-row     { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 2px 0; color: var(--text2); }
+    .tier-row + .tier-row { border-top: 0.5px solid var(--border); margin-top: 2px; padding-top: 4px; }
+    .tier-up      { font-size: 9px; color: #3B6D11; font-weight: 600; margin-left: 3px; }
+    .tier-total   { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border2); margin-top: 3px; padding-top: 4px; font-size: 11px; }
+
     /* Influencer card */
     .inf-card        { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; display: block; transition: background 0.1s; }
     .inf-card:hover  { background: var(--bg2); }
