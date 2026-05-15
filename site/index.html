@@ -91,6 +91,16 @@
     .stat-lbl        { font-size: 10px; color: var(--text3); display: block; }
     .stat-val        { font-weight: 500; font-size: 12px; }
 
+    /* Month filter chips */
+    .filter-row  { display: flex; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+    .filter-chip {
+      font-size: 10px; padding: 3px 9px; border-radius: 11px;
+      border: 0.5px solid var(--border2); background: transparent;
+      color: var(--text2); font-weight: 500; cursor: pointer;
+      transition: background 0.1s, color 0.1s, border-color 0.1s;
+    }
+    .filter-chip.active { background: var(--text1); color: var(--bg); border-color: var(--text1); }
+
     /* Banners */
     .banner      { border-radius: var(--r); padding: 10px 13px; font-size: 11px; font-weight: 500; margin-bottom: 12px; }
     .banner-warn { background: #FAEEDA; border: 0.5px solid #EEC97A; color: #633806; }
@@ -115,6 +125,9 @@
 
     <div id="error-banner" class="banner banner-err hidden"></div>
     <div id="alert-banner" class="banner banner-warn hidden"></div>
+
+    <!-- 월별 필터 -->
+    <div class="filter-row" id="month-filter"></div>
 
     <!-- KPI 5칸 -->
     <div class="kpi-grid">
