@@ -273,7 +273,7 @@
     renderFunnelMonthlyTable(t, f, gData.current_month);
 
     if (t.months && t.months.length > 0) {
-      renderTrendChart(t);
+      renderTrendChart(t, f, gData.current_month);
       renderRevenueChart(t);
     }
 
@@ -529,22 +529,61 @@
   }
 
   // ── 추세 차트 ──────────────────────────────────────────────────────────────
-  function renderTrendChart(t) {
+  function renderTrendChart(t, f, currentMonth) {
     const ctx = el('trend-chart');
     if (!ctx) return;
+
+    // 현재 달이 trends에 없으면 끝에 추가
+    const months      = (t.months || []).slice();
+    const replyRates  = (t.reply_rate   || []).map(v => +(v * 100).toFixed(1));
+    const meetRates   = (t.meeting_rate || []).map(v => +(v * 100).toFixed(1));
+    const expRates    = (t.exp_rate     || []).map(v => +(v * 100).toFixed(1));
+    const adRates     = (t.ad_rate      || []).map(v => +(v * 100).toFixed(1));
+    const replieds    = (t.replied       || []).slice();
+    const meetings    = (t.meeting_total || []).slice();
+    const exps        = (t.exp_total     || []).slice();
+    const ads         = (t.ad_total      || []).slice();
+
+    if (currentMonth && f && !months.includes(currentMonth)) {
+      months.push(currentMonth);
+      replyRates.push(+(( f.reply_rate   || 0) * 100).toFixed(1));
+      meetRates.push( +(( f.meeting_rate || 0) * 100).toFixed(1));
+      expRates.push(  +(( f.exp_rate     || 0) * 100).toFixed(1));
+      adRates.push(   +(( f.ad_rate      || 0) * 100).toFixed(1));
+      replieds.push(f.replied       || 0);
+      meetings.push( f.meeting_total || 0);
+      exps.push(     f.exp_total     || 0);
+      ads.push(      f.ad_total      || 0);
+    }
+
+    const labels = months.map((m, i) => monthLabel(m) + (i === months.length - 1 && currentMonth && m === currentMonth ? ' ★' : ''));
+
     new Chart(ctx, {
       type: 'line',
       data: {
-        labels: t.months.map(monthLabel),
+        labels,
         datasets: [
-          { label: '응답률',    data: t.reply_rate.map(v => +(v * 100).toFixed(1)), borderColor: '#85B7EB', tension: 0.4, fill: false, pointRadius: 3 },
-          { label: '체험전환율', data: t.exp_rate.map(v => +(v * 100).toFixed(1)),   borderColor: '#7F77DD', tension: 0.4, fill: false, pointRadius: 3 },
-          { label: '광고수락률', data: t.ad_rate.map(v => +(v * 100).toFixed(1)),    borderColor: '#97C459', tension: 0.4, fill: false, pointRadius: 3 },
+          { label: '응답률',     data: replyRates, borderColor: '#85B7EB', tension: 0.4, fill: false, pointRadius: 3 },
+          { label: '미팅전환율', data: meetRates,  borderColor: '#EF9F27', tension: 0.4, fill: false, pointRadius: 3 },
+          { label: '체험전환율', data: expRates,   borderColor: '#7F77DD', tension: 0.4, fill: false, pointRadius: 3 },
+          { label: '광고수락률', data: adRates,    borderColor: '#97C459', tension: 0.4, fill: false, pointRadius: 3 },
         ],
       },
       options: {
         responsive: true,
-        plugins: { legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } } },
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const i = ctx.dataIndex;
+                const countMap = { '응답률': replieds[i], '미팅전환율': meetings[i], '체험전환율': exps[i], '광고수락률': ads[i] };
+                const cnt = countMap[ctx.dataset.label];
+                return ` ${ctx.dataset.label}: ${cnt != null ? cnt + '건 ' : ''}(${ctx.parsed.y}%)`;
+              },
+            },
+          },
+        },
         scales: {
           x: { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
           y: { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } },
