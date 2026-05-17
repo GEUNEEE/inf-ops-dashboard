@@ -4,11 +4,11 @@
   "revenue": {
     "order_count": 53,
     "unit_count": 62,
-    "gross_revenue": 620000,
+    "gross_revenue": 7440000,
     "influencer_cost": 620000,
     "personal_fee": 530000,
     "misc_cost": 2650000,
-    "net_profit": -3180000
+    "net_profit": 3640000
   },
   "mail_funnel": {
     "total_sent": 1395,
@@ -108,12 +108,12 @@
     "gross_revenue": [
       1200000,
       3840000,
-      120000
+      7440000
     ],
     "net_profit": [
       250000,
       1188000,
-      -1320000
+      3640000
     ],
     "total_sent": [
       396,
