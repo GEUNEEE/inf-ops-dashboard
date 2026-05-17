@@ -29,31 +29,25 @@
     a { text-decoration: none; color: inherit; }
     .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px; }
 
-    /* Section label */
     .slbl {
       font-size: 10px; font-weight: 500; color: var(--text3);
       text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px;
     }
+    .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; }
 
-    /* Card */
-    .card {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 14px;
-    }
-
-    /* KPI card */
-    .kpi-card { background: var(--bg2); border-radius: var(--r); padding: 11px 13px; }
+    /* KPI */
+    .kpi-card        { background: var(--bg2); border-radius: var(--r); padding: 11px 13px; }
+    .kpi-card-accent { background: #EAF3DE;    border-radius: var(--r); padding: 11px 13px; }
     .kpi-lbl  { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
     .kpi-val  { font-size: 22px; font-weight: 500; color: var(--text1); line-height: 1.2; }
     .kpi-sub  { font-size: 10px; color: var(--text3); margin-top: 3px; min-height: 14px; }
 
-    /* Grid layouts */
-    .kpi-grid      { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
-    .funnel-grid   { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; margin-bottom: 12px; }
-    .inf-grid      { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
-    .chart-grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    /* Grids */
+    .kpi-grid        { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .profit-kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .funnel-grid     { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; margin-bottom: 12px; }
+    .inf-grid        { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+    .chart-grid      { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
 
     /* Funnel bars */
     .f-bar   { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
@@ -64,7 +58,7 @@
     .f-cnt   { font-size: 11px; color: var(--text2); }
     .f-pct   { min-width: 44px; text-align: right; font-size: 11px; font-weight: 500; }
 
-    /* Donut legend */
+    /* Donut */
     .donut-legend  { margin-top: 10px; }
     .legend-row    { display: flex; align-items: center; justify-content: space-between; font-size: 10px; padding: 4px 0; border-bottom: 0.5px solid var(--border); }
     .legend-row:last-child { border-bottom: none; }
@@ -73,7 +67,7 @@
     .legend-lbl    { color: var(--text2); }
     .legend-right  { display: flex; gap: 8px; color: var(--text3); }
 
-    /* Status pill */
+    /* Pills */
     .pill              { display: inline-flex; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 9px; white-space: nowrap; }
     .pill-exp          { background: #EEEDFE; color: #3C3489; }
     .pill-adplan       { background: #EAF3DE; color: #3B6D11; }
@@ -86,23 +80,23 @@
     .pill-target       { background: #EAF3DE; color: #3B6D11; }
     .pill-general      { background: var(--bg2); color: var(--text3); }
 
-    /* Tier breakdown */
+    /* Tier */
     .tier-section { margin-top: 4px; }
     .tier-row     { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 2px 0; color: var(--text2); }
     .tier-row + .tier-row { border-top: 0.5px solid var(--border); margin-top: 2px; padding-top: 4px; }
-    .tier-up      { font-size: 9px; color: #3B6D11; font-weight: 600; margin-left: 3px; }
-    .tier-total   { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border2); margin-top: 3px; padding-top: 4px; font-size: 11px; }
+    .tier-up    { font-size: 9px; color: #3B6D11; font-weight: 600; margin-left: 3px; }
+    .tier-total { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border2); margin-top: 3px; padding-top: 4px; font-size: 11px; }
 
-    /* Influencer card */
+    /* Inf card */
     .inf-card        { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; display: block; transition: background 0.1s; }
     .inf-card:hover  { background: var(--bg2); }
     .inf-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
     .inf-card-name   { font-weight: 500; font-size: 13px; }
     .inf-card-stats  { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px 4px; margin-top: 8px; }
-    .stat-lbl        { font-size: 10px; color: var(--text3); display: block; }
-    .stat-val        { font-weight: 500; font-size: 12px; }
+    .stat-lbl { font-size: 10px; color: var(--text3); display: block; }
+    .stat-val { font-weight: 500; font-size: 12px; }
 
-    /* Month filter chips */
+    /* Filter */
     .filter-row  { display: flex; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
     .filter-chip {
       font-size: 10px; padding: 3px 9px; border-radius: 11px;
@@ -124,6 +118,27 @@
     .page-sub    { font-size: 10px; color: var(--text3); }
 
     .mb12 { margin-bottom: 12px; }
+
+    /* 퍼널 월별 테이블 */
+    .fmonth-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .fmonth-table th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); }
+    .fmonth-table th:first-child { text-align: left; }
+    .fmonth-table td { padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border); color: var(--text2); }
+    .fmonth-table td:first-child { text-align: left; color: var(--text1); font-weight: 500; }
+    .fmonth-table tr:last-child td { border-bottom: none; }
+    .fmonth-cnt { font-weight: 500; color: var(--text1); }
+    .fmonth-pct { font-size: 10px; color: var(--text3); margin-left: 3px; }
+    .fmonth-cur td:first-child { color: #185FA5; }
+
+    /* 기여수익 테이블 */
+    .contrib-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .contrib-tbl th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); }
+    .contrib-tbl th:first-child { text-align: left; }
+    .contrib-tbl td { padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border); color: var(--text2); }
+    .contrib-tbl td:first-child { text-align: left; color: var(--text1); font-weight: 500; }
+    .contrib-tbl tr:last-child td { border-bottom: none; }
+    .contrib-tbl tfoot td { border-top: 0.5px solid var(--border2); font-weight: 600; color: var(--text1); padding-top: 7px; border-bottom: none; }
+    .contrib-tbl tfoot td:first-child { color: var(--text3); }
   </style>
 </head>
 <body data-page="dashboard">
@@ -140,10 +155,10 @@
     <!-- 월별 필터 -->
     <div class="filter-row" id="month-filter"></div>
 
-    <!-- KPI 5칸 -->
+    <!-- KPI 6칸 -->
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-lbl">이번달 매출</div>
+        <div class="kpi-lbl">매출</div>
         <div class="kpi-val" id="kpi-revenue">-</div>
         <div class="kpi-sub" id="kpi-revenue-sub"></div>
       </div>
@@ -174,6 +189,25 @@
       </div>
     </div>
 
+    <!-- 영업이익 KPI 3칸 -->
+    <div class="profit-kpi-grid">
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">영업이익 <span style="font-size:9px;color:var(--text3)">(수익관리 기준)</span></div>
+        <div class="kpi-val" id="kpi-op-profit">-</div>
+        <div class="kpi-sub" id="kpi-op-profit-sub"></div>
+      </div>
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">영업이익률</div>
+        <div class="kpi-val" id="kpi-op-rate" style="color:#3B6D11">-</div>
+        <div class="kpi-sub" id="kpi-op-rate-sub"></div>
+      </div>
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">누적 이익</div>
+        <div class="kpi-val" id="kpi-cumulative">-</div>
+        <div class="kpi-sub" id="kpi-cumulative-sub">전체 기간</div>
+      </div>
+    </div>
+
     <!-- 퍼널 바 + 도넛 차트 -->
     <div class="funnel-grid">
       <div class="card">
@@ -190,10 +224,19 @@
     </div>
 
     <!-- 인플루언서 카드 그리드 -->
-    <div class="slbl">인플루언서별 현황</div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div class="slbl" style="margin-bottom:0">인플루언서별 현황</div>
+      <span id="inf-count-label"></span>
+    </div>
     <div class="inf-grid" id="inf-grid"></div>
 
-    <!-- 추세 차트 -->
+    <!-- 퍼널 월별 추이 테이블 -->
+    <div class="card mb12">
+      <div class="slbl">메일 퍼널 월별 추이</div>
+      <div id="funnel-monthly-table"></div>
+    </div>
+
+    <!-- 추세·매출 차트 -->
     <div class="chart-grid">
       <div class="card">
         <div class="slbl">퍼널 추세</div>
@@ -205,7 +248,19 @@
       </div>
     </div>
 
+    <!-- 영업이익 차트 + 기여수익 테이블 -->
+    <div class="chart-grid">
+      <div class="card">
+        <div class="slbl">월별 영업이익</div>
+        <canvas id="profit-chart" height="180"></canvas>
+      </div>
+      <div class="card">
+        <div class="slbl">인플루언서별 기여수익 <span style="font-size:9px;color:var(--text3)">(전체 누계)</span></div>
+        <div id="contrib-table"></div>
+      </div>
+    </div>
+
   </div>
-  <script src="assets/app.js?v=20260517n"></script>
+  <script src="assets/app.js?v=20260517p"></script>
 </body>
 </html>
