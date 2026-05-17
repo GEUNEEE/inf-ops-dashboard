@@ -425,6 +425,8 @@
       return (b['금액'] || 0) - (a['금액'] || 0);
     });
 
+    const infCum = ((gData || {}).profit_analysis || {}).influencer_cumulative || {};
+
     grid.innerHTML = items.map(item => {
       const isTarget = item['정산대상'];
       const tag  = isTarget ? 'a' : 'div';
@@ -432,6 +434,14 @@
       const badge = isTarget
         ? `<span class="pill pill-target">정산대상</span>`
         : `<span class="pill pill-general">기타/일반</span>`;
+
+      const contrib = infCum[item.name];
+      const contribHtml = contrib
+        ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px solid var(--border)">
+             <span class="stat-lbl">누적 기여수익</span>
+             <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(contrib.contribution)}</span>
+           </div>`
+        : '';
 
       let statsHtml;
       if (isTarget) {
@@ -492,6 +502,7 @@
           </div>
           <div style="margin-bottom:4px">${statusPill(item['현재상태'] || '')}</div>
           ${statsHtml}
+          ${contribHtml}
         </${tag}>`;
     }).join('');
   }
