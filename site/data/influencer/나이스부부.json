@@ -13,11 +13,6 @@
       "month": "2026-04",
       "qty": 3,
       "amount": 60000
-    },
-    {
-      "month": "2026-05",
-      "qty": 0,
-      "amount": 0
     }
   ],
   "upcoming_schedule": []

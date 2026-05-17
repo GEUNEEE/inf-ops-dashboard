@@ -224,6 +224,7 @@
       renderFunnelBars(gData.mail_funnel || {});
       renderDonutChart(gData.inf_status || {});
       renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
+      renderContribTable(gData.profit_analysis || null, null, null);
       return;
     }
 
@@ -258,6 +259,7 @@
 
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
+    renderContribTable(gData.profit_analysis || null, month, h);
   }
 
   // ── 메인 초기화 ────────────────────────────────────────────────────────────
@@ -303,7 +305,7 @@
 
     const pa = gData.profit_analysis || null;
     renderProfitChart(pa);
-    renderContribTable(pa);
+    renderContribTable(pa, null, null);
 
     // 기본값: 전체 집계
     const { revenue, infMap } = await buildAllTimeData();
@@ -435,13 +437,32 @@
         ? `<span class="pill pill-target">정산대상</span>`
         : `<span class="pill pill-general">기타/일반</span>`;
 
-      const contrib = infCum[item.name];
-      const contribHtml = contrib
-        ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px solid var(--border)">
-             <span class="stat-lbl">누적 기여수익</span>
-             <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(contrib.contribution)}</span>
-           </div>`
-        : '';
+      let contribHtml = '';
+      if (!month) {
+        const contrib = infCum[item.name];
+        if (contrib) {
+          contribHtml = `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px solid var(--border)">
+            <span class="stat-lbl">누적 기여수익</span>
+            <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(contrib.contribution)}</span>
+          </div>`;
+        }
+      } else {
+        const qty = item['수량'] ?? 0;
+        if (qty > 0) {
+          let monthContrib = 0;
+          if (isTarget) {
+            const cum = item['누적수량'] ?? 0;
+            const prevCum = Math.max(cum - qty, 0);
+            for (let q = prevCum; q < cum; q++) monthContrib += 45000 - tierPrice(q + 1);
+          } else {
+            monthContrib = qty * 84000;
+          }
+          contribHtml = `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px solid var(--border)">
+            <span class="stat-lbl">${monthLabel(month)} 기여수익</span>
+            <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(monthContrib)}</span>
+          </div>`;
+        }
+      }
 
       let statsHtml;
       if (isTarget) {
@@ -683,28 +704,64 @@
   }
 
   // ── 인플루언서 기여 수익 테이블 ────────────────────────────────────────────
-  function renderContribTable(pa) {
+  function renderContribTable(pa, month, h) {
     const c = el('contrib-table');
-    if (!c || !pa) return;
-    const items = Object.entries(pa.influencer_cumulative || {})
-      .map(([name, d]) => ({ name, ...d }))
-      .sort((a, b) => b.contribution - a.contribution);
+    if (!c) return;
+
+    let items = [];
+    let totalQty = 0;
+
+    if (month && h) {
+      // 월별 모드: history 데이터에서 계산
+      const influencers = h.influencers || {};
+      const unitCount   = h.unit_count || 0;
+      let knownQty = 0;
+      items = Object.entries(influencers).map(([name, d]) => {
+        const qty  = d.qty || 0;
+        const isGen = d.is_general || false;
+        const cum  = d.cumulative_qty || 0;
+        const prevCum = Math.max(cum - qty, 0);
+        let contribution = 0;
+        if (isGen) {
+          contribution = qty * 84000;
+        } else {
+          for (let q = prevCum; q < cum; q++) contribution += 45000 - tierPrice(q + 1);
+        }
+        knownQty += qty;
+        return { name, qty, settlement: isGen ? 0 : (d.amount || 0), contribution, isGen };
+      });
+      const miscQty = unitCount - knownQty;
+      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, contribution: miscQty * 84000, isGen: true });
+      totalQty = unitCount;
+    } else {
+      // 전체 모드: profit_analysis.influencer_cumulative
+      if (!pa) { c.innerHTML = ''; return; }
+      items = Object.entries(pa.influencer_cumulative || {}).map(([name, d]) => ({ name, ...d, isGen: !d.settlement }));
+      totalQty = Object.values((pa.monthly || {})).reduce((s, m) => s + (m.unit_count || Math.round((m.gross_revenue || 0) / 120000)), 0);
+    }
+
+    items.sort((a, b) => b.contribution - a.contribution);
     if (!items.length) { c.innerHTML = '<div style="font-size:11px;color:var(--text3);padding:8px 0">데이터 없음</div>'; return; }
+
     const totalContrib = items.reduce((s, i) => s + (i.contribution || 0), 0);
-    const rows = items.map(item => {
-      const isGen = !item.settlement;
-      return `<tr>
-        <td>${item.name}</td>
-        <td>${item.qty}개</td>
-        <td>${isGen ? '<span style="color:var(--text3)">-</span>' : money(item.settlement)}</td>
-        <td style="color:#3B6D11;font-weight:500">${money(item.contribution)}</td>
-      </tr>`;
-    }).join('');
+    const laborCost    = totalQty * 10000;
+    const laborLabel   = month ? monthLabel(month) : '전체 누적';
+
+    const rows = items.map(item => `<tr>
+      <td>${item.name}</td>
+      <td>${item.qty}개</td>
+      <td>${(item.isGen && !item.settlement) ? '<span style="color:var(--text3)">-</span>' : money(item.settlement)}</td>
+      <td style="color:#3B6D11;font-weight:500">${money(item.contribution)}</td>
+    </tr>`).join('');
+
     c.innerHTML = `<table class="contrib-tbl">
       <thead><tr><th>인플루언서</th><th style="text-align:right">수량</th><th style="text-align:right">정산액</th><th style="text-align:right">기여수익</th></tr></thead>
       <tbody>${rows}</tbody>
-      <tfoot><tr><td>합계</td><td></td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
-    </table>`;
+      <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
+    </table>
+    <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
+      눈길 인건비 (${laborLabel}): ${money(laborCost)} (${totalQty}개 × ₩10,000)
+    </div>`;
   }
 
   // ── 인플루언서 드릴다운 ────────────────────────────────────────────────────

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>인플루언서 대시보드</title>
+  <title>?명뵆猷⑥뼵????쒕낫??/title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <style>
     :root {
@@ -136,11 +136,11 @@
     .fmonth-pct { font-size: 10px; color: var(--text3); margin-left: 3px; }
     .fmonth-cur td:first-child { color: #185FA5; }
 
-    /* 영업이익 KPI 행 */
+    /* ?곸뾽?댁씡 KPI ??*/
     .profit-kpi-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
     .kpi-card-accent { background: #EAF3DE; border-radius: var(--r); padding: 11px 13px; }
 
-    /* 기여 수익 테이블 */
+    /* 湲곗뿬 ?섏씡 ?뚯씠釉?*/
     .contrib-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
     .contrib-tbl th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); white-space: nowrap; }
     .contrib-tbl th:first-child { text-align: left; }
@@ -155,77 +155,77 @@
   <div class="wrap">
 
     <div class="page-header">
-      <span class="page-title">인플루언서 대시보드</span>
+      <span class="page-title">?명뵆猷⑥뼵????쒕낫??/span>
       <span class="page-sub" id="generated-at"></span>
     </div>
 
     <div id="error-banner" class="banner banner-err hidden"></div>
     <div id="alert-banner" class="banner banner-warn hidden"></div>
 
-    <!-- 월별 필터 -->
+    <!-- ?붾퀎 ?꾪꽣 -->
     <div class="filter-row" id="month-filter"></div>
 
-    <!-- KPI 5칸 -->
+    <!-- KPI 5移?-->
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-lbl">이번달 매출</div>
+        <div class="kpi-lbl">?대쾲??留ㅼ텧</div>
         <div class="kpi-val" id="kpi-revenue">-</div>
         <div class="kpi-sub" id="kpi-revenue-sub"></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-lbl">주문수</div>
+        <div class="kpi-lbl">二쇰Ц??/div>
         <div class="kpi-val" id="kpi-orders">-</div>
         <div class="kpi-sub" id="kpi-orders-sub"></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-lbl">수익</div>
+        <div class="kpi-lbl">?섏씡</div>
         <div class="kpi-val" id="kpi-profit">-</div>
         <div class="kpi-sub" id="kpi-profit-sub"></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-lbl">응답률</div>
+        <div class="kpi-lbl">?묐떟瑜?/div>
         <div class="kpi-val" id="kpi-reply-rate" style="color:#185FA5">-</div>
         <div class="kpi-sub" id="kpi-reply-sub"></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-lbl">체험전환율</div>
+        <div class="kpi-lbl">泥댄뿕?꾪솚??/div>
         <div class="kpi-val" id="kpi-exp-rate" style="color:#534AB7">-</div>
         <div class="kpi-sub" id="kpi-exp-sub"></div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-lbl">광고수락률</div>
+        <div class="kpi-lbl">愿묎퀬?섎씫瑜?/div>
         <div class="kpi-val" id="kpi-ad-rate" style="color:#3B6D11">-</div>
         <div class="kpi-sub" id="kpi-ad-sub"></div>
       </div>
     </div>
 
-    <!-- 영업이익 KPI 행 (수익관리 시트 기반) -->
+    <!-- ?곸뾽?댁씡 KPI ??(?섏씡愿由??쒗듃 湲곕컲) -->
     <div class="profit-kpi-row">
       <div class="kpi-card-accent">
-        <div class="kpi-lbl">영업이익 <span style="font-size:9px;color:var(--text3)">(인건비 제외)</span></div>
+        <div class="kpi-lbl">?곸뾽?댁씡 <span style="font-size:9px;color:var(--text3)">(?멸굔鍮??쒖쇅)</span></div>
         <div class="kpi-val" id="kpi-op-profit">-</div>
         <div class="kpi-sub" id="kpi-op-profit-sub"></div>
       </div>
       <div class="kpi-card-accent">
-        <div class="kpi-lbl">영업이익률</div>
+        <div class="kpi-lbl">?곸뾽?댁씡瑜?/div>
         <div class="kpi-val" id="kpi-op-rate" style="color:#3B6D11">-</div>
         <div class="kpi-sub" id="kpi-op-rate-sub"></div>
       </div>
       <div class="kpi-card-accent">
-        <div class="kpi-lbl">누적 손익</div>
+        <div class="kpi-lbl">?꾩쟻 ?먯씡</div>
         <div class="kpi-val" id="kpi-cumulative">-</div>
-        <div class="kpi-sub" id="kpi-cumulative-sub">전체 누계</div>
+        <div class="kpi-sub" id="kpi-cumulative-sub">?꾩껜 ?꾧퀎</div>
       </div>
     </div>
 
-    <!-- 퍼널 바 + 도넛 차트 -->
+    <!-- ?쇰꼸 諛?+ ?꾨꽋 李⑦듃 -->
     <div class="funnel-grid">
       <div class="card">
-        <div class="slbl">메일 발송 퍼널</div>
+        <div class="slbl">硫붿씪 諛쒖넚 ?쇰꼸</div>
         <div id="funnel-bars"></div>
       </div>
       <div class="card">
-        <div class="slbl">인플루언서 현황</div>
+        <div class="slbl">?명뵆猷⑥뼵???꾪솴</div>
         <div style="display:flex;justify-content:center;height:160px">
           <canvas id="donut-chart"></canvas>
         </div>
@@ -233,44 +233,44 @@
       </div>
     </div>
 
-    <!-- 인플루언서 카드 그리드 -->
+    <!-- ?명뵆猷⑥뼵??移대뱶 洹몃━??-->
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-      <div class="slbl" style="margin-bottom:0">인플루언서별 현황</div>
+      <div class="slbl" style="margin-bottom:0">?명뵆猷⑥뼵?쒕퀎 ?꾪솴</div>
       <span id="inf-count-label"></span>
     </div>
     <div class="inf-grid" id="inf-grid"></div>
 
-    <!-- 퍼널 월별 추이 테이블 -->
+    <!-- ?쇰꼸 ?붾퀎 異붿씠 ?뚯씠釉?-->
     <div class="card mb12">
-      <div class="slbl">메일 퍼널 월별 추이</div>
+      <div class="slbl">硫붿씪 ?쇰꼸 ?붾퀎 異붿씠</div>
       <div id="funnel-monthly-table"></div>
     </div>
 
-    <!-- 추세 차트 -->
+    <!-- 異붿꽭 李⑦듃 -->
     <div class="chart-grid">
       <div class="card">
-        <div class="slbl">퍼널 추세</div>
+        <div class="slbl">?쇰꼸 異붿꽭</div>
         <canvas id="trend-chart" height="180"></canvas>
       </div>
       <div class="card">
-        <div class="slbl">매출 · 수익</div>
+        <div class="slbl">留ㅼ텧 쨌 ?섏씡</div>
         <canvas id="revenue-chart" height="180"></canvas>
       </div>
     </div>
 
-    <!-- 수익 분석 (수익관리 시트 기반) -->
+    <!-- ?섏씡 遺꾩꽍 (?섏씡愿由??쒗듃 湲곕컲) -->
     <div class="chart-grid" style="margin-top:8px">
       <div class="card">
-        <div class="slbl">월별 영업이익 · 이익률</div>
+        <div class="slbl">?붾퀎 ?곸뾽?댁씡 쨌 ?댁씡瑜?/div>
         <canvas id="profit-chart" height="180"></canvas>
       </div>
       <div class="card">
-        <div class="slbl">인플루언서별 누적 기여 수익 <span style="font-size:9px;color:var(--text3)">(전체 누계)</span></div>
+        <div class="slbl">?명뵆猷⑥뼵?쒕퀎 ?꾩쟻 湲곗뿬 ?섏씡 <span style="font-size:9px;color:var(--text3)">(?꾩껜 ?꾧퀎)</span></div>
         <div id="contrib-table"></div>
       </div>
     </div>
 
   </div>
-  <script src="assets/app.js?v=20260517i"></script>
+  <script src="assets/app.js?v=20260517j"></script>
 </body>
 </html>
