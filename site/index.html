@@ -124,6 +124,17 @@
     .page-sub    { font-size: 10px; color: var(--text3); }
 
     .mb12 { margin-bottom: 12px; }
+
+    /* Funnel monthly trend table */
+    .fmonth-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .fmonth-table th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); white-space: nowrap; }
+    .fmonth-table th:first-child { text-align: left; }
+    .fmonth-table td { padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border); color: var(--text2); white-space: nowrap; }
+    .fmonth-table td:first-child { text-align: left; color: var(--text1); font-weight: 500; }
+    .fmonth-table tr:last-child td { border-bottom: none; }
+    .fmonth-cnt { font-weight: 500; color: var(--text1); }
+    .fmonth-pct { font-size: 10px; color: var(--text3); margin-left: 3px; }
+    .fmonth-cur td:first-child { color: #185FA5; }
   </style>
 </head>
 <body data-page="dashboard">
@@ -192,6 +203,12 @@
     <!-- 인플루언서 카드 그리드 -->
     <div class="slbl">인플루언서별 현황</div>
     <div class="inf-grid" id="inf-grid"></div>
+
+    <!-- 퍼널 월별 추이 테이블 -->
+    <div class="card mb12">
+      <div class="slbl">메일 퍼널 월별 추이</div>
+      <div id="funnel-monthly-table"></div>
+    </div>
 
     <!-- 추세 차트 -->
     <div class="chart-grid">
