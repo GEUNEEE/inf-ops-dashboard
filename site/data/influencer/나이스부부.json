@@ -1,7 +1,7 @@
 {
   "name": "나이스부부",
   "current_status": "3차 체험진행",
-  "cumulative_qty": 4,
+  "cumulative_qty": 2,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -13,6 +13,11 @@
       "month": "2026-04",
       "qty": 3,
       "amount": 60000
+    },
+    {
+      "month": "2026-05",
+      "qty": 0,
+      "amount": 0
     }
   ],
   "upcoming_schedule": []
