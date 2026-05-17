@@ -8,7 +8,10 @@
     "influencer_cost": 620000,
     "personal_fee": 530000,
     "misc_cost": 2650000,
-    "net_profit": 3640000
+    "net_profit": 3640000,
+    "operating_profit": 3377000,
+    "operating_profit_rate": 0.4541,
+    "cumulative_profit": 4815000
   },
   "mail_funnel": {
     "total_sent": 1395,
@@ -140,7 +143,9 @@
       16,
       23
     ],
-    "exp_by_month": {}
+    "exp_by_month": {},
+    "operating_profit": [250000, 1188000, 3377000],
+    "operating_profit_rate": [0.2083, 0.3094, 0.4541]
   },
   "mail_funnel_by_month": {
     "2026-02": {
@@ -194,6 +199,26 @@
     "2026-05": 12,
     "2026-06": 1,
     "2026-07": 1
+  },
+  "profit_analysis": {
+    "note": "영업이익 = Σ(qty × (45,000 − 정산단가)) [인플] + Σ(qty × 84,000) [기타]. 인건비 미포함. 5월은 추정값.",
+    "monthly": {
+      "2026-03": {"gross_revenue": 1200000, "operating_profit": 250000,  "operating_profit_rate": 0.2083, "cumulative_profit":  250000},
+      "2026-04": {"gross_revenue": 3840000, "operating_profit": 1188000, "operating_profit_rate": 0.3094, "cumulative_profit": 1438000},
+      "2026-05": {"gross_revenue": 7440000, "operating_profit": 3377000, "operating_profit_rate": 0.4541, "cumulative_profit": 4815000}
+    },
+    "influencer_cumulative": {
+      "마성민":          {"qty": 18, "settlement":  360000, "contribution":  450000},
+      "나이스부부":      {"qty":  8, "settlement":  160000, "contribution":  200000},
+      "C맹씨":           {"qty": 31, "settlement":  620000, "contribution":  773000},
+      "The 조치 패밀리": {"qty":  4, "settlement":   80000, "contribution":  100000},
+      "기타/일반":       {"qty": 30, "settlement":       0, "contribution": 2520000},
+      "유튜버 정조":     {"qty":  5, "settlement":       0, "contribution":  420000},
+      "부부초":          {"qty":  3, "settlement":       0, "contribution":  252000},
+      "낚시중독":        {"qty":  2, "settlement":       0, "contribution":  168000},
+      "그래서 강리안":   {"qty":  1, "settlement":       0, "contribution":   84000},
+      "바다로간배스":    {"qty":  2, "settlement":       0, "contribution":  168000}
+    }
   },
   "alerts": {
     "unregistered_influencers": [

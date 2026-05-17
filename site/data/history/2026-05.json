@@ -3,6 +3,8 @@
   "generated_at": "2026-05-17T16:46:09",
   "gross_revenue": 7440000,
   "net_profit": 3640000,
+  "operating_profit": 3377000,
+  "operating_profit_rate": 0.4541,
   "order_count": 53,
   "unit_count": 62,
   "total_sent": 1395,

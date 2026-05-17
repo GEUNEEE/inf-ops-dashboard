@@ -135,6 +135,20 @@
     .fmonth-cnt { font-weight: 500; color: var(--text1); }
     .fmonth-pct { font-size: 10px; color: var(--text3); margin-left: 3px; }
     .fmonth-cur td:first-child { color: #185FA5; }
+
+    /* 영업이익 KPI 행 */
+    .profit-kpi-row { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .kpi-card-accent { background: #EAF3DE; border-radius: var(--r); padding: 11px 13px; }
+
+    /* 기여 수익 테이블 */
+    .contrib-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .contrib-tbl th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); white-space: nowrap; }
+    .contrib-tbl th:first-child { text-align: left; }
+    .contrib-tbl td { padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border); color: var(--text2); white-space: nowrap; }
+    .contrib-tbl td:first-child { text-align: left; color: var(--text1); font-weight: 500; }
+    .contrib-tbl tr:last-child td { border-bottom: none; }
+    .contrib-tbl tfoot td { border-top: 0.5px solid var(--border2); font-weight: 600; color: var(--text1); padding-top: 7px; }
+    .contrib-tbl tfoot td:first-child { text-align: left; color: var(--text3); }
   </style>
 </head>
 <body data-page="dashboard">
@@ -185,6 +199,25 @@
       </div>
     </div>
 
+    <!-- 영업이익 KPI 행 (수익관리 시트 기반) -->
+    <div class="profit-kpi-row">
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">영업이익 <span style="font-size:9px;color:var(--text3)">(인건비 제외)</span></div>
+        <div class="kpi-val" id="kpi-op-profit">-</div>
+        <div class="kpi-sub" id="kpi-op-profit-sub"></div>
+      </div>
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">영업이익률</div>
+        <div class="kpi-val" id="kpi-op-rate" style="color:#3B6D11">-</div>
+        <div class="kpi-sub" id="kpi-op-rate-sub"></div>
+      </div>
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">누적 손익</div>
+        <div class="kpi-val" id="kpi-cumulative">-</div>
+        <div class="kpi-sub" id="kpi-cumulative-sub">전체 누계</div>
+      </div>
+    </div>
+
     <!-- 퍼널 바 + 도넛 차트 -->
     <div class="funnel-grid">
       <div class="card">
@@ -225,7 +258,19 @@
       </div>
     </div>
 
+    <!-- 수익 분석 (수익관리 시트 기반) -->
+    <div class="chart-grid" style="margin-top:8px">
+      <div class="card">
+        <div class="slbl">월별 영업이익 · 이익률</div>
+        <canvas id="profit-chart" height="180"></canvas>
+      </div>
+      <div class="card">
+        <div class="slbl">인플루언서별 누적 기여 수익 <span style="font-size:9px;color:var(--text3)">(전체 누계)</span></div>
+        <div id="contrib-table"></div>
+      </div>
+    </div>
+
   </div>
-  <script src="assets/app.js?v=20260517h"></script>
+  <script src="assets/app.js?v=20260517i"></script>
 </body>
 </html>

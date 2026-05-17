@@ -220,6 +220,7 @@
       const { revenue, infMap } = await buildAllTimeData();
       updateKPIs(revenue, gData.mail_funnel || {});
       setKPISubs(revenue, gData.mail_funnel || {});
+      renderProfitKPIs(gData.profit_analysis || null, null);
       renderFunnelBars(gData.mail_funnel || {});
       renderDonutChart(gData.inf_status || {});
       renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
@@ -242,6 +243,7 @@
       { reply_rate: h.reply_rate, exp_rate: h.exp_rate, ad_rate: h.ad_rate, total_sent: h.total_sent }
     );
     clearKPISubs();
+    renderProfitKPIs(gData.profit_analysis || null, month);
 
     // 퍼널 바: 해당 월 발송일 기준 데이터
     const mf = (gData.mail_funnel_by_month || {})[month] || {};
@@ -299,10 +301,15 @@
       renderRevenueChart(t);
     }
 
+    const pa = gData.profit_analysis || null;
+    renderProfitChart(pa);
+    renderContribTable(pa);
+
     // 기본값: 전체 집계
     const { revenue, infMap } = await buildAllTimeData();
     updateKPIs(revenue, f);
     setKPISubs(revenue, f);
+    renderProfitKPIs(pa, null);
     renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
   }
 
@@ -597,6 +604,96 @@
         },
       },
     });
+  }
+
+  // ── 영업이익 KPI (수익관리 시트) ──────────────────────────────────────────
+  function renderProfitKPIs(pa, month) {
+    if (!pa) return;
+    let op, rate, cumulative;
+    if (!month) {
+      const entries = Object.values(pa.monthly || {});
+      op = entries.reduce((s, m) => s + (m.operating_profit || 0), 0);
+      const totalRev = entries.reduce((s, m) => s + (m.gross_revenue || 0), 0);
+      rate = totalRev ? op / totalRev : 0;
+      const sorted = Object.keys(pa.monthly || {}).sort();
+      cumulative = sorted.length ? (pa.monthly[sorted[sorted.length - 1]].cumulative_profit || 0) : 0;
+    } else {
+      const m = (pa.monthly || {})[month] || {};
+      op         = m.operating_profit      || 0;
+      rate       = m.operating_profit_rate || 0;
+      cumulative = m.cumulative_profit     || 0;
+    }
+    set('kpi-op-profit', money(op));
+    set('kpi-op-rate',   pct(rate));
+    set('kpi-cumulative', money(cumulative));
+    const oe = el('kpi-op-profit');
+    if (oe) oe.style.color = op > 0 ? '#3B6D11' : op < 0 ? '#A32D2D' : '';
+    const ce = el('kpi-cumulative');
+    if (ce) ce.style.color = cumulative > 0 ? '#3B6D11' : cumulative < 0 ? '#A32D2D' : '';
+    set('kpi-op-profit-sub', month ? monthLabel(month) + ' 기준' : '전체 합계');
+    set('kpi-op-rate-sub',   month ? '' : '전체 평균');
+    set('kpi-cumulative-sub', month ? month + '까지 누계' : '전체 누계');
+  }
+
+  // ── 월별 영업이익 차트 ─────────────────────────────────────────────────────
+  function renderProfitChart(pa) {
+    const ctx = el('profit-chart');
+    if (!ctx || !pa || !pa.monthly) return;
+    const months   = Object.keys(pa.monthly).sort();
+    const labels   = months.map(m => monthLabel(m));
+    const grossRevs = months.map(m => pa.monthly[m].gross_revenue || 0);
+    const opProfits = months.map(m => pa.monthly[m].operating_profit || 0);
+    const opRates   = months.map(m => +((pa.monthly[m].operating_profit_rate || 0) * 100).toFixed(1));
+    new Chart(ctx, {
+      data: {
+        labels,
+        datasets: [
+          { type: 'bar',  label: '매출',    data: grossRevs,  backgroundColor: 'rgba(127,119,221,0.25)', yAxisID: 'y' },
+          { type: 'bar',  label: '영업이익', data: opProfits,  backgroundColor: 'rgba(97,176,89,0.7)',   yAxisID: 'y' },
+          { type: 'line', label: '이익률',   data: opRates,    borderColor: '#EF9F27', tension: 0.4, fill: false, yAxisID: 'y1', pointRadius: 3 },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
+                   tooltip: { callbacks: { label: ctx => ctx.dataset.yAxisID === 'y1'
+                     ? ` ${ctx.dataset.label}: ${ctx.parsed.y}%`
+                     : ` ${ctx.dataset.label}: ₩${Number(ctx.parsed.y).toLocaleString('ko-KR')}` } } },
+        scales: {
+          x:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
+          y:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 }, callback: v => '₩' + (v/10000).toFixed(0) + '만' },
+                title: { display: true, text: '금액 (₩)', font: { size: 10 }, color: '#A8A69C' } },
+          y1: { position: 'right', grid: { drawOnChartArea: false },
+                ticks: { font: { size: 10 }, callback: v => v + '%' },
+                title: { display: true, text: '이익률', font: { size: 10 }, color: '#A8A69C' } },
+        },
+      },
+    });
+  }
+
+  // ── 인플루언서 기여 수익 테이블 ────────────────────────────────────────────
+  function renderContribTable(pa) {
+    const c = el('contrib-table');
+    if (!c || !pa) return;
+    const items = Object.entries(pa.influencer_cumulative || {})
+      .map(([name, d]) => ({ name, ...d }))
+      .sort((a, b) => b.contribution - a.contribution);
+    if (!items.length) { c.innerHTML = '<div style="font-size:11px;color:var(--text3);padding:8px 0">데이터 없음</div>'; return; }
+    const totalContrib = items.reduce((s, i) => s + (i.contribution || 0), 0);
+    const rows = items.map(item => {
+      const isGen = !item.settlement;
+      return `<tr>
+        <td>${item.name}</td>
+        <td>${item.qty}개</td>
+        <td>${isGen ? '<span style="color:var(--text3)">-</span>' : money(item.settlement)}</td>
+        <td style="color:#3B6D11;font-weight:500">${money(item.contribution)}</td>
+      </tr>`;
+    }).join('');
+    c.innerHTML = `<table class="contrib-tbl">
+      <thead><tr><th>인플루언서</th><th style="text-align:right">수량</th><th style="text-align:right">정산액</th><th style="text-align:right">기여수익</th></tr></thead>
+      <tbody>${rows}</tbody>
+      <tfoot><tr><td>합계</td><td></td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
+    </table>`;
   }
 
   // ── 인플루언서 드릴다운 ────────────────────────────────────────────────────
