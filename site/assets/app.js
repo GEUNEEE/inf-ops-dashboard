@@ -270,6 +270,11 @@
     renderFunnelBars(f);
     renderDonutChart(gData.inf_status || {});
 
+    const _st = gData.inf_status || {};
+    const _total  = Object.values(_st).reduce((s, v) => s + v, 0);
+    const _active = _total - (_st['기타'] || 0);
+    set('inf-count-label', `진행 ${_active} / 전체 ${_total}명`);
+
     renderFunnelMonthlyTable(t, f, gData.current_month);
 
     if (t.months && t.months.length > 0) {
