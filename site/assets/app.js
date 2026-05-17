@@ -2,6 +2,14 @@
 (function () {
   'use strict';
 
+  if (typeof Chart === 'undefined') {
+    document.addEventListener('DOMContentLoaded', function () {
+      var b = document.getElementById('error-banner');
+      if (b) { b.textContent = 'Chart.js 로드 실패. 새로고침을 시도하세요.'; b.classList.remove('hidden'); }
+    });
+    return;
+  }
+
   const money = v => v == null ? '-' : '₩' + Number(v).toLocaleString('ko-KR');
   const pct   = v => v == null ? '-' : (v * 100).toFixed(1) + '%';
   const el    = id => document.getElementById(id);
@@ -14,16 +22,18 @@
 
   let gData  = null;
   let _donut = null;
-  const hCache = {};  // month → history JSON 캐시
+  const hCache = {};
 
   // ── 구간 단가 ─────────────────────────────────────────────────────────────
+  const MARGIN_SETTLEMENT = 45000;
+  const MARGIN_GENERAL    = 84000;
+
   function tierPrice(cumQty) {
     if (cumQty >= 100) return 25000;
-    if (cumQty  >= 30) return 22000;
+    if (cumQty >= 30)  return 22000;
     return 20000;
   }
 
-  // 누적 수량 전체에 대한 구간별 정산액 (1~29: 2만 / 30~99: 2.2만 / 100+: 2.5만)
   function calcTieredAmount(n) {
     if (n <= 0)  return 0;
     if (n < 30)  return n * 20000;
@@ -31,12 +41,12 @@
     return 29 * 20000 + 70 * 22000 + (n - 99) * 25000;
   }
 
-  // prevCum ~ cum 구간에 걸치는 티어별 {qty, price} 배열
+  // prevCum → cum 구간의 티어별 {qty, price} 배열
   function tierBreakdownRange(prevCum, cum) {
     const tiers = [];
-    const t1 = Math.min(cum, 29)                       - Math.min(prevCum, 29);
-    const t2 = Math.min(Math.max(cum, 29), 99)         - Math.min(Math.max(prevCum, 29), 99);
-    const t3 = Math.max(cum, 99)                       - Math.max(prevCum, 99);
+    const t1 = Math.min(cum, 29)               - Math.min(prevCum, 29);
+    const t2 = Math.min(Math.max(cum, 29), 99) - Math.min(Math.max(prevCum, 29), 99);
+    const t3 = Math.max(cum, 99)               - Math.max(prevCum, 99);
     if (t1 > 0) tiers.push({ qty: t1, price: 20000 });
     if (t2 > 0) tiers.push({ qty: t2, price: 22000 });
     if (t3 > 0) tiers.push({ qty: t3, price: 25000 });
@@ -53,13 +63,13 @@
   function statusPill(status) {
     if (!status) return `<span class="pill pill-etc">-</span>`;
     let cls = 'pill-etc';
-    if      (status.includes('체험'))          cls = 'pill-exp';
-    else if (status.includes('광고완료'))      cls = 'pill-addone';
-    else if (status.includes('광고예정'))      cls = 'pill-adplan';
-    else if (status.includes('미팅진행'))      cls = 'pill-meeting-active';
-    else if (status.includes('미팅예정'))      cls = 'pill-meeting-plan';
-    else if (status.includes('미팅'))          cls = 'pill-meeting';
-    else if (status.includes('거절'))          cls = 'pill-reject';
+    if      (status.includes('체험'))       cls = 'pill-exp';
+    else if (status.includes('광고완료'))   cls = 'pill-addone';
+    else if (status.includes('광고예정'))   cls = 'pill-adplan';
+    else if (status.includes('미팅진행'))   cls = 'pill-meeting-active';
+    else if (status.includes('미팅예정'))   cls = 'pill-meeting-plan';
+    else if (status.includes('미팅'))       cls = 'pill-meeting';
+    else if (status.includes('거절'))       cls = 'pill-reject';
     return `<span class="pill ${cls}">${status}</span>`;
   }
 
@@ -71,23 +81,25 @@
   function updateKPIs(r, f) {
     set('kpi-revenue',    money(r.gross_revenue));
     set('kpi-orders',     (r.order_count || 0) + '건');
+    set('kpi-profit',     money(r.net_profit));
     set('kpi-reply-rate', pct(f.reply_rate));
     set('kpi-exp-rate',   pct(f.exp_rate));
     set('kpi-ad-rate',    pct(f.ad_rate));
-
-    const profit = r.net_profit;
-    set('kpi-profit', money(profit));
     const pe = el('kpi-profit');
-    if (pe) pe.style.color = profit > 0 ? '#3B6D11' : profit < 0 ? '#A32D2D' : '';
+    if (pe) {
+      const profit = r.net_profit;
+      pe.style.color = profit > 0 ? '#3B6D11' : profit < 0 ? '#A32D2D' : '';
+    }
   }
 
   function setKPISubs(r, f) {
     set('kpi-revenue-sub', r.unit_count != null ? r.unit_count + '개 판매' : '');
     set('kpi-orders-sub',  r.unit_count != null ? r.unit_count + '개 단위' : '');
     set('kpi-profit-sub',  r.net_profit > 0 ? '흑자' : r.net_profit < 0 ? '적자' : '');
-    set('kpi-reply-sub',   f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
-    set('kpi-exp-sub',     f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
-    set('kpi-ad-sub',      f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
+    const sentStr = f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '';
+    set('kpi-reply-sub', sentStr);
+    set('kpi-exp-sub',   sentStr);
+    set('kpi-ad-sub',    sentStr);
   }
 
   function clearKPISubs() {
@@ -95,101 +107,51 @@
       .forEach(id => set(id, ''));
   }
 
-  // ── 전체 기간 집계 ─────────────────────────────────────────────────────────
-  async function buildAllTimeData() {
-    const months = (gData.trends || {}).months || [];
-
-    // 병렬로 모든 history 로드 (캐시 우선)
-    await Promise.all(months.map(async m => {
-      if (!hCache[m]) {
-        try { hCache[m] = await fetchData('data/history/' + m + '.json'); }
-        catch (e) { console.warn('[전체] 로드 실패:', m); }
-      }
-    }));
-
-    const histories = months.map(m => hCache[m]).filter(Boolean);
-
-    // 매출·수익 합산
-    const revenue = { gross_revenue: 0, net_profit: 0, order_count: 0, unit_count: 0 };
-    for (const h of histories) {
-      revenue.gross_revenue += h.gross_revenue || 0;
-      revenue.net_profit    += h.net_profit    || 0;
-      revenue.order_count   += h.order_count   || 0;
-      revenue.unit_count    += h.unit_count    || 0;
+  // ── 영업이익 KPI 행 ────────────────────────────────────────────────────────
+  function renderProfitKPIs(pa, month) {
+    if (!pa) return;
+    let op, rate, cumulative;
+    if (!month) {
+      const entries = Object.values(pa.monthly || {});
+      op = entries.reduce((s, e) => s + (e.operating_profit || 0), 0);
+      const totalRev = entries.reduce((s, e) => s + (e.gross_revenue || 0), 0);
+      rate = totalRev ? op / totalRev : 0;
+      const lastKey = Object.keys(pa.monthly || {}).sort().pop();
+      cumulative = lastKey ? (pa.monthly[lastKey].cumulative_profit || 0) : 0;
+    } else {
+      const m = (pa.monthly || {})[month] || {};
+      op         = m.operating_profit      || 0;
+      rate       = m.operating_profit_rate || 0;
+      cumulative = m.cumulative_profit     || 0;
     }
-
-    // 인플루언서별 합산
-    const infMap = {};
-    for (const h of histories) {
-      for (const [name, d] of Object.entries(h.influencers || {})) {
-        if (!infMap[name]) {
-          infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general, unit_price: d.unit_price ?? null };
-        }
-        infMap[name].order_count += d.order_count || 0;
-        infMap[name].qty         += d.qty || 0;
-        if (d.amount != null) infMap[name].amount += d.amount;  // 기타/일반도 포함
-        if (d.unit_price != null && infMap[name].unit_price == null)
-          infMap[name].unit_price = d.unit_price;
-      }
-    }
-
-    // 누적 수량 기반으로 구간 단가 + 정산액 재계산
-    for (const d of Object.values(infMap)) {
-      if (!d.is_general) {
-        d.cumulative_qty = d.qty;
-        d.unit_price     = tierPrice(d.qty);
-        d.amount         = calcTieredAmount(d.qty);
-      } else {
-        d.cumulative_qty = null;
-        // unit_price, amount는 history에서 합산된 값 유지
-      }
-    }
-
-    return { revenue, infMap };
+    set('kpi-op-profit',  money(op));
+    set('kpi-op-rate',    pct(rate));
+    set('kpi-cumulative', money(cumulative));
+    const oe = el('kpi-op-profit');
+    if (oe) oe.style.color = op > 0 ? '#3B6D11' : op < 0 ? '#A32D2D' : '';
+    const ce = el('kpi-cumulative');
+    if (ce) ce.style.color = cumulative > 0 ? '#3B6D11' : cumulative < 0 ? '#A32D2D' : '';
+    set('kpi-op-profit-sub',  month ? monthLabel(month) + ' 기준' : '전체 합계');
+    set('kpi-op-rate-sub',    month ? '' : '전체 평균');
+    set('kpi-cumulative-sub', month ? month + '까지 누계' : '전체 누계');
   }
 
-  // 전체 기간 집계 → settlement_summary 형식
-  function buildAllTimeSummary(infMap, currentSummary) {
-    const result = {};
-    for (const [name, d] of Object.entries(infMap)) {
-      result[name] = {
-        '건수':     d.order_count,
-        '수량':     d.qty,
-        '누적수량': d.cumulative_qty,
-        '현재단가': d.unit_price,
-        '금액':     d.amount ?? null,
-        '정산대상': !d.is_general,
-        '현재상태': (currentSummary[name] || {})['현재상태'] || '',
-      };
-    }
-    // history에 없으나 현재 관리 중인 인플루언서 포함
-    for (const [name, d] of Object.entries(currentSummary)) {
-      if (!result[name] && d['정산대상']) {
-        result[name] = {
-          '건수': 0, '수량': 0, '누적수량': 0,
-          '현재단가': tierPrice(0), '금액': 0,
-          '정산대상': true, '현재상태': d['현재상태'] || '',
-        };
-      }
-    }
-    return result;
-  }
-
-  // 월 필터 → settlement_summary 형식 (누적수량 기반 차등 단가 + 해당 월 금액)
+  // ── 히스토리 → settlement_summary 형식 ────────────────────────────────────
   function historyToSummary(influencers) {
     const s = {};
     for (const [name, d] of Object.entries(influencers)) {
-      const cum = d.cumulative_qty;
+      const cum   = d.cumulative_qty;
+      const qty   = d.qty || 0;
+      const isGen = d.is_general || false;
       s[name] = {
         '건수':     d.order_count ?? 0,
-        '수량':     d.qty ?? 0,
-        '누적수량': cum ?? null,
-        '현재단가': d.is_general ? (d.unit_price ?? null) : tierPrice(cum || 0),
-        // 기타/일반: history 저장 금액 / 정산대상: 누적 기준 구간 정산액
-        '금액':     d.is_general
+        '수량':     qty,
+        '누적수량': isGen ? null : (cum ?? null),
+        '현재단가': isGen ? null : tierPrice(cum || 0),
+        '금액':     isGen
           ? (d.amount ?? null)
-          : calcTieredAmount(cum || 0) - calcTieredAmount((cum || 0) - (d.qty || 0)),
-        '정산대상': !d.is_general,
+          : calcTieredAmount(cum || 0) - calcTieredAmount(Math.max((cum || 0) - qty, 0)),
+        '정산대상': !isGen,
         '현재상태': '',
       };
     }
@@ -216,19 +178,20 @@
     const month = btn.dataset.month;
 
     if (!month) {
-      // 전체 — 모든 history 합산
-      const { revenue, infMap } = await buildAllTimeData();
-      updateKPIs(revenue, gData.mail_funnel || {});
-      setKPISubs(revenue, gData.mail_funnel || {});
+      // 전체 모드
+      const r  = gData.revenue     || {};
+      const f  = gData.mail_funnel || {};
+      updateKPIs(r, f);
+      setKPISubs(r, f);
       renderProfitKPIs(gData.profit_analysis || null, null);
-      renderFunnelBars(gData.mail_funnel || {});
+      renderFunnelBars(f);
       renderDonutChart(gData.inf_status || {});
-      renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
+      renderInfluencerGrid(gData.settlement_summary || {}, null);
       renderContribTable(gData.profit_analysis || null, null, null);
       return;
     }
 
-    // 월 필터
+    // 월별 모드
     if (!hCache[month]) {
       try {
         hCache[month] = await fetchData('data/history/' + month + '.json');
@@ -237,26 +200,24 @@
         return;
       }
     }
-    const h = hCache[month];
+    const h  = hCache[month];
+    const mf = (gData.mail_funnel_by_month || {})[month] || {};
 
     updateKPIs(
-      { gross_revenue: h.gross_revenue, net_profit: h.net_profit, order_count: h.order_count, unit_count: h.unit_count },
-      { reply_rate: h.reply_rate, exp_rate: h.exp_rate, ad_rate: h.ad_rate, total_sent: h.total_sent }
+      { gross_revenue: h.gross_revenue, net_profit: h.net_profit,
+        order_count: h.order_count, unit_count: h.unit_count },
+      { reply_rate: mf.reply_rate, exp_rate: mf.exp_rate,
+        ad_rate: mf.ad_rate, total_sent: mf.sent }
     );
     clearKPISubs();
     renderProfitKPIs(gData.profit_analysis || null, month);
-
-    // 퍼널 바: 해당 월 발송일 기준 데이터
-    const mf = (gData.mail_funnel_by_month || {})[month] || {};
-    const adByMonth = gData.ad_by_month || {};
     renderFunnelBars({
       total_sent:    mf.sent    || 0,
       replied:       mf.replied || 0,
       meeting_total: mf.meeting || 0,
       exp_total:     mf.exp     || 0,
-      ad_total:      adByMonth[month] || 0,
+      ad_total:      (gData.ad_by_month || {})[month] || 0,
     });
-
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
     renderContribTable(gData.profit_analysis || null, month, h);
@@ -273,48 +234,50 @@
     }
 
     try {
-    const f = gData.mail_funnel || {};
-    const t = gData.trends      || {};
+      const r  = gData.revenue     || {};
+      const f  = gData.mail_funnel || {};
+      const t  = gData.trends      || {};
+      const pa = gData.profit_analysis || null;
+      const byMonth = gData.mail_funnel_by_month || {};
 
-    if (gData.generated_at) set('generated-at', gData.generated_at.replace('T', ' '));
+      if (gData.generated_at) set('generated-at', gData.generated_at.replace('T', ' '));
 
-    const unreg = (gData.alerts || {}).unregistered_influencers || [];
-    if (unreg.length && el('alert-banner')) {
-      el('alert-banner').textContent = '미등재 인플루언서: ' + unreg.map(u => u.name + ' (' + u['건수'] + '건)').join(', ');
-      el('alert-banner').classList.remove('hidden');
-    }
+      const unreg = (gData.alerts || {}).unregistered_influencers || [];
+      if (unreg.length) {
+        const b = el('alert-banner');
+        if (b) {
+          b.textContent = '미등재 인플루언서: ' + unreg.map(u => u.name + ' (' + u['건수'] + '건)').join(', ');
+          b.classList.remove('hidden');
+        }
+      }
 
-    renderFilterButtons(t.months || []);
-    renderFunnelBars(f);
-    renderDonutChart(gData.inf_status || {});
+      renderFilterButtons(t.months || []);
+      updateKPIs(r, f);
+      setKPISubs(r, f);
+      renderProfitKPIs(pa, null);
+      renderFunnelBars(f);
+      renderDonutChart(gData.inf_status || {});
 
-    const _st = gData.inf_status || {};
-    const _total  = Object.values(_st).reduce((s, v) => s + v, 0);
-    const _active = _total - (_st['기타'] || 0);
-    const _lbl = el('inf-count-label');
-    if (_lbl) _lbl.innerHTML =
-      `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px">` +
-      `진행 ${_active}<span style="font-weight:400;opacity:0.55"> / ${_total}명</span></span>`;
+      // 인플루언서 카운트 레이블
+      const st     = gData.inf_status || {};
+      const stTotal  = Object.values(st).reduce((s, v) => s + v, 0);
+      const stActive = stTotal - (st['기타'] || 0);
+      const lbl = el('inf-count-label');
+      if (lbl) lbl.innerHTML =
+        `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px">` +
+        `진행 ${stActive}<span style="font-weight:400;opacity:0.55"> / ${stTotal}명</span></span>`;
 
-    const byMonth = gData.mail_funnel_by_month || {};
-    renderFunnelMonthlyTable(byMonth, gData.current_month);
+      renderInfluencerGrid(gData.settlement_summary || {}, null);
+      renderFunnelMonthlyTable(byMonth, gData.current_month);
 
-    if (t.months && t.months.length > 0) {
-      renderTrendChart(byMonth, gData.current_month);
-      renderRevenueChart(t);
-    }
+      if (t.months && t.months.length > 0) {
+        renderTrendChart(byMonth, gData.current_month);
+        renderRevenueChart(t);
+      }
 
-    const pa = gData.profit_analysis || null;
-    try { renderProfitChart(pa); } catch(e) { console.error('[차트오류] renderProfitChart:', e); }
-    try { renderContribTable(pa, null, null); } catch(e) { console.error('[차트오류] renderContribTable:', e); }
-
-    // 기본값: 전체 집계
-    const { revenue, infMap } = await buildAllTimeData();
-    updateKPIs(revenue, f);
-    setKPISubs(revenue, f);
-    renderProfitKPIs(pa, null);
-    renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
-    } catch(e) {
+      renderProfitChart(pa);
+      renderContribTable(pa, null, null);
+    } catch (e) {
       console.error('[대시보드 오류]', e);
       const b = el('error-banner');
       if (b) { b.textContent = '렌더링 오류: ' + e.message; b.classList.remove('hidden'); }
@@ -327,24 +290,24 @@
     if (!c) return;
     const total = f.total_sent || 1;
 
-    function bar(label, count, color, isTotal) {
+    function bar(label, count, color) {
       const w      = Math.min((count / total) * 100, 100).toFixed(1);
       const pctStr = ((count / total) * 100).toFixed(1);
-      const right  = isTotal
-        ? `${Number(count).toLocaleString()}건`
-        : `${Number(count).toLocaleString()}건 · ${pctStr}%`;
       return `
         <div class="f-bar">
-          <div style="min-width:54px;font-size:11px;font-weight:500;color:var(--text1)">${label}</div>
           <div class="f-track">
             <div class="f-fill" style="width:${w}%;background:${color}"></div>
+            <div class="f-label">
+              <span class="f-name">${label}</span>
+              <span class="f-cnt">${Number(count).toLocaleString()}건</span>
+            </div>
           </div>
-          <div style="min-width:100px;text-align:right;font-size:11px;font-weight:600;color:${color}">${right}</div>
+          <div class="f-pct" style="color:${color}">${pctStr}%</div>
         </div>`;
     }
 
     c.innerHTML = [
-      bar('총 발송',   f.total_sent    || 0, '#B0ADA3', true),
+      bar('총 발송',   f.total_sent    || 0, '#D3D1C7'),
       bar('응답',      f.replied       || 0, '#85B7EB'),
       bar('미팅',      f.meeting_total || 0, '#EF9F27'),
       bar('체험 전환', f.exp_total     || 0, '#7F77DD'),
@@ -352,7 +315,7 @@
     ].join('');
   }
 
-  // ── 도넛 차트 ──────────────────────────────────────────────────────────────
+  // ── 도넛 차트 ─────────────────────────────────────────────────────────────
   function renderDonutChart(infStatus) {
     const ctx = el('donut-chart');
     if (!ctx) return;
@@ -396,7 +359,7 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: ctx => ` ${ctx.label}: ${ctx.raw}명 (${Math.round(ctx.raw / total * 100)}%)`,
+              label: c => ` ${c.label}: ${c.raw}명 (${Math.round(c.raw / total * 100)}%)`,
             },
           },
         },
@@ -419,12 +382,13 @@
     }
   }
 
-  // ── 인플루언서 카드 ────────────────────────────────────────────────────────
+  // ── 인플루언서 카드 그리드 ────────────────────────────────────────────────
   function renderInfluencerGrid(summary, month) {
     const grid = el('inf-grid');
     if (!grid) return;
 
-    const amountLabel = month ? monthLabel(month) + ' 정산액' : '누적 정산액';
+    const infCum = ((gData || {}).profit_analysis || {}).influencer_cumulative || {};
+    const amountLabel = month ? monthLabel(month) + ' 정산액' : '당월 정산액';
 
     const items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
     items.sort((a, b) => {
@@ -432,8 +396,6 @@
       if (!a['정산대상'] && b['정산대상']) return 1;
       return (b['금액'] || 0) - (a['금액'] || 0);
     });
-
-    const infCum = ((gData || {}).profit_analysis || {}).influencer_cumulative || {};
 
     grid.innerHTML = items.map(item => {
       const isTarget = item['정산대상'];
@@ -443,77 +405,85 @@
         ? `<span class="pill pill-target">정산대상</span>`
         : `<span class="pill pill-general">기타/일반</span>`;
 
+      // 기여수익 섹션
       let contribHtml = '';
       if (!month) {
-        const contrib = infCum[item.name];
-        if (contrib) {
-          contribHtml = `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px solid var(--border)">
-            <span class="stat-lbl">누적 기여수익</span>
-            <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(contrib.contribution)}</span>
-          </div>`;
+        const cum = infCum[item.name];
+        if (cum && cum.contribution) {
+          contribHtml = `
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
+              <span class="stat-lbl">누적 기여수익</span>
+              <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(cum.contribution)}</span>
+            </div>`;
         }
       } else {
         const qty = item['수량'] ?? 0;
         if (qty > 0) {
           let monthContrib = 0;
           if (isTarget) {
-            const cum = item['누적수량'] ?? 0;
+            const cum     = item['누적수량'] ?? 0;
             const prevCum = Math.max(cum - qty, 0);
-            for (let q = prevCum; q < cum; q++) monthContrib += 45000 - tierPrice(q + 1);
+            for (let q = prevCum; q < cum; q++) monthContrib += MARGIN_SETTLEMENT - tierPrice(q + 1);
           } else {
-            monthContrib = qty * 84000;
+            monthContrib = qty * MARGIN_GENERAL;
           }
-          contribHtml = `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:1px solid var(--border)">
-            <span class="stat-lbl">${monthLabel(month)} 기여수익</span>
-            <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(monthContrib)}</span>
-          </div>`;
+          if (monthContrib > 0) {
+            contribHtml = `
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
+                <span class="stat-lbl">${monthLabel(month)} 기여수익</span>
+                <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(monthContrib)}</span>
+              </div>`;
+          }
         }
       }
 
+      // 정산 금액 / 티어 섹션
       let statsHtml;
       if (isTarget) {
         const cum     = item['누적수량'] ?? 0;
         const qty     = item['수량'] ?? 0;
         const prevCum = Math.max(cum - qty, 0);
-        const tiers   = tierBreakdownRange(prevCum, cum);
+        const tiers   = qty > 0 ? tierBreakdownRange(prevCum, cum) : [];
         const isMulti = tiers.length > 1;
-        const total   = tiers.reduce((s, t) => s + t.qty * t.price, 0);
+        const tierTotal = tiers.reduce((s, t) => s + t.qty * t.price, 0);
 
-        const rows = tiers.map(t => `
-          <div class="tier-row">
-            <span>${t.qty}개 × ${money(t.price)}${t.price > 20000 ? '<span class="tier-up">▲</span>' : ''}</span>
-            <span class="stat-val">${money(t.qty * t.price)}</span>
-          </div>`).join('');
-
-        const totalRow = isMulti ? `
-          <div class="tier-total">
-            <span style="color:var(--text3)">합계</span>
-            <span class="stat-val">${money(total)}</span>
-          </div>` : '';
+        let tierSection = '';
+        if (tiers.length > 0) {
+          const rows = tiers.map(t =>
+            `<div class="tier-row">
+              <span>${t.qty}개 × ${money(t.price)}${t.price > 20000 ? '<span class="tier-up">▲</span>' : ''}</span>
+              <span class="stat-val">${money(t.qty * t.price)}</span>
+            </div>`).join('');
+          const totalRow = isMulti
+            ? `<div class="tier-total"><span style="color:var(--text3)">합계</span><span class="stat-val">${money(tierTotal)}</span></div>`
+            : '';
+          tierSection = `<div class="tier-section">${rows}${totalRow}</div>`;
+        } else {
+          tierSection = `<div style="font-size:11px;color:var(--text3);padding:2px 0">-</div>`;
+        }
 
         statsHtml = `
           <div style="margin-top:8px">
             <span class="stat-lbl">${amountLabel}</span>
-            <div class="tier-section">${rows}${totalRow}</div>
+            ${tierSection}
           </div>
           <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
             <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
             <div><span class="stat-lbl">누적수량</span><span class="stat-val">${cum}개</span></div>
           </div>`;
       } else {
-        const genAmt   = item['금액'];
-        const genPrice = item['현재단가'];
-        const genQty   = item['수량'] ?? 0;
-        const amtRow = (genAmt != null && genPrice != null)
+        const genQty = item['수량'] ?? 0;
+        const genAmt = item['금액'];
+        const amtRow = genQty > 0
           ? `<div class="tier-row" style="margin-top:4px">
-               <span>${genQty}개 × ${money(genPrice)}</span>
+               <span>${genQty}개</span>
                <span class="stat-val">${money(genAmt)}</span>
              </div>`
-          : '';
+          : `<div style="font-size:11px;color:var(--text3);padding:2px 0">-</div>`;
         statsHtml = `
           <div style="margin-top:8px">
             <span class="stat-lbl">${amountLabel}</span>
-            <div class="tier-section">${amtRow || '<span style="color:var(--text3);font-size:11px">-</span>'}</div>
+            <div class="tier-section">${amtRow}</div>
           </div>
           <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
             <div><span class="stat-lbl">주문건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
@@ -534,7 +504,7 @@
     }).join('');
   }
 
-  // ── 퍼널 월별 추이 테이블 ─────────────────────────────────────────────────
+  // ── 퍼널 월별 테이블 ──────────────────────────────────────────────────────
   function renderFunnelMonthlyTable(byMonth, currentMonth) {
     const c = el('funnel-monthly-table');
     if (!c) return;
@@ -554,9 +524,8 @@
     const body = months.map(m => {
       const d = byMonth[m];
       const isCur = m === currentMonth;
-      const label = monthLabel(m) + (isCur ? ' ★' : '');
       return `<tr${isCur ? ' class="fmonth-cur"' : ''}>
-        <td>${label}</td>
+        <td>${monthLabel(m)}${isCur ? ' ★' : ''}</td>
         <td><span class="fmonth-cnt">${Number(d.sent).toLocaleString()}</span></td>
         ${cell(d.replied, d.reply_rate)}
         ${cell(d.meeting, d.meeting_rate)}
@@ -568,7 +537,7 @@
     c.innerHTML = `<table class="fmonth-table"><thead>${header}</thead><tbody>${body}</tbody></table>`;
   }
 
-  // ── 추세 차트 ──────────────────────────────────────────────────────────────
+  // ── 추세 차트 ─────────────────────────────────────────────────────────────
   function renderTrendChart(byMonth, currentMonth) {
     const ctx = el('trend-chart');
     if (!ctx) return;
@@ -599,12 +568,12 @@
           legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
           tooltip: {
             callbacks: {
-              label: ctx => {
-                const m   = months[ctx.dataIndex];
-                const d   = byMonth[m] || {};
+              label: c => {
+                const m = months[c.dataIndex];
+                const d = byMonth[m] || {};
                 const cntMap = { '응답률': d.replied, '미팅전환율': d.meeting, '체험전환율': d.exp, '광고수락률': d.ad };
-                const cnt = cntMap[ctx.dataset.label];
-                return ` ${ctx.dataset.label}: ${cnt != null ? cnt + '건 ' : ''}(${ctx.parsed.y}%)`;
+                const cnt = cntMap[c.dataset.label];
+                return ` ${c.dataset.label}: ${cnt != null ? cnt + '건 ' : ''}(${c.parsed.y}%)`;
               },
             },
           },
@@ -618,6 +587,7 @@
     });
   }
 
+  // ── 매출/수익 차트 ─────────────────────────────────────────────────────────
   function renderRevenueChart(t) {
     const ctx = el('revenue-chart');
     if (!ctx) return;
@@ -644,44 +614,16 @@
     });
   }
 
-  // ── 영업이익 KPI (수익관리 시트) ──────────────────────────────────────────
-  function renderProfitKPIs(pa, month) {
-    if (!pa) return;
-    let op, rate, cumulative;
-    if (!month) {
-      const entries = Object.values(pa.monthly || {});
-      op = entries.reduce((s, m) => s + (m.operating_profit || 0), 0);
-      const totalRev = entries.reduce((s, m) => s + (m.gross_revenue || 0), 0);
-      rate = totalRev ? op / totalRev : 0;
-      const sorted = Object.keys(pa.monthly || {}).sort();
-      cumulative = sorted.length ? (pa.monthly[sorted[sorted.length - 1]].cumulative_profit || 0) : 0;
-    } else {
-      const m = (pa.monthly || {})[month] || {};
-      op         = m.operating_profit      || 0;
-      rate       = m.operating_profit_rate || 0;
-      cumulative = m.cumulative_profit     || 0;
-    }
-    set('kpi-op-profit', money(op));
-    set('kpi-op-rate',   pct(rate));
-    set('kpi-cumulative', money(cumulative));
-    const oe = el('kpi-op-profit');
-    if (oe) oe.style.color = op > 0 ? '#3B6D11' : op < 0 ? '#A32D2D' : '';
-    const ce = el('kpi-cumulative');
-    if (ce) ce.style.color = cumulative > 0 ? '#3B6D11' : cumulative < 0 ? '#A32D2D' : '';
-    set('kpi-op-profit-sub', month ? monthLabel(month) + ' 기준' : '전체 합계');
-    set('kpi-op-rate-sub',   month ? '' : '전체 평균');
-    set('kpi-cumulative-sub', month ? month + '까지 누계' : '전체 누계');
-  }
-
-  // ── 월별 영업이익 차트 ─────────────────────────────────────────────────────
+  // ── 영업이익 차트 ─────────────────────────────────────────────────────────
   function renderProfitChart(pa) {
     const ctx = el('profit-chart');
     if (!ctx || !pa || !pa.monthly) return;
-    const months   = Object.keys(pa.monthly).sort();
-    const labels   = months.map(m => monthLabel(m));
+    const months    = Object.keys(pa.monthly).sort();
+    const labels    = months.map(monthLabel);
     const grossRevs = months.map(m => pa.monthly[m].gross_revenue || 0);
     const opProfits = months.map(m => pa.monthly[m].operating_profit || 0);
     const opRates   = months.map(m => +((pa.monthly[m].operating_profit_rate || 0) * 100).toFixed(1));
+
     new Chart(ctx, {
       type: 'bar',
       data: {
@@ -694,13 +636,20 @@
       },
       options: {
         responsive: true,
-        plugins: { legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
-                   tooltip: { callbacks: { label: ctx => ctx.dataset.yAxisID === 'y1'
-                     ? ` ${ctx.dataset.label}: ${ctx.parsed.y}%`
-                     : ` ${ctx.dataset.label}: ₩${Number(ctx.parsed.y).toLocaleString('ko-KR')}` } } },
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
+          tooltip: {
+            callbacks: {
+              label: c => c.dataset.yAxisID === 'y1'
+                ? ` ${c.dataset.label}: ${c.parsed.y}%`
+                : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}`,
+            },
+          },
+        },
         scales: {
           x:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
-          y:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 }, callback: v => '₩' + (v/10000).toFixed(0) + '만' },
+          y:  { grid: { color: '#E5E3D6' },
+                ticks: { font: { size: 10 }, callback: v => '₩' + (v / 10000).toFixed(0) + '만' },
                 title: { display: true, text: '금액 (₩)', font: { size: 10 }, color: '#A8A69C' } },
           y1: { position: 'right', grid: { drawOnChartArea: false },
                 ticks: { font: { size: 10 }, callback: v => v + '%' },
@@ -710,7 +659,7 @@
     });
   }
 
-  // ── 인플루언서 기여 수익 테이블 ────────────────────────────────────────────
+  // ── 기여수익 테이블 ────────────────────────────────────────────────────────
   function renderContribTable(pa, month, h) {
     const c = el('contrib-table');
     if (!c) return;
@@ -719,36 +668,41 @@
     let totalQty = 0;
 
     if (month && h) {
-      // 월별 모드: history 데이터에서 계산
+      // 월별 모드: history 파일 기준 계산
       const influencers = h.influencers || {};
-      const unitCount   = h.unit_count || 0;
+      totalQty = h.unit_count || 0;
       let knownQty = 0;
       items = Object.entries(influencers).map(([name, d]) => {
-        const qty  = d.qty || 0;
-        const isGen = d.is_general || false;
-        const cum  = d.cumulative_qty || 0;
+        const qty    = d.qty || 0;
+        const isGen  = d.is_general || false;
+        const cum    = d.cumulative_qty || 0;
         const prevCum = Math.max(cum - qty, 0);
         let contribution = 0;
         if (isGen) {
-          contribution = qty * 84000;
+          contribution = qty * MARGIN_GENERAL;
         } else {
-          for (let q = prevCum; q < cum; q++) contribution += 45000 - tierPrice(q + 1);
+          for (let q = prevCum; q < cum; q++) contribution += MARGIN_SETTLEMENT - tierPrice(q + 1);
         }
         knownQty += qty;
         return { name, qty, settlement: isGen ? 0 : (d.amount || 0), contribution, isGen };
       });
-      const miscQty = unitCount - knownQty;
-      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, contribution: miscQty * 84000, isGen: true });
-      totalQty = unitCount;
+      const miscQty = totalQty - knownQty;
+      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, contribution: miscQty * MARGIN_GENERAL, isGen: true });
     } else {
       // 전체 모드: profit_analysis.influencer_cumulative
       if (!pa) { c.innerHTML = ''; return; }
-      items = Object.entries(pa.influencer_cumulative || {}).map(([name, d]) => ({ name, ...d, isGen: !d.settlement }));
-      totalQty = Object.values((pa.monthly || {})).reduce((s, m) => s + (m.unit_count || Math.round((m.gross_revenue || 0) / 120000)), 0);
+      items = Object.entries(pa.influencer_cumulative || {}).map(([name, d]) => ({
+        name, qty: d.qty || 0, settlement: d.settlement || 0,
+        contribution: d.contribution || 0, isGen: (d.settlement || 0) === 0 && name.includes('기타'),
+      }));
+      totalQty = Object.values(pa.monthly || {}).reduce((s, m) => s + (m.unit_count || 0), 0);
     }
 
     items.sort((a, b) => b.contribution - a.contribution);
-    if (!items.length) { c.innerHTML = '<div style="font-size:11px;color:var(--text3);padding:8px 0">데이터 없음</div>'; return; }
+    if (!items.length) {
+      c.innerHTML = '<div style="font-size:11px;color:var(--text3);padding:8px 0">데이터 없음</div>';
+      return;
+    }
 
     const totalContrib = items.reduce((s, i) => s + (i.contribution || 0), 0);
     const laborCost    = totalQty * 10000;
@@ -757,18 +711,19 @@
     const rows = items.map(item => `<tr>
       <td>${item.name}</td>
       <td>${item.qty}개</td>
-      <td>${(item.isGen && !item.settlement) ? '<span style="color:var(--text3)">-</span>' : money(item.settlement)}</td>
+      <td>${item.settlement ? money(item.settlement) : '<span style="color:var(--text3)">-</span>'}</td>
       <td style="color:#3B6D11;font-weight:500">${money(item.contribution)}</td>
     </tr>`).join('');
 
-    c.innerHTML = `<table class="contrib-tbl">
-      <thead><tr><th>인플루언서</th><th style="text-align:right">수량</th><th style="text-align:right">정산액</th><th style="text-align:right">기여수익</th></tr></thead>
-      <tbody>${rows}</tbody>
-      <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
-    </table>
-    <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
-      눈길 인건비 (${laborLabel}): ${money(laborCost)} (${totalQty}개 × ₩10,000)
-    </div>`;
+    c.innerHTML = `
+      <table class="contrib-tbl">
+        <thead><tr><th>인플루언서</th><th style="text-align:right">수량</th><th style="text-align:right">정산액</th><th style="text-align:right">기여수익</th></tr></thead>
+        <tbody>${rows}</tbody>
+        <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
+      </table>
+      <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
+        눈길 인건비 (${laborLabel}): ${money(laborCost)} (${totalQty}개 × ₩10,000)
+      </div>`;
   }
 
   // ── 인플루언서 드릴다운 ────────────────────────────────────────────────────
@@ -792,7 +747,7 @@
     const cum = data.cumulative_qty || 0;
     set('inf-status',     data.current_status || '-');
     set('inf-cum-qty',    cum + '개');
-    set('inf-unit-price', money(tierPrice(cum)));  // 누적 기반 차등 단가
+    set('inf-unit-price', money(tierPrice(cum)));
 
     const monthly = data.monthly_orders || [];
     const ctx = el('monthly-chart');
@@ -801,11 +756,7 @@
         type: 'bar',
         data: {
           labels: monthly.map(m => monthLabel(m.month)),
-          datasets: [{
-            label: '수량',
-            data: monthly.map(m => m.qty),
-            backgroundColor: 'rgba(127,119,221,0.6)',
-          }],
+          datasets: [{ label: '수량', data: monthly.map(m => m.qty), backgroundColor: 'rgba(127,119,221,0.6)' }],
         },
         options: {
           responsive: true,
