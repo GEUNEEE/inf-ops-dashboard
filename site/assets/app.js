@@ -14,8 +14,36 @@
 
   let gData  = null;
   let _donut = null;
-  const hCache = {};
+  const hCache = {};  // month → history JSON 캐시
 
+  // ── 구간 단가 ─────────────────────────────────────────────────────────────
+  function tierPrice(cumQty) {
+    if (cumQty >= 100) return 25000;
+    if (cumQty  >= 30) return 22000;
+    return 20000;
+  }
+
+  // 누적 수량 전체에 대한 구간별 정산액 (1~29: 2만 / 30~99: 2.2만 / 100+: 2.5만)
+  function calcTieredAmount(n) {
+    if (n <= 0)  return 0;
+    if (n < 30)  return n * 20000;
+    if (n < 100) return 29 * 20000 + (n - 29) * 22000;
+    return 29 * 20000 + 70 * 22000 + (n - 99) * 25000;
+  }
+
+  // prevCum ~ cum 구간에 걸치는 티어별 {qty, price} 배열
+  function tierBreakdownRange(prevCum, cum) {
+    const tiers = [];
+    const t1 = Math.min(cum, 29)                       - Math.min(prevCum, 29);
+    const t2 = Math.min(Math.max(cum, 29), 99)         - Math.min(Math.max(prevCum, 29), 99);
+    const t3 = Math.max(cum, 99)                       - Math.max(prevCum, 99);
+    if (t1 > 0) tiers.push({ qty: t1, price: 20000 });
+    if (t2 > 0) tiers.push({ qty: t2, price: 22000 });
+    if (t3 > 0) tiers.push({ qty: t3, price: 25000 });
+    return tiers;
+  }
+
+  // ── 유틸 ──────────────────────────────────────────────────────────────────
   async function fetchData(path) {
     const res = await fetch(path + '?v=' + Date.now());
     if (!res.ok) throw new Error('fetch 실패: ' + path);
@@ -25,14 +53,13 @@
   function statusPill(status) {
     if (!status) return `<span class="pill pill-etc">-</span>`;
     let cls = 'pill-etc';
-    if      (status.includes('체험'))         cls = 'pill-exp';
-    else if (status.includes('광고완료'))     cls = 'pill-addone';
-    else if (status.includes('광고예정'))     cls = 'pill-adplan';
-    else if (status.includes('미팅진행'))     cls = 'pill-meeting-active';
-    else if (status.includes('미팅예정'))     cls = 'pill-meeting-plan';
-    else if (status.includes('미팅대기'))     cls = 'pill-meeting';
-    else if (status.includes('미팅'))         cls = 'pill-meeting';
-    else if (status.includes('거절'))         cls = 'pill-reject';
+    if      (status.includes('체험'))          cls = 'pill-exp';
+    else if (status.includes('광고완료'))      cls = 'pill-addone';
+    else if (status.includes('광고예정'))      cls = 'pill-adplan';
+    else if (status.includes('미팅진행'))      cls = 'pill-meeting-active';
+    else if (status.includes('미팅예정'))      cls = 'pill-meeting-plan';
+    else if (status.includes('미팅'))          cls = 'pill-meeting';
+    else if (status.includes('거절'))          cls = 'pill-reject';
     return `<span class="pill ${cls}">${status}</span>`;
   }
 
@@ -40,15 +67,14 @@
     return parseInt(ym.slice(5), 10) + '월';
   }
 
-  // ── KPI 업데이트 ────────────────────────────────────────────────────────────
+  // ── KPI 업데이트 ───────────────────────────────────────────────────────────
   function updateKPIs(r, f) {
-    set('kpi-revenue', money(r.gross_revenue));
-    set('kpi-orders',  (r.order_count || 0) + '건');
+    set('kpi-revenue',    money(r.gross_revenue));
+    set('kpi-orders',     (r.order_count || 0) + '건');
     set('kpi-reply-rate', pct(f.reply_rate));
-    set('kpi-ad-rate',    pct(f.ad_rate));
     set('kpi-exp-rate',   pct(f.exp_rate));
+    set('kpi-ad-rate',    pct(f.ad_rate));
 
-    // 수익: 양수=녹, 음수=적
     const profit = r.net_profit;
     set('kpi-profit', money(profit));
     const pe = el('kpi-profit');
@@ -59,25 +85,110 @@
     set('kpi-revenue-sub', r.unit_count != null ? r.unit_count + '개 판매' : '');
     set('kpi-orders-sub',  r.unit_count != null ? r.unit_count + '개 단위' : '');
     set('kpi-profit-sub',  r.net_profit > 0 ? '흑자' : r.net_profit < 0 ? '적자' : '');
-    set('kpi-reply-sub',   f.total_sent    ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
-    set('kpi-ad-sub',      f.meeting_total ? Number(f.meeting_total).toLocaleString() + '건 미팅 기준' : '');
+    set('kpi-reply-sub',   f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
+    set('kpi-exp-sub',     f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
+    set('kpi-ad-sub',      f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '');
   }
 
   function clearKPISubs() {
-    ['kpi-revenue-sub','kpi-orders-sub','kpi-profit-sub','kpi-reply-sub','kpi-ad-sub']
+    ['kpi-revenue-sub','kpi-orders-sub','kpi-profit-sub','kpi-reply-sub','kpi-exp-sub','kpi-ad-sub']
       .forEach(id => set(id, ''));
   }
 
-  // ── 히스토리 → settlement_summary 형식 변환 ──────────────────────────────
+  // ── 전체 기간 집계 ─────────────────────────────────────────────────────────
+  async function buildAllTimeData() {
+    const months = (gData.trends || {}).months || [];
+
+    // 병렬로 모든 history 로드 (캐시 우선)
+    await Promise.all(months.map(async m => {
+      if (!hCache[m]) {
+        try { hCache[m] = await fetchData('data/history/' + m + '.json'); }
+        catch (e) { console.warn('[전체] 로드 실패:', m); }
+      }
+    }));
+
+    const histories = months.map(m => hCache[m]).filter(Boolean);
+
+    // 매출·수익 합산
+    const revenue = { gross_revenue: 0, net_profit: 0, order_count: 0, unit_count: 0 };
+    for (const h of histories) {
+      revenue.gross_revenue += h.gross_revenue || 0;
+      revenue.net_profit    += h.net_profit    || 0;
+      revenue.order_count   += h.order_count   || 0;
+      revenue.unit_count    += h.unit_count    || 0;
+    }
+
+    // 인플루언서별 합산
+    const infMap = {};
+    for (const h of histories) {
+      for (const [name, d] of Object.entries(h.influencers || {})) {
+        if (!infMap[name]) {
+          infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general, unit_price: d.unit_price ?? null };
+        }
+        infMap[name].order_count += d.order_count || 0;
+        infMap[name].qty         += d.qty || 0;
+        if (d.amount != null) infMap[name].amount += d.amount;  // 기타/일반도 포함
+        if (d.unit_price != null && infMap[name].unit_price == null)
+          infMap[name].unit_price = d.unit_price;
+      }
+    }
+
+    // 누적 수량 기반으로 구간 단가 + 정산액 재계산
+    for (const d of Object.values(infMap)) {
+      if (!d.is_general) {
+        d.cumulative_qty = d.qty;
+        d.unit_price     = tierPrice(d.qty);
+        d.amount         = calcTieredAmount(d.qty);
+      } else {
+        d.cumulative_qty = null;
+        // unit_price, amount는 history에서 합산된 값 유지
+      }
+    }
+
+    return { revenue, infMap };
+  }
+
+  // 전체 기간 집계 → settlement_summary 형식
+  function buildAllTimeSummary(infMap, currentSummary) {
+    const result = {};
+    for (const [name, d] of Object.entries(infMap)) {
+      result[name] = {
+        '건수':     d.order_count,
+        '수량':     d.qty,
+        '누적수량': d.cumulative_qty,
+        '현재단가': d.unit_price,
+        '금액':     d.amount ?? null,
+        '정산대상': !d.is_general,
+        '현재상태': (currentSummary[name] || {})['현재상태'] || '',
+      };
+    }
+    // history에 없으나 현재 관리 중인 인플루언서 포함
+    for (const [name, d] of Object.entries(currentSummary)) {
+      if (!result[name] && d['정산대상']) {
+        result[name] = {
+          '건수': 0, '수량': 0, '누적수량': 0,
+          '현재단가': tierPrice(0), '금액': 0,
+          '정산대상': true, '현재상태': d['현재상태'] || '',
+        };
+      }
+    }
+    return result;
+  }
+
+  // 월 필터 → settlement_summary 형식 (누적수량 기반 차등 단가 + 해당 월 금액)
   function historyToSummary(influencers) {
     const s = {};
     for (const [name, d] of Object.entries(influencers)) {
+      const cum = d.cumulative_qty;
       s[name] = {
         '건수':     d.order_count ?? 0,
         '수량':     d.qty ?? 0,
-        '누적수량': d.cumulative_qty ?? null,
-        '현재단가': d.unit_price   ?? null,
-        '금액':     d.amount       ?? null,
+        '누적수량': cum ?? null,
+        '현재단가': d.is_general ? (d.unit_price ?? null) : tierPrice(cum || 0),
+        // 기타/일반: history 저장 금액 / 정산대상: 누적 기준 구간 정산액
+        '금액':     d.is_general
+          ? (d.amount ?? null)
+          : calcTieredAmount(cum || 0) - calcTieredAmount((cum || 0) - (d.qty || 0)),
         '정산대상': !d.is_general,
         '현재상태': '',
       };
@@ -85,7 +196,7 @@
     return s;
   }
 
-  // ── 월별 필터 버튼 ────────────────────────────────────────────────────────
+  // ── 월별 필터 버튼 ─────────────────────────────────────────────────────────
   function renderFilterButtons(months) {
     const c = el('month-filter');
     if (!c) return;
@@ -105,13 +216,16 @@
     const month = btn.dataset.month;
 
     if (!month) {
-      updateKPIs(gData.revenue || {}, gData.mail_funnel || {});
-      setKPISubs(gData.revenue || {}, gData.mail_funnel || {});
+      // 전체 — 모든 history 합산
+      const { revenue, infMap } = await buildAllTimeData();
+      updateKPIs(revenue, gData.mail_funnel || {});
+      setKPISubs(revenue, gData.mail_funnel || {});
       renderDonutChart(gData.inf_status || {});
-      renderInfluencerGrid(gData.settlement_summary || {}, null);
+      renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
       return;
     }
 
+    // 월 필터
     if (!hCache[month]) {
       try {
         hCache[month] = await fetchData('data/history/' + month + '.json');
@@ -124,14 +238,14 @@
 
     updateKPIs(
       { gross_revenue: h.gross_revenue, net_profit: h.net_profit, order_count: h.order_count, unit_count: h.unit_count },
-      { reply_rate: h.reply_rate, ad_rate: h.ad_rate, exp_rate: h.exp_rate }
+      { reply_rate: h.reply_rate, exp_rate: h.exp_rate, ad_rate: h.ad_rate, total_sent: h.total_sent }
     );
     clearKPISubs();
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
   }
 
-  // ── 메인 초기화 ───────────────────────────────────────────────────────────
+  // ── 메인 초기화 ────────────────────────────────────────────────────────────
   async function renderDashboard() {
     try {
       gData = await fetchData('data/dashboard.json');
@@ -141,7 +255,6 @@
       return;
     }
 
-    const r = gData.revenue     || {};
     const f = gData.mail_funnel || {};
     const t = gData.trends      || {};
 
@@ -154,19 +267,22 @@
     }
 
     renderFilterButtons(t.months || []);
-    updateKPIs(r, f);
-    setKPISubs(r, f);
     renderFunnelBars(f);
     renderDonutChart(gData.inf_status || {});
-    renderInfluencerGrid(gData.settlement_summary || {}, null);
 
     if (t.months && t.months.length > 0) {
       renderTrendChart(t);
       renderRevenueChart(t);
     }
+
+    // 기본값: 전체 집계
+    const { revenue, infMap } = await buildAllTimeData();
+    updateKPIs(revenue, f);
+    setKPISubs(revenue, f);
+    renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
   }
 
-  // ── 퍼널 바 (미팅 단계 포함) ──────────────────────────────────────────────
+  // ── 퍼널 바 ───────────────────────────────────────────────────────────────
   function renderFunnelBars(f) {
     const c = el('funnel-bars');
     if (!c) return;
@@ -197,7 +313,7 @@
     ].join('');
   }
 
-  // ── 도넛 차트 ─────────────────────────────────────────────────────────────
+  // ── 도넛 차트 ──────────────────────────────────────────────────────────────
   function renderDonutChart(infStatus) {
     const ctx = el('donut-chart');
     if (!ctx) return;
@@ -264,12 +380,12 @@
     }
   }
 
-  // ── 인플루언서 카드 그리드 ────────────────────────────────────────────────
+  // ── 인플루언서 카드 ────────────────────────────────────────────────────────
   function renderInfluencerGrid(summary, month) {
     const grid = el('inf-grid');
     if (!grid) return;
 
-    const amountLabel = month ? monthLabel(month) : '이번달';
+    const amountLabel = month ? monthLabel(month) + ' 정산액' : '누적 정산액';
 
     const items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
     items.sort((a, b) => {
@@ -286,32 +402,70 @@
         ? `<span class="pill pill-target">정산대상</span>`
         : `<span class="pill pill-general">기타/일반</span>`;
 
+      let statsHtml;
+      if (isTarget) {
+        const cum     = item['누적수량'] ?? 0;
+        const qty     = item['수량'] ?? 0;
+        const prevCum = Math.max(cum - qty, 0);
+        const tiers   = tierBreakdownRange(prevCum, cum);
+        const isMulti = tiers.length > 1;
+        const total   = tiers.reduce((s, t) => s + t.qty * t.price, 0);
+
+        const rows = tiers.map(t => `
+          <div class="tier-row">
+            <span>${t.qty}개 × ${money(t.price)}${t.price > 20000 ? '<span class="tier-up">▲</span>' : ''}</span>
+            <span class="stat-val">${money(t.qty * t.price)}</span>
+          </div>`).join('');
+
+        const totalRow = isMulti ? `
+          <div class="tier-total">
+            <span style="color:var(--text3)">합계</span>
+            <span class="stat-val">${money(total)}</span>
+          </div>` : '';
+
+        statsHtml = `
+          <div style="margin-top:8px">
+            <span class="stat-lbl">${amountLabel}</span>
+            <div class="tier-section">${rows}${totalRow}</div>
+          </div>
+          <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
+            <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+            <div><span class="stat-lbl">누적수량</span><span class="stat-val">${cum}개</span></div>
+          </div>`;
+      } else {
+        const genAmt   = item['금액'];
+        const genPrice = item['현재단가'];
+        const genQty   = item['수량'] ?? 0;
+        const amtRow = (genAmt != null && genPrice != null)
+          ? `<div class="tier-row" style="margin-top:4px">
+               <span>${genQty}개 × ${money(genPrice)}</span>
+               <span class="stat-val">${money(genAmt)}</span>
+             </div>`
+          : '';
+        statsHtml = `
+          <div style="margin-top:8px">
+            <span class="stat-lbl">${amountLabel}</span>
+            <div class="tier-section">${amtRow || '<span style="color:var(--text3);font-size:11px">-</span>'}</div>
+          </div>
+          <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
+            <div><span class="stat-lbl">주문건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+            <div><span class="stat-lbl">수량</span><span class="stat-val">${genQty}개</span></div>
+          </div>`;
+      }
+
       return `
         <${tag} class="inf-card" ${href}>
           <div class="inf-card-header">
             <span class="inf-card-name">${item.name}</span>
             ${badge}
           </div>
-          <div style="margin-bottom:6px">${statusPill(item['현재상태'] || '')}</div>
-          <div class="inf-card-stats">
-            <div>
-              <span class="stat-lbl">${amountLabel}</span>
-              <span class="stat-val">${money(item['금액'])}</span>
-            </div>
-            <div>
-              <span class="stat-lbl">누적수량</span>
-              <span class="stat-val">${item['누적수량'] != null ? item['누적수량'] + '개' : '-'}</span>
-            </div>
-            <div>
-              <span class="stat-lbl">단가</span>
-              <span class="stat-val">${money(item['현재단가'])}</span>
-            </div>
-          </div>
+          <div style="margin-bottom:4px">${statusPill(item['현재상태'] || '')}</div>
+          ${statsHtml}
         </${tag}>`;
     }).join('');
   }
 
-  // ── 추세 차트 ─────────────────────────────────────────────────────────────
+  // ── 추세 차트 ──────────────────────────────────────────────────────────────
   function renderTrendChart(t) {
     const ctx = el('trend-chart');
     if (!ctx) return;
@@ -363,7 +517,7 @@
     });
   }
 
-  // ── 인플루언서 드릴다운 페이지 ───────────────────────────────────────────
+  // ── 인플루언서 드릴다운 ────────────────────────────────────────────────────
   async function renderInfluencer() {
     const name = new URLSearchParams(window.location.search).get('name');
     if (!name) {
@@ -381,9 +535,10 @@
       return;
     }
 
+    const cum = data.cumulative_qty || 0;
     set('inf-status',     data.current_status || '-');
-    set('inf-cum-qty',    (data.cumulative_qty || 0) + '개');
-    set('inf-unit-price', money(data.current_tier_price));
+    set('inf-cum-qty',    cum + '개');
+    set('inf-unit-price', money(tierPrice(cum)));  // 누적 기반 차등 단가
 
     const monthly = data.monthly_orders || [];
     const ctx = el('monthly-chart');
@@ -417,6 +572,7 @@
     }
   }
 
+  // ── 초기화 ────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     if (document.body.dataset.page === 'dashboard')  renderDashboard();
     if (document.body.dataset.page === 'influencer') renderInfluencer();
