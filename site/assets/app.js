@@ -480,6 +480,8 @@
     const c = el('funnel-monthly-table');
     if (!c) return;
 
+    const expByMonth = t.exp_by_month || {};
+
     const months = (t.months || []).slice();
     const rows = months.map((m, i) => ({
       month:        m,
@@ -487,11 +489,10 @@
       total_sent:   (t.total_sent    || [])[i] || 0,
       replied:      (t.replied       || [])[i] || 0,
       meeting_total:(t.meeting_total || [])[i] || 0,
-      exp_total:    (t.exp_total     || [])[i] || 0,
+      exp_new:      expByMonth[m] || 0,
       ad_total:     (t.ad_total      || [])[i] || 0,
       reply_rate:   (t.reply_rate    || [])[i] || 0,
       meeting_rate: (t.meeting_rate  || [])[i] || 0,
-      exp_rate:     (t.exp_rate      || [])[i] || 0,
       ad_rate:      (t.ad_rate       || [])[i] || 0,
     }));
 
@@ -501,11 +502,10 @@
         total_sent:    f.total_sent    || 0,
         replied:       f.replied       || 0,
         meeting_total: f.meeting_total || 0,
-        exp_total:     f.exp_total     || 0,
+        exp_new:       expByMonth[currentMonth] || 0,
         ad_total:      f.ad_total      || 0,
         reply_rate:    f.reply_rate    || 0,
         meeting_rate:  f.meeting_rate  || 0,
-        exp_rate:      f.exp_rate      || 0,
         ad_rate:       f.ad_rate       || 0,
       });
     }
@@ -520,15 +520,18 @@
       return `<td><span class="fmonth-cnt">${Number(count).toLocaleString()}</span><span class="fmonth-pct">(${(rate * 100).toFixed(1)}%)</span></td>`;
     }
 
-    const header = '<tr><th>월</th><th>발송</th><th>응답</th><th>미팅</th><th>체험</th><th>광고</th></tr>';
+    const header = '<tr><th>월</th><th>발송</th><th>응답</th><th>미팅</th><th>체험수락</th><th>광고</th></tr>';
     const body = rows.map(r => {
       const label = monthLabel(r.month) + (r.isCurrent ? ' ★' : '');
+      const expCell = r.exp_new
+        ? `<td><span class="fmonth-cnt">${r.exp_new}</span><span class="fmonth-pct">명</span></td>`
+        : '<td>-</td>';
       return `<tr${r.isCurrent ? ' class="fmonth-cur"' : ''}>
         <td>${label}</td>
         <td><span class="fmonth-cnt">${Number(r.total_sent).toLocaleString()}</span></td>
         ${cell(r.replied, r.reply_rate)}
         ${cell(r.meeting_total, r.meeting_rate)}
-        ${cell(r.exp_total, r.exp_rate)}
+        ${expCell}
         ${cell(r.ad_total, r.ad_rate)}
       </tr>`;
     }).join('');
