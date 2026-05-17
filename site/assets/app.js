@@ -272,6 +272,7 @@
       return;
     }
 
+    try {
     const f = gData.mail_funnel || {};
     const t = gData.trends      || {};
 
@@ -304,8 +305,8 @@
     }
 
     const pa = gData.profit_analysis || null;
-    renderProfitChart(pa);
-    renderContribTable(pa, null, null);
+    try { renderProfitChart(pa); } catch(e) { console.error('[차트오류] renderProfitChart:', e); }
+    try { renderContribTable(pa, null, null); } catch(e) { console.error('[차트오류] renderContribTable:', e); }
 
     // 기본값: 전체 집계
     const { revenue, infMap } = await buildAllTimeData();
@@ -313,6 +314,11 @@
     setKPISubs(revenue, f);
     renderProfitKPIs(pa, null);
     renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
+    } catch(e) {
+      console.error('[대시보드 오류]', e);
+      const b = el('error-banner');
+      if (b) { b.textContent = '렌더링 오류: ' + e.message; b.classList.remove('hidden'); }
+    }
   }
 
   // ── 퍼널 바 ───────────────────────────────────────────────────────────────
@@ -677,6 +683,7 @@
     const opProfits = months.map(m => pa.monthly[m].operating_profit || 0);
     const opRates   = months.map(m => +((pa.monthly[m].operating_profit_rate || 0) * 100).toFixed(1));
     new Chart(ctx, {
+      type: 'bar',
       data: {
         labels,
         datasets: [
