@@ -220,6 +220,7 @@
       const { revenue, infMap } = await buildAllTimeData();
       updateKPIs(revenue, gData.mail_funnel || {});
       setKPISubs(revenue, gData.mail_funnel || {});
+      renderFunnelBars(gData.mail_funnel || {});
       renderDonutChart(gData.inf_status || {});
       renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
       return;
@@ -241,6 +242,18 @@
       { reply_rate: h.reply_rate, exp_rate: h.exp_rate, ad_rate: h.ad_rate, total_sent: h.total_sent }
     );
     clearKPISubs();
+
+    // 퍼널 바: 해당 월 발송일 기준 데이터
+    const mf = (gData.mail_funnel_by_month || {})[month] || {};
+    const adByMonth = gData.ad_by_month || {};
+    renderFunnelBars({
+      total_sent:    mf.sent    || 0,
+      replied:       mf.replied || 0,
+      meeting_total: mf.meeting || 0,
+      exp_total:     mf.exp     || 0,
+      ad_total:      adByMonth[month] || 0,
+    });
+
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
   }
