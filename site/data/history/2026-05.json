@@ -1,10 +1,10 @@
 {
   "month": "2026-05",
   "generated_at": "2026-05-17T16:46:09",
-  "gross_revenue": 120000,
-  "net_profit": -1320000,
-  "order_count": 22,
-  "unit_count": 24,
+  "gross_revenue": 620000,
+  "net_profit": -3180000,
+  "order_count": 53,
+  "unit_count": 62,
   "total_sent": 1395,
   "replied": 200,
   "meeting_total": 66,
@@ -26,45 +26,45 @@
     "기타": 15
   },
   "influencers": {
-    "마성민": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 4,
-      "unit_price": 20000,
-      "amount": 20000,
-      "is_general": false
-    },
-    "나이스부부": {
-      "order_count": 0,
-      "qty": 0,
-      "cumulative_qty": 2,
-      "unit_price": 20000,
-      "amount": 0,
-      "is_general": false
-    },
     "C맹씨": {
-      "order_count": 5,
-      "qty": 5,
-      "cumulative_qty": 15,
-      "unit_price": 20000,
-      "amount": 100000,
-      "is_general": false
-    },
-    "The 조치 패밀리": {
-      "order_count": 0,
-      "qty": 0,
-      "cumulative_qty": 1,
-      "unit_price": 20000,
-      "amount": 0,
+      "order_count": 20,
+      "qty": 20,
+      "cumulative_qty": 30,
+      "unit_price": 22000,
+      "amount": 400000,
       "is_general": false
     },
     "기타/일반": {
-      "order_count": 5,
-      "qty": 5,
+      "order_count": 13,
+      "qty": 18,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": null,
       "is_general": true
+    },
+    "나이스부부": {
+      "order_count": 3,
+      "qty": 4,
+      "cumulative_qty": 6,
+      "unit_price": 20000,
+      "amount": 80000,
+      "is_general": false
+    },
+    "The 조치 패밀리": {
+      "order_count": 2,
+      "qty": 2,
+      "cumulative_qty": 3,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false
+    },
+    "마성민": {
+      "order_count": 4,
+      "qty": 5,
+      "cumulative_qty": 8,
+      "unit_price": 20000,
+      "amount": 100000,
+      "is_general": false
     }
   }
 }
