@@ -278,10 +278,11 @@
       `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px">` +
       `진행 ${_active}<span style="font-weight:400;opacity:0.55"> / ${_total}명</span></span>`;
 
-    renderFunnelMonthlyTable(t, f, gData.current_month);
+    const byMonth = gData.mail_funnel_by_month || {};
+    renderFunnelMonthlyTable(byMonth, gData.current_month);
 
     if (t.months && t.months.length > 0) {
-      renderTrendChart(t, f, gData.current_month);
+      renderTrendChart(byMonth, gData.current_month);
       renderRevenueChart(t);
     }
 
@@ -476,41 +477,12 @@
   }
 
   // ── 퍼널 월별 추이 테이블 ─────────────────────────────────────────────────
-  function renderFunnelMonthlyTable(t, f, currentMonth) {
+  function renderFunnelMonthlyTable(byMonth, currentMonth) {
     const c = el('funnel-monthly-table');
     if (!c) return;
 
-    const expByMonth = t.exp_by_month || {};
-
-    const months = (t.months || []).slice();
-    const rows = months.map((m, i) => ({
-      month:        m,
-      isCurrent:    false,
-      total_sent:   (t.total_sent    || [])[i] || 0,
-      replied:      (t.replied       || [])[i] || 0,
-      meeting_total:(t.meeting_total || [])[i] || 0,
-      exp_new:      expByMonth[m] || 0,
-      ad_total:     (t.ad_total      || [])[i] || 0,
-      reply_rate:   (t.reply_rate    || [])[i] || 0,
-      meeting_rate: (t.meeting_rate  || [])[i] || 0,
-      ad_rate:      (t.ad_rate       || [])[i] || 0,
-    }));
-
-    if (currentMonth && !months.includes(currentMonth)) {
-      rows.push({
-        month: currentMonth, isCurrent: true,
-        total_sent:    f.total_sent    || 0,
-        replied:       f.replied       || 0,
-        meeting_total: f.meeting_total || 0,
-        exp_new:       expByMonth[currentMonth] || 0,
-        ad_total:      f.ad_total      || 0,
-        reply_rate:    f.reply_rate    || 0,
-        meeting_rate:  f.meeting_rate  || 0,
-        ad_rate:       f.ad_rate       || 0,
-      });
-    }
-
-    if (!rows.length) {
+    const months = Object.keys(byMonth).sort();
+    if (!months.length) {
       c.innerHTML = '<div style="font-size:11px;color:var(--text3);padding:8px 0">데이터 없음</div>';
       return;
     }
@@ -520,19 +492,18 @@
       return `<td><span class="fmonth-cnt">${Number(count).toLocaleString()}</span><span class="fmonth-pct">(${(rate * 100).toFixed(1)}%)</span></td>`;
     }
 
-    const header = '<tr><th>월</th><th>발송</th><th>응답</th><th>미팅</th><th>체험수락</th><th>광고</th></tr>';
-    const body = rows.map(r => {
-      const label = monthLabel(r.month) + (r.isCurrent ? ' ★' : '');
-      const expCell = r.exp_new
-        ? `<td><span class="fmonth-cnt">${r.exp_new}</span><span class="fmonth-pct">명</span></td>`
-        : '<td>-</td>';
-      return `<tr${r.isCurrent ? ' class="fmonth-cur"' : ''}>
+    const header = '<tr><th>월</th><th>발송</th><th>응답</th><th>미팅</th><th>체험</th><th>광고</th></tr>';
+    const body = months.map(m => {
+      const d = byMonth[m];
+      const isCur = m === currentMonth;
+      const label = monthLabel(m) + (isCur ? ' ★' : '');
+      return `<tr${isCur ? ' class="fmonth-cur"' : ''}>
         <td>${label}</td>
-        <td><span class="fmonth-cnt">${Number(r.total_sent).toLocaleString()}</span></td>
-        ${cell(r.replied, r.reply_rate)}
-        ${cell(r.meeting_total, r.meeting_rate)}
-        ${expCell}
-        ${cell(r.ad_total, r.ad_rate)}
+        <td><span class="fmonth-cnt">${Number(d.sent).toLocaleString()}</span></td>
+        ${cell(d.replied, d.reply_rate)}
+        ${cell(d.meeting, d.meeting_rate)}
+        ${cell(d.exp,     d.exp_rate)}
+        ${cell(d.ad,      d.ad_rate)}
       </tr>`;
     }).join('');
 
@@ -540,34 +511,18 @@
   }
 
   // ── 추세 차트 ──────────────────────────────────────────────────────────────
-  function renderTrendChart(t, f, currentMonth) {
+  function renderTrendChart(byMonth, currentMonth) {
     const ctx = el('trend-chart');
     if (!ctx) return;
 
-    // 현재 달이 trends에 없으면 끝에 추가
-    const months      = (t.months || []).slice();
-    const replyRates  = (t.reply_rate   || []).map(v => +(v * 100).toFixed(1));
-    const meetRates   = (t.meeting_rate || []).map(v => +(v * 100).toFixed(1));
-    const expRates    = (t.exp_rate     || []).map(v => +(v * 100).toFixed(1));
-    const adRates     = (t.ad_rate      || []).map(v => +(v * 100).toFixed(1));
-    const replieds    = (t.replied       || []).slice();
-    const meetings    = (t.meeting_total || []).slice();
-    const exps        = (t.exp_total     || []).slice();
-    const ads         = (t.ad_total      || []).slice();
+    const months = Object.keys(byMonth).sort();
+    if (!months.length) return;
 
-    if (currentMonth && f && !months.includes(currentMonth)) {
-      months.push(currentMonth);
-      replyRates.push(+(( f.reply_rate   || 0) * 100).toFixed(1));
-      meetRates.push( +(( f.meeting_rate || 0) * 100).toFixed(1));
-      expRates.push(  +(( f.exp_rate     || 0) * 100).toFixed(1));
-      adRates.push(   +(( f.ad_rate      || 0) * 100).toFixed(1));
-      replieds.push(f.replied       || 0);
-      meetings.push( f.meeting_total || 0);
-      exps.push(     f.exp_total     || 0);
-      ads.push(      f.ad_total      || 0);
-    }
-
-    const labels = months.map((m, i) => monthLabel(m) + (i === months.length - 1 && currentMonth && m === currentMonth ? ' ★' : ''));
+    const labels     = months.map(m => monthLabel(m) + (m === currentMonth ? ' ★' : ''));
+    const replyRates = months.map(m => +((byMonth[m].reply_rate   || 0) * 100).toFixed(1));
+    const meetRates  = months.map(m => +((byMonth[m].meeting_rate || 0) * 100).toFixed(1));
+    const expRates   = months.map(m => +((byMonth[m].exp_rate     || 0) * 100).toFixed(1));
+    const adRates    = months.map(m => +((byMonth[m].ad_rate      || 0) * 100).toFixed(1));
 
     new Chart(ctx, {
       type: 'line',
@@ -587,9 +542,10 @@
           tooltip: {
             callbacks: {
               label: ctx => {
-                const i = ctx.dataIndex;
-                const countMap = { '응답률': replieds[i], '미팅전환율': meetings[i], '체험전환율': exps[i], '광고수락률': ads[i] };
-                const cnt = countMap[ctx.dataset.label];
+                const m   = months[ctx.dataIndex];
+                const d   = byMonth[m] || {};
+                const cntMap = { '응답률': d.replied, '미팅전환율': d.meeting, '체험전환율': d.exp, '광고수락률': d.ad };
+                const cnt = cntMap[ctx.dataset.label];
                 return ` ${ctx.dataset.label}: ${cnt != null ? cnt + '건 ' : ''}(${ctx.parsed.y}%)`;
               },
             },

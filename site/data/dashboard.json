@@ -136,5 +136,11 @@
       16
     ]
   },
+  "mail_funnel_by_month": {
+    "2026-02": {"sent":152,"replied":22,"meeting":13,"exp":6,"ad":1,"reply_rate":0.1447,"meeting_rate":0.0855,"exp_rate":0.0395,"ad_rate":0.0066},
+    "2026-03": {"sent":260,"replied":35,"meeting":15,"exp":10,"ad":9,"reply_rate":0.1346,"meeting_rate":0.0577,"exp_rate":0.0385,"ad_rate":0.0346},
+    "2026-04": {"sent":661,"replied":98,"meeting":31,"exp":13,"ad":6,"reply_rate":0.1483,"meeting_rate":0.0469,"exp_rate":0.0197,"ad_rate":0.0091},
+    "2026-05": {"sent":322,"replied":43,"meeting":7,"exp":7,"ad":0,"reply_rate":0.1335,"meeting_rate":0.0217,"exp_rate":0.0217,"ad_rate":0.0}
+  },
   "alerts": {}
 }
