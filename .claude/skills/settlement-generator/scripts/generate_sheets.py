@@ -14,11 +14,14 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
 import openpyxl
+from openpyxl.drawing.image import Image as XLImage
+from openpyxl.styles import Border, Side, Alignment, PatternFill, Font
 
 BASE_DIR      = Path(r"C:\Users\user\비서")
 RAWDATA_PATH  = BASE_DIR / "스케줄" / "정산DB_업데이트.xlsx"
 CONFIG_PATH   = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "ytber_config.json"
 TEMPLATE_PATH = BASE_DIR / "스케줄" / "유튜버별 월정산시트 작성 4월분_송부용.xlsx"
+LOGO_PATH     = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "chobangli_logo.png"
 
 # 정산DB Raw_Data 컬럼 인덱스 (0-based)
 RAW_COL_DATE   = 2   # 주문일시
@@ -51,6 +54,22 @@ def get_tier_price(cumulative_qty: int, tier_pricing: list) -> int:
         if cumulative_qty >= tier["min_qty"]:
             price = tier["unit_price"]
     return price
+
+
+def calc_monthly_amount(cum_before: int, ok_list: list, tier_pricing: list) -> tuple[int, int]:
+    """단위 수량별 구간 적용: 구간 전 수량은 이전 단가, 경계 도달 시점부터 새 단가.
+    Returns (total_settlement_amount, final_unit_price).
+    """
+    cum = cum_before
+    total = 0
+    final_price = get_tier_price(max(cum_before, 1), tier_pricing)
+    for order in ok_list:
+        for _ in range(order["qty"]):
+            cum += 1
+            price = get_tier_price(cum, tier_pricing)
+            total += price
+            final_price = price
+    return total, final_price
 
 
 def get_month_orders(rawdata_ws, target_month: str) -> list:
@@ -104,6 +123,107 @@ def get_cumulative_qty_before(rawdata_ws, ytber_name: str, target_month: str) ->
         except (ValueError, TypeError):
             pass
     return total
+
+
+_THIN   = Side(border_style="thin")
+_MEDIUM = Side(border_style="medium")
+_NONE   = Side(border_style=None)
+
+
+def add_logo(ws):
+    """초방리 마을 로고를 시트 B17 위치에 삽입"""
+    if not LOGO_PATH.exists():
+        return
+    img = XLImage(str(LOGO_PATH))
+    img.anchor = "B17"
+    img.width  = 326
+    img.height = 211
+    ws.add_image(img)
+
+
+def apply_table_style(ws, header_row: int, data_count: int, col_count: int):
+    """주문 데이터 행에 테두리 서식 적용 (헤더 포함)"""
+    start_col = 2          # B
+    end_col   = start_col + col_count - 1
+
+    # 헤더행: 가운데 정렬 + 상단 medium 테두리
+    for col in range(start_col, end_col + 1):
+        cell = ws.cell(header_row, col)
+        cell.alignment = Alignment(horizontal="center", vertical="center")
+        cell.font      = Font(bold=True)
+        left  = _MEDIUM if col == start_col else _THIN
+        right = _MEDIUM if col == end_col   else _THIN
+        cell.border = Border(top=_MEDIUM, bottom=_THIN, left=left, right=right)
+
+    # 데이터행
+    for i in range(data_count):
+        row_num  = header_row + 1 + i
+        is_last  = (i == data_count - 1)
+        top      = _NONE if i > 0 else _NONE   # 헤더 bottom으로 대체
+        bottom   = _MEDIUM if is_last else _THIN
+
+        for col in range(start_col, end_col + 1):
+            cell  = ws.cell(row_num, col)
+            left  = _MEDIUM if col == start_col else _THIN
+            right = _MEDIUM if col == end_col   else _THIN
+            cell.border    = Border(top=top, bottom=bottom, left=left, right=right)
+            cell.alignment = Alignment(vertical="center")
+
+
+def find_label_row(ws, label: str, search_col: int = 2) -> int | None:
+    """search_col 열(1-based)에서 label이 있는 첫 번째 행 번호 반환"""
+    for row in ws.iter_rows(min_col=search_col, max_col=search_col, values_only=False):
+        if row[0].value == label:
+            return row[0].row
+    return None
+
+
+def write_order_rows(ws, ok_list: list, can_list: list, is_general: bool):
+    """'주문번호' 헤더 이하 기존 행을 삭제하고 ok/can 주문을 재기입 + 서식 적용"""
+    header_row = find_label_row(ws, "주문번호")
+    if header_row is None:
+        return
+
+    data_rows = ws.max_row - header_row
+    if data_rows > 0:
+        ws.delete_rows(header_row + 1, data_rows)
+
+    for o in ok_list:
+        if is_general:
+            ws.append([None, o["order_no2"], o["product_name"], o["order_date"], o["buyer_name"], o["qty"], None])
+        else:
+            ws.append([None, o["order_no2"], o["product_name"], o["order_date"], o["qty"], None])
+
+    for o in can_list:
+        if is_general:
+            ws.append([None, o["order_no2"], o["product_name"], o["order_date"], o["buyer_name"], o["qty"], "취소"])
+        else:
+            ws.append([None, o["order_no2"], o["product_name"], o["order_date"], o["qty"], "취소"])
+
+    total = len(ok_list) + len(can_list)
+    col_count = 6 if is_general else 5
+    if total > 0:
+        apply_table_style(ws, header_row, total, col_count)
+
+
+def write_agg_values(ws, ok_list: list, can_list: list, settlement_amount, is_general: bool):
+    """집계 값(건수·수량·금액)을 레이블 행의 C열에 직접 기입 (수식 대체)"""
+    ok_qty = sum(o["qty"] for o in ok_list)
+
+    label_map = {
+        "총 주문 건수":          len(ok_list) + len(can_list),
+        "주문 취소 건수":         len(can_list),
+        "최종 판매 수량":         ok_qty,
+        "최종 정산 금액 (세전)":  settlement_amount if (settlement_amount is not None and not is_general) else None,
+        "최종 정산 금액":         settlement_amount if (settlement_amount is not None and not is_general) else None,
+    }
+
+    for label, value in label_map.items():
+        if value is None:
+            continue
+        r = find_label_row(ws, label)
+        if r:
+            ws.cell(r, 3).value = value  # C열
 
 
 def main():
@@ -211,11 +331,7 @@ def main():
         unit_price = None
         if not is_general:
             cum_before = get_cumulative_qty_before(rawdata_ws, ytber_name, settlement_month)
-            ok_list    = ytber_ok.get(ytber_name, [])
-            month_qty  = sum(o["qty"] for o in ok_list)
-            total_cum  = cum_before + month_qty
-            unit_price = get_tier_price(total_cum, tier_pricing)
-            ws["C14"] = unit_price
+            ws["C14"] = get_tier_price(cum_before, tier_pricing)  # 월 시작 시점 단가 (참고용)
 
         # 시트명 변경 (템플릿 4월 → 현재 월)
         safe_name  = re.sub(r'[\\/*?:\[\]/]', '', ytber_name)
@@ -225,8 +341,21 @@ def main():
         ok_list   = ytber_ok.get(ytber_name, [])
         can_list  = ytber_can.get(ytber_name, [])
         final_qty = sum(o["qty"] for o in ok_list)
+
+        # 주문별 구간 단가 누적 계산 (경계 주문부터 새 단가 적용)
+        if not is_general:
+            amount, unit_price = calc_monthly_amount(cum_before, ok_list, tier_pricing)
+            ws["C14"] = unit_price  # 최종 도달 단가로 갱신
+        else:
+            amount, unit_price = None, None
+
         cum_total = (cum_before + final_qty) if not is_general else None
-        amount    = (final_qty * unit_price) if (not is_general and unit_price is not None) else None
+
+        # 주문 상세 행 + 집계 값 직접 기입 (수식 의존 제거)
+        write_order_rows(ws, ok_list, can_list, is_general)
+        write_agg_values(ws, ok_list, can_list, amount, is_general)
+
+        # 초방리 마을 로고: 템플릿 drawing XML이 openpyxl 저장 시 자동 보존됨
 
         summaries.append({
             "ytber":             ytber_name,

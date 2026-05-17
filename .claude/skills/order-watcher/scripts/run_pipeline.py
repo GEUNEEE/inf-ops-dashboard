@@ -67,7 +67,15 @@ def main():
     print("[STEP 2] 인플루언서관리 파싱...", file=sys.stderr)
     inf_data = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_inf.py")
     inf_json = save_temp_json(inf_data, "inf.json")
-    managed_set = json.dumps(inf_data.get("managed_set", []))
+    # ytber_config의 additional_managed를 managed_set에 병합
+    CONFIG_PATH = SKILLS_DIR / "settlement-generator" / "scripts" / "ytber_config.json"
+    try:
+        ytber_cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+        additional = ytber_cfg.get("additional_managed", [])
+    except Exception:
+        additional = []
+    managed_list = list(set(inf_data.get("managed_set", [])) | set(additional))
+    managed_set = json.dumps(managed_list)
 
     # STEP 3-4 — 복호화 + 버킷 분류 + Raw_Data 반영
     print("[STEP 3-4] 주문 파싱 + 버킷 분류...", file=sys.stderr)

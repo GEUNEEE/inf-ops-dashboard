@@ -18,15 +18,15 @@ EXCEL_DIR  = Path(r"C:\Users\user\비서\스케줄")
 SHEET_NAME = "메일발송현황"
 
 # 0-based 열 인덱스 (실제 메일발송현황 시트 기준)
-COL_SEND_DATE   = 25  # 발송일
-COL_REPLY_DATE  = 27  # 회신일
-COL_STATUS      = 28  # 진행 상태
-COL_ACCEPT_DATE = 30  # 협찬 수락일
+COL_SEND_DATE   = 25  # Z  발송일
+COL_REPLY_DATE  = 27  # AB 회신일
+COL_STATUS      = 28  # AC 진행 상태
+COL_MTG_DATE    = 29  # AD 미팅일
+COL_ACCEPT_DATE = 30  # AE 협찬 수락일
+COL_AD_DATE     = 31  # AF 광고 수락일
 DATA_START_ROW  = 7   # 1-based
 
 ETC_KEYWORDS = {"검토", "진행불가", "우리측거절", "기타"}
-MEETING_KEYWORDS = {"미팅대기", "미팅진행", "미팅예정"}
-AD_KEYWORDS = {"광고예정", "광고완료", "광고진행"}
 
 
 def find_latest_excel(excel_dir: Path) -> Path:
@@ -92,12 +92,23 @@ def main():
     etc_count  = 0
     replied    = 0
     meeting    = 0
-    exp_total  = 0  # 인플루언서관리 시트에서 채움 — 여기선 협찬수락일로 근사
+    exp_total  = 0
     ad_total   = 0
     empty_streak = 0
+    by_month: dict = {}   # "YYYY-MM" → {sent, replied, meeting, exp, ad}
+
+    def _ym(val):
+        """날짜값 → 'YYYY-MM' 문자열, 파싱 불가 시 None"""
+        if val is None:
+            return None
+        if isinstance(val, (datetime, date)):
+            return val.strftime("%Y-%m")
+        try:
+            return datetime.strptime(str(val).strip(), "%Y-%m-%d").strftime("%Y-%m")
+        except Exception:
+            return None
 
     for row_idx, row_vals in enumerate(ws.iter_rows(min_row=DATA_START_ROW, values_only=True)):
-        # 빈 행 연속 10줄이면 종료 (엑셀 max_row=1048576 방지)
         if all(v is None for v in row_vals):
             empty_streak += 1
             if empty_streak >= 10:
@@ -111,52 +122,85 @@ def main():
         send_date   = _get(COL_SEND_DATE)
         reply_date  = _get(COL_REPLY_DATE)
         status_raw  = _get(COL_STATUS)
+        mtg_date    = _get(COL_MTG_DATE)
         accept_date = _get(COL_ACCEPT_DATE)
+        ad_date     = _get(COL_AD_DATE)
 
+        # 회신: 발송일 여부와 무관하게 회신일 날짜 있으면 카운트
+        if is_date(reply_date):
+            replied += 1
+
+        # 이하 지표는 발송일 있는 행만
         if not is_date(send_date):
             continue
 
+        total_sent += 1
         status = normalize_status(status_raw)
+        ym = _ym(send_date)
 
-        # 기타 상태 → 분모·분자 모두 제외
+        # 월별 발송 집계 (발송일 기준)
+        if ym:
+            if ym not in by_month:
+                by_month[ym] = {"sent": 0, "replied": 0, "meeting": 0, "exp": 0, "ad": 0}
+            by_month[ym]["sent"] += 1
+            if is_date(reply_date):
+                by_month[ym]["replied"] += 1
+            if is_date(mtg_date):
+                by_month[ym]["meeting"] += 1
+
+        # 미팅: 미팅일 날짜 있으면 카운트 (기타 포함)
+        if is_date(mtg_date):
+            meeting += 1
+
+        # 기타(검토/진행불가/우리측거절)는 체험·광고 지표에서만 제외
         if any(k in status for k in ETC_KEYWORDS) or status == "기타":
             etc_count += 1
             continue
 
-        total_sent += 1
-
-        # 응답: 회신일 있음 OR 진행상태 기재 OR 협찬수락일 있음
-        if is_date(reply_date) or status or is_date(accept_date):
-            replied += 1
-
-        # 미팅: 미팅대기/미팅진행/미팅예정
-        if any(k in status for k in MEETING_KEYWORDS):
-            meeting += 1
-
-        # 협찬수락일로 체험전환 근사 (정확값은 인플루언서관리 시트에서)
+        # 체험전환 (협찬수락일 기준)
         if is_date(accept_date):
             exp_total += 1
+            if ym:
+                by_month[ym]["exp"] += 1
 
-        # 광고단계
-        if any(k in status for k in AD_KEYWORDS):
+        # 광고수락 (광고수락일 기준)
+        if is_date(ad_date):
             ad_total += 1
+            if ym:
+                by_month[ym]["ad"] += 1
 
     wb.close()
 
+    # 월별 비율 계산
+    by_month_rates = {}
+    for ym, d in sorted(by_month.items()):
+        s = d["sent"] or 1
+        by_month_rates[ym] = {
+            "sent":         d["sent"],
+            "replied":      d["replied"],
+            "meeting":      d["meeting"],
+            "exp":          d["exp"],
+            "ad":           d["ad"],
+            "reply_rate":   round(d["replied"] / s, 4),
+            "meeting_rate": round(d["meeting"] / s, 4),
+            "exp_rate":     round(d["exp"] / s, 4),
+            "ad_rate":      round(d["ad"] / s, 4),
+        }
+
     result = {
-        "total_sent":    total_sent,
-        "etc_excluded":  etc_count,
-        "replied":       replied,
-        "reply_rate":    round(replied / total_sent, 4) if total_sent else 0,
-        "meeting_total": meeting,
-        "meeting_rate":  round(meeting / total_sent, 4) if total_sent else 0,
+        "total_sent":       total_sent,
+        "etc_excluded":     etc_count,
+        "replied":          replied,
+        "reply_rate":       round(replied / total_sent, 4) if total_sent else 0,
+        "meeting_total":    meeting,
+        "meeting_rate":     round(meeting / total_sent, 4) if total_sent else 0,
         "exp_total_approx": exp_total,
-        "ad_total":      ad_total,
-        "ad_rate":       round(ad_total / total_sent, 4) if total_sent else 0,
+        "ad_total":         ad_total,
+        "by_month":         by_month_rates,
     }
 
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    print(f"[INFO] 메일발송현황 파싱 완료 — 총발송 {total_sent}건, 기타제외 {etc_count}건", file=sys.stderr)
+    print(f"[INFO] 메일발송현황 파싱 완료 — 총발송 {total_sent}건(기타포함), 기타 {etc_count}건", file=sys.stderr)
 
 
 if __name__ == "__main__":

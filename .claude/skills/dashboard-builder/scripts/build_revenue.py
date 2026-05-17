@@ -32,29 +32,23 @@ def main():
     config = load_config()
     personal_fee_per_order    = config.get("personal_fee_per_order", 10000)
     fixed_misc_cost_per_order = config.get("fixed_misc_cost_per_order", 50000)
+    product_unit_price        = config.get("product_unit_price", 120000)
 
     settlement_orders = bucket_data.get("settlement", [])
     general_orders    = bucket_data.get("general", [])
     excluded_orders   = bucket_data.get("excluded", [])
 
-    # 매출: 정산대상 + 기타/일반 + 정산제외 합산 (완전제외 제외)
-    all_orders = settlement_orders + general_orders + excluded_orders
-    gross_revenue = sum(o.get("amount", 0) for o in all_orders)
-
-    # 주문 파일에 금액 정보 없을 시(COL_AMOUNT=-1) → 정산 금액 합계로 대체
-    if gross_revenue == 0 and settlement_data.get("summaries"):
-        gross_revenue = sum(
-            s.get("settlement_amount") or 0
-            for s in settlement_data["summaries"]
-        )
-
     # 버킷이 비어있으면(신규 0건 재실행) settlement.json 누계에서 주문/수량 복원
+    all_orders = settlement_orders + general_orders + excluded_orders
     if not all_orders and settlement_data.get("summaries"):
         order_count = sum(s.get("order_count", 0) for s in settlement_data["summaries"])
         unit_count  = sum(s.get("qty", 0) for s in settlement_data["summaries"])
     else:
         order_count = len(all_orders)
         unit_count  = sum(o.get("qty", 0) for o in all_orders)
+
+    # 매출: 판매 수량 × 제품 단가 (주문 파일에 금액 컬럼 없음)
+    gross_revenue = unit_count * product_unit_price
 
     # 인플루언서 정산 비용 (settlement 버킷만)
     influencer_cost = sum(

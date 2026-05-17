@@ -1,13 +1,13 @@
 {
-  "name": "The 조치 패밀리",
+  "name": "유튜버 정조",
   "current_status": "기타",
-  "cumulative_qty": 2,
+  "cumulative_qty": 5,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
-      "month": "2026-04",
-      "qty": 2,
-      "amount": 40000
+      "month": "2026-05",
+      "qty": 5,
+      "amount": 100000
     }
   ],
   "upcoming_schedule": []

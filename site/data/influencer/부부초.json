@@ -1,13 +1,13 @@
 {
-  "name": "The 조치 패밀리",
+  "name": "부부초",
   "current_status": "기타",
-  "cumulative_qty": 2,
+  "cumulative_qty": 3,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
-      "month": "2026-04",
-      "qty": 2,
-      "amount": 40000
+      "month": "2026-05",
+      "qty": 3,
+      "amount": 60000
     }
   ],
   "upcoming_schedule": []

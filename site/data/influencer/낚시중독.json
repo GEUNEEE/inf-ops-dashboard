@@ -1,11 +1,11 @@
 {
-  "name": "The 조치 패밀리",
+  "name": "낚시중독",
   "current_status": "기타",
   "cumulative_qty": 2,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
-      "month": "2026-04",
+      "month": "2026-05",
       "qty": 2,
       "amount": 40000
     }
