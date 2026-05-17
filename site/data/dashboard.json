@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-05-17T16:46:09",
+  "generated_at": "2026-05-17T18:38:18",
   "current_month": "2026-05",
   "revenue": {
-    "order_count": 53,
-    "unit_count": 62,
-    "gross_revenue": 7440000,
-    "influencer_cost": 620000,
-    "personal_fee": 530000,
-    "misc_cost": 2650000,
-    "net_profit": 3640000,
-    "operating_profit": 3377000,
-    "operating_profit_rate": 0.4541,
-    "cumulative_profit": 4815000
+    "order_count": 22,
+    "unit_count": 24,
+    "gross_revenue": 2880000,
+    "influencer_cost": 380000,
+    "personal_fee": 220000,
+    "misc_cost": 1100000,
+    "net_profit": 1180000,
+    "operating_profit": 895000,
+    "operating_profit_rate": 0.3108,
+    "cumulative_profit": 2333000
   },
   "mail_funnel": {
     "total_sent": 1395,
@@ -39,47 +39,92 @@
   "settlement_month": 5,
   "settlement_summary": {
     "C맹씨": {
-      "건수": 20,
-      "수량": 20,
-      "누적수량": 30,
-      "현재단가": 22000,
-      "금액": 400000,
+      "건수": 5,
+      "수량": 5,
+      "누적수량": 16,
+      "현재단가": 20000,
+      "금액": 100000,
       "정산대상": true,
       "현재상태": "2차 체험진행"
     },
-    "기타/일반": {
-      "건수": 13,
-      "수량": 18,
-      "금액": null,
-      "정산대상": false,
-      "현재상태": ""
-    },
-    "나이스부부": {
-      "건수": 3,
-      "수량": 4,
-      "누적수량": 6,
+    "유튜버 정조": {
+      "건수": 4,
+      "수량": 5,
+      "누적수량": 5,
       "현재단가": 20000,
-      "금액": 80000,
+      "금액": 100000,
       "정산대상": true,
-      "현재상태": "3차 체험진행"
+      "현재상태": "기타"
     },
-    "The 조치 패밀리": {
+    "부부초": {
+      "건수": 3,
+      "수량": 3,
+      "누적수량": 3,
+      "현재단가": 20000,
+      "금액": 60000,
+      "정산대상": true,
+      "현재상태": "기타"
+    },
+    "바다로간배스": {
+      "건수": 1,
+      "수량": 2,
+      "누적수량": 2,
+      "현재단가": 20000,
+      "금액": 40000,
+      "정산대상": true,
+      "현재상태": "기타"
+    },
+    "낚시중독": {
       "건수": 2,
       "수량": 2,
-      "누적수량": 3,
+      "누적수량": 2,
       "현재단가": 20000,
       "금액": 40000,
       "정산대상": true,
       "현재상태": "기타"
     },
     "마성민": {
-      "건수": 4,
-      "수량": 5,
-      "누적수량": 8,
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 14,
       "현재단가": 20000,
-      "금액": 100000,
+      "금액": 20000,
       "정산대상": true,
       "현재상태": "3차 체험진행"
+    },
+    "그래서 강리안": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "정산대상": true,
+      "현재상태": "기타"
+    },
+    "기타/일반": {
+      "건수": 5,
+      "수량": 5,
+      "금액": null,
+      "정산대상": false,
+      "현재상태": ""
+    },
+    "나이스부부": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 4,
+      "현재단가": 20000,
+      "금액": 0,
+      "정산대상": true,
+      "현재상태": "3차 체험진행"
+    },
+    "The 조치 패밀리": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 2,
+      "현재단가": 20000,
+      "금액": 0,
+      "정산대상": true,
+      "현재상태": "기타"
     }
   },
   "trends": {
@@ -111,12 +156,12 @@
     "gross_revenue": [
       1200000,
       3840000,
-      7440000
+      2880000
     ],
     "net_profit": [
       250000,
       1188000,
-      3640000
+      1180000
     ],
     "total_sent": [
       396,
@@ -144,8 +189,16 @@
       23
     ],
     "exp_by_month": {},
-    "operating_profit": [250000, 1188000, 3377000],
-    "operating_profit_rate": [0.2083, 0.3094, 0.4541]
+    "operating_profit": [
+      250000,
+      1188000,
+      895000
+    ],
+    "operating_profit_rate": [
+      0.2083,
+      0.3094,
+      0.3108
+    ]
   },
   "mail_funnel_by_month": {
     "2026-02": {
@@ -203,35 +256,80 @@
   "profit_analysis": {
     "note": "영업이익 = Σ(qty × (45,000 − 정산단가)) [인플] + Σ(qty × 84,000) [기타]. 인건비 미포함.",
     "monthly": {
-      "2026-03": {"gross_revenue": 1200000, "operating_profit": 250000,  "operating_profit_rate": 0.2083, "cumulative_profit":  250000},
-      "2026-04": {"gross_revenue": 3840000, "operating_profit": 1188000, "operating_profit_rate": 0.3094, "cumulative_profit": 1438000},
-      "2026-05": {"gross_revenue": 7440000, "operating_profit": 3377000, "operating_profit_rate": 0.4541, "cumulative_profit": 4815000}
+      "2026-03": {
+        "gross_revenue": 1200000,
+        "unit_count": 10,
+        "operating_profit": 250000,
+        "operating_profit_rate": 0.2083,
+        "cumulative_profit": 250000
+      },
+      "2026-04": {
+        "gross_revenue": 3840000,
+        "unit_count": 32,
+        "operating_profit": 1188000,
+        "operating_profit_rate": 0.3094,
+        "cumulative_profit": 1438000
+      },
+      "2026-05": {
+        "gross_revenue": 2880000,
+        "unit_count": 24,
+        "operating_profit": 895000,
+        "operating_profit_rate": 0.3108,
+        "cumulative_profit": 2333000
+      }
     },
     "influencer_cumulative": {
-      "마성민":          {"qty": 18, "settlement":  360000, "contribution":  450000},
-      "나이스부부":      {"qty":  8, "settlement":  160000, "contribution":  200000},
-      "C맹씨":           {"qty": 31, "settlement":  620000, "contribution":  773000},
-      "The 조치 패밀리": {"qty":  4, "settlement":   80000, "contribution":  100000},
-      "기타/일반":       {"qty": 30, "settlement":       0, "contribution": 2520000},
-      "유튜버 정조":     {"qty":  5, "settlement":       0, "contribution":  420000},
-      "부부초":          {"qty":  3, "settlement":       0, "contribution":  252000},
-      "낚시중독":        {"qty":  2, "settlement":       0, "contribution":  168000},
-      "그래서 강리안":   {"qty":  1, "settlement":       0, "contribution":   84000},
-      "바다로간배스":    {"qty":  2, "settlement":       0, "contribution":  168000}
+      "마성민": {
+        "qty": 14,
+        "settlement": 280000,
+        "contribution": 350000
+      },
+      "나이스부부": {
+        "qty": 4,
+        "settlement": 80000,
+        "contribution": 100000
+      },
+      "C맹씨": {
+        "qty": 16,
+        "settlement": 320000,
+        "contribution": 400000
+      },
+      "The 조치 패밀리": {
+        "qty": 2,
+        "settlement": 40000,
+        "contribution": 50000
+      },
+      "기타/일반": {
+        "qty": 17,
+        "settlement": 0,
+        "contribution": 1428000
+      },
+      "유튜버 정조": {
+        "qty": 5,
+        "settlement": 100000,
+        "contribution": 125000
+      },
+      "부부초": {
+        "qty": 3,
+        "settlement": 60000,
+        "contribution": 75000
+      },
+      "바다로간배스": {
+        "qty": 2,
+        "settlement": 40000,
+        "contribution": 50000
+      },
+      "낚시중독": {
+        "qty": 2,
+        "settlement": 40000,
+        "contribution": 50000
+      },
+      "그래서 강리안": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 25000
+      }
     }
   },
-  "alerts": {
-    "unregistered_influencers": [
-      {
-        "name": "유튜버 정조",
-        "건수": 4,
-        "수량": 5
-      },
-      {
-        "name": "마성민",
-        "건수": 1,
-        "수량": 1
-      }
-    ]
-  }
+  "alerts": {}
 }

@@ -1,12 +1,12 @@
 {
   "month": "2026-05",
-  "generated_at": "2026-05-17T16:46:09",
-  "gross_revenue": 7440000,
-  "net_profit": 3640000,
-  "operating_profit": 3377000,
-  "operating_profit_rate": 0.4541,
-  "order_count": 53,
-  "unit_count": 62,
+  "generated_at": "2026-05-17T17:30:00",
+  "gross_revenue": 2880000,
+  "net_profit": 1180000,
+  "operating_profit": 895000,
+  "operating_profit_rate": 0.3108,
+  "order_count": 22,
+  "unit_count": 24,
   "total_sent": 1395,
   "replied": 200,
   "meeting_total": 66,
@@ -29,43 +29,67 @@
   },
   "influencers": {
     "C맹씨": {
-      "order_count": 20,
-      "qty": 20,
-      "cumulative_qty": 30,
-      "unit_price": 22000,
-      "amount": 400000,
+      "order_count": 5,
+      "qty": 5,
+      "cumulative_qty": 16,
+      "unit_price": 20000,
+      "amount": 100000,
       "is_general": false
     },
     "기타/일반": {
-      "order_count": 13,
-      "qty": 18,
+      "order_count": 5,
+      "qty": 5,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": null,
       "is_general": true
     },
-    "나이스부부": {
-      "order_count": 3,
-      "qty": 4,
-      "cumulative_qty": 6,
+    "유튜버 정조": {
+      "order_count": 4,
+      "qty": 5,
+      "cumulative_qty": 5,
       "unit_price": 20000,
-      "amount": 80000,
+      "amount": 100000,
       "is_general": false
     },
-    "The 조치 패밀리": {
+    "부부초": {
+      "order_count": 3,
+      "qty": 3,
+      "cumulative_qty": 3,
+      "unit_price": 20000,
+      "amount": 60000,
+      "is_general": false
+    },
+    "바다로간배스": {
+      "order_count": 1,
+      "qty": 2,
+      "cumulative_qty": 2,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false
+    },
+    "낚시중독": {
       "order_count": 2,
       "qty": 2,
-      "cumulative_qty": 3,
+      "cumulative_qty": 2,
       "unit_price": 20000,
       "amount": 40000,
       "is_general": false
     },
     "마성민": {
-      "order_count": 4,
-      "qty": 5,
-      "cumulative_qty": 8,
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 14,
       "unit_price": 20000,
-      "amount": 100000,
+      "amount": 20000,
+      "is_general": false
+    },
+    "그래서 강리안": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 1,
+      "unit_price": 20000,
+      "amount": 20000,
       "is_general": false
     }
   }
