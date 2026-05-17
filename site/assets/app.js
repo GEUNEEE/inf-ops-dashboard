@@ -169,12 +169,15 @@
     }
 
     const infMap = {};
-    for (const h of histories) {
+    for (const m of months) {
+      const h = hCache[m];
+      if (!h) continue;
       for (const [name, d] of Object.entries(h.influencers || {})) {
-        if (!infMap[name]) infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general };
+        if (!infMap[name]) infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general, monthly: {} };
         infMap[name].order_count += d.order_count || 0;
         infMap[name].qty         += d.qty || 0;
         if (d.amount != null) infMap[name].amount += d.amount;
+        if ((d.qty || 0) > 0) infMap[name].monthly[m] = { qty: d.qty || 0, amount: d.amount || 0 };
       }
     }
     for (const d of Object.values(infMap)) {
@@ -197,6 +200,7 @@
         '누적수량': d.cumulative_qty, '현재단가': d.unit_price,
         '금액': d.amount ?? null, '정산대상': !d.is_general,
         '현재상태': (currentSummary[name] || {})['현재상태'] || '',
+        'monthly': d.monthly || {},
       };
     }
     for (const [name, d] of Object.entries(currentSummary)) {
@@ -445,7 +449,7 @@
     if (!grid) return;
 
     const infCum = ((gData || {}).profit_analysis || {}).influencer_cumulative || {};
-    const amountLabel = month ? monthLabel(month) + ' 정산액' : '당월 정산액';
+    const amountLabel = month ? '당월 정산액' : '누적 정산액';
 
     const items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
     items.sort((a, b) => {
@@ -466,14 +470,24 @@
       let contribHtml = '';
       if (!month) {
         const c = infCum[item.name];
-        if (c && c.contribution) {
-          contribHtml = `
-            <div style="display:flex;justify-content:space-between;align-items:center;
-                        margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
-              <span class="stat-lbl">누적 기여수익</span>
-              <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(c.contribution)}</span>
-            </div>`;
-        }
+        const mData = item['monthly'] || {};
+        const mEntries = Object.entries(mData).sort(([a], [b]) => a.localeCompare(b)).filter(([, d]) => d.qty > 0);
+        const monthlyRows = mEntries.map(([m, d]) =>
+          `<div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text2);padding:1px 0">
+            <span>${monthLabel(m)}</span>
+            <span>${d.qty}개${d.amount ? ' · ' + money(d.amount) : ''}</span>
+          </div>`
+        ).join('');
+        contribHtml = `
+          ${monthlyRows ? `<div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
+            <span class="stat-lbl" style="display:block;margin-bottom:3px">월별 현황</span>
+            ${monthlyRows}
+          </div>` : ''}
+          ${c && c.contribution ? `<div style="display:flex;justify-content:space-between;align-items:center;
+                      margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
+            <span class="stat-lbl">누적 기여수익</span>
+            <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(c.contribution)}</span>
+          </div>` : ''}`;
       } else {
         const qty = item['수량'] ?? 0;
         if (qty > 0) {
