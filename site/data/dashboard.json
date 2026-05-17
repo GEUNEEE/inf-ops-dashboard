@@ -201,7 +201,7 @@
     "2026-07": 1
   },
   "profit_analysis": {
-    "note": "영업이익 = Σ(qty × (45,000 − 정산단가)) [인플] + Σ(qty × 84,000) [기타]. 인건비 미포함. 5월은 추정값.",
+    "note": "영업이익 = Σ(qty × (45,000 − 정산단가)) [인플] + Σ(qty × 84,000) [기타]. 인건비 미포함.",
     "monthly": {
       "2026-03": {"gross_revenue": 1200000, "operating_profit": 250000,  "operating_profit_rate": 0.2083, "cumulative_profit":  250000},
       "2026-04": {"gross_revenue": 3840000, "operating_profit": 1188000, "operating_profit_rate": 0.3094, "cumulative_profit": 1438000},
