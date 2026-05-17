@@ -19,10 +19,14 @@ SHEET_NAME  = "인플루언서관리"
 CONFIG_PATH = Path(r"C:\Users\user\비서\.claude\skills\settlement-generator\scripts\ytber_config.json")
 
 # 0-based 행 인덱스 (전치형: 행=항목, 열=인플루언서)
-ROW_STATUS = 9   # Excel Row 10: 현재상태
-ROW_NAME   = 10  # Excel Row 11: 유튜버명
+ROW_STATUS     = 9   # Excel Row 10: 현재상태
+ROW_NAME       = 10  # Excel Row 11: 유튜버명
+ROW_EXP_ACCEPT = 23  # Excel Row 24: 체험 수락일
+AD_ROWS        = [30, 33, 36, 39]  # Excel Row 31/34/37/40: 1~4차 광고 날짜
 
 STATUS_CATEGORIES = {
+    "미팅대기": "미팅_대기",
+    "미팅진행": "미팅_진행",
     "1차체험진행": "체험진행_1차",
     "2차체험진행": "체험진행_2차",
     "3차체험진행": "체험진행_3차",
@@ -62,6 +66,17 @@ def safe_str(val) -> str:
     return str(val).strip()
 
 
+def is_date(val) -> bool:
+    from datetime import date, datetime
+    if val is None:
+        return False
+    if isinstance(val, (datetime, date)):
+        return True
+    if isinstance(val, str) and val.strip():
+        return True
+    return False
+
+
 def main():
     try:
         excel_path = find_latest_excel(EXCEL_DIR)
@@ -98,6 +113,9 @@ def main():
     managed_set = []
     status_counter = {v: 0 for v in STATUS_CATEGORIES.values()}
     status_counter["기타"] = 0
+    ad_total = 0
+    ad_by_month = {}    # "YYYY-MM" → 광고 이벤트 수 (1~4차 합산)
+    exp_by_month = {}   # "YYYY-MM" → 체험수락 인원 수
 
     name_map = load_name_map()
     per_influencer = {}
@@ -120,27 +138,57 @@ def main():
         normalized_name = name_map.get(name, name)
         per_influencer[normalized_name] = category
 
+        # 체험 수락일 (Row 24) → 월별 집계
+        if ROW_EXP_ACCEPT < n_rows and col_idx < len(rows[ROW_EXP_ACCEPT]):
+            val = rows[ROW_EXP_ACCEPT][col_idx]
+            if val is not None:
+                try:
+                    if isinstance(val, (date, datetime)):
+                        dt = val
+                    else:
+                        dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
+                    ym = dt.strftime("%Y-%m")
+                    exp_by_month[ym] = exp_by_month.get(ym, 0) + 1
+                except Exception:
+                    pass
+
+        # 광고 전환: 1~4차 광고 날짜 각각 카운트 (날짜 기준 월별 집계)
+        for ad_row in AD_ROWS:
+            if ad_row >= n_rows or col_idx >= len(rows[ad_row]):
+                continue
+            val = rows[ad_row][col_idx]
+            if not is_date(val):
+                continue
+            ad_total += 1
+            try:
+                if isinstance(val, (date, datetime)):
+                    dt = val
+                else:
+                    dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
+                ym = dt.strftime("%Y-%m")
+                ad_by_month[ym] = ad_by_month.get(ym, 0) + 1
+            except Exception:
+                pass
+
     wb.close()
 
-    # 광고수락률용 광고 단계 합산
-    ad_total = (
-        status_counter.get("광고예정_1차", 0)
-        + status_counter.get("광고예정_2차", 0)
-        + status_counter.get("광고완료_1차", 0)
-    )
-    exp_total = (
-        status_counter.get("체험진행_1차", 0)
-        + status_counter.get("체험진행_2차", 0)
-        + status_counter.get("체험진행_3차", 0)
-        + ad_total
+    # 체험 전환 총계 = 체험수락일 기재 인원 (인플루언서관리 시트 기준)
+    exp_total = sum(exp_by_month.values())
+
+    meeting_total = (
+        status_counter.get("미팅_대기", 0)
+        + status_counter.get("미팅_진행", 0)
     )
 
     result = {
         "managed_set": managed_set,
         "managed_count": len(managed_set),
         "inf_status": status_counter,
+        "meeting_total": meeting_total,
         "exp_total": exp_total,
+        "exp_by_month": dict(sorted(exp_by_month.items())),
         "ad_total": ad_total,
+        "ad_by_month": dict(sorted(ad_by_month.items())),
         "per_influencer": per_influencer,
     }
 

@@ -15,6 +15,36 @@ BASE_DIR    = Path(r"C:\Users\user\비서")
 HISTORY_DIR = BASE_DIR / "site" / "data" / "history"
 LOCAL_HIST  = BASE_DIR / "output" / "history"
 
+MARGIN_SETTLEMENT = 45000
+MARGIN_GENERAL    = 84000
+
+
+def tier_price(cum: int) -> int:
+    if cum >= 100: return 25000
+    if cum >= 30:  return 22000
+    return 20000
+
+
+def compute_operating_profit(inf_summary: dict, total_unit_count: int) -> int:
+    """인플루언서별 스냅샷에서 영업이익 계산 (구간 단가 적용)"""
+    op = 0
+    known_qty = 0
+    for info in inf_summary.values():
+        qty = info.get("qty", 0)
+        known_qty += qty
+        cum = info.get("cumulative_qty") or 0
+        is_gen = info.get("is_general", False)
+        if is_gen:
+            op += qty * MARGIN_GENERAL
+        else:
+            prev_cum = max(cum - qty, 0)
+            for q in range(prev_cum, cum):
+                op += MARGIN_SETTLEMENT - tier_price(q + 1)
+    misc_qty = total_unit_count - known_qty
+    if misc_qty > 0:
+        op += misc_qty * MARGIN_GENERAL
+    return op
+
 
 def main():
     if len(sys.argv) < 6:
@@ -33,30 +63,54 @@ def main():
 
     target_month = sys.argv[5]  # "YYYY-MM"
 
-    total_sent = mail_kpi.get("total_sent", 0)
-    exp_total  = inf_data.get("exp_total", 0)
-    ad_total   = inf_data.get("ad_total", 0)
+    total_sent    = mail_kpi.get("total_sent", 0)
+    replied       = mail_kpi.get("replied", 0)
+    meeting_total = mail_kpi.get("meeting_total", 0)
+    exp_total     = inf_data.get("exp_total", 0)
+    ad_total      = inf_data.get("ad_total", 0)
 
-    # 인플루언서별 집계 (정산시트 수식 계산 결과 전체 보존)
-    inf_summary = {}
+    # 기존 스냅샷 로드 (같은 월 2회차 이상 처리 시 누계 합산)
+    site_path  = HISTORY_DIR / f"{target_month}.json"
+    prev = {}
+    if site_path.exists():
+        try:
+            prev = json.loads(site_path.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    # 인플루언서별 집계 — 기존 + 신규 합산
+    inf_summary = dict(prev.get("influencers", {}))
     for s in settlement.get("summaries", []):
         ytber = s.get("ytber", "")
+        existing = inf_summary.get(ytber, {})
+        is_gen = s.get("is_general", False)
         inf_summary[ytber] = {
-            "order_count":   s.get("order_count", 0),       # 총 주문 건수 (C11)
-            "qty":           s.get("qty", 0),                # 최종 판매 수량 (C13)
-            "cumulative_qty": s.get("cumulative_qty"),       # 누적 수량
-            "unit_price":    s.get("unit_price"),            # 정산 단가 (C14)
-            "amount":        s.get("settlement_amount"),     # 최종 정산 금액 (C15)
-            "is_general":    s.get("is_general", False),
+            "order_count":    (existing.get("order_count", 0) or 0) + s.get("order_count", 0),
+            "qty":            (existing.get("qty", 0) or 0) + s.get("qty", 0),
+            "cumulative_qty": s.get("cumulative_qty"),       # 항상 최신값 (DB 기준)
+            "unit_price":     s.get("unit_price"),           # 최신 단가
+            "amount":         (existing.get("amount") or 0) + (s.get("settlement_amount") or 0),
+            "is_general":     is_gen,
         }
+
+    total_gross      = (prev.get("gross_revenue") or 0) + revenue.get("gross_revenue", 0)
+    total_unit_count = (prev.get("unit_count") or 0) + revenue.get("unit_count", 0)
+    op               = compute_operating_profit(inf_summary, total_unit_count)
 
     snapshot = {
         "month":        target_month,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
-        "gross_revenue": revenue.get("gross_revenue", 0),
-        "net_profit":    revenue.get("net_profit", 0),
-        "order_count":   revenue.get("order_count", 0),
-        "unit_count":    revenue.get("unit_count", 0),
+        "gross_revenue":        total_gross,
+        "net_profit":           (prev.get("net_profit") or 0) + revenue.get("net_profit", 0),
+        "order_count":          (prev.get("order_count") or 0) + revenue.get("order_count", 0),
+        "unit_count":           total_unit_count,
+        "operating_profit":     op,
+        "operating_profit_rate": round(op / total_gross, 4) if total_gross else 0,
+        "total_sent":    total_sent,
+        "replied":       replied,
+        "meeting_total": meeting_total,
+        "exp_total":     exp_total,
+        "ad_total":      ad_total,
         "reply_rate":    mail_kpi.get("reply_rate", 0),
         "exp_rate":      round(exp_total / total_sent, 4) if total_sent else 0,
         "ad_rate":       round(ad_total / total_sent, 4) if total_sent else 0,

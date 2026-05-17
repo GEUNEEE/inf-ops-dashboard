@@ -143,7 +143,7 @@ def main():
 
     # 주문 파일 로드
     try:
-        order_wb = openpyxl.load_workbook(decrypted_path, data_only=True, read_only=True)
+        order_wb = openpyxl.load_workbook(decrypted_path, data_only=True)
     except Exception as e:
         print(f"[ERROR] 복호화 파일 로드 실패: {e}", file=sys.stderr)
         sys.exit(1)
