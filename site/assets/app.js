@@ -273,7 +273,10 @@
     const _st = gData.inf_status || {};
     const _total  = Object.values(_st).reduce((s, v) => s + v, 0);
     const _active = _total - (_st['기타'] || 0);
-    set('inf-count-label', `진행 ${_active} / 전체 ${_total}명`);
+    const _lbl = el('inf-count-label');
+    if (_lbl) _lbl.innerHTML =
+      `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;padding:2px 10px;border-radius:10px">` +
+      `진행 ${_active}<span style="font-weight:400;opacity:0.55"> / ${_total}명</span></span>`;
 
     renderFunnelMonthlyTable(t, f, gData.current_month);
 
@@ -295,24 +298,24 @@
     if (!c) return;
     const total = f.total_sent || 1;
 
-    function bar(label, count, color) {
+    function bar(label, count, color, isTotal) {
       const w      = Math.min((count / total) * 100, 100).toFixed(1);
       const pctStr = ((count / total) * 100).toFixed(1);
+      const right  = isTotal
+        ? `${Number(count).toLocaleString()}건`
+        : `${Number(count).toLocaleString()}건 · ${pctStr}%`;
       return `
         <div class="f-bar">
+          <div style="min-width:54px;font-size:11px;font-weight:500;color:var(--text1)">${label}</div>
           <div class="f-track">
             <div class="f-fill" style="width:${w}%;background:${color}"></div>
-            <div class="f-label">
-              <span class="f-name">${label}</span>
-              <span class="f-cnt">${Number(count).toLocaleString()}건</span>
-            </div>
           </div>
-          <div class="f-pct" style="color:${color}">${pctStr}%</div>
+          <div style="min-width:100px;text-align:right;font-size:11px;font-weight:600;color:${color}">${right}</div>
         </div>`;
     }
 
     c.innerHTML = [
-      bar('총 발송',   f.total_sent    || 0, '#D3D1C7'),
+      bar('총 발송',   f.total_sent    || 0, '#B0ADA3', true),
       bar('응답',      f.replied       || 0, '#85B7EB'),
       bar('미팅',      f.meeting_total || 0, '#EF9F27'),
       bar('체험 전환', f.exp_total     || 0, '#7F77DD'),
