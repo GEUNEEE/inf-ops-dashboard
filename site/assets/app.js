@@ -17,8 +17,10 @@
   const hCache = {};
 
   // ── 구간 단가 ─────────────────────────────────────────────────────────────
-  const GROSS_PRICE      = 120000; // 매출 단가 (개당)
-  const MARGIN_GENERAL   = 84000;  // 기타/일반 정산가 (= 매출가이기도 함)
+  const GROSS_PRICE_INF  = 120000; // 정산대상 매출 단가
+  const GROSS_PRICE_GEN  = 130000; // 기타/일반 매출 단가
+  const COGS             = 36000;  // 원가 (개당)
+  const MARGIN_GENERAL   = 84000;  // 기타/일반 정산가
 
   function tierPrice(cumQty) {
     if (cumQty >= 100) return 25000;
@@ -505,14 +507,12 @@
           let settlementAmt = 0;
           if (isTarget) {
             for (let q = mPrevCum; q < mCum; q++) settlementAmt += tierPrice(q + 1);
-          } else {
-            settlementAmt = qty * 84000;
           }
-          // 협찬원가: 해당 월에 발생한 체험 횟수 × 40,000
+          // 기여수익 = 매출 − 원가(3.6만×qty) − 정산액 − 해당월 협찬원가
           const expMonths = item['체험월목록'] || [];
           const monthSponsorCost = expMonths.filter(m => m === month).length * 40000;
-          const grossRev = qty * GROSS_PRICE;
-          const mc = grossRev - settlementAmt - monthSponsorCost;
+          const grossRev = qty * (isTarget ? GROSS_PRICE_INF : GROSS_PRICE_GEN);
+          const mc = grossRev - qty * COGS - settlementAmt - monthSponsorCost;
           if (settlementAmt > 0 || mc > 0) {
             const sponsorLine = monthSponsorCost > 0
               ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
@@ -749,17 +749,15 @@
         } else {
           settlementAmt = qty * 84000;
         }
-        // 해당 월 협찬원가: snapshot의 sponsor_cost_this_month 또는 settlement_summary에서 체험월 필터
+        // 기여수익 = 매출 − 원가(3.6만×qty) − 정산액 − 해당월 협찬원가
         const sponsorCost = d.sponsor_cost_this_month || 0;
-        const grossRev = qty * GROSS_PRICE;
-        const contribution = isGen
-          ? grossRev - (qty * (GROSS_PRICE - MARGIN_GENERAL)) - sponsorCost
-          : grossRev - settlementAmt - sponsorCost;
+        const grossRev = qty * (isGen ? GROSS_PRICE_GEN : GROSS_PRICE_INF);
+        const contribution = grossRev - qty * COGS - settlementAmt - sponsorCost;
         knownQty += qty;
         return { name, qty, settlement: isGen ? 0 : (d.amount || 0), sponsorCost, contribution, isGen };
       });
       const miscQty = totalQty - knownQty;
-      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, sponsorCost: 0, contribution: miscQty * MARGIN_GENERAL, isGen: true });
+      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, sponsorCost: 0, contribution: miscQty * (GROSS_PRICE_GEN - COGS), isGen: true });
     } else {
       if (!pa) { c.innerHTML = ''; return; }
       // 누적 모드: build_kpi.py가 협찬원가 차감한 기여수익을 inf_cum에 이미 담음

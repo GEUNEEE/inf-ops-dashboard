@@ -18,8 +18,9 @@ SITE_DIR   = BASE_DIR / "site" / "data"
 HISTORY_DIR = SITE_DIR / "history"
 INF_DIR    = SITE_DIR / "influencer"
 
-MARGIN_SETTLEMENT = 45000
-MARGIN_GENERAL    = 84000
+GROSS_PRICE_PER_UNIT = 120000  # 매출 단가
+COGS_PER_UNIT        = 36000   # 원가
+MARGIN_GENERAL       = 84000   # 기타/일반 정산가
 
 
 def tier_price(cum: int) -> int:
@@ -47,19 +48,20 @@ def load_json(path_or_dash: str) -> dict:
         return json.load(f)
 
 
-GROSS_PRICE_PER_UNIT = 120000  # 매출 단가
+GROSS_PRICE_INF = 120000  # 정산대상 인플루언서 매출 단가
+GROSS_PRICE_GEN = 130000  # 기타/일반 매출 단가
+COGS_PER_UNIT   = 36000   # 원가 (개당)
 
 
 def build_profit_analysis(per_influencer: dict | None = None) -> dict:
     """history 파일 기반으로 월별·인플루언서별 영업이익 집계.
-    기여수익 = 매출(12만×qty) - 정산금액 - 해당월 협찬원가"""
+    기여수익(정산대상) = 12만×qty − 정산액 − 원가(3.6만×qty) − 해당월 협찬원가
+    기여수익(기타/일반) = 13만×qty − 원가(3.6만×qty)"""
     if not HISTORY_DIR.exists():
         return {}
 
     per_influencer = per_influencer or {}
 
-    # per_influencer에서 인플루언서별 exp_months 빌드 (월→협찬원가 맵)
-    # exp_months: ["2026-03", "2026-04", ...] — 각 체험 발생 월 (건당 40,000원)
     inf_exp_months: dict[str, list[str]] = {}
     for name, info in per_influencer.items():
         if isinstance(info, dict):
@@ -72,26 +74,23 @@ def build_profit_analysis(per_influencer: dict | None = None) -> dict:
     for p in sorted(HISTORY_DIR.glob("*.json")):
         try:
             d = json.loads(p.read_text(encoding="utf-8"))
-            month       = d.get("month", p.stem)
-            gross       = d.get("gross_revenue", 0)
-            op          = d.get("operating_profit", 0)
-            unit_count  = d.get("unit_count", 0)
+            month      = d.get("month", p.stem)
+            gross      = d.get("gross_revenue", 0)
+            op         = d.get("operating_profit", 0)
+            unit_count = d.get("unit_count", 0)
 
             cumulative += op
             monthly[month] = {
-                "gross_revenue":        gross,
-                "unit_count":           unit_count,
-                "operating_profit":     op,
+                "gross_revenue":         gross,
+                "unit_count":            unit_count,
+                "operating_profit":      op,
                 "operating_profit_rate": round(op / gross, 4) if gross else 0,
-                "cumulative_profit":    cumulative,
+                "cumulative_profit":     cumulative,
             }
 
-            # 인플루언서별 누적 기여수익
-            # 기여수익 = 매출(12만×qty) - 정산금액 - 해당월 협찬원가
             known_qty = 0
             for name, info in d.get("influencers", {}).items():
                 qty    = info.get("qty", 0)
-                cum    = info.get("cumulative_qty") or 0
                 amount = info.get("amount") or 0
                 is_gen = info.get("is_general", False)
                 known_qty += qty
@@ -100,31 +99,28 @@ def build_profit_analysis(per_influencer: dict | None = None) -> dict:
                     inf_cum[name] = {"qty": 0, "settlement": 0, "contribution": 0}
                 inf_cum[name]["qty"] += qty
 
-                # 해당 월에 발생한 협찬원가 (40,000원 × 해당월 체험 횟수)
-                month_sponsor = inf_exp_months.get(name, []).count(month) * 40000
-
                 if is_gen:
-                    gross_rev = qty * GROSS_PRICE_PER_UNIT
-                    inf_cum[name]["contribution"] += gross_rev - (qty * (GROSS_PRICE_PER_UNIT - MARGIN_GENERAL)) - month_sponsor
+                    # 기타/일반: 매출 13만 − 원가 3.6만
+                    inf_cum[name]["contribution"] += qty * (GROSS_PRICE_GEN - COGS_PER_UNIT)
                 else:
-                    inf_cum[name]["settlement"] += amount
-                    gross_rev = qty * GROSS_PRICE_PER_UNIT
-                    inf_cum[name]["contribution"] += gross_rev - amount - month_sponsor
+                    # 정산대상: 매출 12만 − 정산액 − 원가 3.6만 − 해당월 협찬원가
+                    month_sponsor = inf_exp_months.get(name, []).count(month) * 40000
+                    inf_cum[name]["settlement"]   += amount
+                    inf_cum[name]["contribution"] += qty * (GROSS_PRICE_INF - COGS_PER_UNIT) - amount - month_sponsor
 
-            # 미등재 기타 (unit_count - known_qty)
             misc_qty = unit_count - known_qty
             if misc_qty > 0:
                 key = "(미등재/기타)"
                 if key not in inf_cum:
                     inf_cum[key] = {"qty": 0, "settlement": 0, "contribution": 0}
                 inf_cum[key]["qty"]          += misc_qty
-                inf_cum[key]["contribution"] += misc_qty * MARGIN_GENERAL
+                inf_cum[key]["contribution"] += misc_qty * (GROSS_PRICE_GEN - COGS_PER_UNIT)
 
         except Exception as e:
             print(f"[WARN] history 오류 {p.name}: {e}", file=sys.stderr)
 
     return {
-        "note": "기여수익 = 매출(12만×qty) − 정산금액 − 해당월 협찬원가(40,000×체험횟수). 영업이익 = 기여수익합계 − 눈길인건비.",
+        "note": "기여수익(정산대상)=12만×qty−정산액−원가3.6만×qty−해당월협찬원가 / 기여수익(기타)=13만×qty−원가3.6만×qty",
         "monthly": monthly,
         "influencer_cumulative": inf_cum,
     }
