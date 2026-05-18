@@ -737,30 +737,34 @@
 
     if (month && h) {
       totalQty = h.unit_count || 0;
+      const ss = settlementSummary || {};
       let knownQty = 0;
       items = Object.entries(h.influencers || {}).map(([name, d]) => {
-        const qty      = d.qty || 0;
-        const isGen    = d.is_general || false;
-        const cum      = d.cumulative_qty || 0;
-        const prevCum  = Math.max(cum - qty, 0);
+        const qty     = d.qty || 0;
+        const isGen   = d.is_general || false;
+        const cum     = d.cumulative_qty || 0;
+        const prevCum = Math.max(cum - qty, 0);
+        // 정산액: 구간 단가 누적 계산 (기타는 0)
         let settlementAmt = 0;
         if (!isGen) {
           for (let q = prevCum; q < cum; q++) settlementAmt += tierPrice(q + 1);
-        } else {
-          settlementAmt = qty * 84000;
         }
-        // 기여수익 = 매출 − 원가(3.6만×qty) − 정산액 − 해당월 협찬원가
-        const sponsorCost = d.sponsor_cost_this_month || 0;
+        // 해당월 협찬원가: snapshot 필드 우선, 없으면 settlement_summary 체험월목록으로 계산
+        let sponsorCost = d.sponsor_cost_this_month || 0;
+        if (!sponsorCost) {
+          const expMonths = (ss[name] || {})['체험월목록'] || [];
+          sponsorCost = expMonths.filter(m => m === month).length * 40000;
+        }
         const grossRev = qty * (isGen ? GROSS_PRICE_GEN : GROSS_PRICE_INF);
         const contribution = grossRev - qty * COGS - settlementAmt - sponsorCost;
         knownQty += qty;
-        return { name, qty, settlement: isGen ? 0 : (d.amount || 0), sponsorCost, contribution, isGen };
+        return { name, qty, settlement: settlementAmt, sponsorCost, contribution, isGen };
       });
       const miscQty = totalQty - knownQty;
       if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, sponsorCost: 0, contribution: miscQty * (GROSS_PRICE_GEN - COGS), isGen: true });
     } else {
       if (!pa) { c.innerHTML = ''; return; }
-      // 누적 모드: build_kpi.py가 협찬원가 차감한 기여수익을 inf_cum에 이미 담음
+      // 누적 모드: build_kpi.py가 이미 원가·협찬원가 차감한 기여수익을 inf_cum에 담음
       const ss = settlementSummary || {};
       items = Object.entries(pa.influencer_cumulative || {}).map(([name, d]) => ({
         name,
@@ -776,11 +780,12 @@
     items.sort((a, b) => b.contribution - a.contribution);
     if (!items.length) { c.innerHTML = '<div style="font-size:11px;color:var(--text3)">데이터 없음</div>'; return; }
 
-    const totalContrib  = items.reduce((s, i) => s + (i.contribution || 0), 0);
-    const totalSponsor  = items.reduce((s, i) => s + (i.sponsorCost || 0), 0);
-    const laborCost     = totalQty * 10000;
-    const laborLabel    = month ? monthLabel(month) : '전체 누적';
-    const showSponsor   = totalSponsor > 0;
+    const totalContrib   = items.reduce((s, i) => s + (i.contribution || 0), 0);
+    const totalSponsor   = items.reduce((s, i) => s + (i.sponsorCost || 0), 0);
+    const totalSettlement = items.reduce((s, i) => s + (i.settlement || 0), 0);
+    const laborCost      = totalQty * 10000;
+    const laborLabel     = month ? monthLabel(month) : '전체 누적';
+    const showSponsor    = totalSponsor > 0;
 
     const rows = items.map(i => `<tr>
       <td>${i.name}</td>
@@ -794,7 +799,7 @@
       <table class="contrib-tbl">
         <thead><tr><th>인플루언서</th><th>수량</th><th>정산금액</th>${showSponsor ? '<th>협찬원가</th>' : ''}<th>기여수익</th></tr></thead>
         <tbody>${rows}</tbody>
-        <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td>${showSponsor ? '<td></td>' : ''}<td>${money(totalContrib)}</td></tr></tfoot>
+        <tfoot><tr><td>합계</td><td>${totalQty}개</td><td>${totalSettlement ? money(totalSettlement) : ''}</td>${showSponsor ? `<td style="color:#C0392B">${totalSponsor ? '−' + money(totalSponsor) : ''}</td>` : ''}<td>${money(totalContrib)}</td></tr></tfoot>
       </table>
       <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
         눈길 인건비 (${laborLabel}): ${money(laborCost)} (${totalQty}개 × ₩10,000)
