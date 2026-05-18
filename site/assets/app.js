@@ -572,7 +572,7 @@
             <div class="tier-section">${rows || '<span style="color:var(--text3);font-size:11px">-</span>'}${totalRow}${sponsorRow}</div>
           </div>
           <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
-            <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
+            <div><span class="stat-lbl">수량(주문건수)</span><span class="stat-val">${item['건수'] || 0}건</span></div>
             <div><span class="stat-lbl">누적수량</span><span class="stat-val">${cum}개</span></div>
           </div>`;
       } else {
