@@ -1,10 +1,10 @@
 {
   "month": "2026-04",
   "generated_at": "2026-05-15T16:26:56",
-  "gross_revenue": 3840000,
-  "net_profit": 1188000,
-  "operating_profit": 1188000,
-  "operating_profit_rate": 0.3094,
+  "gross_revenue": 3960000,
+  "net_profit": 1832000,
+  "operating_profit": 1512000,
+  "operating_profit_rate": 0.3818,
   "order_count": 27,
   "unit_count": 32,
   "total_sent": 1029,
@@ -62,9 +62,12 @@
       "order_count": 8,
       "qty": 12,
       "cumulative_qty": null,
-      "unit_price": 20000,
-      "amount": 240000,
+      "unit_price": null,
+      "amount": 1008000,
       "is_general": true
     }
-  }
+  },
+  "influencer_cost": 1408000,
+  "sponsor_cost": 720000,
+  "labor_cost": 320000
 }
