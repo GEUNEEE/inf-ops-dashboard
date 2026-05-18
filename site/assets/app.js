@@ -483,30 +483,54 @@
             <span class="stat-lbl" style="display:block;margin-bottom:3px">월별 현황</span>
             ${monthlyRows}
           </div>` : ''}
-          ${c && c.contribution ? `<div style="display:flex;justify-content:space-between;align-items:center;
-                      margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
-            <span class="stat-lbl">누적 기여수익</span>
-            <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(c.contribution)}</span>
+          ${c && (c.settlement || c.contribution) ? `<div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span class="stat-lbl">누적 정산금액</span>
+              <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(c.settlement ?? c.contribution)}</span>
+            </div>
+            ${c.contribution ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+              <span class="stat-lbl" style="font-size:10px;color:var(--text3)">기여수익</span>
+              <span style="font-size:10px;color:var(--text3)">${money(c.contribution)}</span>
+            </div>` : ''}
           </div>` : ''}`;
       } else {
         const qty = item['수량'] ?? 0;
         if (qty > 0) {
+          const mCum = item['누적수량'] ?? 0;
+          const mPrevCum = Math.max(mCum - qty, 0);
           let mc = 0;
+          let settlementAmt = 0;
           if (isTarget) {
-            const cum = item['누적수량'] ?? 0;
-            const prevCum = Math.max(cum - qty, 0);
-            for (let q = prevCum; q < cum; q++) mc += MARGIN_SETTLEMENT - tierPrice(q + 1);
+            for (let q = mPrevCum; q < mCum; q++) {
+              const p = tierPrice(q + 1);
+              settlementAmt += p;
+              mc += MARGIN_SETTLEMENT - p;
+            }
           } else {
+            settlementAmt = qty * 84000;
             mc = qty * MARGIN_GENERAL;
           }
-          if (mc > 0) contribHtml = `
-            <div style="display:flex;justify-content:space-between;align-items:center;
-                        margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
-              <span class="stat-lbl">${monthLabel(month)} 기여수익</span>
-              <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(mc)}</span>
+          if (mc > 0) {
+            contribHtml = `
+            <div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span class="stat-lbl">${monthLabel(month)} 정산금액</span>
+                <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(settlementAmt)}</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+                <span class="stat-lbl" style="font-size:10px;color:var(--text3)">기여수익</span>
+                <span style="font-size:10px;color:var(--text3)">${money(mc)}</span>
+              </div>
             </div>`;
+          }
         }
       }
+
+      // 체험 횟수: JSON 필드 우선, 없으면 현재상태 문자열에서 파싱
+      const expCount = item['체험횟수'] != null
+        ? item['체험횟수']
+        : (() => { const m = (item['현재상태'] || '').match(/^(\d+)차/); return m ? parseInt(m[1], 10) : 0; })();
+      const sponsorCost = item['협찬원가'] != null ? item['협찬원가'] : expCount * 40000;
 
       // 정산 금액 / 티어 섹션
       let statsHtml;
@@ -526,11 +550,17 @@
         const totalRow = isMulti
           ? `<div class="tier-total"><span style="color:var(--text3)">합계</span><span class="stat-val">${money(tierTotal)}</span></div>`
           : '';
+        const sponsorRow = sponsorCost > 0
+          ? `<div class="tier-row" style="margin-top:4px;color:var(--text3)">
+               <span>협찬원가 ${expCount}회 × ₩40,000</span>
+               <span style="color:#C0392B">−${money(sponsorCost)}</span>
+             </div>`
+          : '';
 
         statsHtml = `
           <div style="margin-top:8px">
             <span class="stat-lbl">${amountLabel}</span>
-            <div class="tier-section">${rows || '<span style="color:var(--text3);font-size:11px">-</span>'}${totalRow}</div>
+            <div class="tier-section">${rows || '<span style="color:var(--text3);font-size:11px">-</span>'}${totalRow}${sponsorRow}</div>
           </div>
           <div class="inf-card-stats" style="grid-template-columns:1fr 1fr;margin-top:6px">
             <div><span class="stat-lbl">건수</span><span class="stat-val">${item['건수'] || 0}건</span></div>
@@ -540,7 +570,7 @@
         const genQty = item['수량'] ?? 0;
         const genAmt = item['금액'];
         const amtRow = genQty > 0
-          ? `<div class="tier-row" style="margin-top:4px"><span>${genQty}개</span><span class="stat-val">${money(genAmt)}</span></div>`
+          ? `<div class="tier-row" style="margin-top:4px"><span>${genQty}개 × ₩84,000</span><span class="stat-val">${money(genAmt)}</span></div>`
           : `<span style="color:var(--text3);font-size:11px">-</span>`;
         statsHtml = `
           <div style="margin-top:8px">
@@ -740,7 +770,7 @@
 
     c.innerHTML = `
       <table class="contrib-tbl">
-        <thead><tr><th>인플루언서</th><th>수량</th><th>정산액</th><th>기여수익</th></tr></thead>
+        <thead><tr><th>인플루언서</th><th>수량</th><th>정산금액</th><th>기여수익</th></tr></thead>
         <tbody>${rows}</tbody>
         <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
       </table>
