@@ -342,18 +342,7 @@ def main():
 
     trends = load_history()
 
-    alerts = {}
-    unregistered = settlement.get("unregistered", [])
-    if unregistered:
-        # 이름별 집계
-        unreg_map: dict[str, dict] = {}
-        for u in unregistered:
-            n = u["name"]
-            if n not in unreg_map:
-                unreg_map[n] = {"name": n, "건수": 0, "수량": 0}
-            unreg_map[n]["건수"] += 1
-            unreg_map[n]["수량"] += u.get("qty", 0)
-        alerts["unregistered_influencers"] = list(unreg_map.values())
+    alerts = {"unregistered_influencers": []}
 
     dashboard = {
         "generated_at":           now.isoformat(timespec="seconds"),
