@@ -197,11 +197,15 @@
   function buildAllTimeSummary(infMap, currentSummary) {
     const result = {};
     for (const [name, d] of Object.entries(infMap)) {
+      const cs = currentSummary[name] || {};
       result[name] = {
         '건수': d.order_count, '수량': d.qty,
         '누적수량': d.cumulative_qty, '현재단가': d.unit_price,
         '금액': d.amount ?? null, '정산대상': !d.is_general,
-        '현재상태': (currentSummary[name] || {})['현재상태'] || '',
+        '현재상태': cs['현재상태'] || '',
+        '체험횟수': cs['체험횟수'] ?? null,
+        '협찬원가': cs['협찬원가'] ?? null,
+        '체험월목록': cs['체험월목록'] || [],
         'monthly': d.monthly || {},
       };
     }
@@ -211,6 +215,9 @@
           '건수': 0, '수량': 0, '누적수량': 0,
           '현재단가': 20000, '금액': 0,
           '정산대상': true, '현재상태': d['현재상태'] || '',
+          '체험횟수': d['체험횟수'] ?? null,
+          '협찬원가': d['협찬원가'] ?? null,
+          '체험월목록': d['체험월목록'] || [],
         };
       }
     }
@@ -308,14 +315,6 @@
 
     if (gData.generated_at) set('generated-at', gData.generated_at.replace('T', ' '));
 
-    const unreg = (gData.alerts || {}).unregistered_influencers || [];
-    if (unreg.length) {
-      const b = el('alert-banner');
-      if (b) {
-        b.textContent = '미등재 인플루언서: ' + unreg.map(u => u.name + ' (' + u['건수'] + '건)').join(', ');
-        b.classList.remove('hidden');
-      }
-    }
 
     renderFilterButtons(t.months || []);
 
