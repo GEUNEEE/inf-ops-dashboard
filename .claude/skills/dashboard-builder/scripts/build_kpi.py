@@ -47,10 +47,23 @@ def load_json(path_or_dash: str) -> dict:
         return json.load(f)
 
 
-def build_profit_analysis() -> dict:
-    """history 파일 기반으로 월별·인플루언서별 영업이익 집계"""
+GROSS_PRICE_PER_UNIT = 120000  # 매출 단가
+
+
+def build_profit_analysis(per_influencer: dict | None = None) -> dict:
+    """history 파일 기반으로 월별·인플루언서별 영업이익 집계.
+    기여수익 = 매출(12만×qty) - 정산금액 - 해당월 협찬원가"""
     if not HISTORY_DIR.exists():
         return {}
+
+    per_influencer = per_influencer or {}
+
+    # per_influencer에서 인플루언서별 exp_months 빌드 (월→협찬원가 맵)
+    # exp_months: ["2026-03", "2026-04", ...] — 각 체험 발생 월 (건당 40,000원)
+    inf_exp_months: dict[str, list[str]] = {}
+    for name, info in per_influencer.items():
+        if isinstance(info, dict):
+            inf_exp_months[name] = [m for m in info.get("exp_months", []) if m]
 
     monthly: dict = {}
     cumulative = 0
@@ -74,6 +87,7 @@ def build_profit_analysis() -> dict:
             }
 
             # 인플루언서별 누적 기여수익
+            # 기여수익 = 매출(12만×qty) - 정산금액 - 해당월 협찬원가
             known_qty = 0
             for name, info in d.get("influencers", {}).items():
                 qty    = info.get("qty", 0)
@@ -85,15 +99,19 @@ def build_profit_analysis() -> dict:
                 if name not in inf_cum:
                     inf_cum[name] = {"qty": 0, "settlement": 0, "contribution": 0}
                 inf_cum[name]["qty"] += qty
+
+                # 해당 월에 발생한 협찬원가 (40,000원 × 해당월 체험 횟수)
+                month_sponsor = inf_exp_months.get(name, []).count(month) * 40000
+
                 if is_gen:
-                    inf_cum[name]["contribution"] += qty * MARGIN_GENERAL
+                    gross_rev = qty * GROSS_PRICE_PER_UNIT
+                    inf_cum[name]["contribution"] += gross_rev - (qty * (GROSS_PRICE_PER_UNIT - MARGIN_GENERAL)) - month_sponsor
                 else:
                     inf_cum[name]["settlement"] += amount
-                    prev_cum = max(cum - qty, 0)
-                    for q in range(prev_cum, cum):
-                        inf_cum[name]["contribution"] += MARGIN_SETTLEMENT - tier_price(q + 1)
+                    gross_rev = qty * GROSS_PRICE_PER_UNIT
+                    inf_cum[name]["contribution"] += gross_rev - amount - month_sponsor
 
-            # 미등재 기타 (unit_count - known_qty): (기타/기타) 그룹으로 합산
+            # 미등재 기타 (unit_count - known_qty)
             misc_qty = unit_count - known_qty
             if misc_qty > 0:
                 key = "(미등재/기타)"
@@ -106,7 +124,7 @@ def build_profit_analysis() -> dict:
             print(f"[WARN] history 오류 {p.name}: {e}", file=sys.stderr)
 
     return {
-        "note": "영업이익 = Σ(qty × (45,000 − 정산단가)) [인플] + Σ(qty × 84,000) [기타]. 인건비 미포함.",
+        "note": "기여수익 = 매출(12만×qty) − 정산금액 − 해당월 협찬원가(40,000×체험횟수). 영업이익 = 기여수익합계 − 눈길인건비.",
         "monthly": monthly,
         "influencer_cumulative": inf_cum,
     }
@@ -170,17 +188,29 @@ def load_history() -> dict:
     }
 
 
+def get_inf_info(per_influencer: dict, ytber: str) -> tuple[str, int, int, list]:
+    """per_influencer에서 (status_key, exp_count, sponsor_cost, exp_months) 반환.
+    구버전(문자열) / 신버전(dict) 양쪽 호환."""
+    raw = per_influencer.get(ytber, "")
+    if isinstance(raw, dict):
+        return (raw.get("status", "기타"), raw.get("exp_count", 0),
+                raw.get("sponsor_cost", 0), raw.get("exp_months", []))
+    return raw, 0, 0, []
+
+
 def build_settlement_summary(settlement_data: dict, per_influencer: dict) -> dict:
     summary = {}
     for s in settlement_data.get("summaries", []):
         ytber = s.get("ytber", "")
-        status_key = per_influencer.get(ytber, "")
+        status_key, exp_cnt, sponsor_cost, exp_months = get_inf_info(per_influencer, ytber)
         display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
         if s.get("is_general"):
+            qty = s.get("qty", 0)
             summary[ytber] = {
                 "건수": s.get("order_count", 0),
-                "수량": s.get("qty", 0),
-                "금액": None,
+                "수량": qty,
+                "단가": MARGIN_GENERAL,
+                "금액": qty * MARGIN_GENERAL,
                 "정산대상": False,
                 "현재상태": display_status,
             }
@@ -191,6 +221,9 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict) -> dic
                 "누적수량": s.get("cumulative_qty"),
                 "현재단가": s.get("unit_price"),
                 "금액": s.get("settlement_amount"),
+                "체험횟수": exp_cnt,
+                "협찬원가": sponsor_cost,
+                "체험월목록": exp_months,
                 "정산대상": True,
                 "현재상태": display_status,
             }
@@ -220,7 +253,7 @@ def build_influencer_files(settlement_data: dict, per_influencer: dict) -> None:
             continue
         ytber = s.get("ytber", "")
         safe_name = re.sub(r'[<>:"/\\|?*]', '_', ytber)
-        status_key = per_influencer.get(ytber, "")
+        status_key, exp_cnt, sponsor_cost = get_inf_info(per_influencer, ytber)
         display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
 
         data = {
@@ -298,7 +331,7 @@ def main():
         "trends":                 trends,
         "mail_funnel_by_month":   mail_kpi.get("by_month", {}),
         "ad_by_month":            inf_data.get("ad_by_month", {}),
-        "profit_analysis":        build_profit_analysis(),
+        "profit_analysis":        build_profit_analysis(per_influencer),
         "alerts":                 alerts,
     }
 
