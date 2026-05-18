@@ -311,17 +311,6 @@
     }
   },
   "alerts": {
-    "unregistered_influencers": [
-      {
-        "name": "유튜버 정조",
-        "건수": 4,
-        "수량": 5
-      },
-      {
-        "name": "마성민",
-        "건수": 1,
-        "수량": 1
-      }
-    ]
+    "unregistered_influencers": []
   }
 }
