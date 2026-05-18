@@ -21,8 +21,11 @@ CONFIG_PATH = Path(r"C:\Users\user\비서\.claude\skills\settlement-generator\sc
 # 0-based 행 인덱스 (전치형: 행=항목, 열=인플루언서)
 ROW_STATUS     = 9   # Excel Row 10: 현재상태
 ROW_NAME       = 10  # Excel Row 11: 유튜버명
-ROW_EXP_ACCEPT = 23  # Excel Row 24: 체험 수락일
+ROW_EXP_ACCEPT = 23  # Excel Row 24: 체험 수락일 (1차)
+EXP_ROWS       = [23, 31, 34, 37]  # 1차 수락일 / 2·3·4차 체험 날짜
 AD_ROWS        = [30, 33, 36, 39]  # Excel Row 31/34/37/40: 1~4차 광고 날짜
+
+SPONSOR_COST_PER_EXP = 40000
 
 STATUS_CATEGORIES = {
     "미팅대기": "미팅_대기",
@@ -136,9 +139,35 @@ def main():
         status_counter[category] = status_counter.get(category, 0) + 1
 
         normalized_name = name_map.get(name, name)
-        per_influencer[normalized_name] = category
 
-        # 체험 수락일 (Row 24) → 월별 집계
+        # 체험 횟수 및 체험 날짜별 월 집계
+        exp_cnt = 0
+        exp_months = []  # 이 인플루언서의 체험 발생 월 목록 (중복 허용)
+        for exp_row in EXP_ROWS:
+            if exp_row < n_rows and col_idx < len(rows[exp_row]):
+                val = rows[exp_row][col_idx]
+                if is_date(val):
+                    exp_cnt += 1
+                    try:
+                        if isinstance(val, (date, datetime)):
+                            dt = val
+                        else:
+                            dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
+                        exp_months.append(dt.strftime("%Y-%m"))
+                    except Exception:
+                        exp_months.append(None)
+
+        # 인플루언서 관리 등록 = 최소 1회 체험진행 완료 기준
+        exp_cnt = max(1, exp_cnt)
+
+        per_influencer[normalized_name] = {
+            "status": category,
+            "exp_count": exp_cnt,
+            "sponsor_cost": exp_cnt * SPONSOR_COST_PER_EXP,
+            "exp_months": exp_months,  # 체험 발생 월 목록 (수익 월별 차감용)
+        }
+
+        # 체험 수락일 (Row 24, 1차) → 월별 인원 집계
         if ROW_EXP_ACCEPT < n_rows and col_idx < len(rows[ROW_EXP_ACCEPT]):
             val = rows[ROW_EXP_ACCEPT][col_idx]
             if val is not None:
