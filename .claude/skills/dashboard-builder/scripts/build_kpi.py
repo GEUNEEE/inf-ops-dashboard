@@ -249,7 +249,7 @@ def build_influencer_files(settlement_data: dict, per_influencer: dict) -> None:
             continue
         ytber = s.get("ytber", "")
         safe_name = re.sub(r'[<>:"/\\|?*]', '_', ytber)
-        status_key, exp_cnt, sponsor_cost = get_inf_info(per_influencer, ytber)
+        status_key, exp_cnt, sponsor_cost, _ = get_inf_info(per_influencer, ytber)
         display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
 
         data = {
