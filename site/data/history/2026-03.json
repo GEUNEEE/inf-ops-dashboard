@@ -2,9 +2,9 @@
   "month": "2026-03",
   "generated_at": "2026-05-15T16:26:56",
   "gross_revenue": 1200000,
-  "net_profit": 250000,
-  "operating_profit": 250000,
-  "operating_profit_rate": 0.2083,
+  "net_profit": 560000,
+  "operating_profit": 460000,
+  "operating_profit_rate": 0.3833,
   "order_count": 10,
   "unit_count": 10,
   "total_sent": 396,
@@ -34,5 +34,8 @@
       "amount": 20000,
       "is_general": false
     }
-  }
+  },
+  "influencer_cost": 200000,
+  "sponsor_cost": 440000,
+  "labor_cost": 100000
 }

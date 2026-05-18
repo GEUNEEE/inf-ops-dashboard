@@ -1,10 +1,10 @@
 {
   "month": "2026-05",
   "generated_at": "2026-05-17T17:30:00",
-  "gross_revenue": 2880000,
-  "net_profit": 1180000,
-  "operating_profit": 895000,
-  "operating_profit_rate": 0.3108,
+  "gross_revenue": 2930000,
+  "net_profit": 1450000,
+  "operating_profit": 1210000,
+  "operating_profit_rate": 0.413,
   "order_count": 22,
   "unit_count": 24,
   "total_sent": 1395,
@@ -41,7 +41,7 @@
       "qty": 5,
       "cumulative_qty": null,
       "unit_price": null,
-      "amount": null,
+      "amount": 420000,
       "is_general": true
     },
     "유튜버 정조": {
@@ -92,5 +92,8 @@
       "amount": 20000,
       "is_general": false
     }
-  }
+  },
+  "influencer_cost": 800000,
+  "sponsor_cost": 680000,
+  "labor_cost": 240000
 }

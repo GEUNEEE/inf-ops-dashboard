@@ -1,14 +1,15 @@
 {
-  "generated_at": "2026-05-18T14:41:41",
+  "generated_at": "2026-05-18T15:07:47",
   "current_month": "2026-05",
   "revenue": {
     "order_count": 22,
     "unit_count": 24,
-    "gross_revenue": 120000,
-    "influencer_cost": 120000,
-    "personal_fee": 220000,
-    "misc_cost": 1100000,
-    "net_profit": -1320000
+    "gross_revenue": 2930000,
+    "influencer_cost": 800000,
+    "sponsor_cost": 680000,
+    "labor_cost": 240000,
+    "net_profit": 1450000,
+    "operating_profit": 1210000
   },
   "mail_funnel": {
     "total_sent": 1441,
@@ -38,7 +39,7 @@
     "마성민": {
       "건수": 1,
       "수량": 1,
-      "누적수량": 4,
+      "누적수량": 14,
       "현재단가": 20000,
       "금액": 20000,
       "체험횟수": 3,
@@ -54,7 +55,7 @@
     "나이스부부": {
       "건수": 0,
       "수량": 0,
-      "누적수량": 2,
+      "누적수량": 4,
       "현재단가": 20000,
       "금액": 0,
       "체험횟수": 3,
@@ -70,7 +71,7 @@
     "C맹씨": {
       "건수": 5,
       "수량": 5,
-      "누적수량": 15,
+      "누적수량": 16,
       "현재단가": 20000,
       "금액": 100000,
       "체험횟수": 2,
@@ -85,7 +86,7 @@
     "The 조치 패밀리": {
       "건수": 0,
       "수량": 0,
-      "누적수량": 1,
+      "누적수량": 2,
       "현재단가": 20000,
       "금액": 0,
       "체험횟수": 1,
@@ -139,7 +140,7 @@
     "net_profit": [
       560000,
       1832000,
-      1490000
+      1450000
     ],
     "total_sent": [
       396,
@@ -170,12 +171,12 @@
     "operating_profit": [
       460000,
       1512000,
-      1250000
+      1210000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0.4266
+      0.413
     ]
   },
   "mail_funnel_by_month": {
@@ -251,9 +252,9 @@
       "2026-05": {
         "gross_revenue": 2930000,
         "unit_count": 24,
-        "operating_profit": 1250000,
-        "operating_profit_rate": 0.4266,
-        "cumulative_profit": 3222000
+        "operating_profit": 1210000,
+        "operating_profit_rate": 0.413,
+        "cumulative_profit": 3182000
       }
     },
     "influencer_cumulative": {
@@ -285,7 +286,7 @@
       "유튜버 정조": {
         "qty": 5,
         "settlement": 100000,
-        "contribution": 320000
+        "contribution": 280000
       },
       "부부초": {
         "qty": 3,
