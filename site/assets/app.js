@@ -130,22 +130,27 @@
   }
 
   // ── 히스토리 → summary 변환 ────────────────────────────────────────────────
-  function historyToSummary(influencers) {
+  function historyToSummary(influencers, settlementSummary) {
+    const ss = settlementSummary || {};
     const s = {};
     for (const [name, d] of Object.entries(influencers)) {
       const cum   = d.cumulative_qty;
       const qty   = d.qty || 0;
       const isGen = d.is_general || false;
+      const cs    = ss[name] || {};
       s[name] = {
-        '건수':     d.order_count ?? 0,
-        '수량':     qty,
-        '누적수량': isGen ? null : (cum ?? null),
-        '현재단가': isGen ? null : tierPrice(cum || 0),
-        '금액':     isGen
+        '건수':      d.order_count ?? 0,
+        '수량':      qty,
+        '누적수량':  isGen ? null : (cum ?? null),
+        '현재단가':  isGen ? null : tierPrice(cum || 0),
+        '금액':      isGen
           ? (d.amount ?? null)
           : calcTieredAmount(cum || 0) - calcTieredAmount(Math.max((cum || 0) - qty, 0)),
-        '정산대상': !isGen,
-        '현재상태': '',
+        '정산대상':  !isGen,
+        '현재상태':  cs['현재상태'] || '',
+        '체험횟수':  cs['체험횟수'] ?? null,
+        '협찬원가':  cs['협찬원가'] ?? null,
+        '체험월목록': cs['체험월목록'] || [],
       };
     }
     return s;
@@ -294,7 +299,7 @@
       ad_total:      (gData.ad_by_month || {})[month] || mf.ad || 0,
     });
     renderDonutChart(h.inf_status || {});
-    renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
+    renderInfluencerGrid(historyToSummary(h.influencers || {}, gData.settlement_summary), month);
     renderContribTable(pa, month, h, gData.settlement_summary);
   }
 
