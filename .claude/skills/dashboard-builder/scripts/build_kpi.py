@@ -194,7 +194,7 @@ def get_inf_info(per_influencer: dict, ytber: str) -> tuple[str, int, int, list]
     return raw, 0, 0, []
 
 
-def build_settlement_summary(settlement_data: dict, per_influencer: dict) -> dict:
+def build_settlement_summary(settlement_data: dict, per_influencer: dict, current_month: str | None = None) -> dict:
     summary = {}
     for s in settlement_data.get("summaries", []):
         ytber = s.get("ytber", "")
@@ -223,6 +223,45 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict) -> dic
                 "정산대상": True,
                 "현재상태": display_status,
             }
+
+    # 현재 월 히스토리에서 settlement.json에 없는 인플루언서 보완
+    # (이전 파이프라인 실행에서 처리된 인플루언서도 settlement_summary에 표시)
+    month_key = current_month or datetime.now().strftime("%Y-%m")
+    hist_path = HISTORY_DIR / f"{month_key}.json"
+    if hist_path.exists():
+        try:
+            hist = json.loads(hist_path.read_text(encoding="utf-8"))
+            for ytber, info in hist.get("influencers", {}).items():
+                if ytber in summary:
+                    continue
+                status_key, exp_cnt, sponsor_cost, exp_months = get_inf_info(per_influencer, ytber)
+                display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
+                if info.get("is_general"):
+                    qty = info.get("qty", 0)
+                    summary[ytber] = {
+                        "건수": info.get("order_count", 0),
+                        "수량": qty,
+                        "단가": MARGIN_GENERAL,
+                        "금액": qty * MARGIN_GENERAL,
+                        "정산대상": False,
+                        "현재상태": display_status,
+                    }
+                else:
+                    summary[ytber] = {
+                        "건수": info.get("order_count", 0),
+                        "수량": info.get("qty", 0),
+                        "누적수량": info.get("cumulative_qty"),
+                        "현재단가": info.get("unit_price"),
+                        "금액": info.get("amount"),
+                        "체험횟수": exp_cnt,
+                        "협찬원가": sponsor_cost,
+                        "체험월목록": exp_months,
+                        "정산대상": True,
+                        "현재상태": display_status,
+                    }
+        except Exception as e:
+            print(f"[WARN] 히스토리 병합 오류: {e}", file=sys.stderr)
+
     return summary
 
 
@@ -323,7 +362,7 @@ def main():
         "mail_funnel":            mail_funnel,
         "inf_status":             inf_data.get("inf_status", {}),
         "settlement_month":       int(current_month.split("-")[1]),
-        "settlement_summary":     build_settlement_summary(settlement, per_influencer),
+        "settlement_summary":     build_settlement_summary(settlement, per_influencer, current_month),
         "trends":                 trends,
         "mail_funnel_by_month":   mail_kpi.get("by_month", {}),
         "ad_by_month":            inf_data.get("ad_by_month", {}),

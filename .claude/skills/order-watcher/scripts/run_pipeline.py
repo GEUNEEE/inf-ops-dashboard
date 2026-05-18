@@ -104,7 +104,7 @@ def main():
     print("[STEP 6] 매출·수익 집계...", file=sys.stderr)
     revenue_data = run_script(
         SKILLS_DIR / "dashboard-builder" / "scripts" / "build_revenue.py",
-        str(bucket_json), str(settlement_json)
+        str(bucket_json), str(settlement_json), str(inf_json), target_month
     )
     revenue_json = save_temp_json(revenue_data, "revenue.json")
 
