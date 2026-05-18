@@ -15,36 +15,6 @@ BASE_DIR    = Path(r"C:\Users\user\비서")
 HISTORY_DIR = BASE_DIR / "site" / "data" / "history"
 LOCAL_HIST  = BASE_DIR / "output" / "history"
 
-MARGIN_SETTLEMENT = 45000
-MARGIN_GENERAL    = 84000
-
-
-def tier_price(cum: int) -> int:
-    if cum >= 100: return 25000
-    if cum >= 30:  return 22000
-    return 20000
-
-
-def compute_operating_profit(inf_summary: dict, total_unit_count: int) -> int:
-    """인플루언서별 스냅샷에서 영업이익 계산 (구간 단가 적용)"""
-    op = 0
-    known_qty = 0
-    for info in inf_summary.values():
-        qty = info.get("qty", 0)
-        known_qty += qty
-        cum = info.get("cumulative_qty") or 0
-        is_gen = info.get("is_general", False)
-        if is_gen:
-            op += qty * MARGIN_GENERAL
-        else:
-            prev_cum = max(cum - qty, 0)
-            for q in range(prev_cum, cum):
-                op += MARGIN_SETTLEMENT - tier_price(q + 1)
-    misc_qty = total_unit_count - known_qty
-    if misc_qty > 0:
-        op += misc_qty * MARGIN_GENERAL
-    return op
-
 
 def main():
     if len(sys.argv) < 6:
@@ -78,12 +48,21 @@ def main():
         except Exception:
             pass
 
+    # per_influencer에서 exp_months 추출
+    per_influencer = inf_data.get("per_influencer", {})
+    inf_exp_months: dict[str, list[str]] = {}
+    for name, info in per_influencer.items():
+        if isinstance(info, dict):
+            inf_exp_months[name] = [m for m in info.get("exp_months", []) if m]
+
     # 인플루언서별 집계 — 기존 + 신규 합산
     inf_summary = dict(prev.get("influencers", {}))
     for s in settlement.get("summaries", []):
         ytber = s.get("ytber", "")
         existing = inf_summary.get(ytber, {})
         is_gen = s.get("is_general", False)
+        # 해당 월에 발생한 체험월 목록 (월별 협찬원가 계산용)
+        exp_months_this_month = [m for m in inf_exp_months.get(ytber, []) if m == target_month]
         inf_summary[ytber] = {
             "order_count":    (existing.get("order_count", 0) or 0) + s.get("order_count", 0),
             "qty":            (existing.get("qty", 0) or 0) + s.get("qty", 0),
@@ -91,17 +70,19 @@ def main():
             "unit_price":     s.get("unit_price"),           # 최신 단가
             "amount":         (existing.get("amount") or 0) + (s.get("settlement_amount") or 0),
             "is_general":     is_gen,
+            "sponsor_cost_this_month": len(exp_months_this_month) * 40000,
         }
 
     total_gross      = (prev.get("gross_revenue") or 0) + revenue.get("gross_revenue", 0)
     total_unit_count = (prev.get("unit_count") or 0) + revenue.get("unit_count", 0)
-    op               = compute_operating_profit(inf_summary, total_unit_count)
+    total_net_profit = (prev.get("net_profit") or 0) + revenue.get("net_profit", 0)
+    op               = (prev.get("operating_profit") or 0) + revenue.get("operating_profit", 0)
 
     snapshot = {
         "month":        target_month,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "gross_revenue":        total_gross,
-        "net_profit":           (prev.get("net_profit") or 0) + revenue.get("net_profit", 0),
+        "net_profit":           total_net_profit,
         "order_count":          (prev.get("order_count") or 0) + revenue.get("order_count", 0),
         "unit_count":           total_unit_count,
         "operating_profit":     op,

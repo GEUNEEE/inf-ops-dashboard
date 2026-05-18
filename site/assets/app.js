@@ -17,8 +17,8 @@
   const hCache = {};
 
   // ── 구간 단가 ─────────────────────────────────────────────────────────────
-  const MARGIN_SETTLEMENT = 45000;
-  const MARGIN_GENERAL    = 84000;
+  const GROSS_PRICE      = 120000; // 매출 단가 (개당)
+  const MARGIN_GENERAL   = 84000;  // 기타/일반 정산가 (= 매출가이기도 함)
 
   function tierPrice(cumQty) {
     if (cumQty >= 100) return 25000;
@@ -245,7 +245,7 @@
       renderFunnelBars(f);
       renderDonutChart(gData.inf_status || {});
       renderInfluencerGrid(gData.settlement_summary || {}, null);
-      renderContribTable(pa, null, null);
+      renderContribTable(pa, null, null, gData.settlement_summary);
 
       buildAllTimeData().then(({ revenue, infMap }) => {
         updateKPIs(revenue, f);
@@ -286,7 +286,7 @@
     });
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}), month);
-    renderContribTable(pa, month, h);
+    renderContribTable(pa, month, h, gData.settlement_summary);
   }
 
   // ── 메인 초기화 ────────────────────────────────────────────────────────────
@@ -343,7 +343,7 @@
     }
 
     renderProfitChart(pa);
-    renderContribTable(pa, null, null);
+    renderContribTable(pa, null, null, gData.settlement_summary);
 
     // 전체 집계로 업데이트 (비동기, 실패해도 화면 유지)
     buildAllTimeData().then(({ revenue, infMap }) => {
@@ -486,9 +486,13 @@
           ${c && (c.settlement || c.contribution) ? `<div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
             <div style="display:flex;justify-content:space-between;align-items:center">
               <span class="stat-lbl">누적 정산금액</span>
-              <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(c.settlement ?? c.contribution)}</span>
+              <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(c.settlement ?? 0)}</span>
             </div>
-            ${c.contribution ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+            ${item['협찬원가'] > 0 ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+              <span class="stat-lbl" style="font-size:10px;color:var(--text3)">누적 협찬원가</span>
+              <span style="font-size:10px;color:#C0392B">−${money(item['협찬원가'])}</span>
+            </div>` : ''}
+            ${c.contribution != null ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
               <span class="stat-lbl" style="font-size:10px;color:var(--text3)">기여수익</span>
               <span style="font-size:10px;color:var(--text3)">${money(c.contribution)}</span>
             </div>` : ''}
@@ -498,25 +502,30 @@
         if (qty > 0) {
           const mCum = item['누적수량'] ?? 0;
           const mPrevCum = Math.max(mCum - qty, 0);
-          let mc = 0;
           let settlementAmt = 0;
           if (isTarget) {
-            for (let q = mPrevCum; q < mCum; q++) {
-              const p = tierPrice(q + 1);
-              settlementAmt += p;
-              mc += MARGIN_SETTLEMENT - p;
-            }
+            for (let q = mPrevCum; q < mCum; q++) settlementAmt += tierPrice(q + 1);
           } else {
             settlementAmt = qty * 84000;
-            mc = qty * MARGIN_GENERAL;
           }
-          if (mc > 0) {
+          // 협찬원가: 해당 월에 발생한 체험 횟수 × 40,000
+          const expMonths = item['체험월목록'] || [];
+          const monthSponsorCost = expMonths.filter(m => m === month).length * 40000;
+          const grossRev = qty * GROSS_PRICE;
+          const mc = grossRev - settlementAmt - monthSponsorCost;
+          if (settlementAmt > 0 || mc > 0) {
+            const sponsorLine = monthSponsorCost > 0
+              ? `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+                  <span class="stat-lbl" style="font-size:10px;color:var(--text3)">협찬원가</span>
+                  <span style="font-size:10px;color:#C0392B">−${money(monthSponsorCost)}</span>
+                </div>` : '';
             contribHtml = `
             <div style="margin-top:6px;padding-top:5px;border-top:0.5px solid var(--border)">
               <div style="display:flex;justify-content:space-between;align-items:center">
                 <span class="stat-lbl">${monthLabel(month)} 정산금액</span>
                 <span class="stat-val" style="color:#3B6D11;font-weight:700">${money(settlementAmt)}</span>
               </div>
+              ${sponsorLine}
               <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
                 <span class="stat-lbl" style="font-size:10px;color:var(--text3)">기여수익</span>
                 <span style="font-size:10px;color:var(--text3)">${money(mc)}</span>
@@ -720,7 +729,7 @@
   }
 
   // ── 기여수익 테이블 ────────────────────────────────────────────────────────
-  function renderContribTable(pa, month, h) {
+  function renderContribTable(pa, month, h, settlementSummary) {
     const c = el('contrib-table');
     if (!c) return;
 
@@ -730,26 +739,38 @@
       totalQty = h.unit_count || 0;
       let knownQty = 0;
       items = Object.entries(h.influencers || {}).map(([name, d]) => {
-        const qty    = d.qty || 0;
-        const isGen  = d.is_general || false;
-        const cum    = d.cumulative_qty || 0;
-        const prevCum = Math.max(cum - qty, 0);
-        let contribution = 0;
-        if (isGen) {
-          contribution = qty * MARGIN_GENERAL;
+        const qty      = d.qty || 0;
+        const isGen    = d.is_general || false;
+        const cum      = d.cumulative_qty || 0;
+        const prevCum  = Math.max(cum - qty, 0);
+        let settlementAmt = 0;
+        if (!isGen) {
+          for (let q = prevCum; q < cum; q++) settlementAmt += tierPrice(q + 1);
         } else {
-          for (let q = prevCum; q < cum; q++) contribution += MARGIN_SETTLEMENT - tierPrice(q + 1);
+          settlementAmt = qty * 84000;
         }
+        // 해당 월 협찬원가: snapshot의 sponsor_cost_this_month 또는 settlement_summary에서 체험월 필터
+        const sponsorCost = d.sponsor_cost_this_month || 0;
+        const grossRev = qty * GROSS_PRICE;
+        const contribution = isGen
+          ? grossRev - (qty * (GROSS_PRICE - MARGIN_GENERAL)) - sponsorCost
+          : grossRev - settlementAmt - sponsorCost;
         knownQty += qty;
-        return { name, qty, settlement: isGen ? 0 : (d.amount || 0), contribution, isGen };
+        return { name, qty, settlement: isGen ? 0 : (d.amount || 0), sponsorCost, contribution, isGen };
       });
       const miscQty = totalQty - knownQty;
-      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, contribution: miscQty * MARGIN_GENERAL, isGen: true });
+      if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, sponsorCost: 0, contribution: miscQty * MARGIN_GENERAL, isGen: true });
     } else {
       if (!pa) { c.innerHTML = ''; return; }
+      // 누적 모드: build_kpi.py가 협찬원가 차감한 기여수익을 inf_cum에 이미 담음
+      const ss = settlementSummary || {};
       items = Object.entries(pa.influencer_cumulative || {}).map(([name, d]) => ({
-        name, qty: d.qty || 0, settlement: d.settlement || 0,
-        contribution: d.contribution || 0, isGen: !d.settlement,
+        name,
+        qty: d.qty || 0,
+        settlement: d.settlement || 0,
+        sponsorCost: (ss[name] || {})['협찬원가'] || 0,
+        contribution: d.contribution || 0,
+        isGen: !d.settlement,
       }));
       totalQty = Object.values(pa.monthly || {}).reduce((s, m) => s + (m.unit_count || 0), 0);
     }
@@ -757,22 +778,25 @@
     items.sort((a, b) => b.contribution - a.contribution);
     if (!items.length) { c.innerHTML = '<div style="font-size:11px;color:var(--text3)">데이터 없음</div>'; return; }
 
-    const totalContrib = items.reduce((s, i) => s + (i.contribution || 0), 0);
-    const laborCost    = totalQty * 10000;
-    const laborLabel   = month ? monthLabel(month) : '전체 누적';
+    const totalContrib  = items.reduce((s, i) => s + (i.contribution || 0), 0);
+    const totalSponsor  = items.reduce((s, i) => s + (i.sponsorCost || 0), 0);
+    const laborCost     = totalQty * 10000;
+    const laborLabel    = month ? monthLabel(month) : '전체 누적';
+    const showSponsor   = totalSponsor > 0;
 
     const rows = items.map(i => `<tr>
       <td>${i.name}</td>
       <td>${i.qty}개</td>
       <td>${i.settlement ? money(i.settlement) : '<span style="color:var(--text3)">-</span>'}</td>
+      ${showSponsor ? `<td style="color:#C0392B">${i.sponsorCost ? '−' + money(i.sponsorCost) : '<span style="color:var(--text3)">-</span>'}</td>` : ''}
       <td style="color:#3B6D11;font-weight:500">${money(i.contribution)}</td>
     </tr>`).join('');
 
     c.innerHTML = `
       <table class="contrib-tbl">
-        <thead><tr><th>인플루언서</th><th>수량</th><th>정산금액</th><th>기여수익</th></tr></thead>
+        <thead><tr><th>인플루언서</th><th>수량</th><th>정산금액</th>${showSponsor ? '<th>협찬원가</th>' : ''}<th>기여수익</th></tr></thead>
         <tbody>${rows}</tbody>
-        <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td><td>${money(totalContrib)}</td></tr></tfoot>
+        <tfoot><tr><td>합계</td><td>${totalQty}개</td><td></td>${showSponsor ? '<td></td>' : ''}<td>${money(totalContrib)}</td></tr></tfoot>
       </table>
       <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
         눈길 인건비 (${laborLabel}): ${money(laborCost)} (${totalQty}개 × ₩10,000)
