@@ -457,12 +457,13 @@
     const infCum = ((gData || {}).profit_analysis || {}).influencer_cumulative || {};
     const amountLabel = month ? '당월 정산액' : '누적 정산액';
 
-    const items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
-    items.sort((a, b) => {
-      if (a['정산대상'] && !b['정산대상']) return -1;
-      if (!a['정산대상'] && b['정산대상']) return 1;
-      return (b['금액'] || 0) - (a['금액'] || 0);
-    });
+    let items = Object.entries(summary).map(([name, d]) => ({ name, ...d }));
+
+    if (month) {
+      // 월별 필터: 해당 월에 수량이 있는 인플루언서만, 수량 내림차순
+      items = items.filter(d => (d['수량'] || 0) > 0);
+    }
+    items.sort((a, b) => (b['수량'] || 0) - (a['수량'] || 0));
 
     grid.innerHTML = items.map(item => {
       const isTarget = item['정산대상'];
