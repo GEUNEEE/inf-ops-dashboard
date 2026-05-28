@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T11:30:07",
+  "generated_at": "2026-05-28T11:49:08",
   "current_month": "2026-05",
   "revenue": {
     "order_count": 7,
@@ -206,12 +206,12 @@
     "gross_revenue": [
       1200000,
       3960000,
-      3810000
+      4690000
     ],
     "net_profit": [
       560000,
       1832000,
-      1194000
+      938000
     ],
     "total_sent": [
       396,
@@ -242,12 +242,12 @@
     "operating_profit": [
       460000,
       1512000,
-      884000
+      558000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0.232
+      0.119
     ]
   },
   "mail_funnel_by_month": {
@@ -321,18 +321,18 @@
         "cumulative_profit": 1972000
       },
       "2026-05": {
-        "gross_revenue": 3810000,
-        "unit_count": 31,
-        "operating_profit": 884000,
-        "operating_profit_rate": 0.232,
-        "cumulative_profit": 2856000
+        "gross_revenue": 4690000,
+        "unit_count": 38,
+        "operating_profit": 558000,
+        "operating_profit_rate": 0.119,
+        "cumulative_profit": 2530000
       }
     },
     "influencer_cumulative": {
       "마성민": {
-        "qty": 15,
-        "settlement": 300000,
-        "contribution": 880000
+        "qty": 16,
+        "settlement": 320000,
+        "contribution": 944000
       },
       "나이스부부": {
         "qty": 4,
@@ -340,9 +340,9 @@
         "contribution": 176000
       },
       "C맹씨": {
-        "qty": 21,
-        "settlement": 420000,
-        "contribution": 1304000
+        "qty": 26,
+        "settlement": 520000,
+        "contribution": 1624000
       },
       "The 조치 패밀리": {
         "qty": 2,
@@ -350,9 +350,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 26,
+        "qty": 35,
         "settlement": 0,
-        "contribution": 2444000
+        "contribution": 3290000
       },
       "유튜버 정조": {
         "qty": 5,
