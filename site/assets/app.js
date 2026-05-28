@@ -73,7 +73,7 @@
   // ── KPI ───────────────────────────────────────────────────────────────────
   function updateKPIs(r, f) {
     set('kpi-revenue',    money(r.gross_revenue));
-    set('kpi-orders',     (r.order_count || 0) + '건');
+    set('kpi-orders',     (r.unit_count != null ? r.unit_count : 0) + '개');
     set('kpi-profit',     money(r.net_profit));
     set('kpi-reply-rate', pct(f.reply_rate));
     set('kpi-exp-rate',   pct(f.exp_rate));
@@ -87,7 +87,7 @@
 
   function setKPISubs(r, f) {
     set('kpi-revenue-sub', r.unit_count != null ? r.unit_count + '개 판매' : '');
-    set('kpi-orders-sub',  r.unit_count != null ? r.unit_count + '개 단위' : '');
+    set('kpi-orders-sub',  r.order_count != null ? '주문수 ' + r.order_count + '건' : '');
     set('kpi-profit-sub',  r.net_profit > 0 ? '흑자' : r.net_profit < 0 ? '적자' : '');
     const sentStr = f.total_sent ? Number(f.total_sent).toLocaleString() + '건 발송 기준' : '';
     set('kpi-reply-sub', sentStr);
