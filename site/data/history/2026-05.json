@@ -1,12 +1,12 @@
 {
   "month": "2026-05",
-  "generated_at": "2026-05-28T11:54:23",
-  "gross_revenue": 5570000,
-  "net_profit": 682000,
-  "order_count": 43,
-  "unit_count": 45,
-  "operating_profit": 232000,
-  "operating_profit_rate": 0.0417,
+  "generated_at": "2026-05-28T12:00:43",
+  "gross_revenue": 3810000,
+  "net_profit": 1934000,
+  "order_count": 29,
+  "unit_count": 31,
+  "operating_profit": 1624000,
+  "operating_profit_rate": 0.4262,
   "total_sent": 1510,
   "replied": 211,
   "meeting_total": 67,
@@ -29,63 +29,13 @@
   },
   "influencers": {
     "C맹씨": {
-      "order_count": 20,
-      "qty": 20,
+      "order_count": 5,
+      "qty": 5,
       "cumulative_qty": 15,
       "unit_price": 20000,
-      "amount": 400000,
-      "is_general": false,
-      "sponsor_cost_this_month": 0
-    },
-    "기타/일반": {
-      "order_count": 32,
-      "qty": 32,
-      "cumulative_qty": null,
-      "unit_price": null,
-      "amount": 420000,
-      "is_general": true,
-      "sponsor_cost_this_month": 0
-    },
-    "유튜버 정조": {
-      "order_count": 4,
-      "qty": 5,
-      "cumulative_qty": 5,
-      "unit_price": 20000,
       "amount": 100000,
-      "is_general": false
-    },
-    "부부초": {
-      "order_count": 3,
-      "qty": 3,
-      "cumulative_qty": 3,
-      "unit_price": 20000,
-      "amount": 60000,
-      "is_general": false
-    },
-    "바다로간배스": {
-      "order_count": 1,
-      "qty": 2,
-      "cumulative_qty": 2,
-      "unit_price": 20000,
-      "amount": 40000,
-      "is_general": false
-    },
-    "낚시중독": {
-      "order_count": 2,
-      "qty": 2,
-      "cumulative_qty": 2,
-      "unit_price": 20000,
-      "amount": 40000,
-      "is_general": false
-    },
-    "마성민": {
-      "order_count": 4,
-      "qty": 4,
-      "cumulative_qty": 4,
-      "unit_price": 20000,
-      "amount": 80000,
       "is_general": false,
-      "sponsor_cost_this_month": 40000
+      "sponsor_cost_this_month": 0
     },
     "그래서 강리안": {
       "order_count": 1,
@@ -93,24 +43,88 @@
       "cumulative_qty": 1,
       "unit_price": 20000,
       "amount": 20000,
-      "is_general": false
-    },
-    "나이스부부": {
-      "order_count": 0,
-      "qty": 0,
-      "cumulative_qty": 2,
-      "unit_price": 20000,
-      "amount": 0,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
-    "The 조치 패밀리": {
-      "order_count": 0,
-      "qty": 0,
+    "바다로간배스": {
+      "order_count": 1,
+      "qty": 2,
+      "cumulative_qty": 2,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "유튜버 정조": {
+      "order_count": 4,
+      "qty": 5,
+      "cumulative_qty": 5,
+      "unit_price": 20000,
+      "amount": 100000,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "부부초": {
+      "order_count": 3,
+      "qty": 3,
+      "cumulative_qty": 3,
+      "unit_price": 20000,
+      "amount": 60000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "낚시중독": {
+      "order_count": 2,
+      "qty": 2,
+      "cumulative_qty": 2,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "마성민": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 4,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "한섭프로": {
+      "order_count": 1,
+      "qty": 1,
       "cumulative_qty": 1,
       "unit_price": 20000,
-      "amount": 0,
+      "amount": 20000,
       "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "갓생부부": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 1,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "골넌디": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 1,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "기타/일반": {
+      "order_count": 9,
+      "qty": 9,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": true,
       "sponsor_cost_this_month": 0
     }
   }
