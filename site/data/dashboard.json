@@ -1,14 +1,15 @@
 {
-  "generated_at": "2026-05-28T11:16:01",
+  "generated_at": "2026-05-28T11:20:08",
   "current_month": "2026-05",
   "revenue": {
-    "order_count": 22,
-    "unit_count": 24,
-    "gross_revenue": 120000,
-    "influencer_cost": 120000,
-    "personal_fee": 220000,
-    "misc_cost": 1100000,
-    "net_profit": -1320000
+    "order_count": 7,
+    "unit_count": 7,
+    "gross_revenue": 880000,
+    "influencer_cost": 456000,
+    "sponsor_cost": 680000,
+    "labor_cost": 70000,
+    "net_profit": -256000,
+    "operating_profit": -326000
   },
   "mail_funnel": {
     "total_sent": 1510,
@@ -96,10 +97,10 @@
       "현재상태": "기타"
     },
     "기타/일반": {
-      "건수": 5,
-      "수량": 5,
+      "건수": 9,
+      "수량": 9,
       "단가": 84000,
-      "금액": 420000,
+      "금액": 756000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -185,68 +186,68 @@
     "reply_rate": [
       0.1212,
       0.1147,
-      0.1434
+      0.1397
     ],
     "exp_rate": [
       0.0379,
       0.0282,
-      0.0294
+      0.0278
     ],
     "ad_rate": [
       0.0253,
       0.0155,
-      0.0165
+      0.0185
     ],
     "meeting_rate": [
       0.0328,
       0.0515,
-      0.0473
+      0.0444
     ],
     "gross_revenue": [
       1200000,
       3960000,
-      2930000
+      3810000
     ],
     "net_profit": [
       560000,
       1832000,
-      1450000
+      1194000
     ],
     "total_sent": [
       396,
       1029,
-      1395
+      1510
     ],
     "replied": [
       48,
       118,
-      200
+      211
     ],
     "meeting_total": [
       13,
       53,
-      66
+      67
     ],
     "exp_total": [
       15,
       29,
-      41
+      42
     ],
     "ad_total": [
       10,
       16,
-      23
+      28
     ],
     "exp_by_month": {},
     "operating_profit": [
       460000,
       1512000,
-      1210000
+      884000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0.413
+      0.232
     ]
   },
   "mail_funnel_by_month": {
@@ -320,18 +321,18 @@
         "cumulative_profit": 1972000
       },
       "2026-05": {
-        "gross_revenue": 2930000,
-        "unit_count": 24,
-        "operating_profit": 1210000,
-        "operating_profit_rate": 0.413,
-        "cumulative_profit": 3182000
+        "gross_revenue": 3810000,
+        "unit_count": 31,
+        "operating_profit": 884000,
+        "operating_profit_rate": 0.232,
+        "cumulative_profit": 2856000
       }
     },
     "influencer_cumulative": {
       "마성민": {
-        "qty": 14,
-        "settlement": 280000,
-        "contribution": 816000
+        "qty": 15,
+        "settlement": 300000,
+        "contribution": 880000
       },
       "나이스부부": {
         "qty": 4,
@@ -339,9 +340,9 @@
         "contribution": 176000
       },
       "C맹씨": {
-        "qty": 16,
-        "settlement": 320000,
-        "contribution": 984000
+        "qty": 21,
+        "settlement": 420000,
+        "contribution": 1304000
       },
       "The 조치 패밀리": {
         "qty": 2,
@@ -349,9 +350,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 17,
+        "qty": 26,
         "settlement": 0,
-        "contribution": 1598000
+        "contribution": 2444000
       },
       "유튜버 정조": {
         "qty": 5,
