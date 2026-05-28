@@ -465,13 +465,31 @@
     }
     items.sort((a, b) => (b['수량'] || 0) - (a['수량'] || 0));
 
+    // 이번 달 정산 대상 판별 (건수 > 0인 정산대상)
+    const curMonth     = (gData || {}).settlement_month;
+    const curMonthLabel = curMonth ? curMonth + '월' : '';
+    const curSummary   = (gData || {}).settlement_summary || {};
+    const thisMonthTargets = new Set(
+      Object.entries(curSummary)
+        .filter(([, d]) => d['정산대상'] && (d['건수'] || 0) > 0)
+        .map(([name]) => name)
+    );
+
     grid.innerHTML = items.map(item => {
       const isTarget = item['정산대상'];
       const tag  = isTarget ? 'a' : 'div';
       const href = isTarget ? `href="influencer.html?name=${encodeURIComponent(item.name)}"` : '';
-      const badge = isTarget
-        ? `<span class="pill pill-target">정산대상</span>`
-        : `<span class="pill pill-general">기타/일반</span>`;
+
+      // 전체 필터: 이번달 정산대상만 badge, 나머지는 표기 없음
+      // 월별 필터: 정산대상 / 기타일반 구분 표기
+      let badge = '';
+      if (month) {
+        badge = isTarget
+          ? `<span class="pill pill-target">정산대상</span>`
+          : `<span class="pill pill-general">기타/일반</span>`;
+      } else if (thisMonthTargets.has(item.name)) {
+        badge = `<span class="pill pill-target">${curMonthLabel} 정산대상</span>`;
+      }
 
       // 기여수익 표시
       let contribHtml = '';
