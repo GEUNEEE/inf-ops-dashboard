@@ -1,48 +1,50 @@
 {
   "month": "2026-05",
-  "generated_at": "2026-05-17T17:30:00",
-  "gross_revenue": 2930000,
-  "net_profit": 1450000,
-  "operating_profit": 1210000,
-  "operating_profit_rate": 0.413,
-  "order_count": 22,
-  "unit_count": 24,
-  "total_sent": 1395,
-  "replied": 200,
-  "meeting_total": 66,
-  "exp_total": 41,
-  "ad_total": 23,
-  "reply_rate": 0.1434,
-  "exp_rate": 0.0294,
-  "ad_rate": 0.0165,
-  "meeting_rate": 0.0473,
+  "generated_at": "2026-05-28T11:20:08",
+  "gross_revenue": 3810000,
+  "net_profit": 1194000,
+  "order_count": 29,
+  "unit_count": 31,
+  "operating_profit": 884000,
+  "operating_profit_rate": 0.232,
+  "total_sent": 1510,
+  "replied": 211,
+  "meeting_total": 67,
+  "exp_total": 42,
+  "ad_total": 28,
+  "reply_rate": 0.1397,
+  "exp_rate": 0.0278,
+  "ad_rate": 0.0185,
+  "meeting_rate": 0.0444,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
     "체험진행_1차": 20,
     "체험진행_2차": 1,
-    "체험진행_3차": 2,
-    "광고예정_1차": 3,
-    "광고예정_2차": 1,
+    "체험진행_3차": 1,
+    "광고예정_1차": 1,
+    "광고예정_2차": 0,
     "광고완료_1차": 0,
-    "기타": 15
+    "기타": 19
   },
   "influencers": {
     "C맹씨": {
-      "order_count": 5,
-      "qty": 5,
-      "cumulative_qty": 16,
+      "order_count": 10,
+      "qty": 10,
+      "cumulative_qty": 15,
       "unit_price": 20000,
-      "amount": 100000,
-      "is_general": false
+      "amount": 200000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
     },
     "기타/일반": {
-      "order_count": 5,
-      "qty": 5,
+      "order_count": 14,
+      "qty": 14,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 420000,
-      "is_general": true
+      "is_general": true,
+      "sponsor_cost_this_month": 0
     },
     "유튜버 정조": {
       "order_count": 4,
@@ -77,12 +79,13 @@
       "is_general": false
     },
     "마성민": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 14,
+      "order_count": 2,
+      "qty": 2,
+      "cumulative_qty": 4,
       "unit_price": 20000,
-      "amount": 20000,
-      "is_general": false
+      "amount": 40000,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
     },
     "그래서 강리안": {
       "order_count": 1,
@@ -91,9 +94,24 @@
       "unit_price": 20000,
       "amount": 20000,
       "is_general": false
+    },
+    "나이스부부": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": 2,
+      "unit_price": 20000,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "The 조치 패밀리": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": 1,
+      "unit_price": 20000,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
     }
-  },
-  "influencer_cost": 800000,
-  "sponsor_cost": 680000,
-  "labor_cost": 240000
+  }
 }
