@@ -1,12 +1,12 @@
 {
   "month": "2026-05",
-  "generated_at": "2026-05-31T16:54:35",
-  "gross_revenue": 0,
-  "net_profit": -760000,
+  "generated_at": "2026-05-31T16:57:39",
+  "gross_revenue": 250000,
+  "net_profit": -674000,
   "order_count": 2,
-  "unit_count": 0,
-  "operating_profit": -760000,
-  "operating_profit_rate": 0,
+  "unit_count": 2,
+  "operating_profit": -694000,
+  "operating_profit_rate": -2.776,
   "total_sent": 1510,
   "replied": 212,
   "meeting_total": 69,
@@ -28,9 +28,18 @@
     "기타": 20
   },
   "influencers": {
+    "부부초": {
+      "order_count": 4,
+      "qty": 4,
+      "cumulative_qty": 4,
+      "unit_price": 20000,
+      "amount": 80000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
     "기타/일반": {
-      "order_count": 9,
-      "qty": 9,
+      "order_count": 10,
+      "qty": 10,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
