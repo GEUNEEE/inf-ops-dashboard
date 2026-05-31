@@ -262,6 +262,25 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict, curren
         except Exception as e:
             print(f"[WARN] 히스토리 병합 오류: {e}", file=sys.stderr)
 
+    # per_influencer 전체 순회 — 주문이 없어도 등재된 인플루언서는 현재상태 표시
+    for ytber, raw in per_influencer.items():
+        if ytber in summary:
+            continue
+        status_key, exp_cnt, sponsor_cost, exp_months = get_inf_info(per_influencer, ytber)
+        display_status = DISPLAY_STATUS_MAP.get(status_key, status_key)
+        summary[ytber] = {
+            "건수": 0,
+            "수량": 0,
+            "누적수량": 0,
+            "현재단가": None,
+            "금액": 0,
+            "체험횟수": exp_cnt,
+            "협찬원가": sponsor_cost,
+            "체험월목록": exp_months,
+            "정산대상": True,
+            "현재상태": display_status,
+        }
+
     return summary
 
 

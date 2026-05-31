@@ -64,16 +64,12 @@ def main():
     general_orders    = bucket_data.get("general", [])
     excluded_orders   = bucket_data.get("excluded", [])
 
-    # 버킷이 비어있으면(신규 0건 재실행) settlement.json 누계에서 주문/수량 복원
-    all_orders = settlement_orders + general_orders + excluded_orders
-    if not all_orders and settlement_data.get("summaries"):
-        order_count   = sum(s.get("order_count", 0) for s in settlement_data["summaries"])
-        unit_count    = sum(s.get("qty", 0) for s in settlement_data["summaries"] if not s.get("is_general", False))
-        general_count = sum(s.get("qty", 0) for s in settlement_data["summaries"] if s.get("is_general", False))
-    else:
-        order_count   = len(all_orders)
-        unit_count    = sum(o.get("qty", 0) for o in settlement_orders)
-        general_count = sum(o.get("qty", 0) for o in general_orders)
+    # 수량은 항상 settlement.json 누계(월 전체) 기준으로 계산
+    # bucket은 신규 배치분만 담고 있어 과소계산되므로 사용 안 함
+    all_orders    = settlement_orders + general_orders + excluded_orders
+    order_count   = sum(s.get("order_count", 0) for s in settlement_data.get("summaries", []))
+    unit_count    = sum(s.get("qty", 0) for s in settlement_data.get("summaries", []) if not s.get("is_general", False))
+    general_count = sum(s.get("qty", 0) for s in settlement_data.get("summaries", []) if s.get("is_general", False))
 
     total_qty = unit_count + general_count
 
