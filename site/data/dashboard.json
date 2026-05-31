@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-31T17:46:21",
-  "current_month": "2026-05",
+  "generated_at": "2026-06-01T08:58:17",
+  "current_month": "2026-06",
   "revenue": {
-    "order_count": 33,
-    "unit_count": 36,
-    "gross_revenue": 4420000,
-    "influencer_cost": 1360000,
+    "order_count": 34,
+    "unit_count": 37,
+    "gross_revenue": 4540000,
+    "influencer_cost": 1380000,
     "sponsor_cost": 760000,
-    "labor_cost": 360000,
-    "net_profit": 2300000,
-    "operating_profit": 1940000
+    "labor_cost": 370000,
+    "net_profit": 2400000,
+    "operating_profit": 2030000
   },
   "mail_funnel": {
     "total_sent": 1510,
@@ -20,8 +20,8 @@
     "meeting_rate": 0.0457,
     "exp_total": 44,
     "exp_rate": 0.0291,
-    "ad_total": 28,
-    "ad_rate": 0.0185
+    "ad_total": 29,
+    "ad_rate": 0.0192
   },
   "inf_status": {
     "미팅_대기": 0,
@@ -34,7 +34,7 @@
     "광고완료_1차": 1,
     "기타": 20
   },
-  "settlement_month": 5,
+  "settlement_month": 6,
   "settlement_summary": {
     "C맹씨": {
       "건수": 5,
@@ -182,15 +182,16 @@
       "현재상태": "1차 광고예정"
     },
     "코앞의경제": {
-      "건수": 2,
-      "수량": 3,
-      "누적수량": 3,
+      "건수": 3,
+      "수량": 4,
+      "누적수량": 4,
       "현재단가": 20000,
-      "금액": 60000,
-      "체험횟수": 1,
-      "협찬원가": 40000,
+      "금액": 80000,
+      "체험횟수": 2,
+      "협찬원가": 80000,
       "체험월목록": [
-        "2026-05"
+        "2026-05",
+        "2026-06"
       ],
       "정산대상": true,
       "현재상태": "1차 광고예정"
@@ -689,7 +690,7 @@
     "ad_rate": [
       0.0253,
       0.0155,
-      0.0185
+      0.0192
     ],
     "meeting_rate": [
       0.0328,
@@ -699,12 +700,12 @@
     "gross_revenue": [
       1200000,
       3960000,
-      4420000
+      4540000
     ],
     "net_profit": [
       560000,
       1832000,
-      2300000
+      2400000
     ],
     "total_sent": [
       396,
@@ -729,18 +730,18 @@
     "ad_total": [
       10,
       16,
-      28
+      29
     ],
     "exp_by_month": {},
     "operating_profit": [
       460000,
       1512000,
-      1940000
+      2030000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0.4389
+      0.4471
     ]
   },
   "mail_funnel_by_month": {
@@ -792,7 +793,7 @@
   "ad_by_month": {
     "2026-03": 2,
     "2026-04": 4,
-    "2026-05": 18,
+    "2026-05": 19,
     "2026-06": 1,
     "2026-07": 1
   },
@@ -814,11 +815,11 @@
         "cumulative_profit": 1972000
       },
       "2026-05": {
-        "gross_revenue": 4420000,
-        "unit_count": 36,
-        "operating_profit": 1940000,
-        "operating_profit_rate": 0.4389,
-        "cumulative_profit": 3912000
+        "gross_revenue": 4540000,
+        "unit_count": 37,
+        "operating_profit": 2030000,
+        "operating_profit_rate": 0.4471,
+        "cumulative_profit": 4002000
       }
     },
     "influencer_cumulative": {
@@ -888,9 +889,9 @@
         "contribution": 64000
       },
       "코앞의경제": {
-        "qty": 3,
-        "settlement": 60000,
-        "contribution": 152000
+        "qty": 4,
+        "settlement": 80000,
+        "contribution": 216000
       }
     }
   },
