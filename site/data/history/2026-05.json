@@ -1,6 +1,6 @@
 {
   "month": "2026-05",
-  "generated_at": "2026-05-31T17:31:49",
+  "generated_at": "2026-05-31T17:46:21",
   "gross_revenue": 4420000,
   "net_profit": 2300000,
   "order_count": 33,
@@ -85,7 +85,7 @@
     "마성민": {
       "order_count": 1,
       "qty": 1,
-      "cumulative_qty": 4,
+      "cumulative_qty": 13,
       "unit_price": 20000,
       "amount": 20000,
       "is_general": false,
