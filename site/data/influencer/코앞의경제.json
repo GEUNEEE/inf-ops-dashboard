@@ -1,0 +1,14 @@
+{
+  "name": "코앞의경제",
+  "current_status": "1차 광고예정",
+  "cumulative_qty": 3,
+  "current_tier_price": 20000,
+  "monthly_orders": [
+    {
+      "month": "2026-05",
+      "qty": 3,
+      "amount": 60000
+    }
+  ],
+  "upcoming_schedule": []
+}
