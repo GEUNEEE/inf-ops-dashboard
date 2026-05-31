@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-31T16:54:43",
+  "generated_at": "2026-05-31T16:57:39",
   "current_month": "2026-05",
   "revenue": {
     "order_count": 2,
-    "unit_count": 0,
-    "gross_revenue": 0,
-    "influencer_cost": 0,
+    "unit_count": 2,
+    "gross_revenue": 250000,
+    "influencer_cost": 164000,
     "sponsor_cost": 760000,
-    "labor_cost": 0,
-    "net_profit": -760000,
-    "operating_profit": -760000
+    "labor_cost": 20000,
+    "net_profit": -674000,
+    "operating_profit": -694000
   },
   "mail_funnel": {
     "total_sent": 1510,
@@ -36,11 +36,25 @@
   },
   "settlement_month": 5,
   "settlement_summary": {
+    "부부초": {
+      "건수": 4,
+      "수량": 4,
+      "누적수량": 4,
+      "현재단가": 20000,
+      "금액": 80000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-03"
+      ],
+      "정산대상": true,
+      "현재상태": "기타"
+    },
     "기타/일반": {
-      "건수": 9,
-      "수량": 9,
+      "건수": 10,
+      "수량": 10,
       "단가": 84000,
-      "금액": 756000,
+      "금액": 840000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -557,20 +571,6 @@
       "정산대상": true,
       "현재상태": "기타"
     },
-    "부부초": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-03"
-      ],
-      "정산대상": true,
-      "현재상태": "기타"
-    },
     "찐마커플": {
       "건수": 0,
       "수량": 0,
@@ -699,12 +699,12 @@
     "gross_revenue": [
       1200000,
       3960000,
-      0
+      250000
     ],
     "net_profit": [
       560000,
       1832000,
-      -760000
+      -674000
     ],
     "total_sent": [
       396,
@@ -735,12 +735,12 @@
     "operating_profit": [
       460000,
       1512000,
-      -760000
+      -694000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0
+      -2.776
     ]
   },
   "mail_funnel_by_month": {
@@ -814,11 +814,11 @@
         "cumulative_profit": 1972000
       },
       "2026-05": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": -760000,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 1212000
+        "gross_revenue": 250000,
+        "unit_count": 2,
+        "operating_profit": -694000,
+        "operating_profit_rate": -2.776,
+        "cumulative_profit": 1278000
       }
     },
     "influencer_cumulative": {
@@ -843,9 +843,14 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 21,
+        "qty": 22,
         "settlement": 0,
-        "contribution": 1974000
+        "contribution": 2068000
+      },
+      "부부초": {
+        "qty": 4,
+        "settlement": 80000,
+        "contribution": 256000
       }
     }
   },
