@@ -15,11 +15,23 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
-BASE_DIR   = Path(r"C:\Users\user\비서")
-PYTHON_EXE = str(BASE_DIR / ".venv" / "Scripts" / "python.exe")
-SKILLS_DIR = BASE_DIR / ".claude" / "skills"
-OUTPUT_DIR = BASE_DIR / "output"
+BASE_DIR      = Path(r"C:\Users\user\비서")
+PYTHON_EXE    = str(BASE_DIR / ".venv" / "Scripts" / "python.exe")
+SKILLS_DIR    = BASE_DIR / ".claude" / "skills"
+OUTPUT_DIR    = BASE_DIR / "output"
+SCHEDULE_DIR  = BASE_DIR / "스케줄"
+INPUT_DIR     = BASE_DIR / "input"
 ENV_PYTHONUTF8 = {"PYTHONUTF8": "1", **os.environ}
+
+
+def find_latest_order_file() -> Path | None:
+    """스케줄 폴더(우선) → input 폴더 순으로 최신 스마트스토어 주문조회 파일 반환"""
+    candidates = []
+    for folder in (SCHEDULE_DIR, INPUT_DIR):
+        candidates.extend(folder.glob("스마트스토어_주문조회_*.xlsx"))
+    if not candidates:
+        return None
+    return max(candidates, key=lambda p: p.stem)
 
 
 def run_script(script_path, *args, input_data=None) -> dict:
@@ -44,10 +56,17 @@ def save_temp_json(data: dict, name: str) -> Path:
 
 def main():
     if len(sys.argv) < 2:
-        print("사용법: python run_pipeline.py <암호화_xlsx> [--month YYYY-MM]", file=sys.stderr)
+        print("사용법: python run_pipeline.py <암호화_xlsx|--latest> [--month YYYY-MM]", file=sys.stderr)
         sys.exit(1)
 
-    xlsx_path = Path(sys.argv[1])
+    if sys.argv[1] == "--latest":
+        xlsx_path = find_latest_order_file()
+        if xlsx_path is None:
+            print("[ERROR] 스케줄/input 폴더에 주문조회 파일이 없습니다.", file=sys.stderr)
+            sys.exit(1)
+        print(f"[INFO] 최신 주문 파일 자동 선택: {xlsx_path}", file=sys.stderr)
+    else:
+        xlsx_path = Path(sys.argv[1])
     target_month = datetime.now().strftime("%Y-%m")
     if "--month" in sys.argv:
         idx = sys.argv.index("--month")
@@ -87,10 +106,9 @@ def main():
 
     new_count = bucket_data.get("new_count", 0)
     if new_count == 0:
-        print("[INFO] 신규 주문 0건 — 이미 반영된 파일입니다. 파이프라인 종료.", file=sys.stderr)
-        sys.exit(0)
-
-    print(f"[INFO] 신규 주문 {new_count}건 처리 계속", file=sys.stderr)
+        print("[INFO] 신규 주문 0건 — Raw_Data 기준으로 정산·대시보드 재빌드", file=sys.stderr)
+    else:
+        print(f"[INFO] 신규 주문 {new_count}건 처리 계속", file=sys.stderr)
 
     # STEP 5 — 정산서 생성
     print("[STEP 5] 정산서 생성...", file=sys.stderr)
@@ -138,6 +156,22 @@ def main():
         )
     except Exception as e:
         print(f"[WARN] 카카오톡 알림 실패: {e}", file=sys.stderr)
+
+    # STEP 10 — 데이터 검증
+    print("[STEP 10] 데이터 정합성 검증...", file=sys.stderr)
+    verify_script = BASE_DIR / "스케줄" / "verify_data.py"
+    if verify_script.exists():
+        verify_result = subprocess.run(
+            [PYTHON_EXE, str(verify_script)],
+            capture_output=True, text=True, encoding="utf-8", env=ENV_PYTHONUTF8
+        )
+        print(verify_result.stdout, file=sys.stderr)
+        if verify_result.returncode != 0 or "❌" in verify_result.stdout:
+            print("[WARN] 검증 오류 발견 — 위 결과를 확인하세요.", file=sys.stderr)
+        else:
+            print("[INFO] 검증 통과 ✅", file=sys.stderr)
+    else:
+        print("[WARN] verify_data.py 없음 — 검증 생략", file=sys.stderr)
 
     print(f"\n{'='*50}", file=sys.stderr)
     print(f"파이프라인 완료: 신규 {new_count}건 처리", file=sys.stderr)

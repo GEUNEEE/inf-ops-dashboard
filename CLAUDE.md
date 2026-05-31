@@ -86,9 +86,14 @@ STEP 1 JSON + STEP 2 캘린더 데이터를 통합하여 아래 규칙대로 브
 
 | 트리거 | 설명 |
 |--------|------|
-| 주문 파일 처리 요청 | 사용자가 스마트스토어 xlsx 파일 경로를 제시 |
+| 주문 파일 처리 요청 | 사용자가 파일 경로를 제시하거나 "최신 파일 반영" 등 언급 |
 | `과거 임포트 실행` | STEP 0 — 보유 주문 파일 일괄 처리 |
 | `대시보드 갱신` | STEP 1~2만 실행 (주문 없이 KPI만 갱신) |
+
+## 주문 파일 탐색 순서
+
+1. 사용자가 경로를 직접 제시한 경우 → 해당 파일 사용
+2. 그 외 → **스케줄 폴더 우선**, 없으면 input 폴더에서 `스마트스토어_주문조회_*.xlsx` 중 파일명 기준 최신 파일 자동 선택
 
 ## 워크플로우 진입점
 
@@ -122,9 +127,15 @@ managed_set을 JSON 문자열로 인라인 전달.
 전체 파이프라인 일괄 실행:
 
 ```powershell
+# 파일 경로를 직접 지정하는 경우
 & "C:\Users\user\비서\.venv\Scripts\python.exe" `
   "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
   "<xlsx_경로>" --month "YYYY-MM"
+
+# 스케줄/input 폴더에서 최신 파일을 자동 선택하는 경우
+& "C:\Users\user\비서\.venv\Scripts\python.exe" `
+  "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
+  --latest --month "YYYY-MM"
 ```
 
 ## STEP 7 — 월별 스냅샷 (run_pipeline.py 내부 자동 실행)
@@ -184,7 +195,7 @@ notify.py로 메시지 생성 → `KakaotalkChat-MemoChat` MCP로 전송
 | 항목 | 경로 |
 |------|------|
 | 마스터 DB | `C:\Users\user\비서\스케줄\0. 유튜브 인플루언서 관리_*.xlsx` |
-| 주문 드롭 폴더 | `C:\Users\user\비서\input\` |
+| 주문 드롭 폴더 | `C:\Users\user\비서\스케줄\` (우선) / `C:\Users\user\비서\input\` (보조) |
 | 정산DB | `C:\Users\user\비서\스케줄\정산DB_업데이트.xlsx` |
 | 정산 제외 로그 | `C:\Users\user\비서\output\settlement_skipped.log` |
 | 사이트 데이터 | `C:\Users\user\비서\site\data\` |

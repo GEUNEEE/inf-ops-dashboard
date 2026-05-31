@@ -72,8 +72,9 @@ def calc_monthly_amount(cum_before: int, ok_list: list, tier_pricing: list) -> t
     return total, final_price
 
 
-def get_month_orders(rawdata_ws, target_month: str) -> list:
-    """정산DB Raw_Data에서 해당 월 주문 전체(취소 포함) 추출"""
+def get_month_orders(rawdata_ws, target_month: str, name_map: dict = None) -> list:
+    """정산DB Raw_Data에서 해당 월 주문 전체(취소 포함) 추출. name_map으로 ytber명 정규화."""
+    nm = name_map or {}
     orders = []
     for row in rawdata_ws.iter_rows(min_row=2, values_only=True):
         if not row or row[0] is None:
@@ -83,13 +84,15 @@ def get_month_orders(rawdata_ws, target_month: str) -> list:
             continue
         status = str(row[RAW_COL_STATUS] or "")
         claim  = str(row[RAW_COL_CLAIM]  or "")
+        ytber_raw = str(row[RAW_COL_YTBER] or "")
+        ytber = nm.get(ytber_raw, ytber_raw)
         orders.append({
             "order_no":     str(row[0]  or ""),
             "order_no2":    str(row[1]  or ""),
             "order_date":   order_date_str,
             "order_status": status,
             "delivery":     str(row[4]  or ""),
-            "ytber":        str(row[RAW_COL_YTBER] or ""),
+            "ytber":        ytber,
             "claim_status": claim,
             "claim_qty":    str(row[7]  or ""),
             "product_id":   str(row[8]  or ""),
@@ -104,25 +107,52 @@ def get_month_orders(rawdata_ws, target_month: str) -> list:
     return orders
 
 
-def get_cumulative_qty_before(rawdata_ws, ytber_name: str, target_month: str) -> int:
-    """해당 월 이전까지의 해당 ytber 비취소 누적 수량"""
-    total = 0
+def get_cumulative_qty_before(rawdata_ws, ytber_name: str, target_month: str, name_map: dict = None) -> int:
+    """해당 월 이전까지의 해당 ytber 비취소 누적 수량.
+    Raw_Data에 없는 이전 월은 history/*.json에서 보완하여 정확한 누적을 보장."""
+    nm = name_map or {}
+
+    # ① Raw_Data에서 이전 월 수량 수집 (월별로 구분)
+    raw_months_seen: set[str] = set()
+    raw_total = 0
     for row in rawdata_ws.iter_rows(min_row=2, values_only=True):
         if not row or row[RAW_COL_YTBER] is None:
             continue
-        if str(row[RAW_COL_YTBER]).strip() != ytber_name:
+        row_month = str(row[RAW_COL_DATE] or "")[:7]
+        if row_month >= target_month:
             continue
-        if str(row[RAW_COL_DATE] or "").startswith(target_month):
+        raw_months_seen.add(row_month)
+        ytber_raw = str(row[RAW_COL_YTBER]).strip()
+        if nm.get(ytber_raw, ytber_raw) != ytber_name:
             continue
         status = str(row[RAW_COL_STATUS] or "")
         claim  = str(row[RAW_COL_CLAIM]  or "")
         if "취소" in status or "취소완료" in claim:
             continue
         try:
-            total += int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
+            raw_total += int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
         except (ValueError, TypeError):
             pass
-    return total
+
+    # ② Raw_Data에 없는 이전 월은 history 파일에서 보완
+    HIST_DIR = Path(r"C:\Users\user\비서\site\data\history")
+    hist_total = 0
+    if HIST_DIR.exists():
+        for hist_file in sorted(HIST_DIR.glob("*.json")):
+            month = hist_file.stem  # "YYYY-MM"
+            if month >= target_month:
+                continue
+            if month in raw_months_seen:
+                continue  # Raw_Data에 이미 반영된 월은 스킵
+            try:
+                h = json.loads(hist_file.read_text(encoding="utf-8"))
+                inf_data = h.get("influencers", {}).get(ytber_name, {})
+                if not inf_data.get("is_general"):
+                    hist_total += inf_data.get("qty", 0)
+            except Exception:
+                pass
+
+    return raw_total + hist_total
 
 
 _THIN   = Side(border_style="thin")
@@ -245,6 +275,7 @@ def main():
     tier_pricing  = config["tier_pricing"]
     general_label = config.get("general_sales_label", "기타/일반")
     ytber_info_map = config.get("ytber_info", {})
+    name_map      = config.get("name_map", {})
 
     # 정산DB 로드 (현월 주문 추출 + 누적 수량 계산)
     if not RAWDATA_PATH.exists():
@@ -258,7 +289,7 @@ def main():
         sys.exit(1)
     rawdata_ws = rawdata_wb["Raw_Data"]
 
-    month_orders = get_month_orders(rawdata_ws, settlement_month)
+    month_orders = get_month_orders(rawdata_ws, settlement_month, name_map)
     print(f"[INFO] {settlement_month} 주문 {len(month_orders)}건 (취소 포함)", file=sys.stderr)
 
     # ytber별 정상/취소 분류
@@ -270,6 +301,20 @@ def main():
             ytber_can.setdefault(ytber, []).append(o)
         else:
             ytber_ok.setdefault(ytber, []).append(o)
+
+    # 해당 월 Raw_Data 전체 기반으로 동적 구성:
+    # - 기타/일반 제외한 모든 비취소 ytber (batch 크기와 무관)
+    # - 마지막에 기타/일반 추가
+    settlement_ytbers = list(dict.fromkeys(
+        ytber for ytber in ytber_ok
+        if ytber != general_label
+    ))
+    dynamic_map = [(y, y) for y in settlement_ytbers]
+    dynamic_map.append(("기타일반 4월", general_label))  # 기타/일반은 템플릿 시트명 고정
+    # ytber_info에 없는 인플루언서는 계좌정보 없이 처리 (warn만)
+    for ytber_name in settlement_ytbers:
+        if ytber_name not in ytber_info_map:
+            print(f"[WARN] ytber_info 없음 (계좌정보 누락): {ytber_name}", file=sys.stderr)
 
     # 템플릿 복사
     output_name = f"유튜버별 월정산시트 작성 {settlement_month}_송부용.xlsx"
@@ -298,10 +343,15 @@ def main():
     # ── 정산 시트별 처리 ───────────────────────────────────────────────────
     summaries = []
 
-    for tmpl_sheet, ytber_name in TEMPLATE_SHEET_MAP:
+    for tmpl_sheet, ytber_name in dynamic_map:
         if tmpl_sheet not in wb.sheetnames:
-            print(f"[WARN] 템플릿 시트 없음: {tmpl_sheet}", file=sys.stderr)
-            continue
+            # 템플릿에 없는 인플루언서: 마성민 시트를 복제해서 사용
+            base_sheet = "마성민 4월"
+            if base_sheet not in wb.sheetnames:
+                print(f"[WARN] 기준 템플릿 시트 없음: {base_sheet}, {tmpl_sheet} 건너뜀", file=sys.stderr)
+                continue
+            wb.copy_worksheet(wb[base_sheet]).title = tmpl_sheet
+            print(f"[INFO] 신규 시트 생성 (복제): {tmpl_sheet}", file=sys.stderr)
 
         ws = wb[tmpl_sheet]
         is_general = (ytber_name == general_label)
@@ -330,7 +380,7 @@ def main():
         cum_before = 0
         unit_price = None
         if not is_general:
-            cum_before = get_cumulative_qty_before(rawdata_ws, ytber_name, settlement_month)
+            cum_before = get_cumulative_qty_before(rawdata_ws, ytber_name, settlement_month, name_map)
             ws["C14"] = get_tier_price(cum_before, tier_pricing)  # 월 시작 시점 단가 (참고용)
 
         # 시트명 변경 (템플릿 4월 → 현재 월)

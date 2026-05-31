@@ -4,7 +4,23 @@
       "PowerShell(python -m venv \"C:\\\\Users\\\\user\\\\��\\\\.venv\" 2>&1)",
       "PowerShell(& \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\pip\" install pandas openpyxl 2>&1 | Select-String -Pattern \"Successfully|already|ERROR\" | ForEach-Object { $_.Line })",
       "PowerShell(& \"C:\\\\Users\\\\user\\\\��\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\��\\\\.claude\\\\skills\\\\excel-parser\\\\scripts\\\\extract.py\" 2>&1)",
-      "mcp__claude_ai_Google_Calendar__list_events"
+      "mcp__claude_ai_Google_Calendar__list_events",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; & \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\비서\\\\.claude\\\\skills\\\\excel-parser\\\\scripts\\\\parse_inf.py\" 2>&1 | Select-Object -Last 5)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\user\\\\비서\\\\site\\\\data\\\\\" | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\user\\\\비서\\\\site\\\\data\\\\history\\\\\" | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\user\\\\비서\\\\output\\\\\" -Recurse -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })",
+      "Read(//c/Users/user/��/**)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; $env:SMARTSTORE_XLSX_PASSWORD = \"1234\"; & \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\비서\\\\.claude\\\\skills\\\\excel-parser\\\\scripts\\\\parse_mail.py\")",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; & \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\비서\\\\.claude\\\\skills\\\\excel-parser\\\\scripts\\\\parse_inf.py\")",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; $env:SMARTSTORE_XLSX_PASSWORD = \"1234\"; & \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\비서\\\\.claude\\\\skills\\\\order-watcher\\\\scripts\\\\run_pipeline.py\" --latest --month \"2026-05\" 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; & \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\비서\\\\.claude\\\\skills\\\\dashboard-builder\\\\scripts\\\\build_kpi.py\" 2>&1)",
+      "PowerShell($env:PYTHONUTF8 = \"1\"; & \"C:\\\\Users\\\\user\\\\비서\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\user\\\\비서\\\\.claude\\\\skills\\\\site-publisher\\\\scripts\\\\publish.py\" \"2026-05\" 2>&1)",
+      "PowerShell(git -C \"C:\\\\Users\\\\user\\\\��\" log --oneline -5)",
+      "Bash(git -C \"C:\\\\Users\\\\user\\\\비서\" revert HEAD --no-edit)",
+      "Bash(git -C \"C:\\\\Users\\\\user\\\\비서\" push)"
     ],
     "additionalDirectories": [
       "C:\\Users\\user\\비서"
