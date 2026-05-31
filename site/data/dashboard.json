@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-01T08:58:17",
+  "generated_at": "2026-06-01T08:58:32",
   "current_month": "2026-06",
   "revenue": {
-    "order_count": 34,
-    "unit_count": 37,
-    "gross_revenue": 4540000,
-    "influencer_cost": 1380000,
+    "order_count": 35,
+    "unit_count": 38,
+    "gross_revenue": 4670000,
+    "influencer_cost": 1464000,
     "sponsor_cost": 760000,
-    "labor_cost": 370000,
-    "net_profit": 2400000,
-    "operating_profit": 2030000
+    "labor_cost": 380000,
+    "net_profit": 2446000,
+    "operating_profit": 2066000
   },
   "mail_funnel": {
     "total_sent": 1510,
@@ -197,10 +197,10 @@
       "현재상태": "1차 광고예정"
     },
     "기타/일반": {
-      "건수": 10,
-      "수량": 10,
+      "건수": 11,
+      "수량": 11,
       "단가": 84000,
-      "금액": 840000,
+      "금액": 924000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -700,12 +700,12 @@
     "gross_revenue": [
       1200000,
       3960000,
-      4540000
+      4670000
     ],
     "net_profit": [
       560000,
       1832000,
-      2400000
+      2446000
     ],
     "total_sent": [
       396,
@@ -736,12 +736,12 @@
     "operating_profit": [
       460000,
       1512000,
-      2030000
+      2066000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0.4471
+      0.4424
     ]
   },
   "mail_funnel_by_month": {
@@ -815,11 +815,11 @@
         "cumulative_profit": 1972000
       },
       "2026-05": {
-        "gross_revenue": 4540000,
-        "unit_count": 37,
-        "operating_profit": 2030000,
-        "operating_profit_rate": 0.4471,
-        "cumulative_profit": 4002000
+        "gross_revenue": 4670000,
+        "unit_count": 38,
+        "operating_profit": 2066000,
+        "operating_profit_rate": 0.4424,
+        "cumulative_profit": 4038000
       }
     },
     "influencer_cumulative": {
@@ -844,9 +844,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 22,
+        "qty": 23,
         "settlement": 0,
-        "contribution": 2068000
+        "contribution": 2162000
       },
       "그래서 강리안": {
         "qty": 1,
