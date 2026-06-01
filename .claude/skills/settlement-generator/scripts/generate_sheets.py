@@ -405,7 +405,8 @@ def main():
         write_order_rows(ws, ok_list, can_list, is_general)
         write_agg_values(ws, ok_list, can_list, amount, is_general)
 
-        # 초방리 마을 로고: 템플릿 drawing XML이 openpyxl 저장 시 자동 보존됨
+        # 초방리 마을 로고 삽입
+        add_logo(ws)
 
         summaries.append({
             "ytber":             ytber_name,
