@@ -1,0 +1,21 @@
+{
+  "month": "2026-06",
+  "generated_at": "2026-06-01T00:00:00",
+  "gross_revenue": 0,
+  "net_profit": 0,
+  "order_count": 0,
+  "unit_count": 0,
+  "operating_profit": 0,
+  "operating_profit_rate": 0,
+  "total_sent": 0,
+  "replied": 0,
+  "meeting_total": 0,
+  "exp_total": 0,
+  "ad_total": 0,
+  "reply_rate": 0,
+  "exp_rate": 0,
+  "ad_rate": 0,
+  "meeting_rate": 0,
+  "inf_status": {},
+  "influencers": {}
+}
