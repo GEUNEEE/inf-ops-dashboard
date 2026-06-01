@@ -471,7 +471,7 @@
     const curSummary   = (gData || {}).settlement_summary || {};
     const thisMonthTargets = new Set(
       Object.entries(curSummary)
-        .filter(([, d]) => d['정산대상'])
+        .filter(([, d]) => d['정산대상'] && d['현재상태'] && d['현재상태'] !== '기타')
         .map(([name]) => name)
     );
 
