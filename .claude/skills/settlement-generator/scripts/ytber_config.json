@@ -7,15 +7,33 @@
     "정조": "유튜버 정조",
     "코 앞의 경제": "코앞의경제"
   },
-  "exclude": ["우리의 서술집"],
-  "additional_managed": ["유튜버 정조", "부부초", "낚시중독", "그래서 강리안", "바다로간배스", "마성민"],
+  "exclude": [
+    "우리의 서술집"
+  ],
+  "additional_managed": [
+    "유튜버 정조",
+    "부부초",
+    "낚시중독",
+    "그래서 강리안",
+    "바다로간배스",
+    "마성민"
+  ],
   "tier_pricing": [
-    { "min_qty": 1,   "unit_price": 20000 },
-    { "min_qty": 30,  "unit_price": 22000 },
-    { "min_qty": 100, "unit_price": 25000 }
+    {
+      "min_qty": 1,
+      "unit_price": 20000
+    },
+    {
+      "min_qty": 30,
+      "unit_price": 22000
+    },
+    {
+      "min_qty": 100,
+      "unit_price": 25000
+    }
   ],
   "labor_cost_per_unit": 10000,
-  "vat_rate": 0.10,
+  "vat_rate": 0.1,
   "general_sales_label": "기타/일반",
   "product_name": "흑장녹삼",
   "product_unit_price": 120000,
