@@ -18,6 +18,7 @@ if hasattr(sys.stderr, "reconfigure"):
 import openpyxl
 from openpyxl.drawing.image import Image as XLImage
 from openpyxl.styles import Border, Side, Alignment, PatternFill, Font
+from openpyxl.styles import GradientFill
 
 BASE_DIR      = Path(r"C:\Users\user\비서")
 RAWDATA_PATH  = BASE_DIR / "스케줄" / "정산DB_업데이트.xlsx"
@@ -157,9 +158,10 @@ def get_cumulative_qty_before(rawdata_ws, ytber_name: str, target_month: str, na
     return raw_total + hist_total
 
 
-_THIN   = Side(border_style="thin")
-_MEDIUM = Side(border_style="medium")
-_NONE   = Side(border_style=None)
+_THIN       = Side(border_style="thin")
+_MEDIUM     = Side(border_style="medium")
+_NONE       = Side(border_style=None)
+_WHITE_FILL = PatternFill("solid", fgColor="FFFFFF")
 
 
 def add_logo(ws):
@@ -174,13 +176,14 @@ def add_logo(ws):
 
 
 def apply_table_style(ws, header_row: int, data_count: int, col_count: int):
-    """주문 데이터 행에 테두리 서식 적용 (헤더 포함)"""
+    """주문 데이터 행에 테두리·흰색 fill·정렬 서식 적용 (헤더 포함)"""
     start_col = 2          # B
     end_col   = start_col + col_count - 1
 
-    # 헤더행: 가운데 정렬 + 상단 medium 테두리
+    # 헤더행
     for col in range(start_col, end_col + 1):
         cell = ws.cell(header_row, col)
+        cell.fill      = _WHITE_FILL
         cell.alignment = Alignment(horizontal="center", vertical="center")
         cell.font      = Font(bold=True)
         left  = _MEDIUM if col == start_col else _THIN
@@ -189,16 +192,16 @@ def apply_table_style(ws, header_row: int, data_count: int, col_count: int):
 
     # 데이터행
     for i in range(data_count):
-        row_num  = header_row + 1 + i
-        is_last  = (i == data_count - 1)
-        top      = _NONE if i > 0 else _NONE   # 헤더 bottom으로 대체
-        bottom   = _MEDIUM if is_last else _THIN
+        row_num = header_row + 1 + i
+        is_last = (i == data_count - 1)
+        bottom  = _MEDIUM if is_last else _THIN
 
         for col in range(start_col, end_col + 1):
             cell  = ws.cell(row_num, col)
             left  = _MEDIUM if col == start_col else _THIN
             right = _MEDIUM if col == end_col   else _THIN
-            cell.border    = Border(top=top, bottom=bottom, left=left, right=right)
+            cell.fill      = _WHITE_FILL
+            cell.border    = Border(bottom=bottom, left=left, right=right)
             cell.alignment = Alignment(vertical="center")
 
 
@@ -210,11 +213,12 @@ def find_label_row(ws, label: str, search_col: int = 2) -> int | None:
     return None
 
 
-def write_order_rows(ws, ok_list: list, can_list: list, is_general: bool):
-    """'주문번호' 헤더 이하 기존 행을 삭제하고 ok/can 주문을 재기입 + 서식 적용"""
+def write_order_rows(ws, ok_list: list, can_list: list, is_general: bool) -> int:
+    """'주문번호' 헤더 이하 기존 행을 삭제하고 ok/can 주문을 재기입 + 서식 적용.
+    Returns: 마지막 데이터 행 번호 (인쇄 영역 계산용)"""
     header_row = find_label_row(ws, "주문번호")
     if header_row is None:
-        return
+        return ws.max_row
 
     data_rows = ws.max_row - header_row
     if data_rows > 0:
@@ -236,6 +240,8 @@ def write_order_rows(ws, ok_list: list, can_list: list, is_general: bool):
     col_count = 6 if is_general else 5
     if total > 0:
         apply_table_style(ws, header_row, total, col_count)
+
+    return header_row + total if total > 0 else header_row
 
 
 def write_agg_values(ws, ok_list: list, can_list: list, settlement_amount, is_general: bool):
@@ -414,11 +420,22 @@ def main():
         cum_total = (cum_before + final_qty) if not is_general else None
 
         # 주문 상세 행 + 집계 값 직접 기입 (수식 의존 제거)
-        write_order_rows(ws, ok_list, can_list, is_general)
+        last_data_row = write_order_rows(ws, ok_list, can_list, is_general)
         write_agg_values(ws, ok_list, can_list, amount, is_general)
 
         # 초방리 마을 로고 삽입
         add_logo(ws)
+
+        # 인쇄 영역 + 1페이지 맞춤 + 보조 열(H-L) 숨김
+        ws.print_area = f"$A$1:$G${last_data_row}"
+        from openpyxl.worksheet.properties import PageSetupProperties
+        ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
+        ws.page_setup.fitToWidth  = 1
+        ws.page_setup.fitToHeight = 1
+        ws.page_setup.orientation = "portrait"
+        ws.page_setup.paperSize   = 9   # A4
+        for col_letter in ["H", "I", "J", "K", "L"]:
+            ws.column_dimensions[col_letter].hidden = True
 
         summaries.append({
             "ytber":             ytber_name,
