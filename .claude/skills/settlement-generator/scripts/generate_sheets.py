@@ -6,6 +6,8 @@ import sys
 import json
 import shutil
 import re
+import calendar
+from datetime import date
 from pathlib import Path
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -358,23 +360,33 @@ def main():
         ytber_info = ytber_info_map.get(ytber_name, {})
 
         # 기준 월 업데이트
+        last_day = calendar.monthrange(year, month)[1]
+        today_str = date.today().strftime("%Y-%m-%d")
+        period_str = f"{year}-{month:02d}-01 ~ {year}-{month:02d}-{last_day}"
+
         if is_general:
             ws["C17"] = month   # 기타일반 시트는 C17 참조
         else:
             ws["I4"] = month    # 일반 인플루언서 시트는 I4 참조
+            ws["B2"] = f"{year}년 {month}월 광고수익 정산 내역서"
+            ws["C4"] = ytber_name
+            ws["C7"] = period_str
+            ws["C8"] = today_str
 
         # 개인 판매 링크 (모든 시트)
         link = ytber_info.get("smartstore_link", "")
         if link:
             ws["C6"] = link
 
-        # 계좌 정보 (비기타 인플루언서만)
+        # 계좌 정보 (비기타 인플루언서만) — 없으면 빈칸으로 초기화
         if not is_general:
             acct_name = ytber_info.get("account_name", "")
             acct_bank = ytber_info.get("account_bank", "")
             acct_no   = ytber_info.get("account_no", "")
             if acct_name and acct_bank and acct_no:
                 ws["C9"] = f"{acct_name}\n{acct_bank} {acct_no}"
+            else:
+                ws["C9"] = ""
 
         # 정산 단가 업데이트 (기타일반 제외)
         cum_before = 0
