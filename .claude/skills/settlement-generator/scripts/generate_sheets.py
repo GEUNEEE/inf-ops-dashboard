@@ -205,6 +205,70 @@ def apply_table_style(ws, header_row: int, data_count: int, col_count: int):
             cell.alignment = Alignment(vertical="center")
 
 
+def _sync_acct_from_excel(output_path: Path, ytber_info_map: dict, config: dict, config_path: Path):
+    """기존 송부용 파일의 각 시트에서 계좌 정보를 읽어
+    ytber_info_map에 없는 인플루언서를 채우고 ytber_config.json에 동기화한다.
+    C4=파트너명, C6=판매링크, C9=계좌(이름\\n은행 계좌번호) 형식 파싱.
+    """
+    if not output_path.exists():
+        return
+
+    try:
+        wb = openpyxl.load_workbook(str(output_path), data_only=True, read_only=True)
+    except Exception as e:
+        print(f"[WARN] 기존 정산 파일 열기 실패: {e}", file=sys.stderr)
+        return
+
+    newly_added = {}
+    for sheet_name in wb.sheetnames:
+        # 정산 시트만 처리 (월 시트명 패턴: "파트너명 N월")
+        if not re.search(r"\d+월$", sheet_name):
+            continue
+
+        ws = wb[sheet_name]
+        partner = ws["C4"].value
+        if not partner or not str(partner).strip():
+            continue
+        partner = str(partner).strip()
+        if partner in ytber_info_map:
+            continue  # 이미 등록됨
+
+        acct_raw = ws["C9"].value
+        link     = ws["C6"].value
+
+        # 계좌 정보가 없으면 스킵 (링크만 있어도 의미 없음)
+        if not acct_raw or not str(acct_raw).strip():
+            continue
+
+        lines = [l.strip() for l in str(acct_raw).strip().splitlines() if l.strip()]
+        if len(lines) < 2:
+            continue  # "이름\n은행 계좌번호" 형식 아니면 스킵
+
+        entry: dict = {
+            "account_name": lines[0],
+        }
+        parts = lines[1].split(" ", 1)
+        entry["account_bank"] = parts[0]
+        entry["account_no"]   = parts[1] if len(parts) > 1 else ""
+        if link:
+            entry["smartstore_link"] = str(link).strip()
+
+        ytber_info_map[partner] = entry
+        newly_added[partner]    = entry
+        print(f"[INFO] 계좌 정보 읽음 ({sheet_name}): {partner}", file=sys.stderr)
+
+    wb.close()
+
+    # ytber_config.json 동기화
+    if newly_added:
+        cfg_ytber = config.setdefault("ytber_info", {})
+        cfg_ytber.update(newly_added)
+        config_path.write_text(
+            json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[INFO] ytber_config.json 동기화: {list(newly_added.keys())}", file=sys.stderr)
+
+
 def find_label_row(ws, label: str, search_col: int = 2) -> int | None:
     """search_col 열(1-based)에서 label이 있는 첫 번째 행 번호 반환"""
     for row in ws.iter_rows(min_col=search_col, max_col=search_col, values_only=False):
@@ -282,8 +346,15 @@ def main():
     config        = load_config()
     tier_pricing  = config["tier_pricing"]
     general_label = config.get("general_sales_label", "기타/일반")
-    ytber_info_map = config.get("ytber_info", {})
+    ytber_info_map = dict(config.get("ytber_info", {}))  # 복사본으로 수정 허용
     name_map      = config.get("name_map", {})
+
+    # output_path 미리 계산 (기존 파일 읽기에 필요)
+    output_name = f"유튜버별 월정산시트 작성 {settlement_month}_송부용.xlsx"
+    output_path = BASE_DIR / "스케줄" / output_name
+
+    # 기존 송부용 파일에서 계좌 정보 읽기 → ytber_info_map 보완 + ytber_config.json 동기화
+    _sync_acct_from_excel(output_path, ytber_info_map, config, CONFIG_PATH)
 
     # 정산DB 로드 (현월 주문 추출 + 누적 수량 계산)
     if not RAWDATA_PATH.exists():
@@ -324,9 +395,7 @@ def main():
         if ytber_name not in ytber_info_map:
             print(f"[WARN] ytber_info 없음 (계좌정보 누락): {ytber_name}", file=sys.stderr)
 
-    # 템플릿 복사
-    output_name = f"유튜버별 월정산시트 작성 {settlement_month}_송부용.xlsx"
-    output_path = BASE_DIR / "스케줄" / output_name
+    # 템플릿 복사 (output_path는 위에서 이미 정의)
     shutil.copy(TEMPLATE_PATH, output_path)
     print(f"[INFO] 템플릿 복사: {output_path.name}", file=sys.stderr)
 
