@@ -42,8 +42,9 @@
       "qty": 1,
       "cumulative_qty": 1,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 0,
       "is_general": false,
+      "settlement_waived": true,
       "sponsor_cost_this_month": 0
     },
     "바다로간배스": {
@@ -105,8 +106,9 @@
       "qty": 1,
       "cumulative_qty": 1,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 0,
       "is_general": false,
+      "settlement_waived": true,
       "sponsor_cost_this_month": 0
     },
     "골넌디": {
@@ -114,8 +116,9 @@
       "qty": 1,
       "cumulative_qty": 1,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 0,
       "is_general": false,
+      "settlement_waived": true,
       "sponsor_cost_this_month": 0
     },
     "코앞의경제": {
@@ -128,8 +131,8 @@
       "sponsor_cost_this_month": 40000
     },
     "기타/일반": {
-      "order_count": 11,
-      "qty": 11,
+      "order_count": 14,
+      "qty": 14,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
