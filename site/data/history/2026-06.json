@@ -1,18 +1,18 @@
 {
   "month": "2026-06",
-  "generated_at": "2026-06-05T15:32:10",
+  "generated_at": "2026-06-05T15:55:18",
   "gross_revenue": 1480000,
   "net_profit": 904000,
   "order_count": 11,
   "unit_count": 12,
   "operating_profit": 784000,
   "operating_profit_rate": 0.5297,
-  "total_sent": 1584,
+  "total_sent": 1585,
   "replied": 216,
   "meeting_total": 70,
   "exp_total": 45,
   "ad_total": 30,
-  "reply_rate": 0.1364,
+  "reply_rate": 0.1363,
   "exp_rate": 0.0284,
   "ad_rate": 0.0189,
   "meeting_rate": 0.0442,
@@ -20,12 +20,12 @@
     "미팅_대기": 0,
     "미팅_진행": 0,
     "체험진행_1차": 11,
-    "체험진행_2차": 1,
+    "체험진행_2차": 2,
     "체험진행_3차": 1,
-    "광고예정_1차": 5,
-    "광고예정_2차": 1,
+    "광고예정_1차": 4,
+    "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 24
+    "기타": 25
   },
   "influencers": {
     "C맹씨": {
