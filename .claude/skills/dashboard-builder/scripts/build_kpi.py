@@ -89,21 +89,11 @@ def build_profit_analysis(per_influencer: dict | None = None) -> dict:
             }
 
             known_qty = 0
-            GEN_KEY = "기타/일반"
             for name, info in d.get("influencers", {}).items():
                 qty    = info.get("qty", 0)
                 amount = info.get("amount") or 0
                 is_gen = info.get("is_general", False)
-                is_waived = info.get("settlement_waived", False)
                 known_qty += qty
-
-                if is_waived:
-                    # 정산안받음 → 기타/일반에 수량·기여수익 합산
-                    if GEN_KEY not in inf_cum:
-                        inf_cum[GEN_KEY] = {"qty": 0, "settlement": 0, "contribution": 0}
-                    inf_cum[GEN_KEY]["qty"] += qty
-                    inf_cum[GEN_KEY]["contribution"] += qty * (GROSS_PRICE_INF - COGS_PER_UNIT)
-                    continue
 
                 if name not in inf_cum:
                     inf_cum[name] = {"qty": 0, "settlement": 0, "contribution": 0}
@@ -220,20 +210,6 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict, curren
                 "정산대상": False,
                 "현재상태": display_status,
             }
-        elif s.get("settlement_waived"):
-            summary[ytber] = {
-                "건수": s.get("order_count", 0),
-                "수량": s.get("qty", 0),
-                "누적수량": s.get("cumulative_qty"),
-                "현재단가": s.get("unit_price"),
-                "금액": 0,
-                "체험횟수": exp_cnt,
-                "협찬원가": sponsor_cost,
-                "체험월목록": exp_months,
-                "정산대상": False,
-                "정산안받음": True,
-                "현재상태": display_status,
-            }
         else:
             summary[ytber] = {
                 "건수": s.get("order_count", 0),
@@ -268,20 +244,6 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict, curren
                         "단가": MARGIN_GENERAL,
                         "금액": qty * MARGIN_GENERAL,
                         "정산대상": False,
-                        "현재상태": display_status,
-                    }
-                elif info.get("settlement_waived"):
-                    summary[ytber] = {
-                        "건수": info.get("order_count", 0),
-                        "수량": info.get("qty", 0),
-                        "누적수량": info.get("cumulative_qty"),
-                        "현재단가": info.get("unit_price"),
-                        "금액": 0,
-                        "체험횟수": exp_cnt,
-                        "협찬원가": sponsor_cost,
-                        "체험월목록": exp_months,
-                        "정산대상": False,
-                        "정산안받음": True,
                         "현재상태": display_status,
                     }
                 else:
