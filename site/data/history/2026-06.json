@@ -1,0 +1,68 @@
+{
+  "month": "2026-06",
+  "generated_at": "2026-06-05T15:28:55",
+  "gross_revenue": 480000,
+  "net_profit": 320000,
+  "order_count": 3,
+  "unit_count": 4,
+  "operating_profit": 280000,
+  "operating_profit_rate": 0.5833,
+  "total_sent": 1584,
+  "replied": 216,
+  "meeting_total": 70,
+  "exp_total": 45,
+  "ad_total": 30,
+  "reply_rate": 0.1364,
+  "exp_rate": 0.0284,
+  "ad_rate": 0.0189,
+  "meeting_rate": 0.0442,
+  "inf_status": {
+    "미팅_대기": 0,
+    "미팅_진행": 0,
+    "체험진행_1차": 11,
+    "체험진행_2차": 1,
+    "체험진행_3차": 1,
+    "광고예정_1차": 5,
+    "광고예정_2차": 1,
+    "광고완료_1차": 2,
+    "기타": 24
+  },
+  "influencers": {
+    "C맹씨": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 16,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "한섭프로": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 2,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "코앞의경제": {
+      "order_count": 1,
+      "qty": 2,
+      "cumulative_qty": 6,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "기타/일반": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": true,
+      "sponsor_cost_this_month": 0
+    }
+  }
+}
