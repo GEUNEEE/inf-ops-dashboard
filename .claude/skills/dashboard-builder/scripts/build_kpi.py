@@ -89,11 +89,21 @@ def build_profit_analysis(per_influencer: dict | None = None) -> dict:
             }
 
             known_qty = 0
+            GEN_KEY = "기타/일반"
             for name, info in d.get("influencers", {}).items():
                 qty    = info.get("qty", 0)
                 amount = info.get("amount") or 0
                 is_gen = info.get("is_general", False)
+                is_waived = info.get("settlement_waived", False)
                 known_qty += qty
+
+                if is_waived:
+                    # 정산안받음 → 기타/일반에 수량·기여수익 합산
+                    if GEN_KEY not in inf_cum:
+                        inf_cum[GEN_KEY] = {"qty": 0, "settlement": 0, "contribution": 0}
+                    inf_cum[GEN_KEY]["qty"] += qty
+                    inf_cum[GEN_KEY]["contribution"] += qty * (GROSS_PRICE_INF - COGS_PER_UNIT)
+                    continue
 
                 if name not in inf_cum:
                     inf_cum[name] = {"qty": 0, "settlement": 0, "contribution": 0}
