@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T15:32:10",
+  "generated_at": "2026-06-05T15:55:18",
   "current_month": "2026-06",
   "revenue": {
     "order_count": 11,
@@ -12,10 +12,10 @@
     "operating_profit": 784000
   },
   "mail_funnel": {
-    "total_sent": 1584,
+    "total_sent": 1585,
     "etc_excluded": 79,
     "replied": 216,
-    "reply_rate": 0.1364,
+    "reply_rate": 0.1363,
     "meeting_total": 70,
     "meeting_rate": 0.0442,
     "exp_total": 45,
@@ -27,12 +27,12 @@
     "미팅_대기": 0,
     "미팅_진행": 0,
     "체험진행_1차": 11,
-    "체험진행_2차": 1,
+    "체험진행_2차": 2,
     "체험진행_3차": 1,
-    "광고예정_1차": 5,
-    "광고예정_2차": 1,
+    "광고예정_1차": 4,
+    "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 24
+    "기타": 25
   },
   "settlement_month": 6,
   "settlement_summary": {
@@ -49,7 +49,7 @@
         "2026-04"
       ],
       "정산대상": true,
-      "현재상태": "2차 광고예정"
+      "현재상태": "기타"
     },
     "한섭프로": {
       "건수": 2,
@@ -78,7 +78,7 @@
         "2026-06"
       ],
       "정산대상": true,
-      "현재상태": "1차 광고완료"
+      "현재상태": "2차 체험진행"
     },
     "마성민": {
       "건수": 1,
@@ -270,7 +270,7 @@
         "2026-04"
       ],
       "정산대상": true,
-      "현재상태": "1차 광고예정"
+      "현재상태": "1차 광고완료"
     },
     "유튜버 정조": {
       "건수": 0,
@@ -696,7 +696,7 @@
       0.1212,
       0.1147,
       0.1404,
-      0.1364
+      0.1363
     ],
     "exp_rate": [
       0.0379,
@@ -732,7 +732,7 @@
       396,
       1029,
       1510,
-      1584
+      1585
     ],
     "replied": [
       48,
@@ -775,58 +775,58 @@
   "mail_funnel_by_month": {
     "2026-02": {
       "sent": 152,
-      "replied": 22,
-      "meeting": 13,
-      "exp": 6,
-      "ad": 1,
-      "reply_rate": 0.1447,
-      "meeting_rate": 0.0855,
-      "exp_rate": 0.0395,
-      "ad_rate": 0.0066
+      "replied": 17,
+      "meeting": 7,
+      "exp": 2,
+      "ad": 0,
+      "reply_rate": 0.1118,
+      "meeting_rate": 0.0461,
+      "exp_rate": 0.0132,
+      "ad_rate": 0.0
     },
     "2026-03": {
       "sent": 260,
-      "replied": 35,
+      "replied": 36,
       "meeting": 15,
-      "exp": 10,
-      "ad": 9,
-      "reply_rate": 0.1346,
+      "exp": 9,
+      "ad": 3,
+      "reply_rate": 0.1385,
       "meeting_rate": 0.0577,
-      "exp_rate": 0.0385,
-      "ad_rate": 0.0346
+      "exp_rate": 0.0346,
+      "ad_rate": 0.0115
     },
     "2026-04": {
       "sent": 661,
-      "replied": 98,
+      "replied": 94,
       "meeting": 31,
-      "exp": 13,
-      "ad": 7,
-      "reply_rate": 0.1483,
+      "exp": 12,
+      "ad": 10,
+      "reply_rate": 0.1422,
       "meeting_rate": 0.0469,
-      "exp_rate": 0.0197,
-      "ad_rate": 0.0106
+      "exp_rate": 0.0182,
+      "ad_rate": 0.0151
     },
     "2026-05": {
       "sent": 437,
-      "replied": 56,
-      "meeting": 11,
-      "exp": 10,
-      "ad": 0,
-      "reply_rate": 0.1281,
-      "meeting_rate": 0.0252,
-      "exp_rate": 0.0229,
-      "ad_rate": 0.0
+      "replied": 63,
+      "meeting": 16,
+      "exp": 14,
+      "ad": 3,
+      "reply_rate": 0.1442,
+      "meeting_rate": 0.0366,
+      "exp_rate": 0.032,
+      "ad_rate": 0.0069
     },
     "2026-06": {
-      "sent": 74,
-      "replied": 3,
-      "meeting": 0,
-      "exp": 0,
-      "ad": 0,
-      "reply_rate": 0.0405,
-      "meeting_rate": 0.0,
-      "exp_rate": 0.0,
-      "ad_rate": 0.0
+      "sent": 75,
+      "replied": 4,
+      "meeting": 1,
+      "exp": 1,
+      "ad": 1,
+      "reply_rate": 0.0533,
+      "meeting_rate": 0.0133,
+      "exp_rate": 0.0133,
+      "ad_rate": 0.0133
     }
   },
   "ad_by_month": {
