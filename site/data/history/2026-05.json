@@ -5,8 +5,8 @@
   "net_profit": 2506000,
   "order_count": 35,
   "unit_count": 38,
-  "operating_profit": 2066000,
-  "operating_profit_rate": 0.4424,
+  "operating_profit": 2126000,
+  "operating_profit_rate": 0.4553,
   "total_sent": 1510,
   "replied": 212,
   "meeting_total": 69,
@@ -131,8 +131,8 @@
       "sponsor_cost_this_month": 40000
     },
     "기타/일반": {
-      "order_count": 14,
-      "qty": 14,
+      "order_count": 11,
+      "qty": 11,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
