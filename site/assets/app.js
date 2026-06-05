@@ -134,23 +134,25 @@
     const ss = settlementSummary || {};
     const s = {};
     for (const [name, d] of Object.entries(influencers)) {
-      const cum   = d.cumulative_qty;
-      const qty   = d.qty || 0;
-      const isGen = d.is_general || false;
-      const cs    = ss[name] || {};
+      const cum      = d.cumulative_qty;
+      const qty      = d.qty || 0;
+      const isGen    = d.is_general || false;
+      const isWaived = d.settlement_waived || false;
+      const cs       = ss[name] || {};
       s[name] = {
-        '건수':      d.order_count ?? 0,
-        '수량':      qty,
-        '누적수량':  isGen ? null : (cum ?? null),
-        '현재단가':  isGen ? null : tierPrice(cum || 0),
-        '금액':      isGen
+        '건수':        d.order_count ?? 0,
+        '수량':        qty,
+        '누적수량':    isGen ? null : (cum ?? null),
+        '현재단가':    isGen ? null : tierPrice(cum || 0),
+        '금액':        isGen || isWaived
           ? (d.amount ?? null)
           : calcTieredAmount(cum || 0) - calcTieredAmount(Math.max((cum || 0) - qty, 0)),
-        '정산대상':  !isGen,
-        '현재상태':  cs['현재상태'] || '',
-        '체험횟수':  cs['체험횟수'] ?? null,
-        '협찬원가':  cs['협찬원가'] ?? null,
-        '체험월목록': cs['체험월목록'] || [],
+        '정산대상':    !isGen,
+        '정산안받음':  isWaived,
+        '현재상태':    cs['현재상태'] || '',
+        '체험횟수':    cs['체험횟수'] ?? null,
+        '협찬원가':    cs['협찬원가'] ?? null,
+        '체험월목록':  cs['체험월목록'] || [],
       };
     }
     return s;
@@ -180,9 +182,10 @@
       const h = hCache[m];
       if (!h) continue;
       for (const [name, d] of Object.entries(h.influencers || {})) {
-        if (!infMap[name]) infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general, monthly: {} };
+        if (!infMap[name]) infMap[name] = { order_count: 0, qty: 0, amount: 0, is_general: d.is_general, waived_qty: 0, monthly: {} };
         infMap[name].order_count += d.order_count || 0;
         infMap[name].qty         += d.qty || 0;
+        if (d.settlement_waived) infMap[name].waived_qty += d.qty || 0;
         if (d.amount != null) infMap[name].amount += d.amount;
         if ((d.qty || 0) > 0) infMap[name].monthly[m] = { qty: d.qty || 0, amount: d.amount || 0 };
       }
@@ -191,7 +194,8 @@
       if (!d.is_general) {
         d.cumulative_qty = d.qty;
         d.unit_price     = tierPrice(d.qty);
-        d.amount         = calcTieredAmount(d.qty);
+        const billableQty = Math.max(d.qty - (d.waived_qty || 0), 0);
+        d.amount         = calcTieredAmount(billableQty);
       } else {
         d.cumulative_qty = null;
       }
@@ -483,7 +487,9 @@
       // 전체 필터: 이번달 정산대상만 badge, 나머지는 표기 없음
       // 월별 필터: 정산대상 / 기타일반 구분 표기
       let badge = '';
-      if (month) {
+      if (item['정산안받음']) {
+        badge = `<span class="pill pill-waived">정산안받음</span>`;
+      } else if (month) {
         badge = isTarget
           ? `<span class="pill pill-target">정산대상</span>`
           : `<span class="pill pill-general">기타/일반</span>`;
@@ -767,9 +773,9 @@
         const isGen   = d.is_general || false;
         const cum     = d.cumulative_qty || 0;
         const prevCum = Math.max(cum - qty, 0);
-        // 정산액: 구간 단가 누적 계산 (기타는 0)
+        // 정산액: 구간 단가 누적 계산 (기타, 정산안받음은 0)
         let settlementAmt = 0;
-        if (!isGen) {
+        if (!isGen && !d.settlement_waived) {
           for (let q = prevCum; q < cum; q++) settlementAmt += tierPrice(q + 1);
         }
         // 해당월 협찬원가: snapshot 필드 우선, 없으면 settlement_summary 체험월목록으로 계산
