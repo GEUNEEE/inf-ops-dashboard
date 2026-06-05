@@ -37,16 +37,6 @@
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
-    "그래서 강리안": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 1,
-      "unit_price": 20000,
-      "amount": 0,
-      "is_general": false,
-      "settlement_waived": true,
-      "sponsor_cost_this_month": 0
-    },
     "바다로간배스": {
       "order_count": 1,
       "qty": 2,
@@ -101,26 +91,6 @@
       "is_general": false,
       "sponsor_cost_this_month": 40000
     },
-    "갓생부부": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 1,
-      "unit_price": 20000,
-      "amount": 0,
-      "is_general": false,
-      "settlement_waived": true,
-      "sponsor_cost_this_month": 0
-    },
-    "골넌디": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 1,
-      "unit_price": 20000,
-      "amount": 0,
-      "is_general": false,
-      "settlement_waived": true,
-      "sponsor_cost_this_month": 0
-    },
     "코앞의경제": {
       "order_count": 3,
       "qty": 4,
@@ -131,8 +101,8 @@
       "sponsor_cost_this_month": 40000
     },
     "기타/일반": {
-      "order_count": 11,
-      "qty": 11,
+      "order_count": 14,
+      "qty": 14,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
