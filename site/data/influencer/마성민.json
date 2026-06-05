@@ -1,7 +1,7 @@
 {
   "name": "마성민",
   "current_status": "3차 체험진행",
-  "cumulative_qty": 13,
+  "cumulative_qty": 14,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -16,6 +16,11 @@
     },
     {
       "month": "2026-05",
+      "qty": 1,
+      "amount": 20000
+    },
+    {
+      "month": "2026-06",
       "qty": 1,
       "amount": 20000
     }
