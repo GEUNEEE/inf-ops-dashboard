@@ -1,7 +1,7 @@
 {
   "name": "C맹씨",
   "current_status": "2차 광고예정",
-  "cumulative_qty": 15,
+  "cumulative_qty": 16,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -13,6 +13,11 @@
       "month": "2026-05",
       "qty": 5,
       "amount": 100000
+    },
+    {
+      "month": "2026-06",
+      "qty": 1,
+      "amount": 20000
     }
   ],
   "upcoming_schedule": []
