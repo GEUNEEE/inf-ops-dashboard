@@ -5,11 +5,11 @@
     "order_count": 35,
     "unit_count": 38,
     "gross_revenue": 4670000,
-    "influencer_cost": 1464000,
+    "influencer_cost": 1404000,
     "sponsor_cost": 760000,
     "labor_cost": 380000,
-    "net_profit": 2446000,
-    "operating_profit": 2066000
+    "net_profit": 2506000,
+    "operating_profit": 2126000
   },
   "mail_funnel": {
     "total_sent": 1510,
@@ -56,13 +56,14 @@
       "수량": 1,
       "누적수량": 1,
       "현재단가": 20000,
-      "금액": 20000,
+      "금액": 0,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
         "2026-04"
       ],
-      "정산대상": true,
+      "정산대상": false,
+      "정산안받음": true,
       "현재상태": "기타"
     },
     "바다로간배스": {
@@ -158,13 +159,14 @@
       "수량": 1,
       "누적수량": 1,
       "현재단가": 20000,
-      "금액": 20000,
+      "금액": 0,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
         "2026-03"
       ],
-      "정산대상": true,
+      "정산대상": false,
+      "정산안받음": true,
       "현재상태": "기타"
     },
     "골넌디": {
@@ -172,13 +174,14 @@
       "수량": 1,
       "누적수량": 1,
       "현재단가": 20000,
-      "금액": 20000,
+      "금액": 0,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
         "2026-04"
       ],
-      "정산대상": true,
+      "정산대상": false,
+      "정산안받음": true,
       "현재상태": "1차 광고예정"
     },
     "코앞의경제": {
@@ -197,8 +200,8 @@
       "현재상태": "1차 광고예정"
     },
     "기타/일반": {
-      "건수": 11,
-      "수량": 11,
+      "건수": 14,
+      "수량": 14,
       "단가": 84000,
       "금액": 924000,
       "정산대상": false,
@@ -705,7 +708,7 @@
     "net_profit": [
       560000,
       1832000,
-      2446000
+      2506000
     ],
     "total_sent": [
       396,
@@ -736,12 +739,12 @@
     "operating_profit": [
       460000,
       1512000,
-      2066000
+      2126000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
-      0.4424
+      0.4553
     ]
   },
   "mail_funnel_by_month": {
@@ -817,9 +820,9 @@
       "2026-05": {
         "gross_revenue": 4670000,
         "unit_count": 38,
-        "operating_profit": 2066000,
-        "operating_profit_rate": 0.4424,
-        "cumulative_profit": 4038000
+        "operating_profit": 2126000,
+        "operating_profit_rate": 0.4553,
+        "cumulative_profit": 4098000
       }
     },
     "influencer_cumulative": {
@@ -850,8 +853,8 @@
       },
       "그래서 강리안": {
         "qty": 1,
-        "settlement": 20000,
-        "contribution": 64000
+        "settlement": 0,
+        "contribution": 84000
       },
       "바다로간배스": {
         "qty": 2,
@@ -880,13 +883,13 @@
       },
       "갓생부부": {
         "qty": 1,
-        "settlement": 20000,
-        "contribution": 64000
+        "settlement": 0,
+        "contribution": 84000
       },
       "골넌디": {
         "qty": 1,
-        "settlement": 20000,
-        "contribution": 64000
+        "settlement": 0,
+        "contribution": 84000
       },
       "코앞의경제": {
         "qty": 4,
