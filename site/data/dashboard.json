@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-08T09:09:31",
+  "generated_at": "2026-06-08T09:09:43",
   "current_month": "2026-06",
   "revenue": {
-    "order_count": 12,
-    "unit_count": 13,
-    "gross_revenue": 1600000,
-    "influencer_cost": 516000,
+    "order_count": 16,
+    "unit_count": 17,
+    "gross_revenue": 2120000,
+    "influencer_cost": 852000,
     "sponsor_cost": 80000,
-    "labor_cost": 130000,
-    "net_profit": 1004000,
-    "operating_profit": 874000
+    "labor_cost": 170000,
+    "net_profit": 1188000,
+    "operating_profit": 1018000
   },
   "mail_funnel": {
     "total_sent": 1656,
@@ -97,10 +97,10 @@
       "현재상태": "3차 체험진행"
     },
     "기타/일반": {
-      "건수": 4,
-      "수량": 4,
+      "건수": 8,
+      "수량": 8,
       "단가": 84000,
-      "금액": 336000,
+      "금액": 672000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -720,13 +720,13 @@
       1200000,
       3960000,
       4670000,
-      1600000
+      2120000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
-      1004000
+      1188000
     ],
     "total_sent": [
       396,
@@ -763,13 +763,13 @@
       460000,
       1512000,
       2126000,
-      874000
+      1018000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.5463
+      0.4802
     ]
   },
   "mail_funnel_by_month": {
@@ -862,11 +862,11 @@
         "cumulative_profit": 4098000
       },
       "2026-06": {
-        "gross_revenue": 1600000,
-        "unit_count": 13,
-        "operating_profit": 874000,
-        "operating_profit_rate": 0.5463,
-        "cumulative_profit": 4972000
+        "gross_revenue": 2120000,
+        "unit_count": 17,
+        "operating_profit": 1018000,
+        "operating_profit_rate": 0.4802,
+        "cumulative_profit": 5116000
       }
     },
     "influencer_cumulative": {
@@ -891,9 +891,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 30,
+        "qty": 34,
         "settlement": 0,
-        "contribution": 2820000
+        "contribution": 3196000
       },
       "바다로간배스": {
         "qty": 2,
