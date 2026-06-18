@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-06-18T10:00:16",
+  "generated_at": "2026-06-19T08:07:29",
   "current_month": "2026-06",
   "revenue": {
-    "order_count": 16,
-    "unit_count": 17,
-    "gross_revenue": 2120000,
-    "influencer_cost": 852000,
-    "sponsor_cost": 240000,
-    "labor_cost": 170000,
-    "net_profit": 1028000,
-    "operating_profit": 858000
+    "order_count": 21,
+    "unit_count": 24,
+    "gross_revenue": 3030000,
+    "influencer_cost": 1440000,
+    "sponsor_cost": 280000,
+    "labor_cost": 240000,
+    "net_profit": 1310000,
+    "operating_profit": 1070000
   },
   "mail_funnel": {
-    "total_sent": 1884,
+    "total_sent": 1896,
     "etc_excluded": 79,
-    "replied": 251,
-    "reply_rate": 0.1332,
-    "meeting_total": 77,
-    "meeting_rate": 0.0409,
-    "exp_total": 48,
-    "exp_rate": 0.0255,
+    "replied": 256,
+    "reply_rate": 0.135,
+    "meeting_total": 79,
+    "meeting_rate": 0.0417,
+    "exp_total": 49,
+    "exp_rate": 0.0258,
     "ad_total": 30,
-    "ad_rate": 0.0159
+    "ad_rate": 0.0158
   },
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 5,
+    "체험진행_1차": 7,
     "체험진행_2차": 2,
     "체험진행_3차": 2,
     "광고예정_1차": 8,
@@ -98,12 +98,38 @@
       "현재상태": "3차 체험진행"
     },
     "기타/일반": {
-      "건수": 8,
-      "수량": 8,
+      "건수": 13,
+      "수량": 15,
       "단가": 84000,
-      "금액": 672000,
+      "금액": 1260000,
       "정산대상": false,
       "현재상태": ""
+    },
+    "죠앙부부 じょあん夫婦": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 0,
+      "현재단가": null,
+      "금액": 0,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [],
+      "정산대상": true,
+      "현재상태": "1차 체험진행"
+    },
+    "야너두": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 0,
+      "현재단가": null,
+      "금액": 0,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-06"
+      ],
+      "정산대상": true,
+      "현재상태": "1차 체험진행"
     },
     "달려서 세계속으로": {
       "건수": 0,
@@ -739,61 +765,61 @@
       0.1212,
       0.1147,
       0.1404,
-      0.1332
+      0.135
     ],
     "exp_rate": [
       0.0379,
       0.0282,
       0.0291,
-      0.0255
+      0.0258
     ],
     "ad_rate": [
       0.0253,
       0.0155,
       0.0192,
-      0.0159
+      0.0158
     ],
     "meeting_rate": [
       0.0328,
       0.0515,
       0.0457,
-      0.0409
+      0.0417
     ],
     "gross_revenue": [
       1200000,
       3960000,
       4670000,
-      2120000
+      3030000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
-      1028000
+      1310000
     ],
     "total_sent": [
       396,
       1029,
       1510,
-      1884
+      1896
     ],
     "replied": [
       48,
       118,
       212,
-      251
+      256
     ],
     "meeting_total": [
       13,
       53,
       69,
-      77
+      79
     ],
     "exp_total": [
       15,
       29,
       44,
-      48
+      49
     ],
     "ad_total": [
       10,
@@ -806,13 +832,13 @@
       460000,
       1512000,
       2126000,
-      858000
+      1070000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.4047
+      0.3531
     ]
   },
   "mail_funnel_by_month": {
@@ -861,15 +887,15 @@
       "ad_rate": 0.0069
     },
     "2026-06": {
-      "sent": 375,
-      "replied": 39,
-      "meeting": 8,
-      "exp": 3,
+      "sent": 387,
+      "replied": 44,
+      "meeting": 10,
+      "exp": 4,
       "ad": 1,
-      "reply_rate": 0.104,
-      "meeting_rate": 0.0213,
-      "exp_rate": 0.008,
-      "ad_rate": 0.0027
+      "reply_rate": 0.1137,
+      "meeting_rate": 0.0258,
+      "exp_rate": 0.0103,
+      "ad_rate": 0.0026
     }
   },
   "ad_by_month": {
@@ -905,11 +931,11 @@
         "cumulative_profit": 4098000
       },
       "2026-06": {
-        "gross_revenue": 2120000,
-        "unit_count": 17,
-        "operating_profit": 858000,
-        "operating_profit_rate": 0.4047,
-        "cumulative_profit": 4956000
+        "gross_revenue": 3030000,
+        "unit_count": 24,
+        "operating_profit": 1070000,
+        "operating_profit_rate": 0.3531,
+        "cumulative_profit": 5168000
       }
     },
     "influencer_cumulative": {
@@ -934,9 +960,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 34,
+        "qty": 41,
         "settlement": 0,
-        "contribution": 3196000
+        "contribution": 3854000
       },
       "바다로간배스": {
         "qty": 2,
