@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-19T08:07:29",
+  "generated_at": "2026-06-19T08:07:42",
   "current_month": "2026-06",
   "revenue": {
-    "order_count": 21,
-    "unit_count": 24,
-    "gross_revenue": 3030000,
-    "influencer_cost": 1440000,
+    "order_count": 23,
+    "unit_count": 26,
+    "gross_revenue": 3270000,
+    "influencer_cost": 1480000,
     "sponsor_cost": 280000,
-    "labor_cost": 240000,
-    "net_profit": 1310000,
-    "operating_profit": 1070000
+    "labor_cost": 260000,
+    "net_profit": 1510000,
+    "operating_profit": 1250000
   },
   "mail_funnel": {
     "total_sent": 1896,
@@ -37,11 +37,11 @@
   "settlement_month": 6,
   "settlement_summary": {
     "C맹씨": {
-      "건수": 3,
-      "수량": 3,
-      "누적수량": 18,
+      "건수": 4,
+      "수량": 4,
+      "누적수량": 19,
       "현재단가": 20000,
-      "금액": 60000,
+      "금액": 80000,
       "체험횟수": 3,
       "협찬원가": 120000,
       "체험월목록": [
@@ -67,11 +67,11 @@
       "현재상태": "1차 광고완료"
     },
     "코앞의경제": {
-      "건수": 2,
-      "수량": 3,
-      "누적수량": 7,
+      "건수": 3,
+      "수량": 4,
+      "누적수량": 8,
       "현재단가": 20000,
-      "금액": 60000,
+      "금액": 80000,
       "체험횟수": 2,
       "협찬원가": 80000,
       "체험월목록": [
@@ -789,13 +789,13 @@
       1200000,
       3960000,
       4670000,
-      3030000
+      3270000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
-      1310000
+      1510000
     ],
     "total_sent": [
       396,
@@ -832,13 +832,13 @@
       460000,
       1512000,
       2126000,
-      1070000
+      1250000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.3531
+      0.3823
     ]
   },
   "mail_funnel_by_month": {
@@ -931,11 +931,11 @@
         "cumulative_profit": 4098000
       },
       "2026-06": {
-        "gross_revenue": 3030000,
-        "unit_count": 24,
-        "operating_profit": 1070000,
-        "operating_profit_rate": 0.3531,
-        "cumulative_profit": 5168000
+        "gross_revenue": 3270000,
+        "unit_count": 26,
+        "operating_profit": 1250000,
+        "operating_profit_rate": 0.3823,
+        "cumulative_profit": 5348000
       }
     },
     "influencer_cumulative": {
@@ -950,9 +950,9 @@
         "contribution": 176000
       },
       "C맹씨": {
-        "qty": 19,
-        "settlement": 380000,
-        "contribution": 1136000
+        "qty": 20,
+        "settlement": 400000,
+        "contribution": 1200000
       },
       "The 조치 패밀리": {
         "qty": 2,
@@ -990,9 +990,9 @@
         "contribution": 152000
       },
       "코앞의경제": {
-        "qty": 7,
-        "settlement": 140000,
-        "contribution": 368000
+        "qty": 8,
+        "settlement": 160000,
+        "contribution": 432000
       }
     }
   },

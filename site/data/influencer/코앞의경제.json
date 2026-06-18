@@ -1,7 +1,7 @@
 {
   "name": "코앞의경제",
   "current_status": "2차 체험진행",
-  "cumulative_qty": 7,
+  "cumulative_qty": 8,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "month": "2026-06",
-      "qty": 3,
-      "amount": 60000
+      "qty": 4,
+      "amount": 80000
     }
   ],
   "upcoming_schedule": []
