@@ -333,12 +333,13 @@
     // 인플루언서 카운트
     const st = gData.inf_status || {};
     const stTotal  = Object.values(st).reduce((s, v) => s + v, 0);
-    const stActive = stTotal - (st['기타'] || 0);
+    const curMonth = gData.current_month || '';
+    const adInfCount = ((gData.ad_inf_count_by_month || {})[curMonth]) || 0;
     const lbl = el('inf-count-label');
     if (lbl) lbl.innerHTML =
       `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;` +
       `padding:2px 10px;border-radius:10px">` +
-      `진행 ${stActive}<span style="font-weight:400;opacity:0.55"> / ${stTotal}명</span></span>`;
+      `광고 ${adInfCount}<span style="font-weight:400;opacity:0.55"> / ${stTotal}명</span></span>`;
 
     renderInfluencerGrid(gData.settlement_summary || {}, null);
     renderFunnelMonthlyTable(gData.mail_funnel_by_month || {}, gData.current_month);
