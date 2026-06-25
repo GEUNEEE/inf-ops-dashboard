@@ -1,21 +1,21 @@
 {
   "month": "2026-06",
-  "generated_at": "2026-06-25T10:00:20",
-  "gross_revenue": 3270000,
-  "net_profit": 1390000,
-  "order_count": 23,
-  "unit_count": 26,
-  "operating_profit": 1130000,
-  "operating_profit_rate": 0.3456,
-  "total_sent": 2361,
-  "replied": 262,
+  "generated_at": "2026-06-26T08:03:58",
+  "gross_revenue": 3390000,
+  "net_profit": 1490000,
+  "order_count": 24,
+  "unit_count": 27,
+  "operating_profit": 1220000,
+  "operating_profit_rate": 0.3599,
+  "total_sent": 2399,
+  "replied": 263,
   "meeting_total": 80,
   "exp_total": 52,
-  "ad_total": 32,
-  "reply_rate": 0.111,
-  "exp_rate": 0.022,
-  "ad_rate": 0.0136,
-  "meeting_rate": 0.0339,
+  "ad_total": 33,
+  "reply_rate": 0.1096,
+  "exp_rate": 0.0217,
+  "ad_rate": 0.0138,
+  "meeting_rate": 0.0333,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
@@ -25,7 +25,7 @@
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 31
+    "기타": 32
   },
   "influencers": {
     "C맹씨": {
@@ -47,11 +47,11 @@
       "sponsor_cost_this_month": 0
     },
     "코앞의경제": {
-      "order_count": 3,
-      "qty": 4,
-      "cumulative_qty": 8,
+      "order_count": 4,
+      "qty": 5,
+      "cumulative_qty": 9,
       "unit_price": 20000,
-      "amount": 80000,
+      "amount": 100000,
       "is_general": false,
       "sponsor_cost_this_month": 40000
     },

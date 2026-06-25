@@ -1,27 +1,27 @@
 {
-  "generated_at": "2026-06-25T10:00:20",
+  "generated_at": "2026-06-26T08:03:58",
   "current_month": "2026-06",
   "revenue": {
-    "order_count": 23,
-    "unit_count": 26,
-    "gross_revenue": 3270000,
-    "influencer_cost": 1480000,
+    "order_count": 24,
+    "unit_count": 27,
+    "gross_revenue": 3390000,
+    "influencer_cost": 1500000,
     "sponsor_cost": 400000,
-    "labor_cost": 260000,
-    "net_profit": 1390000,
-    "operating_profit": 1130000
+    "labor_cost": 270000,
+    "net_profit": 1490000,
+    "operating_profit": 1220000
   },
   "mail_funnel": {
-    "total_sent": 2361,
+    "total_sent": 2399,
     "etc_excluded": 79,
-    "replied": 262,
-    "reply_rate": 0.111,
+    "replied": 263,
+    "reply_rate": 0.1096,
     "meeting_total": 80,
-    "meeting_rate": 0.0339,
+    "meeting_rate": 0.0333,
     "exp_total": 52,
-    "exp_rate": 0.022,
-    "ad_total": 32,
-    "ad_rate": 0.0136
+    "exp_rate": 0.0217,
+    "ad_total": 33,
+    "ad_rate": 0.0138
   },
   "inf_status": {
     "미팅_대기": 0,
@@ -32,7 +32,7 @@
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 31
+    "기타": 32
   },
   "settlement_month": 6,
   "settlement_summary": {
@@ -67,11 +67,11 @@
       "현재상태": "1차 광고완료"
     },
     "코앞의경제": {
-      "건수": 3,
-      "수량": 4,
-      "누적수량": 8,
+      "건수": 4,
+      "수량": 5,
+      "누적수량": 9,
       "현재단가": 20000,
-      "금액": 80000,
+      "금액": 100000,
       "체험횟수": 2,
       "협찬원가": 80000,
       "체험월목록": [
@@ -104,6 +104,18 @@
       "금액": 1260000,
       "정산대상": false,
       "현재상태": ""
+    },
+    "수린이공구": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 0,
+      "현재단가": null,
+      "금액": 0,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [],
+      "정산대상": true,
+      "현재상태": "기타"
     },
     "김은우의 아이러브골프 & 파크골프TV": {
       "건수": 0,
@@ -795,49 +807,49 @@
       0.1212,
       0.1147,
       0.1404,
-      0.111
+      0.1096
     ],
     "exp_rate": [
       0.0379,
       0.0282,
       0.0291,
-      0.022
+      0.0217
     ],
     "ad_rate": [
       0.0253,
       0.0155,
       0.0192,
-      0.0136
+      0.0138
     ],
     "meeting_rate": [
       0.0328,
       0.0515,
       0.0457,
-      0.0339
+      0.0333
     ],
     "gross_revenue": [
       1200000,
       3960000,
       4670000,
-      3270000
+      3390000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
-      1390000
+      1490000
     ],
     "total_sent": [
       396,
       1029,
       1510,
-      2361
+      2399
     ],
     "replied": [
       48,
       118,
       212,
-      262
+      263
     ],
     "meeting_total": [
       13,
@@ -855,20 +867,20 @@
       10,
       16,
       29,
-      32
+      33
     ],
     "exp_by_month": {},
     "operating_profit": [
       460000,
       1512000,
       2126000,
-      1130000
+      1220000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.3456
+      0.3599
     ]
   },
   "mail_funnel_by_month": {
@@ -917,22 +929,22 @@
       "ad_rate": 0.0069
     },
     "2026-06": {
-      "sent": 852,
-      "replied": 50,
+      "sent": 890,
+      "replied": 51,
       "meeting": 11,
       "exp": 5,
       "ad": 1,
-      "reply_rate": 0.0587,
-      "meeting_rate": 0.0129,
-      "exp_rate": 0.0059,
-      "ad_rate": 0.0012
+      "reply_rate": 0.0573,
+      "meeting_rate": 0.0124,
+      "exp_rate": 0.0056,
+      "ad_rate": 0.0011
     }
   },
   "ad_by_month": {
     "2026-03": 2,
     "2026-04": 4,
     "2026-05": 18,
-    "2026-06": 2,
+    "2026-06": 3,
     "2026-07": 3,
     "2026-08": 1
   },
@@ -940,7 +952,7 @@
     "2026-03": 2,
     "2026-04": 4,
     "2026-05": 17,
-    "2026-06": 2,
+    "2026-06": 3,
     "2026-07": 3,
     "2026-08": 1
   },
@@ -969,11 +981,11 @@
         "cumulative_profit": 4098000
       },
       "2026-06": {
-        "gross_revenue": 3270000,
-        "unit_count": 26,
-        "operating_profit": 1130000,
-        "operating_profit_rate": 0.3456,
-        "cumulative_profit": 5228000
+        "gross_revenue": 3390000,
+        "unit_count": 27,
+        "operating_profit": 1220000,
+        "operating_profit_rate": 0.3599,
+        "cumulative_profit": 5318000
       }
     },
     "influencer_cumulative": {
@@ -1028,9 +1040,9 @@
         "contribution": 152000
       },
       "코앞의경제": {
-        "qty": 8,
-        "settlement": 160000,
-        "contribution": 432000
+        "qty": 9,
+        "settlement": 180000,
+        "contribution": 496000
       }
     }
   },
