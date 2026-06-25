@@ -1,7 +1,7 @@
 {
   "name": "한섭프로",
   "current_status": "1차 광고완료",
-  "cumulative_qty": 3,
+  "cumulative_qty": 4,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "month": "2026-06",
-      "qty": 2,
-      "amount": 40000
+      "qty": 3,
+      "amount": 60000
     }
   ],
   "upcoming_schedule": []
