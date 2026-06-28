@@ -21,17 +21,25 @@ SKILLS_DIR    = BASE_DIR / ".claude" / "skills"
 OUTPUT_DIR    = BASE_DIR / "output"
 SCHEDULE_DIR  = BASE_DIR / "스케줄"
 INPUT_DIR     = BASE_DIR / "input"
+DOWNLOADS_DIR = Path.home() / "Downloads"
 ENV_PYTHONUTF8 = {"PYTHONUTF8": "1", **os.environ}
+
+# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신, 전체주문/선택주문)
+ORDER_PATTERNS = ("스마트스토어_주문조회_*.xlsx", "스마트스토어_*발주발송관리_*.xlsx")
 
 
 def find_latest_order_file() -> Path | None:
-    """스케줄 폴더(우선) → input 폴더 순으로 최신 스마트스토어 주문조회 파일 반환"""
+    """주문조회/발주발송관리 파일을 스케줄→input→Downloads 순으로 탐색,
+    가장 최근 수정된 파일 반환 (발주발송관리 형식·Downloads 폴더도 인식)."""
     candidates = []
-    for folder in (SCHEDULE_DIR, INPUT_DIR):
-        candidates.extend(folder.glob("스마트스토어_주문조회_*.xlsx"))
+    for folder in (SCHEDULE_DIR, INPUT_DIR, DOWNLOADS_DIR):
+        if not folder.exists():
+            continue
+        for pat in ORDER_PATTERNS:
+            candidates.extend(folder.glob(pat))
     if not candidates:
         return None
-    return max(candidates, key=lambda p: p.stem)
+    return max(candidates, key=lambda p: p.stat().st_mtime)
 
 
 def run_script(script_path, *args, input_data=None) -> dict:
@@ -163,7 +171,7 @@ def main():
         kakao_result = subprocess.run(
             [PYTHON_EXE,
              str(SKILLS_DIR / "kakao-notifier" / "scripts" / "notify.py"),
-             str(revenue_json), str(bucket_json), str(settlement_json)],
+             str(revenue_json), str(bucket_json), str(settlement_json), target_month],
             capture_output=True, text=True, encoding="utf-8", env=ENV_PYTHONUTF8
         )
         if kakao_result.returncode == 0 and kakao_result.stdout.strip():
