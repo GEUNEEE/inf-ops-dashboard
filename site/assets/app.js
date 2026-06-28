@@ -14,6 +14,7 @@
 
   let gData  = null;
   let _donut = null;
+  let _sumChart = null;
   const hCache = {};
 
   // ── 구간 단가 ─────────────────────────────────────────────────────────────
@@ -260,6 +261,7 @@
       renderDonutChart(gData.inf_status || {});
       renderInfluencerGrid(gData.settlement_summary || {}, null);
       renderContribTable(pa, null, null, gData.settlement_summary);
+      renderStoreSplit(null);
 
       buildAllTimeData().then(({ revenue, infMap }) => {
         updateKPIs(revenue, f);
@@ -301,6 +303,7 @@
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}, gData.settlement_summary), month);
     renderContribTable(pa, month, h, gData.settlement_summary);
+    renderStoreSplit(month);
   }
 
   // ── 메인 초기화 ────────────────────────────────────────────────────────────
@@ -351,6 +354,13 @@
 
     renderProfitChart(pa);
     renderContribTable(pa, null, null, gData.settlement_summary);
+
+    // 탭 · 요약 · 제품별 · 스토어 분리 렌더
+    ensureProductPanels();
+    renderSummaryFilter();
+    renderSummary(null);
+    renderStoreSplit(null);
+    renderTabs();
 
     // 전체 집계로 업데이트 (비동기, 실패해도 화면 유지)
     buildAllTimeData().then(({ revenue, infMap }) => {
@@ -879,9 +889,449 @@
     }
   }
 
+  // ── 탭 시스템 (드래그 정렬 + localStorage 저장) ─────────────────────────────
+  const TAB_ORDER_KEY = 'dashTabOrder_v1';
+  let _activeTab = null;
+
+  function getProducts() {
+    return (gData && Array.isArray(gData.products) && gData.products.length)
+      ? gData.products
+      : [{ key: '흑염소', label: '흑염소', icon: '🐐', default: true }];
+  }
+  function defaultProductKey() {
+    const p = getProducts().find(x => x.default);
+    return p ? p.key : (getProducts()[0] || {}).key;
+  }
+  function tabDefList() {
+    return [{ key: 'summary', label: 'Summary', icon: '📊' }]
+      .concat(getProducts().map(p => ({ key: p.key, label: p.label, icon: p.icon || '📦' })));
+  }
+  function loadTabOrder(keys) {
+    let saved = [];
+    try { saved = JSON.parse(localStorage.getItem(TAB_ORDER_KEY) || '[]'); } catch (e) {}
+    const valid = saved.filter(k => keys.includes(k));
+    return valid.concat(keys.filter(k => !valid.includes(k)));
+  }
+  function saveTabOrder(order) {
+    try { localStorage.setItem(TAB_ORDER_KEY, JSON.stringify(order)); } catch (e) {}
+  }
+
+  function renderTabs() {
+    const bar = el('tabbar');
+    if (!bar) return;
+    const defs = tabDefList();
+    const keyMap = {}; defs.forEach(d => keyMap[d.key] = d);
+    const order  = loadTabOrder(defs.map(d => d.key));
+
+    bar.innerHTML = order.map(k => {
+      const d = keyMap[k]; if (!d) return '';
+      return `<div class="tab" draggable="true" data-tab="${k}"><span class="tab-icon">${d.icon}</span>${d.label}</div>`;
+    }).join('');
+
+    let dragEl = null;
+    bar.querySelectorAll('.tab').forEach(t => {
+      t.addEventListener('click', () => switchTab(t.dataset.tab));
+      t.addEventListener('dragstart', e => { dragEl = t; t.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; });
+      t.addEventListener('dragend',   () => { t.classList.remove('dragging'); bar.querySelectorAll('.tab').forEach(x => x.classList.remove('dragover')); });
+      t.addEventListener('dragover',  e => { e.preventDefault(); if (t !== dragEl) t.classList.add('dragover'); });
+      t.addEventListener('dragleave', () => t.classList.remove('dragover'));
+      t.addEventListener('drop', e => {
+        e.preventDefault(); t.classList.remove('dragover');
+        if (!dragEl || dragEl === t) return;
+        const tabs = Array.from(bar.querySelectorAll('.tab'));
+        if (tabs.indexOf(dragEl) < tabs.indexOf(t)) t.after(dragEl); else t.before(dragEl);
+        saveTabOrder(Array.from(bar.querySelectorAll('.tab')).map(x => x.dataset.tab));
+      });
+    });
+
+    switchTab(_activeTab && order.includes(_activeTab) ? _activeTab : order[0]);
+  }
+
+  function switchTab(key) {
+    _activeTab = key;
+    document.querySelectorAll('#tabbar .tab').forEach(t => t.classList.toggle('active', t.dataset.tab === key));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === key));
+    // 숨겨진 패널에서 0 크기로 그려진 Chart.js 차트를 레이아웃 완료 후 처리
+    // 탭 전환 시 보이는 패널의 Chart.js 차트를 리사이즈 (ResizeObserver 보조)
+    try { window.dispatchEvent(new Event('resize')); } catch (e) {}
+    // 차트는 패널이 보이는 시점에 새로 생성해야 첫 draw가 올바른 폭으로 됨
+    if (key === 'summary' && gData) {
+      setTimeout(() => { if (_activeTab === 'summary') renderSummaryChart(); }, 80);
+    } else if (gData && productKeysExtra().includes(key)) {
+      setTimeout(() => { if (_activeTab === key) renderProductChart(key); }, 80);
+    }
+  }
+
+  // ── 제품별 시계열 (by_product_by_month) ────────────────────────────────────
+  function productSeries(productKey) {
+    const bpm = ((gData || {}).trends || {}).by_product_by_month || {};
+    const months = Object.keys(bpm).sort();
+    const rows = []; let totQty = 0, totRev = 0, totOrd = 0;
+    months.forEach(m => {
+      const d = (bpm[m] || {})[productKey];
+      if (d) { rows.push({ month: m, ...d }); totQty += d.qty || 0; totRev += d.gross_revenue || 0; totOrd += d.order_count || 0; }
+    });
+    return { rows, totQty, totRev, totOrd };
+  }
+
+  // ── 기타 제품 패널 (흑염소와 동일 구성: 필터 + KPI + 추이 차트 + 표) ──────────
+  const _prodCharts = {};
+  const _prodMonth  = {};
+
+  function productKeysExtra() {
+    const defKey = defaultProductKey();
+    return getProducts().filter(p => p.key !== defKey).map(p => p.key);
+  }
+
+  function ensureProductPanels() {
+    const host = el('panels-extra');
+    if (!host) return;
+    const others = getProducts().filter(p => p.key !== defaultProductKey());
+    host.innerHTML = others.map(p => `
+      <section class="tab-panel" data-tab="${p.key}" id="panel-${p.key}">
+        <div class="filter-row" data-pk="filter"></div>
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+          <div class="kpi-card"><div class="kpi-lbl">${p.label} 매출</div><div class="kpi-val" data-pk="rev">-</div><div class="kpi-sub" data-pk="rev-sub"></div></div>
+          <div class="kpi-card"><div class="kpi-lbl">판매량</div><div class="kpi-val" data-pk="qty">-</div><div class="kpi-sub" data-pk="qty-sub"></div></div>
+          <div class="kpi-card"><div class="kpi-lbl">주문수</div><div class="kpi-val" data-pk="ord">-</div><div class="kpi-sub" data-pk="ord-sub"></div></div>
+          <div class="kpi-card"><div class="kpi-lbl">수익</div><div class="kpi-val" data-pk="profit">-</div><div class="kpi-sub" data-pk="profit-sub"></div></div>
+        </div>
+        <div class="card mb12" data-pk="chartcard"><div class="slbl">월별 매출 · 판매량</div><canvas data-pk="chart"></canvas></div>
+        <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div></div>
+        <div data-pk="empty"></div>
+      </section>`).join('');
+    others.forEach(p => {
+      const panel = document.getElementById('panel-' + p.key);
+      const fc = panel && panel.querySelector('[data-pk="filter"]');
+      if (fc) fc.addEventListener('click', e => {
+        const btn = e.target.closest('.filter-chip');
+        if (!btn) return;
+        _prodMonth[p.key] = btn.dataset.month || null;
+        renderProductView(p.key);
+      });
+      renderProductView(p.key);
+    });
+  }
+
+  function productMonths(key) {
+    const bpm = ((gData || {}).trends || {}).by_product_by_month || {};
+    return Object.keys(bpm).filter(m => bpm[m] && bpm[m][key]).sort();
+  }
+
+  function renderProductView(key, month) {
+    const p = getProducts().find(x => x.key === key);
+    const panel = document.getElementById('panel-' + key);
+    if (!p || !panel) return;
+    if (month === undefined) month = _prodMonth[key] || null;
+    _prodMonth[key] = month || null;
+    const bpm = ((gData || {}).trends || {}).by_product_by_month || {};
+    const months = productMonths(key);
+    const q = s => panel.querySelector(`[data-pk="${s}"]`);
+
+    const fc = q('filter');
+    if (fc) fc.innerHTML = months.length
+      ? [''].concat(months.slice().reverse()).map(m =>
+          `<button class="filter-chip${(m || null) === (month || null) ? ' active' : ''}" data-month="${m}">${m ? monthLabel(m) : '전체'}</button>`).join('')
+      : '';
+
+    const cc = q('chartcard'), tc = q('tablecard');
+    if (!months.length) {
+      ['rev', 'qty', 'ord'].forEach(k => { const e = q(k); if (e) e.textContent = '-'; });
+      ['rev-sub', 'qty-sub', 'ord-sub'].forEach(k => { const e = q(k); if (e) e.textContent = ''; });
+      if (cc) cc.classList.add('hidden');
+      if (tc) tc.classList.add('hidden');
+      q('empty').innerHTML = `<div class="empty-state"><div class="es-title">${p.icon || ''} ${p.label} 데이터가 아직 없어요</div>판매가 시작되면 주문 반영 시 자동으로 집계됩니다.</div>`;
+      return;
+    }
+    q('empty').innerHTML = '';
+    if (cc) cc.classList.remove('hidden');
+    if (tc) tc.classList.remove('hidden');
+
+    const sel = month ? [month] : months;
+    let totQty = 0, totRev = 0, totOrd = 0, totProfit = 0;
+    sel.forEach(m => { const d = bpm[m][key] || {}; totQty += d.qty || 0; totRev += d.gross_revenue || 0; totOrd += d.order_count || 0; totProfit += d.net_profit || 0; });
+    const scope = month ? monthLabel(month) : '전체 기간';
+    q('rev').textContent = totRev ? money(totRev) : (totQty ? '집계예정' : '—');
+    q('qty').textContent = totQty + '개';
+    q('ord').textContent = totOrd + '건';
+    q('rev-sub').textContent = scope;
+    q('qty-sub').textContent = month ? scope : ('월평균 ' + Math.round(totQty / months.length) + '개');
+    q('ord-sub').textContent = scope;
+    const pf = q('profit');
+    if (pf) {
+      pf.textContent = totProfit ? money(totProfit) : (totRev ? '집계예정' : '—');
+      pf.style.color = totProfit > 0 ? '#3B6D11' : '';
+      const ps = q('profit-sub'); if (ps) ps.textContent = scope;
+    }
+
+    const body = months.map(m => {
+      const d = bpm[m][key] || {};
+      const cur = (m === month) ? ' class="fmonth-cur"' : '';
+      return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}</td><td>${d.qty || 0}개</td><td>${d.order_count || 0}건</td><td>${d.gross_revenue ? money(d.gross_revenue) : '-'}</td><td style="color:#3B6D11">${d.net_profit ? money(d.net_profit) : '-'}</td></tr>`;
+    }).join('');
+    q('table').innerHTML = `<table class="fmonth-table"><thead><tr><th>월</th><th>판매량</th><th>주문수</th><th>매출</th><th>수익</th></tr></thead><tbody>${body}</tbody></table>`;
+
+    renderProductChart(key);
+  }
+
+  function renderProductChart(key) {
+    const panel = document.getElementById('panel-' + key);
+    if (!panel) return;
+    const ctx = panel.querySelector('[data-pk="chart"]');
+    if (!ctx) return;
+    const card = ctx.closest('.card');
+    const cw = card ? card.clientWidth : 0;
+    if (cw <= 0) return;  // 숨김 상태면 탭 표시 시점에 생성
+    if (_prodCharts[key]) { _prodCharts[key].destroy(); _prodCharts[key] = null; }
+    const bpm = ((gData || {}).trends || {}).by_product_by_month || {};
+    const months = productMonths(key);
+    if (!months.length) return;
+    ctx.width = Math.max(cw - 28, 300);
+    ctx.height = 220;
+    const labels = months.map(monthLabel);
+    const rev = months.map(m => (bpm[m][key] || {}).gross_revenue || 0);
+    const qty = months.map(m => (bpm[m][key] || {}).qty || 0);
+    _prodCharts[key] = new Chart(ctx, {
+      data: { labels, datasets: [
+        { type: 'bar',  label: '매출',   data: rev, backgroundColor: 'rgba(127,119,221,0.5)', yAxisID: 'y',  order: 2 },
+        { type: 'line', label: '판매량', data: qty, borderColor: '#EF9F27', backgroundColor: '#EF9F27', tension: 0.4, fill: false, yAxisID: 'y1', pointRadius: 3, order: 1 },
+      ] },
+      options: {
+        responsive: false, maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
+          tooltip: { callbacks: { label: c => c.dataset.yAxisID === 'y1' ? ` ${c.dataset.label}: ${c.parsed.y}개` : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}` } },
+        },
+        scales: {
+          x:  { grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
+          y:  { beginAtZero: true, grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 }, callback: v => '₩' + (v / 10000).toFixed(0) + '만' }, title: { display: true, text: '매출 (₩)', font: { size: 10 }, color: '#A8A69C' } },
+          y1: { position: 'right', beginAtZero: true, grid: { drawOnChartArea: false }, ticks: { font: { size: 10 }, callback: v => v + '개' }, title: { display: true, text: '판매량', font: { size: 10 }, color: '#A8A69C' } },
+        },
+      },
+    });
+  }
+
+  // ── Summary 탭 (전체/월별 필터) ─────────────────────────────────────────────
+  let _sumMonth = null;  // null = 전체
+
+  function renderSummaryFilter() {
+    const c = el('summary-month-filter');
+    if (!c) return;
+    const bpm = ((gData || {}).trends || {}).by_product_by_month || {};
+    const months = Object.keys(bpm).sort().reverse();
+    c.innerHTML = [''].concat(months).map(m =>
+      `<button class="filter-chip${(m || null) === _sumMonth ? ' active' : ''}" data-month="${m}">${m ? monthLabel(m) : '전체'}</button>`
+    ).join('');
+    c.onclick = e => {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      _sumMonth = btn.dataset.month || null;
+      c.querySelectorAll('.filter-chip').forEach(b => b.classList.toggle('active', b === btn));
+      renderSummary(_sumMonth);
+    };
+  }
+
+  function renderSummary(month) {
+    if (month === undefined) month = _sumMonth;
+    _sumMonth = month || null;
+    const bpm    = ((gData || {}).trends || {}).by_product_by_month || {};
+    const trends = (gData || {}).trends || {};
+    const prods  = getProducts();
+    const order  = prods.map(p => p.key);
+
+    const agg = {};
+    prods.forEach(p => { agg[p.key] = { qty: 0, rev: 0, ord: 0, prof: 0, active: false }; });
+    const scanMonths = month ? [month] : Object.keys(bpm);
+    scanMonths.forEach(m => {
+      const md = bpm[m] || {};
+      Object.keys(md).forEach(k => {
+        if (!agg[k]) { agg[k] = { qty: 0, rev: 0, ord: 0, prof: 0, active: false }; if (!order.includes(k)) order.push(k); }
+        agg[k].qty += md[k].qty || 0; agg[k].rev += md[k].gross_revenue || 0; agg[k].ord += md[k].order_count || 0;
+        agg[k].prof += md[k].net_profit || 0;
+        if ((md[k].qty || 0) > 0) agg[k].active = true;
+      });
+    });
+
+    const totalUnits  = order.reduce((s, k) => s + agg[k].qty, 0);
+    const totalOrders = order.reduce((s, k) => s + agg[k].ord, 0);
+    const totalRev    = order.reduce((s, k) => s + agg[k].rev, 0);
+    // 흑염소 수익(정산모델, 스냅샷 top-level) + 그 외 제품 수익(by_product net_profit)
+    let baseProfit;
+    if (month) {
+      const idx = (trends.months || []).indexOf(month);
+      baseProfit = idx >= 0 ? ((trends.net_profit || [])[idx] || 0) : 0;
+    } else {
+      baseProfit = (trends.net_profit || []).reduce((s, v) => s + (v || 0), 0);
+    }
+    const totalProfit = baseProfit + order.reduce((s, k) => s + (agg[k].prof || 0), 0);
+    const activeCnt  = order.filter(k => agg[k].active).length;
+    const scopeLabel = month ? monthLabel(month) : '전체 기간';
+
+    set('summary-scope-label', '· ' + scopeLabel);
+    set('sum-revenue', money(totalRev));
+    set('sum-units',   totalUnits + '개');
+    set('sum-profit',  money(totalProfit));
+    set('sum-revenue-sub', totalOrders + '건 주문 · ' + scopeLabel);
+    set('sum-units-sub',   activeCnt + '개 제품' + (month ? ' 판매' : ' 판매중'));
+    set('sum-profit-sub',  (totalProfit > 0 ? '흑자' : totalProfit < 0 ? '적자' : '') + ' · ' + scopeLabel);
+    const pe = el('sum-profit'); if (pe) pe.style.color = totalProfit > 0 ? '#3B6D11' : totalProfit < 0 ? '#A32D2D' : '';
+    // 추이 차트는 Summary 탭이 보이는 시점(switchTab)에 전체 기간 기준으로 생성한다
+
+    // 제품별 카드 (매출 있으면 매출 비중, 없으면 수량 비중)
+    const useRev = totalRev > 0;
+    const denom  = (useRev ? totalRev : totalUnits) || 1;
+    const labelMap = {}; prods.forEach(p => labelMap[p.key] = p);
+    const grid = el('summary-prod-grid');
+    if (grid) {
+      grid.innerHTML = order.map(k => {
+        const p = labelMap[k] || { label: k, icon: '📦' };
+        const a = agg[k];
+        const share = ((useRev ? a.rev : a.qty) / denom * 100);
+        const revStr = a.rev ? money(a.rev) : (a.qty ? '집계예정' : '—');
+        return `<div class="prod-card">
+          <div class="prod-card-head"><span class="tab-icon">${p.icon || '📦'}</span><span class="prod-card-name">${p.label}</span></div>
+          <div class="prod-card-rev">${revStr}</div>
+          <div class="prod-card-sub">${a.qty}개 · ${a.ord}건${a.prof ? ' · 수익 <span style="color:#3B6D11">' + money(a.prof) + '</span>' : (a.active ? '' : ' · 대기')}</div>
+          <div class="prod-bar-track"><div class="prod-bar-fill" style="width:${Math.min(share,100).toFixed(1)}%"></div></div>
+          <div class="prod-card-sub">${useRev ? '매출' : '수량'} 비중 ${share.toFixed(1)}%</div>
+        </div>`;
+      }).join('');
+    }
+
+    // 제품 · 월별 추이 테이블 (항상 전체 월 표시, 선택 월은 하이라이트)
+    const months = Object.keys(bpm).sort();
+    const tbl = el('summary-monthly-table');
+    if (tbl) {
+      if (!months.length) { tbl.innerHTML = '<div style="font-size:11px;color:var(--text3);padding:4px 0">데이터 없음</div>'; }
+      else {
+        // 컬럼: 전체 기간 기준 한 번이라도 판매된 제품 (월 필터와 무관하게 고정)
+        const colActive = {};
+        months.forEach(m => Object.keys(bpm[m] || {}).forEach(k => { if (((bpm[m][k] || {}).qty || 0) > 0) colActive[k] = true; }));
+        const cols = order.filter(k => colActive[k]);
+        const head = `<tr><th>월</th>${cols.map(k => `<th>${(labelMap[k] || {}).label || k}</th>`).join('')}<th>합계</th></tr>`;
+        const rows = months.map(m => {
+          const md = bpm[m] || {};
+          let rowTot = 0;
+          const cells = cols.map(k => { const v = (md[k] || {}).qty || 0; rowTot += v; return `<td>${v ? v + '개' : '-'}</td>`; }).join('');
+          const cur = (m === month) ? ' class="fmonth-cur"' : '';
+          return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}</td>${cells}<td class="fmonth-cnt">${rowTot}개</td></tr>`;
+        }).join('');
+        tbl.innerHTML = `<table class="fmonth-table"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+      }
+    }
+  }
+
+  // ── Summary 전체 월별 매출·수익·판매량 차트 ────────────────────────────────
+  function renderSummaryChart() {
+    const ctx = el('summary-trend-chart');
+    if (!ctx) return;
+    if (_sumChart) { _sumChart.destroy(); _sumChart = null; }
+    const t   = (gData || {}).trends || {};
+    const bpm = t.by_product_by_month || {};
+    const months = (t.months || []).slice();
+    if (!months.length) return;
+    // 캔버스 픽셀을 컨테이너 폭에 맞춰 직접 지정 (responsive 타이밍 이슈 회피)
+    const card = ctx.closest('.card');
+    const cw = card ? card.clientWidth : 900;
+    ctx.width  = Math.max(cw - 28, 300);
+    ctx.height = 240;
+    const labels = months.map(monthLabel);
+    const rev   = months.map((m, i) => (t.gross_revenue || [])[i] || 0);
+    const prof  = months.map((m, i) => (t.net_profit    || [])[i] || 0);
+    const units = months.map(m => Object.values(bpm[m] || {}).reduce((s, d) => s + (d.qty || 0), 0));
+
+    // 제품(카테고리)별 매출 = 누적 막대(stack:'rev')로 함께 표시
+    const PALETTE = { '흑염소': '#7F77DD', '수면영양제': '#85B7EB', '화장품': '#E48FB0', '올리브오일캡슐': '#97C459' };
+    const FALLBACK = ['#7F77DD', '#85B7EB', '#E48FB0', '#97C459', '#EFB36B', '#9A8FE0'];
+    let ci = 0;
+    const productBars = getProducts()
+      .map(p => ({ p, series: months.map(m => ((bpm[m] || {})[p.key] || {}).gross_revenue || 0) }))
+      .filter(x => x.series.some(v => v > 0))
+      .map(x => ({
+        type: 'bar', label: x.p.label, stack: 'rev', data: x.series,
+        backgroundColor: PALETTE[x.p.key] || FALLBACK[ci++ % FALLBACK.length],
+        yAxisID: 'y', order: 5,
+      }));
+    // 매출 집계된 카테고리가 없으면 총매출 단일 막대로 폴백
+    if (!productBars.length) {
+      productBars.push({ type: 'bar', label: '매출', stack: 'rev', data: rev,
+        backgroundColor: 'rgba(127,119,221,0.45)', yAxisID: 'y', order: 5 });
+    }
+
+    _sumChart = new Chart(ctx, {
+      data: {
+        labels,
+        datasets: [
+          ...productBars,
+          { type: 'line', label: '수익',   stack: 'profit', data: prof, borderColor: '#3B6D11', backgroundColor: '#3B6D11', tension: 0.4, fill: false, yAxisID: 'y', pointRadius: 3, order: 1 },
+          { type: 'line', label: '판매량', data: units, borderColor: '#EF9F27', backgroundColor: '#EF9F27', tension: 0.4, fill: false, yAxisID: 'y1', pointRadius: 3, order: 0 },
+        ],
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
+          tooltip: { callbacks: { label: c => c.dataset.yAxisID === 'y1'
+            ? ` ${c.dataset.label}: ${c.parsed.y}개`
+            : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}` } },
+        },
+        scales: {
+          x:  { stacked: true, grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
+          y:  { stacked: true, grid: { color: '#E5E3D6' }, beginAtZero: true,
+                ticks: { font: { size: 10 }, callback: v => '₩' + (v / 10000).toFixed(0) + '만' },
+                title: { display: true, text: '금액 (₩)', font: { size: 10 }, color: '#A8A69C' } },
+          y1: { position: 'right', grid: { drawOnChartArea: false }, beginAtZero: true,
+                ticks: { font: { size: 10 }, callback: v => v + '개' },
+                title: { display: true, text: '판매량', font: { size: 10 }, color: '#A8A69C' } },
+        },
+      },
+    });
+  }
+
+  // ── 흑염소 스토어 분리 (A/B, 7월부터) ───────────────────────────────────────
+  function renderStoreSplit(month) {
+    const card = el('store-split-card');
+    const grid = el('store-split-grid');
+    if (!card || !grid) return;
+    const bsm    = ((gData || {}).trends || {}).by_store_by_month || {};
+    const stores = (gData || {}).stores || { A: '초방리농장', B: '슬립케어랩' };
+
+    let data = {};
+    if (month) {
+      data = JSON.parse(JSON.stringify(bsm[month] || {}));
+    } else {
+      Object.values(bsm).forEach(md => Object.keys(md).forEach(s => {
+        data[s] = data[s] || { qty: 0, order_count: 0, gross_revenue: 0 };
+        data[s].qty += md[s].qty || 0; data[s].order_count += md[s].order_count || 0; data[s].gross_revenue += md[s].gross_revenue || 0;
+      }));
+    }
+    const present = ['A', 'B'].filter(s => data[s]);
+    if (!present.length) { card.classList.add('hidden'); return; }
+    card.classList.remove('hidden');
+    const colors = { A: '#7F77DD', B: '#EF9F27' };
+    grid.innerHTML = present.map(s => `
+      <div class="store-card">
+        <div class="store-card-name"><span class="store-dot" style="background:${colors[s] || '#999'}"></span>${stores[s] || s} (${s})</div>
+        <div class="store-card-val">${money(data[s].gross_revenue)}</div>
+        <div class="store-card-sub">${data[s].qty}개 · ${data[s].order_count}건</div>
+      </div>`).join('');
+  }
+
   // ── 초기화 ────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     if (document.body.dataset.page === 'dashboard')  renderDashboard();
     if (document.body.dataset.page === 'influencer') renderInfluencer();
+  });
+
+  // responsive:false 인 Summary 차트는 창 크기 변경 시 직접 재생성
+  let _rzTimer = null;
+  window.addEventListener('resize', () => {
+    if (!gData) return;
+    clearTimeout(_rzTimer);
+    _rzTimer = setTimeout(() => {
+      if (_activeTab === 'summary') renderSummaryChart();
+      else if (productKeysExtra().includes(_activeTab)) renderProductChart(_activeTab);
+    }, 200);
   });
 })();

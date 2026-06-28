@@ -1,21 +1,21 @@
 {
   "month": "2026-06",
-  "generated_at": "2026-06-26T08:05:57",
-  "gross_revenue": 3890000,
-  "net_profit": 1782000,
-  "order_count": 28,
-  "unit_count": 31,
-  "operating_profit": 1472000,
-  "operating_profit_rate": 0.3784,
-  "total_sent": 2399,
-  "replied": 263,
+  "generated_at": "2026-06-28T21:01:08",
+  "gross_revenue": 4250000,
+  "net_profit": 2082000,
+  "order_count": 29,
+  "unit_count": 34,
+  "operating_profit": 1742000,
+  "operating_profit_rate": 0.4099,
+  "total_sent": 2457,
+  "replied": 264,
   "meeting_total": 80,
   "exp_total": 52,
   "ad_total": 33,
-  "reply_rate": 0.1096,
-  "exp_rate": 0.0217,
-  "ad_rate": 0.0138,
-  "meeting_rate": 0.0333,
+  "reply_rate": 0.1074,
+  "exp_rate": 0.0212,
+  "ad_rate": 0.0134,
+  "meeting_rate": 0.0326,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
@@ -65,11 +65,11 @@
       "sponsor_cost_this_month": 0
     },
     "낚시중독": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 3,
+      "order_count": 2,
+      "qty": 4,
+      "cumulative_qty": 6,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 80000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -81,6 +81,26 @@
       "amount": 0,
       "is_general": true,
       "sponsor_cost_this_month": 0
+    }
+  },
+  "by_product": {
+    "흑염소": {
+      "qty": 34,
+      "order_count": 29,
+      "gross_revenue": 4250000,
+      "net_profit": 0
+    },
+    "화장품": {
+      "qty": 3,
+      "order_count": 2,
+      "gross_revenue": 106000,
+      "net_profit": 84400
+    },
+    "올리브오일캡슐": {
+      "qty": 2,
+      "order_count": 1,
+      "gross_revenue": 73000,
+      "net_profit": 52810
     }
   }
 }

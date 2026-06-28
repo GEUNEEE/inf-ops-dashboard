@@ -1,27 +1,56 @@
 {
-  "generated_at": "2026-06-26T08:05:57",
+  "generated_at": "2026-06-28T21:01:09",
   "current_month": "2026-06",
+  "products": [
+    {
+      "key": "흑염소",
+      "label": "흑염소",
+      "icon": "🐐",
+      "default": true,
+      "store_split": true,
+      "store_split_from": "2026-07"
+    },
+    {
+      "key": "수면영양제",
+      "label": "수면영양제",
+      "icon": "😴"
+    },
+    {
+      "key": "화장품",
+      "label": "화장품",
+      "icon": "💄"
+    },
+    {
+      "key": "올리브오일캡슐",
+      "label": "올리브오일캡슐",
+      "icon": "🫒"
+    }
+  ],
+  "stores": {
+    "A": "초방리농장",
+    "B": "슬립케어랩"
+  },
   "revenue": {
-    "order_count": 28,
-    "unit_count": 31,
-    "gross_revenue": 3890000,
-    "influencer_cost": 1708000,
+    "order_count": 29,
+    "unit_count": 34,
+    "gross_revenue": 4250000,
+    "influencer_cost": 1768000,
     "sponsor_cost": 400000,
-    "labor_cost": 310000,
-    "net_profit": 1782000,
-    "operating_profit": 1472000
+    "labor_cost": 340000,
+    "net_profit": 2082000,
+    "operating_profit": 1742000
   },
   "mail_funnel": {
-    "total_sent": 2399,
+    "total_sent": 2457,
     "etc_excluded": 79,
-    "replied": 263,
-    "reply_rate": 0.1096,
+    "replied": 264,
+    "reply_rate": 0.1074,
     "meeting_total": 80,
-    "meeting_rate": 0.0333,
+    "meeting_rate": 0.0326,
     "exp_total": 52,
-    "exp_rate": 0.0217,
+    "exp_rate": 0.0212,
     "ad_total": 33,
-    "ad_rate": 0.0138
+    "ad_rate": 0.0134
   },
   "inf_status": {
     "미팅_대기": 0,
@@ -98,11 +127,11 @@
       "현재상태": "기타"
     },
     "낚시중독": {
-      "건수": 1,
-      "수량": 1,
-      "누적수량": 3,
+      "건수": 2,
+      "수량": 4,
+      "누적수량": 6,
       "현재단가": 20000,
-      "금액": 20000,
+      "금액": 80000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
@@ -807,49 +836,49 @@
       0.1212,
       0.1147,
       0.1404,
-      0.1096
+      0.1074
     ],
     "exp_rate": [
       0.0379,
       0.0282,
       0.0291,
-      0.0217
+      0.0212
     ],
     "ad_rate": [
       0.0253,
       0.0155,
       0.0192,
-      0.0138
+      0.0134
     ],
     "meeting_rate": [
       0.0328,
       0.0515,
       0.0457,
-      0.0333
+      0.0326
     ],
     "gross_revenue": [
       1200000,
       3960000,
       4670000,
-      3890000
+      4250000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
-      1782000
+      2082000
     ],
     "total_sent": [
       396,
       1029,
       1510,
-      2399
+      2457
     ],
     "replied": [
       48,
       118,
       212,
-      263
+      264
     ],
     "meeting_total": [
       13,
@@ -874,14 +903,58 @@
       460000,
       1512000,
       2126000,
-      1472000
+      1742000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.3784
-    ]
+      0.4099
+    ],
+    "by_product_by_month": {
+      "2026-03": {
+        "흑염소": {
+          "qty": 10,
+          "order_count": 10,
+          "gross_revenue": 1200000
+        }
+      },
+      "2026-04": {
+        "흑염소": {
+          "qty": 32,
+          "order_count": 27,
+          "gross_revenue": 3960000
+        }
+      },
+      "2026-05": {
+        "흑염소": {
+          "qty": 38,
+          "order_count": 35,
+          "gross_revenue": 4670000
+        }
+      },
+      "2026-06": {
+        "흑염소": {
+          "qty": 34,
+          "order_count": 29,
+          "gross_revenue": 4250000,
+          "net_profit": 0
+        },
+        "화장품": {
+          "qty": 3,
+          "order_count": 2,
+          "gross_revenue": 106000,
+          "net_profit": 84400
+        },
+        "올리브오일캡슐": {
+          "qty": 2,
+          "order_count": 1,
+          "gross_revenue": 73000,
+          "net_profit": 52810
+        }
+      }
+    },
+    "by_store_by_month": {}
   },
   "mail_funnel_by_month": {
     "2026-02": {
@@ -929,14 +1002,14 @@
       "ad_rate": 0.0069
     },
     "2026-06": {
-      "sent": 890,
-      "replied": 51,
+      "sent": 948,
+      "replied": 52,
       "meeting": 11,
       "exp": 5,
       "ad": 1,
-      "reply_rate": 0.0573,
-      "meeting_rate": 0.0124,
-      "exp_rate": 0.0056,
+      "reply_rate": 0.0549,
+      "meeting_rate": 0.0116,
+      "exp_rate": 0.0053,
       "ad_rate": 0.0011
     }
   },
@@ -981,11 +1054,11 @@
         "cumulative_profit": 4098000
       },
       "2026-06": {
-        "gross_revenue": 3890000,
-        "unit_count": 31,
-        "operating_profit": 1472000,
-        "operating_profit_rate": 0.3784,
-        "cumulative_profit": 5570000
+        "gross_revenue": 4250000,
+        "unit_count": 34,
+        "operating_profit": 1742000,
+        "operating_profit_rate": 0.4099,
+        "cumulative_profit": 5840000
       }
     },
     "influencer_cumulative": {
@@ -1030,9 +1103,9 @@
         "contribution": 256000
       },
       "낚시중독": {
-        "qty": 3,
-        "settlement": 60000,
-        "contribution": 192000
+        "qty": 6,
+        "settlement": 120000,
+        "contribution": 384000
       },
       "한섭프로": {
         "qty": 4,

@@ -120,6 +120,54 @@
 
     .mb12 { margin-bottom: 12px; }
 
+    /* 탭바 */
+    .tabbar {
+      display: flex; gap: 3px; margin-bottom: 18px;
+      border-bottom: 0.5px solid var(--border2); flex-wrap: wrap;
+    }
+    .tab {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 500; color: var(--text2);
+      padding: 8px 14px; border-radius: 8px 8px 0 0; cursor: pointer;
+      border: 0.5px solid transparent; border-bottom: none;
+      user-select: none; position: relative; bottom: -0.5px;
+      background: transparent; transition: background 0.1s, color 0.1s;
+    }
+    .tab:hover { color: var(--text1); }
+    .tab.active { color: var(--text1); background: var(--bg2); border-color: var(--border2); }
+    .tab.dragging { opacity: 0.35; }
+    .tab.dragover { box-shadow: inset 3px 0 0 var(--text1); }
+    .tab-icon  { font-size: 13px; line-height: 1; }
+    .tab-badge { font-size: 9px; color: var(--text3); margin-left: 2px; }
+    .tab-hint  { font-size: 10px; color: var(--text3); margin-bottom: 12px; }
+
+    /* 탭 패널 */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .empty-state {
+      text-align: center; color: var(--text3); font-size: 12px;
+      padding: 56px 20px; border: 0.5px dashed var(--border2); border-radius: var(--r);
+    }
+    .empty-state .es-title { font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 6px; }
+
+    /* 제품별 카드 (Summary) */
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-bottom: 14px; }
+    .prod-card { background: var(--bg2); border-radius: var(--r); padding: 13px; }
+    .prod-card-head { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+    .prod-card-name { font-size: 12px; font-weight: 500; }
+    .prod-card-rev  { font-size: 18px; font-weight: 500; }
+    .prod-card-sub  { font-size: 10px; color: var(--text3); margin-top: 3px; }
+    .prod-bar-track { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+    .prod-bar-fill  { height: 100%; background: #7F77DD; border-radius: 3px; }
+
+    /* 스토어 분리 카드 (흑염소) */
+    .store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .store-card { background: var(--bg2); border-radius: var(--r); padding: 12px; }
+    .store-card-name { font-size: 11px; color: var(--text2); font-weight: 500; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+    .store-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .store-card-val  { font-size: 18px; font-weight: 500; }
+    .store-card-sub  { font-size: 10px; color: var(--text3); margin-top: 2px; }
+
     /* 퍼널 월별 테이블 */
     .fmonth-table { width: 100%; border-collapse: collapse; font-size: 11px; }
     .fmonth-table th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); }
@@ -153,8 +201,58 @@
     <div id="error-banner" class="banner banner-err hidden"></div>
     <div id="alert-banner" class="banner banner-warn hidden"></div>
 
+    <!-- 탭바 (드래그로 순서 변경 가능) -->
+    <div class="tabbar" id="tabbar"></div>
+    <div class="tab-hint">↔ 탭을 드래그하면 순서를 바꿀 수 있어요</div>
+
+    <!-- ─────────────  탭: Summary  ───────────── -->
+    <section class="tab-panel" data-tab="summary" id="panel-summary">
+      <!-- 전체/월별 필터 -->
+      <div class="filter-row" id="summary-month-filter"></div>
+
+      <div class="slbl">제품별 매출 비중 <span id="summary-scope-label" style="color:var(--text3);text-transform:none;letter-spacing:0"></span></div>
+      <div class="prod-grid" id="summary-prod-grid"></div>
+
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div class="kpi-card">
+          <div class="kpi-lbl">전체 매출</div>
+          <div class="kpi-val" id="sum-revenue">-</div>
+          <div class="kpi-sub" id="sum-revenue-sub"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-lbl">전체 판매량</div>
+          <div class="kpi-val" id="sum-units">-</div>
+          <div class="kpi-sub" id="sum-units-sub"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-lbl">전체 수익</div>
+          <div class="kpi-val" id="sum-profit">-</div>
+          <div class="kpi-sub" id="sum-profit-sub"></div>
+        </div>
+      </div>
+
+      <div class="card mb12">
+        <div class="slbl">전체 제품 · 월별 매출 · 수익 · 판매량</div>
+        <canvas id="summary-trend-chart"></canvas>
+      </div>
+
+      <div class="card mb12">
+        <div class="slbl">제품 · 월별 판매 추이</div>
+        <div id="summary-monthly-table"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────  탭: 흑염소 (기존 대시보드)  ───────────── -->
+    <section class="tab-panel" data-tab="흑염소" id="panel-흑염소">
+
     <!-- 월별 필터 -->
     <div class="filter-row" id="month-filter"></div>
+
+    <!-- 스토어 분리 (7월부터, 데이터 있을 때만 표시) -->
+    <div class="card mb12 hidden" id="store-split-card">
+      <div class="slbl">스토어별 <span style="font-size:9px;color:var(--text3)">(초방리농장 A / 슬립케어랩 B · 7월~)</span></div>
+      <div class="store-grid" id="store-split-grid"></div>
+    </div>
 
     <!-- KPI 6칸 -->
     <div class="kpi-grid">
@@ -261,7 +359,11 @@
       </div>
     </div>
 
+    </section>
+    <!-- ─────────────  탭: 기타 제품 (JS가 동적 생성)  ───────────── -->
+    <div id="panels-extra"></div>
+
   </div>
-  <script src="assets/app.js?v=20260601"></script>
+  <script src="assets/app.js?v=20260707"></script>
 </body>
 </html>
