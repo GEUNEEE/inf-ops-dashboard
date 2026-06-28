@@ -23,7 +23,21 @@ from openpyxl.styles import GradientFill
 BASE_DIR      = Path(r"C:\Users\user\비서")
 RAWDATA_PATH  = BASE_DIR / "스케줄" / "정산DB_업데이트.xlsx"
 CONFIG_PATH   = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "ytber_config.json"
+# 계좌·예금주 등 민감 정보는 git 미추적 별도 파일에 보관 (.gitignore)
+INFO_PATH     = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "ytber_info.json"
 TEMPLATE_PATH = BASE_DIR / "스케줄" / "유튜버별 월정산시트 작성 4월분_송부용.xlsx"
+
+
+def load_ytber_info() -> dict:
+    """인플루언서 계좌정보를 별도 파일에서 로드 (없으면 빈 dict)."""
+    try:
+        return json.loads(INFO_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def save_ytber_info(info_map: dict) -> None:
+    INFO_PATH.write_text(json.dumps(info_map, ensure_ascii=False, indent=2), encoding="utf-8")
 LOGO_PATH     = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "chobangli_logo.png"
 
 # 정산DB Raw_Data 컬럼 인덱스 (0-based)
@@ -222,9 +236,9 @@ def apply_table_style(ws, header_row: int, data_count: int, col_count: int):
             cell.alignment = Alignment(vertical="center")
 
 
-def _sync_acct_from_excel(output_path: Path, ytber_info_map: dict, config: dict, config_path: Path):
+def _sync_acct_from_excel(output_path: Path, ytber_info_map: dict):
     """기존 송부용 파일의 각 시트에서 계좌 정보를 읽어
-    ytber_info_map에 없는 인플루언서를 채우고 ytber_config.json에 동기화한다.
+    ytber_info_map에 없는 인플루언서를 채우고 ytber_info.json(미추적)에 동기화한다.
     C4=파트너명, C6=판매링크, C9=계좌(이름\\n은행 계좌번호) 형식 파싱.
     """
     if not output_path.exists():
@@ -276,14 +290,11 @@ def _sync_acct_from_excel(output_path: Path, ytber_info_map: dict, config: dict,
 
     wb.close()
 
-    # ytber_config.json 동기화
+    # ytber_info.json(미추적) 동기화
     if newly_added:
-        cfg_ytber = config.setdefault("ytber_info", {})
-        cfg_ytber.update(newly_added)
-        config_path.write_text(
-            json.dumps(config, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-        print(f"[INFO] ytber_config.json 동기화: {list(newly_added.keys())}", file=sys.stderr)
+        ytber_info_map.update(newly_added)
+        save_ytber_info(ytber_info_map)
+        print(f"[INFO] ytber_info.json 동기화: {list(newly_added.keys())}", file=sys.stderr)
 
 
 def find_label_row(ws, label: str, search_col: int = 2) -> int | None:
@@ -363,7 +374,8 @@ def main():
     config        = load_config()
     tier_pricing  = config["tier_pricing"]
     general_label = config.get("general_sales_label", "기타/일반")
-    ytber_info_map = dict(config.get("ytber_info", {}))  # 복사본으로 수정 허용
+    # 계좌정보는 git 미추적 별도 파일에서 로드 (config에 남아있으면 병합)
+    ytber_info_map = {**config.get("ytber_info", {}), **load_ytber_info()}
     name_map      = config.get("name_map", {})
 
     # output_path 미리 계산 (기존 파일 읽기에 필요)
@@ -371,7 +383,7 @@ def main():
     output_path = BASE_DIR / "스케줄" / output_name
 
     # 기존 송부용 파일에서 계좌 정보 읽기 → ytber_info_map 보완 + ytber_config.json 동기화
-    _sync_acct_from_excel(output_path, ytber_info_map, config, CONFIG_PATH)
+    _sync_acct_from_excel(output_path, ytber_info_map)
 
     # 정산DB 로드 (현월 주문 추출 + 누적 수량 계산)
     if not RAWDATA_PATH.exists():
