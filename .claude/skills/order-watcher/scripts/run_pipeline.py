@@ -42,6 +42,43 @@ def find_latest_order_file() -> Path | None:
     return max(candidates, key=lambda p: p.stat().st_mtime)
 
 
+def find_recent_order_files(window_days: int = 2) -> list[Path]:
+    """가장 최근 파일 기준 window_days 이내에 수정된 주문 파일 전체(배치) 반환.
+    스마트스토어가 전체주문/선택주문을 여러 파일로 내보내는 경우를 한 번에 처리."""
+    cands = []
+    for folder in (SCHEDULE_DIR, INPUT_DIR, DOWNLOADS_DIR):
+        if not folder.exists():
+            continue
+        for pat in ORDER_PATTERNS:
+            cands.extend(folder.glob(pat))
+    if not cands:
+        return []
+    newest = max(c.stat().st_mtime for c in cands)
+    cutoff = newest - window_days * 86400
+    batch = [c for c in cands if c.stat().st_mtime >= cutoff]
+    return sorted(batch, key=lambda p: p.stat().st_mtime)
+
+
+def parse_cli(argv: list):
+    """positional 파일 경로 + 플래그(--month/--store/--latest/--batch) 분리."""
+    files, month, store, use_latest, use_batch = [], datetime.now().strftime("%Y-%m"), None, False, False
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == "--month" and i + 1 < len(argv):
+            month = argv[i + 1]; i += 2; continue
+        if a == "--store" and i + 1 < len(argv):
+            store = argv[i + 1].strip().upper(); i += 2; continue
+        if a == "--latest":
+            use_latest = True
+        elif a == "--batch":
+            use_batch = True
+        elif not a.startswith("--"):
+            files.append(Path(a))
+        i += 1
+    return files, month, store, use_latest, use_batch
+
+
 def run_script(script_path, *args, input_data=None) -> dict:
     cmd = [PYTHON_EXE, str(script_path)] + list(args)
     result = subprocess.run(
@@ -64,32 +101,31 @@ def save_temp_json(data: dict, name: str) -> Path:
 
 def main():
     if len(sys.argv) < 2:
-        print("사용법: python run_pipeline.py <암호화_xlsx|--latest> [--month YYYY-MM]", file=sys.stderr)
+        print("사용법: python run_pipeline.py <xlsx...> | --latest | --batch  [--month YYYY-MM] [--store A|B]", file=sys.stderr)
         sys.exit(1)
 
-    if sys.argv[1] == "--latest":
-        xlsx_path = find_latest_order_file()
-        if xlsx_path is None:
-            print("[ERROR] 스케줄/input 폴더에 주문조회 파일이 없습니다.", file=sys.stderr)
-            sys.exit(1)
-        print(f"[INFO] 최신 주문 파일 자동 선택: {xlsx_path}", file=sys.stderr)
-    else:
-        xlsx_path = Path(sys.argv[1])
-    target_month = datetime.now().strftime("%Y-%m")
-    if "--month" in sys.argv:
-        idx = sys.argv.index("--month")
-        if idx + 1 < len(sys.argv):
-            target_month = sys.argv[idx + 1]
+    files, target_month, file_store, use_latest, use_batch = parse_cli(sys.argv[1:])
 
-    # --store A|B : 이 주문 파일의 스토어(슬립케어랩=B, 초방리농장=A)
-    file_store = None
-    if "--store" in sys.argv:
-        idx = sys.argv.index("--store")
-        if idx + 1 < len(sys.argv):
-            file_store = sys.argv[idx + 1].strip().upper()
+    # 처리할 주문 파일 목록 결정
+    if files:
+        order_files = files
+    elif use_batch:
+        order_files = find_recent_order_files()
+        print(f"[INFO] 배치 자동 선택: {len(order_files)}개 파일", file=sys.stderr)
+    else:  # --latest 또는 기본값
+        latest = find_latest_order_file()
+        order_files = [latest] if latest else []
+        if latest:
+            print(f"[INFO] 최신 주문 파일 자동 선택: {latest.name}", file=sys.stderr)
+
+    if not order_files:
+        print("[ERROR] 처리할 주문 파일이 없습니다 (스케줄/input/Downloads).", file=sys.stderr)
+        sys.exit(1)
 
     print(f"\n{'='*50}", file=sys.stderr)
-    print(f"파이프라인 시작: {xlsx_path.name} / 정산월: {target_month}", file=sys.stderr)
+    print(f"파이프라인 시작: {len(order_files)}개 파일 / 정산월: {target_month}", file=sys.stderr)
+    for f in order_files:
+        print(f"  • {f.name}", file=sys.stderr)
     print(f"{'='*50}\n", file=sys.stderr)
 
     # STEP 1 — 메일발송현황 파싱
@@ -111,22 +147,30 @@ def main():
     managed_list = list(set(inf_data.get("managed_set", [])) | set(additional))
     managed_set = json.dumps(managed_list)
 
-    # STEP 3-4 — 복호화 + 버킷 분류 + Raw_Data 반영
-    print("[STEP 3-4] 주문 파싱 + 버킷 분류...", file=sys.stderr)
-    parse_order_args = [str(xlsx_path), managed_set]
-    if file_store:
-        parse_order_args += ["--store", file_store]
-    bucket_data = run_script(
-        SKILLS_DIR / "excel-parser" / "scripts" / "parse_order.py",
-        *parse_order_args
-    )
-    bucket_json = save_temp_json(bucket_data, "bucket.json")
+    # STEP 3-4 — 복호화 + 버킷 분류 + Raw_Data 반영 (여러 파일 순차 처리, 중복 자동 제외)
+    print(f"[STEP 3-4] 주문 파싱 + 버킷 분류 ({len(order_files)}개 파일)...", file=sys.stderr)
+    merged = {"new_count": 0, "settlement": [], "general": [], "excluded": [],
+              "other_product": [], "unregistered": [], "cancelled_by_ytber": {}}
+    for of in order_files:
+        po_args = [str(of), managed_set]
+        if file_store:
+            po_args += ["--store", file_store]
+        bd = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_order.py", *po_args)
+        n = bd.get("new_count", 0)
+        merged["new_count"] += n
+        for k in ("settlement", "general", "excluded", "other_product"):
+            merged[k].extend(bd.get(k, []))
+        merged["unregistered"].extend(bd.get("unregistered", []))
+        for y, lst in bd.get("cancelled_by_ytber", {}).items():
+            merged["cancelled_by_ytber"].setdefault(y, []).extend(lst)
+        print(f"  - {of.name}: 신규 {n}건", file=sys.stderr)
 
-    new_count = bucket_data.get("new_count", 0)
+    bucket_json = save_temp_json(merged, "bucket.json")
+    new_count = merged["new_count"]
     if new_count == 0:
         print("[INFO] 신규 주문 0건 — Raw_Data 기준으로 정산·대시보드 재빌드", file=sys.stderr)
     else:
-        print(f"[INFO] 신규 주문 {new_count}건 처리 계속", file=sys.stderr)
+        print(f"[INFO] 신규 주문 총 {new_count}건 처리 계속", file=sys.stderr)
 
     # STEP 5 — 정산서 생성
     print("[STEP 5] 정산서 생성...", file=sys.stderr)
@@ -200,18 +244,18 @@ def main():
     else:
         print("[WARN] verify_data.py 없음 — 검증 생략", file=sys.stderr)
 
-    # 처리 완료된 주문 파일 → 주문조회 old 폴더로 이동
+    # 처리 완료된 주문 파일 전체 → 주문조회 old 폴더로 이동
     old_dir = SCHEDULE_DIR / "주문조회 old"
     old_dir.mkdir(exist_ok=True)
-    dest = old_dir / xlsx_path.name
-    if xlsx_path.resolve() != dest.resolve():
+    for of in order_files:
+        dest = old_dir / of.name
+        if of.resolve() == dest.resolve():
+            continue
         try:
-            shutil.move(str(xlsx_path), str(dest))
-            print(f"[INFO] 주문 파일 이동: {xlsx_path.name} → 주문조회 old/", file=sys.stderr)
+            shutil.move(str(of), str(dest))
+            print(f"[INFO] 주문 파일 이동: {of.name} → 주문조회 old/", file=sys.stderr)
         except Exception as e:
-            print(f"[WARN] 파일 이동 실패: {e}", file=sys.stderr)
-    else:
-        print(f"[INFO] 주문 파일 이미 주문조회 old/ 위치", file=sys.stderr)
+            print(f"[WARN] 파일 이동 실패({of.name}): {e}", file=sys.stderr)
 
     print(f"\n{'='*50}", file=sys.stderr)
     print(f"파이프라인 완료: 신규 {new_count}건 처리", file=sys.stderr)
