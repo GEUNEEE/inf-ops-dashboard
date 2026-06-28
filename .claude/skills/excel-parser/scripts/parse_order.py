@@ -112,6 +112,30 @@ def extract_ytber(product_name: str, name_map: dict) -> str | None:
     return name_map.get(raw_name, raw_name)
 
 
+def classify_product_store(product_id: str, product_name: str, registry: dict,
+                           file_store: str | None = None) -> tuple[str, str | None]:
+    """주문 1건을 (제품키, 스토어키) 로 분류.
+    제품: 상품번호(by_product_id) 우선 → 상품명 키워드(by_keyword) 보조 → 기본값.
+    스토어 우선순위: 상품번호 매핑 > 파일 스토어(file_store, --store) > 기본값.
+      흑염소는 양쪽 스토어 상품명이 같으므로 스토어는 키워드가 아니라
+      '어느 스토어 주문 파일이냐(file_store)' 또는 상품번호로만 구분한다."""
+    default_product = registry.get("default_product", "흑염소")
+    default_store   = file_store if file_store else registry.get("default_store", None)
+
+    by_id = registry.get("by_product_id", {})
+    if product_id and str(product_id) in by_id:
+        m = by_id[str(product_id)]
+        # 상품번호에 store가 명시되면 최우선, 아니면 파일 스토어/기본값 사용
+        return m.get("product", default_product), m.get("store", default_store)
+
+    for kw in registry.get("by_keyword", []):
+        token = kw.get("contains", "")
+        if token and token in (product_name or ""):
+            return kw.get("product", default_product), default_store
+
+    return default_product, default_store
+
+
 def is_cancelled(order_status: str, claim_status: str) -> bool:
     return "취소" in order_status or "취소완료" in claim_status
 
@@ -124,6 +148,14 @@ def main():
     encrypted_path = Path(sys.argv[1])
     managed_set = set(json.loads(sys.argv[2]))
 
+    # --store A|B : 이 주문 파일이 어느 스토어(판매자 계정)의 것인지 지정
+    file_store = None
+    if "--store" in sys.argv:
+        i = sys.argv.index("--store")
+        if i + 1 < len(sys.argv):
+            file_store = (sys.argv[i + 1].strip().upper() or None)
+            print(f"[INFO] 파일 스토어 지정: {file_store}", file=sys.stderr)
+
     load_dotenv(BASE_DIR / ".env")
     password = os.environ.get("SMARTSTORE_XLSX_PASSWORD", "")
     if not password:
@@ -133,6 +165,7 @@ def main():
     config = load_config()
     name_map  = config.get("name_map", {})
     excludes  = set(config.get("exclude", []))
+    registry  = config.get("product_registry", {})
 
     # 복호화
     try:
@@ -148,11 +181,36 @@ def main():
         print(f"[ERROR] 복호화 파일 로드 실패: {e}", file=sys.stderr)
         sys.exit(1)
 
-    if ORDER_SHEET not in order_wb.sheetnames:
-        print(f"[ERROR] 시트 '{ORDER_SHEET}' 없음. 목록: {order_wb.sheetnames}", file=sys.stderr)
-        sys.exit(1)
+    # 주문 시트 선택: '주문조회'(구형) 우선 → '발주발송관리'(신형) → 첫 시트
+    sheet_name = None
+    for cand in (ORDER_SHEET, "발주발송관리"):
+        if cand in order_wb.sheetnames:
+            sheet_name = cand
+            break
+    if sheet_name is None:
+        sheet_name = order_wb.sheetnames[0]
+    order_ws = order_wb[sheet_name]
+    print(f"[INFO] 주문 시트: {sheet_name}", file=sys.stderr)
 
-    order_ws = order_wb[ORDER_SHEET]
+    # 헤더 이름 기반 컬럼 매핑 (주문조회/발주발송관리 양식 모두 지원)
+    all_rows = list(order_ws.iter_rows(values_only=True))
+    header_idx = None
+    for i, r in enumerate(all_rows[:6]):
+        if r and any(c is not None and str(c).strip() == "상품주문번호" for c in r):
+            header_idx = i
+            break
+    if header_idx is None:
+        print(f"[ERROR] 헤더('상품주문번호') 행을 찾을 수 없음. 시트: {sheet_name}", file=sys.stderr)
+        sys.exit(1)
+    header = all_rows[header_idx]
+    colmap = {str(h).strip(): j for j, h in enumerate(header) if h is not None and str(h).strip()}
+
+    def cell(r, *names, default=""):
+        for nm in names:
+            j = colmap.get(nm)
+            if j is not None and j < len(r) and r[j] is not None:
+                return r[j]
+        return default
 
     # Raw_Data 기존 주문번호 로드
     rawdata_wb = None
@@ -170,15 +228,25 @@ def main():
         rawdata_wb = openpyxl.Workbook()
 
     # Raw_Data 시트 준비
+    # NOTE: 신규 컬럼(제품·스토어)은 기존 15개(인덱스 0~14) 뒤에 append.
+    #       generate_sheets.py가 컬럼 인덱스로 읽으므로 순서를 절대 바꾸지 않는다.
     if RAWDATA_SHEET not in rawdata_wb.sheetnames:
         ws_raw = rawdata_wb.create_sheet(RAWDATA_SHEET)
         ws_raw.append([
             "상품주문번호", "주문번호", "주문일시", "주문상태", "배송속성",
             "유튜버 이름", "클레임상태", "수량클레임 여부", "상품번호", "상품명",
-            "옵션정보", "판매옵션정보", "수량", "구매자명", "구매자ID"
+            "옵션정보", "판매옵션정보", "수량", "구매자명", "구매자ID",
+            "제품", "스토어", "주문금액"
         ])
     else:
         ws_raw = rawdata_wb[RAWDATA_SHEET]
+        # 기존 시트에 제품/스토어/주문금액 헤더가 없으면 16·17·18열(1-based)에 보강
+        if not (ws_raw.cell(1, 16).value):
+            ws_raw.cell(1, 16, "제품")
+        if not (ws_raw.cell(1, 17).value):
+            ws_raw.cell(1, 17, "스토어")
+        if not (ws_raw.cell(1, 18).value):
+            ws_raw.cell(1, 18, "주문금액")
 
     # 주문 분류
     buckets = {
@@ -191,35 +259,34 @@ def main():
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     new_count = 0
 
-    rows_iter = order_ws.iter_rows(min_row=2, values_only=True)
-    for row in rows_iter:
-        if not row or row[COL_ORDER_NO] is None:
+    for row in all_rows[header_idx + 1:]:
+        order_no = safe_str(cell(row, "상품주문번호"))
+        if not order_no:
             continue
 
-        n_cols = len(row)
-        def _col(idx, default=None):
-            return row[idx] if 0 <= idx < n_cols else default
-
-        order_no     = safe_str(_col(COL_ORDER_NO))
-        order_no2    = safe_str(_col(COL_ORDER_NO2))
-        order_date   = safe_str(_col(COL_ORDER_DATE))
-        order_status = safe_str(_col(COL_ORDER_STATUS))
-        delivery     = safe_str(_col(COL_DELIVERY))
-        claim_status = safe_str(_col(COL_CLAIM_STATUS))
-        claim_qty    = safe_str(_col(COL_CLAIM_QTY))
-        product_id   = safe_str(_col(COL_PRODUCT_ID))
-        product_name = safe_str(_col(COL_PRODUCT_NAME))
-        option1      = safe_str(_col(COL_OPTION1))
-        option2      = safe_str(_col(COL_OPTION2))
-        qty          = safe_int(_col(COL_QTY), 1)
-        buyer_name   = safe_str(_col(COL_BUYER_NAME))
-        buyer_id     = safe_str(_col(COL_BUYER_ID))
-        amount       = safe_float(_col(COL_AMOUNT)) if COL_AMOUNT >= 0 else 0.0
+        order_no2    = safe_str(cell(row, "주문번호"))
+        order_date   = safe_str(cell(row, "주문일시"))
+        order_status = safe_str(cell(row, "주문상태"))
+        delivery     = safe_str(cell(row, "배송속성", "배송방법"))
+        claim_status = safe_str(cell(row, "클레임상태"))
+        claim_qty    = safe_str(cell(row, "수량클레임 여부"))
+        product_id   = safe_str(cell(row, "상품번호"))
+        product_name = safe_str(cell(row, "상품명"))
+        option1      = safe_str(cell(row, "옵션정보"))
+        option2      = safe_str(cell(row, "판매옵션정보"))
+        qty          = safe_int(cell(row, "수량"), 1)
+        buyer_name   = safe_str(cell(row, "구매자명"))
+        buyer_id     = safe_str(cell(row, "구매자ID"))
+        # 실제 결제금액 (없으면 상품가격) — 비흑염소 제품 매출 집계에 사용
+        amount       = safe_float(cell(row, "최종 상품별 총 주문금액", "상품가격", default=0))
 
         cancelled = is_cancelled(order_status, claim_status)
 
         # 유튜버명 추출 (취소 건도 포함해서 분류)
         ytber = extract_ytber(product_name, name_map)
+
+        # 제품·스토어 분류 (제품: 상품번호→키워드 / 스토어: 상품번호→파일스토어→기본값)
+        product_key, store_key = classify_product_store(product_id, product_name, registry, file_store)
 
         # 완전 제외 ytber는 Raw_Data 자체 차단
         if ytber in excludes:
@@ -232,10 +299,15 @@ def main():
 
         ytber_label = ytber or config.get("general_sales_label", "기타/일반")
 
+        default_product = registry.get("default_product", "흑염소")
         if cancelled:
             # 취소 건: Raw_Data 기록 + cancelled 버킷
             bucket = "cancelled"
             buckets["skipped"].append({"order_no": order_no, "ytber": ytber_label, "reason": "취소"})
+        elif product_key != default_product:
+            # 비흑염소 제품(화장품·수면영양제·올리브 등): Raw_Data엔 기록하되
+            # 흑염소 정산/매출 버킷에는 넣지 않는다 (제품별 집계는 by_product가 담당)
+            bucket = "other_product"
         elif ytber is None:
             bucket = "general"
         elif ytber in managed_set:
@@ -256,13 +328,15 @@ def main():
             "amount":       amount,
             "bucket":       bucket,
             "is_cancelled": cancelled,
+            "product":      product_key,
+            "store":        store_key,
         }
 
         if cancelled:
             # 취소 건은 settlement/general 집계 제외, cancelled_by_ytber에 기록
             buckets.setdefault("cancelled_by_ytber", {}).setdefault(ytber_label, []).append(order_record)
         else:
-            buckets[bucket].append(order_record)
+            buckets.setdefault(bucket, []).append(order_record)
 
         existing_nos.add(order_no)
         new_count += 1
@@ -272,7 +346,8 @@ def main():
             order_no, order_no2, order_date, order_status, delivery,
             ytber_label,
             claim_status, claim_qty, product_id, product_name,
-            option1, option2, qty, buyer_name, buyer_id
+            option1, option2, qty, buyer_name, buyer_id,
+            product_key, (store_key or ""), int(amount)
         ])
 
     order_wb.close()
@@ -288,6 +363,7 @@ def main():
         "settlement":         buckets["settlement"],
         "general":            buckets["general"],
         "excluded":           buckets["excluded"],
+        "other_product":      buckets.get("other_product", []),
         "cancelled_by_ytber": buckets.get("cancelled_by_ytber", {}),
         "skipped_count":      len(buckets["skipped"]),
         "unregistered":       unregistered,

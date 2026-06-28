@@ -73,6 +73,13 @@ def main():
         if idx + 1 < len(sys.argv):
             target_month = sys.argv[idx + 1]
 
+    # --store A|B : 이 주문 파일의 스토어(슬립케어랩=B, 초방리농장=A)
+    file_store = None
+    if "--store" in sys.argv:
+        idx = sys.argv.index("--store")
+        if idx + 1 < len(sys.argv):
+            file_store = sys.argv[idx + 1].strip().upper()
+
     print(f"\n{'='*50}", file=sys.stderr)
     print(f"파이프라인 시작: {xlsx_path.name} / 정산월: {target_month}", file=sys.stderr)
     print(f"{'='*50}\n", file=sys.stderr)
@@ -98,9 +105,12 @@ def main():
 
     # STEP 3-4 — 복호화 + 버킷 분류 + Raw_Data 반영
     print("[STEP 3-4] 주문 파싱 + 버킷 분류...", file=sys.stderr)
+    parse_order_args = [str(xlsx_path), managed_set]
+    if file_store:
+        parse_order_args += ["--store", file_store]
     bucket_data = run_script(
         SKILLS_DIR / "excel-parser" / "scripts" / "parse_order.py",
-        str(xlsx_path), managed_set
+        *parse_order_args
     )
     bucket_json = save_temp_json(bucket_data, "bucket.json")
 
@@ -147,15 +157,24 @@ def main():
     except Exception as e:
         print(f"[WARN] git push 실패 (로컬 저장은 완료): {e}", file=sys.stderr)
 
-    # 카카오톡 알림
-    print("[NOTIFY] 카카오톡 알림 전송...", file=sys.stderr)
+    # 카카오톡 알림 메시지 생성 → 파일 저장 (MCP 호출은 Claude 에이전트가 담당)
+    print("[NOTIFY] 카카오톡 메시지 생성...", file=sys.stderr)
     try:
-        run_script(
-            SKILLS_DIR / "kakao-notifier" / "scripts" / "notify.py",
-            str(revenue_json), str(bucket_json), str(settlement_json)
+        kakao_result = subprocess.run(
+            [PYTHON_EXE,
+             str(SKILLS_DIR / "kakao-notifier" / "scripts" / "notify.py"),
+             str(revenue_json), str(bucket_json), str(settlement_json)],
+            capture_output=True, text=True, encoding="utf-8", env=ENV_PYTHONUTF8
         )
+        if kakao_result.returncode == 0 and kakao_result.stdout.strip():
+            pending_path = OUTPUT_DIR / "tmp" / "kakao_pending.txt"
+            pending_path.parent.mkdir(parents=True, exist_ok=True)
+            pending_path.write_text(kakao_result.stdout.strip(), encoding="utf-8")
+            print(f"[NOTIFY] 메시지 저장: {pending_path}", file=sys.stderr)
+        else:
+            print(f"[WARN] notify.py 실패: {kakao_result.stderr[-300:]}", file=sys.stderr)
     except Exception as e:
-        print(f"[WARN] 카카오톡 알림 실패: {e}", file=sys.stderr)
+        print(f"[WARN] 카카오톡 메시지 생성 실패: {e}", file=sys.stderr)
 
     # STEP 10 — 데이터 검증
     print("[STEP 10] 데이터 정합성 검증...", file=sys.stderr)
@@ -172,6 +191,19 @@ def main():
             print("[INFO] 검증 통과 ✅", file=sys.stderr)
     else:
         print("[WARN] verify_data.py 없음 — 검증 생략", file=sys.stderr)
+
+    # 처리 완료된 주문 파일 → 주문조회 old 폴더로 이동
+    old_dir = SCHEDULE_DIR / "주문조회 old"
+    old_dir.mkdir(exist_ok=True)
+    dest = old_dir / xlsx_path.name
+    if xlsx_path.resolve() != dest.resolve():
+        try:
+            shutil.move(str(xlsx_path), str(dest))
+            print(f"[INFO] 주문 파일 이동: {xlsx_path.name} → 주문조회 old/", file=sys.stderr)
+        except Exception as e:
+            print(f"[WARN] 파일 이동 실패: {e}", file=sys.stderr)
+    else:
+        print(f"[INFO] 주문 파일 이미 주문조회 old/ 위치", file=sys.stderr)
 
     print(f"\n{'='*50}", file=sys.stderr)
     print(f"파이프라인 완료: 신규 {new_count}건 처리", file=sys.stderr)

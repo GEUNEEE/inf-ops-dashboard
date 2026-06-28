@@ -39,6 +39,50 @@
   "product_unit_price": 120000,
   "general_unit_price": 130000,
   "general_settlement_price": 84000,
+  "stores": {
+    "A": "초방리농장",
+    "B": "슬립케어랩"
+  },
+  "products": [
+    { "key": "흑염소", "label": "흑염소", "icon": "🐐", "default": true, "store_split": true, "store_split_from": "2026-07" },
+    { "key": "수면영양제", "label": "수면영양제", "icon": "😴" },
+    { "key": "화장품", "label": "화장품", "icon": "💄" },
+    { "key": "올리브오일캡슐", "label": "올리브오일캡슐", "icon": "🫒" }
+  ],
+  "product_profit": {
+    "화장품": {
+      "type": "per_unit_set",
+      "note": "세트 크기별 개당 수익. 수익 = 실제개수 × unit_profit_by_set[세트크기]",
+      "unit_profit_by_set": { "1": 29700, "2": 27350, "4": 20675, "6": 20950 }
+    },
+    "올리브오일캡슐": {
+      "type": "margin",
+      "note": "수익 = 매출 × (1-수수료율) − 개당원가 × 개수",
+      "fee_rate": 0.03,
+      "cost_per_unit": 9000
+    }
+  },
+  "product_registry": {
+    "default_product": "흑염소",
+    "default_store": "A",
+    "store_by_smartstore_id": {
+      "chobangri_village": "A",
+      "sleepcarelab": "B"
+    },
+    "by_product_id": {
+      "13457359463": { "product": "흑염소", "store": "A" },
+      "11982161317": { "product": "화장품", "store": "B" },
+      "12501345821": { "product": "올리브오일캡슐", "store": "B" }
+    },
+    "by_keyword": [
+      { "contains": "흑염소", "product": "흑염소" },
+      { "contains": "흑장녹삼", "product": "흑염소" },
+      { "contains": "녹용", "product": "흑염소" },
+      { "contains": "수면", "product": "수면영양제" },
+      { "contains": "화장품", "product": "화장품" },
+      { "contains": "올리브", "product": "올리브오일캡슐" }
+    ]
+  },
   "ytber_info": {
     "마성민": {
       "account_name": "마성민",
@@ -66,6 +110,36 @@
     },
     "기타/일반": {
       "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/12281591813"
+    },
+    "바다로간배스": {
+      "account_name": "***REMOVED***",
+      "account_bank": "신한",
+      "account_no": "***REMOVED***",
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13238067417"
+    },
+    "유튜버 정조": {
+      "account_name": "***REMOVED***",
+      "account_bank": "기업은행",
+      "account_no": "***REMOVED***",
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13238067417"
+    },
+    "부부초": {
+      "account_name": "***REMOVED***",
+      "account_bank": "농협",
+      "account_no": "***REMOVED***",
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13238067417"
+    },
+    "낚시중독": {
+      "account_name": "***REMOVED***",
+      "account_bank": "경남은행",
+      "account_no": "***REMOVED***",
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13238067417"
+    },
+    "코앞의경제": {
+      "account_name": "***REMOVED***",
+      "account_bank": "우리은행",
+      "account_no": "***REMOVED***",
+      "smartstore_link": "https://smartstore.naver.com/chobangri_village/products/13238067417"
     }
   }
 }

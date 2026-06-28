@@ -17,6 +17,19 @@ BASE_DIR   = Path(r"C:\Users\user\비서")
 SITE_DIR   = BASE_DIR / "site" / "data"
 HISTORY_DIR = SITE_DIR / "history"
 INF_DIR    = SITE_DIR / "influencer"
+CONFIG_PATH = BASE_DIR / ".claude" / "skills" / "settlement-generator" / "scripts" / "ytber_config.json"
+
+
+def load_product_meta() -> dict:
+    """ytber_config.json에서 제품·스토어 메타 추출 (대시보드 탭 구성용)."""
+    try:
+        cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {"products": [], "stores": {}}
+    return {
+        "products": cfg.get("products", []),
+        "stores":   cfg.get("stores", {}),
+    }
 
 GROSS_PRICE_PER_UNIT = 120000  # 매출 단가
 COGS_PER_UNIT        = 36000   # 원가
@@ -133,13 +146,33 @@ def load_history() -> dict:
     gross_revenues, net_profits = [], []
     total_sents, replieds, meeting_totals, exp_totals, ad_totals = [], [], [], [], []
     operating_profits, operating_profit_rates = [], []
+    by_product_by_month: dict = {}
+    by_store_by_month: dict = {}
+
+    # 기본 제품 키 (by_product 없는 과거 스냅샷 합성용)
+    _meta = load_product_meta()
+    default_product = next((p["key"] for p in _meta.get("products", []) if p.get("default")), "흑염소")
 
     if not HISTORY_DIR.exists():
         return {}
     for p in sorted(HISTORY_DIR.glob("*.json")):
         try:
             d = json.loads(p.read_text(encoding="utf-8"))
-            months.append(d.get("month", p.stem))
+            m = d.get("month", p.stem)
+            months.append(m)
+            if d.get("by_product"):
+                by_product_by_month[m] = d["by_product"]
+            else:
+                # 과거 스냅샷: 제품 차원이 없으므로 전량 기본 제품(흑염소)으로 합성
+                by_product_by_month[m] = {
+                    default_product: {
+                        "qty":           d.get("unit_count", 0),
+                        "order_count":   d.get("order_count", 0),
+                        "gross_revenue": d.get("gross_revenue", 0),
+                    }
+                }
+            if d.get("by_store"):
+                by_store_by_month[m] = d["by_store"]
             reply_rates.append(d.get("reply_rate", 0))
             exp_rates.append(d.get("exp_rate", 0))
             ad_rates.append(d.get("ad_rate", 0))
@@ -181,6 +214,8 @@ def load_history() -> dict:
         "exp_by_month":          exp_by_month,
         "operating_profit":      operating_profits,
         "operating_profit_rate": operating_profit_rates,
+        "by_product_by_month":   by_product_by_month,
+        "by_store_by_month":     by_store_by_month,
     }
 
 
@@ -363,9 +398,13 @@ def main():
 
     alerts = {"unregistered_influencers": []}
 
+    product_meta = load_product_meta()
+
     dashboard = {
         "generated_at":           now.isoformat(timespec="seconds"),
         "current_month":          current_month,
+        "products":               product_meta.get("products", []),
+        "stores":                 product_meta.get("stores", {}),
         "revenue":                revenue,
         "mail_funnel":            mail_funnel,
         "inf_status":             inf_data.get("inf_status", {}),
@@ -374,6 +413,7 @@ def main():
         "trends":                 trends,
         "mail_funnel_by_month":   mail_kpi.get("by_month", {}),
         "ad_by_month":            inf_data.get("ad_by_month", {}),
+        "ad_inf_count_by_month":  inf_data.get("ad_inf_count_by_month", {}),
         "profit_analysis":        build_profit_analysis(per_influencer),
         "alerts":                 alerts,
     }
