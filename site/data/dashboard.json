@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29T10:13:04",
-  "current_month": "2026-06",
+  "generated_at": "2026-07-01T11:07:59",
+  "current_month": "2026-07",
   "products": [
     {
       "key": "흑염소",
@@ -35,27 +35,27 @@
     "unit_count": 34,
     "gross_revenue": 4250000,
     "influencer_cost": 1768000,
-    "sponsor_cost": 400000,
+    "sponsor_cost": 480000,
     "labor_cost": 340000,
-    "net_profit": 2082000,
-    "operating_profit": 1742000
+    "net_profit": 2002000,
+    "operating_profit": 1662000
   },
   "mail_funnel": {
-    "total_sent": 2457,
-    "etc_excluded": 79,
-    "replied": 264,
-    "reply_rate": 0.1074,
+    "total_sent": 2516,
+    "etc_excluded": 80,
+    "replied": 271,
+    "reply_rate": 0.1077,
     "meeting_total": 80,
-    "meeting_rate": 0.0326,
-    "exp_total": 52,
-    "exp_rate": 0.0212,
+    "meeting_rate": 0.0318,
+    "exp_total": 55,
+    "exp_rate": 0.0219,
     "ad_total": 33,
-    "ad_rate": 0.0134
+    "ad_rate": 0.0131
   },
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 8,
+    "체험진행_1차": 11,
     "체험진행_2차": 1,
     "체험진행_3차": 1,
     "광고예정_1차": 9,
@@ -63,7 +63,7 @@
     "광고완료_1차": 2,
     "기타": 32
   },
-  "settlement_month": 6,
+  "settlement_month": 7,
   "settlement_summary": {
     "C맹씨": {
       "건수": 4,
@@ -147,6 +147,34 @@
       "금액": 1428000,
       "정산대상": false,
       "현재상태": ""
+    },
+    "무아지경": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 0,
+      "현재단가": null,
+      "금액": 0,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-06"
+      ],
+      "정산대상": true,
+      "현재상태": "1차 체험진행"
+    },
+    "치리스": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 0,
+      "현재단가": null,
+      "금액": 0,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-06"
+      ],
+      "정산대상": true,
+      "현재상태": "1차 체험진행"
     },
     "수린이공구": {
       "건수": 0,
@@ -836,25 +864,25 @@
       0.1212,
       0.1147,
       0.1404,
-      0.1074
+      0.1077
     ],
     "exp_rate": [
       0.0379,
       0.0282,
       0.0291,
-      0.0212
+      0.0219
     ],
     "ad_rate": [
       0.0253,
       0.0155,
       0.0192,
-      0.0134
+      0.0131
     ],
     "meeting_rate": [
       0.0328,
       0.0515,
       0.0457,
-      0.0326
+      0.0318
     ],
     "gross_revenue": [
       1200000,
@@ -866,19 +894,19 @@
       560000,
       1832000,
       2506000,
-      2082000
+      2002000
     ],
     "total_sent": [
       396,
       1029,
       1510,
-      2457
+      2516
     ],
     "replied": [
       48,
       118,
       212,
-      264
+      271
     ],
     "meeting_total": [
       13,
@@ -890,7 +918,7 @@
       15,
       29,
       44,
-      52
+      55
     ],
     "ad_total": [
       10,
@@ -903,13 +931,13 @@
       460000,
       1512000,
       2126000,
-      1742000
+      1662000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.4099
+      0.3911
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -959,58 +987,58 @@
   "mail_funnel_by_month": {
     "2026-02": {
       "sent": 152,
-      "replied": 17,
-      "meeting": 7,
-      "exp": 2,
-      "ad": 0,
-      "reply_rate": 0.1118,
-      "meeting_rate": 0.0461,
-      "exp_rate": 0.0132,
-      "ad_rate": 0.0
+      "replied": 22,
+      "meeting": 13,
+      "exp": 6,
+      "ad": 1,
+      "reply_rate": 0.1447,
+      "meeting_rate": 0.0855,
+      "exp_rate": 0.0395,
+      "ad_rate": 0.0066
     },
     "2026-03": {
-      "sent": 260,
-      "replied": 36,
-      "meeting": 15,
-      "exp": 9,
-      "ad": 3,
-      "reply_rate": 0.1385,
-      "meeting_rate": 0.0577,
-      "exp_rate": 0.0346,
-      "ad_rate": 0.0115
+      "sent": 261,
+      "replied": 37,
+      "meeting": 16,
+      "exp": 10,
+      "ad": 9,
+      "reply_rate": 0.1418,
+      "meeting_rate": 0.0613,
+      "exp_rate": 0.0383,
+      "ad_rate": 0.0345
     },
     "2026-04": {
       "sent": 660,
-      "replied": 94,
-      "meeting": 31,
-      "exp": 12,
-      "ad": 10,
-      "reply_rate": 0.1424,
-      "meeting_rate": 0.047,
-      "exp_rate": 0.0182,
-      "ad_rate": 0.0152
+      "replied": 99,
+      "meeting": 32,
+      "exp": 14,
+      "ad": 7,
+      "reply_rate": 0.15,
+      "meeting_rate": 0.0485,
+      "exp_rate": 0.0212,
+      "ad_rate": 0.0106
     },
     "2026-05": {
       "sent": 437,
-      "replied": 63,
-      "meeting": 16,
-      "exp": 14,
-      "ad": 3,
-      "reply_rate": 0.1442,
-      "meeting_rate": 0.0366,
-      "exp_rate": 0.032,
-      "ad_rate": 0.0069
+      "replied": 58,
+      "meeting": 11,
+      "exp": 10,
+      "ad": 0,
+      "reply_rate": 0.1327,
+      "meeting_rate": 0.0252,
+      "exp_rate": 0.0229,
+      "ad_rate": 0.0
     },
     "2026-06": {
-      "sent": 948,
-      "replied": 52,
-      "meeting": 11,
-      "exp": 5,
-      "ad": 1,
-      "reply_rate": 0.0549,
-      "meeting_rate": 0.0116,
-      "exp_rate": 0.0053,
-      "ad_rate": 0.0011
+      "sent": 1006,
+      "replied": 54,
+      "meeting": 8,
+      "exp": 3,
+      "ad": 0,
+      "reply_rate": 0.0537,
+      "meeting_rate": 0.008,
+      "exp_rate": 0.003,
+      "ad_rate": 0.0
     }
   },
   "ad_by_month": {
@@ -1021,14 +1049,7 @@
     "2026-07": 3,
     "2026-08": 1
   },
-  "ad_inf_count_by_month": {
-    "2026-03": 2,
-    "2026-04": 4,
-    "2026-05": 17,
-    "2026-06": 3,
-    "2026-07": 3,
-    "2026-08": 1
-  },
+  "ad_inf_count_by_month": {},
   "profit_analysis": {
     "note": "기여수익(정산대상)=12만×qty−정산액−원가3.6만×qty−해당월협찬원가 / 기여수익(기타)=13만×qty−원가3.6만×qty",
     "monthly": {
@@ -1056,9 +1077,9 @@
       "2026-06": {
         "gross_revenue": 4250000,
         "unit_count": 34,
-        "operating_profit": 1742000,
-        "operating_profit_rate": 0.4099,
-        "cumulative_profit": 5840000
+        "operating_profit": 1662000,
+        "operating_profit_rate": 0.3911,
+        "cumulative_profit": 5760000
       }
     },
     "influencer_cumulative": {
