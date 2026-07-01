@@ -1236,8 +1236,11 @@
     ctx.width  = Math.max(cw - 28, 300);
     ctx.height = 240;
     const labels = months.map(monthLabel);
-    const rev   = months.map((m, i) => (t.gross_revenue || [])[i] || 0);
-    const prof  = months.map((m, i) => (t.net_profit    || [])[i] || 0);
+    // Summary 차트는 전 제품 합산 기준. 매출·판매량은 by_product 합, 수익은
+    // 흑염소 순이익(trends.net_profit) + 비흑염소 제품 net_profit(by_product) 합.
+    const rev   = months.map(m => Object.values(bpm[m] || {}).reduce((s, d) => s + (d.gross_revenue || 0), 0));
+    const prof  = months.map((m, i) => ((t.net_profit || [])[i] || 0)
+                    + Object.values(bpm[m] || {}).reduce((s, d) => s + (d.net_profit || 0), 0));
     const units = months.map(m => Object.values(bpm[m] || {}).reduce((s, d) => s + (d.qty || 0), 0));
 
     // 제품(카테고리)별 매출 = 누적 막대(stack:'rev')로 함께 표시
