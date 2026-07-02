@@ -108,6 +108,12 @@ def main():
         except Exception:
             return None
 
+    def _bm(ym_key):
+        """월별 집계 버킷 get-or-create"""
+        if ym_key not in by_month:
+            by_month[ym_key] = {"sent": 0, "replied": 0, "meeting": 0, "exp": 0, "ad": 0}
+        return by_month[ym_key]
+
     for row_idx, row_vals in enumerate(ws.iter_rows(min_row=DATA_START_ROW, values_only=True)):
         if all(v is None for v in row_vals):
             empty_streak += 1
@@ -126,9 +132,16 @@ def main():
         accept_date = _get(COL_ACCEPT_DATE)
         ad_date     = _get(COL_AD_DATE)
 
-        # 회신: 발송일 여부와 무관하게 회신일 날짜 있으면 카운트
+        # 월별 집계는 '각 이벤트가 일어난 날짜'의 월로 귀속 (달력 기준).
+        #   발송→발송일 / 응답→회신일 / 미팅→미팅일 / 체험→협찬수락일 / 광고→광고수락일
+        # (예: 6월 발송·7월 미팅 건은 미팅이 7월에 잡힘)
+
+        # 응답: 발송 여부와 무관하게 회신일 있으면 카운트, 월별은 회신일 기준
         if is_date(reply_date):
             replied += 1
+            ym_r = _ym(reply_date)
+            if ym_r:
+                _bm(ym_r)["replied"] += 1
 
         # 이하 지표는 발송일 있는 행만
         if not is_date(send_date):
@@ -136,38 +149,35 @@ def main():
 
         total_sent += 1
         status = normalize_status(status_raw)
-        ym = _ym(send_date)
+        ym_s = _ym(send_date)
+        if ym_s:
+            _bm(ym_s)["sent"] += 1
 
-        # 월별 발송 집계 (발송일 기준)
-        if ym:
-            if ym not in by_month:
-                by_month[ym] = {"sent": 0, "replied": 0, "meeting": 0, "exp": 0, "ad": 0}
-            by_month[ym]["sent"] += 1
-            if is_date(reply_date):
-                by_month[ym]["replied"] += 1
-            if is_date(mtg_date):
-                by_month[ym]["meeting"] += 1
-
-        # 미팅: 미팅일 날짜 있으면 카운트 (기타 포함)
+        # 미팅: 미팅일 있으면 카운트 (기타 포함), 월별은 미팅일 기준
         if is_date(mtg_date):
             meeting += 1
+            ym_m = _ym(mtg_date)
+            if ym_m:
+                _bm(ym_m)["meeting"] += 1
 
         # 기타(검토/진행불가/우리측거절)는 체험·광고 지표에서만 제외
         if any(k in status for k in ETC_KEYWORDS) or status == "기타":
             etc_count += 1
             continue
 
-        # 체험전환 (협찬수락일 기준)
+        # 체험전환 (협찬수락일 기준 월)
         if is_date(accept_date):
             exp_total += 1
-            if ym:
-                by_month[ym]["exp"] += 1
+            ym_a = _ym(accept_date)
+            if ym_a:
+                _bm(ym_a)["exp"] += 1
 
-        # 광고수락 (광고수락일 기준)
+        # 광고수락 (광고수락일 기준 월)
         if is_date(ad_date):
             ad_total += 1
-            if ym:
-                by_month[ym]["ad"] += 1
+            ym_d = _ym(ad_date)
+            if ym_d:
+                _bm(ym_d)["ad"] += 1
 
     wb.close()
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T19:14:00",
+  "generated_at": "2026-07-02T19:20:25",
   "current_month": "2026-07",
   "products": [
     {
@@ -1038,68 +1038,68 @@
   "mail_funnel_by_month": {
     "2026-02": {
       "sent": 152,
-      "replied": 22,
-      "meeting": 13,
-      "exp": 6,
-      "ad": 1,
-      "reply_rate": 0.1447,
-      "meeting_rate": 0.0855,
-      "exp_rate": 0.0395,
-      "ad_rate": 0.0066
+      "replied": 17,
+      "meeting": 7,
+      "exp": 2,
+      "ad": 0,
+      "reply_rate": 0.1118,
+      "meeting_rate": 0.0461,
+      "exp_rate": 0.0132,
+      "ad_rate": 0.0
     },
     "2026-03": {
       "sent": 261,
       "replied": 37,
-      "meeting": 16,
-      "exp": 10,
-      "ad": 9,
+      "meeting": 15,
+      "exp": 9,
+      "ad": 3,
       "reply_rate": 0.1418,
-      "meeting_rate": 0.0613,
-      "exp_rate": 0.0383,
-      "ad_rate": 0.0345
+      "meeting_rate": 0.0575,
+      "exp_rate": 0.0345,
+      "ad_rate": 0.0115
     },
     "2026-04": {
       "sent": 660,
-      "replied": 100,
-      "meeting": 32,
-      "exp": 14,
-      "ad": 7,
-      "reply_rate": 0.1515,
-      "meeting_rate": 0.0485,
-      "exp_rate": 0.0212,
-      "ad_rate": 0.0106
+      "replied": 95,
+      "meeting": 31,
+      "exp": 12,
+      "ad": 10,
+      "reply_rate": 0.1439,
+      "meeting_rate": 0.047,
+      "exp_rate": 0.0182,
+      "ad_rate": 0.0152
     },
     "2026-05": {
       "sent": 437,
-      "replied": 58,
-      "meeting": 11,
-      "exp": 10,
-      "ad": 0,
-      "reply_rate": 0.1327,
-      "meeting_rate": 0.0252,
-      "exp_rate": 0.0229,
-      "ad_rate": 0.0
+      "replied": 63,
+      "meeting": 16,
+      "exp": 14,
+      "ad": 3,
+      "reply_rate": 0.1442,
+      "meeting_rate": 0.0366,
+      "exp_rate": 0.032,
+      "ad_rate": 0.0069
     },
     "2026-06": {
       "sent": 1006,
-      "replied": 58,
-      "meeting": 14,
+      "replied": 59,
+      "meeting": 15,
       "exp": 8,
-      "ad": 0,
-      "reply_rate": 0.0577,
-      "meeting_rate": 0.0139,
+      "ad": 1,
+      "reply_rate": 0.0586,
+      "meeting_rate": 0.0149,
       "exp_rate": 0.008,
-      "ad_rate": 0.0
+      "ad_rate": 0.001
     },
     "2026-07": {
       "sent": 149,
-      "replied": 4,
-      "meeting": 0,
-      "exp": 0,
+      "replied": 8,
+      "meeting": 2,
+      "exp": 2,
       "ad": 0,
-      "reply_rate": 0.0268,
-      "meeting_rate": 0.0,
-      "exp_rate": 0.0,
+      "reply_rate": 0.0537,
+      "meeting_rate": 0.0134,
+      "exp_rate": 0.0134,
       "ad_rate": 0.0
     }
   },
