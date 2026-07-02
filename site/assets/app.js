@@ -143,10 +143,11 @@
         '건수':      d.order_count ?? 0,
         '수량':      qty,
         '누적수량':  isGen ? null : (cum ?? null),
-        '현재단가':  isGen ? null : tierPrice(cum || 0),
+        // 정산 단가·금액은 스냅샷 저장값 우선 (정산 미지급=0 등 실제 정산 반영). 없으면 tier 재계산 폴백.
+        '현재단가':  isGen ? null : (d.unit_price != null ? d.unit_price : tierPrice(cum || 0)),
         '금액':      isGen
           ? (d.amount ?? null)
-          : calcTieredAmount(cum || 0) - calcTieredAmount(Math.max((cum || 0) - qty, 0)),
+          : (d.amount != null ? d.amount : calcTieredAmount(cum || 0) - calcTieredAmount(Math.max((cum || 0) - qty, 0))),
         '정산대상':  !isGen,
         '현재상태':  cs['현재상태'] || '',
         '체험횟수':  cs['체험횟수'] ?? null,

@@ -1,0 +1,41 @@
+{
+  "month": "2026-07",
+  "generated_at": "2026-07-02T13:21:21",
+  "gross_revenue": 0,
+  "net_profit": 0,
+  "order_count": 0,
+  "unit_count": 0,
+  "operating_profit": 0,
+  "operating_profit_rate": 0,
+  "total_sent": 2576,
+  "replied": 280,
+  "meeting_total": 80,
+  "exp_total": 55,
+  "ad_total": 33,
+  "reply_rate": 0.1087,
+  "exp_rate": 0.0214,
+  "ad_rate": 0.0128,
+  "meeting_rate": 0.0311,
+  "inf_status": {
+    "미팅_대기": 0,
+    "미팅_진행": 0,
+    "체험진행_1차": 11,
+    "체험진행_2차": 1,
+    "체험진행_3차": 1,
+    "광고예정_1차": 9,
+    "광고예정_2차": 0,
+    "광고완료_1차": 2,
+    "기타": 31
+  },
+  "influencers": {
+    "기타/일반": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": true,
+      "sponsor_cost_this_month": 0
+    }
+  }
+}
