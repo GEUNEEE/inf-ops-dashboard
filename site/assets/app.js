@@ -267,6 +267,7 @@
       renderStoreSplit(null);
 
       buildAllTimeData().then(({ revenue, infMap }) => {
+        _allTimeInfMap = infMap;
         updateKPIs(revenue, f);
         setKPISubs(revenue, f);
         renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
@@ -342,11 +343,7 @@
     const stTotal  = Object.values(st).reduce((s, v) => s + v, 0);
     // 광고 진행 예정 인원: 현재 상태가 '광고예정'인 인플루언서 합산 (광고완료 제외)
     const adInfCount = Object.entries(st).reduce((s, [k, v]) => s + (k.includes('광고예정') ? v : 0), 0);
-    const lbl = el('inf-count-label');
-    if (lbl) lbl.innerHTML =
-      `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;` +
-      `padding:2px 10px;border-radius:10px">` +
-      `광고 ${adInfCount}<span style="font-weight:400;opacity:0.55"> / ${stTotal}명</span></span>`;
+    renderAdBadge(adInfCount, stTotal);
 
     renderInfluencerGrid(gData.settlement_summary || {}, null);
     renderFunnelMonthlyTable(gData.mail_funnel_by_month || {}, gData.current_month);
@@ -368,10 +365,42 @@
 
     // 전체 집계로 업데이트 (비동기, 실패해도 화면 유지)
     buildAllTimeData().then(({ revenue, infMap }) => {
+      _allTimeInfMap = infMap;
       updateKPIs(revenue, f);
       setKPISubs(revenue, f);
-      renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
+      if (!_adPlanFilterOn) renderInfluencerGrid(buildAllTimeSummary(infMap, gData.settlement_summary || {}), null);
     }).catch(() => {});
+  }
+
+  // ── '광고 N명' 배지: 클릭 시 광고예정 인플루언서만 필터 토글 ──────────────────
+  let _adPlanFilterOn = false;
+  let _allTimeInfMap  = null;
+
+  function renderAdBadge(adInfCount, stTotal) {
+    const lbl = el('inf-count-label');
+    if (!lbl) return;
+    const on = _adPlanFilterOn;
+    lbl.innerHTML =
+      `<span class="ad-badge" title="클릭: 광고예정 ${adInfCount}명만 보기 / 다시 클릭 시 전체" ` +
+      `style="cursor:pointer;background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;` +
+      `padding:2px 10px;border-radius:10px;${on ? 'box-shadow:0 0 0 2px #EF9F27;' : ''}">` +
+      `광고 ${adInfCount}<span style="font-weight:400;opacity:0.55"> / ${stTotal}명</span>` +
+      `${on ? ' <span style="opacity:0.8">✕</span>' : ''}</span>`;
+    const badge = lbl.querySelector('.ad-badge');
+    if (badge) badge.onclick = () => {
+      _adPlanFilterOn = !_adPlanFilterOn;
+      const ss = (gData || {}).settlement_summary || {};
+      if (_adPlanFilterOn) {
+        const filtered = {};
+        for (const [n, d] of Object.entries(ss)) {
+          if ((d['현재상태'] || '').includes('광고예정')) filtered[n] = d;
+        }
+        renderInfluencerGrid(filtered, null);
+      } else {
+        renderInfluencerGrid(_allTimeInfMap ? buildAllTimeSummary(_allTimeInfMap, ss) : ss, null);
+      }
+      renderAdBadge(adInfCount, stTotal);  // 활성 표시 갱신
+    };
   }
 
   // ── 퍼널 바 ───────────────────────────────────────────────────────────────
