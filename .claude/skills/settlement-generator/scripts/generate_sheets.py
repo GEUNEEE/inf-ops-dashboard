@@ -377,6 +377,10 @@ def main():
     # 계좌정보는 git 미추적 별도 파일에서 로드 (config에 남아있으면 병합)
     ytber_info_map = {**config.get("ytber_info", {}), **load_ytber_info()}
     name_map      = config.get("name_map", {})
+    # 정산 미지급(no_settlement): 해당 월에 커미션 0인 유튜버. 흑염소 매출은 유지, 정산액만 0.
+    no_settle_set = set(config.get("no_settlement", {}).get(settlement_month, []))
+    if no_settle_set:
+        print(f"[INFO] 정산 미지급 유튜버({settlement_month}): {sorted(no_settle_set)}", file=sys.stderr)
 
     # output_path 미리 계산 (기존 파일 읽기에 필요)
     output_name = f"유튜버별 월정산시트 작성 {settlement_month}_송부용.xlsx"
@@ -518,6 +522,13 @@ def main():
         else:
             amount, unit_price = None, None
 
+        # 정산 미지급 유튜버: 주문건(흑염소 매출)은 그대로 두되 정산액만 0 처리
+        if ytber_name in no_settle_set:
+            amount = 0
+            unit_price = 0
+            if unit_price_row:
+                ws.cell(unit_price_row, 3).value = 0
+
         cum_total = (cum_before + final_qty) if not is_general else None
 
         # 주문 상세 행 + 집계 값 직접 기입 (수식 의존 제거)
@@ -546,6 +557,7 @@ def main():
             "unit_price":        unit_price,
             "settlement_amount": amount,
             "is_general":        is_general,
+            "no_settlement":     ytber_name in no_settle_set,
         })
         print(
             f"[INFO] 정산 시트: {ytber_name} → {ws.title} "

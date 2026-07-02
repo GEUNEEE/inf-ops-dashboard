@@ -246,6 +246,7 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict, curren
                 "현재상태": display_status,
             }
         else:
+            no_settle = bool(s.get("no_settlement"))
             summary[ytber] = {
                 "건수": s.get("order_count", 0),
                 "수량": s.get("qty", 0),
@@ -256,7 +257,8 @@ def build_settlement_summary(settlement_data: dict, per_influencer: dict, curren
                 "협찬원가": sponsor_cost,
                 "체험월목록": exp_months,
                 "정산대상": True,
-                "현재상태": display_status,
+                "정산미지급": no_settle,
+                "현재상태": (display_status + " · 정산미지급") if no_settle else display_status,
             }
 
     # 현재 월 히스토리에서 settlement.json에 없는 인플루언서 보완
