@@ -282,29 +282,25 @@
       }
     }
     const h  = hCache[month];
-    const mfMap = gData.mail_funnel_by_month || {};
-    const hasMf = Object.prototype.hasOwnProperty.call(mfMap, month);
-    const mf = mfMap[month] || {};
-    // 해당 월 메일 데이터가 있으면 그 달 값(0도 유효)을 그대로 사용.
-    // 없을 때만 스냅샷으로 폴백. (0 || 누적값 → 누적 유출 버그 방지)
-    const pick = (mfv, hv) => hasMf ? (mfv || 0) : (hv || 0);
-
+    const mf = (gData.mail_funnel_by_month || {})[month] || {};
+    // 월별 퍼널은 메일 시트 월별 값만 사용 (해당 월 데이터 없으면 0).
+    // 스냅샷 누적값으로 폴백하지 않음 — 월 필터에 누적치가 새어드는 버그 방지.
     updateKPIs(
       { gross_revenue: h.gross_revenue, net_profit: h.net_profit,
         order_count: h.order_count, unit_count: h.unit_count },
-      { reply_rate: hasMf ? (mf.reply_rate || 0) : (h.reply_rate || 0),
-        exp_rate:   hasMf ? (mf.exp_rate   || 0) : (h.exp_rate   || 0),
-        ad_rate:    hasMf ? (mf.ad_rate    || 0) : (h.ad_rate    || 0),
-        total_sent: pick(mf.sent, h.total_sent) }
+      { reply_rate: mf.reply_rate || 0,
+        exp_rate:   mf.exp_rate   || 0,
+        ad_rate:    mf.ad_rate    || 0,
+        total_sent: mf.sent       || 0 }
     );
     clearKPISubs();
     renderProfitKPIs(pa, month);
     renderFunnelBars({
-      total_sent:    pick(mf.sent,    h.total_sent),
-      replied:       pick(mf.replied, h.replied),
-      meeting_total: pick(mf.meeting, h.meeting_total),
-      exp_total:     pick(mf.exp,     h.exp_total),
-      ad_total:      pick(mf.ad,      h.ad_total),
+      total_sent:    mf.sent    || 0,
+      replied:       mf.replied || 0,
+      meeting_total: mf.meeting || 0,
+      exp_total:     mf.exp     || 0,
+      ad_total:      mf.ad      || 0,
     });
     renderDonutChart(h.inf_status || {});
     renderInfluencerGrid(historyToSummary(h.influencers || {}, gData.settlement_summary), month);
