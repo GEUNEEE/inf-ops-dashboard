@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T18:19:30",
+  "generated_at": "2026-07-02T18:29:44",
   "current_month": "2026-07",
   "products": [
     {
@@ -35,10 +35,10 @@
     "unit_count": 0,
     "gross_revenue": 0,
     "influencer_cost": 0,
-    "sponsor_cost": 0,
+    "sponsor_cost": 80000,
     "labor_cost": 0,
-    "net_profit": 0,
-    "operating_profit": 0
+    "net_profit": -80000,
+    "operating_profit": -80000
   },
   "mail_funnel": {
     "total_sent": 2665,
@@ -47,15 +47,15 @@
     "reply_rate": 0.1051,
     "meeting_total": 86,
     "meeting_rate": 0.0323,
-    "exp_total": 55,
-    "exp_rate": 0.0206,
+    "exp_total": 57,
+    "exp_rate": 0.0214,
     "ad_total": 33,
     "ad_rate": 0.0124
   },
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 12,
+    "체험진행_1차": 13,
     "체험진행_2차": 1,
     "체험진행_3차": 1,
     "광고예정_1차": 9,
@@ -73,6 +73,20 @@
       "정산대상": false,
       "현재상태": ""
     },
+    "Chanpion🏆│프로복싱 한국챔피언": {
+      "건수": 0,
+      "수량": 0,
+      "누적수량": 0,
+      "현재단가": null,
+      "금액": 0,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-07"
+      ],
+      "정산대상": true,
+      "현재상태": "1차 체험진행"
+    },
     "티티준석": {
       "건수": 0,
       "수량": 0,
@@ -81,7 +95,9 @@
       "금액": 0,
       "체험횟수": 1,
       "협찬원가": 40000,
-      "체험월목록": [],
+      "체험월목록": [
+        "2026-07"
+      ],
       "정산대상": true,
       "현재상태": "1차 체험진행"
     },
@@ -887,7 +903,7 @@
       0.0282,
       0.0291,
       0.0219,
-      0.0206
+      0.0214
     ],
     "ad_rate": [
       0.0253,
@@ -915,7 +931,7 @@
       1832000,
       2506000,
       2082000,
-      0
+      -80000
     ],
     "total_sent": [
       396,
@@ -943,7 +959,7 @@
       29,
       44,
       55,
-      55
+      57
     ],
     "ad_total": [
       10,
@@ -958,7 +974,7 @@
       1512000,
       2126000,
       1742000,
-      0
+      -80000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1068,11 +1084,11 @@
       "sent": 1006,
       "replied": 58,
       "meeting": 14,
-      "exp": 7,
+      "exp": 8,
       "ad": 0,
       "reply_rate": 0.0577,
       "meeting_rate": 0.0139,
-      "exp_rate": 0.007,
+      "exp_rate": 0.008,
       "ad_rate": 0.0
     },
     "2026-07": {
@@ -1130,9 +1146,9 @@
       "2026-07": {
         "gross_revenue": 0,
         "unit_count": 0,
-        "operating_profit": 0,
+        "operating_profit": -80000,
         "operating_profit_rate": 0,
-        "cumulative_profit": 5840000
+        "cumulative_profit": 5760000
       }
     },
     "influencer_cumulative": {
