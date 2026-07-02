@@ -208,6 +208,23 @@ def main():
             "sponsor_cost_this_month": len(exp_months_this_month) * 40000,
         }
 
+    # 주문은 없지만 해당 월에 체험(협찬)이 잡힌 인플루언서도 카드로 포함
+    # (이전 월처럼 인플루언서 카드를 만들기 위함 — 매출/정산 0, 협찬원가만 발생)
+    for name, months in inf_exp_months.items():
+        if name in inf_summary:
+            continue
+        cnt = sum(1 for m in months if m == target_month)
+        if cnt > 0:
+            inf_summary[name] = {
+                "order_count":    0,
+                "qty":            0,
+                "cumulative_qty": None,
+                "unit_price":     None,
+                "amount":         0,
+                "is_general":     False,
+                "sponsor_cost_this_month": cnt * 40000,
+            }
+
     # 덮어쓰기 방식: 재실행 시 누적 합산하지 않고 revenue.json 값으로 교체
     total_gross      = revenue.get("gross_revenue", 0)
     total_unit_count = revenue.get("unit_count", 0)

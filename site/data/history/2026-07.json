@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-02T18:29:44",
+  "generated_at": "2026-07-02T18:47:52",
   "gross_revenue": 0,
   "net_profit": -80000,
   "order_count": 0,
@@ -36,6 +36,24 @@
       "amount": 0,
       "is_general": true,
       "sponsor_cost_this_month": 0
+    },
+    "Chanpion🏆│프로복싱 한국챔피언": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "티티준석": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
     }
   }
 }
