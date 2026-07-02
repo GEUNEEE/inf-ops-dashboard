@@ -336,8 +336,8 @@
     // 인플루언서 카운트
     const st = gData.inf_status || {};
     const stTotal  = Object.values(st).reduce((s, v) => s + v, 0);
-    // 광고 진행 인원: 현재 상태가 '광고예정' 또는 '광고완료(광고중)'인 인플루언서 합산
-    const adInfCount = Object.entries(st).reduce((s, [k, v]) => s + (k.includes('광고') ? v : 0), 0);
+    // 광고 진행 예정 인원: 현재 상태가 '광고예정'인 인플루언서 합산 (광고완료 제외)
+    const adInfCount = Object.entries(st).reduce((s, [k, v]) => s + (k.includes('광고예정') ? v : 0), 0);
     const lbl = el('inf-count-label');
     if (lbl) lbl.innerHTML =
       `<span style="background:var(--text1);color:var(--bg);font-size:10px;font-weight:700;` +
