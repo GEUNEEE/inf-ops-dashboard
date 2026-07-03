@@ -1,21 +1,21 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-02T19:20:24",
-  "gross_revenue": 0,
-  "net_profit": -80000,
-  "order_count": 0,
-  "unit_count": 0,
-  "operating_profit": -80000,
-  "operating_profit_rate": 0,
-  "total_sent": 2665,
-  "replied": 280,
-  "meeting_total": 86,
+  "generated_at": "2026-07-03T13:00:33",
+  "gross_revenue": 120000,
+  "net_profit": 20000,
+  "order_count": 1,
+  "unit_count": 1,
+  "operating_profit": 10000,
+  "operating_profit_rate": 0.0833,
+  "total_sent": 2668,
+  "replied": 292,
+  "meeting_total": 88,
   "exp_total": 57,
   "ad_total": 33,
-  "reply_rate": 0.1051,
+  "reply_rate": 0.1094,
   "exp_rate": 0.0214,
   "ad_rate": 0.0124,
-  "meeting_rate": 0.0323,
+  "meeting_rate": 0.033,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
@@ -28,6 +28,15 @@
     "기타": 31
   },
   "influencers": {
+    "아이콘 풋살": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 1,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
     "기타/일반": {
       "order_count": 0,
       "qty": 0,
@@ -54,6 +63,21 @@
       "amount": 0,
       "is_general": false,
       "sponsor_cost_this_month": 40000
+    }
+  },
+  "by_product": {
+    "흑염소": {
+      "qty": 1,
+      "order_count": 1,
+      "gross_revenue": 120000,
+      "net_profit": 0
+    }
+  },
+  "by_store": {
+    "A": {
+      "qty": 1,
+      "order_count": 1,
+      "gross_revenue": 120000
     }
   }
 }

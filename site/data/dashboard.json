@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T19:20:25",
+  "generated_at": "2026-07-03T13:00:33",
   "current_month": "2026-07",
   "products": [
     {
@@ -31,22 +31,22 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 0,
-    "unit_count": 0,
-    "gross_revenue": 0,
-    "influencer_cost": 0,
+    "order_count": 1,
+    "unit_count": 1,
+    "gross_revenue": 120000,
+    "influencer_cost": 20000,
     "sponsor_cost": 80000,
-    "labor_cost": 0,
-    "net_profit": -80000,
-    "operating_profit": -80000
+    "labor_cost": 10000,
+    "net_profit": 20000,
+    "operating_profit": 10000
   },
   "mail_funnel": {
-    "total_sent": 2665,
-    "etc_excluded": 80,
-    "replied": 280,
-    "reply_rate": 0.1051,
-    "meeting_total": 86,
-    "meeting_rate": 0.0323,
+    "total_sent": 2668,
+    "etc_excluded": 81,
+    "replied": 292,
+    "reply_rate": 0.1094,
+    "meeting_total": 88,
+    "meeting_rate": 0.033,
     "exp_total": 57,
     "exp_rate": 0.0214,
     "ad_total": 33,
@@ -65,6 +65,21 @@
   },
   "settlement_month": 7,
   "settlement_summary": {
+    "아이콘 풋살": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-05"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 광고예정"
+    },
     "기타/일반": {
       "건수": 0,
       "수량": 0,
@@ -251,20 +266,6 @@
       "협찬원가": 40000,
       "체험월목록": [
         "2026-06"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 광고예정"
-    },
-    "아이콘 풋살": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-05"
       ],
       "정산대상": true,
       "현재상태": "1차 광고예정"
@@ -896,7 +897,7 @@
       0.1147,
       0.1404,
       0.1077,
-      0.1051
+      0.1094
     ],
     "exp_rate": [
       0.0379,
@@ -917,42 +918,42 @@
       0.0515,
       0.0457,
       0.0318,
-      0.0323
+      0.033
     ],
     "gross_revenue": [
       1200000,
       3960000,
       4670000,
       4250000,
-      0
+      120000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
       2082000,
-      -80000
+      20000
     ],
     "total_sent": [
       396,
       1029,
       1510,
       2516,
-      2665
+      2668
     ],
     "replied": [
       48,
       118,
       212,
       271,
-      280
+      292
     ],
     "meeting_total": [
       13,
       53,
       69,
       80,
-      86
+      88
     ],
     "exp_total": [
       15,
@@ -974,14 +975,14 @@
       1512000,
       2126000,
       1742000,
-      -80000
+      10000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
       0.4099,
-      0
+      0.0833
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1027,24 +1028,33 @@
       },
       "2026-07": {
         "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
+          "qty": 1,
+          "order_count": 1,
+          "gross_revenue": 120000,
+          "net_profit": 0
         }
       }
     },
-    "by_store_by_month": {}
+    "by_store_by_month": {
+      "2026-07": {
+        "A": {
+          "qty": 1,
+          "order_count": 1,
+          "gross_revenue": 120000
+        }
+      }
+    }
   },
   "mail_funnel_by_month": {
     "2026-02": {
-      "sent": 152,
-      "replied": 17,
+      "sent": 154,
+      "replied": 18,
       "meeting": 7,
       "exp": 2,
       "ad": 0,
-      "reply_rate": 0.1118,
-      "meeting_rate": 0.0461,
-      "exp_rate": 0.0132,
+      "reply_rate": 0.1169,
+      "meeting_rate": 0.0455,
+      "exp_rate": 0.013,
       "ad_rate": 0.0
     },
     "2026-03": {
@@ -1081,24 +1091,24 @@
       "ad_rate": 0.0069
     },
     "2026-06": {
-      "sent": 1006,
-      "replied": 59,
-      "meeting": 15,
+      "sent": 1007,
+      "replied": 60,
+      "meeting": 16,
       "exp": 8,
       "ad": 1,
-      "reply_rate": 0.0586,
-      "meeting_rate": 0.0149,
-      "exp_rate": 0.008,
+      "reply_rate": 0.0596,
+      "meeting_rate": 0.0159,
+      "exp_rate": 0.0079,
       "ad_rate": 0.001
     },
     "2026-07": {
       "sent": 149,
-      "replied": 8,
-      "meeting": 2,
+      "replied": 9,
+      "meeting": 3,
       "exp": 2,
       "ad": 0,
-      "reply_rate": 0.0537,
-      "meeting_rate": 0.0134,
+      "reply_rate": 0.0604,
+      "meeting_rate": 0.0201,
       "exp_rate": 0.0134,
       "ad_rate": 0.0
     }
@@ -1144,11 +1154,11 @@
         "cumulative_profit": 5840000
       },
       "2026-07": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": -80000,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 5760000
+        "gross_revenue": 120000,
+        "unit_count": 1,
+        "operating_profit": 10000,
+        "operating_profit_rate": 0.0833,
+        "cumulative_profit": 5850000
       }
     },
     "influencer_cumulative": {
@@ -1206,6 +1216,11 @@
         "qty": 9,
         "settlement": 180000,
         "contribution": 496000
+      },
+      "아이콘 풋살": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 64000
       },
       "Chanpion🏆│프로복싱 한국챔피언": {
         "qty": 0,
