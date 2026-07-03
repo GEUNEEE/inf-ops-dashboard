@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-03T13:00:33",
+  "generated_at": "2026-07-03T13:05:17",
   "gross_revenue": 120000,
   "net_profit": 20000,
   "order_count": 1,
@@ -71,6 +71,12 @@
       "order_count": 1,
       "gross_revenue": 120000,
       "net_profit": 0
+    },
+    "화장품": {
+      "qty": 2,
+      "order_count": 1,
+      "gross_revenue": 0,
+      "net_profit": 54700
     }
   },
   "by_store": {
