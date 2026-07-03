@@ -1031,6 +1031,7 @@
         </div>
         <div class="card mb12" data-pk="chartcard"><div class="slbl">월별 매출 · 판매량</div><canvas data-pk="chart"></canvas></div>
         <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div></div>
+        <div class="card mb12" data-pk="cosmetics" style="display:none"><div class="slbl">옵션별 · 채널별 <span style="color:var(--text3);font-weight:400">(이번 달)</span></div><div data-pk="cosmetics-body"></div></div>
         <div data-pk="empty"></div>
       </section>`).join('');
     others.forEach(p => {
@@ -1103,6 +1104,27 @@
       return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}</td><td>${d.qty || 0}개</td><td>${d.order_count || 0}건</td><td>${d.gross_revenue ? money(d.gross_revenue) : '-'}</td><td style="color:#3B6D11">${d.net_profit ? money(d.net_profit) : '-'}</td></tr>`;
     }).join('');
     q('table').innerHTML = `<table class="fmonth-table"><thead><tr><th>월</th><th>판매량</th><th>주문수</th><th>매출</th><th>수익</th></tr></thead><tbody>${body}</tbody></table>`;
+
+    // 화장품 전용: 옵션별·채널별 (이번 달 스냅샷 기준)
+    const cosCard = q('cosmetics');
+    if (cosCard) {
+      const cb = (key === '화장품') ? ((gData || {}).cosmetics_breakdown || {}) : {};
+      const byOpt = cb.by_option || {}, byCh = cb.by_channel || {};
+      const optKeys = Object.keys(byOpt), chKeys = Object.keys(byCh);
+      if (optKeys.length || chKeys.length) {
+        const optRows = optKeys.map(o => `<tr><td>${o}</td><td>${byOpt[o].orders}건</td><td>${byOpt[o].units}개</td></tr>`).join('');
+        const chRows = chKeys.map(ch => `<tr><td>${ch}</td><td>${byCh[ch].orders}건</td><td>${byCh[ch].units}개</td><td>${byCh[ch].gross ? money(byCh[ch].gross) : '-'}</td></tr>`).join('');
+        const cbody = q('cosmetics-body');
+        if (cbody) cbody.innerHTML =
+          '<div style="font-size:11px;color:var(--text3);margin:2px 0 6px">옵션별 주문량</div>' +
+          `<table class="fmonth-table"><thead><tr><th>옵션</th><th>주문수</th><th>수량</th></tr></thead><tbody>${optRows}</tbody></table>` +
+          '<div style="font-size:11px;color:var(--text3);margin:12px 0 6px">채널별</div>' +
+          `<table class="fmonth-table"><thead><tr><th>채널</th><th>주문수</th><th>수량</th><th>매출</th></tr></thead><tbody>${chRows}</tbody></table>`;
+        cosCard.style.display = '';
+      } else {
+        cosCard.style.display = 'none';
+      }
+    }
 
     renderProductChart(key);
   }
