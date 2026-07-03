@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T13:49:45",
+  "generated_at": "2026-07-03T13:59:00",
   "current_month": "2026-07",
   "products": [
     {
@@ -1043,7 +1043,7 @@
     },
     "by_store_by_month": {
       "2026-07": {
-        "A": {
+        "B": {
           "qty": 1,
           "order_count": 1,
           "gross_revenue": 120000
