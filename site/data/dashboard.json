@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T13:14:55",
+  "generated_at": "2026-07-03T13:49:45",
   "current_month": "2026-07",
   "products": [
     {
@@ -1036,7 +1036,7 @@
         "화장품": {
           "qty": 2,
           "order_count": 1,
-          "gross_revenue": 0,
+          "gross_revenue": 68000,
           "net_profit": 54700
         }
       }
