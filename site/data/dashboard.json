@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T13:59:00",
+  "generated_at": "2026-07-03T14:11:22",
   "current_month": "2026-07",
   "products": [
     {
@@ -1037,7 +1037,7 @@
           "qty": 2,
           "order_count": 1,
           "gross_revenue": 68000,
-          "net_profit": 54700
+          "net_profit": 49343
         }
       }
     },
