@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-03T14:21:01",
+  "generated_at": "2026-07-03T14:25:02",
   "gross_revenue": 120000,
   "net_profit": 20000,
   "order_count": 1,
@@ -75,8 +75,8 @@
     "화장품": {
       "qty": 3,
       "order_count": 2,
-      "gross_revenue": 136000,
-      "net_profit": 98686
+      "gross_revenue": 106000,
+      "net_profit": 75743
     }
   },
   "by_store": {
@@ -106,7 +106,7 @@
       "쿠팡": {
         "orders": 1,
         "units": 1,
-        "gross": 68000
+        "gross": 38000
       }
     }
   }
