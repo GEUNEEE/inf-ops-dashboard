@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T14:28:36",
+  "generated_at": "2026-07-06T07:03:19",
   "current_month": "2026-07",
   "products": [
     {
@@ -41,16 +41,16 @@
     "operating_profit": 10000
   },
   "mail_funnel": {
-    "total_sent": 2668,
+    "total_sent": 2727,
     "etc_excluded": 81,
-    "replied": 292,
-    "reply_rate": 0.1094,
+    "replied": 294,
+    "reply_rate": 0.1078,
     "meeting_total": 88,
-    "meeting_rate": 0.033,
+    "meeting_rate": 0.0323,
     "exp_total": 57,
-    "exp_rate": 0.0214,
+    "exp_rate": 0.0209,
     "ad_total": 33,
-    "ad_rate": 0.0124
+    "ad_rate": 0.0121
   },
   "inf_status": {
     "미팅_대기": 0,
@@ -1108,14 +1108,14 @@
       "ad_rate": 0.001
     },
     "2026-07": {
-      "sent": 149,
+      "sent": 208,
       "replied": 9,
       "meeting": 3,
-      "exp": 2,
+      "exp": 3,
       "ad": 0,
-      "reply_rate": 0.0604,
-      "meeting_rate": 0.0201,
-      "exp_rate": 0.0134,
+      "reply_rate": 0.0433,
+      "meeting_rate": 0.0144,
+      "exp_rate": 0.0144,
       "ad_rate": 0.0
     }
   },
