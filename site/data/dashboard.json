@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T15:27:49",
+  "generated_at": "2026-07-06T16:01:01",
   "current_month": "2026-07",
   "products": [
     {
@@ -1112,22 +1112,22 @@
     },
     "2026-06": {
       "sent": 1012,
-      "replied": 60,
+      "replied": 64,
       "meeting": 16,
       "exp": 8,
       "ad": 1,
-      "reply_rate": 0.0593,
+      "reply_rate": 0.0632,
       "meeting_rate": 0.0158,
       "exp_rate": 0.0079,
       "ad_rate": 0.001
     },
     "2026-07": {
       "sent": 210,
-      "replied": 18,
+      "replied": 26,
       "meeting": 3,
       "exp": 3,
       "ad": 0,
-      "reply_rate": 0.0857,
+      "reply_rate": 0.1238,
       "meeting_rate": 0.0143,
       "exp_rate": 0.0143,
       "ad_rate": 0.0
