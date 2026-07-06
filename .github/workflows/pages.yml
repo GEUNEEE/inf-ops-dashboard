@@ -34,6 +34,39 @@ jobs:
         with:
           path: './site'
 
+      # GitHub 쪽 일시 오류("Deployment failed, try again later")가 잦아 같은 실행 안에서 최대 3회 시도.
+      # 워크플로우 rerun은 아티팩트가 중복 업로드돼 실패하므로 스텝 단위로 재시도한다.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before retry 1
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (retry 1)
+        id: deployment-retry1
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before retry 2
+        if: steps.deployment.outcome == 'failure' && steps.deployment-retry1.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages (retry 2)
+        id: deployment-retry2
+        if: steps.deployment.outcome == 'failure' && steps.deployment-retry1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+
+      - name: Verify deploy succeeded
+        if: always()
+        run: |
+          if [ "${{ steps.deployment.outcome }}" = "success" ] || \
+             [ "${{ steps.deployment-retry1.outcome }}" = "success" ] || \
+             [ "${{ steps.deployment-retry2.outcome }}" = "success" ]; then
+            echo "deploy OK"
+          else
+            echo "3회 모두 실패"; exit 1
+          fi
