@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T16:01:01",
+  "generated_at": "2026-07-06T16:19:33",
   "current_month": "2026-07",
   "products": [
     {
@@ -43,8 +43,8 @@
   "mail_funnel": {
     "total_sent": 2734,
     "etc_excluded": 81,
-    "replied": 303,
-    "reply_rate": 0.1108,
+    "replied": 302,
+    "reply_rate": 0.1105,
     "meeting_total": 88,
     "meeting_rate": 0.0322,
     "exp_total": 58,
@@ -911,7 +911,7 @@
       0.1147,
       0.1404,
       0.1077,
-      0.1108
+      0.1105
     ],
     "exp_rate": [
       0.0379,
@@ -960,7 +960,7 @@
       118,
       212,
       271,
-      303
+      302
     ],
     "meeting_total": [
       13,
@@ -1112,22 +1112,22 @@
     },
     "2026-06": {
       "sent": 1012,
-      "replied": 64,
+      "replied": 62,
       "meeting": 16,
       "exp": 8,
       "ad": 1,
-      "reply_rate": 0.0632,
+      "reply_rate": 0.0613,
       "meeting_rate": 0.0158,
       "exp_rate": 0.0079,
       "ad_rate": 0.001
     },
     "2026-07": {
       "sent": 210,
-      "replied": 26,
+      "replied": 27,
       "meeting": 3,
       "exp": 3,
       "ad": 0,
-      "reply_rate": 0.1238,
+      "reply_rate": 0.1286,
       "meeting_rate": 0.0143,
       "exp_rate": 0.0143,
       "ad_rate": 0.0
