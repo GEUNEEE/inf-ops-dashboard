@@ -1,8 +1,8 @@
 {
   "name": "마성민",
   "current_status": "기타",
-  "cumulative_qty": 14,
-  "current_tier_price": 0,
+  "cumulative_qty": 15,
+  "current_tier_price": 20000,
   "monthly_orders": [
     {
       "month": "2026-03",
@@ -23,6 +23,11 @@
       "month": "2026-06",
       "qty": 1,
       "amount": 0
+    },
+    {
+      "month": "2026-07",
+      "qty": 1,
+      "amount": 20000
     }
   ],
   "upcoming_schedule": []
