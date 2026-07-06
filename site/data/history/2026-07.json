@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-06T11:05:38",
+  "generated_at": "2026-07-06T15:16:28",
   "gross_revenue": 120000,
   "net_profit": 20000,
   "order_count": 1,
@@ -8,13 +8,13 @@
   "operating_profit": 10000,
   "operating_profit_rate": 0.0833,
   "total_sent": 2727,
-  "replied": 294,
+  "replied": 303,
   "meeting_total": 88,
-  "exp_total": 57,
-  "ad_total": 33,
-  "reply_rate": 0.1078,
-  "exp_rate": 0.0209,
-  "ad_rate": 0.0121,
+  "exp_total": 58,
+  "ad_total": 35,
+  "reply_rate": 0.1111,
+  "exp_rate": 0.0213,
+  "ad_rate": 0.0128,
   "meeting_rate": 0.0323,
   "inf_status": {
     "미팅_대기": 0,
@@ -25,7 +25,7 @@
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 31
+    "기타": 32
   },
   "influencers": {
     "아이콘 풋살": {
@@ -45,6 +45,15 @@
       "amount": 0,
       "is_general": true,
       "sponsor_cost_this_month": 0
+    },
+    "요고시": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
     },
     "Chanpion🏆│프로복싱 한국챔피언": {
       "order_count": 0,
