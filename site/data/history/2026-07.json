@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-06T11:00:38",
+  "generated_at": "2026-07-06T11:05:38",
   "gross_revenue": 120000,
   "net_profit": 20000,
   "order_count": 1,
@@ -76,7 +76,7 @@
       "qty": 7,
       "order_count": 3,
       "gross_revenue": 212000,
-      "net_profit": 163343
+      "net_profit": 143343
     }
   },
   "by_store": {
