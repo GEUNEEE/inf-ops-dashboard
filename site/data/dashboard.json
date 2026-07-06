@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T15:16:28",
+  "generated_at": "2026-07-06T15:27:49",
   "current_month": "2026-07",
   "products": [
     {
@@ -41,14 +41,14 @@
     "operating_profit": 10000
   },
   "mail_funnel": {
-    "total_sent": 2727,
+    "total_sent": 2734,
     "etc_excluded": 81,
     "replied": 303,
-    "reply_rate": 0.1111,
+    "reply_rate": 0.1108,
     "meeting_total": 88,
-    "meeting_rate": 0.0323,
+    "meeting_rate": 0.0322,
     "exp_total": 58,
-    "exp_rate": 0.0213,
+    "exp_rate": 0.0212,
     "ad_total": 35,
     "ad_rate": 0.0128
   },
@@ -911,14 +911,14 @@
       0.1147,
       0.1404,
       0.1077,
-      0.1111
+      0.1108
     ],
     "exp_rate": [
       0.0379,
       0.0282,
       0.0291,
       0.0219,
-      0.0213
+      0.0212
     ],
     "ad_rate": [
       0.0253,
@@ -932,7 +932,7 @@
       0.0515,
       0.0457,
       0.0318,
-      0.0323
+      0.0322
     ],
     "gross_revenue": [
       1200000,
@@ -953,7 +953,7 @@
       1029,
       1510,
       2516,
-      2727
+      2734
     ],
     "replied": [
       48,
@@ -1111,25 +1111,25 @@
       "ad_rate": 0.0069
     },
     "2026-06": {
-      "sent": 1007,
+      "sent": 1012,
       "replied": 60,
       "meeting": 16,
       "exp": 8,
       "ad": 1,
-      "reply_rate": 0.0596,
-      "meeting_rate": 0.0159,
+      "reply_rate": 0.0593,
+      "meeting_rate": 0.0158,
       "exp_rate": 0.0079,
       "ad_rate": 0.001
     },
     "2026-07": {
-      "sent": 208,
+      "sent": 210,
       "replied": 18,
       "meeting": 3,
       "exp": 3,
       "ad": 0,
-      "reply_rate": 0.0865,
-      "meeting_rate": 0.0144,
-      "exp_rate": 0.0144,
+      "reply_rate": 0.0857,
+      "meeting_rate": 0.0143,
+      "exp_rate": 0.0143,
       "ad_rate": 0.0
     }
   },
