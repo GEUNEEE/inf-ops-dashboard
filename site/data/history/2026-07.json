@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-10T13:01:23",
+  "generated_at": "2026-07-10T15:58:50",
   "gross_revenue": 500000,
   "net_profit": 132000,
   "order_count": 4,
@@ -10,10 +10,10 @@
   "total_sent": 2875,
   "replied": 312,
   "meeting_total": 95,
-  "exp_total": 60,
+  "exp_total": 59,
   "ad_total": 36,
   "reply_rate": 0.1085,
-  "exp_rate": 0.0209,
+  "exp_rate": 0.0205,
   "ad_rate": 0.0125,
   "meeting_rate": 0.033,
   "inf_status": {
@@ -25,7 +25,7 @@
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 32
+    "기타": 31
   },
   "influencers": {
     "아이콘 풋살": {
