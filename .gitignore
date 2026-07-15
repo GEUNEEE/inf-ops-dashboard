@@ -5,6 +5,15 @@
 ytber_info.json
 **/ytber_info.json
 
+# 세금계산서 공급자/공급받는자 정보 (주민등록번호·사업자번호 등 PII)
+**/recipients.json
+**/supplier_config.json
+
+# 백업 파일
+*.bak
+*.bak_*
+*.bak2_*
+
 # Python 가상환경
 .venv/
 __pycache__/
@@ -24,3 +33,21 @@ output/
 # 임시 파일
 *.tmp
 *.log
+tmp_*.py
+tmp_*.txt
+temp_*.py
+
+# 스케줄 폴더 - 데이터 드롭 폴더, 일회성 스크립트/문서 무시
+스케줄/*.py
+스케줄/*.md
+스케줄/*.txt
+스케줄/*old*/
+스케줄/스카이*/
+
+# 개인 노트/스크래치 (프로젝트 산출물 아님)
+논문검색/
+미팅노트/
+브리핑결과/
+아이디어/
+인플루언서_DB통합_기획.md
+수면영양제_후기.md

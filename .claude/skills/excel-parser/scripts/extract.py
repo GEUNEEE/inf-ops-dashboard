@@ -22,8 +22,8 @@ ROW_STATUS = 9   # Excel Row 10: 진행상태
 ROW_NAME   = 10  # Excel Row 11: 유튜버명
 ROW_NOTE   = 19  # Excel Row 20: 비고
 
-# A열 날짜 행 동적 탐색 시작 행 (Excel Row 28 = index 27)
-DATE_SCAN_START = 27
+# A열 날짜 행 동적 탐색 시작 행 (Excel Row 27 = index 26, 섭취 시작일 포함)
+DATE_SCAN_START = 26
 # 이 문자열이 A열에 나타나면 날짜 행 탐색 종료
 STOP_MARKERS = ["광고여부확인일", "광고 여부 확인일"]
 
@@ -34,6 +34,9 @@ AD_PAIRS = [
     ("3차 체험",   "3차 광고"),
     ("4차 체험",   "4차 광고"),
 ]
+
+# 체험 시작일 계산에 사용할 행 레이블 (우선순위: 높은 차수 → 낮은 차수 → 섭취 시작일)
+EXPERIENCE_START_LABELS = ["5차 체험", "4차 체험", "3차 체험", "2차 체험", "섭취 시작일"]
 
 STATUS_EMOJI = {
     "1차체험진행": "🔵",
@@ -200,13 +203,36 @@ def main():
                     "missing": ad_item,
                 })
 
+        # 체험 시작일: N차 체험 중 가장 마지막(높은 차수) 날짜, 없으면 섭취 시작일
+        experience_start_date = None
+        for label in EXPERIENCE_START_LABELS:
+            if label in date_rows:
+                d = parse_date_cell(df.iloc[date_rows[label], col_idx])
+                if d is not None:
+                    experience_start_date = d
+                    break
+
+        EXPERIENCE_PERIOD = 10  # 체험 기간 10일
+        experience_days = None
+        experience_end_date = None
+        remaining_days = None
+        if experience_start_date is not None:
+            from datetime import timedelta
+            experience_days = (today - experience_start_date).days + 1
+            experience_end_date = experience_start_date + timedelta(days=EXPERIENCE_PERIOD - 1)
+            remaining_days = (experience_end_date - today).days
+
         influencers.append({
-            "name":         name,
-            "status":       status_raw,
-            "status_emoji": status_emoji,
-            "note":         note,
-            "upcoming":     upcoming,
-            "missing_ad":   missing_ad,
+            "name":                  name,
+            "status":                status_raw,
+            "status_emoji":          status_emoji,
+            "note":                  note,
+            "experience_start_date": experience_start_date.strftime("%Y-%m-%d") if experience_start_date else None,
+            "experience_end_date":   experience_end_date.strftime("%Y-%m-%d") if experience_end_date else None,
+            "experience_days":       experience_days,
+            "remaining_days":        remaining_days,
+            "upcoming":              upcoming,
+            "missing_ad":            missing_ad,
         })
 
     result = {

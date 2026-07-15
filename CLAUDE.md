@@ -93,7 +93,13 @@ STEP 1 JSON + STEP 2 캘린더 데이터를 통합하여 아래 규칙대로 브
 ## 주문 파일 탐색 순서
 
 1. 사용자가 경로를 직접 제시한 경우 → 해당 파일 사용
-2. 그 외 → **스케줄 폴더 우선**, 없으면 input 폴더에서 `스마트스토어_주문조회_*.xlsx` 중 파일명 기준 최신 파일 자동 선택
+2. 그 외(기본값 `--all`) → **스케줄 → input → Downloads** 3개 폴더에서 `스마트스토어_주문조회_*.xlsx` · `스마트스토어_*발주발송관리_*.xlsx` · `스마트스토어_*주문배송현황_*.xlsx` · `calix9k_*.zip`(자사몰) 패턴 파일을 **모두 수집**해 일괄 처리 (내용이 동일한 중복 사본은 우선순위 높은 폴더 것 1개만 남기고 제외)
+3. `--latest` 지정 시 → 위 3개 폴더 중 mtime이 가장 최신인 파일 **1개**만 처리
+
+### 자사몰(spoteasy) 주문 zip
+- `calix9k_YYYYMMDD_*.zip` — 비밀번호 걸린 CSV 1개 포함 (비밀번호: `.env`의 `JASAMALL_ZIP_PASSWORD`)
+- `parse_mall_order.py`가 처리: 제품=`화장품`·채널=`자사몰` 고정, 품목별 주문번호 기준 중복 스킵
+- 정산예정금액 컬럼 없음 → 빈값 기록, 수익은 **총 주문금액 기준 네이버와 동일 공식** (주문금액×0.9 − 원가5,000 − 배송2,800)
 
 ## 워크플로우 진입점
 
@@ -132,11 +138,16 @@ managed_set을 JSON 문자열로 인라인 전달.
   "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
   "<xlsx_경로>" --month "YYYY-MM"
 
-# 스케줄/input 폴더에서 최신 파일을 자동 선택하는 경우
+# 스케줄/input/Downloads 폴더의 주문 파일을 전부 자동 수집하는 경우 (기본값, 내용 중복 자동 제외)
 & "C:\Users\user\비서\.venv\Scripts\python.exe" `
   "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
-  --latest --month "YYYY-MM"
+  --all --month "YYYY-MM"
 ```
+
+> 파일 인자 없이 실행하면 스케줄→input→Downloads 3개 폴더의 주문 파일을 **모두** 수집한다.
+> 내용이 동일한 중복 사본은 우선순위 높은 폴더 것 1개만 처리하고 나머지는 제외한다.
+> 주문번호(상품주문번호) 단위 중복은 Raw_Data 대조로 자동 스킵되어 이중 집계되지 않는다.
+> 최신 1개만 처리하려면 `--all` 대신 `--latest`를 쓴다.
 
 ## STEP 7 — 월별 스냅샷 (run_pipeline.py 내부 자동 실행)
 

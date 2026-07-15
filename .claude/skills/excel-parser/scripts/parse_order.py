@@ -236,7 +236,7 @@ def main():
             "상품주문번호", "주문번호", "주문일시", "주문상태", "배송속성",
             "유튜버 이름", "클레임상태", "수량클레임 여부", "상품번호", "상품명",
             "옵션정보", "판매옵션정보", "수량", "구매자명", "구매자ID",
-            "제품", "스토어", "주문금액"
+            "제품", "스토어", "주문금액", "정산예정금액", "채널"
         ])
     else:
         ws_raw = rawdata_wb[RAWDATA_SHEET]
@@ -247,6 +247,10 @@ def main():
             ws_raw.cell(1, 17, "스토어")
         if not (ws_raw.cell(1, 18).value):
             ws_raw.cell(1, 18, "주문금액")
+        if not (ws_raw.cell(1, 19).value):
+            ws_raw.cell(1, 19, "정산예정금액")
+        if not (ws_raw.cell(1, 20).value):
+            ws_raw.cell(1, 20, "채널")
 
     # 주문 분류
     buckets = {
@@ -265,7 +269,7 @@ def main():
             continue
 
         order_no2    = safe_str(cell(row, "주문번호"))
-        order_date   = safe_str(cell(row, "주문일시"))
+        order_date   = safe_str(cell(row, "주문일시", "결제일"))  # 전체주문배송현황 양식은 결제일만 있음
         order_status = safe_str(cell(row, "주문상태"))
         delivery     = safe_str(cell(row, "배송속성", "배송방법"))
         claim_status = safe_str(cell(row, "클레임상태"))
@@ -279,6 +283,11 @@ def main():
         buyer_id     = safe_str(cell(row, "구매자ID"))
         # 실제 결제금액 (없으면 상품가격) — 비흑염소 제품 매출 집계에 사용
         amount       = safe_float(cell(row, "최종 상품별 총 주문금액", "상품가격", default=0))
+        # 정산예정금액 (스마트스토어 수수료 차감된 실수령액) — 비흑염소 제품 수익 계산 기준
+        settle_amount = safe_float(cell(row, "정산예정금액", default=0))
+        # 판매 채널 (스마트스토어→네이버, 쿠팡, 추후 자사몰). 소스 미표기 시 네이버.
+        raw_channel = safe_str(cell(row, "판매채널"))
+        channel = "쿠팡" if "쿠팡" in raw_channel else "네이버"
 
         cancelled = is_cancelled(order_status, claim_status)
 
@@ -347,7 +356,7 @@ def main():
             ytber_label,
             claim_status, claim_qty, product_id, product_name,
             option1, option2, qty, buyer_name, buyer_id,
-            product_key, (store_key or ""), int(amount)
+            product_key, (store_key or ""), int(amount), int(settle_amount), channel
         ])
 
     order_wb.close()

@@ -402,6 +402,15 @@ def main():
 
     product_meta = load_product_meta()
 
+    # 현재월 화장품 옵션/채널 집계 (현재월 스냅샷에서만 — 과거월은 건드리지 않음)
+    cosmetics_breakdown = {}
+    _cur_snap = HISTORY_DIR / f"{current_month}.json"
+    if _cur_snap.exists():
+        try:
+            cosmetics_breakdown = json.loads(_cur_snap.read_text(encoding="utf-8")).get("cosmetics_breakdown", {})
+        except Exception:
+            cosmetics_breakdown = {}
+
     dashboard = {
         "generated_at":           now.isoformat(timespec="seconds"),
         "current_month":          current_month,
@@ -417,6 +426,7 @@ def main():
         "ad_by_month":            inf_data.get("ad_by_month", {}),
         "ad_inf_count_by_month":  inf_data.get("ad_inf_count_by_month", {}),
         "profit_analysis":        build_profit_analysis(per_influencer),
+        "cosmetics_breakdown":    cosmetics_breakdown,
         "alerts":                 alerts,
     }
 

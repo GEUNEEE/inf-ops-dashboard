@@ -28,6 +28,8 @@ RAW_COL_QTY     = 12
 RAW_COL_PRODUCT = 15  # 신규: 제품
 RAW_COL_STORE   = 16  # 신규: 스토어
 RAW_COL_AMOUNT  = 17  # 신규: 실제 주문금액 (비흑염소 제품 매출)
+RAW_COL_SETTLE  = 18  # 신규: 정산예정금액 (수수료 차감 실수령액 — 비흑염소 수익 기준)
+RAW_COL_CHANNEL = 19  # 신규: 판매 채널 (네이버/쿠팡/자사몰)
 
 
 def parse_set_size(option_info: str) -> int:
@@ -49,7 +51,7 @@ def parse_set_size(option_info: str) -> int:
     return 1
 
 
-def compute_product_profit(product: str, units: int, amount: int, set_size: int, profit_cfg: dict) -> int:
+def compute_product_profit(product: str, units: int, amount: int, settle_amount: int, set_size: int, profit_cfg: dict) -> int:
     """제품별 수익 모델 적용. 설정 없으면 0(집계예정)."""
     cfg = profit_cfg.get(product)
     if not cfg:
@@ -64,6 +66,13 @@ def compute_product_profit(product: str, units: int, amount: int, set_size: int,
         fee = amount * cfg.get("fee_rate", 0)
         cost = cfg.get("cost_per_unit", 0) * units
         return int(round(amount - fee - cost))
+    if cfg.get("type") == "net_settlement":
+        # 수익 = 정산예정금액×(1−세율) − 원가(개당×개수) − 배송비(주문당 1회)
+        base = settle_amount if settle_amount else amount
+        tax = base * cfg.get("tax_rate", 0)
+        cost = cfg.get("cost_per_unit", 0) * units + cfg.get("cost_per_order", 0)
+        delivery = cfg.get("delivery_per_order", 0)
+        return int(round(base - tax - cost - delivery))
     return 0
 
 
@@ -122,6 +131,10 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
             order_amount = int(row[RAW_COL_AMOUNT]) if len(row) > RAW_COL_AMOUNT and row[RAW_COL_AMOUNT] else 0
         except (ValueError, TypeError):
             order_amount = 0
+        try:
+            settle_amount = int(row[RAW_COL_SETTLE]) if len(row) > RAW_COL_SETTLE and row[RAW_COL_SETTLE] else 0
+        except (ValueError, TypeError):
+            settle_amount = 0
 
         is_gen = (ytber == general_label)
         gross  = qty * (gen_price if is_gen else inf_price)
@@ -139,7 +152,7 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
             units     = qty * set_size
             pd["qty"]           += units
             pd["gross_revenue"] += order_amount
-            pd["net_profit"]    += compute_product_profit(product, units, order_amount, set_size, profit_cfg)
+            pd["net_profit"]    += compute_product_profit(product, units, order_amount, settle_amount, set_size, profit_cfg)
 
         # 스토어 분리: store_split 제품 + 분리 시점(store_split_from) 이후 + 스토어 식별된 경우만
         pcfg = products_cfg.get(product, {})
@@ -151,6 +164,58 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
 
     wb.close()
     return by_product, by_store
+
+
+def _option_label(set_size: int) -> str:
+    """세트 크기 → 화장품 옵션 라벨. 1→단품, 2→1+1, 4→2+2, 6→3+3."""
+    return {1: "단품", 2: "1+1", 4: "2+2", 6: "3+3"}.get(set_size, f"{set_size}개")
+
+
+def aggregate_cosmetics_breakdown(target_month: str) -> dict:
+    """화장품 주문을 옵션별·채널별로 집계 (화장품 전용).
+    반환: {by_option: {라벨: {orders, units}}, by_channel: {채널: {orders, units, gross}}}"""
+    import openpyxl
+    by_option: dict = {}
+    by_channel: dict = {}
+    if not RAWDATA_PATH.exists():
+        return {"by_option": by_option, "by_channel": by_channel}
+    try:
+        wb = openpyxl.load_workbook(RAWDATA_PATH, data_only=True, read_only=True)
+        ws = wb["Raw_Data"]
+    except Exception as e:
+        print(f"[WARN] 화장품 옵션 집계 실패: {e}", file=sys.stderr)
+        return {"by_option": by_option, "by_channel": by_channel}
+
+    for row in ws.iter_rows(min_row=2, values_only=True):
+        if not row or row[0] is None:
+            continue
+        if not str(row[RAW_COL_DATE] or "").startswith(target_month):
+            continue
+        product = row[RAW_COL_PRODUCT] if len(row) > RAW_COL_PRODUCT else None
+        if str(product or "").strip() != "화장품":
+            continue
+        status = str(row[RAW_COL_STATUS] or ""); claim = str(row[RAW_COL_CLAIM] or "")
+        if "취소" in status or "취소완료" in claim:
+            continue
+        try:
+            qty = int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
+        except (ValueError, TypeError):
+            qty = 0
+        set_size = parse_set_size(str(row[RAW_COL_OPTION]) if len(row) > RAW_COL_OPTION and row[RAW_COL_OPTION] else "")
+        units = qty * set_size
+        try:
+            amount = int(row[RAW_COL_AMOUNT]) if len(row) > RAW_COL_AMOUNT and row[RAW_COL_AMOUNT] else 0
+        except (ValueError, TypeError):
+            amount = 0
+        channel = (str(row[RAW_COL_CHANNEL]).strip() if len(row) > RAW_COL_CHANNEL and row[RAW_COL_CHANNEL] else "네이버")
+
+        opt = by_option.setdefault(_option_label(set_size), {"orders": 0, "units": 0})
+        opt["orders"] += 1; opt["units"] += units
+        ch = by_channel.setdefault(channel, {"orders": 0, "units": 0, "gross": 0})
+        ch["orders"] += 1; ch["units"] += units; ch["gross"] += amount
+
+    wb.close()
+    return {"by_option": by_option, "by_channel": by_channel}
 
 
 def main():
@@ -260,6 +325,11 @@ def main():
         snapshot["by_product"] = by_product
     if by_store:
         snapshot["by_store"] = by_store
+
+    # 화장품 옵션별·채널별 집계 (화장품 전용)
+    cosmetics = aggregate_cosmetics_breakdown(target_month)
+    if cosmetics["by_option"] or cosmetics["by_channel"]:
+        snapshot["cosmetics_breakdown"] = cosmetics
 
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     LOCAL_HIST.mkdir(parents=True, exist_ok=True)

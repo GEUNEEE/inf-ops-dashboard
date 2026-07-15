@@ -137,9 +137,10 @@ def main():
         # (예: 6월 발송·7월 미팅 건은 미팅이 7월에 잡힘)
 
         # 응답: 발송 여부와 무관하게 회신일 있으면 카운트, 월별은 회신일 기준
+        # 회신일이 '필요' 등 날짜 아닌 텍스트여도 응답으로 집계, 월 귀속은 발송일로 폴백
         if is_date(reply_date):
             replied += 1
-            ym_r = _ym(reply_date)
+            ym_r = _ym(reply_date) or _ym(send_date)
             if ym_r:
                 _bm(ym_r)["replied"] += 1
 

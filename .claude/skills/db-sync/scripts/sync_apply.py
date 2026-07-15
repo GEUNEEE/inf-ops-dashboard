@@ -17,6 +17,14 @@ import sync_core as C
 MAIL_LABEL2COL = {lab: i for i, lab in C.MAIL_EMP_COLS.items()}   # label -> 0-based col
 
 
+def _copy(dcell, scell, value=None):
+    """원본 셀의 값과 표시서식(number_format)을 대상에 그대로 복사.
+    날짜/숫자/텍스트의 '보이는 표기'를 원본과 동일하게 유지 → openpyxl 기본서식 덧씌움 방지.
+    value 지정 시 값만 대체(수식행 등), 서식은 원본을 따름."""
+    dcell.value = scell.value if value is None else value
+    dcell.number_format = scell.number_format
+
+
 def _insert_inf_at_front(itgt, isrc, scol):
     """인플관리 3열에 isrc[scol] 인플을 삽입. 기존 열(3..N)을 오른쪽으로 한 칸씩 밀고
     값·서식·열너비 보존, 수식은 새 열참조로 변환. (직원이 공유본 맨 앞에 추가하는 패턴과 정렬)"""
@@ -41,10 +49,11 @@ def _insert_inf_at_front(itgt, isrc, scol):
                 itgt.column_dimensions[dL].width = w
     cl = get_column_letter(3)
     for r in ROWS:
+        sc = isrc.cell(r, scol)
         if r in C.INF_FORMULA_ROWS:
-            itgt.cell(r, 3).value = ("=%s27+10" % cl) if r == 28 else ("=%s28+7" % cl)
+            _copy(itgt.cell(r, 3), sc, value=("=%s27+10" % cl) if r == 28 else ("=%s28+7" % cl))
         else:
-            itgt.cell(r, 3).value = isrc.cell(r, scol).value
+            _copy(itgt.cell(r, 3), sc)
     # 검증: 3열에 신규 인플 이름이 들어갔는지(실패 시 예외→저장 생략, 백업 보존)
     if itgt.cell(NAME_ROW, 3).value in (None, ""):
         raise RuntimeError("inf front-insert 실패: 3열 이름 비어있음")
@@ -64,8 +73,8 @@ def _inf_index(ws):
     return keymap, label2row
 
 def _mail_keyrow(ws):
-    """{key: row(1-based)}"""
-    out, es = {}, 0
+    """{key: row(1-based)}. 중복 채널은 load_mail과 동일하게 2번째부터 '키#2','키#3'…"""
+    out, es, seen = {}, 0, {}
     for r in range(7, ws.max_row + 1):
         name = ws.cell(row=r, column=5).value
         url = ws.cell(row=r, column=6).value
@@ -76,8 +85,11 @@ def _mail_keyrow(ws):
             continue
         es = 0
         key = C.norm_url(C.cv(url)) if C.cv(url) else "NAME::" + "".join(C.cv(name).split())
-        if key not in out:
-            out[key] = r
+        n = seen.get(key, 0) + 1
+        seen[key] = n
+        if n > 1:
+            key = "%s#%d" % (key, n)
+        out[key] = r
     return out
 
 def _last_mail_row(ws):
@@ -108,15 +120,20 @@ def apply_delta(source_path, target_path, delta, backup_dir=None, inf_add_front=
         # 신규행 append
         nr = _last_mail_row(stgt) + 1
         for x in delta.get("mail_append", []):
-            full = x.get("full")
-            if not full:
-                sr = src_row.get(x["key"])
-                full = [ssrc.cell(row=sr, column=c+1).value for c in range(34)] if sr else None
-            if not full:
-                continue
-            for c, val in enumerate(full):
-                if val is not None:
-                    stgt.cell(row=nr, column=c+1).value = val
+            sr = src_row.get(x["key"])
+            if sr:
+                # 원본 행에서 값+표시서식 그대로 복사(날짜/숫자 표기 보존)
+                for c in range(34):
+                    sc = ssrc.cell(row=sr, column=c+1)
+                    if sc.value is not None:
+                        _copy(stgt.cell(row=nr, column=c+1), sc)
+            else:
+                full = x.get("full")
+                if not full:
+                    continue
+                for c, val in enumerate(full):
+                    if val is not None:
+                        stgt.cell(row=nr, column=c+1).value = val
             nr += 1
             applied["mail_append"] += 1
         # 상태 갱신
@@ -126,7 +143,7 @@ def apply_delta(source_path, target_path, delta, backup_dir=None, inf_add_front=
             sr = src_row.get(x["key"]); tr = tgt_row.get(x["key"])
             if col0 is None or sr is None or tr is None:
                 continue
-            stgt.cell(row=tr, column=col0+1).value = ssrc.cell(row=sr, column=col0+1).value
+            _copy(stgt.cell(row=tr, column=col0+1), ssrc.cell(row=sr, column=col0+1))
             applied["mail_status"] += 1
 
     # ===== 인플루언서관리 =====
@@ -140,7 +157,7 @@ def apply_delta(source_path, target_path, delta, backup_dir=None, inf_add_front=
             row = tlab2row.get(x["label"])
             if scol is None or tcol is None or row is None:
                 continue
-            itgt.cell(row=row, column=tcol).value = isrc.cell(row=row, column=scol).value
+            _copy(itgt.cell(row=row, column=tcol), isrc.cell(row=row, column=scol))
             applied["inf_update"] += 1
         # 신규 인물 = 새 열. front-insert면 공유본 순서 유지 위해 역순으로 삽입(맨 앞에 차례로).
         adds = list(delta.get("inf_add", []))
@@ -156,10 +173,11 @@ def apply_delta(source_path, target_path, delta, backup_dir=None, inf_add_front=
                 ncol = max(tkey.values()) + 1 if tkey else 3
                 cl = get_column_letter(ncol)
                 for r in range(1, 46):
+                    sc = isrc.cell(row=r, column=scol)
                     if r in C.INF_FORMULA_ROWS:
-                        itgt.cell(row=r, column=ncol).value = ("=%s27+10" % cl) if r == 28 else ("=%s28+7" % cl)
+                        _copy(itgt.cell(row=r, column=ncol), sc, value=("=%s27+10" % cl) if r == 28 else ("=%s28+7" % cl))
                     else:
-                        itgt.cell(row=r, column=ncol).value = isrc.cell(row=r, column=scol).value
+                        _copy(itgt.cell(row=r, column=ncol), sc)
                 tkey[x["key"]] = ncol
             applied["inf_add"] += 1
 

@@ -71,11 +71,12 @@ INF_LABEL_ROWS = [r for r in range(10, 46) if r not in INF_FORMULA_ROWS]
 # ---------- 로더(읽기전용) ----------
 def load_mail(path):
     """반환: {urlkey: {'name','url','row', 'emp': {label:val}, 'owner': {label:val}}}.
-    중복 urlkey는 첫 행 기준."""
+    같은 채널이 여러 행(중복 등재·재발송)이면 2번째부터 '키#2','키#3'…으로 구분.
+    순번은 행 순서 기준 — 양쪽 파일이 같은 시드에서 출발하므로 상대 순서가 유지됨."""
     import openpyxl
     wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
     ws = wb[MAIL_SHEET]
-    out, order, es = {}, [], 0
+    out, order, es, seen = {}, [], 0, {}
     rownum = 6
     for r in ws.iter_rows(min_row=7, values_only=True):
         rownum += 1
@@ -90,8 +91,10 @@ def load_mail(path):
         if name == "" and url == "":
             continue
         key = norm_url(url) if url else "NAME::" + re.sub(r"\s+", "", name)
-        if key in out:
-            continue
+        n = seen.get(key, 0) + 1
+        seen[key] = n
+        if n > 1:
+            key = "%s#%d" % (key, n)
         emp   = {lab: (cv(r[i]) if len(r) > i else "") for i, lab in MAIL_EMP_COLS.items()}
         owner = {lab: (cv(r[i]) if len(r) > i else "") for i, lab in MAIL_OWNER_COLS.items()}
         full  = [r[i] if i < len(r) else None for i in range(34)]   # 신규행 append용 원본 34열

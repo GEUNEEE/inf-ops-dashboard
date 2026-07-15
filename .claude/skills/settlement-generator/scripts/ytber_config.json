@@ -12,7 +12,10 @@
   ],
   "no_settlement": {
     "_note": "해당 월에 정산(커미션) 미지급하는 유튜버. 주문건은 흑염소 매출(단가 120k)로 집계하되 정산액=0 처리 → 수익 상승.",
-    "2026-06": ["마성민", "한섭프로"]
+    "2026-06": [
+      "마성민",
+      "한섭프로"
+    ]
   },
   "additional_managed": [
     "유튜버 정조",
@@ -74,14 +77,11 @@
   ],
   "product_profit": {
     "화장품": {
-      "type": "per_unit_set",
-      "note": "세트 크기별 개당 수익. 수익 = 실제개수 × unit_profit_by_set[세트크기]",
-      "unit_profit_by_set": {
-        "1": 29700,
-        "2": 27350,
-        "4": 20675,
-        "6": 20950
-      }
+      "type": "net_settlement",
+      "note": "수익 = 정산예정금액×(1−tax_rate) − 원가(개당 5000×제품개수) − 배송비(주문당 1회). 제품개수는 옵션 반영 (1+1=2개, 2+2=4개).",
+      "tax_rate": 0.1,
+      "cost_per_unit": 5000,
+      "delivery_per_order": 2800
     },
     "올리브오일캡슐": {
       "type": "margin",
@@ -92,7 +92,7 @@
   },
   "product_registry": {
     "default_product": "흑염소",
-    "default_store": "A",
+    "default_store": "B",
     "store_by_smartstore_id": {
       "chobangri_village": "A",
       "sleepcarelab": "B"
@@ -102,12 +102,112 @@
         "product": "흑염소",
         "store": "A"
       },
+      "12281591813": {
+        "product": "흑염소",
+        "store": "A"
+      },
+      "13238067417": {
+        "product": "흑염소",
+        "store": "A"
+      },
       "11982161317": {
         "product": "화장품",
         "store": "B"
       },
       "12501345821": {
         "product": "올리브오일캡슐",
+        "store": "B"
+      },
+      "13648038642": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13648037968": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13643596263": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13643156553": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13640820351": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13639857053": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13635266881": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13634951249": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13628164956": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13623658381": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13623494331": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13623493466": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13623473000": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13622271245": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13620760365": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13620580101": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13613356546": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13613332319": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13590547629": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13586644878": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13586636114": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13586596919": {
+        "product": "흑염소",
+        "store": "B"
+      },
+      "13585235193": {
+        "product": "흑염소",
         "store": "B"
       }
     },

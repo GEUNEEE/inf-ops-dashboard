@@ -6,6 +6,7 @@ import json
 import subprocess
 import tempfile
 import shutil
+import hashlib
 import os
 from pathlib import Path
 from datetime import datetime
@@ -24,8 +25,9 @@ INPUT_DIR     = BASE_DIR / "input"
 DOWNLOADS_DIR = Path.home() / "Downloads"
 ENV_PYTHONUTF8 = {"PYTHONUTF8": "1", **os.environ}
 
-# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신, 전체주문/선택주문)
-ORDER_PATTERNS = ("스마트스토어_주문조회_*.xlsx", "스마트스토어_*발주발송관리_*.xlsx")
+# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신) + 전체주문배송현황 + 자사몰 zip
+ORDER_PATTERNS = ("스마트스토어_주문조회_*.xlsx", "스마트스토어_*발주발송관리_*.xlsx",
+                  "스마트스토어_*주문배송현황_*.xlsx", "calix9k_*.zip")
 
 
 def find_latest_order_file() -> Path | None:
@@ -42,26 +44,46 @@ def find_latest_order_file() -> Path | None:
     return max(candidates, key=lambda p: p.stat().st_mtime)
 
 
-def find_recent_order_files(window_days: int = 2) -> list[Path]:
-    """가장 최근 파일 기준 window_days 이내에 수정된 주문 파일 전체(배치) 반환.
-    스마트스토어가 전체주문/선택주문을 여러 파일로 내보내는 경우를 한 번에 처리."""
-    cands = []
+def _content_sig(p: Path) -> str:
+    """파일 내용 해시(경로·이름 무관 동일 파일 판별용)."""
+    h = hashlib.sha1()
+    try:
+        with open(p, "rb") as f:
+            for chunk in iter(lambda: f.read(65536), b""):
+                h.update(chunk)
+        return h.hexdigest()
+    except Exception:
+        # 읽기 실패 시 (이름, 크기)로 대체 시그니처
+        return f"nohash:{p.name}:{p.stat().st_size}"
+
+
+def find_all_order_files() -> tuple[list[Path], list[Path]]:
+    """3개 폴더(스케줄→input→Downloads)의 모든 주문 파일을 수집.
+    내용이 동일한 중복 파일은 우선순위 높은 폴더의 1개만 남기고 제외.
+    반환: (처리할 고유 파일[mtime 오름차순], 제외된 중복 사본)."""
+    all_files = []
     for folder in (SCHEDULE_DIR, INPUT_DIR, DOWNLOADS_DIR):
         if not folder.exists():
             continue
         for pat in ORDER_PATTERNS:
-            cands.extend(folder.glob(pat))
-    if not cands:
-        return []
-    newest = max(c.stat().st_mtime for c in cands)
-    cutoff = newest - window_days * 86400
-    batch = [c for c in cands if c.stat().st_mtime >= cutoff]
-    return sorted(batch, key=lambda p: p.stat().st_mtime)
+            all_files.extend(folder.glob(pat))
+
+    # all_files는 폴더 우선순위 순으로 쌓이므로, 먼저 본 사본(=상위 폴더)을 유지
+    unique, dups, seen = [], [], set()
+    for p in all_files:
+        sig = _content_sig(p)
+        if sig in seen:
+            dups.append(p)
+        else:
+            seen.add(sig)
+            unique.append(p)
+    unique.sort(key=lambda p: p.stat().st_mtime)
+    return unique, dups
 
 
 def parse_cli(argv: list):
-    """positional 파일 경로 + 플래그(--month/--store/--latest/--batch) 분리."""
-    files, month, store, use_latest, use_batch = [], datetime.now().strftime("%Y-%m"), None, False, False
+    """positional 파일 경로 + 플래그(--month/--store/--latest/--all) 분리."""
+    files, month, store, use_latest = [], datetime.now().strftime("%Y-%m"), None, False
     i = 0
     while i < len(argv):
         a = argv[i]
@@ -71,12 +93,12 @@ def parse_cli(argv: list):
             store = argv[i + 1].strip().upper(); i += 2; continue
         if a == "--latest":
             use_latest = True
-        elif a == "--batch":
-            use_batch = True
+        elif a in ("--all", "--batch"):
+            use_latest = False  # 전체 수집(기본값) — 명시용, --batch는 하위호환 별칭
         elif not a.startswith("--"):
             files.append(Path(a))
         i += 1
-    return files, month, store, use_latest, use_batch
+    return files, month, store, use_latest
 
 
 def run_script(script_path, *args, input_data=None) -> dict:
@@ -101,22 +123,25 @@ def save_temp_json(data: dict, name: str) -> Path:
 
 def main():
     if len(sys.argv) < 2:
-        print("사용법: python run_pipeline.py <xlsx...> | --latest | --batch  [--month YYYY-MM] [--store A|B]", file=sys.stderr)
+        print("사용법: python run_pipeline.py <xlsx...> | --all | --latest  [--month YYYY-MM] [--store A|B]", file=sys.stderr)
         sys.exit(1)
 
-    files, target_month, file_store, use_latest, use_batch = parse_cli(sys.argv[1:])
+    files, target_month, file_store, use_latest = parse_cli(sys.argv[1:])
 
     # 처리할 주문 파일 목록 결정
+    dup_files = []
     if files:
         order_files = files
-    elif use_batch:
-        order_files = find_recent_order_files()
-        print(f"[INFO] 배치 자동 선택: {len(order_files)}개 파일", file=sys.stderr)
-    else:  # --latest 또는 기본값
+    elif use_latest:  # --latest: mtime 최신 1개만
         latest = find_latest_order_file()
         order_files = [latest] if latest else []
         if latest:
-            print(f"[INFO] 최신 주문 파일 자동 선택: {latest.name}", file=sys.stderr)
+            print(f"[INFO] 최신 주문 파일 1개 선택: {latest.name}", file=sys.stderr)
+    else:  # 기본값(--all): 전체 폴더 수집 + 내용 중복 제외
+        order_files, dup_files = find_all_order_files()
+        print(f"[INFO] 전체 주문 파일 수집: {len(order_files)}개 처리 / 중복 {len(dup_files)}개 제외", file=sys.stderr)
+        for d in dup_files:
+            print(f"  · 중복 제외: {d.parent.name}/{d.name}", file=sys.stderr)
 
     if not order_files:
         print("[ERROR] 처리할 주문 파일이 없습니다 (스케줄/input/Downloads).", file=sys.stderr)
@@ -152,10 +177,14 @@ def main():
     merged = {"new_count": 0, "settlement": [], "general": [], "excluded": [],
               "other_product": [], "unregistered": [], "cancelled_by_ytber": {}}
     for of in order_files:
-        po_args = [str(of), managed_set]
-        if file_store:
-            po_args += ["--store", file_store]
-        bd = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_order.py", *po_args)
+        if of.suffix.lower() == ".zip":
+            # 자사몰(spoteasy) zip — 화장품 전용, 채널=자사몰
+            bd = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_mall_order.py", str(of))
+        else:
+            po_args = [str(of), managed_set]
+            if file_store:
+                po_args += ["--store", file_store]
+            bd = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_order.py", *po_args)
         n = bd.get("new_count", 0)
         merged["new_count"] += n
         for k in ("settlement", "general", "excluded", "other_product"):
@@ -244,18 +273,23 @@ def main():
     else:
         print("[WARN] verify_data.py 없음 — 검증 생략", file=sys.stderr)
 
-    # 처리 완료된 주문 파일 전체 → 주문조회 old 폴더로 이동
+    # 처리 완료된 주문 파일 + 제외된 중복 사본 → 주문조회 old 폴더로 정리
     old_dir = SCHEDULE_DIR / "주문조회 old"
     old_dir.mkdir(exist_ok=True)
-    for of in order_files:
+    for of in order_files + dup_files:
         dest = old_dir / of.name
         if of.resolve() == dest.resolve():
             continue
         try:
-            shutil.move(str(of), str(dest))
-            print(f"[INFO] 주문 파일 이동: {of.name} → 주문조회 old/", file=sys.stderr)
+            if dest.exists():
+                # 동일 이름이 이미 old에 존재(중복 사본) → 원본 삭제
+                of.unlink()
+                print(f"[INFO] 중복 사본 제거: {of.parent.name}/{of.name}", file=sys.stderr)
+            else:
+                shutil.move(str(of), str(dest))
+                print(f"[INFO] 주문 파일 이동: {of.name} → 주문조회 old/", file=sys.stderr)
         except Exception as e:
-            print(f"[WARN] 파일 이동 실패({of.name}): {e}", file=sys.stderr)
+            print(f"[WARN] 파일 정리 실패({of.name}): {e}", file=sys.stderr)
 
     print(f"\n{'='*50}", file=sys.stderr)
     print(f"파이프라인 완료: 신규 {new_count}건 처리", file=sys.stderr)

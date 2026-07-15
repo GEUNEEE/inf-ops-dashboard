@@ -13,16 +13,20 @@ $env:PYTHONUTF8 = "1"; $env:SMARTSTORE_XLSX_PASSWORD = "1234"
   "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
   "<xlsx_경로>" --month "YYYY-MM"
 
-# 스케줄/input 폴더에서 최신 파일 자동 선택
+# 스케줄/input/Downloads 폴더의 주문 파일 전부 자동 수집 (기본값, 내용 중복 제외)
 & "C:\Users\user\비서\.venv\Scripts\python.exe" `
   "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
-  --latest --month "YYYY-MM"
+  --all --month "YYYY-MM"
+
+# 최신 1개만 처리하려면 --latest 사용
 ```
 
 ## 파이프라인 단계
 
 ### STEP 3-4 — 복호화 + 버킷 분류 + Raw_Data 반영
 `parse_order.py` 실행. `.env`에서 `SMARTSTORE_XLSX_PASSWORD` 자동 로드.
+자사몰 zip(`calix9k_*.zip`)은 `parse_mall_order.py`가 처리 — `.env`의 `JASAMALL_ZIP_PASSWORD`로 해제,
+제품=화장품·채널=자사몰 고정, 정산예정금액 없음 → 주문금액 기준 수익 계산(네이버 동일 공식).
 
 **버킷 분류 기준:**
 | 버킷 | 조건 | Raw_Data | 정산서 |
