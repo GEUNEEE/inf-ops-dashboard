@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T09:42:00",
+  "generated_at": "2026-07-16T09:45:57",
   "current_month": "2026-07",
   "products": [
     {
@@ -31,14 +31,14 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 10,
-    "unit_count": 10,
-    "gross_revenue": 1230000,
-    "influencer_cost": 392000,
+    "order_count": 11,
+    "unit_count": 12,
+    "gross_revenue": 1470000,
+    "influencer_cost": 432000,
     "sponsor_cost": 160000,
-    "labor_cost": 100000,
-    "net_profit": 678000,
-    "operating_profit": 578000
+    "labor_cost": 120000,
+    "net_profit": 878000,
+    "operating_profit": 758000
   },
   "mail_funnel": {
     "total_sent": 2946,
@@ -81,11 +81,11 @@
       "현재상태": "1차 광고완료"
     },
     "마성민": {
-      "건수": 1,
-      "수량": 1,
-      "누적수량": 15,
+      "건수": 2,
+      "수량": 3,
+      "누적수량": 17,
       "현재단가": 20000,
-      "금액": 20000,
+      "금액": 60000,
       "체험횟수": 3,
       "협찬원가": 120000,
       "체험월목록": [
@@ -1004,14 +1004,14 @@
       3960000,
       4670000,
       4250000,
-      1230000
+      1470000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
       2082000,
-      678000
+      878000
     ],
     "total_sent": [
       396,
@@ -1054,14 +1054,14 @@
       1512000,
       2126000,
       1742000,
-      578000
+      758000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
       0.4099,
-      0.4699
+      0.5156
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1107,9 +1107,9 @@
       },
       "2026-07": {
         "흑염소": {
-          "qty": 10,
-          "order_count": 10,
-          "gross_revenue": 1230000,
+          "qty": 12,
+          "order_count": 11,
+          "gross_revenue": 1470000,
           "net_profit": 0
         },
         "화장품": {
@@ -1128,9 +1128,9 @@
           "gross_revenue": 720000
         },
         "A": {
-          "qty": 4,
-          "order_count": 4,
-          "gross_revenue": 510000
+          "qty": 6,
+          "order_count": 5,
+          "gross_revenue": 750000
         }
       }
     }
@@ -1244,18 +1244,18 @@
         "cumulative_profit": 5840000
       },
       "2026-07": {
-        "gross_revenue": 1230000,
-        "unit_count": 10,
-        "operating_profit": 578000,
-        "operating_profit_rate": 0.4699,
-        "cumulative_profit": 6418000
+        "gross_revenue": 1470000,
+        "unit_count": 12,
+        "operating_profit": 758000,
+        "operating_profit_rate": 0.5156,
+        "cumulative_profit": 6598000
       }
     },
     "influencer_cumulative": {
       "마성민": {
-        "qty": 16,
-        "settlement": 300000,
-        "contribution": 964000
+        "qty": 18,
+        "settlement": 340000,
+        "contribution": 1092000
       },
       "나이스부부": {
         "qty": 4,
