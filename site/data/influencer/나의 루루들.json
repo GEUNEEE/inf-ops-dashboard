@@ -1,0 +1,14 @@
+{
+  "name": "나의 루루들",
+  "current_status": "",
+  "cumulative_qty": 1,
+  "current_tier_price": 20000,
+  "monthly_orders": [
+    {
+      "month": "2026-07",
+      "qty": 1,
+      "amount": 20000
+    }
+  ],
+  "upcoming_schedule": []
+}

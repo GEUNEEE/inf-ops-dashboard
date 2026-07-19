@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T09:45:57",
+  "generated_at": "2026-07-20T08:07:27",
   "current_month": "2026-07",
   "products": [
     {
@@ -31,20 +31,20 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 11,
-    "unit_count": 12,
-    "gross_revenue": 1470000,
-    "influencer_cost": 432000,
+    "order_count": 15,
+    "unit_count": 16,
+    "gross_revenue": 1960000,
+    "influencer_cost": 576000,
     "sponsor_cost": 160000,
-    "labor_cost": 120000,
-    "net_profit": 878000,
-    "operating_profit": 758000
+    "labor_cost": 160000,
+    "net_profit": 1224000,
+    "operating_profit": 1064000
   },
   "mail_funnel": {
     "total_sent": 2946,
     "etc_excluded": 82,
-    "replied": 316,
-    "reply_rate": 0.1073,
+    "replied": 320,
+    "reply_rate": 0.1086,
     "meeting_total": 98,
     "meeting_rate": 0.0333,
     "exp_total": 60,
@@ -55,13 +55,13 @@
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 20,
+    "체험진행_1차": 19,
     "체험진행_2차": 1,
     "체험진행_3차": 0,
     "광고예정_1차": 4,
     "광고예정_2차": 0,
     "광고완료_1차": 9,
-    "기타": 33
+    "기타": 34
   },
   "settlement_month": 7,
   "settlement_summary": {
@@ -113,11 +113,11 @@
       "현재상태": "1차 광고완료"
     },
     "C맹씨": {
-      "건수": 2,
-      "수량": 2,
-      "누적수량": 21,
+      "건수": 3,
+      "수량": 3,
+      "누적수량": 22,
       "현재단가": 20000,
-      "금액": 40000,
+      "금액": 60000,
       "체험횟수": 3,
       "협찬원가": 120000,
       "체험월목록": [
@@ -129,11 +129,39 @@
       "정산미지급": false,
       "현재상태": "기타"
     },
+    "야너두": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-06"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 체험진행"
+    },
+    "나의 루루들": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 0,
+      "협찬원가": 0,
+      "체험월목록": [],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": ""
+    },
     "기타/일반": {
-      "건수": 3,
-      "수량": 3,
+      "건수": 4,
+      "수량": 4,
       "단가": 84000,
-      "금액": 252000,
+      "금액": 336000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -203,7 +231,7 @@
       "협찬원가": 40000,
       "체험월목록": [],
       "정산대상": true,
-      "현재상태": "1차 체험진행"
+      "현재상태": "기타"
     },
     "양선수의 온라인PT": {
       "건수": 0,
@@ -312,20 +340,6 @@
       "현재상태": "1차 체험진행"
     },
     "죠앙부부 じょあん夫婦": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-06"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 체험진행"
-    },
-    "야너두": {
       "건수": 0,
       "수량": 0,
       "누적수량": 0,
@@ -976,7 +990,7 @@
       0.1147,
       0.1404,
       0.1077,
-      0.1073
+      0.1086
     ],
     "exp_rate": [
       0.0379,
@@ -1004,14 +1018,14 @@
       3960000,
       4670000,
       4250000,
-      1470000
+      1960000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
       2082000,
-      878000
+      1224000
     ],
     "total_sent": [
       396,
@@ -1025,7 +1039,7 @@
       118,
       212,
       271,
-      316
+      320
     ],
     "meeting_total": [
       13,
@@ -1054,14 +1068,14 @@
       1512000,
       2126000,
       1742000,
-      758000
+      1064000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
       0.4099,
-      0.5156
+      0.5429
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1107,30 +1121,30 @@
       },
       "2026-07": {
         "흑염소": {
-          "qty": 12,
-          "order_count": 11,
-          "gross_revenue": 1470000,
+          "qty": 16,
+          "order_count": 15,
+          "gross_revenue": 1960000,
           "net_profit": 0
         },
         "화장품": {
-          "qty": 7,
-          "order_count": 3,
-          "gross_revenue": 212000,
-          "net_profit": 143343
+          "qty": 10,
+          "order_count": 5,
+          "gross_revenue": 318000,
+          "net_profit": 211819
         }
       }
     },
     "by_store_by_month": {
       "2026-07": {
         "B": {
-          "qty": 6,
-          "order_count": 6,
-          "gross_revenue": 720000
+          "qty": 9,
+          "order_count": 9,
+          "gross_revenue": 1080000
         },
         "A": {
-          "qty": 6,
-          "order_count": 5,
-          "gross_revenue": 750000
+          "qty": 7,
+          "order_count": 6,
+          "gross_revenue": 880000
         }
       }
     }
@@ -1193,11 +1207,11 @@
     },
     "2026-07": {
       "sent": 422,
-      "replied": 41,
+      "replied": 45,
       "meeting": 13,
       "exp": 8,
       "ad": 0,
-      "reply_rate": 0.0972,
+      "reply_rate": 0.1066,
       "meeting_rate": 0.0308,
       "exp_rate": 0.019,
       "ad_rate": 0.0
@@ -1244,11 +1258,11 @@
         "cumulative_profit": 5840000
       },
       "2026-07": {
-        "gross_revenue": 1470000,
-        "unit_count": 12,
-        "operating_profit": 758000,
-        "operating_profit_rate": 0.5156,
-        "cumulative_profit": 6598000
+        "gross_revenue": 1960000,
+        "unit_count": 16,
+        "operating_profit": 1064000,
+        "operating_profit_rate": 0.5429,
+        "cumulative_profit": 6904000
       }
     },
     "influencer_cumulative": {
@@ -1263,9 +1277,9 @@
         "contribution": 176000
       },
       "C맹씨": {
-        "qty": 22,
-        "settlement": 440000,
-        "contribution": 1328000
+        "qty": 23,
+        "settlement": 460000,
+        "contribution": 1392000
       },
       "The 조치 패밀리": {
         "qty": 2,
@@ -1273,9 +1287,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 46,
+        "qty": 47,
         "settlement": 0,
-        "contribution": 4324000
+        "contribution": 4418000
       },
       "바다로간배스": {
         "qty": 2,
@@ -1317,6 +1331,16 @@
         "settlement": 60000,
         "contribution": 192000
       },
+      "야너두": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 64000
+      },
+      "나의 루루들": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 64000
+      },
       "요고시": {
         "qty": 0,
         "settlement": 0,
@@ -1342,12 +1366,12 @@
   "cosmetics_breakdown": {
     "by_option": {
       "1+1": {
-        "orders": 1,
-        "units": 2
+        "orders": 2,
+        "units": 4
       },
       "단품": {
-        "orders": 1,
-        "units": 1
+        "orders": 2,
+        "units": 2
       },
       "2+2": {
         "orders": 1,
@@ -1356,9 +1380,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 1,
-        "units": 2,
-        "gross": 68000
+        "orders": 3,
+        "units": 5,
+        "gross": 174000
       },
       "쿠팡": {
         "orders": 1,
