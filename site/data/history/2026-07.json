@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-20T08:07:26",
+  "generated_at": "2026-07-20T08:11:13",
   "gross_revenue": 1960000,
   "net_profit": 1224000,
   "order_count": 15,
@@ -73,7 +73,7 @@
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
-    "나의 루루들": {
+    "나의루루들": {
       "order_count": 1,
       "qty": 1,
       "cumulative_qty": 1,
