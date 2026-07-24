@@ -1,7 +1,7 @@
 {
   "name": "C맹씨",
   "current_status": "기타",
-  "cumulative_qty": 22,
+  "cumulative_qty": 23,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -21,8 +21,8 @@
     },
     {
       "month": "2026-07",
-      "qty": 3,
-      "amount": 60000
+      "qty": 4,
+      "amount": 80000
     }
   ],
   "upcoming_schedule": []
