@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T07:33:31",
+  "generated_at": "2026-07-27T07:35:03",
   "current_month": "2026-07",
   "products": [
     {
@@ -31,14 +31,14 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 19,
-    "unit_count": 20,
-    "gross_revenue": 2460000,
-    "influencer_cost": 784000,
+    "order_count": 21,
+    "unit_count": 22,
+    "gross_revenue": 2700000,
+    "influencer_cost": 824000,
     "sponsor_cost": 200000,
-    "labor_cost": 200000,
-    "net_profit": 1476000,
-    "operating_profit": 1276000
+    "labor_cost": 220000,
+    "net_profit": 1676000,
+    "operating_profit": 1456000
   },
   "mail_funnel": {
     "total_sent": 3026,
@@ -160,6 +160,36 @@
       "정산미지급": false,
       "현재상태": "1차 광고예정"
     },
+    "티티준석": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-07"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 체험진행"
+    },
+    "특수부부": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-03"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 광고예정"
+    },
     "기타/일반": {
       "건수": 6,
       "수량": 6,
@@ -197,20 +227,6 @@
       "현재상태": "1차 체험진행"
     },
     "Chanpion🏆│프로복싱 한국챔피언": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": null,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-07"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 체험진행"
-    },
-    "티티준석": {
       "건수": 0,
       "수량": 0,
       "누적수량": null,
@@ -520,20 +536,6 @@
       ],
       "정산대상": true,
       "현재상태": "1차 광고완료"
-    },
-    "특수부부": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-03"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 광고예정"
     },
     "죠앙부부 じょあん夫婦": {
       "건수": 0,
@@ -1032,14 +1034,14 @@
       3960000,
       4670000,
       4250000,
-      2460000
+      2700000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
       2082000,
-      1476000
+      1676000
     ],
     "total_sent": [
       396,
@@ -1082,14 +1084,14 @@
       1512000,
       2126000,
       1742000,
-      1276000
+      1456000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
       0.4099,
-      0.5187
+      0.5393
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1135,25 +1137,25 @@
       },
       "2026-07": {
         "흑염소": {
-          "qty": 20,
-          "order_count": 19,
-          "gross_revenue": 2460000,
+          "qty": 22,
+          "order_count": 21,
+          "gross_revenue": 2700000,
           "net_profit": 0
         },
         "화장품": {
-          "qty": 10,
-          "order_count": 5,
+          "qty": 11,
+          "order_count": 6,
           "gross_revenue": 318000,
-          "net_profit": 211819
+          "net_profit": 204019
         }
       }
     },
     "by_store_by_month": {
       "2026-07": {
         "B": {
-          "qty": 11,
-          "order_count": 11,
-          "gross_revenue": 1320000
+          "qty": 13,
+          "order_count": 13,
+          "gross_revenue": 1560000
         },
         "A": {
           "qty": 9,
@@ -1272,11 +1274,11 @@
         "cumulative_profit": 5840000
       },
       "2026-07": {
-        "gross_revenue": 2460000,
-        "unit_count": 20,
-        "operating_profit": 1276000,
-        "operating_profit_rate": 0.5187,
-        "cumulative_profit": 7116000
+        "gross_revenue": 2700000,
+        "unit_count": 22,
+        "operating_profit": 1456000,
+        "operating_profit_rate": 0.5393,
+        "cumulative_profit": 7296000
       }
     },
     "influencer_cumulative": {
@@ -1355,6 +1357,16 @@
         "settlement": 20000,
         "contribution": 64000
       },
+      "티티준석": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 24000
+      },
+      "특수부부": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 64000
+      },
       "이란공주&한국온달 (iKoFamily)": {
         "qty": 0,
         "settlement": 0,
@@ -1369,11 +1381,6 @@
         "qty": 0,
         "settlement": 0,
         "contribution": -40000
-      },
-      "티티준석": {
-        "qty": 0,
-        "settlement": 0,
-        "contribution": -40000
       }
     }
   },
@@ -1384,8 +1391,8 @@
         "units": 4
       },
       "단품": {
-        "orders": 2,
-        "units": 2
+        "orders": 3,
+        "units": 3
       },
       "2+2": {
         "orders": 1,
@@ -1394,8 +1401,8 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 3,
-        "units": 5,
+        "orders": 4,
+        "units": 6,
         "gross": 174000
       },
       "쿠팡": {
