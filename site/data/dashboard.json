@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T12:49:24",
+  "generated_at": "2026-07-31T08:53:02",
   "current_month": "2026-07",
   "products": [
     {
@@ -31,14 +31,14 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 23,
-    "unit_count": 24,
-    "gross_revenue": 2960000,
-    "influencer_cost": 992000,
+    "order_count": 24,
+    "unit_count": 25,
+    "gross_revenue": 3090000,
+    "influencer_cost": 1076000,
     "sponsor_cost": 200000,
-    "labor_cost": 240000,
-    "net_profit": 1768000,
-    "operating_profit": 1528000
+    "labor_cost": 250000,
+    "net_profit": 1814000,
+    "operating_profit": 1564000
   },
   "mail_funnel": {
     "total_sent": 3026,
@@ -191,10 +191,10 @@
       "현재상태": "1차 광고예정"
     },
     "기타/일반": {
-      "건수": 8,
-      "수량": 8,
+      "건수": 9,
+      "수량": 9,
       "단가": 84000,
-      "금액": 672000,
+      "금액": 756000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -1034,14 +1034,14 @@
       3960000,
       4670000,
       4250000,
-      2960000
+      3090000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
       2082000,
-      1768000
+      1814000
     ],
     "total_sent": [
       396,
@@ -1084,14 +1084,14 @@
       1512000,
       2126000,
       1742000,
-      1528000
+      1564000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
       0.4099,
-      0.5162
+      0.5061
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1137,16 +1137,16 @@
       },
       "2026-07": {
         "흑염소": {
-          "qty": 24,
-          "order_count": 23,
-          "gross_revenue": 2960000,
+          "qty": 25,
+          "order_count": 24,
+          "gross_revenue": 3090000,
           "net_profit": 0
         },
         "화장품": {
-          "qty": 14,
-          "order_count": 8,
+          "qty": 19,
+          "order_count": 13,
           "gross_revenue": 359000,
-          "net_profit": 220319
+          "net_profit": 181319
         }
       }
     },
@@ -1158,9 +1158,9 @@
           "gross_revenue": 1560000
         },
         "A": {
-          "qty": 11,
-          "order_count": 10,
-          "gross_revenue": 1400000
+          "qty": 12,
+          "order_count": 11,
+          "gross_revenue": 1530000
         }
       }
     }
@@ -1274,11 +1274,11 @@
         "cumulative_profit": 5840000
       },
       "2026-07": {
-        "gross_revenue": 2960000,
-        "unit_count": 24,
-        "operating_profit": 1528000,
-        "operating_profit_rate": 0.5162,
-        "cumulative_profit": 7368000
+        "gross_revenue": 3090000,
+        "unit_count": 25,
+        "operating_profit": 1564000,
+        "operating_profit_rate": 0.5061,
+        "cumulative_profit": 7404000
       }
     },
     "influencer_cumulative": {
@@ -1303,9 +1303,9 @@
         "contribution": 128000
       },
       "기타/일반": {
-        "qty": 51,
+        "qty": 52,
         "settlement": 0,
-        "contribution": 4794000
+        "contribution": 4888000
       },
       "바다로간배스": {
         "qty": 2,
@@ -1391,8 +1391,8 @@
         "units": 6
       },
       "단품": {
-        "orders": 4,
-        "units": 4
+        "orders": 9,
+        "units": 9
       },
       "2+2": {
         "orders": 1,
@@ -1401,8 +1401,8 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 5,
-        "units": 8,
+        "orders": 10,
+        "units": 13,
         "gross": 174000
       },
       "쿠팡": {
@@ -1415,6 +1415,11 @@
         "units": 5,
         "gross": 147000
       }
+    },
+    "trial": {
+      "orders": 0,
+      "units": 0,
+      "gross": 0
     }
   },
   "alerts": {

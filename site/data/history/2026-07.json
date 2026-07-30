@@ -1,12 +1,12 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-29T12:49:23",
-  "gross_revenue": 2960000,
-  "net_profit": 1768000,
-  "order_count": 23,
-  "unit_count": 24,
-  "operating_profit": 1528000,
-  "operating_profit_rate": 0.5162,
+  "generated_at": "2026-07-31T08:53:01",
+  "gross_revenue": 3090000,
+  "net_profit": 1814000,
+  "order_count": 24,
+  "unit_count": 25,
+  "operating_profit": 1564000,
+  "operating_profit_rate": 0.5061,
   "total_sent": 3026,
   "replied": 325,
   "meeting_total": 98,
@@ -101,8 +101,8 @@
       "sponsor_cost_this_month": 0
     },
     "기타/일반": {
-      "order_count": 8,
-      "qty": 8,
+      "order_count": 9,
+      "qty": 9,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
@@ -139,16 +139,16 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 24,
-      "order_count": 23,
-      "gross_revenue": 2960000,
+      "qty": 25,
+      "order_count": 24,
+      "gross_revenue": 3090000,
       "net_profit": 0
     },
     "화장품": {
-      "qty": 14,
-      "order_count": 8,
+      "qty": 19,
+      "order_count": 13,
       "gross_revenue": 359000,
-      "net_profit": 220319
+      "net_profit": 181319
     }
   },
   "by_store": {
@@ -158,9 +158,9 @@
       "gross_revenue": 1560000
     },
     "A": {
-      "qty": 11,
-      "order_count": 10,
-      "gross_revenue": 1400000
+      "qty": 12,
+      "order_count": 11,
+      "gross_revenue": 1530000
     }
   },
   "cosmetics_breakdown": {
@@ -170,8 +170,8 @@
         "units": 6
       },
       "단품": {
-        "orders": 4,
-        "units": 4
+        "orders": 9,
+        "units": 9
       },
       "2+2": {
         "orders": 1,
@@ -180,8 +180,8 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 5,
-        "units": 8,
+        "orders": 10,
+        "units": 13,
         "gross": 174000
       },
       "쿠팡": {
@@ -194,6 +194,11 @@
         "units": 5,
         "gross": 147000
       }
+    },
+    "trial": {
+      "orders": 0,
+      "units": 0,
+      "gross": 0
     }
   }
 }
