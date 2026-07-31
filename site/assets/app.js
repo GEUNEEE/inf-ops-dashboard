@@ -1114,12 +1114,17 @@
       if (optKeys.length || chKeys.length) {
         const optRows = optKeys.map(o => `<tr><td>${o}</td><td>${byOpt[o].orders}건</td><td>${byOpt[o].units}개</td></tr>`).join('');
         const chRows = chKeys.map(ch => `<tr><td>${ch}</td><td>${byCh[ch].orders}건</td><td>${byCh[ch].units}개</td><td>${byCh[ch].gross ? money(byCh[ch].gross) : '-'}</td></tr>`).join('');
+        const trial = cb.trial || {};
+        const trialNote = (trial.orders > 0)
+          ? `<div style="font-size:10px;color:var(--text3);margin-top:10px;line-height:1.5">🧪 체험단 ${trial.orders}건${(trial.buyers && trial.buyers.length) ? ` (${trial.buyers.join(', ')})` : ''}<br>매출 ${money(trial.gross || 0)} 포함 · 수익 ${money(trial.excluded_profit || 0)} 제외</div>`
+          : '';
         const cbody = q('cosmetics-body');
         if (cbody) cbody.innerHTML =
           '<div style="font-size:11px;color:var(--text3);margin:2px 0 6px">옵션별 주문량</div>' +
           `<table class="fmonth-table"><thead><tr><th>옵션</th><th>주문수</th><th>수량</th></tr></thead><tbody>${optRows}</tbody></table>` +
           '<div style="font-size:11px;color:var(--text3);margin:12px 0 6px">채널별</div>' +
-          `<table class="fmonth-table"><thead><tr><th>채널</th><th>주문수</th><th>수량</th><th>매출</th></tr></thead><tbody>${chRows}</tbody></table>`;
+          `<table class="fmonth-table"><thead><tr><th>채널</th><th>주문수</th><th>수량</th><th>매출</th></tr></thead><tbody>${chRows}</tbody></table>` +
+          trialNote;
         cosCard.style.display = '';
       } else {
         cosCard.style.display = 'none';

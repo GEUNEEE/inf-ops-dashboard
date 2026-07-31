@@ -1,6 +1,6 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-31T08:54:16",
+  "generated_at": "2026-07-31T09:12:58",
   "gross_revenue": 3090000,
   "net_profit": 1814000,
   "order_count": 24,
@@ -147,7 +147,7 @@
     "화장품": {
       "qty": 19,
       "order_count": 13,
-      "gross_revenue": 359000,
+      "gross_revenue": 549000,
       "net_profit": 220319,
       "trial_orders": 5,
       "trial_units": 5
@@ -184,7 +184,7 @@
       "네이버": {
         "orders": 10,
         "units": 13,
-        "gross": 174000
+        "gross": 364000
       },
       "쿠팡": {
         "orders": 1,
@@ -200,7 +200,15 @@
     "trial": {
       "orders": 5,
       "units": 5,
-      "gross": 0
+      "gross": 190000,
+      "excluded_profit": 132000,
+      "buyers": [
+        "전나영",
+        "유효진",
+        "이윤희",
+        "최현",
+        "박광훈"
+      ]
     }
   }
 }
