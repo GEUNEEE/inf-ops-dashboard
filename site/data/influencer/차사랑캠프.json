@@ -2,12 +2,12 @@
   "name": "차사랑캠프",
   "current_status": "1차 광고완료",
   "cumulative_qty": 3,
-  "current_tier_price": 20000,
+  "current_tier_price": 0,
   "monthly_orders": [
     {
       "month": "2026-07",
       "qty": 3,
-      "amount": 60000
+      "amount": 0
     }
   ],
   "upcoming_schedule": []

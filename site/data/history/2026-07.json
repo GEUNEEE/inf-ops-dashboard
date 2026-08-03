@@ -1,12 +1,12 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-07-31T09:12:58",
-  "gross_revenue": 3090000,
-  "net_profit": 1814000,
-  "order_count": 24,
-  "unit_count": 25,
-  "operating_profit": 1564000,
-  "operating_profit_rate": 0.5061,
+  "generated_at": "2026-08-03T10:01:45",
+  "gross_revenue": 3570000,
+  "net_profit": 2294000,
+  "order_count": 27,
+  "unit_count": 29,
+  "operating_profit": 2004000,
+  "operating_profit_rate": 0.5613,
   "total_sent": 3026,
   "replied": 325,
   "meeting_total": 98,
@@ -41,8 +41,8 @@
       "order_count": 2,
       "qty": 3,
       "cumulative_qty": 17,
-      "unit_price": 20000,
-      "amount": 60000,
+      "unit_price": 0,
+      "amount": 0,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -50,10 +50,10 @@
       "order_count": 3,
       "qty": 3,
       "cumulative_qty": 3,
-      "unit_price": 20000,
-      "amount": 60000,
+      "unit_price": 0,
+      "amount": 0,
       "is_general": false,
-      "sponsor_cost_this_month": 40000
+      "sponsor_cost_this_month": 80000
     },
     "C맹씨": {
       "order_count": 4,
@@ -65,11 +65,11 @@
       "sponsor_cost_this_month": 0
     },
     "야너두": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 1,
+      "order_count": 3,
+      "qty": 3,
+      "cumulative_qty": 3,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 60000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -92,11 +92,11 @@
       "sponsor_cost_this_month": 40000
     },
     "특수부부": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 1,
+      "order_count": 2,
+      "qty": 3,
+      "cumulative_qty": 3,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 60000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -139,9 +139,9 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 25,
-      "order_count": 24,
-      "gross_revenue": 3090000,
+      "qty": 29,
+      "order_count": 27,
+      "gross_revenue": 3570000,
       "net_profit": 0
     },
     "화장품": {
@@ -155,9 +155,9 @@
   },
   "by_store": {
     "B": {
-      "qty": 13,
-      "order_count": 13,
-      "gross_revenue": 1560000
+      "qty": 17,
+      "order_count": 16,
+      "gross_revenue": 2040000
     },
     "A": {
       "qty": 12,
