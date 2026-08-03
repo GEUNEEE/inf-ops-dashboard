@@ -1,0 +1,65 @@
+{
+  "month": "2026-08",
+  "generated_at": "2026-08-03T09:54:28",
+  "gross_revenue": 120000,
+  "net_profit": 100000,
+  "order_count": 1,
+  "unit_count": 1,
+  "operating_profit": 90000,
+  "operating_profit_rate": 0.75,
+  "total_sent": 3026,
+  "replied": 325,
+  "meeting_total": 98,
+  "exp_total": 59,
+  "ad_total": 40,
+  "reply_rate": 0.1074,
+  "exp_rate": 0.0195,
+  "ad_rate": 0.0132,
+  "meeting_rate": 0.0324,
+  "inf_status": {
+    "미팅_대기": 0,
+    "미팅_진행": 0,
+    "체험진행_1차": 16,
+    "체험진행_2차": 0,
+    "체험진행_3차": 0,
+    "광고예정_1차": 4,
+    "광고예정_2차": 1,
+    "광고완료_1차": 11,
+    "기타": 33
+  },
+  "influencers": {
+    "C맹씨": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 24,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "기타/일반": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": true,
+      "sponsor_cost_this_month": 0
+    }
+  },
+  "by_product": {
+    "흑염소": {
+      "qty": 1,
+      "order_count": 1,
+      "gross_revenue": 120000,
+      "net_profit": 0
+    }
+  },
+  "by_store": {
+    "B": {
+      "qty": 1,
+      "order_count": 1,
+      "gross_revenue": 120000
+    }
+  }
+}
