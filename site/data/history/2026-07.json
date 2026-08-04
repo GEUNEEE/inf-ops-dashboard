@@ -1,19 +1,19 @@
 {
   "month": "2026-07",
-  "generated_at": "2026-08-03T10:43:00",
+  "generated_at": "2026-08-04T10:04:11",
   "gross_revenue": 3570000,
-  "net_profit": 2294000,
+  "net_profit": 2134000,
   "order_count": 27,
   "unit_count": 29,
-  "operating_profit": 2004000,
-  "operating_profit_rate": 0.5613,
+  "operating_profit": 1844000,
+  "operating_profit_rate": 0.5165,
   "total_sent": 3026,
   "replied": 325,
   "meeting_total": 98,
-  "exp_total": 59,
+  "exp_total": 63,
   "ad_total": 40,
   "reply_rate": 0.1074,
-  "exp_rate": 0.0195,
+  "exp_rate": 0.0208,
   "ad_rate": 0.0132,
   "meeting_rate": 0.0324,
   "inf_status": {
@@ -25,7 +25,7 @@
     "광고예정_1차": 4,
     "광고예정_2차": 1,
     "광고완료_1차": 11,
-    "기타": 33
+    "기타": 36
   },
   "influencers": {
     "아이콘 풋살": {
@@ -108,6 +108,42 @@
       "amount": 0,
       "is_general": true,
       "sponsor_cost_this_month": 0
+    },
+    "부남대여tv 맛있는낚시&캠핑": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "용주아": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "인생초보": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "구십오야": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
     },
     "이란공주&한국온달 (iKoFamily)": {
       "order_count": 0,
