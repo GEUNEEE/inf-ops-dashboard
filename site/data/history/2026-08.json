@@ -1,6 +1,6 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-03T10:43:06",
+  "generated_at": "2026-08-04T09:56:03",
   "gross_revenue": 120000,
   "net_profit": 100000,
   "order_count": 1,
@@ -10,10 +10,10 @@
   "total_sent": 3026,
   "replied": 325,
   "meeting_total": 98,
-  "exp_total": 59,
+  "exp_total": 63,
   "ad_total": 40,
   "reply_rate": 0.1074,
-  "exp_rate": 0.0195,
+  "exp_rate": 0.0208,
   "ad_rate": 0.0132,
   "meeting_rate": 0.0324,
   "inf_status": {
@@ -25,7 +25,7 @@
     "광고예정_1차": 4,
     "광고예정_2차": 1,
     "광고완료_1차": 11,
-    "기타": 33
+    "기타": 36
   },
   "influencers": {
     "C맹씨": {
