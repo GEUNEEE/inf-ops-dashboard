@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T12:47:54",
+  "generated_at": "2026-08-06T09:14:03",
   "current_month": "2026-08",
   "products": [
     {
@@ -31,14 +31,14 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 1,
-    "unit_count": 1,
-    "gross_revenue": 120000,
-    "influencer_cost": 20000,
+    "order_count": 5,
+    "unit_count": 6,
+    "gross_revenue": 720000,
+    "influencer_cost": 120000,
     "sponsor_cost": 0,
-    "labor_cost": 10000,
-    "net_profit": 100000,
-    "operating_profit": 90000
+    "labor_cost": 60000,
+    "net_profit": 600000,
+    "operating_profit": 540000
   },
   "mail_funnel": {
     "total_sent": 3026,
@@ -81,6 +81,21 @@
       "정산대상": true,
       "정산미지급": false,
       "현재상태": "기타"
+    },
+    "야너두": {
+      "건수": 4,
+      "수량": 5,
+      "누적수량": 8,
+      "현재단가": 20000,
+      "금액": 100000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-06"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 광고완료"
     },
     "기타/일반": {
       "건수": 0,
@@ -331,20 +346,6 @@
       ],
       "정산대상": true,
       "현재상태": "1차 체험진행"
-    },
-    "야너두": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-06"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 광고완료"
     },
     "달려서 세계속으로": {
       "건수": 0,
@@ -1078,7 +1079,7 @@
       4670000,
       4250000,
       3570000,
-      120000
+      720000
     ],
     "net_profit": [
       560000,
@@ -1086,7 +1087,7 @@
       2506000,
       2082000,
       2134000,
-      100000
+      600000
     ],
     "total_sent": [
       396,
@@ -1135,7 +1136,7 @@
       2126000,
       1742000,
       1844000,
-      90000
+      540000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1205,9 +1206,9 @@
       },
       "2026-08": {
         "흑염소": {
-          "qty": 1,
-          "order_count": 1,
-          "gross_revenue": 120000,
+          "qty": 6,
+          "order_count": 5,
+          "gross_revenue": 720000,
           "net_profit": 0
         }
       }
@@ -1227,9 +1228,9 @@
       },
       "2026-08": {
         "B": {
-          "qty": 1,
-          "order_count": 1,
-          "gross_revenue": 120000
+          "qty": 6,
+          "order_count": 5,
+          "gross_revenue": 720000
         }
       }
     }
@@ -1350,11 +1351,11 @@
         "cumulative_profit": 7684000
       },
       "2026-08": {
-        "gross_revenue": 120000,
-        "unit_count": 1,
-        "operating_profit": 90000,
+        "gross_revenue": 720000,
+        "unit_count": 6,
+        "operating_profit": 540000,
         "operating_profit_rate": 0.75,
-        "cumulative_profit": 7774000
+        "cumulative_profit": 8224000
       }
     },
     "influencer_cumulative": {
@@ -1424,9 +1425,9 @@
         "contribution": 172000
       },
       "야너두": {
-        "qty": 3,
-        "settlement": 60000,
-        "contribution": 192000
+        "qty": 8,
+        "settlement": 160000,
+        "contribution": 512000
       },
       "나의루루들": {
         "qty": 1,
