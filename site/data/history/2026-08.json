@@ -1,6 +1,6 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-07T15:29:05",
+  "generated_at": "2026-08-07T15:30:12",
   "gross_revenue": 720000,
   "net_profit": 600000,
   "order_count": 5,
@@ -66,8 +66,8 @@
     "화장품": {
       "qty": 6,
       "order_count": 2,
-      "gross_revenue": 0,
-      "net_profit": -35600
+      "gross_revenue": 105500,
+      "net_profit": 59350
     }
   },
   "by_store": {
@@ -92,7 +92,7 @@
       "네이버": {
         "orders": 2,
         "units": 6,
-        "gross": 0
+        "gross": 105500
       }
     },
     "trial": {
