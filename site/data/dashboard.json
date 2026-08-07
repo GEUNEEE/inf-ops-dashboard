@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T15:53:43",
+  "generated_at": "2026-08-07T16:02:12",
   "current_month": "2026-08",
   "products": [
     {
@@ -1489,13 +1489,13 @@
   },
   "cosmetics_breakdown": {
     "by_option": {
-      "1+1": {
-        "orders": 5,
-        "units": 10
-      },
       "단품": {
         "orders": 11,
         "units": 11
+      },
+      "1+1": {
+        "orders": 5,
+        "units": 10
       },
       "2+2": {
         "orders": 2,

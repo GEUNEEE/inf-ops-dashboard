@@ -1,6 +1,6 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-07T15:53:42",
+  "generated_at": "2026-08-07T16:02:12",
   "gross_revenue": 720000,
   "net_profit": 600000,
   "order_count": 5,
@@ -79,13 +79,13 @@
   },
   "cosmetics_breakdown": {
     "by_option": {
-      "2+2": {
-        "orders": 1,
-        "units": 4
-      },
       "1+1": {
         "orders": 1,
         "units": 2
+      },
+      "2+2": {
+        "orders": 1,
+        "units": 4
       }
     },
     "by_channel": {
