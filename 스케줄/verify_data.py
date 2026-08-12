@@ -3,13 +3,11 @@
 settlement.json / revenue.json / dashboard.json / history/*.json 간 일관성 검사
 run_pipeline.py STEP 10에서 자동 호출됨
 """
-import json, glob, os, sys, openpyxl
+import json, glob, os, openpyxl
 from pathlib import Path
 from collections import defaultdict
 
 BASE = Path(r"C:\Users\user\비서")
-sys.path.insert(0, str(BASE / ".claude/skills/dashboard-builder/scripts"))
-from build_snapshot import aggregate_by_product_store
 
 def load(path):
     with open(path, encoding="utf-8-sig") as f:
@@ -53,17 +51,8 @@ labor = (s_qty + g_qty) * L
 net_calc  = gross_calc - inf_cost_calc - sponsor
 oper_calc = net_calc - labor
 
-# 타 제품(화장품/자사몰 등) — Raw_Data 기준 독립 재집계 후 가산
-default_product = cfg.get("product_registry", {}).get("default_product", "흑염소")
-by_product, _ = aggregate_by_product_store(sett["settlement_month"], cfg)
-other_gross = sum(v.get("gross_revenue", 0) for k, v in by_product.items() if k != default_product)
-other_profit = sum(v.get("net_profit", 0) for k, v in by_product.items() if k != default_product)
-gross_calc += other_gross
-net_calc   += other_profit
-oper_calc  += other_profit
-
-print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,} + 타제품 ₩{other_gross:,} = ₩{gross_calc:,}")
-print(f"  정산비 ₩{s_amt:,} + 기타 {g_qty}×₩{GS:,} = ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 노무 ₩{labor:,} / 타제품수익 ₩{other_profit:,}")
+print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,} = ₩{gross_calc:,}")
+print(f"  정산비 ₩{s_amt:,} + 기타 {g_qty}×₩{GS:,} = ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 노무 ₩{labor:,}")
 
 if gross_calc == rev["gross_revenue"]:
     ok(f"gross_revenue ✅ ₩{gross_calc:,}")
@@ -123,9 +112,7 @@ for month, h in sorted(history.items()):
     infs = h.get("influencers", {})
     s_q = sum(v.get("qty", 0) for v in infs.values() if not v.get("is_general"))
     g_q = sum(v.get("qty", 0) for v in infs.values() if v.get("is_general"))
-    h_by_product = h.get("by_product", {})
-    h_other_gross = sum(v.get("gross_revenue", 0) for k, v in h_by_product.items() if k != default_product)
-    calc = s_q * P + g_q * G + h_other_gross
+    calc = s_q * P + g_q * G
     if calc == h["gross_revenue"]:
         ok(f"{month}: gross ₩{h['gross_revenue']:,} (settlement {s_q}개 + general {g_q}개) ✅")
     else:
