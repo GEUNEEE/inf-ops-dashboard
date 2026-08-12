@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T13:02:05",
+  "generated_at": "2026-08-12T13:09:33",
   "current_month": "2026-08",
   "products": [
     {
@@ -31,14 +31,14 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 13,
-    "unit_count": 23,
-    "gross_revenue": 1849000,
+    "order_count": 10,
+    "unit_count": 13,
+    "gross_revenue": 1570000,
     "influencer_cost": 284000,
     "sponsor_cost": 0,
     "labor_cost": 130000,
-    "net_profit": 1472405,
-    "operating_profit": 1342405
+    "net_profit": 1286000,
+    "operating_profit": 1156000
   },
   "mail_funnel": {
     "total_sent": 3472,
@@ -1177,17 +1177,17 @@
       1200000,
       3960000,
       4670000,
-      4429000,
-      4263000,
-      1849000
+      4250000,
+      3570000,
+      1570000
     ],
     "net_profit": [
       560000,
       1832000,
       2506000,
-      2219210,
-      2476119,
-      1472405
+      2082000,
+      2134000,
+      1286000
     ],
     "total_sent": [
       396,
@@ -1234,17 +1234,17 @@
       460000,
       1512000,
       2126000,
-      1879210,
-      2186119,
-      1342405
+      1742000,
+      1844000,
+      1156000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
-      0.4243,
-      0.5128,
-      0.726
+      0.4099,
+      0.5165,
+      0.7363
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1459,25 +1459,25 @@
         "cumulative_profit": 4098000
       },
       "2026-06": {
-        "gross_revenue": 4429000,
-        "unit_count": 39,
-        "operating_profit": 1879210,
-        "operating_profit_rate": 0.4243,
-        "cumulative_profit": 5977210
+        "gross_revenue": 4250000,
+        "unit_count": 34,
+        "operating_profit": 1742000,
+        "operating_profit_rate": 0.4099,
+        "cumulative_profit": 5840000
       },
       "2026-07": {
-        "gross_revenue": 4263000,
-        "unit_count": 49,
-        "operating_profit": 2186119,
-        "operating_profit_rate": 0.5128,
-        "cumulative_profit": 8163329
+        "gross_revenue": 3570000,
+        "unit_count": 29,
+        "operating_profit": 1844000,
+        "operating_profit_rate": 0.5165,
+        "cumulative_profit": 7684000
       },
       "2026-08": {
-        "gross_revenue": 1849000,
-        "unit_count": 23,
-        "operating_profit": 1342405,
-        "operating_profit_rate": 0.726,
-        "cumulative_profit": 9505734
+        "gross_revenue": 1570000,
+        "unit_count": 13,
+        "operating_profit": 1156000,
+        "operating_profit_rate": 0.7363,
+        "cumulative_profit": 8840000
       }
     },
     "influencer_cumulative": {
@@ -1535,11 +1535,6 @@
         "qty": 9,
         "settlement": 180000,
         "contribution": 496000
-      },
-      "(미등재/기타)": {
-        "qty": 35,
-        "settlement": 0,
-        "contribution": 3290000
       },
       "아이콘 풋살": {
         "qty": 2,

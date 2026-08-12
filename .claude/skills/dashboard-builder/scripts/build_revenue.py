@@ -104,34 +104,6 @@ def main():
     labor_cost       = total_qty * labor_cost_per_unit
     operating_profit = net_profit - labor_cost
 
-    # 타 제품(화장품/자사몰 등) 매출·수익 합산 — 흑염소는 정산 단가 모델(위에서 계산),
-    # 그 외 제품은 Raw_Data 실제 주문금액 기준 제품별 수익 모델(build_snapshot의 by_product 재사용).
-    # 화장품 등의 net_profit은 이미 수수료·원가·배송비까지 전부 차감된 순이익이므로
-    # 별도 인건비 차감 없이 그대로 영업이익에 가산한다.
-    other_gross = other_profit = other_qty = other_orders = 0
-    if target_month:
-        try:
-            sys.path.insert(0, str(Path(__file__).parent))
-            from build_snapshot import aggregate_by_product_store
-            reg = config.get("product_registry", {})
-            default_product = reg.get("default_product", "흑염소")
-            by_product, _ = aggregate_by_product_store(target_month, config)
-            for key, v in by_product.items():
-                if key == default_product:
-                    continue
-                other_gross  += v.get("gross_revenue", 0)
-                other_profit += v.get("net_profit", 0)
-                other_qty    += v.get("qty", 0)
-                other_orders += v.get("order_count", 0)
-        except Exception as e:
-            print(f"[WARN] 타 제품 매출 합산 실패: {e}", file=sys.stderr)
-
-    gross_revenue     += other_gross
-    net_profit        += other_profit
-    operating_profit  += other_profit
-    total_qty         += other_qty
-    order_count       += other_orders
-
     revenue = {
         "order_count":      order_count,
         "unit_count":       total_qty,
