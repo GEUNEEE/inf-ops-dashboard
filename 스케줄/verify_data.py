@@ -3,11 +3,13 @@
 settlement.json / revenue.json / dashboard.json / history/*.json 간 일관성 검사
 run_pipeline.py STEP 10에서 자동 호출됨
 """
-import json, glob, os, openpyxl
+import json, glob, os, sys, openpyxl
 from pathlib import Path
 from collections import defaultdict
 
 BASE = Path(r"C:\Users\user\비서")
+sys.path.insert(0, str(BASE / ".claude/skills/dashboard-builder/scripts"))
+from build_snapshot import aggregate_by_product_store
 
 def load(path):
     with open(path, encoding="utf-8-sig") as f:
@@ -41,17 +43,27 @@ g_qty  = sum(s["qty"] for s in sett["summaries"] if s["is_general"])
 s_amt  = sum(s["settlement_amount"] or 0 for s in sett["summaries"] if not s["is_general"])
 gross_calc = s_qty * P + g_qty * G
 inf_cost_calc = s_amt + g_qty * GS
+# 협찬원가는 인당 1회가 아니라 발생 횟수 기준 (예: 한 차수에 2개 협찬 → exp_months에 같은 월 2회)
 sponsor = sum(
-    40000 for v in inf.get("per_influencer", {}).values()
-    if isinstance(v, dict) and sett["settlement_month"].replace("-","") and
-    any(m == sett["settlement_month"] for m in v.get("exp_months", []))
+    40000 * sum(1 for m in v.get("exp_months", []) if m == sett["settlement_month"])
+    for v in inf.get("per_influencer", {}).values()
+    if isinstance(v, dict)
 )
 labor = (s_qty + g_qty) * L
 net_calc  = gross_calc - inf_cost_calc - sponsor
 oper_calc = net_calc - labor
 
-print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,} = ₩{gross_calc:,}")
-print(f"  정산비 ₩{s_amt:,} + 기타 {g_qty}×₩{GS:,} = ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 노무 ₩{labor:,}")
+# 타 제품(화장품/자사몰 등) — Raw_Data 기준 독립 재집계 후 가산
+default_product = cfg.get("product_registry", {}).get("default_product", "흑염소")
+by_product, _ = aggregate_by_product_store(sett["settlement_month"], cfg)
+other_gross = sum(v.get("gross_revenue", 0) for k, v in by_product.items() if k != default_product)
+other_profit = sum(v.get("net_profit", 0) for k, v in by_product.items() if k != default_product)
+gross_calc += other_gross
+net_calc   += other_profit
+oper_calc  += other_profit
+
+print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,} + 타제품 ₩{other_gross:,} = ₩{gross_calc:,}")
+print(f"  정산비 ₩{s_amt:,} + 기타 {g_qty}×₩{GS:,} = ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 노무 ₩{labor:,} / 타제품수익 ₩{other_profit:,}")
 
 if gross_calc == rev["gross_revenue"]:
     ok(f"gross_revenue ✅ ₩{gross_calc:,}")
@@ -111,7 +123,9 @@ for month, h in sorted(history.items()):
     infs = h.get("influencers", {})
     s_q = sum(v.get("qty", 0) for v in infs.values() if not v.get("is_general"))
     g_q = sum(v.get("qty", 0) for v in infs.values() if v.get("is_general"))
-    calc = s_q * P + g_q * G
+    h_by_product = h.get("by_product", {})
+    h_other_gross = sum(v.get("gross_revenue", 0) for k, v in h_by_product.items() if k != default_product)
+    calc = s_q * P + g_q * G + h_other_gross
     if calc == h["gross_revenue"]:
         ok(f"{month}: gross ₩{h['gross_revenue']:,} (settlement {s_q}개 + general {g_q}개) ✅")
     else:

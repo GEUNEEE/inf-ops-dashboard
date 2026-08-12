@@ -2,6 +2,7 @@
 # publish.py — STEP 9: site/data/ 갱신 후 git add/commit/push
 # 사용법: python publish.py <YYYY-MM>
 import sys
+import json
 import subprocess
 from pathlib import Path
 from datetime import datetime
@@ -54,6 +55,7 @@ def push_site(month: str) -> bool:
 def main():
     month = sys.argv[1] if len(sys.argv) > 1 else datetime.now().strftime("%Y-%m")
     success = push_site(month)
+    print(json.dumps({"success": success, "month": month}))
     sys.exit(0 if success else 1)
 
 
