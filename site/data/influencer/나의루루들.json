@@ -1,13 +1,18 @@
 {
   "name": "나의루루들",
   "current_status": "1차 광고예정",
-  "cumulative_qty": 1,
+  "cumulative_qty": 4,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
       "month": "2026-07",
       "qty": 1,
       "amount": 20000
+    },
+    {
+      "month": "2026-08",
+      "qty": 3,
+      "amount": 60000
     }
   ],
   "upcoming_schedule": []
