@@ -1,0 +1,19 @@
+{
+  "name": "Chanpion🏆│프로복싱 한국챔피언",
+  "current_status": "1차 체험진행",
+  "cumulative_qty": 1,
+  "current_tier_price": 20000,
+  "monthly_orders": [
+    {
+      "month": "2026-07",
+      "qty": 0,
+      "amount": 0
+    },
+    {
+      "month": "2026-08",
+      "qty": 1,
+      "amount": 20000
+    }
+  ],
+  "upcoming_schedule": []
+}
