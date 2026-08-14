@@ -1,0 +1,14 @@
+{
+  "name": "하이수달",
+  "current_status": "1차 체험진행",
+  "cumulative_qty": 2,
+  "current_tier_price": 20000,
+  "monthly_orders": [
+    {
+      "month": "2026-08",
+      "qty": 2,
+      "amount": 40000
+    }
+  ],
+  "upcoming_schedule": []
+}
