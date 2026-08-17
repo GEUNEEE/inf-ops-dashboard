@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T13:58:38",
+  "generated_at": "2026-08-18T07:58:12",
   "current_month": "2026-08",
   "products": [
     {
@@ -31,14 +31,14 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 17,
-    "unit_count": 23,
-    "gross_revenue": 2800000,
-    "influencer_cost": 636000,
+    "order_count": 24,
+    "unit_count": 32,
+    "gross_revenue": 3880000,
+    "influencer_cost": 756000,
     "sponsor_cost": 0,
-    "labor_cost": 230000,
-    "net_profit": 2164000,
-    "operating_profit": 1934000
+    "labor_cost": 320000,
+    "net_profit": 3124000,
+    "operating_profit": 2804000
   },
   "mail_funnel": {
     "total_sent": 3472,
@@ -115,9 +115,9 @@
       "현재상태": "1차 체험진행 · 정산미지급"
     },
     "마성민": {
-      "건수": 1,
-      "수량": 1,
-      "누적수량": 18,
+      "건수": 2,
+      "수량": 4,
+      "누적수량": 21,
       "현재단가": 0,
       "금액": 0,
       "체험횟수": 3,
@@ -160,11 +160,11 @@
       "현재상태": "1차 광고예정"
     },
     "육아하는 옆집언니": {
-      "건수": 2,
-      "수량": 2,
-      "누적수량": 2,
+      "건수": 7,
+      "수량": 7,
+      "누적수량": 7,
       "현재단가": 20000,
-      "금액": 40000,
+      "금액": 140000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [],
@@ -188,11 +188,11 @@
       "현재상태": "1차 체험진행"
     },
     "하이수달": {
-      "건수": 1,
-      "수량": 2,
-      "누적수량": 2,
+      "건수": 2,
+      "수량": 3,
+      "누적수량": 3,
       "현재단가": 20000,
-      "금액": 40000,
+      "금액": 60000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [],
@@ -1194,7 +1194,7 @@
       4670000,
       4250000,
       3570000,
-      2800000
+      3880000
     ],
     "net_profit": [
       560000,
@@ -1202,7 +1202,7 @@
       2506000,
       2082000,
       2134000,
-      2164000
+      3124000
     ],
     "total_sent": [
       396,
@@ -1251,7 +1251,7 @@
       2126000,
       1742000,
       1844000,
-      1934000
+      2804000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1259,7 +1259,7 @@
       0.4553,
       0.4099,
       0.5165,
-      0.6907
+      0.7227
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1321,9 +1321,9 @@
       },
       "2026-08": {
         "흑염소": {
-          "qty": 23,
-          "order_count": 17,
-          "gross_revenue": 2800000,
+          "qty": 32,
+          "order_count": 24,
+          "gross_revenue": 3880000,
           "net_profit": 0
         },
         "화장품": {
@@ -1349,14 +1349,14 @@
       },
       "2026-08": {
         "B": {
-          "qty": 17,
-          "order_count": 13,
-          "gross_revenue": 2040000
+          "qty": 23,
+          "order_count": 19,
+          "gross_revenue": 2760000
         },
         "A": {
-          "qty": 6,
-          "order_count": 4,
-          "gross_revenue": 760000
+          "qty": 9,
+          "order_count": 5,
+          "gross_revenue": 1120000
         }
       }
     }
@@ -1488,18 +1488,18 @@
         "cumulative_profit": 7684000
       },
       "2026-08": {
-        "gross_revenue": 2800000,
-        "unit_count": 23,
-        "operating_profit": 1934000,
-        "operating_profit_rate": 0.6907,
-        "cumulative_profit": 9618000
+        "gross_revenue": 3880000,
+        "unit_count": 32,
+        "operating_profit": 2804000,
+        "operating_profit_rate": 0.7227,
+        "cumulative_profit": 10488000
       }
     },
     "influencer_cumulative": {
       "마성민": {
-        "qty": 19,
+        "qty": 22,
         "settlement": 280000,
-        "contribution": 1236000
+        "contribution": 1488000
       },
       "나이스부부": {
         "qty": 4,
@@ -1622,14 +1622,14 @@
         "contribution": 64000
       },
       "육아하는 옆집언니": {
-        "qty": 2,
-        "settlement": 40000,
-        "contribution": 128000
+        "qty": 7,
+        "settlement": 140000,
+        "contribution": 448000
       },
       "하이수달": {
-        "qty": 2,
-        "settlement": 40000,
-        "contribution": 128000
+        "qty": 3,
+        "settlement": 60000,
+        "contribution": 192000
       }
     }
   },

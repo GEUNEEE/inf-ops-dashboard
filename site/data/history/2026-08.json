@@ -1,12 +1,12 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-14T13:58:38",
-  "gross_revenue": 2800000,
-  "net_profit": 2164000,
-  "order_count": 17,
-  "unit_count": 23,
-  "operating_profit": 1934000,
-  "operating_profit_rate": 0.6907,
+  "generated_at": "2026-08-18T07:58:12",
+  "gross_revenue": 3880000,
+  "net_profit": 3124000,
+  "order_count": 24,
+  "unit_count": 32,
+  "operating_profit": 2804000,
+  "operating_profit_rate": 0.7227,
   "total_sent": 3472,
   "replied": 362,
   "meeting_total": 116,
@@ -56,9 +56,9 @@
       "sponsor_cost_this_month": 0
     },
     "마성민": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 18,
+      "order_count": 2,
+      "qty": 4,
+      "cumulative_qty": 21,
       "unit_price": 0,
       "amount": 0,
       "is_general": false,
@@ -83,11 +83,11 @@
       "sponsor_cost_this_month": 0
     },
     "육아하는 옆집언니": {
-      "order_count": 2,
-      "qty": 2,
-      "cumulative_qty": 2,
+      "order_count": 7,
+      "qty": 7,
+      "cumulative_qty": 7,
       "unit_price": 20000,
-      "amount": 40000,
+      "amount": 140000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -101,11 +101,11 @@
       "sponsor_cost_this_month": 0
     },
     "하이수달": {
-      "order_count": 1,
-      "qty": 2,
-      "cumulative_qty": 2,
+      "order_count": 2,
+      "qty": 3,
+      "cumulative_qty": 3,
       "unit_price": 20000,
-      "amount": 40000,
+      "amount": 60000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -121,9 +121,9 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 23,
-      "order_count": 17,
-      "gross_revenue": 2800000,
+      "qty": 32,
+      "order_count": 24,
+      "gross_revenue": 3880000,
       "net_profit": 0
     },
     "화장품": {
@@ -135,14 +135,14 @@
   },
   "by_store": {
     "B": {
-      "qty": 17,
-      "order_count": 13,
-      "gross_revenue": 2040000
+      "qty": 23,
+      "order_count": 19,
+      "gross_revenue": 2760000
     },
     "A": {
-      "qty": 6,
-      "order_count": 4,
-      "gross_revenue": 760000
+      "qty": 9,
+      "order_count": 5,
+      "gross_revenue": 1120000
     }
   },
   "cosmetics_breakdown": {
