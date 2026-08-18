@@ -63,8 +63,8 @@ def main():
     # 합계 + 제품별 행
     prod_rows = []
     if by_product:
-        total_rev    = sum(v.get("gross_revenue", 0) for v in by_product.values())
-        total_profit = goat_profit + sum(v.get("net_profit", 0) for k, v in by_product.items() if k != default_product)
+        # 매출이 0인 제품(주문금액 미확보 채널 등)은 총계에서도 제외 —
+        # 그래야 화면에 안 보이는 손실이 총 수익에 몰래 섞여 숫자가 안 맞는 일이 없다.
         ordered = product_order + [k for k in by_product if k not in product_order]
         for k in ordered:
             v = by_product.get(k)
@@ -72,6 +72,8 @@ def main():
                 continue
             prof = goat_profit if k == default_product else v.get("net_profit", 0)
             prod_rows.append((SHORT.get(k, k), ICONS.get(k, "📦"), v["gross_revenue"], prof))
+        total_rev    = sum(rev for _, _, rev, _ in prod_rows)
+        total_profit = sum(pf for _, _, _, pf in prod_rows)
     else:
         total_rev    = revenue.get("gross_revenue", 0)
         total_profit = revenue.get("net_profit", 0)

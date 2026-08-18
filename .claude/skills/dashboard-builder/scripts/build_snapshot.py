@@ -30,6 +30,7 @@ RAW_COL_STORE   = 16  # 신규: 스토어
 RAW_COL_AMOUNT  = 17  # 신규: 실제 주문금액 (비흑염소 제품 매출)
 RAW_COL_SETTLE  = 18  # 신규: 정산예정금액 (수수료 차감 실수령액 — 비흑염소 수익 기준)
 RAW_COL_CHANNEL = 19  # 신규: 판매 채널 (네이버/쿠팡/자사몰)
+RAW_COL_CLASS   = 20  # 신규: 분류 (체험단 = 매출 집계 O, 수익 계산 제외)
 
 
 def parse_set_size(option_info: str) -> int:
@@ -81,6 +82,15 @@ def _load_config() -> dict:
         return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     except Exception:
         return {}
+
+
+def resolve_order_amount(product: str, set_size: int, order_amount: int, profit_cfg: dict) -> int:
+    """실제 고객이 지불한 금액이 있으면 그게 곧 표준가 — 그대로 사용한다.
+    주문 파일에 금액이 아예 없을 때만(파일 양식 한계) 옵션별 고정 판매금액으로 대체한다."""
+    if order_amount:
+        return order_amount
+    table = profit_cfg.get(product, {}).get("price_by_set", {})
+    return table.get(str(set_size), 0)
 
 
 def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, dict]:
@@ -150,9 +160,17 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
             opt       = str(row[RAW_COL_OPTION]) if len(row) > RAW_COL_OPTION and row[RAW_COL_OPTION] else ""
             set_size  = parse_set_size(opt)
             units     = qty * set_size
+            classification = (str(row[RAW_COL_CLASS]).strip()
+                              if len(row) > RAW_COL_CLASS and row[RAW_COL_CLASS] else "")
+            resolved_amount = resolve_order_amount(product, set_size, order_amount, profit_cfg)
             pd["qty"]           += units
-            pd["gross_revenue"] += order_amount
-            pd["net_profit"]    += compute_product_profit(product, units, order_amount, settle_amount, set_size, profit_cfg)
+            pd["gross_revenue"] += resolved_amount
+            if classification == "체험단":
+                # 체험단: 매출·수량은 집계하되 수익 계산에서 제외
+                pd["trial_orders"] = pd.get("trial_orders", 0) + 1
+                pd["trial_units"]  = pd.get("trial_units", 0) + units
+            else:
+                pd["net_profit"]    += compute_product_profit(product, units, resolved_amount, settle_amount, set_size, profit_cfg)
 
         # 스토어 분리: store_split 제품 + 분리 시점(store_split_from) 이후 + 스토어 식별된 경우만
         pcfg = products_cfg.get(product, {})
@@ -171,25 +189,31 @@ def _option_label(set_size: int) -> str:
     return {1: "단품", 2: "1+1", 4: "2+2", 6: "3+3"}.get(set_size, f"{set_size}개")
 
 
-def aggregate_cosmetics_breakdown(target_month: str) -> dict:
+def aggregate_cosmetics_breakdown(target_month: str | None) -> dict:
     """화장품 주문을 옵션별·채널별로 집계 (화장품 전용).
-    반환: {by_option: {라벨: {orders, units}}, by_channel: {채널: {orders, units, gross}}}"""
+    target_month=None이면 전체 기간 누적 (자사몰처럼 특정 달에만 몰린 채널도
+    달이 바뀌었다고 대시보드에서 사라지지 않게 하기 위함).
+    반환: {by_option: {라벨: {orders, units}}, by_channel: {채널: {orders, units, gross}},
+          trial: {orders, units, gross, excluded_profit, buyers}}
+          (trial = 분류가 '체험단'인 주문 — 매출 포함, 수익 제외분)"""
     import openpyxl
     by_option: dict = {}
     by_channel: dict = {}
+    trial: dict = {"orders": 0, "units": 0, "gross": 0, "excluded_profit": 0, "buyers": []}
+    profit_cfg = _load_config().get("product_profit", {})
     if not RAWDATA_PATH.exists():
-        return {"by_option": by_option, "by_channel": by_channel}
+        return {"by_option": by_option, "by_channel": by_channel, "trial": trial}
     try:
         wb = openpyxl.load_workbook(RAWDATA_PATH, data_only=True, read_only=True)
         ws = wb["Raw_Data"]
     except Exception as e:
         print(f"[WARN] 화장품 옵션 집계 실패: {e}", file=sys.stderr)
-        return {"by_option": by_option, "by_channel": by_channel}
+        return {"by_option": by_option, "by_channel": by_channel, "trial": trial}
 
     for row in ws.iter_rows(min_row=2, values_only=True):
         if not row or row[0] is None:
             continue
-        if not str(row[RAW_COL_DATE] or "").startswith(target_month):
+        if target_month and not str(row[RAW_COL_DATE] or "").startswith(target_month):
             continue
         product = row[RAW_COL_PRODUCT] if len(row) > RAW_COL_PRODUCT else None
         if str(product or "").strip() != "화장품":
@@ -204,18 +228,33 @@ def aggregate_cosmetics_breakdown(target_month: str) -> dict:
         set_size = parse_set_size(str(row[RAW_COL_OPTION]) if len(row) > RAW_COL_OPTION and row[RAW_COL_OPTION] else "")
         units = qty * set_size
         try:
-            amount = int(row[RAW_COL_AMOUNT]) if len(row) > RAW_COL_AMOUNT and row[RAW_COL_AMOUNT] else 0
+            raw_amount = int(row[RAW_COL_AMOUNT]) if len(row) > RAW_COL_AMOUNT and row[RAW_COL_AMOUNT] else 0
         except (ValueError, TypeError):
-            amount = 0
+            raw_amount = 0
+        amount = resolve_order_amount("화장품", set_size, raw_amount, profit_cfg)
         channel = (str(row[RAW_COL_CHANNEL]).strip() if len(row) > RAW_COL_CHANNEL and row[RAW_COL_CHANNEL] else "네이버")
 
-        opt = by_option.setdefault(_option_label(set_size), {"orders": 0, "units": 0})
+        opt = by_option.setdefault(set_size, {"orders": 0, "units": 0})
         opt["orders"] += 1; opt["units"] += units
         ch = by_channel.setdefault(channel, {"orders": 0, "units": 0, "gross": 0})
         ch["orders"] += 1; ch["units"] += units; ch["gross"] += amount
+        classification = (str(row[RAW_COL_CLASS]).strip()
+                          if len(row) > RAW_COL_CLASS and row[RAW_COL_CLASS] else "")
+        if classification == "체험단":
+            try:
+                settle = int(row[RAW_COL_SETTLE]) if len(row) > RAW_COL_SETTLE and row[RAW_COL_SETTLE] else 0
+            except (ValueError, TypeError):
+                settle = 0
+            buyer = str(row[13] or "").strip()  # 구매자명
+            trial["orders"] += 1; trial["units"] += units; trial["gross"] += amount
+            trial["excluded_profit"] += compute_product_profit("화장품", units, amount, settle, set_size, profit_cfg)
+            if buyer:
+                trial["buyers"].append(buyer)
 
     wb.close()
-    return {"by_option": by_option, "by_channel": by_channel}
+    # 옵션은 세트 크기(단품→1+1→2+2→3+3) 순으로 정렬해서 반환
+    by_option_sorted = {_option_label(sz): by_option[sz] for sz in sorted(by_option)}
+    return {"by_option": by_option_sorted, "by_channel": by_channel, "trial": trial}
 
 
 def main():

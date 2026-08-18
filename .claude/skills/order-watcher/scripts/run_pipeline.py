@@ -82,8 +82,9 @@ def find_all_order_files() -> tuple[list[Path], list[Path]]:
 
 
 def parse_cli(argv: list):
-    """positional 파일 경로 + 플래그(--month/--store/--latest/--all) 분리."""
+    """positional 파일 경로 + 플래그(--month/--store/--latest/--all/--rebuild/--images) 분리."""
     files, month, store, use_latest = [], datetime.now().strftime("%Y-%m"), None, False
+    rebuild, images = False, False
     i = 0
     while i < len(argv):
         a = argv[i]
@@ -95,10 +96,14 @@ def parse_cli(argv: list):
             use_latest = True
         elif a in ("--all", "--batch"):
             use_latest = False  # 전체 수집(기본값) — 명시용, --batch는 하위호환 별칭
+        elif a == "--rebuild":
+            rebuild = True  # 주문 파일이 하나도 없어도 Raw_Data 기준으로 재빌드 진행
+        elif a == "--images":
+            images = True  # STEP 5 완료 후 정산서 xlsx → PNG 이미지까지 내보내기 (월말 전용)
         elif not a.startswith("--"):
             files.append(Path(a))
         i += 1
-    return files, month, store, use_latest
+    return files, month, store, use_latest, rebuild, images
 
 
 def run_script(script_path, *args, input_data=None) -> dict:
@@ -123,10 +128,10 @@ def save_temp_json(data: dict, name: str) -> Path:
 
 def main():
     if len(sys.argv) < 2:
-        print("사용법: python run_pipeline.py <xlsx...> | --all | --latest  [--month YYYY-MM] [--store A|B]", file=sys.stderr)
+        print("사용법: python run_pipeline.py <xlsx...> | --all | --latest  [--month YYYY-MM] [--store A|B] [--rebuild] [--images]", file=sys.stderr)
         sys.exit(1)
 
-    files, target_month, file_store, use_latest = parse_cli(sys.argv[1:])
+    files, target_month, file_store, use_latest, rebuild, images = parse_cli(sys.argv[1:])
 
     # 처리할 주문 파일 목록 결정
     dup_files = []
@@ -144,8 +149,11 @@ def main():
             print(f"  · 중복 제외: {d.parent.name}/{d.name}", file=sys.stderr)
 
     if not order_files:
-        print("[ERROR] 처리할 주문 파일이 없습니다 (스케줄/input/Downloads).", file=sys.stderr)
-        sys.exit(1)
+        if not rebuild:
+            print("[ERROR] 처리할 주문 파일이 없습니다 (스케줄/input/Downloads). "
+                  "신규 파일 없이 Raw_Data 기준으로만 재빌드하려면 --rebuild를 추가하세요.", file=sys.stderr)
+            sys.exit(1)
+        print("[INFO] 주문 파일 없음 — --rebuild 지정됨, Raw_Data 기준으로 재빌드 진행", file=sys.stderr)
 
     print(f"\n{'='*50}", file=sys.stderr)
     print(f"파이프라인 시작: {len(order_files)}개 파일 / 정산월: {target_month}", file=sys.stderr)
@@ -208,6 +216,27 @@ def main():
         str(bucket_json), target_month
     )
     settlement_json = save_temp_json(settlement_data, "settlement.json")
+
+    # STEP 5.5 — 정산서 PNG 이미지 내보내기 (--images 지정 시, 월말 전용)
+    if images:
+        print("[STEP 5.5] 정산서 이미지 내보내기...", file=sys.stderr)
+        settlement_xlsx = SCHEDULE_DIR / f"유튜버별 월정산시트 작성 {target_month}_송부용.xlsx"
+        try:
+            img_result = subprocess.run(
+                [PYTHON_EXE,
+                 str(SKILLS_DIR / "settlement-generator" / "scripts" / "export_images.py"),
+                 str(settlement_xlsx)],
+                capture_output=True, text=True, encoding="utf-8", env=ENV_PYTHONUTF8
+            )
+            if img_result.stderr:
+                print(img_result.stderr, file=sys.stderr)
+            if img_result.returncode != 0:
+                print(f"[WARN] 이미지 내보내기 실패: {img_result.stderr[-300:]}", file=sys.stderr)
+            else:
+                img_data = json.loads(img_result.stdout)
+                print(f"[INFO] 이미지 {img_data.get('count', 0)}개 저장 완료", file=sys.stderr)
+        except Exception as e:
+            print(f"[WARN] 이미지 내보내기 실패: {e}", file=sys.stderr)
 
     # STEP 6 — 매출·수익 집계
     print("[STEP 6] 매출·수익 집계...", file=sys.stderr)

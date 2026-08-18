@@ -14,7 +14,7 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import openpyxl
 
-EXCEL_DIR   = Path(r"C:\Users\user\비서\스케줄")
+EXCEL_DIR   = Path(r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설")
 SHEET_NAME  = "인플루언서관리"
 CONFIG_PATH = Path(r"C:\Users\user\비서\.claude\skills\settlement-generator\scripts\ytber_config.json")
 
@@ -40,16 +40,16 @@ STATUS_CATEGORIES = {
 }
 
 
-def load_name_map() -> dict:
+def load_config() -> dict:
     try:
         with open(CONFIG_PATH, encoding="utf-8") as f:
-            return json.load(f).get("name_map", {})
+            return json.load(f)
     except Exception:
         return {}
 
 
 def find_latest_excel(excel_dir: Path) -> Path:
-    pattern = re.compile(r"인플루언서 관리_(\d{6})")
+    pattern = re.compile(r"유튜브 인플루언서 관리_공유_(\d{6})")
     candidates = []
     for f in excel_dir.glob("*.xlsx"):
         if f.name.startswith("~$") or "백업" in f.name:
@@ -120,7 +120,10 @@ def main():
     ad_by_month = {}    # "YYYY-MM" → 광고 이벤트 수 (1~4차 합산)
     exp_by_month = {}   # "YYYY-MM" → 체험수락 인원 수
 
-    name_map = load_name_map()
+    config = load_config()
+    name_map = config.get("name_map", {})
+    # 마스터DB 체험 날짜 외 추가 협찬 (유튜버명 → 협찬 발생 월 목록)
+    sponsor_extra = config.get("sponsor_extra", {})
     per_influencer = {}
 
     for col_idx in range(start_col, len(name_row)):
@@ -159,6 +162,12 @@ def main():
 
         # 인플루언서 관리 등록 = 최소 1회 체험진행 완료 기준
         exp_cnt = max(1, exp_cnt)
+
+        # 추가 협찬 반영 (예: 한 체험 차수에 제품 2개 협찬 → +1회)
+        extra_months = sponsor_extra.get(normalized_name) or sponsor_extra.get(name) or []
+        if isinstance(extra_months, list) and extra_months:
+            exp_months.extend(extra_months)
+            exp_cnt += len(extra_months)
 
         per_influencer[normalized_name] = {
             "status": category,

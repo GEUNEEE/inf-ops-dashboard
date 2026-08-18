@@ -46,3 +46,21 @@ foreach ($f in $files) {
 
 ## 감지 기준
 파일명이 `스마트스토어_주문조회_*.xlsx` 패턴인 파일이 `/input`에 생성되거나 이동될 때 트리거.
+
+## 월말 정산서 전체 실행 (`--rebuild --images`)
+
+기본 실행은 신규 주문 파일이 하나도 없으면 에러로 중단된다. 사용자가 "정산서까지 돌려줘" 등으로
+**신규 주문 파일 없이도 Raw_Data 기준으로 정산서(+이미지)까지 뽑아달라고** 명시적으로 요청한 경우에만
+아래처럼 `--rebuild --images`를 추가한다 (평소 주문 처리에는 절대 기본으로 붙이지 않음 — 월말 전용):
+
+```powershell
+$env:PYTHONUTF8 = "1"
+& "C:\Users\user\비서\.venv\Scripts\python.exe" `
+  "C:\Users\user\비서\.claude\skills\order-watcher\scripts\run_pipeline.py" `
+  --all --rebuild --images --month "2026-08"
+```
+
+- `--rebuild`: 스케줄/input/Downloads에 주문 파일이 0개여도 에러 없이 Raw_Data 기준으로 정산·대시보드 재빌드 진행
+- `--images`: STEP 5(정산서 생성) 직후 `settlement-generator/scripts/export_images.py`를 자동 호출해
+  `output/N월 정산/*.png`까지 생성 (기존엔 수동으로만 실행되던 단계)
+- 신규 주문 파일이 있는 평소 실행(`--all --month ...`)에는 두 플래그를 붙이지 않는다 — 이미지 변환은 Excel COM을 띄우는 무거운 작업이라 매번 돌릴 필요 없음

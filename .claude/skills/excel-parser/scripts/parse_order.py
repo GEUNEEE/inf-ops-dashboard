@@ -84,6 +84,19 @@ def get_existing_order_nos(rawdata_wb) -> set:
     return nos
 
 
+def get_existing_row_map(rawdata_wb) -> dict:
+    """주문번호 → 1-based 행 번호. 이미 기록된 주문의 금액을 나중에 더 정확한
+    파일이 왔을 때 덮어쓰기 위해 사용 (0원으로 박제되는 것 방지)."""
+    if RAWDATA_SHEET not in rawdata_wb.sheetnames:
+        return {}
+    ws = rawdata_wb[RAWDATA_SHEET]
+    row_map = {}
+    for i, row in enumerate(ws.iter_rows(min_row=2, values_only=True), start=2):
+        if row and row[0] is not None:
+            row_map[str(row[0]).strip()] = i
+    return row_map
+
+
 def safe_str(val) -> str:
     if val is None:
         return ""
@@ -215,10 +228,12 @@ def main():
     # Raw_Data 기존 주문번호 로드
     rawdata_wb = None
     existing_nos = set()
+    existing_row_map = {}
     if RAWDATA_PATH.exists():
         try:
             rawdata_wb = openpyxl.load_workbook(RAWDATA_PATH)
             existing_nos = get_existing_order_nos(rawdata_wb)
+            existing_row_map = get_existing_row_map(rawdata_wb)
             print(f"[INFO] 기존 Raw_Data: {len(existing_nos)}건", file=sys.stderr)
         except Exception as e:
             print(f"[WARN] Raw_Data 읽기 실패, 신규 파일 생성: {e}", file=sys.stderr)
@@ -262,6 +277,7 @@ def main():
     unregistered = []
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     new_count = 0
+    updated_count = 0
 
     for row in all_rows[header_idx + 1:]:
         order_no = safe_str(cell(row, "상품주문번호"))
@@ -302,8 +318,19 @@ def main():
             buckets["skipped"].append({"order_no": order_no, "ytber": ytber, "reason": "완전제외"})
             continue
 
-        # 중복 체크 (취소 건도 중복이면 스킵)
+        # 중복 체크 (취소 건도 중복이면 스킵) — 단, 기존 행의 금액이 0으로 박제돼 있고
+        # 이번 파일엔 실제 금액이 있으면 그 자리에서 덮어써 갱신한다 (다른 필드는 건드리지 않음).
         if order_no in existing_nos:
+            row_no = existing_row_map.get(order_no)
+            if row_no and (amount or settle_amount):
+                cur_amount  = safe_float(ws_raw.cell(row_no, 18).value)
+                cur_settle  = safe_float(ws_raw.cell(row_no, 19).value)
+                if not cur_amount and amount:
+                    ws_raw.cell(row_no, 18, int(amount))
+                    updated_count += 1
+                    print(f"[INFO] 주문금액 갱신: {order_no} 0 → {int(amount)}", file=sys.stderr)
+                if not cur_settle and settle_amount:
+                    ws_raw.cell(row_no, 19, int(settle_amount))
             continue
 
         ytber_label = ytber or config.get("general_sales_label", "기타/일반")
@@ -365,10 +392,12 @@ def main():
     RAWDATA_PATH.parent.mkdir(parents=True, exist_ok=True)
     rawdata_wb.save(RAWDATA_PATH)
     rawdata_wb.close()
-    print(f"[INFO] Raw_Data 저장: {RAWDATA_PATH} (신규 {new_count}건)", file=sys.stderr)
+    print(f"[INFO] Raw_Data 저장: {RAWDATA_PATH} (신규 {new_count}건"
+          + (f", 금액 갱신 {updated_count}건" if updated_count else "") + ")", file=sys.stderr)
 
     result = {
         "new_count":          new_count,
+        "updated_count":      updated_count,
         "settlement":         buckets["settlement"],
         "general":            buckets["general"],
         "excluded":           buckets["excluded"],

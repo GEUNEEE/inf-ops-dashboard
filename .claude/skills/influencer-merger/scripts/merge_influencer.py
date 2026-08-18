@@ -27,7 +27,7 @@ def sanitize(val):
 
 # ===================== CONFIG (로컬 경로) =====================
 # 소스 폴더 = 스카이님 공유용 스프레드 폴더 (CSV가 여기로 떨어짐)
-SOURCE_DIR    = r"C:\Users\user\비서\스케줄\스카이님 공유용 스프레드 개설"
+SOURCE_DIR    = r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설"
 SOURCE_GLOBS  = ["유튜브_인플루언서_리스트*.xlsx", "유튜브_인플루언서_리스트*.csv"]
 
 # 타겟 1: 마스터 DB (스케줄 폴더, "0." prefix 우선)
@@ -35,7 +35,7 @@ TARGET_DIR    = r"C:\Users\user\비서\스케줄"
 TARGET_GLOB   = "*유튜브*인플루언서*관리*.xlsx"
 # 타겟 2: 공유 파일 (소스 폴더 안에 같이 있음)
 SHARED_DIR    = SOURCE_DIR
-SHARED_GLOB   = "1. 유튜브 인플루언서 관리_공유_*.xlsx"
+SHARED_GLOB   = "유튜브 인플루언서 관리_공유_*.xlsx"
 
 # 처리할 타겟 목록 (라벨, 폴더, glob, 제외 키워드)
 TARGETS = [

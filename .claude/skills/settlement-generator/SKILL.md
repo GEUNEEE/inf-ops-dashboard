@@ -57,3 +57,17 @@ $env:PYTHONUTF8 = "1"
 `ytber_config.json`의 `name_map`과 `additional_managed`로 관리:
 - `name_map`: 주문 파일 유튜버명 → 정규화된 이름 매핑
 - `additional_managed`: 인플루언서관리 탭에 없지만 정산 대상인 유튜버 목록
+
+## PNG 이미지 출력 (export_images.py)
+
+정산 시트를 시트별 PNG로 `output/N월 정산/` 폴더에 내보내는 `export_images.py`가 같은 스킬 폴더에 있다.
+`run_pipeline.py`에는 기본으로 연결돼 있지 않고, `--images` 플래그를 줬을 때만 STEP 5 직후 자동 호출된다
+(월말에 "정산서까지 돌려줘"처럼 이미지까지 명시적으로 요청받았을 때 전용 — `order-watcher/SKILL.md` 참조).
+단독 실행도 가능:
+
+```powershell
+& "C:\Users\user\비서\.venv\Scripts\python.exe" `
+  "C:\Users\user\비서\.claude\skills\settlement-generator\scripts\export_images.py" `
+  "C:\Users\user\비서\스케줄\유튜버별 월정산시트 작성 YYYY-MM_송부용.xlsx"
+```
+출력 기본 경로: `output/N월 정산/`. Raw_Data·기타일반 시트는 자동 제외.

@@ -57,9 +57,15 @@ def write_report(direction, delta, conf_inf, conf_mail):
     return p
 
 def write_kakao(text):
+    """미발송 대기 메시지 누적 기록 (덮어쓰기 금지 — 세션 닫힌 사이 여러 슬롯 메시지 보존).
+    여러 건은 '— — —' 구분선으로 나뉘며 SessionStart 훅이 건별 발송."""
     os.makedirs(os.path.dirname(KAKAO_PENDING), exist_ok=True)
+    prev = ""
+    if os.path.exists(KAKAO_PENDING):
+        with open(KAKAO_PENDING, encoding="utf-8") as f:
+            prev = f.read().strip()
     with open(KAKAO_PENDING, "w", encoding="utf-8") as f:
-        f.write(text)
+        f.write((prev + "\n— — —\n" + text) if prev else text)
 
 def run(direction, dry_run=False):
     local, shared = C.latest_local(), C.SHARED_FILE
@@ -90,8 +96,21 @@ def run(direction, dry_run=False):
 
     target = local if direction == "pull" else shared
     source = shared if direction == "pull" else local
-    applied, bkp = A.apply_delta(source, target, d, inf_add_front=(direction == "pull"))
+    arrow = "공유본→로컬" if direction == "pull" else "로컬→공유본"
+    try:
+        applied, bkp = A.apply_delta(source, target, d, inf_add_front=(direction == "pull"))
+    except A.IntegrityError as e:
+        # 델타 범위 밖 변경 감지 -> 대상 원본 무변경(교체 취소됨). 스냅샷도 갱신 안 함 -> 다음 실행 재시도.
+        for p in e.problems[:20]:
+            log("[무결성 위반] " + p)
+        log("[중단] 무결성 검증 실패 %d건 — 적용 취소, 대상 파일 무변경" % len(e.problems))
+        write_kakao("⚠️ DB 동기화 중단 (%s)\n무결성 위반 %d건 감지 — 변경 미적용, 원본 보존\n예: %s\n🕒 %s"
+                    % (arrow, len(e.problems), e.problems[0][:80], now()))
+        return 4
+    dup_skip = applied.pop("inf_add_dup_skip", [])
     log("적용: %s | 백업: %s" % (applied, os.path.basename(bkp)))
+    if dup_skip:
+        log("[중복방지] 동명 인플 삽입 스킵: %s — 키(연락처) 불일치 확인 필요" % ", ".join(dup_skip))
 
     # 스냅샷 갱신(현재상태) + 충돌 마커 박기
     C.save_snapshot(now() + "_" + direction)
@@ -99,13 +118,14 @@ def run(direction, dry_run=False):
 
     # 카톡 메시지
     nconf = len(conf_inf) + len(conf_mail)
-    arrow = "공유본→로컬" if direction == "pull" else "로컬→공유본"
     msg = ["🔄 DB 동기화 (%s)" % arrow]
     if direction == "pull":
         msg.append("• 신규행 %d · 상태갱신 %d" % (applied["mail_append"], applied["mail_status"]))
         msg.append("• 인플 갱신 %d · 신규인플 %d" % (applied["inf_update"], applied["inf_add"]))
     else:
         msg.append("• 인플 갱신 %d · 신규인플 %d" % (applied["inf_update"], applied["inf_add"]))
+    if dup_skip:
+        msg.append("⚠️ 동명 인플 %d명 삽입 스킵(중복방지): %s" % (len(dup_skip), ", ".join(dup_skip[:3])))
     if nconf:
         msg.append("⚠️ 확인 필요 %d건 (미적용) — 리포트 확인" % nconf)
         rp = write_report(direction, d, conf_inf, conf_mail)

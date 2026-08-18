@@ -378,7 +378,9 @@ def main():
     ytber_info_map = {**config.get("ytber_info", {}), **load_ytber_info()}
     name_map      = config.get("name_map", {})
     # 정산 미지급(no_settlement): 해당 월에 커미션 0인 유튜버. 흑염소 매출은 유지, 정산액만 0.
-    no_settle_set = set(config.get("no_settlement", {}).get(settlement_month, []))
+    # '*' 키는 월과 무관하게 상시 적용.
+    no_settle_cfg = config.get("no_settlement", {})
+    no_settle_set = set(no_settle_cfg.get(settlement_month, [])) | set(no_settle_cfg.get("*", []))
     if no_settle_set:
         print(f"[INFO] 정산 미지급 유튜버({settlement_month}): {sorted(no_settle_set)}", file=sys.stderr)
 

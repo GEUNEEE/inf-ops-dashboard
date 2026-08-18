@@ -14,7 +14,7 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import pandas as pd
 
-EXCEL_DIR  = Path(r"C:\Users\user\비서\스케줄")
+EXCEL_DIR  = Path(r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설")
 OUTPUT_DIR = Path(r"C:\Users\user\비서\output")
 SHEET_NAME = "인플루언서관리"
 
@@ -50,17 +50,17 @@ STATUS_EMOJI = {
 
 
 def find_latest_excel(excel_dir: Path) -> Path:
-    pattern = re.compile(r"인플루언서 관리_(\d{6})")
+    pattern = re.compile(r"유튜브 인플루언서 관리_공유_(\d{6})")
     candidates = []
     for f in excel_dir.glob("*.xlsx"):
-        if f.name.startswith("~$"):
+        if f.name.startswith("~$") or "백업" in f.name:
             continue
         m = pattern.search(f.name)
         if m:
             candidates.append((int(m.group(1)), f.name, f))
     if not candidates:
         raise FileNotFoundError(
-            f"'{excel_dir}'에서 '인플루언서 관리_YYMMDD' 패턴 xlsx 파일을 찾을 수 없습니다."
+            f"'{excel_dir}'에서 '유튜브 인플루언서 관리_공유_YYMMDD' 패턴 xlsx 파일을 찾을 수 없습니다."
         )
     candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
     return candidates[0][2]
@@ -192,16 +192,23 @@ def main():
 
         # 광고 날짜 미입력 체크: n차 체험 날짜는 있는데 n차 광고 날짜가 없는 경우
         missing_ad = []
-        for trigger_item, ad_item in AD_PAIRS:
-            if trigger_item not in date_rows or ad_item not in date_rows:
-                continue
-            trigger_date = parse_date_cell(df.iloc[date_rows[trigger_item], col_idx])
-            ad_date = parse_date_cell(df.iloc[date_rows[ad_item], col_idx])
-            if trigger_date is not None and ad_date is None:
-                missing_ad.append({
-                    "trigger": trigger_item,
-                    "missing": ad_item,
-                })
+        # 상태가 N차 광고예정이면 해당 광고는 이미 예정으로 처리된 것이므로 연체 없음
+        if not normalized_status.endswith("광고예정"):
+            # upcoming에 이미 잡혀있는 ad_item은 missing_ad에서 제외
+            upcoming_item_names = {u["item"] for u in upcoming}
+            for trigger_item, ad_item in AD_PAIRS:
+                if trigger_item not in date_rows or ad_item not in date_rows:
+                    continue
+                trigger_date = parse_date_cell(df.iloc[date_rows[trigger_item], col_idx])
+                ad_date = parse_date_cell(df.iloc[date_rows[ad_item], col_idx])
+                if trigger_date is not None and ad_date is None:
+                    # upcoming에 해당 ad_item이 있으면 이미 날짜가 잡힌 것 → 제외
+                    if ad_item in upcoming_item_names:
+                        continue
+                    missing_ad.append({
+                        "trigger": trigger_item,
+                        "missing": ad_item,
+                    })
 
         # 체험 시작일: N차 체험 중 가장 마지막(높은 차수) 날짜, 없으면 섭취 시작일
         experience_start_date = None

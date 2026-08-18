@@ -42,6 +42,9 @@ $env:PYTHONUTF8 = "1"; $env:SMARTSTORE_XLSX_PASSWORD = "1234"
 - `generate_sheets.py` 실행
 - **Raw_Data 해당 월 전체** 기준으로 시트 생성 (bucket 신규분만 아님)
 - name_map 정규화 + history 파일로 누적 수량 보완
+- 사용자가 "정산서까지 돌려줘"처럼 이미지 출력까지 명시적으로 요청한 경우에만 `run_pipeline.py`에
+  `--images` 플래그 추가 → STEP 5 직후 `export_images.py`를 자동 호출해 `output/N월 정산/*.png` 생성.
+  신규 주문 파일이 없어도 이 요청이면 `--rebuild`도 함께 붙인다. 평소 주문 처리 트리거에는 두 플래그 모두 붙이지 않음.
 
 ### STEP 6 — 매출·수익 집계
 - `build_revenue.py` 실행

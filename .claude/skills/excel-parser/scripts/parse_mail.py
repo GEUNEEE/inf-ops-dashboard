@@ -14,7 +14,20 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import openpyxl
 
-EXCEL_DIR  = Path(r"C:\Users\user\비서\스케줄")
+# 2026-08부터: 메일발송현황·인플루언서관리 둘 다 스카이님 공유 스프레드시트가 소스
+# (발송 로그·상태값 모두 이쪽이 최신 — parse_inf.py도 동일 경로 사용)
+_SHARED_DIR = Path(r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설")
+_SHARED_PATTERN = re.compile(r"유튜브 인플루언서 관리_공유_(\d{6})")
+
+def _find_shared_xlsx() -> Path:
+    candidates = [(int(m.group(1)), f) for f in _SHARED_DIR.glob("*.xlsx")
+                  if not f.name.startswith("~$") and "백업" not in f.name and (m := _SHARED_PATTERN.search(f.name))]
+    if not candidates:
+        raise FileNotFoundError(f"공유 스프레드시트를 찾을 수 없습니다: {_SHARED_DIR}")
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    return candidates[0][1]
+
+MAIL_SOURCE_XLSX = _find_shared_xlsx()
 SHEET_NAME = "메일발송현황"
 
 # 0-based 열 인덱스 (실제 메일발송현황 시트 기준)
@@ -27,21 +40,6 @@ COL_AD_DATE     = 31  # AF 광고 수락일
 DATA_START_ROW  = 7   # 1-based
 
 ETC_KEYWORDS = {"검토", "진행불가", "우리측거절", "기타"}
-
-
-def find_latest_excel(excel_dir: Path) -> Path:
-    pattern = re.compile(r"인플루언서 관리_(\d{6})")
-    candidates = []
-    for f in excel_dir.glob("*.xlsx"):
-        if f.name.startswith("~$") or "백업" in f.name:
-            continue
-        m = pattern.search(f.name)
-        if m:
-            candidates.append((int(m.group(1)), f.name, f))
-    if not candidates:
-        raise FileNotFoundError(f"'{excel_dir}'에서 마스터 DB xlsx를 찾을 수 없습니다.")
-    candidates.sort(key=lambda x: (x[0], x[1]), reverse=True)
-    return candidates[0][2]
 
 
 def cell_val(ws, row_1based, col_0based):
@@ -69,12 +67,15 @@ def normalize_status(raw) -> str:
 
 def main():
     try:
-        excel_path = find_latest_excel(EXCEL_DIR)
+        excel_path = _find_shared_xlsx()
     except FileNotFoundError as e:
         print(f"[ERROR] {e}", file=sys.stderr)
         sys.exit(1)
+    if not excel_path.exists():
+        print(f"[ERROR] 메일발송현황 소스 파일을 찾을 수 없습니다: {excel_path}", file=sys.stderr)
+        sys.exit(1)
 
-    print(f"[INFO] 마스터DB: {excel_path.name}", file=sys.stderr)
+    print(f"[INFO] 메일발송현황 소스(공유 스프레드시트): {excel_path.name}", file=sys.stderr)
 
     try:
         wb = openpyxl.load_workbook(excel_path, data_only=True, read_only=True)
@@ -103,10 +104,10 @@ def main():
             return None
         if isinstance(val, (datetime, date)):
             return val.strftime("%Y-%m")
-        try:
-            return datetime.strptime(str(val).strip(), "%Y-%m-%d").strftime("%Y-%m")
-        except Exception:
-            return None
+        # 동기화로 "2026-07-01  12:00:00 AM"처럼 시간/AM-PM이 붙은 텍스트가 들어와도
+        # 앞의 YYYY-MM-DD만 추출해 월 귀속시킨다 (뒷부분 시간 표기는 무시).
+        m = re.match(r"(\d{4})-(\d{2})-\d{2}", str(val).strip())
+        return f"{m.group(1)}-{m.group(2)}" if m else None
 
     def _bm(ym_key):
         """월별 집계 버킷 get-or-create"""

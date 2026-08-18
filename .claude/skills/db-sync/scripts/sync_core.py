@@ -8,8 +8,19 @@ import os, re, json, glob
 
 # ---------- 경로 ----------
 SCHEDULE_DIR = r"C:\Users\user\비서\스케줄"
-SHARED_DIR   = os.path.join(SCHEDULE_DIR, "스카이님 공유용 스프레드 개설")
-SHARED_FILE  = os.path.join(SHARED_DIR, "1. 유튜브 인플루언서 관리_공유_260619.xlsx")
+SHARED_DIR   = r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설"
+
+def _find_shared_file():
+    import re as _re
+    _pat = _re.compile(r"유튜브 인플루언서 관리_공유_(\d{6})")
+    cands = [(int(m.group(1)), f) for f in glob.glob(os.path.join(SHARED_DIR, "*.xlsx"))
+             if not os.path.basename(f).startswith("~$") and "백업" not in os.path.basename(f) and (m := _pat.search(os.path.basename(f)))]
+    if not cands:
+        raise FileNotFoundError("공유 스프레드시트를 찾을 수 없습니다: " + SHARED_DIR)
+    cands.sort(key=lambda x: x[0], reverse=True)
+    return cands[0][1]
+
+SHARED_FILE = _find_shared_file()
 SNAP_DIR     = r"C:\Users\user\비서\output\sync_snapshot"
 
 def latest_local():
