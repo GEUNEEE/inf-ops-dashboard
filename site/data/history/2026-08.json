@@ -1,48 +1,48 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-18T15:46:18",
-  "gross_revenue": 3880000,
-  "net_profit": 2180000,
-  "order_count": 24,
-  "unit_count": 32,
-  "operating_profit": 1860000,
-  "operating_profit_rate": 0.4794,
-  "total_sent": 3472,
+  "generated_at": "2026-08-19T08:26:27",
+  "gross_revenue": 4240000,
+  "net_profit": 2280000,
+  "order_count": 26,
+  "unit_count": 35,
+  "operating_profit": 1930000,
+  "operating_profit_rate": 0.4552,
+  "total_sent": 3533,
   "replied": 362,
   "meeting_total": 116,
   "exp_total": 63,
-  "ad_total": 40,
-  "reply_rate": 0.1043,
-  "exp_rate": 0.0181,
-  "ad_rate": 0.0115,
-  "meeting_rate": 0.0334,
+  "ad_total": 43,
+  "reply_rate": 0.1025,
+  "exp_rate": 0.0178,
+  "ad_rate": 0.0122,
+  "meeting_rate": 0.0328,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 30,
+    "체험진행_1차": 33,
     "체험진행_2차": 1,
     "체험진행_3차": 1,
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 2,
-    "기타": 33
+    "기타": 32
   },
   "influencers": {
     "C맹씨": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 24,
+      "order_count": 2,
+      "qty": 2,
+      "cumulative_qty": 25,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 40000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
     "야너두": {
-      "order_count": 4,
-      "qty": 5,
-      "cumulative_qty": 8,
+      "order_count": 5,
+      "qty": 7,
+      "cumulative_qty": 10,
       "unit_price": 20000,
-      "amount": 100000,
+      "amount": 140000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -98,7 +98,7 @@
       "unit_price": 20000,
       "amount": 20000,
       "is_general": false,
-      "sponsor_cost_this_month": 0
+      "sponsor_cost_this_month": 40000
     },
     "하이수달": {
       "order_count": 2,
@@ -117,13 +117,22 @@
       "amount": 0,
       "is_general": true,
       "sponsor_cost_this_month": 0
+    },
+    "티티준석": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
     }
   },
   "by_product": {
     "흑염소": {
-      "qty": 32,
-      "order_count": 24,
-      "gross_revenue": 3880000,
+      "qty": 35,
+      "order_count": 26,
+      "gross_revenue": 4240000,
       "net_profit": 0
     },
     "화장품": {
@@ -135,9 +144,9 @@
   },
   "by_store": {
     "B": {
-      "qty": 23,
-      "order_count": 19,
-      "gross_revenue": 2760000
+      "qty": 26,
+      "order_count": 21,
+      "gross_revenue": 3120000
     },
     "A": {
       "qty": 9,
