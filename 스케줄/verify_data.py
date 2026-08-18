@@ -24,8 +24,8 @@ history = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in hist_files
 
 P  = cfg["product_unit_price"]     # 120,000
 G  = cfg["general_unit_price"]     # 130,000
-GS = cfg["general_settlement_price"]  # 84,000
 L  = cfg["labor_cost_per_unit"]    # 10,000
+C  = cfg.get("cogs_per_unit", 0)   # 40,000 (2026-08부터 적용, 그 이전 history는 미적용)
 
 errors = []
 warnings = []
@@ -40,7 +40,7 @@ s_qty  = sum(s["qty"] for s in sett["summaries"] if not s["is_general"])
 g_qty  = sum(s["qty"] for s in sett["summaries"] if s["is_general"])
 s_amt  = sum(s["settlement_amount"] or 0 for s in sett["summaries"] if not s["is_general"])
 gross_calc = s_qty * P + g_qty * G
-inf_cost_calc = s_amt + g_qty * GS
+inf_cost_calc = s_amt  # 기타/일반은 정산 대상 유튜버가 없어 정산비 없음 (원가만 cogs에서 차감)
 # 협찬원가는 인당 1회가 아니라 발생 횟수 기준 (예: 한 차수에 2개 협찬 → exp_months에 같은 월 2회)
 sponsor = sum(
     40000 * sum(1 for m in v.get("exp_months", []) if m == sett["settlement_month"])
@@ -48,11 +48,12 @@ sponsor = sum(
     if isinstance(v, dict)
 )
 labor = (s_qty + g_qty) * L
-net_calc  = gross_calc - inf_cost_calc - sponsor
+cogs  = (s_qty + g_qty) * C
+net_calc  = gross_calc - inf_cost_calc - sponsor - cogs
 oper_calc = net_calc - labor
 
 print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,} = ₩{gross_calc:,}")
-print(f"  정산비 ₩{s_amt:,} + 기타 {g_qty}×₩{GS:,} = ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 노무 ₩{labor:,}")
+print(f"  정산비(정산대상만) ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 원가 ₩{cogs:,} / 노무 ₩{labor:,}")
 
 if gross_calc == rev["gross_revenue"]:
     ok(f"gross_revenue ✅ ₩{gross_calc:,}")

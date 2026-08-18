@@ -57,8 +57,8 @@ def main():
     config = load_config()
     product_unit_price       = config.get("product_unit_price", 120000)
     general_unit_price       = config.get("general_unit_price", 130000)
-    general_settlement_price = config.get("general_settlement_price", 84000)
     labor_cost_per_unit      = config.get("labor_cost_per_unit", 20000)
+    cogs_per_unit             = config.get("cogs_per_unit", 0)
 
     settlement_orders = bucket_data.get("settlement", [])
     general_orders    = bucket_data.get("general", [])
@@ -76,14 +76,12 @@ def main():
     # 매출: 인플루언서 수량 × 120,000 + 기타/일반 수량 × 130,000
     gross_revenue = unit_count * product_unit_price + general_count * general_unit_price
 
-    # 인플루언서 정산 비용 (settlement 버킷) + 기타/일반 정산 비용 (84,000/개)
+    # 인플루언서 정산 비용 (settlement 버킷만 — 기타/일반은 정산 대상 유튜버가 없어 정산비 없음, 원가만 차감)
     influencer_cost = sum(
         s.get("settlement_amount") or 0
         for s in settlement_data.get("summaries", [])
         if not s.get("is_general", False)
     )
-    general_settlement_cost = general_count * general_settlement_price
-    influencer_cost += general_settlement_cost
 
     # 협찬원가: 해당 월에 체험 날짜가 있는 건 × 40,000
     per_influencer = inf_data.get("per_influencer", {})
@@ -97,8 +95,11 @@ def main():
             if isinstance(info, dict)
         )
 
-    # 수익 = 매출 - 정산비 - 협찬원가
-    net_profit = gross_revenue - influencer_cost - sponsor_cost
+    # 원가 (COGS): 전체 판매수량 × 개당 원가
+    cogs_cost = total_qty * cogs_per_unit
+
+    # 수익 = 매출 - 정산비 - 협찬원가 - 원가
+    net_profit = gross_revenue - influencer_cost - sponsor_cost - cogs_cost
 
     # 영업이익 = 수익 - 눈길 인건비(qty × 20,000)
     labor_cost       = total_qty * labor_cost_per_unit
@@ -110,6 +111,7 @@ def main():
         "gross_revenue":    int(gross_revenue),
         "influencer_cost":  int(influencer_cost),
         "sponsor_cost":     int(sponsor_cost),
+        "cogs_cost":        int(cogs_cost),
         "labor_cost":       int(labor_cost),
         "net_profit":       int(net_profit),
         "operating_profit": int(operating_profit),

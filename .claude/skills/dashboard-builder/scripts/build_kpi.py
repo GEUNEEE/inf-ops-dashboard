@@ -32,8 +32,16 @@ def load_product_meta() -> dict:
     }
 
 GROSS_PRICE_PER_UNIT = 120000  # 매출 단가
-COGS_PER_UNIT        = 36000   # 원가
 MARGIN_GENERAL       = 84000   # 기타/일반 정산가
+
+
+def _load_cogs_per_unit() -> int:
+    """ytber_config.json의 cogs_per_unit을 단일 소스로 사용 (build_revenue.py와 동일 값)."""
+    try:
+        cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+        return cfg.get("cogs_per_unit", 0)
+    except Exception:
+        return 0
 
 
 def tier_price(cum: int) -> int:
@@ -63,7 +71,7 @@ def load_json(path_or_dash: str) -> dict:
 
 GROSS_PRICE_INF = 120000  # 정산대상 인플루언서 매출 단가
 GROSS_PRICE_GEN = 130000  # 기타/일반 매출 단가
-COGS_PER_UNIT   = 36000   # 원가 (개당)
+COGS_PER_UNIT   = _load_cogs_per_unit()  # 원가 (개당) — ytber_config.json 단일 소스
 
 
 def build_profit_analysis(per_influencer: dict | None = None) -> dict:
@@ -402,14 +410,16 @@ def main():
 
     product_meta = load_product_meta()
 
-    # 현재월 화장품 옵션/채널 집계 (현재월 스냅샷에서만 — 과거월은 건드리지 않음)
+    # 화장품 옵션/채널 누적 집계 (전체 기간) — 자사몰처럼 특정 달에만 주문이
+    # 몰린 채널도 달이 바뀌었다고 대시보드에서 사라지지 않도록 월 제한 없이 집계.
     cosmetics_breakdown = {}
-    _cur_snap = HISTORY_DIR / f"{current_month}.json"
-    if _cur_snap.exists():
-        try:
-            cosmetics_breakdown = json.loads(_cur_snap.read_text(encoding="utf-8")).get("cosmetics_breakdown", {})
-        except Exception:
-            cosmetics_breakdown = {}
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from build_snapshot import aggregate_cosmetics_breakdown
+        cosmetics_breakdown = aggregate_cosmetics_breakdown(None)
+    except Exception as e:
+        print(f"[WARN] 화장품 채널 누적 집계 실패: {e}", file=sys.stderr)
+        cosmetics_breakdown = {}
 
     dashboard = {
         "generated_at":           now.isoformat(timespec="seconds"),

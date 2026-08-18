@@ -20,7 +20,7 @@
   // ── 구간 단가 ─────────────────────────────────────────────────────────────
   const GROSS_PRICE_INF  = 120000; // 정산대상 매출 단가
   const GROSS_PRICE_GEN  = 130000; // 기타/일반 매출 단가
-  const COGS             = 36000;  // 원가 (개당)
+  const COGS             = 40000;  // 원가 (개당)
   const MARGIN_GENERAL   = 84000;  // 기타/일반 정산가
 
   function tierPrice(cumQty) {
@@ -569,13 +569,9 @@
       } else {
         const qty = item['수량'] ?? 0;
         if (qty > 0) {
-          const mCum = item['누적수량'] ?? 0;
-          const mPrevCum = Math.max(mCum - qty, 0);
-          let settlementAmt = 0;
-          if (isTarget) {
-            for (let q = mPrevCum; q < mCum; q++) settlementAmt += tierPrice(q + 1);
-          }
-          // 기여수익 = 매출 − 원가(3.6만×qty) − 정산액 − 해당월 협찬원가
+          // 정산액은 재계산하지 않고 백엔드 값(정산미지급 등 예외 이미 반영됨)을 그대로 사용
+          const settlementAmt = isTarget ? (item['금액'] || 0) : 0;
+          // 기여수익 = 매출 − 원가(COGS×qty) − 정산액 − 해당월 협찬원가
           const expMonths = item['체험월목록'] || [];
           const monthSponsorCost = expMonths.filter(m => m === month).length * 40000;
           const grossRev = qty * (isTarget ? GROSS_PRICE_INF : GROSS_PRICE_GEN);
@@ -809,12 +805,8 @@
       items = Object.entries(h.influencers || {}).map(([name, d]) => {
         const qty     = d.qty || 0;
         const isGen   = d.is_general || false;
-        const cum     = d.cumulative_qty || 0;
-        const prevCum = Math.max(cum - qty, 0);
-        let settlementAmt = 0;
-        if (!isGen) {
-          for (let q = prevCum; q < cum; q++) settlementAmt += tierPrice(q + 1);
-        }
+        // 정산액은 재계산하지 않고 백엔드 값(정산미지급 등 예외 이미 반영됨)을 그대로 사용
+        const settlementAmt = isGen ? 0 : (d.amount || 0);
         let sponsorCost = d.sponsor_cost_this_month || 0;
         if (!sponsorCost) {
           const expMonths = (ss[name] || {})['체험월목록'] || [];
