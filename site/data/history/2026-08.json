@@ -1,6 +1,6 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-21T10:33:11",
+  "generated_at": "2026-08-21T10:33:40",
   "gross_revenue": 4480000,
   "net_profit": 2240000,
   "order_count": 27,
@@ -175,7 +175,9 @@
       "qty": 11,
       "order_count": 4,
       "gross_revenue": 317000,
-      "net_profit": 212805
+      "net_profit": 186405,
+      "trial_orders": 1,
+      "trial_units": 1
     }
   },
   "by_store": {
@@ -213,11 +215,13 @@
       }
     },
     "trial": {
-      "orders": 0,
-      "units": 0,
-      "gross": 0,
-      "excluded_profit": 0,
-      "buyers": []
+      "orders": 1,
+      "units": 1,
+      "gross": 38000,
+      "excluded_profit": 26400,
+      "buyers": [
+        "이세헌"
+      ]
     }
   }
 }

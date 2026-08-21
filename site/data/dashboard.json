@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T10:33:12",
+  "generated_at": "2026-08-21T10:33:41",
   "current_month": "2026-08",
   "products": [
     {
@@ -1393,7 +1393,9 @@
           "qty": 11,
           "order_count": 4,
           "gross_revenue": 317000,
-          "net_profit": 212805
+          "net_profit": 186405,
+          "trial_orders": 1,
+          "trial_units": 1
         }
       }
     },
@@ -1744,16 +1746,17 @@
       }
     },
     "trial": {
-      "orders": 5,
-      "units": 5,
-      "gross": 190000,
-      "excluded_profit": 132000,
+      "orders": 6,
+      "units": 6,
+      "gross": 228000,
+      "excluded_profit": 158400,
       "buyers": [
         "전나영",
         "유효진",
         "이윤희",
         "최현",
-        "박광훈"
+        "박광훈",
+        "이세헌"
       ]
     }
   },
