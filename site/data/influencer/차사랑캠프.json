@@ -1,7 +1,7 @@
 {
   "name": "차사랑캠프",
   "current_status": "1차 체험진행",
-  "cumulative_qty": 6,
+  "cumulative_qty": 8,
   "current_tier_price": 0,
   "monthly_orders": [
     {
@@ -11,7 +11,7 @@
     },
     {
       "month": "2026-08",
-      "qty": 3,
+      "qty": 5,
       "amount": 0
     }
   ],

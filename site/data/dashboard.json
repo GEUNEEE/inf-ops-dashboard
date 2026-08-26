@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T09:09:24",
+  "generated_at": "2026-08-26T09:31:31",
   "current_month": "2026-08",
   "products": [
     {
@@ -31,27 +31,27 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 27,
-    "unit_count": 37,
-    "gross_revenue": 4480000,
-    "influencer_cost": 520000,
+    "order_count": 30,
+    "unit_count": 41,
+    "gross_revenue": 4970000,
+    "influencer_cost": 540000,
     "sponsor_cost": 240000,
-    "cogs_cost": 1480000,
-    "labor_cost": 370000,
-    "net_profit": 2240000,
-    "operating_profit": 1870000
+    "cogs_cost": 1640000,
+    "labor_cost": 410000,
+    "net_profit": 2550000,
+    "operating_profit": 2140000
   },
   "mail_funnel": {
-    "total_sent": 3533,
+    "total_sent": 3583,
     "etc_excluded": 81,
-    "replied": 366,
-    "reply_rate": 0.1036,
-    "meeting_total": 122,
-    "meeting_rate": 0.0345,
-    "exp_total": 67,
+    "replied": 369,
+    "reply_rate": 0.103,
+    "meeting_total": 124,
+    "meeting_rate": 0.0346,
+    "exp_total": 68,
     "exp_rate": 0.019,
     "ad_total": 47,
-    "ad_rate": 0.0133
+    "ad_rate": 0.0131
   },
   "inf_status": {
     "미팅_대기": 0,
@@ -101,9 +101,9 @@
       "현재상태": "1차 체험진행"
     },
     "차사랑캠프": {
-      "건수": 3,
-      "수량": 3,
-      "누적수량": 6,
+      "건수": 4,
+      "수량": 5,
+      "누적수량": 8,
       "현재단가": 0,
       "금액": 0,
       "체험횟수": 4,
@@ -193,11 +193,11 @@
       "현재상태": "1차 체험진행"
     },
     "하이수달": {
-      "건수": 2,
-      "수량": 3,
-      "누적수량": 3,
+      "건수": 3,
+      "수량": 4,
+      "누적수량": 4,
       "현재단가": 20000,
-      "금액": 60000,
+      "금액": 80000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [],
@@ -221,10 +221,10 @@
       "현재상태": "1차 광고예정"
     },
     "기타/일반": {
-      "건수": 2,
-      "수량": 4,
+      "건수": 3,
+      "수량": 5,
       "단가": 84000,
-      "금액": 336000,
+      "금액": 420000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -379,7 +379,9 @@
       "금액": 0,
       "체험횟수": 1,
       "협찬원가": 40000,
-      "체험월목록": [],
+      "체험월목록": [
+        "2026-07"
+      ],
       "정산대상": true,
       "현재상태": "1차 체험진행"
     },
@@ -1225,7 +1227,7 @@
       0.1404,
       0.1077,
       0.1074,
-      0.1036
+      0.103
     ],
     "exp_rate": [
       0.0379,
@@ -1241,7 +1243,7 @@
       0.0192,
       0.0131,
       0.0132,
-      0.0133
+      0.0131
     ],
     "meeting_rate": [
       0.0328,
@@ -1249,7 +1251,7 @@
       0.0457,
       0.0318,
       0.0324,
-      0.0345
+      0.0346
     ],
     "gross_revenue": [
       1200000,
@@ -1257,7 +1259,7 @@
       4670000,
       4250000,
       3570000,
-      4480000
+      4970000
     ],
     "net_profit": [
       560000,
@@ -1265,7 +1267,7 @@
       2506000,
       2082000,
       2134000,
-      2240000
+      2550000
     ],
     "total_sent": [
       396,
@@ -1273,7 +1275,7 @@
       1510,
       2516,
       3026,
-      3533
+      3583
     ],
     "replied": [
       48,
@@ -1281,7 +1283,7 @@
       212,
       271,
       325,
-      366
+      369
     ],
     "meeting_total": [
       13,
@@ -1289,7 +1291,7 @@
       69,
       80,
       98,
-      122
+      124
     ],
     "exp_total": [
       15,
@@ -1297,7 +1299,7 @@
       44,
       55,
       63,
-      67
+      68
     ],
     "ad_total": [
       10,
@@ -1314,7 +1316,7 @@
       2126000,
       1742000,
       1844000,
-      1870000
+      2140000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1322,7 +1324,7 @@
       0.4553,
       0.4099,
       0.5165,
-      0.4174
+      0.4306
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1384,9 +1386,9 @@
       },
       "2026-08": {
         "흑염소": {
-          "qty": 37,
-          "order_count": 27,
-          "gross_revenue": 4480000,
+          "qty": 41,
+          "order_count": 30,
+          "gross_revenue": 4970000,
           "net_profit": 0
         },
         "화장품": {
@@ -1420,14 +1422,14 @@
       },
       "2026-08": {
         "B": {
-          "qty": 28,
-          "order_count": 22,
-          "gross_revenue": 3360000
+          "qty": 31,
+          "order_count": 24,
+          "gross_revenue": 3720000
         },
         "A": {
-          "qty": 9,
-          "order_count": 5,
-          "gross_revenue": 1120000
+          "qty": 10,
+          "order_count": 6,
+          "gross_revenue": 1250000
         }
       }
     }
@@ -1491,22 +1493,22 @@
     "2026-07": {
       "sent": 856,
       "replied": 74,
-      "meeting": 25,
-      "exp": 15,
+      "meeting": 26,
+      "exp": 16,
       "ad": 0,
       "reply_rate": 0.0864,
-      "meeting_rate": 0.0292,
-      "exp_rate": 0.0175,
+      "meeting_rate": 0.0304,
+      "exp_rate": 0.0187,
       "ad_rate": 0.0
     },
     "2026-08": {
       "sent": 155,
-      "replied": 18,
-      "meeting": 12,
+      "replied": 21,
+      "meeting": 13,
       "exp": 8,
       "ad": 0,
-      "reply_rate": 0.1161,
-      "meeting_rate": 0.0774,
+      "reply_rate": 0.1355,
+      "meeting_rate": 0.0839,
       "exp_rate": 0.0516,
       "ad_rate": 0.0
     }
@@ -1559,11 +1561,11 @@
         "cumulative_profit": 7684000
       },
       "2026-08": {
-        "gross_revenue": 4480000,
-        "unit_count": 37,
-        "operating_profit": 1870000,
-        "operating_profit_rate": 0.4174,
-        "cumulative_profit": 9554000
+        "gross_revenue": 4970000,
+        "unit_count": 41,
+        "operating_profit": 2140000,
+        "operating_profit_rate": 0.4306,
+        "cumulative_profit": 9824000
       }
     },
     "influencer_cumulative": {
@@ -1588,9 +1590,9 @@
         "contribution": 120000
       },
       "기타/일반": {
-        "qty": 56,
+        "qty": 57,
         "settlement": 0,
-        "contribution": 5040000
+        "contribution": 5130000
       },
       "바다로간배스": {
         "qty": 2,
@@ -1628,9 +1630,9 @@
         "contribution": 120000
       },
       "차사랑캠프": {
-        "qty": 6,
+        "qty": 8,
         "settlement": 0,
-        "contribution": 400000
+        "contribution": 560000
       },
       "야너두": {
         "qty": 10,
@@ -1698,9 +1700,9 @@
         "contribution": 420000
       },
       "하이수달": {
-        "qty": 3,
-        "settlement": 60000,
-        "contribution": 180000
+        "qty": 4,
+        "settlement": 80000,
+        "contribution": 240000
       },
       "줄람기": {
         "qty": 0,
