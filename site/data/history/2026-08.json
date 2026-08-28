@@ -1,25 +1,25 @@
 {
   "month": "2026-08",
-  "generated_at": "2026-08-26T09:31:31",
-  "gross_revenue": 4970000,
-  "net_profit": 2550000,
-  "order_count": 30,
-  "unit_count": 41,
-  "operating_profit": 2140000,
-  "operating_profit_rate": 0.4306,
-  "total_sent": 3583,
-  "replied": 369,
-  "meeting_total": 124,
-  "exp_total": 68,
+  "generated_at": "2026-08-28T09:50:17",
+  "gross_revenue": 5090000,
+  "net_profit": 2450000,
+  "order_count": 31,
+  "unit_count": 42,
+  "operating_profit": 2030000,
+  "operating_profit_rate": 0.3988,
+  "total_sent": 3584,
+  "replied": 372,
+  "meeting_total": 125,
+  "exp_total": 72,
   "ad_total": 47,
-  "reply_rate": 0.103,
-  "exp_rate": 0.019,
+  "reply_rate": 0.1038,
+  "exp_rate": 0.0201,
   "ad_rate": 0.0131,
-  "meeting_rate": 0.0346,
+  "meeting_rate": 0.0349,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 35,
+    "체험진행_1차": 36,
     "체험진행_2차": 1,
     "체험진행_3차": 1,
     "광고예정_1차": 9,
@@ -65,11 +65,11 @@
       "sponsor_cost_this_month": 0
     },
     "91스토리": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 1,
+      "order_count": 2,
+      "qty": 2,
+      "cumulative_qty": 2,
       "unit_price": 20000,
-      "amount": 20000,
+      "amount": 40000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -127,7 +127,34 @@
       "is_general": true,
       "sponsor_cost_this_month": 0
     },
+    "시니어시니어!": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "의찬TV": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
     "줄람기": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "야매당구쫑프로": {
       "order_count": 0,
       "qty": 0,
       "cumulative_qty": null,
@@ -154,6 +181,15 @@
       "is_general": false,
       "sponsor_cost_this_month": 40000
     },
+    "내편TV": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
     "티티준석": {
       "order_count": 0,
       "qty": 0,
@@ -166,16 +202,16 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 41,
-      "order_count": 30,
-      "gross_revenue": 4970000,
+      "qty": 42,
+      "order_count": 31,
+      "gross_revenue": 5090000,
       "net_profit": 0
     },
     "화장품": {
-      "qty": 12,
-      "order_count": 5,
-      "gross_revenue": 355000,
-      "net_profit": 212805,
+      "qty": 13,
+      "order_count": 6,
+      "gross_revenue": 393000,
+      "net_profit": 239205,
       "trial_orders": 1,
       "trial_units": 1
     },
@@ -193,16 +229,16 @@
       "gross_revenue": 3720000
     },
     "A": {
-      "qty": 10,
-      "order_count": 6,
-      "gross_revenue": 1250000
+      "qty": 11,
+      "order_count": 7,
+      "gross_revenue": 1370000
     }
   },
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 2,
-        "units": 2
+        "orders": 3,
+        "units": 3
       },
       "1+1": {
         "orders": 1,
@@ -215,9 +251,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 5,
-        "units": 12,
-        "gross": 355000
+        "orders": 6,
+        "units": 13,
+        "gross": 393000
       }
     },
     "trial": {
