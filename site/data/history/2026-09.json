@@ -1,0 +1,93 @@
+{
+  "month": "2026-09",
+  "generated_at": "2026-09-04T12:47:36",
+  "gross_revenue": 130000,
+  "net_profit": 50000,
+  "order_count": 1,
+  "unit_count": 1,
+  "operating_profit": 40000,
+  "operating_profit_rate": 0.3077,
+  "total_sent": 3602,
+  "replied": 372,
+  "meeting_total": 129,
+  "exp_total": 83,
+  "ad_total": 52,
+  "reply_rate": 0.1033,
+  "exp_rate": 0.023,
+  "ad_rate": 0.0144,
+  "meeting_rate": 0.0358,
+  "inf_status": {
+    "미팅_대기": 0,
+    "미팅_진행": 0,
+    "체험진행_1차": 29,
+    "체험진행_2차": 5,
+    "체험진행_3차": 1,
+    "광고예정_1차": 10,
+    "광고예정_2차": 0,
+    "광고완료_1차": 3,
+    "기타": 35
+  },
+  "influencers": {
+    "기타/일반": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": true,
+      "sponsor_cost_this_month": 0
+    },
+    "하이수달_(등산 & 라이프)": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    }
+  },
+  "by_product": {
+    "흑염소": {
+      "qty": 1,
+      "order_count": 1,
+      "gross_revenue": 130000,
+      "net_profit": 0
+    },
+    "화장품": {
+      "qty": 2,
+      "order_count": 1,
+      "gross_revenue": 68000,
+      "net_profit": 48400
+    }
+  },
+  "by_store": {
+    "A": {
+      "qty": 1,
+      "order_count": 1,
+      "gross_revenue": 130000
+    }
+  },
+  "cosmetics_breakdown": {
+    "by_option": {
+      "1+1": {
+        "orders": 1,
+        "units": 2
+      }
+    },
+    "by_channel": {
+      "네이버": {
+        "orders": 1,
+        "units": 2,
+        "gross": 68000
+      }
+    },
+    "trial": {
+      "orders": 0,
+      "units": 0,
+      "gross": 0,
+      "excluded_profit": 0,
+      "buyers": []
+    }
+  }
+}
