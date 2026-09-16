@@ -1,25 +1,25 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-09-11T09:37:59",
-  "gross_revenue": 1700000,
-  "net_profit": 860000,
-  "order_count": 5,
-  "unit_count": 14,
-  "operating_profit": 720000,
-  "operating_profit_rate": 0.4235,
+  "generated_at": "2026-09-17T08:42:51",
+  "gross_revenue": 2060000,
+  "net_profit": 1000000,
+  "order_count": 7,
+  "unit_count": 17,
+  "operating_profit": 830000,
+  "operating_profit_rate": 0.4029,
   "total_sent": 3811,
-  "replied": 396,
-  "meeting_total": 138,
+  "replied": 398,
+  "meeting_total": 139,
   "exp_total": 83,
-  "ad_total": 52,
-  "reply_rate": 0.1039,
+  "ad_total": 59,
+  "reply_rate": 0.1044,
   "exp_rate": 0.0218,
-  "ad_rate": 0.0136,
-  "meeting_rate": 0.0362,
+  "ad_rate": 0.0155,
+  "meeting_rate": 0.0365,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 29,
+    "체험진행_1차": 30,
     "체험진행_2차": 5,
     "체험진행_3차": 1,
     "광고예정_1차": 10,
@@ -44,12 +44,30 @@
       "unit_price": 20000,
       "amount": 200000,
       "is_general": false,
-      "sponsor_cost_this_month": 0
+      "sponsor_cost_this_month": 40000
     },
     "반짝이는 럭키": {
       "order_count": 1,
       "qty": 1,
       "cumulative_qty": 1,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "동안연구소": {
+      "order_count": 1,
+      "qty": 2,
+      "cumulative_qty": 3,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "나의루루들": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 5,
       "unit_price": 20000,
       "amount": 20000,
       "is_general": false,
@@ -76,16 +94,16 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 14,
-      "order_count": 5,
-      "gross_revenue": 1700000,
+      "qty": 17,
+      "order_count": 7,
+      "gross_revenue": 2060000,
       "net_profit": 0
     },
     "화장품": {
-      "qty": 9,
-      "order_count": 4,
-      "gross_revenue": 282500,
-      "net_profit": 198050
+      "qty": 13,
+      "order_count": 5,
+      "gross_revenue": 388000,
+      "net_profit": 270200
     }
   },
   "by_store": {
@@ -95,9 +113,9 @@
       "gross_revenue": 260000
     },
     "B": {
-      "qty": 12,
-      "order_count": 3,
-      "gross_revenue": 1440000
+      "qty": 15,
+      "order_count": 5,
+      "gross_revenue": 1800000
     }
   },
   "cosmetics_breakdown": {
@@ -111,15 +129,15 @@
         "units": 4
       },
       "2+2": {
-        "orders": 1,
-        "units": 4
+        "orders": 2,
+        "units": 8
       }
     },
     "by_channel": {
       "네이버": {
-        "orders": 2,
-        "units": 6,
-        "gross": 173500
+        "orders": 3,
+        "units": 10,
+        "gross": 279000
       },
       "자사몰": {
         "orders": 2,
