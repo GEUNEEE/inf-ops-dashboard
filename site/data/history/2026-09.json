@@ -1,12 +1,12 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-09-18T12:55:38",
-  "gross_revenue": 3220000,
-  "net_profit": 1780000,
-  "order_count": 15,
-  "unit_count": 26,
-  "operating_profit": 1520000,
-  "operating_profit_rate": 0.472,
+  "generated_at": "2026-09-21T08:30:14",
+  "gross_revenue": 3340000,
+  "net_profit": 1840000,
+  "order_count": 16,
+  "unit_count": 27,
+  "operating_profit": 1570000,
+  "operating_profit_rate": 0.4701,
   "total_sent": 3811,
   "replied": 398,
   "meeting_total": 139,
@@ -73,6 +73,15 @@
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
+    "야너두": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 11,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
     "기타/일반": {
       "order_count": 9,
       "qty": 10,
@@ -94,9 +103,9 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 26,
-      "order_count": 15,
-      "gross_revenue": 3220000,
+      "qty": 27,
+      "order_count": 16,
+      "gross_revenue": 3340000,
       "net_profit": 0
     },
     "화장품": {
@@ -113,9 +122,9 @@
       "gross_revenue": 650000
     },
     "B": {
-      "qty": 21,
-      "order_count": 11,
-      "gross_revenue": 2570000
+      "qty": 22,
+      "order_count": 12,
+      "gross_revenue": 2690000
     }
   },
   "cosmetics_breakdown": {
