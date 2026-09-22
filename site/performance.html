@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>퍼포먼스 대시보드</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:  #FAFAF8;
+      --bg2: #F2F0E8;
+      --border:  #E5E3D6;
+      --border2: #D3D1C7;
+      --text1: #1A1A18;
+      --text2: #666660;
+      --text3: #A8A69C;
+      --r: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text1);
+      font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      font-size: 13px; font-weight: 400; line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px; }
+
+    .slbl { font-size: 10px; font-weight: 500; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+    .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; }
+    .mb12 { margin-bottom: 12px; }
+    .hidden { display: none !important; }
+
+    .page-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; gap: 10px; }
+    .page-title  { font-size: 15px; font-weight: 500; }
+    .page-sub    { font-size: 10px; color: var(--text3); }
+    .page-left   { display: flex; align-items: baseline; gap: 10px; }
+    .back-link   { font-size: 11px; color: var(--text2); border: 0.5px solid var(--border2); border-radius: 11px; padding: 2px 9px; }
+    .back-link:hover { background: var(--bg2); }
+
+    .kpi-card        { background: var(--bg2); border-radius: var(--r); padding: 11px 13px; }
+    .kpi-card-accent { background: #EAF3DE;    border-radius: var(--r); padding: 11px 13px; }
+    .kpi-card-pink   { background: #FBE9F0;    border-radius: var(--r); padding: 11px 13px; }
+    .kpi-lbl  { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+    .kpi-val  { font-size: 22px; font-weight: 500; color: var(--text1); line-height: 1.2; }
+    .kpi-sub  { font-size: 10px; color: var(--text3); margin-top: 3px; min-height: 14px; }
+    .kpi-grid  { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .roas-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .chart-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; margin-bottom: 12px; }
+    @media (max-width: 720px) {
+      .kpi-grid  { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .roas-grid { grid-template-columns: 1fr; }
+      .chart-grid { grid-template-columns: 1fr; }
+    }
+
+    .filter-row  { display: flex; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+    .filter-chip {
+      font-size: 10px; padding: 3px 9px; border-radius: 11px;
+      border: 0.5px solid var(--border2); background: transparent;
+      color: var(--text2); font-weight: 500; cursor: pointer;
+      transition: background 0.1s, color 0.1s, border-color 0.1s;
+    }
+    .filter-chip.active { background: var(--text1); color: var(--bg); border-color: var(--text1); }
+
+    .banner      { border-radius: var(--r); padding: 10px 13px; font-size: 11px; font-weight: 500; margin-bottom: 12px; }
+    .banner-warn { background: #FAEEDA; border: 0.5px solid #EEC97A; color: #633806; }
+    .banner-err  { background: #FCEBEB; border: 0.5px solid #E8AAAA; color: #A32D2D; }
+
+    .chart-box { position: relative; height: 220px; }
+
+    .tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .tbl th { text-align: right; font-weight: 500; color: var(--text3); font-size: 10px; padding: 4px 6px; border-bottom: 0.5px solid var(--border2); white-space: nowrap; }
+    .tbl td { text-align: right; padding: 5px 6px; border-bottom: 0.5px solid var(--border); white-space: nowrap; }
+    .tbl th:first-child, .tbl td:first-child { text-align: left; white-space: normal; }
+    .tbl tfoot td { font-weight: 500; border-bottom: none; border-top: 0.5px solid var(--border2); }
+    .tbl tr.clickable { cursor: pointer; }
+    .tbl tr.clickable:hover { background: var(--bg2); }
+    .tbl tr.sel td { background: var(--bg2); }
+
+    .pill { display: inline-flex; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 9px; white-space: nowrap; }
+    .pill-active { background: #EAF3DE; color: #3B6D11; }
+    .pill-etc    { background: var(--bg2); color: var(--text3); }
+
+    .note { font-size: 10px; color: var(--text3); margin-top: 8px; line-height: 1.6; }
+  </style>
+</head>
+<body data-page="performance">
+  <div class="wrap">
+
+    <div class="page-header">
+      <div class="page-left">
+        <a class="back-link" href="index.html">← 대시보드</a>
+        <span class="page-title">퍼포먼스 대시보드 · 화장품 Meta 광고</span>
+      </div>
+      <span class="page-sub" id="generated-at"></span>
+    </div>
+
+    <div id="error-banner" class="banner banner-err hidden"></div>
+    <div id="warn-banner"  class="banner banner-warn hidden"></div>
+
+    <div class="filter-row" id="month-chips"></div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-lbl">광고비</div><div class="kpi-val" id="k-spend">-</div><div class="kpi-sub" id="k-spend-sub"></div></div>
+      <div class="kpi-card"><div class="kpi-lbl">노출</div><div class="kpi-val" id="k-imp">-</div><div class="kpi-sub" id="k-imp-sub"></div></div>
+      <div class="kpi-card"><div class="kpi-lbl">클릭</div><div class="kpi-val" id="k-clk">-</div><div class="kpi-sub" id="k-clk-sub"></div></div>
+      <div class="kpi-card"><div class="kpi-lbl">CPC</div><div class="kpi-val" id="k-cpc">-</div><div class="kpi-sub" id="k-cpc-sub"></div></div>
+      <div class="kpi-card"><div class="kpi-lbl">Meta 구매 (픽셀)</div><div class="kpi-val" id="k-purch">-</div><div class="kpi-sub" id="k-purch-sub"></div></div>
+      <div class="kpi-card"><div class="kpi-lbl">자사몰 주문</div><div class="kpi-val" id="k-mall">-</div><div class="kpi-sub" id="k-mall-sub"></div></div>
+    </div>
+
+    <div class="roas-grid">
+      <div class="kpi-card-accent"><div class="kpi-lbl">Meta ROAS (픽셀 구매값 ÷ 광고비)</div><div class="kpi-val" id="r-meta">-</div><div class="kpi-sub" id="r-meta-sub"></div></div>
+      <div class="kpi-card-pink"><div class="kpi-lbl">자사몰 ROAS (자사몰 매출 ÷ 광고비)</div><div class="kpi-val" id="r-mall">-</div><div class="kpi-sub" id="r-mall-sub"></div></div>
+      <div class="kpi-card"><div class="kpi-lbl">화장품 전체 매출 대비</div><div class="kpi-val" id="r-all">-</div><div class="kpi-sub" id="r-all-sub"></div></div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="card">
+        <div class="slbl" id="daily-title">일별 광고비 · 클릭</div>
+        <div class="chart-box"><canvas id="daily-chart"></canvas></div>
+        <div class="note hidden" id="daily-none">이 달은 일별 데이터가 없습니다 (월 합계만 수집됨).</div>
+      </div>
+      <div class="card">
+        <div class="slbl">월별 광고비 · ROAS 추이</div>
+        <div class="chart-box"><canvas id="trend-chart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card mb12">
+      <div class="slbl">캠페인별 성과</div>
+      <table class="tbl" id="camp-table">
+        <thead>
+          <tr>
+            <th>캠페인</th><th>상태</th><th>광고비</th><th>노출</th><th>도달</th><th>클릭</th><th>CTR</th><th>CPC</th><th>CPM</th><th>구매</th><th>구매당 비용</th><th>ROAS</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
+
+    <div class="note">
+      · Meta 구매/ROAS는 Meta 픽셀(omni_purchase) 기준, 자사몰 주문/매출은 정산DB Raw_Data(자사몰 채널) 기준입니다.<br>
+      · 두 ROAS 차이 = 픽셀 미추적 구매(다른 기기·앱 브라우저 등) 또는 광고와 무관한 자연 유입.<br>
+      · 데이터 갱신: <code>퍼포먼스 갱신</code> 트리거 (Meta MCP → build_ads.py → publish).
+    </div>
+
+  </div>
+  <script src="assets/performance.js?v=20260923-1"></script>
+</body>
+</html>

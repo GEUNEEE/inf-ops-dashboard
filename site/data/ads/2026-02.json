@@ -1,0 +1,82 @@
+{
+  "month": "2026-02",
+  "product": "화장품",
+  "account_id": "706112365442772",
+  "fetched_at": "2026-09-23",
+  "updated_at": "2026-09-23T07:41:18",
+  "totals": {
+    "spend": 344377,
+    "impressions": 10434,
+    "reach": 6628,
+    "clicks": 140,
+    "link_clicks": 135,
+    "ctr": 0.01342,
+    "cpc": 2460,
+    "cpm": 33005,
+    "purchases": 2,
+    "purchase_value": 107002,
+    "meta_roas": 0.3107,
+    "cost_per_purchase": 172188
+  },
+  "mall": {
+    "orders": 0,
+    "units": 0,
+    "gross": 0,
+    "available": false
+  },
+  "roas": {
+    "meta": 0.3107,
+    "mall": null
+  },
+  "daily": [],
+  "campaigns": [
+    {
+      "id": null,
+      "name": "260218 체험단 영상",
+      "status": "PAUSED",
+      "spend": 193424,
+      "impressions": 2582,
+      "reach": 2148,
+      "clicks": 81,
+      "link_clicks": 75,
+      "ctr": 0.0314,
+      "cpc": 2388,
+      "cpm": 74912,
+      "purchases": 2,
+      "meta_roas": 0.5532,
+      "cost_per_purchase": 96712
+    },
+    {
+      "id": null,
+      "name": "260216_스팟멜트크림_체험단 뉴로직",
+      "status": "PAUSED",
+      "spend": 100168,
+      "impressions": 827,
+      "reach": 654,
+      "clicks": 18,
+      "link_clicks": 18,
+      "ctr": 0.0218,
+      "cpc": 5565,
+      "cpm": 121122,
+      "purchases": 0,
+      "meta_roas": null,
+      "cost_per_purchase": null
+    },
+    {
+      "id": null,
+      "name": "250204 스팟멜트크림",
+      "status": "PAUSED",
+      "spend": 50785,
+      "impressions": 7025,
+      "reach": 3826,
+      "clicks": 41,
+      "link_clicks": 42,
+      "ctr": 0.0058,
+      "cpc": 1239,
+      "cpm": 7229,
+      "purchases": 0,
+      "meta_roas": null,
+      "cost_per_purchase": null
+    }
+  ]
+}

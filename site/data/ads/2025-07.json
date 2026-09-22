@@ -1,0 +1,66 @@
+{
+  "month": "2025-07",
+  "product": "화장품",
+  "account_id": "706112365442772",
+  "fetched_at": "2026-09-23",
+  "updated_at": "2026-09-23T07:41:18",
+  "totals": {
+    "spend": 757270,
+    "impressions": 34386,
+    "reach": 24625,
+    "clicks": 1708,
+    "link_clicks": 1642,
+    "ctr": 0.04967,
+    "cpc": 443,
+    "cpm": 22023,
+    "purchases": 4,
+    "purchase_value": 240986,
+    "meta_roas": 0.3182,
+    "cost_per_purchase": 189318
+  },
+  "mall": {
+    "orders": 0,
+    "units": 0,
+    "gross": 0,
+    "available": false
+  },
+  "roas": {
+    "meta": 0.3182,
+    "mall": null
+  },
+  "daily": [],
+  "campaigns": [
+    {
+      "id": null,
+      "name": "판매전환_3_보완",
+      "status": "PAUSED",
+      "spend": 501949,
+      "impressions": 10914,
+      "reach": 7568,
+      "clicks": 452,
+      "link_clicks": 440,
+      "ctr": 0.0414,
+      "cpc": 1111,
+      "cpm": 45991,
+      "purchases": 4,
+      "meta_roas": 0.4801,
+      "cost_per_purchase": 125487
+    },
+    {
+      "id": null,
+      "name": "트래픽_3_보완",
+      "status": "PAUSED",
+      "spend": 255321,
+      "impressions": 23472,
+      "reach": 17057,
+      "clicks": 1256,
+      "link_clicks": 1202,
+      "ctr": 0.0535,
+      "cpc": 203,
+      "cpm": 10878,
+      "purchases": 0,
+      "meta_roas": null,
+      "cost_per_purchase": null
+    }
+  ]
+}

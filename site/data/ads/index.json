@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-09-23T07:41:18",
+  "product": "화장품",
+  "months": [
+    {
+      "month": "2025-05",
+      "spend": 200669,
+      "impressions": 10191,
+      "clicks": 275,
+      "ctr": 0.02698,
+      "purchases": 1,
+      "meta_roas": 0.2293,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
+      "has_daily": false
+    },
+    {
+      "month": "2025-07",
+      "spend": 757270,
+      "impressions": 34386,
+      "clicks": 1708,
+      "ctr": 0.04967,
+      "purchases": 4,
+      "meta_roas": 0.3182,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
+      "has_daily": false
+    },
+    {
+      "month": "2025-08",
+      "spend": 1374071,
+      "impressions": 51298,
+      "clicks": 3447,
+      "ctr": 0.0672,
+      "purchases": 4,
+      "meta_roas": 0.2089,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
+      "has_daily": false
+    },
+    {
+      "month": "2025-10",
+      "spend": 818666,
+      "impressions": 51700,
+      "clicks": 535,
+      "ctr": 0.01035,
+      "purchases": 5,
+      "meta_roas": 0.3164,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
+      "has_daily": false
+    },
+    {
+      "month": "2025-11",
+      "spend": 954182,
+      "impressions": 30696,
+      "clicks": 423,
+      "ctr": 0.01378,
+      "purchases": 4,
+      "meta_roas": 0.2987,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
+      "has_daily": false
+    },
+    {
+      "month": "2026-02",
+      "spend": 344377,
+      "impressions": 10434,
+      "clicks": 140,
+      "ctr": 0.01342,
+      "purchases": 2,
+      "meta_roas": 0.3107,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
+      "has_daily": false
+    },
+    {
+      "month": "2026-08",
+      "spend": 60870,
+      "impressions": 911,
+      "clicks": 39,
+      "ctr": 0.04281,
+      "purchases": 0,
+      "meta_roas": null,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": 0.0,
+      "has_daily": true
+    },
+    {
+      "month": "2026-09",
+      "spend": 538112,
+      "impressions": 12707,
+      "clicks": 279,
+      "ctr": 0.02196,
+      "purchases": 7,
+      "meta_roas": 0.6802,
+      "mall_gross": 300000,
+      "mall_orders": 6,
+      "mall_roas": 0.5575,
+      "has_daily": true
+    }
+  ]
+}

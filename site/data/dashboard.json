@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T18:45:23",
+  "generated_at": "2026-09-23T08:35:06",
   "current_month": "2026-09",
   "products": [
     {
@@ -42,16 +42,16 @@
     "operating_profit": 1570000
   },
   "mail_funnel": {
-    "total_sent": 3811,
+    "total_sent": 4013,
     "etc_excluded": 81,
     "replied": 398,
-    "reply_rate": 0.1044,
+    "reply_rate": 0.0992,
     "meeting_total": 139,
-    "meeting_rate": 0.0365,
+    "meeting_rate": 0.0346,
     "exp_total": 83,
-    "exp_rate": 0.0218,
-    "ad_total": 59,
-    "ad_rate": 0.0155
+    "exp_rate": 0.0207,
+    "ad_total": 64,
+    "ad_rate": 0.0159
   },
   "inf_status": {
     "미팅_대기": 0,
@@ -1295,7 +1295,7 @@
       0.1077,
       0.1074,
       0.1038,
-      0.1044
+      0.0992
     ],
     "exp_rate": [
       0.0379,
@@ -1304,7 +1304,7 @@
       0.0219,
       0.0208,
       0.0229,
-      0.0218
+      0.0207
     ],
     "ad_rate": [
       0.0253,
@@ -1313,7 +1313,7 @@
       0.0131,
       0.0132,
       0.0142,
-      0.0155
+      0.0159
     ],
     "meeting_rate": [
       0.0328,
@@ -1322,7 +1322,7 @@
       0.0318,
       0.0324,
       0.036,
-      0.0365
+      0.0346
     ],
     "gross_revenue": [
       1200000,
@@ -1349,7 +1349,7 @@
       2516,
       3026,
       3584,
-      3811
+      4013
     ],
     "replied": [
       48,
@@ -1385,7 +1385,7 @@
       33,
       40,
       51,
-      59
+      64
     ],
     "exp_by_month": {},
     "operating_profit": [
@@ -1494,10 +1494,10 @@
           "net_profit": 0
         },
         "화장품": {
-          "qty": 22,
-          "order_count": 11,
-          "gross_revenue": 715000,
-          "net_profit": 502700
+          "qty": 28,
+          "order_count": 14,
+          "gross_revenue": 893500,
+          "net_profit": 617004
         }
       }
     },
@@ -1619,14 +1619,14 @@
       "ad_rate": 0.0
     },
     "2026-09": {
-      "sent": 227,
+      "sent": 429,
       "replied": 26,
       "meeting": 10,
       "exp": 2,
       "ad": 0,
-      "reply_rate": 0.1145,
-      "meeting_rate": 0.0441,
-      "exp_rate": 0.0088,
+      "reply_rate": 0.0606,
+      "meeting_rate": 0.0233,
+      "exp_rate": 0.0047,
       "ad_rate": 0.0
     }
   },
@@ -1638,7 +1638,7 @@
     "2026-06": 3,
     "2026-07": 11,
     "2026-08": 11,
-    "2026-09": 6,
+    "2026-09": 11,
     "2026-10": 1
   },
   "ad_inf_count_by_month": {},
@@ -1906,23 +1906,23 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 18,
-        "units": 18
+        "orders": 20,
+        "units": 20
       },
       "1+1": {
         "orders": 10,
         "units": 20
       },
       "2+2": {
-        "orders": 6,
-        "units": 24
+        "orders": 7,
+        "units": 28
       }
     },
     "by_channel": {
       "네이버": {
-        "orders": 25,
-        "units": 48,
-        "gross": 1527500
+        "orders": 28,
+        "units": 54,
+        "gross": 1706000
       },
       "쿠팡": {
         "orders": 1,

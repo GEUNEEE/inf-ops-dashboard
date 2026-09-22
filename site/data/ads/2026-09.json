@@ -1,0 +1,235 @@
+{
+  "month": "2026-09",
+  "product": "화장품",
+  "account_id": "706112365442772",
+  "fetched_at": "2026-09-23",
+  "updated_at": "2026-09-23T07:41:18",
+  "totals": {
+    "spend": 538112,
+    "impressions": 12707,
+    "reach": 10035,
+    "clicks": 279,
+    "link_clicks": 261,
+    "ctr": 0.02196,
+    "cpc": 1929,
+    "cpm": 42348,
+    "purchases": 7,
+    "purchase_value": 366024,
+    "meta_roas": 0.6802,
+    "cost_per_purchase": 76873
+  },
+  "mall": {
+    "orders": 6,
+    "units": 8,
+    "gross": 300000,
+    "available": true
+  },
+  "roas": {
+    "meta": 0.6802,
+    "mall": 0.5575
+  },
+  "daily": [
+    {
+      "date": "2026-09-01",
+      "spend": 27409,
+      "impressions": 484,
+      "clicks": 17,
+      "link_clicks": 15,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-02",
+      "spend": 25953,
+      "impressions": 311,
+      "clicks": 8,
+      "link_clicks": 7,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-03",
+      "spend": 18500,
+      "impressions": 198,
+      "clicks": 4,
+      "link_clicks": 4,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-04",
+      "spend": 12223,
+      "impressions": 201,
+      "clicks": 4,
+      "link_clicks": 3,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-05",
+      "spend": 14388,
+      "impressions": 179,
+      "clicks": 2,
+      "link_clicks": 2,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-06",
+      "spend": 27296,
+      "impressions": 389,
+      "clicks": 18,
+      "link_clicks": 16,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-07",
+      "spend": 27993,
+      "impressions": 371,
+      "clicks": 6,
+      "link_clicks": 7,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-08",
+      "spend": 24190,
+      "impressions": 527,
+      "clicks": 18,
+      "link_clicks": 15,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-09",
+      "spend": 31924,
+      "impressions": 493,
+      "clicks": 10,
+      "link_clicks": 10,
+      "purchases": 1
+    },
+    {
+      "date": "2026-09-10",
+      "spend": 22629,
+      "impressions": 284,
+      "clicks": 6,
+      "link_clicks": 6,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-11",
+      "spend": 25440,
+      "impressions": 353,
+      "clicks": 11,
+      "link_clicks": 11,
+      "purchases": 1
+    },
+    {
+      "date": "2026-09-12",
+      "spend": 14822,
+      "impressions": 288,
+      "clicks": 9,
+      "link_clicks": 9,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-13",
+      "spend": 35384,
+      "impressions": 467,
+      "clicks": 8,
+      "link_clicks": 8,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-14",
+      "spend": 31449,
+      "impressions": 570,
+      "clicks": 9,
+      "link_clicks": 3,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-15",
+      "spend": 28208,
+      "impressions": 763,
+      "clicks": 13,
+      "link_clicks": 12,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-16",
+      "spend": 9369,
+      "impressions": 216,
+      "clicks": 4,
+      "link_clicks": 4,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-17",
+      "spend": 31848,
+      "impressions": 902,
+      "clicks": 14,
+      "link_clicks": 14,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-18",
+      "spend": 25925,
+      "impressions": 779,
+      "clicks": 23,
+      "link_clicks": 22,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-19",
+      "spend": 12642,
+      "impressions": 474,
+      "clicks": 8,
+      "link_clicks": 8,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-20",
+      "spend": 32606,
+      "impressions": 1352,
+      "clicks": 24,
+      "link_clicks": 24,
+      "purchases": 5
+    },
+    {
+      "date": "2026-09-21",
+      "spend": 34539,
+      "impressions": 1544,
+      "clicks": 40,
+      "link_clicks": 38,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-22",
+      "spend": 22382,
+      "impressions": 1498,
+      "clicks": 23,
+      "link_clicks": 23,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-23",
+      "spend": 993,
+      "impressions": 64,
+      "clicks": 0,
+      "link_clicks": 0,
+      "purchases": 0
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "120251607850920732",
+      "name": "스팟이지 착색 기미 미백 스팟멜트크림",
+      "status": "ACTIVE",
+      "spend": 538112,
+      "impressions": 12707,
+      "reach": 10035,
+      "clicks": 279,
+      "link_clicks": 261,
+      "ctr": 0.022,
+      "cpc": 1929,
+      "cpm": 42348,
+      "purchases": 7,
+      "meta_roas": 0.6802,
+      "cost_per_purchase": 76873
+    }
+  ]
+}
