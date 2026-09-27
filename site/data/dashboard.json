@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T12:04:12",
+  "generated_at": "2026-09-27T12:36:04",
   "current_month": "2026-09",
   "products": [
     {
@@ -1500,12 +1500,12 @@
           "net_profit": 827072
         },
         "수면영양제": {
-          "qty": 40,
-          "order_count": 25,
+          "qty": 24,
+          "order_count": 4,
           "gross_revenue": 43200,
           "net_profit": 0,
-          "trial_orders": 25,
-          "trial_units": 40
+          "trial_orders": 4,
+          "trial_units": 24
         }
       }
     },
@@ -1960,14 +1960,14 @@
   },
   "product_trials": {
     "수면영양제": {
-      "orders": 25,
-      "order_nos": 5,
-      "units": 40,
+      "orders": 20,
+      "order_nos": 4,
+      "units": 24,
       "gross": 43200,
       "buyers": [
-        "이한솔",
         "황준호",
         "이상은",
+        "이한솔",
         "김민정"
       ]
     }
