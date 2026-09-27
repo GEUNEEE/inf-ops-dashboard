@@ -1022,7 +1022,7 @@
           <div class="kpi-card"><div class="kpi-lbl">수익</div><div class="kpi-val" data-pk="profit">-</div><div class="kpi-sub" data-pk="profit-sub"></div></div>
         </div>
         <div class="card mb12" data-pk="chartcard"><div class="slbl">월별 매출 · 판매량</div><canvas data-pk="chart"></canvas></div>
-        <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div></div>
+        <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div><div data-pk="trialnote"></div></div>
         <div class="card mb12" data-pk="cosmetics" style="display:none"><div class="slbl">옵션별 · 채널별 <span style="color:var(--text3);font-weight:400">(이번 달)</span></div><div data-pk="cosmetics-body"></div></div>
         <div data-pk="empty"></div>
       </section>`).join('');
@@ -1096,6 +1096,15 @@
       return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}</td><td>${d.qty || 0}개</td><td>${d.order_count || 0}건</td><td>${d.gross_revenue ? money(d.gross_revenue) : '-'}</td><td style="color:#3B6D11">${d.net_profit ? money(d.net_profit) : '-'}</td></tr>`;
     }).join('');
     q('table').innerHTML = `<table class="fmonth-table"><thead><tr><th>월</th><th>판매량</th><th>주문수</th><th>매출</th><th>수익</th></tr></thead><tbody>${body}</tbody></table>`;
+
+    // 화장품 외 제품(수면영양제 등) 체험단 안내 — 월별 표 하단 (화장품은 아래 옵션/채널 카드 하단에 표시)
+    const tn = q('trialnote');
+    if (tn) {
+      const pt = (key === '화장품') ? null : (((gData || {}).product_trials || {})[key] || null);
+      tn.innerHTML = (pt && (pt.order_nos || pt.orders) > 0)
+        ? `<div style="font-size:10px;color:var(--text3);margin-top:10px;line-height:1.5">🧪 체험단 ${pt.order_nos || pt.orders}건${(pt.buyers && pt.buyers.length) ? ` (${pt.buyers.join(', ')})` : ''}<br>매출 ${money(pt.gross || 0)} 포함 · 수익 제외</div>`
+        : '';
+    }
 
     // 화장품 전용: 옵션별·채널별 (이번 달 스냅샷 기준)
     const cosCard = q('cosmetics');

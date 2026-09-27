@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T12:01:20",
+  "generated_at": "2026-09-27T12:04:12",
   "current_month": "2026-09",
   "products": [
     {
@@ -31,15 +31,15 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 37,
-    "unit_count": 48,
-    "gross_revenue": 6060000,
+    "order_count": 12,
+    "unit_count": 23,
+    "gross_revenue": 2810000,
     "influencer_cost": 360000,
     "sponsor_cost": 80000,
-    "cogs_cost": 1920000,
-    "labor_cost": 480000,
-    "net_profit": 3700000,
-    "operating_profit": 3220000
+    "cogs_cost": 920000,
+    "labor_cost": 230000,
+    "net_profit": 1450000,
+    "operating_profit": 1220000
   },
   "mail_funnel": {
     "total_sent": 4013,
@@ -163,10 +163,10 @@
       "현재상태": "1차 체험진행"
     },
     "기타/일반": {
-      "건수": 29,
-      "수량": 30,
+      "건수": 4,
+      "수량": 5,
       "단가": 84000,
-      "금액": 2520000,
+      "금액": 420000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -1331,7 +1331,7 @@
       4250000,
       3570000,
       5470000,
-      6060000
+      2810000
     ],
     "net_profit": [
       560000,
@@ -1340,7 +1340,7 @@
       2082000,
       2134000,
       2450000,
-      3700000
+      1450000
     ],
     "total_sent": [
       396,
@@ -1395,7 +1395,7 @@
       1742000,
       1844000,
       2000000,
-      3220000
+      1220000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1404,7 +1404,7 @@
       0.4099,
       0.5165,
       0.3656,
-      0.5314
+      0.4342
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1488,9 +1488,9 @@
       },
       "2026-09": {
         "흑염소": {
-          "qty": 48,
-          "order_count": 37,
-          "gross_revenue": 6060000,
+          "qty": 23,
+          "order_count": 12,
+          "gross_revenue": 2810000,
           "net_profit": 0
         },
         "화장품": {
@@ -1498,6 +1498,14 @@
           "order_count": 21,
           "gross_revenue": 1200500,
           "net_profit": 827072
+        },
+        "수면영양제": {
+          "qty": 40,
+          "order_count": 25,
+          "gross_revenue": 43200,
+          "net_profit": 0,
+          "trial_orders": 25,
+          "trial_units": 40
         }
       }
     },
@@ -1533,9 +1541,9 @@
           "gross_revenue": 650000
         },
         "B": {
-          "qty": 43,
-          "order_count": 33,
-          "gross_revenue": 5410000
+          "qty": 18,
+          "order_count": 8,
+          "gross_revenue": 2160000
         }
       }
     }
@@ -1688,11 +1696,11 @@
         "cumulative_profit": 9684000
       },
       "2026-09": {
-        "gross_revenue": 6060000,
-        "unit_count": 48,
-        "operating_profit": 3220000,
-        "operating_profit_rate": 0.5314,
-        "cumulative_profit": 12904000
+        "gross_revenue": 2810000,
+        "unit_count": 23,
+        "operating_profit": 1220000,
+        "operating_profit_rate": 0.4342,
+        "cumulative_profit": 10904000
       }
     },
     "influencer_cumulative": {
@@ -1717,9 +1725,9 @@
         "contribution": 120000
       },
       "기타/일반": {
-        "qty": 89,
+        "qty": 64,
         "settlement": 0,
-        "contribution": 8010000
+        "contribution": 5760000
       },
       "바다로간배스": {
         "qty": 2,
@@ -1947,6 +1955,20 @@
         "최현",
         "박광훈",
         "이세헌"
+      ]
+    }
+  },
+  "product_trials": {
+    "수면영양제": {
+      "orders": 25,
+      "order_nos": 5,
+      "units": 40,
+      "gross": 43200,
+      "buyers": [
+        "이한솔",
+        "황준호",
+        "이상은",
+        "김민정"
       ]
     }
   },

@@ -1,12 +1,12 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-09-27T12:01:19",
-  "gross_revenue": 6060000,
-  "net_profit": 3700000,
-  "order_count": 37,
-  "unit_count": 48,
-  "operating_profit": 3220000,
-  "operating_profit_rate": 0.5314,
+  "generated_at": "2026-09-27T12:04:12",
+  "gross_revenue": 2810000,
+  "net_profit": 1450000,
+  "order_count": 12,
+  "unit_count": 23,
+  "operating_profit": 1220000,
+  "operating_profit_rate": 0.4342,
   "total_sent": 4013,
   "replied": 398,
   "meeting_total": 139,
@@ -83,8 +83,8 @@
       "sponsor_cost_this_month": 0
     },
     "기타/일반": {
-      "order_count": 29,
-      "qty": 30,
+      "order_count": 4,
+      "qty": 5,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
@@ -103,9 +103,9 @@
   },
   "by_product": {
     "흑염소": {
-      "qty": 48,
-      "order_count": 37,
-      "gross_revenue": 6060000,
+      "qty": 23,
+      "order_count": 12,
+      "gross_revenue": 2810000,
       "net_profit": 0
     },
     "화장품": {
@@ -113,6 +113,14 @@
       "order_count": 21,
       "gross_revenue": 1200500,
       "net_profit": 827072
+    },
+    "수면영양제": {
+      "qty": 40,
+      "order_count": 25,
+      "gross_revenue": 43200,
+      "net_profit": 0,
+      "trial_orders": 25,
+      "trial_units": 40
     }
   },
   "by_store": {
@@ -122,9 +130,9 @@
       "gross_revenue": 650000
     },
     "B": {
-      "qty": 43,
-      "order_count": 33,
-      "gross_revenue": 5410000
+      "qty": 18,
+      "order_count": 8,
+      "gross_revenue": 2160000
     }
   },
   "cosmetics_breakdown": {
@@ -160,6 +168,20 @@
       "gross": 0,
       "excluded_profit": 0,
       "buyers": []
+    }
+  },
+  "product_trials": {
+    "수면영양제": {
+      "orders": 25,
+      "order_nos": 5,
+      "units": 40,
+      "gross": 43200,
+      "buyers": [
+        "이한솔",
+        "황준호",
+        "이상은",
+        "김민정"
+      ]
     }
   }
 }
