@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T23:29:11",
+  "generated_at": "2026-09-27T12:01:20",
   "current_month": "2026-09",
   "products": [
     {
@@ -31,15 +31,15 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 16,
-    "unit_count": 27,
-    "gross_revenue": 3340000,
-    "influencer_cost": 340000,
+    "order_count": 37,
+    "unit_count": 48,
+    "gross_revenue": 6060000,
+    "influencer_cost": 360000,
     "sponsor_cost": 80000,
-    "cogs_cost": 1080000,
-    "labor_cost": 270000,
-    "net_profit": 1840000,
-    "operating_profit": 1570000
+    "cogs_cost": 1920000,
+    "labor_cost": 480000,
+    "net_profit": 3700000,
+    "operating_profit": 3220000
   },
   "mail_funnel": {
     "total_sent": 4013,
@@ -131,11 +131,11 @@
       "현재상태": "1차 체험진행"
     },
     "나의루루들": {
-      "건수": 2,
-      "수량": 2,
-      "누적수량": 6,
+      "건수": 3,
+      "수량": 3,
+      "누적수량": 7,
       "현재단가": 20000,
-      "금액": 40000,
+      "금액": 60000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
@@ -163,10 +163,10 @@
       "현재상태": "1차 체험진행"
     },
     "기타/일반": {
-      "건수": 9,
-      "수량": 10,
+      "건수": 29,
+      "수량": 30,
       "단가": 84000,
-      "금액": 840000,
+      "금액": 2520000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -1331,7 +1331,7 @@
       4250000,
       3570000,
       5470000,
-      3340000
+      6060000
     ],
     "net_profit": [
       560000,
@@ -1340,7 +1340,7 @@
       2082000,
       2134000,
       2450000,
-      1840000
+      3700000
     ],
     "total_sent": [
       396,
@@ -1395,7 +1395,7 @@
       1742000,
       1844000,
       2000000,
-      1570000
+      3220000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1404,7 +1404,7 @@
       0.4099,
       0.5165,
       0.3656,
-      0.4701
+      0.5314
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1488,16 +1488,16 @@
       },
       "2026-09": {
         "흑염소": {
-          "qty": 27,
-          "order_count": 16,
-          "gross_revenue": 3340000,
+          "qty": 48,
+          "order_count": 37,
+          "gross_revenue": 6060000,
           "net_profit": 0
         },
         "화장품": {
-          "qty": 31,
-          "order_count": 16,
-          "gross_revenue": 1007500,
-          "net_profit": 697313
+          "qty": 36,
+          "order_count": 21,
+          "gross_revenue": 1200500,
+          "net_profit": 827072
         }
       }
     },
@@ -1533,9 +1533,9 @@
           "gross_revenue": 650000
         },
         "B": {
-          "qty": 22,
-          "order_count": 12,
-          "gross_revenue": 2690000
+          "qty": 43,
+          "order_count": 33,
+          "gross_revenue": 5410000
         }
       }
     }
@@ -1688,11 +1688,11 @@
         "cumulative_profit": 9684000
       },
       "2026-09": {
-        "gross_revenue": 3340000,
-        "unit_count": 27,
-        "operating_profit": 1570000,
-        "operating_profit_rate": 0.4701,
-        "cumulative_profit": 11254000
+        "gross_revenue": 6060000,
+        "unit_count": 48,
+        "operating_profit": 3220000,
+        "operating_profit_rate": 0.5314,
+        "cumulative_profit": 12904000
       }
     },
     "influencer_cumulative": {
@@ -1717,9 +1717,9 @@
         "contribution": 120000
       },
       "기타/일반": {
-        "qty": 69,
+        "qty": 89,
         "settlement": 0,
-        "contribution": 6210000
+        "contribution": 8010000
       },
       "바다로간배스": {
         "qty": 2,
@@ -1767,9 +1767,9 @@
         "contribution": 620000
       },
       "나의루루들": {
-        "qty": 6,
-        "settlement": 120000,
-        "contribution": 360000
+        "qty": 7,
+        "settlement": 140000,
+        "contribution": 420000
       },
       "티티준석": {
         "qty": 1,
@@ -1906,8 +1906,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 22,
-        "units": 23
+        "orders": 27,
+        "units": 28
       },
       "1+1": {
         "orders": 10,
@@ -1920,9 +1920,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 29,
-        "units": 55,
-        "gross": 1744000
+        "orders": 32,
+        "units": 58,
+        "gross": 1855000
       },
       "쿠팡": {
         "orders": 1,
@@ -1930,9 +1930,9 @@
         "gross": 38000
       },
       "자사몰": {
-        "orders": 9,
-        "units": 15,
-        "gross": 523000
+        "orders": 11,
+        "units": 17,
+        "gross": 605000
       }
     },
     "trial": {
