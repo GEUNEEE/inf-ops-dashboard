@@ -265,6 +265,7 @@
       renderInfluencerGrid(gData.settlement_summary || {}, null);
       renderContribTable(pa, null, null, gData.settlement_summary);
       renderStoreSplit(null);
+      renderManualSales(null);
 
       buildAllTimeData().then(({ revenue, infMap }) => {
         _allTimeInfMap = infMap;
@@ -309,6 +310,7 @@
     renderInfluencerGrid(historyToSummary(h.influencers || {}, gData.settlement_summary), month);
     renderContribTable(pa, month, h, gData.settlement_summary);
     renderStoreSplit(month);
+    renderManualSales(month, h);
   }
 
   // ── 메인 초기화 ────────────────────────────────────────────────────────────
@@ -361,6 +363,7 @@
     renderSummaryFilter();
     renderSummary(null);
     renderStoreSplit(null);
+    renderManualSales(null);
     renderTabs();
 
     // 전체 집계로 업데이트 (비동기, 실패해도 화면 유지)
@@ -816,6 +819,13 @@
         const contribution = grossRev - qty * COGS - settlementAmt - sponsorCost;
         knownQty += qty;
         return { name, qty, settlement: settlementAmt, sponsorCost, contribution, isGen };
+      });
+      // 지인판매(수기 판매)는 기타/미등재와 분리 — 기여수익 = 입금액 − 수수료 − 원가
+      (h.manual_sales || []).forEach(ms => {
+        const mq = ms.qty || 0;
+        knownQty += mq;
+        items.push({ name: `(${ms.type || '지인판매'})`, qty: mq, settlement: 0, sponsorCost: 0,
+                     contribution: (ms.amount || 0) - (ms.fee || 0) - mq * COGS, isGen: true });
       });
       const miscQty = totalQty - knownQty;
       if (miscQty > 0) items.push({ name: '(기타/미등재)', qty: miscQty, settlement: 0, sponsorCost: 0, contribution: miscQty * (GROSS_PRICE_GEN - COGS), isGen: true });
@@ -1380,6 +1390,32 @@
         <div class="store-card-val">${money(data[s].gross_revenue)}</div>
         <div class="store-card-sub">${data[s].qty}개 · ${data[s].order_count}건</div>
       </div>`).join('');
+  }
+
+  // ── 지인판매 (흑염소 탭 최하단, 수기 판매가 있을 때만) ──────────────────────
+  function renderManualSales(month, h) {
+    const card = el('manual-sales-card');
+    const body = el('manual-sales-body');
+    if (!card || !body) return;
+    const list = month ? ((h || hCache[month] || {}).manual_sales || []) : ((gData || {}).manual_sales || []);
+    if (!list.length) { card.classList.add('hidden'); return; }
+    card.classList.remove('hidden');
+    const rows = list.map(ms => `<tr>
+      <td>${monthLabel(ms.month)}</td>
+      <td>${ms.buyer || '-'}</td>
+      <td>${ms.qty}개</td>
+      <td>${money(ms.amount)}</td>
+      <td style="color:var(--text3)">${ms.channel || '-'}${ms.fee ? ' · 수수료 ' + money(ms.fee) : ' · 수수료 없음'}</td>
+    </tr>`).join('');
+    const totQty = list.reduce((s, x) => s + (x.qty || 0), 0);
+    const totAmt = list.reduce((s, x) => s + (x.amount || 0), 0);
+    body.innerHTML = `
+      <table class="contrib-tbl">
+        <thead><tr><th>월</th><th>구매자</th><th>수량</th><th>입금액</th><th>결제</th></tr></thead>
+        <tbody>${rows}</tbody>
+        ${list.length > 1 ? `<tfoot><tr><td colspan="2">합계</td><td>${totQty}개</td><td>${money(totAmt)}</td><td></td></tr></tfoot>` : ''}
+      </table>
+      <div style="margin-top:6px;font-size:10px;color:var(--text3);line-height:1.5">🤝 지인판매 ${money(totAmt)} 전액 매출 포함 (판매량 ${totQty}개 합산)</div>`;
   }
 
   // ── 초기화 ────────────────────────────────────────────────────────────────

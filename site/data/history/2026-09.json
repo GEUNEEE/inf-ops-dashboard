@@ -1,12 +1,12 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-09-28T18:27:57",
-  "gross_revenue": 2810000,
-  "net_profit": 1450000,
-  "order_count": 12,
-  "unit_count": 23,
-  "operating_profit": 1220000,
-  "operating_profit_rate": 0.4342,
+  "generated_at": "2026-09-28T19:08:03",
+  "gross_revenue": 3050000,
+  "net_profit": 1570000,
+  "order_count": 13,
+  "unit_count": 26,
+  "operating_profit": 1310000,
+  "operating_profit_rate": 0.4295,
   "total_sent": 4013,
   "replied": 405,
   "meeting_total": 139,
@@ -101,11 +101,23 @@
       "sponsor_cost_this_month": 40000
     }
   },
+  "manual_sales": [
+    {
+      "month": "2026-09",
+      "type": "지인판매",
+      "product": "흑염소",
+      "buyer": "최동호",
+      "qty": 3,
+      "amount": 240000,
+      "channel": "계좌이체",
+      "fee": 0
+    }
+  ],
   "by_product": {
     "흑염소": {
-      "qty": 23,
-      "order_count": 12,
-      "gross_revenue": 2810000,
+      "qty": 26,
+      "order_count": 13,
+      "gross_revenue": 3050000,
       "net_profit": 0
     },
     "화장품": {
