@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T12:36:04",
+  "generated_at": "2026-09-28T18:22:31",
   "current_month": "2026-09",
   "products": [
     {
@@ -44,8 +44,8 @@
   "mail_funnel": {
     "total_sent": 4013,
     "etc_excluded": 81,
-    "replied": 398,
-    "reply_rate": 0.0992,
+    "replied": 405,
+    "reply_rate": 0.1009,
     "meeting_total": 139,
     "meeting_rate": 0.0346,
     "exp_total": 83,
@@ -1295,7 +1295,7 @@
       0.1077,
       0.1074,
       0.1038,
-      0.0992
+      0.1009
     ],
     "exp_rate": [
       0.0379,
@@ -1358,7 +1358,7 @@
       271,
       325,
       372,
-      398
+      405
     ],
     "meeting_total": [
       13,
@@ -1494,14 +1494,14 @@
           "net_profit": 0
         },
         "화장품": {
-          "qty": 36,
-          "order_count": 21,
-          "gross_revenue": 1200500,
-          "net_profit": 827072
+          "qty": 37,
+          "order_count": 22,
+          "gross_revenue": 1238500,
+          "net_profit": 853472
         },
         "수면영양제": {
-          "qty": 24,
-          "order_count": 4,
+          "qty": 60,
+          "order_count": 11,
           "gross_revenue": 43200,
           "net_profit": 0,
           "trial_orders": 4,
@@ -1628,11 +1628,11 @@
     },
     "2026-09": {
       "sent": 429,
-      "replied": 26,
+      "replied": 33,
       "meeting": 10,
       "exp": 2,
       "ad": 0,
-      "reply_rate": 0.0606,
+      "reply_rate": 0.0769,
       "meeting_rate": 0.0233,
       "exp_rate": 0.0047,
       "ad_rate": 0.0
@@ -1914,8 +1914,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 27,
-        "units": 28
+        "orders": 28,
+        "units": 29
       },
       "1+1": {
         "orders": 10,
@@ -1928,9 +1928,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 32,
-        "units": 58,
-        "gross": 1855000
+        "orders": 33,
+        "units": 59,
+        "gross": 1893000
       },
       "쿠팡": {
         "orders": 1,
