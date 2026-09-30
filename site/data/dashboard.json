@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T19:08:04",
+  "generated_at": "2026-09-30T17:01:13",
   "current_month": "2026-09",
   "products": [
     {
@@ -31,15 +31,15 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 13,
-    "unit_count": 26,
-    "gross_revenue": 3050000,
-    "influencer_cost": 360000,
+    "order_count": 14,
+    "unit_count": 27,
+    "gross_revenue": 3170000,
+    "influencer_cost": 380000,
     "sponsor_cost": 80000,
-    "cogs_cost": 1040000,
-    "labor_cost": 260000,
-    "net_profit": 1570000,
-    "operating_profit": 1310000,
+    "cogs_cost": 1080000,
+    "labor_cost": 270000,
+    "net_profit": 1630000,
+    "operating_profit": 1360000,
     "manual_sales_amount": 240000,
     "manual_sales_qty": 3,
     "manual_sales_fee": 0
@@ -47,10 +47,10 @@
   "mail_funnel": {
     "total_sent": 4013,
     "etc_excluded": 81,
-    "replied": 405,
-    "reply_rate": 0.1009,
-    "meeting_total": 139,
-    "meeting_rate": 0.0346,
+    "replied": 408,
+    "reply_rate": 0.1017,
+    "meeting_total": 140,
+    "meeting_rate": 0.0349,
     "exp_total": 83,
     "exp_rate": 0.0207,
     "ad_total": 64,
@@ -134,11 +134,11 @@
       "현재상태": "1차 체험진행"
     },
     "나의루루들": {
-      "건수": 3,
-      "수량": 3,
-      "누적수량": 7,
+      "건수": 4,
+      "수량": 4,
+      "누적수량": 8,
       "현재단가": 20000,
-      "금액": 60000,
+      "금액": 80000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
@@ -1298,7 +1298,7 @@
       0.1077,
       0.1074,
       0.1038,
-      0.1009
+      0.1017
     ],
     "exp_rate": [
       0.0379,
@@ -1325,7 +1325,7 @@
       0.0318,
       0.0324,
       0.036,
-      0.0346
+      0.0349
     ],
     "gross_revenue": [
       1200000,
@@ -1334,7 +1334,7 @@
       4250000,
       3570000,
       5470000,
-      3050000
+      3170000
     ],
     "net_profit": [
       560000,
@@ -1343,7 +1343,7 @@
       2082000,
       2134000,
       2450000,
-      1570000
+      1630000
     ],
     "total_sent": [
       396,
@@ -1361,7 +1361,7 @@
       271,
       325,
       372,
-      405
+      408
     ],
     "meeting_total": [
       13,
@@ -1370,7 +1370,7 @@
       80,
       98,
       129,
-      139
+      140
     ],
     "exp_total": [
       15,
@@ -1398,7 +1398,7 @@
       1742000,
       1844000,
       2000000,
-      1310000
+      1360000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1407,7 +1407,7 @@
       0.4099,
       0.5165,
       0.3656,
-      0.4295
+      0.429
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1491,9 +1491,9 @@
       },
       "2026-09": {
         "흑염소": {
-          "qty": 26,
-          "order_count": 13,
-          "gross_revenue": 3050000,
+          "qty": 27,
+          "order_count": 14,
+          "gross_revenue": 3170000,
           "net_profit": 0
         },
         "화장품": {
@@ -1544,9 +1544,9 @@
           "gross_revenue": 650000
         },
         "B": {
-          "qty": 18,
-          "order_count": 8,
-          "gross_revenue": 2160000
+          "qty": 19,
+          "order_count": 9,
+          "gross_revenue": 2280000
         }
       }
     }
@@ -1631,12 +1631,12 @@
     },
     "2026-09": {
       "sent": 429,
-      "replied": 33,
-      "meeting": 10,
+      "replied": 36,
+      "meeting": 11,
       "exp": 2,
       "ad": 0,
-      "reply_rate": 0.0769,
-      "meeting_rate": 0.0233,
+      "reply_rate": 0.0839,
+      "meeting_rate": 0.0256,
       "exp_rate": 0.0047,
       "ad_rate": 0.0
     }
@@ -1699,11 +1699,11 @@
         "cumulative_profit": 9684000
       },
       "2026-09": {
-        "gross_revenue": 3050000,
-        "unit_count": 26,
-        "operating_profit": 1310000,
-        "operating_profit_rate": 0.4295,
-        "cumulative_profit": 10994000
+        "gross_revenue": 3170000,
+        "unit_count": 27,
+        "operating_profit": 1360000,
+        "operating_profit_rate": 0.429,
+        "cumulative_profit": 11044000
       }
     },
     "influencer_cumulative": {
@@ -1778,9 +1778,9 @@
         "contribution": 620000
       },
       "나의루루들": {
-        "qty": 7,
-        "settlement": 140000,
-        "contribution": 420000
+        "qty": 8,
+        "settlement": 160000,
+        "contribution": 480000
       },
       "티티준석": {
         "qty": 1,
