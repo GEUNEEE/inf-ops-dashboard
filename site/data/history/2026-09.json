@@ -1,25 +1,25 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-09-30T17:01:12",
+  "generated_at": "2026-10-01T10:02:04",
   "gross_revenue": 3170000,
-  "net_profit": 1630000,
+  "net_profit": 1510000,
   "order_count": 14,
   "unit_count": 27,
-  "operating_profit": 1360000,
-  "operating_profit_rate": 0.429,
+  "operating_profit": 1240000,
+  "operating_profit_rate": 0.3912,
   "total_sent": 4013,
   "replied": 408,
   "meeting_total": 140,
-  "exp_total": 83,
+  "exp_total": 86,
   "ad_total": 64,
   "reply_rate": 0.1017,
-  "exp_rate": 0.0207,
+  "exp_rate": 0.0214,
   "ad_rate": 0.0159,
   "meeting_rate": 0.0349,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
-    "체험진행_1차": 30,
+    "체험진행_1차": 32,
     "체험진행_2차": 5,
     "체험진행_3차": 1,
     "광고예정_1차": 10,
@@ -91,6 +91,33 @@
       "is_general": true,
       "sponsor_cost_this_month": 0
     },
+    "모모코로": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "비만이": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
+    "주식하는 강이사": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 40000
+    },
     "하이수달_(등산 & 라이프)": {
       "order_count": 0,
       "qty": 0,
@@ -121,10 +148,10 @@
       "net_profit": 0
     },
     "화장품": {
-      "qty": 38,
-      "order_count": 23,
-      "gross_revenue": 1279500,
-      "net_profit": 882572
+      "qty": 39,
+      "order_count": 24,
+      "gross_revenue": 1317500,
+      "net_profit": 908972
     },
     "수면영양제": {
       "qty": 60,
@@ -150,8 +177,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 15,
-        "units": 16
+        "orders": 16,
+        "units": 17
       },
       "1+1": {
         "orders": 5,
@@ -164,9 +191,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 13,
-        "units": 25,
-        "gross": 780500
+        "orders": 14,
+        "units": 26,
+        "gross": 818500
       },
       "자사몰": {
         "orders": 10,
