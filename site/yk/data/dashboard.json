@@ -1,0 +1,439 @@
+{
+  "generated_at": "2026-10-07T20:35:32",
+  "current_month": "2026-10",
+  "owner": "영끌러님",
+  "filter_mode": "owner",
+  "products": [
+    {
+      "key": "흑염소",
+      "label": "흑염소",
+      "icon": "🐐",
+      "default": true,
+      "store_split": true,
+      "store_split_from": "2026-07"
+    },
+    {
+      "key": "수면영양제",
+      "label": "수면영양제",
+      "icon": "😴"
+    },
+    {
+      "key": "화장품",
+      "label": "화장품",
+      "icon": "💄"
+    }
+  ],
+  "stores": {
+    "A": "초방리농장",
+    "B": "슬립케어랩"
+  },
+  "revenue": {
+    "order_count": 0,
+    "unit_count": 0,
+    "gross_revenue": 0,
+    "influencer_cost": 0,
+    "sponsor_cost": 0,
+    "cogs_cost": 0,
+    "labor_cost": 0,
+    "labor_qty": 0,
+    "labor_basis": "none",
+    "net_profit": 0,
+    "operating_profit": 0
+  },
+  "mail_funnel": {
+    "total_sent": 0,
+    "etc_excluded": 0,
+    "replied": 0,
+    "reply_rate": 0,
+    "meeting_total": 0,
+    "meeting_rate": 0,
+    "exp_total": 0,
+    "exp_rate": 0,
+    "ad_total": 0,
+    "ad_rate": 0
+  },
+  "mail_funnel_by_product": {
+    "흑염소": {
+      "total_sent": 0,
+      "etc_excluded": 0,
+      "replied": 0,
+      "reply_rate": 0,
+      "meeting_total": 0,
+      "meeting_rate": 0,
+      "exp_total": 0,
+      "exp_rate": 0,
+      "ad_total": 0,
+      "ad_rate": 0,
+      "by_month": {},
+      "source_file": "1. 유튜브 인플루언서 관리_공유_260619.xlsx"
+    },
+    "화장품": {
+      "total_sent": 0,
+      "etc_excluded": 0,
+      "replied": 0,
+      "reply_rate": 0,
+      "meeting_total": 0,
+      "meeting_rate": 0,
+      "exp_total": 0,
+      "exp_rate": 0,
+      "ad_total": 0,
+      "ad_rate": 0,
+      "by_month": {},
+      "source_file": "1. 뷰티 인플루언서 관리_공유_260701.xlsx"
+    },
+    "수면영양제": {
+      "total_sent": 0,
+      "etc_excluded": 0,
+      "replied": 0,
+      "reply_rate": 0,
+      "meeting_total": 0,
+      "meeting_rate": 0,
+      "exp_total": 0,
+      "exp_rate": 0,
+      "ad_total": 0,
+      "ad_rate": 0,
+      "by_month": {},
+      "source_file": "1. 슬립이지 인플루언서 관리_공유_261007.xlsx"
+    }
+  },
+  "inf_status": {
+    "미팅_대기": 0,
+    "미팅_진행": 0,
+    "체험진행_1차": 0,
+    "체험진행_2차": 0,
+    "체험진행_3차": 0,
+    "광고예정_1차": 0,
+    "광고예정_2차": 0,
+    "광고완료_1차": 0,
+    "기타": 0
+  },
+  "settlement_month": 9,
+  "settlement_summary": {},
+  "trends": {
+    "months": [
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09"
+    ],
+    "reply_rate": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "exp_rate": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ad_rate": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "meeting_rate": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "gross_revenue": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "net_profit": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "total_sent": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "replied": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "meeting_total": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "exp_total": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "ad_total": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "exp_by_month": {},
+    "operating_profit": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "operating_profit_rate": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "by_product_by_month": {
+      "2026-03": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      },
+      "2026-04": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      },
+      "2026-05": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      },
+      "2026-06": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      },
+      "2026-07": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      },
+      "2026-08": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      },
+      "2026-09": {
+        "흑염소": {
+          "qty": 0,
+          "order_count": 0,
+          "gross_revenue": 0
+        }
+      }
+    },
+    "by_store_by_month": {}
+  },
+  "mail_funnel_by_month": {},
+  "ad_by_month": {},
+  "ad_inf_count_by_month": {},
+  "profit_analysis": {
+    "note": "기여수익(정산대상)=12만×qty−정산액−원가3.6만×qty−해당월협찬원가 / 기여수익(기타)=13만×qty−원가3.6만×qty",
+    "monthly": {
+      "2026-03": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      },
+      "2026-04": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      },
+      "2026-05": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      },
+      "2026-06": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      },
+      "2026-07": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      },
+      "2026-08": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      },
+      "2026-09": {
+        "gross_revenue": 0,
+        "unit_count": 0,
+        "operating_profit": 0,
+        "operating_profit_rate": 0,
+        "cumulative_profit": 0,
+        "labor_cost": 0,
+        "labor_qty": 0,
+        "labor_basis": "none"
+      }
+    },
+    "influencer_cumulative": {}
+  },
+  "cosmetics_breakdown": {
+    "by_option": {},
+    "by_channel": {},
+    "trial": {
+      "orders": 0,
+      "units": 0,
+      "gross": 0,
+      "excluded_profit": 0,
+      "buyers": []
+    }
+  },
+  "product_trials": {},
+  "manual_sales": [],
+  "alerts": {
+    "unregistered_influencers": [],
+    "product_unassigned": []
+  },
+  "ops_summary": {
+    "month": "2026-09",
+    "managed_count": 0,
+    "total_sent": 0,
+    "replied": 0,
+    "reply_rate": 0,
+    "meeting_total": 0,
+    "exp_total": 0,
+    "ad_total": 0,
+    "by_product": {
+      "흑염소": {
+        "sent": 0,
+        "replied": 0,
+        "meeting": 0,
+        "exp": 0,
+        "ad": 0,
+        "qty": 0,
+        "order_count": 0,
+        "gross_revenue": 0,
+        "influencers": 0,
+        "source_file": "1. 유튜브 인플루언서 관리_공유_260619.xlsx"
+      },
+      "화장품": {
+        "sent": 0,
+        "replied": 0,
+        "meeting": 0,
+        "exp": 0,
+        "ad": 0,
+        "qty": 0,
+        "order_count": 0,
+        "gross_revenue": 0,
+        "influencers": 0,
+        "source_file": "1. 뷰티 인플루언서 관리_공유_260701.xlsx"
+      },
+      "수면영양제": {
+        "sent": 0,
+        "replied": 0,
+        "meeting": 0,
+        "exp": 0,
+        "ad": 0,
+        "qty": 0,
+        "order_count": 0,
+        "gross_revenue": 0,
+        "influencers": 0,
+        "source_file": "1. 슬립이지 인플루언서 관리_공유_261007.xlsx"
+      }
+    },
+    "influencer_products": {},
+    "unassigned": []
+  }
+}
