@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T16:33:11",
+  "generated_at": "2026-10-07T16:35:43",
   "current_month": "2026-10",
   "products": [
     {
@@ -37,11 +37,11 @@
     "influencer_cost": 380000,
     "sponsor_cost": 360000,
     "cogs_cost": 1080000,
-    "labor_cost": 80000,
-    "labor_qty": 8,
+    "labor_cost": 50000,
+    "labor_qty": 5,
     "labor_basis": "store_A",
     "net_profit": 1350000,
-    "operating_profit": 1270000,
+    "operating_profit": 1300000,
     "manual_sales_amount": 240000,
     "manual_sales_qty": 3,
     "manual_sales_fee": 0
@@ -1472,7 +1472,7 @@
       1742000,
       2014000,
       2320000,
-      1270000
+      1300000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1481,7 +1481,7 @@
       0.4099,
       0.5641,
       0.4241,
-      0.4006
+      0.4101
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1804,11 +1804,11 @@
       "2026-09": {
         "gross_revenue": 3170000,
         "unit_count": 27,
-        "operating_profit": 1270000,
-        "operating_profit_rate": 0.4006,
-        "cumulative_profit": 11444000,
-        "labor_cost": 80000,
-        "labor_qty": 8,
+        "operating_profit": 1300000,
+        "operating_profit_rate": 0.4101,
+        "cumulative_profit": 11474000,
+        "labor_cost": 50000,
+        "labor_qty": 5,
         "labor_basis": "store_A"
       }
     },
