@@ -860,7 +860,8 @@
     const totalSponsor   = items.reduce((s, i) => s + (i.sponsorCost || 0), 0);
     const totalSettlement = items.reduce((s, i) => s + (i.settlement || 0), 0);
     const laborLabel     = month ? monthLabel(month) : '전체 누적';
-    const laborBasisTxt  = laborStoreOnly
+    const laborNone      = month && h && h.labor_basis === 'none';
+    const laborBasisTxt  = laborNone ? '2026-10부터 눈길 인건비 없음' : laborStoreOnly
       ? (month ? `초방리농장 판매 ${laborQty}개 × ₩10,000 · 슬립케어랩 판매분 미적용`
                : `${laborQty}개 × ₩10,000 · 2026-07부터 초방리농장 판매분만`)
       : `${laborQty}개 × ₩10,000`;
