@@ -25,9 +25,9 @@ INPUT_DIR     = BASE_DIR / "input"
 DOWNLOADS_DIR = Path.home() / "Downloads"
 ENV_PYTHONUTF8 = {"PYTHONUTF8": "1", **os.environ}
 
-# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신) + 전체주문배송현황 + 자사몰 zip
+# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신) + 전체주문배송현황 + 자사몰 zip + 자사몰 송장CSV
 ORDER_PATTERNS = ("스마트스토어_주문조회_*.xlsx", "스마트스토어_*발주발송관리_*.xlsx",
-                  "스마트스토어_*주문배송현황_*.xlsx", "calix9k_*.zip")
+                  "스마트스토어_*주문배송현황_*.xlsx", "calix9k_*.zip", "*_orders_calix9k.csv")
 
 
 def find_latest_order_file() -> Path | None:
@@ -188,6 +188,9 @@ def main():
         if of.suffix.lower() == ".zip":
             # 자사몰(spoteasy) zip — 화장품 전용, 채널=자사몰
             bd = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_mall_order.py", str(of))
+        elif of.suffix.lower() == ".csv" and of.name.endswith("_orders_calix9k.csv"):
+            # 자사몰(spoteasy) 송장조회 CSV — 금액 컬럼 없음, 옵션→금액 매핑으로 채움
+            bd = run_script(SKILLS_DIR / "excel-parser" / "scripts" / "parse_mall_csv.py", str(of))
         else:
             po_args = [str(of), managed_set]
             if file_store:
@@ -208,6 +211,28 @@ def main():
         print("[INFO] 신규 주문 0건 — Raw_Data 기준으로 정산·대시보드 재빌드", file=sys.stderr)
     else:
         print(f"[INFO] 신규 주문 총 {new_count}건 처리 계속", file=sys.stderr)
+
+    # STEP 4.5 — 고객DB 누적 (연락처 보유 파일: 발주발송관리/주문배송현황/자사몰 zip만 대상)
+    contact_files = [
+        of for of in order_files
+        if of.suffix.lower() == ".zip" or "발주발송관리" in of.name or "주문배송현황" in of.name
+        or of.name.endswith("_orders_calix9k.csv")
+    ]
+    if contact_files:
+        print(f"[STEP 4.5] 고객DB 누적 ({len(contact_files)}개 파일)...", file=sys.stderr)
+        try:
+            cdb_result = subprocess.run(
+                [PYTHON_EXE, str(SCHEDULE_DIR / "build_customer_db.py")] + [str(f) for f in contact_files],
+                capture_output=True, text=True, encoding="utf-8", env=ENV_PYTHONUTF8
+            )
+            if cdb_result.stderr:
+                print(cdb_result.stderr, file=sys.stderr)
+            if cdb_result.returncode != 0:
+                print(f"[WARN] 고객DB 누적 실패: {cdb_result.stderr[-300:]}", file=sys.stderr)
+        except Exception as e:
+            print(f"[WARN] 고객DB 누적 실패: {e}", file=sys.stderr)
+    else:
+        print("[STEP 4.5] 이번 배치에 연락처 포함 파일 없음 — 고객DB 갱신 생략", file=sys.stderr)
 
     # STEP 5 — 정산서 생성
     print("[STEP 5] 정산서 생성...", file=sys.stderr)
@@ -259,6 +284,13 @@ def main():
         SKILLS_DIR / "dashboard-builder" / "scripts" / "build_kpi.py",
         str(mail_json), str(inf_json), str(revenue_json), str(settlement_json)
     )
+
+    # STEP 8.5 — 영끌러님 대시보드 (site/yk/data) — 실패해도 종합 파이프라인은 계속
+    print("[STEP 8.5] 영끌러님 대시보드 빌드 (site/yk)...", file=sys.stderr)
+    try:
+        run_script(SKILLS_DIR / "dashboard-builder" / "scripts" / "build_yk.py")
+    except Exception as e:
+        print(f"[WARN] build_yk 실패 (종합 대시보드는 정상, yk 는 이전 데이터 유지): {e}", file=sys.stderr)
 
     # STEP 9 — git push (site-publisher)
     print("[STEP 9] site 동기화 (git push)...", file=sys.stderr)

@@ -107,8 +107,9 @@ STEP 1 JSON + STEP 2 캘린더 데이터를 통합하여 아래 규칙대로 브
 |--------|------|
 | 주문 파일 처리 요청 | 사용자가 파일 경로를 제시하거나 "최신 파일 반영" 등 언급 |
 | `과거 임포트 실행` | STEP 0 — 보유 주문 파일 일괄 처리 |
-| `대시보드 갱신` | STEP 1~2만 실행 (주문 없이 KPI만 갱신) |
+| `대시보드 갱신` | STEP 1~2만 실행 (주문 없이 KPI만 갱신). 종합(`site/data`) 갱신 후 `build_yk.py`로 영끌러님 대시보드(`site/yk/data`)도 같이 갱신 (run_pipeline STEP 8.5 자동) |
 | `정산서까지 돌려줘` / `정산서 뽑아줘` | 신규 주문 파일 유무와 무관하게 Raw_Data 기준으로 정산서 재생성 + PNG 이미지까지 생성. `run_pipeline.py --all --rebuild --images --month YYYY-MM` (월말 전용 — 평소 주문 처리 때는 `--rebuild --images` 붙이지 않음) |
+| `퍼포먼스 갱신` | Meta 광고 → `site/performance.html` 데이터 갱신. ① Meta Ads MCP `ads_get_ad_entities`(계정 `706112365442772`, 캠페인 레벨 + `time_increment:"1"` 일별)로 당월 수집 → `output/tmp/meta_YYYY-MM.json` 저장 (원본 값 형식 그대로) ② `build_ads.py YYYY-MM` → `site/data/ads/YYYY-MM.json` + `index.json` ③ `publish.py`. 자사몰 주문은 `history/YYYY-MM.json`에서 자동 병합되므로 주문 파이프라인 먼저 돌린 뒤 실행 |
 
 ## 주문 파일 탐색 순서
 
@@ -169,6 +170,11 @@ managed_set을 JSON 문자열로 인라인 전달.
 > 주문번호(상품주문번호) 단위 중복은 Raw_Data 대조로 자동 스킵되어 이중 집계되지 않는다.
 > 최신 1개만 처리하려면 `--all` 대신 `--latest`를 쓴다.
 
+`run_pipeline.py` 내부에서 STEP 3~4 직후 **STEP 4.5 — 고객DB 누적**이 자동 실행된다.
+이번 배치 파일 중 연락처 보유 형식(발주발송관리·주문배송현황·자사몰 zip)만 골라
+`스케줄\build_customer_db.py`로 넘겨 `스케줄\고객DB.xlsx`(연락처·주소·구매이력 누적, Git 미포함)를 갱신한다.
+별도 호출 불필요 — 매번 파이프라인 실행 시 자동으로 같이 쌓인다.
+
 ## STEP 7 — 월별 스냅샷 (run_pipeline.py 내부 자동 실행)
 
 `site/data/history/YYYY-MM.json` + `output/history/YYYY-MM.json` 저장
@@ -226,7 +232,9 @@ notify.py로 메시지 생성 → `KakaotalkChat-MemoChat` MCP로 전송
 | 항목 | 경로 |
 |------|------|
 | 마스터 DB (2026-08 이전 레거시, 더 이상 파싱에 사용 안 함) | `C:\Users\user\비서\스케줄\0. 유튜브 인플루언서 관리_*.xlsx` |
-| 인플루언서관리·메일발송현황 소스 (2026-08~, 퍼널 KPI + 상태값 공통) | `G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설\1. 유튜브 인플루언서 관리_공유_260619.xlsx` — `parse_mail.py`·`parse_inf.py` 둘 다 이 경로 사용 (발송 로그·상태값 모두 이쪽이 최신) |
+| 메일발송현황 소스 (2026-08~, 퍼널 KPI) | `G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설\1. <종류> 인플루언서 관리_공유_YYMMDD.xlsx` — `parse_mail.py`가 종류별 최신 날짜 파일 자동 선택 (종합 = 유튜브, `~$`·백업 제외). 시트 `메일발송현황*` 6행 헤더: A열 `구분`(담당자 ㅇ, 2026-10-07 삽입) → 분류 → … |
+| 인플루언서관리 소스 (상태값·체험·광고, 영끌러님 ㅇ 명단·제품) | 같은 폴더 `인플루언서 종합 관리시트.xlsx` 시트 `인플루언서관리` (전치형: A열 라벨, 열=인플루언서) — `parse_inf.py`. `영끌러님 관리` 행 ㅇ = 영끌러님 담당, `제품` 행 = 담당 제품 (사장님이 직접 입력, 자동 생성 금지) |
+| 영끌러님 대시보드 | `C:\Users\user\비서\site\yk\` (`index.html`·`assets/app.js` 자체 사본, `data/`는 `build_yk.py` 산출) → `https://geuneee.github.io/inf-ops-dashboard/yk/` |
 | 주문 드롭 폴더 | `C:\Users\user\비서\스케줄\` (우선) / `C:\Users\user\비서\input\` (보조) |
 | 정산DB | `C:\Users\user\비서\스케줄\정산DB_업데이트.xlsx` |
 | 정산 제외 로그 | `C:\Users\user\비서\output\settlement_skipped.log` |

@@ -82,8 +82,11 @@ def main():
     head = []
     if new_count:
         head.append(f"📦 {mlabel}월 신규 {new_count}건 처리")
-    head.append(f"📊 {mlabel}월 매출 ₩{total_rev:,} / 수익 ₩{total_profit:,}")
-    link = f"🔗 {SITE_URL}"
+    # 이모지(📊)는 카톡에서 실제 렌더링 폭이 문자 길이보다 넓어 "N월 수익" 줄을 더 들여써야 "N월 매출"과 시작점이 맞음
+    rev_prefix = "📊 "
+    head.append(f"{rev_prefix}{mlabel}월 매출 ₩{total_rev:,}")
+    head.append(f"{' ' * (len(rev_prefix) + 3)}{mlabel}월 수익 ₩{total_profit:,}")
+    link = f"🔗 {SITE_URL}\n   영끌러님: {SITE_URL}yk/"
 
     full = head + [f"{ic}{nm} ₩{rev:,} (수익 {pf:,})" for nm, ic, rev, pf in prod_rows] + [link]
     msg = "\n".join(full)
