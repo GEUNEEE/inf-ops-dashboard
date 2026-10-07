@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>영끌러님 대시보드</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:  #FAFAF8;
+      --bg2: #F2F0E8;
+      --border:  #E5E3D6;
+      --border2: #D3D1C7;
+      --text1: #1A1A18;
+      --text2: #666660;
+      --text3: #A8A69C;
+      --r: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text1);
+      font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 20px; }
+
+    .slbl {
+      font-size: 10px; font-weight: 500; color: var(--text3);
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px;
+    }
+    .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; }
+
+    /* KPI */
+    .kpi-card        { background: var(--bg2); border-radius: var(--r); padding: 11px 13px; }
+    .kpi-card-accent { background: #EAF3DE;    border-radius: var(--r); padding: 11px 13px; }
+    .kpi-lbl  { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+    .kpi-val  { font-size: 22px; font-weight: 500; color: var(--text1); line-height: 1.2; }
+    .kpi-sub  { font-size: 10px; color: var(--text3); margin-top: 3px; min-height: 14px; }
+
+    /* Grids */
+    .kpi-grid        { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .profit-kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    .funnel-grid     { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; margin-bottom: 12px; }
+    .inf-grid        { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+    .chart-grid      { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+
+    /* Funnel bars */
+    .f-bar   { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .f-track { flex: 1; height: 30px; background: var(--bg2); border-radius: 5px; overflow: hidden; position: relative; }
+    .f-fill  { height: 100%; border-radius: 5px; }
+    .f-label { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 10px; justify-content: space-between; }
+    .f-name  { font-size: 11px; font-weight: 500; color: var(--text1); }
+    .f-cnt   { font-size: 11px; color: var(--text2); }
+    .f-pct   { min-width: 44px; text-align: right; font-size: 11px; font-weight: 500; }
+
+    /* Donut */
+    .donut-legend  { margin-top: 10px; }
+    .legend-row    { display: flex; align-items: center; justify-content: space-between; font-size: 10px; padding: 4px 0; border-bottom: 0.5px solid var(--border); }
+    .legend-row:last-child { border-bottom: none; }
+    .legend-left   { display: flex; align-items: center; gap: 6px; }
+    .legend-dot    { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .legend-lbl    { color: var(--text2); }
+    .legend-right  { display: flex; gap: 8px; color: var(--text3); }
+
+    /* Pills */
+    .pill              { display: inline-flex; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 9px; white-space: nowrap; }
+    .pill-exp          { background: #EEEDFE; color: #3C3489; }
+    .pill-adplan       { background: #EAF3DE; color: #3B6D11; }
+    .pill-addone       { background: #C0DD97; color: #27500A; }
+    .pill-meeting      { background: #FAEEDA; color: #633806; }
+    .pill-meeting-plan { background: #FAC775; color: #412402; }
+    .pill-meeting-active{ background: #E6F1FB; color: #0C447C; }
+    .pill-reject       { background: #FCEBEB; color: #A32D2D; }
+    .pill-etc          { background: var(--bg2); color: var(--text3); }
+    .pill-target       { background: #EAF3DE; color: #3B6D11; }
+    .pill-general      { background: var(--bg2); color: var(--text3); }
+    .pill-waived       { background: #FCEBEB; color: #A32D2D; }
+
+    /* Tier */
+    .tier-section { margin-top: 4px; }
+    .tier-row     { display: flex; justify-content: space-between; align-items: center; font-size: 11px; padding: 2px 0; color: var(--text2); }
+    .tier-row + .tier-row { border-top: 0.5px solid var(--border); margin-top: 2px; padding-top: 4px; }
+    .tier-up    { font-size: 9px; color: #3B6D11; font-weight: 600; margin-left: 3px; }
+    .tier-total { display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border2); margin-top: 3px; padding-top: 4px; font-size: 11px; }
+
+    /* Inf card */
+    .inf-card        { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px; display: block; transition: background 0.1s; }
+    .inf-card:hover  { background: var(--bg2); }
+    .inf-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+    .inf-card-name   { font-weight: 500; font-size: 13px; }
+    .inf-card-stats  { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px 4px; margin-top: 8px; }
+    .stat-lbl { font-size: 10px; color: var(--text3); display: block; }
+    .stat-val { font-weight: 500; font-size: 12px; }
+
+    /* Filter */
+    .filter-row  { display: flex; gap: 5px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+    .filter-chip {
+      font-size: 10px; padding: 3px 9px; border-radius: 11px;
+      border: 0.5px solid var(--border2); background: transparent;
+      color: var(--text2); font-weight: 500; cursor: pointer;
+      transition: background 0.1s, color 0.1s, border-color 0.1s;
+    }
+    .filter-chip.active { background: var(--text1); color: var(--bg); border-color: var(--text1); }
+
+    /* Banners */
+    .banner      { border-radius: var(--r); padding: 10px 13px; font-size: 11px; font-weight: 500; margin-bottom: 12px; }
+    .banner-warn { background: #FAEEDA; border: 0.5px solid #EEC97A; color: #633806; }
+    .banner-err  { background: #FCEBEB; border: 0.5px solid #E8AAAA; color: #A32D2D; }
+    .hidden      { display: none !important; }
+
+    /* Page header */
+    .page-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+    .page-title  { font-size: 15px; font-weight: 500; }
+    .page-sub    { font-size: 10px; color: var(--text3); }
+
+    .mb12 { margin-bottom: 12px; }
+
+    /* 탭바 */
+    .tabbar {
+      display: flex; gap: 3px; margin-bottom: 18px;
+      border-bottom: 0.5px solid var(--border2); flex-wrap: wrap;
+    }
+    .tab {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; font-weight: 500; color: var(--text2);
+      padding: 8px 14px; border-radius: 8px 8px 0 0; cursor: pointer;
+      border: 0.5px solid transparent; border-bottom: none;
+      user-select: none; position: relative; bottom: -0.5px;
+      background: transparent; transition: background 0.1s, color 0.1s;
+    }
+    .tab:hover { color: var(--text1); }
+    .tab.active { color: var(--text1); background: var(--bg2); border-color: var(--border2); }
+    .tab.dragging { opacity: 0.35; }
+    .tab.dragover { box-shadow: inset 3px 0 0 var(--text1); }
+    .tab-icon  { font-size: 13px; line-height: 1; }
+    .tab-badge { font-size: 9px; color: var(--text3); margin-left: 2px; }
+    .tab-hint  { font-size: 10px; color: var(--text3); margin-bottom: 12px; }
+
+    /* 탭 패널 */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .empty-state {
+      text-align: center; color: var(--text3); font-size: 12px;
+      padding: 56px 20px; border: 0.5px dashed var(--border2); border-radius: var(--r);
+    }
+    .empty-state .es-title { font-size: 13px; font-weight: 500; color: var(--text2); margin-bottom: 6px; }
+
+    /* 제품별 카드 (Summary) */
+    .prod-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-bottom: 14px; }
+    .prod-card { background: var(--bg2); border-radius: var(--r); padding: 13px; }
+    .prod-card-head { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+    .prod-card-name { font-size: 12px; font-weight: 500; }
+    .prod-card-rev  { font-size: 18px; font-weight: 500; }
+    .prod-card-sub  { font-size: 10px; color: var(--text3); margin-top: 3px; }
+    .prod-bar-track { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+    .prod-bar-fill  { height: 100%; background: #7F77DD; border-radius: 3px; }
+
+    /* 스토어 분리 카드 (흑염소) */
+    .store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .store-card { background: var(--bg2); border-radius: var(--r); padding: 12px; }
+    .store-card-name { font-size: 11px; color: var(--text2); font-weight: 500; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+    .store-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .store-card-val  { font-size: 18px; font-weight: 500; }
+    .store-card-sub  { font-size: 10px; color: var(--text3); margin-top: 2px; }
+
+    /* 퍼널 월별 테이블 */
+    .fmonth-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .fmonth-table th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); }
+    .fmonth-table th:first-child { text-align: left; }
+    .fmonth-table td { padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border); color: var(--text2); }
+    .fmonth-table td:first-child { text-align: left; color: var(--text1); font-weight: 500; }
+    .fmonth-table tr:last-child td { border-bottom: none; }
+    .fmonth-cnt { font-weight: 500; color: var(--text1); }
+    .fmonth-pct { font-size: 10px; color: var(--text3); margin-left: 3px; }
+    .fmonth-cur td:first-child { color: #185FA5; }
+
+    /* 기여수익 테이블 */
+    .contrib-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+    .contrib-tbl th { color: var(--text3); font-weight: 500; padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border2); }
+    .contrib-tbl th:first-child { text-align: left; }
+    .contrib-tbl td { padding: 5px 8px; text-align: right; border-bottom: 0.5px solid var(--border); color: var(--text2); }
+    .contrib-tbl td:first-child { text-align: left; color: var(--text1); font-weight: 500; }
+    .contrib-tbl tr:last-child td { border-bottom: none; }
+    .contrib-tbl tfoot td { border-top: 0.5px solid var(--border2); font-weight: 600; color: var(--text1); padding-top: 7px; border-bottom: none; }
+    .contrib-tbl tfoot td:first-child { color: var(--text3); }
+  </style>
+</head>
+<body data-page="dashboard">
+  <div class="wrap">
+
+    <div class="page-header">
+      <span class="page-title">영끌러님 대시보드</span>
+      <span style="display:flex;align-items:baseline;gap:10px">
+        <span class="page-sub" id="generated-at"></span>
+      </span>
+    </div>
+
+    <div id="error-banner" class="banner banner-err hidden"></div>
+    <div id="alert-banner" class="banner banner-warn hidden"></div>
+
+    <!-- 탭바 (드래그로 순서 변경 가능) -->
+    <div class="tabbar" id="tabbar"></div>
+    <div class="tab-hint">↔ 탭을 드래그하면 순서를 바꿀 수 있어요</div>
+
+    <!-- ─────────────  탭: Summary  ───────────── -->
+    <section class="tab-panel" data-tab="summary" id="panel-summary">
+      <!-- 전체/월별 필터 -->
+      <div class="filter-row" id="summary-month-filter"></div>
+
+      <div class="card mb12 hidden" id="ops-summary-card">
+        <div class="slbl">이번 달 운영 현황 <span id="ops-summary-month" style="color:var(--text3);text-transform:none;letter-spacing:0"></span></div>
+        <div id="ops-summary-line" style="font-size:13px;font-weight:500;line-height:1.7;margin-bottom:8px"></div>
+        <div class="prod-grid" id="ops-prod-grid"></div>
+      </div>
+
+      <div class="slbl">제품별 매출 비중 <span id="summary-scope-label" style="color:var(--text3);text-transform:none;letter-spacing:0"></span></div>
+      <div class="prod-grid" id="summary-prod-grid"></div>
+
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <div class="kpi-card">
+          <div class="kpi-lbl">전체 매출</div>
+          <div class="kpi-val" id="sum-revenue">-</div>
+          <div class="kpi-sub" id="sum-revenue-sub"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-lbl">전체 판매량</div>
+          <div class="kpi-val" id="sum-units">-</div>
+          <div class="kpi-sub" id="sum-units-sub"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-lbl">전체 수익</div>
+          <div class="kpi-val" id="sum-profit">-</div>
+          <div class="kpi-sub" id="sum-profit-sub"></div>
+        </div>
+      </div>
+
+      <div class="card mb12">
+        <div class="slbl">전체 제품 · 월별 매출 · 수익 · 판매량</div>
+        <canvas id="summary-trend-chart"></canvas>
+      </div>
+
+      <div class="card mb12">
+        <div class="slbl">제품 · 월별 판매 추이</div>
+        <div id="summary-monthly-table"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────  탭: 흑염소 (기존 대시보드)  ───────────── -->
+    <section class="tab-panel" data-tab="흑염소" id="panel-흑염소">
+
+    <!-- 월별 필터 -->
+    <div class="filter-row" id="month-filter"></div>
+
+    <!-- 스토어 분리 (7월부터, 데이터 있을 때만 표시) -->
+    <div class="card mb12 hidden" id="store-split-card">
+      <div class="slbl">스토어별 <span style="font-size:9px;color:var(--text3)">(초방리농장 A / 슬립케어랩 B · 7월~)</span></div>
+      <div class="store-grid" id="store-split-grid"></div>
+    </div>
+
+    <!-- KPI 6칸 -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-lbl">매출</div>
+        <div class="kpi-val" id="kpi-revenue">-</div>
+        <div class="kpi-sub" id="kpi-revenue-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">판매량</div>
+        <div class="kpi-val" id="kpi-orders">-</div>
+        <div class="kpi-sub" id="kpi-orders-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">수익</div>
+        <div class="kpi-val" id="kpi-profit">-</div>
+        <div class="kpi-sub" id="kpi-profit-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">응답률</div>
+        <div class="kpi-val" id="kpi-reply-rate" style="color:#185FA5">-</div>
+        <div class="kpi-sub" id="kpi-reply-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">체험전환율</div>
+        <div class="kpi-val" id="kpi-exp-rate" style="color:#534AB7">-</div>
+        <div class="kpi-sub" id="kpi-exp-sub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-lbl">광고수락률</div>
+        <div class="kpi-val" id="kpi-ad-rate" style="color:#3B6D11">-</div>
+        <div class="kpi-sub" id="kpi-ad-sub"></div>
+      </div>
+    </div>
+
+    <!-- 영업이익 KPI 3칸 -->
+    <div class="profit-kpi-grid">
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">영업이익 <span style="font-size:9px;color:var(--text3)">(수익관리 기준)</span></div>
+        <div class="kpi-val" id="kpi-op-profit">-</div>
+        <div class="kpi-sub" id="kpi-op-profit-sub"></div>
+      </div>
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">영업이익률</div>
+        <div class="kpi-val" id="kpi-op-rate" style="color:#3B6D11">-</div>
+        <div class="kpi-sub" id="kpi-op-rate-sub"></div>
+      </div>
+      <div class="kpi-card-accent">
+        <div class="kpi-lbl">누적 이익</div>
+        <div class="kpi-val" id="kpi-cumulative">-</div>
+        <div class="kpi-sub" id="kpi-cumulative-sub">전체 기간</div>
+      </div>
+    </div>
+
+    <!-- 퍼널 바 + 도넛 차트 -->
+    <div class="funnel-grid">
+      <div class="card">
+        <div class="slbl">메일 발송 퍼널</div>
+        <div id="funnel-bars"></div>
+      </div>
+      <div class="card">
+        <div class="slbl">인플루언서 현황</div>
+        <div style="display:flex;justify-content:center;height:160px">
+          <canvas id="donut-chart"></canvas>
+        </div>
+        <div class="donut-legend" id="donut-legend"></div>
+      </div>
+    </div>
+
+    <!-- 인플루언서 카드 그리드 -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div class="slbl" style="margin-bottom:0">인플루언서별 현황</div>
+      <span id="inf-count-label"></span>
+    </div>
+    <div class="inf-grid" id="inf-grid"></div>
+
+    <!-- 퍼널 월별 추이 테이블 -->
+    <div class="card mb12">
+      <div class="slbl">메일 퍼널 월별 추이</div>
+      <div id="funnel-monthly-table"></div>
+    </div>
+
+    <!-- 추세·매출 차트 -->
+    <div class="chart-grid">
+      <div class="card">
+        <div class="slbl">퍼널 추세</div>
+        <canvas id="trend-chart" height="180"></canvas>
+      </div>
+      <div class="card">
+        <div class="slbl">매출 · 수익</div>
+        <canvas id="revenue-chart" height="180"></canvas>
+      </div>
+    </div>
+
+    <!-- 영업이익 차트 + 기여수익 테이블 -->
+    <div class="chart-grid">
+      <div class="card">
+        <div class="slbl">월별 영업이익</div>
+        <canvas id="profit-chart" height="180"></canvas>
+      </div>
+      <div class="card">
+        <div class="slbl">인플루언서별 정산금액 <span style="font-size:9px;color:var(--text3)">(전체 누계)</span></div>
+        <div id="contrib-table"></div>
+      </div>
+    </div>
+
+    </section>
+    <!-- ─────────────  탭: 기타 제품 (JS가 동적 생성)  ───────────── -->
+    <div id="panels-extra"></div>
+
+  </div>
+  <script src="assets/app.js?v=yk-20261007"></script>
+</body>
+</html>
