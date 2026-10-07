@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # parse_inf.py — STEP 2: 인플루언서관리 시트 → managed_set + 상태 집계 반환
 # 출력: stdout JSON
+#
+# 2026-10: 소스를 `인플루언서 종합 관리시트.xlsx`로 변경하고 행 번호 고정 → A열 라벨 탐색으로 변경.
+#          build_yk.py에서 import 해 name_filter(영끌러님 ㅇ 명단)로 재사용한다.
+#          `영끌러님 관리` 행의 ㅇ 표시 → yk_marked, `제품` 행 → product_by_name 을 항상 함께 반환.
 import sys
 import json
 import re
@@ -14,18 +18,22 @@ if hasattr(sys.stderr, "reconfigure"):
 
 import openpyxl
 
-EXCEL_DIR   = Path(r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설")
-SHEET_NAME  = "인플루언서관리"
-CONFIG_PATH = Path(r"C:\Users\user\비서\.claude\skills\settlement-generator\scripts\ytber_config.json")
+EXCEL_DIR        = Path(r"G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설")
+MASTER_XLSX_NAME = "인플루언서 종합 관리시트.xlsx"
+SHEET_NAME       = "인플루언서관리"
+CONFIG_PATH      = Path(r"C:\Users\user\비서\.claude\skills\settlement-generator\scripts\ytber_config.json")
 
-# 0-based 행 인덱스 (전치형: 행=항목, 열=인플루언서)
-ROW_STATUS     = 9   # Excel Row 10: 현재상태
-ROW_NAME       = 10  # Excel Row 11: 유튜버명
-ROW_EXP_ACCEPT = 23  # Excel Row 24: 체험 수락일 (1차)
-EXP_ROWS       = [23, 31, 34, 37]  # 1차 수락일 / 2·3·4차 체험 날짜
-AD_ROWS        = [30, 33, 36, 39]  # Excel Row 31/34/37/40: 1~4차 광고 날짜
+# A열 라벨 (공백 제거 후 완전 일치). 전치형: 행=항목, 열=인플루언서
+LABEL_STATUS  = "현재상태"
+LABEL_NAME    = "유튜버명"
+LABEL_YK      = "영끌러님관리"
+LABEL_PRODUCT = "제품"            # "제품 발송일"과 다름 — 완전 일치만 인정
+LABEL_EXP_ACCEPT = "체험수락일"   # 1차 체험 수락일 (월별 체험 인원 집계)
+EXP_LABELS = ["체험수락일", "2차체험", "3차체험", "4차체험"]
+AD_LABELS  = ["1차광고", "2차광고", "3차광고", "4차광고"]
 
 SPONSOR_COST_PER_EXP = 40000
+OWNER_MARKS = {"ㅇ", "o", "O", "○"}
 
 STATUS_CATEGORIES = {
     "미팅대기": "미팅_대기",
@@ -39,6 +47,16 @@ STATUS_CATEGORIES = {
     "기타": "기타",
 }
 
+PRODUCT_ALIASES = [
+    # (포함 키워드, 정규 제품명) — 앞에서부터 첫 매칭
+    ("수면", "수면영양제"),
+    ("슬립", "수면영양제"),
+    ("스팟멜트", "화장품"),
+    ("화장품", "화장품"),
+    ("흑염소", "흑염소"),
+    ("올리브", "올리브오일캡슐"),
+]
+
 
 def load_config() -> dict:
     try:
@@ -48,11 +66,41 @@ def load_config() -> dict:
         return {}
 
 
+def _norm(v) -> str:
+    if v is None:
+        return ""
+    return re.sub(r"\s+", "", str(v))
+
+
+def is_owner_mark(val) -> bool:
+    return _norm(val) in OWNER_MARKS
+
+
+def normalize_product(raw) -> str:
+    """제품 셀 값 → 정규 제품명. 빈값이면 ''. 알 수 없는 값은 공백 제거한 원문."""
+    s = _norm(raw)
+    if not s:
+        return ""
+    for kw, canon in PRODUCT_ALIASES:
+        if kw in s:
+            return canon
+    return s
+
+
+def find_master_xlsx(shared_dir: Path = EXCEL_DIR) -> Path:
+    """종합 관리시트 우선, 없으면 유튜브 공유 파일 최신본으로 폴백."""
+    master = Path(shared_dir) / MASTER_XLSX_NAME
+    if master.exists():
+        return master
+    print(f"[WARN] {MASTER_XLSX_NAME} 없음 → 유튜브 공유 파일로 폴백", file=sys.stderr)
+    return find_latest_excel(shared_dir)
+
+
 def find_latest_excel(excel_dir: Path) -> Path:
     pattern = re.compile(r"유튜브 인플루언서 관리_공유_(\d{6})")
     candidates = []
-    for f in excel_dir.glob("*.xlsx"):
-        if f.name.startswith("~$") or "백업" in f.name:
+    for f in Path(excel_dir).glob("*.xlsx"):
+        if f.name.startswith("~$") or "백업" in f.name or "backup" in f.name.lower():
             continue
         m = pattern.search(f.name)
         if m:
@@ -70,7 +118,6 @@ def safe_str(val) -> str:
 
 
 def is_date(val) -> bool:
-    from datetime import date, datetime
     if val is None:
         return False
     if isinstance(val, (datetime, date)):
@@ -80,90 +127,104 @@ def is_date(val) -> bool:
     return False
 
 
-def main():
+def _to_ym(val):
     try:
-        excel_path = find_latest_excel(EXCEL_DIR)
-    except FileNotFoundError as e:
-        print(f"[ERROR] {e}", file=sys.stderr)
-        sys.exit(1)
+        if isinstance(val, (date, datetime)):
+            dt = val
+        else:
+            dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
+        return dt.strftime("%Y-%m")
+    except Exception:
+        return None
 
-    print(f"[INFO] 마스터DB: {excel_path.name}", file=sys.stderr)
 
-    try:
-        wb = openpyxl.load_workbook(excel_path, data_only=True, read_only=True)
-    except Exception as e:
-        print(f"[ERROR] 엑셀 읽기 실패: {e}", file=sys.stderr)
-        sys.exit(1)
+def build_row_index(rows) -> dict:
+    """A열 라벨(공백 제거) → 0-based 행 인덱스. 같은 라벨이 여러 번 나오면 첫 등장만."""
+    idx: dict = {}
+    for i, row in enumerate(rows):
+        if not row:
+            continue
+        key = _norm(row[0])
+        if key and key not in idx:
+            idx[key] = i
+    return idx
 
-    if SHEET_NAME not in wb.sheetnames:
-        print(f"[ERROR] 시트 '{SHEET_NAME}' 없음. 목록: {wb.sheetnames}", file=sys.stderr)
-        sys.exit(1)
 
-    ws = wb[SHEET_NAME]
-    rows = list(ws.iter_rows(values_only=True))
-    n_rows = len(rows)
+def _cell(rows, r, c):
+    if r is None or r >= len(rows):
+        return None
+    row = rows[r]
+    return row[c] if c < len(row) else None
 
-    if ROW_NAME >= n_rows:
-        print(f"[ERROR] 시트 행 수({n_rows}) < ROW_NAME({ROW_NAME})", file=sys.stderr)
-        sys.exit(1)
 
-    # 인플루언서 컬럼 탐색 (Row 11 비어있지 않은 첫 열부터)
-    name_row = rows[ROW_NAME]
+def parse_rows(rows, config: dict, name_filter=None, source_file: str = "") -> dict:
+    """시트 전체 행(values) → 집계 dict.
+    name_filter: name_map 정규화된 이름을 받아 True/False (None이면 전원)."""
+    rows = list(rows)
+    ridx = build_row_index(rows)
+    if LABEL_NAME not in ridx:
+        raise ValueError(f"'{LABEL_NAME}' 라벨 행을 찾을 수 없습니다 (A열 라벨: {list(ridx)[:15]}…)")
+
+    r_name    = ridx[LABEL_NAME]
+    r_status  = ridx.get(LABEL_STATUS)
+    r_yk      = ridx.get(LABEL_YK)
+    r_product = ridx.get(LABEL_PRODUCT)
+    r_exp_acc = ridx.get(LABEL_EXP_ACCEPT)
+    exp_rows  = [ridx[l] for l in EXP_LABELS if l in ridx]
+    ad_rows   = [ridx[l] for l in AD_LABELS if l in ridx]
+    if r_yk is None:
+        print(f"[WARN] '{LABEL_YK}' 행 없음 → 영끌러님 표시 0명", file=sys.stderr)
+    if r_product is None:
+        print(f"[WARN] '{LABEL_PRODUCT}' 행 없음 → 제품은 Raw_Data 추정/미지정", file=sys.stderr)
+
+    name_row = rows[r_name]
     start_col = 1
     while start_col < len(name_row) and not safe_str(name_row[start_col]):
         start_col += 1
 
-    managed_set = []
+    name_map      = config.get("name_map", {})
+    sponsor_extra = config.get("sponsor_extra", {})
+
+    managed_set, yk_marked, product_by_name = [], [], {}
     status_counter = {v: 0 for v in STATUS_CATEGORIES.values()}
     status_counter["기타"] = 0
     ad_total = 0
-    ad_by_month = {}    # "YYYY-MM" → 광고 이벤트 수 (1~4차 합산)
-    exp_by_month = {}   # "YYYY-MM" → 체험수락 인원 수
-
-    config = load_config()
-    name_map = config.get("name_map", {})
-    # 마스터DB 체험 날짜 외 추가 협찬 (유튜버명 → 협찬 발생 월 목록)
-    sponsor_extra = config.get("sponsor_extra", {})
-    per_influencer = {}
+    ad_by_month: dict = {}
+    exp_by_month: dict = {}
+    per_influencer: dict = {}
 
     for col_idx in range(start_col, len(name_row)):
         name = safe_str(name_row[col_idx])
         if not name:
             break
-
-        status_raw = ""
-        if ROW_STATUS < n_rows and col_idx < len(rows[ROW_STATUS]):
-            status_raw = safe_str(rows[ROW_STATUS][col_idx])
-
-        normalized_status = re.sub(r"\s+", "", status_raw)
-        managed_set.append(name)
-
-        category = STATUS_CATEGORIES.get(normalized_status, "기타")
-        status_counter[category] = status_counter.get(category, 0) + 1
-
         normalized_name = name_map.get(name, name)
 
-        # 체험 횟수 및 체험 날짜별 월 집계
+        # ㅇ 표시·제품은 필터와 무관하게 항상 수집 (build_yk가 명단을 만들 때 사용)
+        if r_yk is not None and is_owner_mark(_cell(rows, r_yk, col_idx)):
+            yk_marked.append(normalized_name)
+        if r_product is not None:
+            prod = normalize_product(_cell(rows, r_product, col_idx))
+            if prod:
+                product_by_name[normalized_name] = prod
+
+        if name_filter is not None and not name_filter(normalized_name):
+            continue
+
+        managed_set.append(name)
+
+        status_raw = safe_str(_cell(rows, r_status, col_idx)) if r_status is not None else ""
+        category = STATUS_CATEGORIES.get(_norm(status_raw), "기타")
+        status_counter[category] = status_counter.get(category, 0) + 1
+
         exp_cnt = 0
-        exp_months = []  # 이 인플루언서의 체험 발생 월 목록 (중복 허용)
-        for exp_row in EXP_ROWS:
-            if exp_row < n_rows and col_idx < len(rows[exp_row]):
-                val = rows[exp_row][col_idx]
-                if is_date(val):
-                    exp_cnt += 1
-                    try:
-                        if isinstance(val, (date, datetime)):
-                            dt = val
-                        else:
-                            dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
-                        exp_months.append(dt.strftime("%Y-%m"))
-                    except Exception:
-                        exp_months.append(None)
+        exp_months = []
+        for er in exp_rows:
+            val = _cell(rows, er, col_idx)
+            if is_date(val):
+                exp_cnt += 1
+                exp_months.append(_to_ym(val))
+        exp_cnt = max(1, exp_cnt)   # 등록 = 최소 1회 체험 기준
 
-        # 인플루언서 관리 등록 = 최소 1회 체험진행 완료 기준
-        exp_cnt = max(1, exp_cnt)
-
-        # 추가 협찬 반영 (예: 한 체험 차수에 제품 2개 협찬 → +1회)
         extra_months = sponsor_extra.get(normalized_name) or sponsor_extra.get(name) or []
         if isinstance(extra_months, list) and extra_months:
             exp_months.extend(extra_months)
@@ -173,52 +234,29 @@ def main():
             "status": category,
             "exp_count": exp_cnt,
             "sponsor_cost": exp_cnt * SPONSOR_COST_PER_EXP,
-            "exp_months": exp_months,  # 체험 발생 월 목록 (수익 월별 차감용)
+            "exp_months": exp_months,
         }
 
-        # 체험 수락일 (Row 24, 1차) → 월별 인원 집계
-        if ROW_EXP_ACCEPT < n_rows and col_idx < len(rows[ROW_EXP_ACCEPT]):
-            val = rows[ROW_EXP_ACCEPT][col_idx]
+        if r_exp_acc is not None:
+            val = _cell(rows, r_exp_acc, col_idx)
             if val is not None:
-                try:
-                    if isinstance(val, (date, datetime)):
-                        dt = val
-                    else:
-                        dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
-                    ym = dt.strftime("%Y-%m")
+                ym = _to_ym(val)
+                if ym:
                     exp_by_month[ym] = exp_by_month.get(ym, 0) + 1
-                except Exception:
-                    pass
 
-        # 광고 전환: 1~4차 광고 날짜 각각 카운트 (날짜 기준 월별 집계)
-        for ad_row in AD_ROWS:
-            if ad_row >= n_rows or col_idx >= len(rows[ad_row]):
-                continue
-            val = rows[ad_row][col_idx]
+        for ar in ad_rows:
+            val = _cell(rows, ar, col_idx)
             if not is_date(val):
                 continue
             ad_total += 1
-            try:
-                if isinstance(val, (date, datetime)):
-                    dt = val
-                else:
-                    dt = datetime.strptime(str(val).strip(), "%Y-%m-%d")
-                ym = dt.strftime("%Y-%m")
+            ym = _to_ym(val)
+            if ym:
                 ad_by_month[ym] = ad_by_month.get(ym, 0) + 1
-            except Exception:
-                pass
 
-    wb.close()
-
-    # 체험 전환 총계 = 체험수락일 기재 인원 (인플루언서관리 시트 기준)
     exp_total = sum(exp_by_month.values())
+    meeting_total = status_counter.get("미팅_대기", 0) + status_counter.get("미팅_진행", 0)
 
-    meeting_total = (
-        status_counter.get("미팅_대기", 0)
-        + status_counter.get("미팅_진행", 0)
-    )
-
-    result = {
+    return {
         "managed_set": managed_set,
         "managed_count": len(managed_set),
         "inf_status": status_counter,
@@ -228,10 +266,40 @@ def main():
         "ad_total": ad_total,
         "ad_by_month": dict(sorted(ad_by_month.items())),
         "per_influencer": per_influencer,
+        "yk_marked": yk_marked,
+        "product_by_name": product_by_name,
+        "source_file": source_file,
     }
 
+
+def parse_master(excel_path, config: dict, name_filter=None) -> dict:
+    wb = openpyxl.load_workbook(excel_path, data_only=True, read_only=True)
+    try:
+        if SHEET_NAME not in wb.sheetnames:
+            raise ValueError(f"시트 '{SHEET_NAME}' 없음. 목록: {wb.sheetnames}")
+        rows = list(wb[SHEET_NAME].iter_rows(values_only=True))
+    finally:
+        wb.close()
+    return parse_rows(rows, config, name_filter=name_filter, source_file=Path(excel_path).name)
+
+
+def main():
+    try:
+        excel_path = find_master_xlsx(EXCEL_DIR)
+    except FileNotFoundError as e:
+        print(f"[ERROR] {e}", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"[INFO] 마스터DB: {excel_path.name}", file=sys.stderr)
+    try:
+        result = parse_master(excel_path, load_config())
+    except Exception as e:
+        print(f"[ERROR] 인플루언서관리 파싱 실패: {e}", file=sys.stderr)
+        sys.exit(1)
+
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    print(f"[INFO] 인플루언서관리 파싱 완료 — {len(managed_set)}명", file=sys.stderr)
+    print(f"[INFO] 인플루언서관리 파싱 완료 — {result['managed_count']}명 (영끌러님 ㅇ {len(result['yk_marked'])}명)",
+          file=sys.stderr)
 
 
 if __name__ == "__main__":

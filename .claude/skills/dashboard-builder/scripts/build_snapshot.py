@@ -52,6 +52,38 @@ def parse_set_size(option_info: str) -> int:
     return 1
 
 
+def manual_sales_for(config: dict, month: str | None = None) -> list:
+    """config manual_sales(지인판매 등 수기 판매) 중 해당 월(None이면 전체) 항목만 정규화해 반환."""
+    out = []
+    for m in config.get("manual_sales", []):
+        if month and m.get("month") != month:
+            continue
+        out.append({
+            "month":   m.get("month"),
+            "type":    m.get("type", "지인판매"),
+            "product": m.get("product", "흑염소"),
+            "buyer":   m.get("buyer", ""),
+            "qty":     int(m.get("qty", 0)),
+            "amount":  int(m.get("amount", 0)),
+            "channel": m.get("channel", ""),
+            "fee":     int(m.get("fee", 0)),
+        })
+    return out
+
+
+def product_units_rule(product: str, option_info: str, qty: int, status: str, unit_rules: dict):
+    """제품별 판매량(개수) 산정 규칙 (config product_units). 규칙이 없으면 qty × 세트 크기.
+    규칙 예(수면영양제): 옵션 중 'N박스'만 박스 수로 세고(감사 이벤트·선물포장 줄은 0),
+    결제대기 주문은 집계에서 제외한다. 반환: (units, counted) — counted=False면 집계 제외."""
+    rule = unit_rules.get(product)
+    if not rule:
+        return qty * parse_set_size(option_info), True
+    if any(x in (status or "") for x in rule.get("exclude_status", [])):
+        return 0, False
+    m = re.search(rule.get("units_regex", r"(\d+)\s*박스"), option_info or "")
+    return (qty * int(m.group(1)) if m else 0), True
+
+
 def compute_product_profit(product: str, units: int, amount: int, settle_amount: int, set_size: int, profit_cfg: dict) -> int:
     """제품별 수익 모델 적용. 설정 없으면 0(집계예정)."""
     cfg = profit_cfg.get(product)
@@ -93,8 +125,9 @@ def resolve_order_amount(product: str, set_size: int, order_amount: int, profit_
     return table.get(str(set_size), 0)
 
 
-def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, dict]:
+def aggregate_by_product_store(target_month: str, config: dict, name_filter=None) -> tuple[dict, dict]:
     """정산DB Raw_Data에서 해당 월 주문을 제품별·(흑염소)스토어별로 집계.
+    name_filter: 유튜버 이름(원문)을 받아 True/False — None이면 전체 (build_yk.py 영끌러님 필터용).
     - by_product[product] = {qty, order_count, gross_revenue}
     - by_store[store]     = {qty, order_count, gross_revenue}  (store_split 제품, 분리 시점 이후만)
     gross_revenue는 기본 제품(흑염소)만 산출 (다른 제품 단가 미정 → 0)."""
@@ -111,6 +144,8 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
     gen_price       = config.get("general_unit_price", 130000)
     products_cfg    = {p["key"]: p for p in config.get("products", [])}
     profit_cfg      = config.get("product_profit", {})
+    unit_rules      = config.get("product_units", {})
+    rule_orders: dict = {}   # 규칙 적용 제품: 고유 주문번호로 주문수 집계
 
     try:
         wb = openpyxl.load_workbook(RAWDATA_PATH, data_only=True, read_only=True)
@@ -130,6 +165,8 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
         if "취소" in status or "취소완료" in claim:
             continue
         ytber = str(row[RAW_COL_YTBER] or "")
+        if name_filter is not None and not name_filter(ytber):
+            continue
         try:
             qty = int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
         except (ValueError, TypeError):
@@ -149,8 +186,21 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
         is_gen = (ytber == general_label)
         gross  = qty * (gen_price if is_gen else inf_price)
 
+        opt_txt = str(row[RAW_COL_OPTION]) if len(row) > RAW_COL_OPTION and row[RAW_COL_OPTION] else ""
+        ruled = product != default_product and product in unit_rules
+        rule_units, counted = (product_units_rule(product, opt_txt, qty, status, unit_rules)
+                               if ruled else (0, True))
+        if not counted:
+            continue
         pd = by_product.setdefault(product, {"qty": 0, "order_count": 0, "gross_revenue": 0, "net_profit": 0})
-        pd["order_count"] += 1
+        new_order = True
+        if ruled:
+            ono = str(row[1] or "")
+            seen = rule_orders.setdefault(product, set())
+            new_order = ono not in seen
+            seen.add(ono)
+        if new_order:
+            pd["order_count"] += 1
         if product == default_product:
             # 흑염소: 수량=개수, 정산 단가 모델(매출은 top-level snapshot에서 관리)
             pd["qty"]           += qty
@@ -159,7 +209,7 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
             # 비흑염소: 세트 크기 반영한 실제 개수 + 제품별 수익 모델
             opt       = str(row[RAW_COL_OPTION]) if len(row) > RAW_COL_OPTION and row[RAW_COL_OPTION] else ""
             set_size  = parse_set_size(opt)
-            units     = qty * set_size
+            units     = rule_units if ruled else qty * set_size
             classification = (str(row[RAW_COL_CLASS]).strip()
                               if len(row) > RAW_COL_CLASS and row[RAW_COL_CLASS] else "")
             resolved_amount = resolve_order_amount(product, set_size, order_amount, profit_cfg)
@@ -167,7 +217,7 @@ def aggregate_by_product_store(target_month: str, config: dict) -> tuple[dict, d
             pd["gross_revenue"] += resolved_amount
             if classification == "체험단":
                 # 체험단: 매출·수량은 집계하되 수익 계산에서 제외
-                pd["trial_orders"] = pd.get("trial_orders", 0) + 1
+                pd["trial_orders"] = pd.get("trial_orders", 0) + (1 if new_order else 0)
                 pd["trial_units"]  = pd.get("trial_units", 0) + units
             else:
                 pd["net_profit"]    += compute_product_profit(product, units, resolved_amount, settle_amount, set_size, profit_cfg)
@@ -189,7 +239,7 @@ def _option_label(set_size: int) -> str:
     return {1: "단품", 2: "1+1", 4: "2+2", 6: "3+3"}.get(set_size, f"{set_size}개")
 
 
-def aggregate_cosmetics_breakdown(target_month: str | None) -> dict:
+def aggregate_cosmetics_breakdown(target_month: str | None, name_filter=None) -> dict:
     """화장품 주문을 옵션별·채널별로 집계 (화장품 전용).
     target_month=None이면 전체 기간 누적 (자사몰처럼 특정 달에만 몰린 채널도
     달이 바뀌었다고 대시보드에서 사라지지 않게 하기 위함).
@@ -217,6 +267,8 @@ def aggregate_cosmetics_breakdown(target_month: str | None) -> dict:
             continue
         product = row[RAW_COL_PRODUCT] if len(row) > RAW_COL_PRODUCT else None
         if str(product or "").strip() != "화장품":
+            continue
+        if name_filter is not None and not name_filter(str(row[RAW_COL_YTBER] or "")):
             continue
         status = str(row[RAW_COL_STATUS] or ""); claim = str(row[RAW_COL_CLAIM] or "")
         if "취소" in status or "취소완료" in claim:
@@ -255,6 +307,69 @@ def aggregate_cosmetics_breakdown(target_month: str | None) -> dict:
     # 옵션은 세트 크기(단품→1+1→2+2→3+3) 순으로 정렬해서 반환
     by_option_sorted = {_option_label(sz): by_option[sz] for sz in sorted(by_option)}
     return {"by_option": by_option_sorted, "by_channel": by_channel, "trial": trial}
+
+
+def aggregate_product_trials(target_month: str | None, name_filter=None) -> dict:
+    """화장품 외 제품(수면영양제 등)의 체험단 주문 집계.
+    분류가 '체험단'인 행은 매출·수량엔 포함되고 수익에서만 제외된다 (aggregate_by_product_store 참고).
+    반환: {제품: {orders(상품주문 행수), order_nos(고유 주문번호 수), units, gross, buyers[중복제거]}}"""
+    import openpyxl
+    out: dict = {}
+    if not RAWDATA_PATH.exists():
+        return out
+    cfg = _load_config()
+    default_product = cfg.get("product_registry", {}).get("default_product", "흑염소")
+    profit_cfg = cfg.get("product_profit", {})
+    unit_rules = cfg.get("product_units", {})
+    try:
+        wb = openpyxl.load_workbook(RAWDATA_PATH, data_only=True, read_only=True)
+        ws = wb["Raw_Data"]
+    except Exception as e:
+        print(f"[WARN] 체험단 집계 실패: {e}", file=sys.stderr)
+        return out
+    seen_orders: dict = {}
+    for row in ws.iter_rows(min_row=2, values_only=True):
+        if not row or row[0] is None:
+            continue
+        if target_month and not str(row[RAW_COL_DATE] or "").startswith(target_month):
+            continue
+        product = str((row[RAW_COL_PRODUCT] if len(row) > RAW_COL_PRODUCT else "") or "").strip()
+        if not product or product in ("화장품", default_product):
+            continue
+        classification = (str(row[RAW_COL_CLASS]).strip()
+                          if len(row) > RAW_COL_CLASS and row[RAW_COL_CLASS] else "")
+        if classification != "체험단":
+            continue
+        if name_filter is not None and not name_filter(str(row[RAW_COL_YTBER] or "")):
+            continue
+        status = str(row[RAW_COL_STATUS] or ""); claim = str(row[RAW_COL_CLAIM] or "")
+        if "취소" in status or "취소완료" in claim:
+            continue
+        try:
+            qty = int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
+        except (ValueError, TypeError):
+            qty = 0
+        opt_txt = str(row[RAW_COL_OPTION]) if len(row) > RAW_COL_OPTION and row[RAW_COL_OPTION] else ""
+        set_size = parse_set_size(opt_txt)
+        units, counted = product_units_rule(product, opt_txt, qty, status, unit_rules)
+        if not counted:
+            continue
+        try:
+            raw_amount = int(row[RAW_COL_AMOUNT]) if len(row) > RAW_COL_AMOUNT and row[RAW_COL_AMOUNT] else 0
+        except (ValueError, TypeError):
+            raw_amount = 0
+        amount = resolve_order_amount(product, set_size, raw_amount, profit_cfg)
+        t = out.setdefault(product, {"orders": 0, "order_nos": 0, "units": 0, "gross": 0, "buyers": []})
+        t["orders"] += 1; t["units"] += units; t["gross"] += amount
+        order_no = str(row[1] or "")
+        if order_no and order_no not in seen_orders.setdefault(product, set()):
+            seen_orders[product].add(order_no)
+            t["order_nos"] += 1
+        buyer = str(row[13] or "").strip()
+        if buyer and buyer not in t["buyers"]:
+            t["buyers"].append(buyer)
+    wb.close()
+    return out
 
 
 def main():
@@ -344,6 +459,10 @@ def main():
         "unit_count":           total_unit_count,
         "operating_profit":     op,
         "operating_profit_rate": round(op / total_gross, 4) if total_gross else 0,
+        # 눈길 인건비: 초방리농장(A) 판매수량 + 수기 판매 기준 (build_revenue.labor_base_qty)
+        "labor_cost":           revenue.get("labor_cost", total_net_profit - op),
+        "labor_qty":            revenue.get("labor_qty", total_unit_count),
+        "labor_basis":          revenue.get("labor_basis", "all"),
         "total_sent":    total_sent,
         "replied":       replied,
         "meeting_total": meeting_total,
@@ -360,6 +479,17 @@ def main():
     # 제품·스토어별 집계 (Raw_Data 기반)
     cfg = _load_config()
     by_product, by_store = aggregate_by_product_store(target_month, cfg)
+
+    # 수기 판매(지인판매 등) — 스토어 주문 밖. 제품 탭 집계에 합산하고 목록은 별도 보관
+    manual = manual_sales_for(cfg, target_month)
+    if manual:
+        snapshot["manual_sales"] = manual
+        for m in manual:
+            pd = by_product.setdefault(m["product"], {"qty": 0, "order_count": 0, "gross_revenue": 0, "net_profit": 0})
+            pd["qty"] += m["qty"]
+            pd["order_count"] += 1
+            pd["gross_revenue"] += m["amount"]
+
     if by_product:
         snapshot["by_product"] = by_product
     if by_store:
@@ -369,6 +499,11 @@ def main():
     cosmetics = aggregate_cosmetics_breakdown(target_month)
     if cosmetics["by_option"] or cosmetics["by_channel"]:
         snapshot["cosmetics_breakdown"] = cosmetics
+
+    # 화장품 외 제품의 체험단 (수면영양제 등)
+    product_trials = aggregate_product_trials(target_month)
+    if product_trials:
+        snapshot["product_trials"] = product_trials
 
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     LOCAL_HIST.mkdir(parents=True, exist_ok=True)
