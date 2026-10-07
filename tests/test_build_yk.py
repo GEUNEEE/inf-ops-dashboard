@@ -350,6 +350,49 @@ class TestBuildYkHelpers(unittest.TestCase):
         got = self.m.resolve_products(names, {"가": "수면영양제"}, {"나": "화장품"})
         self.assertEqual(got, {"가": "수면영양제", "나": "화장품", "다": "미지정"})
 
+    # ---- 시작월(2026-10) 이전 데이터 제외
+    def test_mail_cum_through_with_start(self):
+        bm = {"2026-08": {"sent": 2, "replied": 1, "meeting": 1, "exp": 0, "ad": 0},
+              "2026-09": {"sent": 3, "replied": 1, "meeting": 0, "exp": 2, "ad": 1},
+              "2026-10": {"sent": 4, "replied": 2, "meeting": 1, "exp": 1, "ad": 1}}
+        c = self.m.mail_cum_through(bm, "2026-10", start="2026-10")
+        self.assertEqual((c["total_sent"], c["replied"], c["meeting_total"], c["exp_total"], c["ad_total"]),
+                         (4, 2, 1, 1, 1))
+        self.assertEqual(c["reply_rate"], 0.5)
+        self.assertEqual(self.m.mail_cum_through(bm, "2026-09", start="2026-10")["total_sent"], 0)
+
+    def test_clip_mail_drops_months_before_start(self):
+        r = {"total_sent": 9, "etc_excluded": 3, "replied": 4, "reply_rate": 0.4444, "meeting_total": 2,
+             "meeting_rate": 0.2, "exp_total_approx": 3, "ad_total": 2, "source_file": "x.xlsx",
+             "by_month": {"2026-09": {"sent": 5, "replied": 2, "meeting": 1, "exp": 2, "ad": 1},
+                          "2026-10": {"sent": 4, "replied": 2, "meeting": 1, "exp": 1, "ad": 1}}}
+        c = self.m.clip_mail(r, "2026-10")
+        self.assertEqual(list(c["by_month"]), ["2026-10"])
+        self.assertEqual((c["total_sent"], c["replied"], c["meeting_total"], c["exp_total_approx"], c["ad_total"]),
+                         (4, 2, 1, 1, 1))
+        self.assertEqual(c["reply_rate"], 0.5)
+        self.assertEqual(c["source_file"], "x.xlsx")
+        self.assertEqual(c["etc_excluded"], 3)
+        self.assertEqual(r["total_sent"], 9)                     # 원본 불변
+        self.assertEqual(self.m.clip_mail(r, None)["total_sent"], 9)
+
+    def test_clip_inf_drops_months_before_start(self):
+        inf = {"exp_total": 3, "exp_by_month": {"2026-09": 2, "2026-10": 1},
+               "ad_total": 2, "ad_by_month": {"2026-09": 1, "2026-10": 1}, "per_influencer": {"가": {}}}
+        c = self.m.clip_inf(inf, "2026-10")
+        self.assertEqual((c["exp_total"], c["ad_total"]), (1, 1))
+        self.assertEqual(c["exp_by_month"], {"2026-10": 1})
+        self.assertEqual(c["ad_by_month"], {"2026-10": 1})
+        self.assertEqual(c["per_influencer"], {"가": {}})
+        self.assertEqual(inf["exp_total"], 3)
+
+    def test_history_months_from_start(self):
+        got = self.m.history_months(["2026-08", "2026-09", "2026-10"], "2026-11", "2026-10")
+        self.assertEqual(got, ["2026-10", "2026-11"])
+        # 시작월 이전 정산월이면 시작월 하나만
+        self.assertEqual(self.m.history_months(["2026-08"], "2026-09", "2026-10"), ["2026-10"])
+        self.assertEqual(self.m.history_months(["2026-08"], "2026-09", None), ["2026-08", "2026-09"])
+
 
 if __name__ == "__main__":
     unittest.main()

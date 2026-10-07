@@ -234,7 +234,7 @@ notify.py로 메시지 생성 → `KakaotalkChat-MemoChat` MCP로 전송
 | 마스터 DB (2026-08 이전 레거시, 더 이상 파싱에 사용 안 함) | `C:\Users\user\비서\스케줄\0. 유튜브 인플루언서 관리_*.xlsx` |
 | 메일발송현황 소스 (2026-08~, 퍼널 KPI) | `G:\.shortcut-targets-by-id\1aExMnOUaz0KyUTRAhiSvAjCebgHx7Wa1\스카이님 공유용 스프레드 개설\1. <종류> 인플루언서 관리_공유_YYMMDD.xlsx` — `parse_mail.py`가 종류별 최신 날짜 파일 자동 선택 (종합 = 유튜브, `~$`·백업 제외). 시트 `메일발송현황*` 6행 헤더: A열 `구분`(담당자 ㅇ, 2026-10-07 삽입) → 분류 → … |
 | 인플루언서관리 소스 (상태값·체험·광고, 영끌러님 ㅇ 명단·제품) | 같은 폴더 `인플루언서 종합 관리시트.xlsx` 시트 `인플루언서관리` (전치형: A열 라벨, 열=인플루언서) — `parse_inf.py`. `영끌러님 관리` 행 ㅇ = 영끌러님 담당, `제품` 행 = 담당 제품 (사장님이 직접 입력, 자동 생성 금지) |
-| 영끌러님 대시보드 | `C:\Users\user\비서\site\yk\` (`index.html`·`assets/app.js` 자체 사본, `data/`는 `build_yk.py` 산출) → `https://geuneee.github.io/inf-ops-dashboard/yk/` |
+| 영끌러님 대시보드 | `C:\Users\user\비서\site\yk\` (`index.html`·`assets/app.js` 자체 사본, `data/`는 `build_yk.py` 산출) → `https://geuneee.github.io/inf-ops-dashboard/yk/`. **2026-10부터 집계** (`build_yk.py` `YK_START_MONTH`, 이전 월 데이터 제외) |
 | 주문 드롭 폴더 | `C:\Users\user\비서\스케줄\` (우선) / `C:\Users\user\비서\input\` (보조) |
 | 정산DB | `C:\Users\user\비서\스케줄\정산DB_업데이트.xlsx` |
 | 정산 제외 로그 | `C:\Users\user\비서\output\settlement_skipped.log` |

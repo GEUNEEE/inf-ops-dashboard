@@ -38,6 +38,8 @@ DEFAULT_OUT        = BASE_DIR / "site" / "yk" / "data"
 MASTER_HISTORY_DIR = BASE_DIR / "site" / "data" / "history"
 SETTLEMENT_JSON    = BASE_DIR / "output" / "tmp" / "settlement.json"
 UNASSIGNED         = "미지정"
+# 영끌러님 대시보드 시작월 — 이 달 이전 메일·체험·광고·매출은 집계하지 않는다 (--start 로 변경)
+YK_START_MONTH     = "2026-10"
 
 # 메일 파일 종류 → 제품 (파일 종류로 고정)
 MAIL_KINDS = [("유튜브", "흑염소"), ("뷰티", "화장품"), ("슬립이지", "수면영양제")]
@@ -52,11 +54,11 @@ def log(msg):
 
 
 # ---------------------------------------------------------------- 순수 헬퍼 (tests/test_build_yk.py)
-def mail_cum_through(by_month: dict, month: str) -> dict:
-    """메일 by_month {ym: {sent,replied,meeting,exp,ad}} 를 month 까지 누적 합산."""
+def mail_cum_through(by_month: dict, month: str, start: str | None = None) -> dict:
+    """메일 by_month {ym: {sent,replied,meeting,exp,ad}} 를 start~month 구간 누적 합산."""
     sent = replied = meeting = exp = ad = 0
     for ym, d in (by_month or {}).items():
-        if ym <= month:
+        if ym <= month and (start is None or ym >= start):
             sent    += d.get("sent", 0)
             replied += d.get("replied", 0)
             meeting += d.get("meeting", 0)
@@ -73,6 +75,52 @@ def mail_cum_through(by_month: dict, month: str) -> dict:
         "exp_rate":      round(exp / sent, 4) if sent else 0,
         "ad_rate":       round(ad / sent, 4) if sent else 0,
     }
+
+
+def clip_mail(r: dict, start: str | None) -> dict:
+    """parse_mail 결과에서 start 이전 월을 버리고 합계·비율을 다시 계산한 사본 (start=None 이면 그대로)."""
+    if not start:
+        return dict(r)
+    bm = {ym: d for ym, d in (r.get("by_month") or {}).items() if ym >= start}
+    sent    = sum(d.get("sent", 0) for d in bm.values())
+    replied = sum(d.get("replied", 0) for d in bm.values())
+    meeting = sum(d.get("meeting", 0) for d in bm.values())
+    exp     = sum(d.get("exp", 0) for d in bm.values())
+    ad      = sum(d.get("ad", 0) for d in bm.values())
+    c = dict(r)
+    c.update({
+        "total_sent":       sent,
+        "replied":          replied,
+        "reply_rate":       round(replied / sent, 4) if sent else 0,
+        "meeting_total":    meeting,
+        "meeting_rate":     round(meeting / sent, 4) if sent else 0,
+        "exp_total_approx": exp,
+        "exp_rate_approx":  round(exp / sent, 4) if sent else 0,
+        "ad_total":         ad,
+        "ad_rate":          round(ad / sent, 4) if sent else 0,
+        "by_month":         dict(sorted(bm.items())),
+    })
+    return c
+
+
+def clip_inf(inf: dict, start: str | None) -> dict:
+    """parse_inf 결과의 체험·광고 월별 집계에서 start 이전 월을 버린 사본 (start=None 이면 그대로)."""
+    if not start:
+        return dict(inf)
+    c = dict(inf)
+    for key, total_key in (("exp_by_month", "exp_total"), ("ad_by_month", "ad_total")):
+        bm = {ym: v for ym, v in (inf.get(key) or {}).items() if ym >= start}
+        c[key] = dict(sorted(bm.items()))
+        c[total_key] = sum(bm.values())
+    return c
+
+
+def history_months(master_months, settle_month: str, start: str | None) -> list:
+    """history 로 저장할 월 목록: (종합 history 월 ∪ 정산 월) 중 start 이후. start 가 있으면 최소 start 포함."""
+    months = set(master_months) | {settle_month}
+    if start:
+        months = {m for m in months if m >= start} | {start}
+    return sorted(months)
 
 
 def filter_settlement(settlement: dict, names) -> dict:
@@ -159,7 +207,7 @@ def load_master_history(month: str) -> dict:
 
 # ---------------------------------------------------------------- 월별 스냅샷
 def build_month_snapshot(month: str, config: dict, inf: dict, mail_merged: dict,
-                         name_filter, yk_set, no_filter: bool) -> tuple[dict, dict]:
+                         name_filter, yk_set, no_filter: bool, start: str | None = None) -> tuple[dict, dict]:
     """한 달치 yk 스냅샷(history/YYYY-MM.json 형식) + revenue dict."""
     default_product = config.get("product_registry", {}).get("default_product", "흑염소")
     cogs = int(config.get("cogs_per_unit", 0))
@@ -199,9 +247,9 @@ def build_month_snapshot(month: str, config: dict, inf: dict, mail_merged: dict,
         labor_cost, labor_qty, labor_basis = 0, 0, "none"
     operating_profit = net_profit - labor_cost
 
-    cum = mail_cum_through(mail_merged.get("by_month", {}), month)
-    exp_total = sum(v for ym, v in inf.get("exp_by_month", {}).items() if ym <= month)
-    ad_total  = sum(v for ym, v in inf.get("ad_by_month", {}).items() if ym <= month)
+    cum = mail_cum_through(mail_merged.get("by_month", {}), month, start)
+    exp_total = sum(v for ym, v in inf.get("exp_by_month", {}).items() if ym <= month and (not start or ym >= start))
+    ad_total  = sum(v for ym, v in inf.get("ad_by_month", {}).items() if ym <= month and (not start or ym >= start))
     total_sent = cum["total_sent"]
 
     snap = {
@@ -285,6 +333,8 @@ def main():
     ap.add_argument("--no-filter", action="store_true", help="ㅇ 무시, 전원 대상 (정합 검증용)")
     ap.add_argument("--out", default=str(DEFAULT_OUT))
     ap.add_argument("--month", default=None, help="정산 기준 월 YYYY-MM (기본: settlement.json)")
+    ap.add_argument("--start", default=YK_START_MONTH,
+                    help=f"집계 시작월 YYYY-MM (기본 {YK_START_MONTH}; 'none' 이면 제한 없음 — 종합 정합 검증용)")
     args = ap.parse_args()
     no_filter = args.no_filter
     out_dir = Path(args.out)
@@ -311,8 +361,15 @@ def main():
             log("[WARN] ㅇ 표시된 인플루언서가 없습니다 — 매출·인플루언서 카드는 비어 있고 메일 퍼널만 집계됩니다")
     per_influencer = inf.get("per_influencer", {})
 
-    # 2) 메일 퍼널 (파일별 = 제품별)
+    start = None if str(args.start).lower() == "none" else args.start
+    if start:
+        log(f"[INFO] 집계 시작월 {start} — 이전 월 메일·체험·광고·매출 제외")
+        inf = clip_inf(inf, start)
+
+    # 2) 메일 퍼널 (파일별 = 제품별) — 시작월 이전 월은 버림
     mail_by_product, mail_merged = collect_mail(no_filter)
+    mail_by_product = {k: clip_mail(r, start) for k, r in mail_by_product.items()}
+    mail_merged = clip_mail(mail_merged, start)
 
     # 3) 정산 (종합 결과 필터)
     settlement = {}
@@ -323,16 +380,19 @@ def main():
             log(f"[WARN] settlement.json 읽기 실패: {e}")
     settlement_f = settlement if no_filter else filter_settlement(settlement, yk_set)
     settle_month = args.month or settlement.get("settlement_month") or datetime.now().strftime("%Y-%m")
+    if start and settle_month < start:
+        log(f"[INFO] 정산월 {settle_month} < 시작월 {start} → 정산 데이터 제외, 기준월 {start}")
+        settle_month, settlement_f = start, {}
 
-    # 4) 월별 스냅샷 (종합 history 월 ∪ 정산 월)
-    months = sorted({p.stem for p in MASTER_HISTORY_DIR.glob("*.json")} | {settle_month})
+    # 4) 월별 스냅샷 ((종합 history 월 ∪ 정산 월) 중 시작월 이후)
+    months = history_months([p.stem for p in MASTER_HISTORY_DIR.glob("*.json")], settle_month, start)
     hist_dir.mkdir(parents=True, exist_ok=True)
     for stale in hist_dir.glob("*.json"):
         if stale.stem not in months:
             stale.unlink()
     revenue_by_month: dict = {}
     for m in months:
-        snap, rev = build_month_snapshot(m, config, inf, mail_merged, name_filter, yk_set, no_filter)
+        snap, rev = build_month_snapshot(m, config, inf, mail_merged, name_filter, yk_set, no_filter, start)
         revenue_by_month[m] = rev
         (hist_dir / f"{m}.json").write_text(json.dumps(snap, ensure_ascii=False, indent=2), encoding="utf-8")
     log(f"[INFO] history {len(months)}개월 저장: {months[0]}~{months[-1]}")

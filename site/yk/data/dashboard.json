@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T20:35:32",
+  "generated_at": "2026-10-07T21:06:25",
   "current_month": "2026-10",
   "owner": "영끌러님",
   "filter_mode": "owner",
@@ -107,180 +107,54 @@
     "광고완료_1차": 0,
     "기타": 0
   },
-  "settlement_month": 9,
+  "settlement_month": 10,
   "settlement_summary": {},
   "trends": {
     "months": [
-      "2026-03",
-      "2026-04",
-      "2026-05",
-      "2026-06",
-      "2026-07",
-      "2026-08",
-      "2026-09"
+      "2026-10"
     ],
     "reply_rate": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "exp_rate": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "ad_rate": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "meeting_rate": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "gross_revenue": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "net_profit": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "total_sent": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "replied": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "meeting_total": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "exp_total": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "ad_total": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "exp_by_month": {},
     "operating_profit": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "operating_profit_rate": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
       0
     ],
     "by_product_by_month": {
-      "2026-03": {
-        "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
-        }
-      },
-      "2026-04": {
-        "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
-        }
-      },
-      "2026-05": {
-        "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
-        }
-      },
-      "2026-06": {
-        "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
-        }
-      },
-      "2026-07": {
-        "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
-        }
-      },
-      "2026-08": {
-        "흑염소": {
-          "qty": 0,
-          "order_count": 0,
-          "gross_revenue": 0
-        }
-      },
-      "2026-09": {
+      "2026-10": {
         "흑염소": {
           "qty": 0,
           "order_count": 0,
@@ -296,67 +170,7 @@
   "profit_analysis": {
     "note": "기여수익(정산대상)=12만×qty−정산액−원가3.6만×qty−해당월협찬원가 / 기여수익(기타)=13만×qty−원가3.6만×qty",
     "monthly": {
-      "2026-03": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": 0,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 0,
-        "labor_cost": 0,
-        "labor_qty": 0,
-        "labor_basis": "none"
-      },
-      "2026-04": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": 0,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 0,
-        "labor_cost": 0,
-        "labor_qty": 0,
-        "labor_basis": "none"
-      },
-      "2026-05": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": 0,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 0,
-        "labor_cost": 0,
-        "labor_qty": 0,
-        "labor_basis": "none"
-      },
-      "2026-06": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": 0,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 0,
-        "labor_cost": 0,
-        "labor_qty": 0,
-        "labor_basis": "none"
-      },
-      "2026-07": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": 0,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 0,
-        "labor_cost": 0,
-        "labor_qty": 0,
-        "labor_basis": "none"
-      },
-      "2026-08": {
-        "gross_revenue": 0,
-        "unit_count": 0,
-        "operating_profit": 0,
-        "operating_profit_rate": 0,
-        "cumulative_profit": 0,
-        "labor_cost": 0,
-        "labor_qty": 0,
-        "labor_basis": "none"
-      },
-      "2026-09": {
+      "2026-10": {
         "gross_revenue": 0,
         "unit_count": 0,
         "operating_profit": 0,
@@ -387,7 +201,7 @@
     "product_unassigned": []
   },
   "ops_summary": {
-    "month": "2026-09",
+    "month": "2026-10",
     "managed_count": 0,
     "total_sent": 0,
     "replied": 0,

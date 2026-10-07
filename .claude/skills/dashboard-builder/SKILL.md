@@ -67,15 +67,16 @@ $env:PYTHONUTF8 = "1"
 $env:PYTHONUTF8 = "1"
 & "C:\Users\user\비서\.venv\Scripts\python.exe" `
   "C:\Users\user\비서\.claude\skills\dashboard-builder\scripts\build_yk.py"
-# 정합 검증용: ㅇ 무시하고 전원·전체 행 집계 → 종합 history 2026-08·09 와 by_product/매출 일치, 유튜브 발송 4013
-& "...\build_yk.py" --no-filter --out "C:\Users\user\AppData\Local\Temp\yk_all"
+# 정합 검증용: ㅇ 무시 + 시작월 해제 → 종합 history 2026-08·09 와 by_product/매출 일치, 유튜브 발송 4013
+& "...\build_yk.py" --no-filter --start none --out "C:\Users\user\AppData\Local\Temp\yk_all"
 ```
 
 - 입력: 종합 관리시트 `영끌러님 관리` 행 ㅇ(= ㅇ/o/O/○) 명단 + `제품` 행, 공유 메일 파일 3종(유튜브=흑염소·뷰티=화장품·슬립이지=수면영양제)의 `구분`=ㅇ 행, Raw_Data(ㅇ 명단 필터), 종합 `output/tmp/settlement.json`(정산금·누적수량·단가는 재계산 없이 필터)
 - 종합 `site/data`·`output/tmp`는 읽기만 한다 (종합 숫자 불변). 인건비 0·지인판매 제외.
+- **시작월 2026-10** (`YK_START_MONTH`, `--start YYYY-MM`): 영끌러님 대시보드는 2026-10부터 운영. 그 이전 월은 메일 퍼널·체험·광고·매출·history 모두 제외하고, 정산월이 시작월보다 빠르면 정산 데이터도 비우고 기준월을 시작월로 둔다. `--start none` 이면 제한 없음(정합 검증용).
 - 출력 키 = 종합 dashboard.json 키 + `mail_funnel_by_product{제품:{…,by_month,source_file}}` + `ops_summary{managed_count,total_sent,…,by_product,influencer_products,unassigned}`
 - 제품 미지정(`제품` 행 비어 있고 Raw_Data 주문도 없음)은 `alerts.product_unassigned`에 나열 → 사장님이 `제품` 행 입력
-- 단위 테스트: `PYTHONUTF8=1 .venv\Scripts\python.exe -m unittest tests.test_build_yk` (20개)
+- 단위 테스트: `PYTHONUTF8=1 .venv\Scripts\python.exe -m unittest tests.test_build_yk` (24개)
 
 ## 출력 파일
 - `site/yk/data/dashboard.json`, `site/yk/data/history/YYYY-MM.json`, `site/yk/data/influencer/<이름>.json` — 영끌러님 대시보드(`site/yk/`) 데이터
