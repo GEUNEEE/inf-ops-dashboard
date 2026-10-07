@@ -800,9 +800,14 @@
     if (!c) return;
 
     let items = [], totalQty = 0;
+    // 눈길 인건비: 초방리농장(A) 판매수량 + 지인판매 기준 (슬립케어랩 판매분 미적용, 2026-07 스토어 분리 이후)
+    let laborQty = 0, laborCost = 0, laborStoreOnly = false;
 
     if (month && h) {
       totalQty = h.unit_count || 0;
+      laborQty       = (h.labor_qty != null) ? h.labor_qty : totalQty;
+      laborCost      = (h.labor_cost != null) ? h.labor_cost : laborQty * 10000;
+      laborStoreOnly = String(h.labor_basis || '').startsWith('store_');
       const ss = settlementSummary || {};
       let knownQty = 0;
       items = Object.entries(h.influencers || {}).map(([name, d]) => {
@@ -841,7 +846,11 @@
         contribution: d.contribution || 0,
         isGen: !d.settlement,
       }));
-      totalQty = Object.values(pa.monthly || {}).reduce((s, m) => s + (m.unit_count || 0), 0);
+      const mv = Object.values(pa.monthly || {});
+      totalQty  = mv.reduce((s, m) => s + (m.unit_count || 0), 0);
+      laborQty  = mv.reduce((s, m) => s + ((m.labor_qty  != null) ? m.labor_qty  : (m.unit_count || 0)), 0);
+      laborCost = mv.reduce((s, m) => s + ((m.labor_cost != null) ? m.labor_cost : ((m.labor_qty != null ? m.labor_qty : (m.unit_count || 0)) * 10000)), 0);
+      laborStoreOnly = mv.some(m => String(m.labor_basis || '').startsWith('store_'));
     }
 
     items.sort((a, b) => b.contribution - a.contribution);
@@ -850,8 +859,11 @@
     const totalContrib   = items.reduce((s, i) => s + (i.contribution || 0), 0);
     const totalSponsor   = items.reduce((s, i) => s + (i.sponsorCost || 0), 0);
     const totalSettlement = items.reduce((s, i) => s + (i.settlement || 0), 0);
-    const laborCost      = totalQty * 10000;
     const laborLabel     = month ? monthLabel(month) : '전체 누적';
+    const laborBasisTxt  = laborStoreOnly
+      ? (month ? `초방리농장 판매 ${laborQty}개 × ₩10,000 · 슬립케어랩 판매분 미적용`
+               : `${laborQty}개 × ₩10,000 · 2026-07부터 초방리농장 판매분만`)
+      : `${laborQty}개 × ₩10,000`;
     const showSponsor    = totalSponsor > 0;
 
     const rows = items.map(i => `<tr>
@@ -869,7 +881,7 @@
         <tfoot><tr><td>합계</td><td>${totalQty}개</td><td>${totalSettlement ? money(totalSettlement) : ''}</td>${showSponsor ? `<td style="color:#C0392B">${totalSponsor ? '−' + money(totalSponsor) : ''}</td>` : ''}<td>${money(totalContrib)}</td></tr></tfoot>
       </table>
       <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
-        눈길 인건비 (${laborLabel}): ${money(laborCost)} (${totalQty}개 × ₩10,000)
+        눈길 인건비 (${laborLabel}): ${money(laborCost)} (${laborBasisTxt})
       </div>`;
   }
 

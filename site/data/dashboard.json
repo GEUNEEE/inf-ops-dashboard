@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T16:04:27",
+  "generated_at": "2026-10-07T16:33:11",
   "current_month": "2026-10",
   "products": [
     {
@@ -37,9 +37,11 @@
     "influencer_cost": 380000,
     "sponsor_cost": 360000,
     "cogs_cost": 1080000,
-    "labor_cost": 270000,
+    "labor_cost": 80000,
+    "labor_qty": 8,
+    "labor_basis": "store_A",
     "net_profit": 1350000,
-    "operating_profit": 1080000,
+    "operating_profit": 1270000,
     "manual_sales_amount": 240000,
     "manual_sales_qty": 3,
     "manual_sales_fee": 0
@@ -1468,18 +1470,18 @@
       1512000,
       2126000,
       1742000,
-      1844000,
-      2000000,
-      1080000
+      2014000,
+      2320000,
+      1270000
     ],
     "operating_profit_rate": [
       0.3833,
       0.3818,
       0.4553,
       0.4099,
-      0.5165,
-      0.3656,
-      0.3407
+      0.5641,
+      0.4241,
+      0.4006
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1744,49 +1746,70 @@
         "unit_count": 10,
         "operating_profit": 460000,
         "operating_profit_rate": 0.3833,
-        "cumulative_profit": 460000
+        "cumulative_profit": 460000,
+        "labor_cost": 100000,
+        "labor_qty": 10,
+        "labor_basis": "all"
       },
       "2026-04": {
         "gross_revenue": 3960000,
         "unit_count": 32,
         "operating_profit": 1512000,
         "operating_profit_rate": 0.3818,
-        "cumulative_profit": 1972000
+        "cumulative_profit": 1972000,
+        "labor_cost": 320000,
+        "labor_qty": 32,
+        "labor_basis": "all"
       },
       "2026-05": {
         "gross_revenue": 4670000,
         "unit_count": 38,
         "operating_profit": 2126000,
         "operating_profit_rate": 0.4552,
-        "cumulative_profit": 4098000
+        "cumulative_profit": 4098000,
+        "labor_cost": 380000,
+        "labor_qty": 38,
+        "labor_basis": "all"
       },
       "2026-06": {
         "gross_revenue": 4250000,
         "unit_count": 34,
         "operating_profit": 1742000,
         "operating_profit_rate": 0.4099,
-        "cumulative_profit": 5840000
+        "cumulative_profit": 5840000,
+        "labor_cost": 340000,
+        "labor_qty": 34,
+        "labor_basis": "all"
       },
       "2026-07": {
         "gross_revenue": 3570000,
         "unit_count": 29,
-        "operating_profit": 1844000,
-        "operating_profit_rate": 0.5165,
-        "cumulative_profit": 7684000
+        "operating_profit": 2014000,
+        "operating_profit_rate": 0.5641,
+        "cumulative_profit": 7854000,
+        "labor_cost": 120000,
+        "labor_qty": 12,
+        "labor_basis": "store_A"
       },
       "2026-08": {
         "gross_revenue": 5470000,
         "unit_count": 45,
-        "operating_profit": 2000000,
-        "operating_profit_rate": 0.3656,
-        "cumulative_profit": 9684000
+        "operating_profit": 2320000,
+        "operating_profit_rate": 0.4241,
+        "cumulative_profit": 10174000,
+        "labor_cost": 130000,
+        "labor_qty": 13,
+        "labor_basis": "store_A"
       },
       "2026-09": {
         "gross_revenue": 3170000,
         "unit_count": 27,
-        "operating_profit": 1080000,
-        "operating_profit_rate": 0.3407,
-        "cumulative_profit": 10764000
+        "operating_profit": 1270000,
+        "operating_profit_rate": 0.4006,
+        "cumulative_profit": 11444000,
+        "labor_cost": 80000,
+        "labor_qty": 8,
+        "labor_basis": "store_A"
       }
     },
     "influencer_cumulative": {
