@@ -883,6 +883,9 @@
       </table>
       <div style="margin-top:6px;text-align:right;font-size:10px;color:var(--text3)">
         눈길 인건비 (${laborLabel}): ${money(laborCost)} (${laborBasisTxt})
+      </div>
+      <div style="margin-top:2px;text-align:right;font-size:10px;color:#C0392B">
+        ※ 9월분부터 눈길인건비 미정산
       </div>`;
   }
 
