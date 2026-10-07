@@ -266,6 +266,7 @@
       renderContribTable(pa, null, null, gData.settlement_summary);
       renderStoreSplit(null);
       renderManualSales(null);
+      renderYkMini(defaultProductKey(), null, el('yk-mini-main'));
 
       buildAllTimeData().then(({ revenue, infMap }) => {
         _allTimeInfMap = infMap;
@@ -311,6 +312,7 @@
     renderContribTable(pa, month, h, gData.settlement_summary);
     renderStoreSplit(month);
     renderManualSales(month, h);
+    renderYkMini(defaultProductKey(), month, el('yk-mini-main'));
   }
 
   // ── 메인 초기화 ────────────────────────────────────────────────────────────
@@ -364,6 +366,7 @@
     renderSummary(null);
     renderStoreSplit(null);
     renderManualSales(null);
+    renderYkMini(defaultProductKey(), null, el('yk-mini-main'));
     renderTabs();
 
     // 전체 집계로 업데이트 (비동기, 실패해도 화면 유지)
@@ -1034,6 +1037,59 @@
     return getProducts().filter(p => p.key !== defKey).map(p => p.key);
   }
 
+  // ── 영끌러님 미니 블럭 (site/yk/data/dashboard.json 참조 · 2026-10부터 집계) ──
+  let gYk = null, _ykLoading = null;
+  function loadYk() {
+    if (!_ykLoading) {
+      _ykLoading = fetchData('yk/data/dashboard.json').then(d => { gYk = d; return d; }).catch(() => null);
+    }
+    return _ykLoading;
+  }
+  // scope: 'summary' | 제품 키. 종합 탭과 같은 규칙:
+  //   summary = 제품별 매출 합 / 수익 = 흑염소 정산모델 수익(trends.net_profit) + 제품별 net_profit 합
+  //   기본 제품(흑염소) = trends 상단값, 그 외 제품 = by_product_by_month[월][제품]
+  function ykFigures(scope, month) {
+    const t = (gYk || {}).trends || {};
+    const months = (t.months || []).slice().sort();
+    const bpm = t.by_product_by_month || {};
+    const inRange = !month || months.includes(month);
+    const sel = month ? (inRange ? [month] : []) : months;
+    let rev = 0, prof = 0;
+    sel.forEach(m => {
+      const i = months.indexOf(m);
+      if (scope === 'summary') {
+        const md = bpm[m] || {};
+        Object.keys(md).forEach(k => { rev += md[k].gross_revenue || 0; prof += md[k].net_profit || 0; });
+        prof += (t.net_profit || [])[i] || 0;
+      } else if (scope === defaultProductKey()) {
+        rev  += (t.gross_revenue || [])[i] || 0;
+        prof += (t.net_profit    || [])[i] || 0;
+      } else {
+        const d = ((bpm[m] || {})[scope]) || {};
+        rev += d.gross_revenue || 0; prof += d.net_profit || 0;
+      }
+    });
+    return { rev, prof, months, inRange };
+  }
+  function renderYkMini(scope, month, host) {
+    if (!host) return;
+    if (!gYk) {
+      host.innerHTML = '';
+      loadYk().then(d => { if (d) renderYkMini(scope, month, host); });
+      return;
+    }
+    const f = ykFigures(scope, month || null);
+    const start = f.months[0] || '';
+    const na  = !f.inRange;
+    const sub = na ? (start ? monthLabel(start) + '부터 집계' : '집계 전') : (month ? monthLabel(month) : '전체 기간');
+    const val = v => na ? '—' : (v ? money(v) : '—');
+    const pc  = (!na && f.prof > 0) ? '#3B6D11' : (!na && f.prof < 0) ? '#A32D2D' : '';
+    host.innerHTML =
+      `<span class="yk-mini-tag"><a href="yk/" target="_blank" rel="noopener" title="영끌러님 대시보드 열기">영끌러님 ↗</a></span>` +
+      `<div class="yk-mini-card"><div class="yk-mini-lbl">영끌러님 매출</div><div class="yk-mini-val">${val(f.rev)}</div><div class="yk-mini-sub">${sub}</div></div>` +
+      `<div class="yk-mini-card"><div class="yk-mini-lbl">영끌러님 수익</div><div class="yk-mini-val" style="color:${pc}">${val(f.prof)}</div><div class="yk-mini-sub">${sub}</div></div>`;
+  }
+
   function ensureProductPanels() {
     const host = el('panels-extra');
     if (!host) return;
@@ -1047,6 +1103,7 @@
           <div class="kpi-card"><div class="kpi-lbl">주문수</div><div class="kpi-val" data-pk="ord">-</div><div class="kpi-sub" data-pk="ord-sub"></div></div>
           <div class="kpi-card"><div class="kpi-lbl">수익</div><div class="kpi-val" data-pk="profit">-</div><div class="kpi-sub" data-pk="profit-sub"></div></div>
         </div>
+        <div class="yk-mini" data-pk="yk"></div>
         <div class="card mb12" data-pk="chartcard"><div class="slbl">월별 매출 · 판매량</div><canvas data-pk="chart"></canvas></div>
         <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div><div data-pk="trialnote"></div></div>
         <div class="card mb12" data-pk="cosmetics" style="display:none"><div class="slbl">옵션별 · 채널별 <span style="color:var(--text3);font-weight:400">(이번 달)</span></div><div data-pk="cosmetics-body"></div></div>
@@ -1085,6 +1142,8 @@
       ? [''].concat(months.slice().reverse()).map(m =>
           `<button class="filter-chip${(m || null) === (month || null) ? ' active' : ''}" data-month="${m}">${m ? monthLabel(m) : '전체'}</button>`).join('')
       : '';
+
+    renderYkMini(key, month, q('yk'));
 
     const cc = q('chartcard'), tc = q('tablecard');
     if (!months.length) {
@@ -1255,6 +1314,7 @@
     const scopeLabel = month ? monthLabel(month) : '전체 기간';
 
     set('summary-scope-label', '· ' + scopeLabel);
+    renderYkMini('summary', month, el('yk-mini-summary'));
     set('sum-revenue', money(totalRev));
     set('sum-units',   totalUnits + '개');
     set('sum-profit',  money(totalProfit));

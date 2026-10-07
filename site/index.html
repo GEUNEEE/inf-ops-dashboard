@@ -45,6 +45,14 @@
     /* Grids */
     .kpi-grid        { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
     .profit-kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 7px; margin-bottom: 14px; }
+    /* 영끌러님 미니 블럭 (yk/data 참조, 상단 KPI 아래) */
+    .yk-mini      { display: flex; align-items: stretch; gap: 7px; flex-wrap: wrap; margin: -6px 0 14px; }
+    .yk-mini-tag  { display: flex; align-items: center; font-size: 10px; font-weight: 600; color: var(--text3); padding: 0 2px; }
+    .yk-mini-tag a { color: inherit; text-decoration: none; border-bottom: 1px dotted currentColor; }
+    .yk-mini-card { background: var(--bg2); border: 1px dashed #D5D5D0; border-radius: var(--r); padding: 6px 10px; min-width: 104px; }
+    .yk-mini-lbl  { font-size: 9px;  color: var(--text3); }
+    .yk-mini-val  { font-size: 13px; font-weight: 600; color: var(--text1); line-height: 1.3; }
+    .yk-mini-sub  { font-size: 9px;  color: var(--text3); }
     .funnel-grid     { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; margin-bottom: 12px; }
     .inf-grid        { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
     .chart-grid      { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
@@ -233,6 +241,7 @@
           <div class="kpi-sub" id="sum-profit-sub"></div>
         </div>
       </div>
+      <div class="yk-mini" id="yk-mini-summary"></div>
 
       <div class="card mb12">
         <div class="slbl">전체 제품 · 월별 매출 · 수익 · 판매량</div>
@@ -309,6 +318,7 @@
         <div class="kpi-sub" id="kpi-cumulative-sub">전체 기간</div>
       </div>
     </div>
+    <div class="yk-mini" id="yk-mini-main"></div>
 
     <!-- 퍼널 바 + 도넛 차트 -->
     <div class="funnel-grid">
@@ -373,6 +383,6 @@
     <div id="panels-extra"></div>
 
   </div>
-  <script src="assets/app.js?v=20260928-1500"></script>
+  <script src="assets/app.js?v=20261008"></script>
 </body>
 </html>

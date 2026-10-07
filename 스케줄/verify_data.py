@@ -39,7 +39,13 @@ print("\n[1] settlement.json 수량·금액 검증")
 s_qty  = sum(s["qty"] for s in sett["summaries"] if not s["is_general"])
 g_qty  = sum(s["qty"] for s in sett["summaries"] if s["is_general"])
 s_amt  = sum(s["settlement_amount"] or 0 for s in sett["summaries"] if not s["is_general"])
-gross_calc = s_qty * P + g_qty * G
+# 수기 판매(지인판매 등): 실입금액 전액 매출, 수량은 원가·인건비 대상
+manual = [m for m in cfg.get("manual_sales", [])
+          if m.get("product", "흑염소") == "흑염소" and m.get("month") == sett["settlement_month"]]
+m_qty = sum(int(m.get("qty", 0)) for m in manual)
+m_amt = sum(int(m.get("amount", 0)) for m in manual)
+m_fee = sum(int(m.get("fee", 0)) for m in manual)
+gross_calc = s_qty * P + g_qty * G + m_amt
 inf_cost_calc = s_amt  # 기타/일반은 정산 대상 유튜버가 없어 정산비 없음 (원가만 cogs에서 차감)
 # 협찬원가는 인당 1회가 아니라 발생 횟수 기준 (예: 한 차수에 2개 협찬 → exp_months에 같은 월 2회)
 sponsor = sum(
@@ -47,12 +53,14 @@ sponsor = sum(
     for v in inf.get("per_influencer", {}).values()
     if isinstance(v, dict)
 )
-labor = (s_qty + g_qty) * L
-cogs  = (s_qty + g_qty) * C
-net_calc  = gross_calc - inf_cost_calc - sponsor - cogs
+# 2026-10부터 눈길 인건비 없음 (ytber_config labor_cost_until 이후 월은 0 — build_revenue.py 와 동일 규칙)
+_until = cfg.get("labor_cost_until")
+labor = 0 if (_until and sett["settlement_month"] > _until) else (s_qty + g_qty + m_qty) * L
+cogs  = (s_qty + g_qty + m_qty) * C
+net_calc  = gross_calc - inf_cost_calc - sponsor - cogs - m_fee
 oper_calc = net_calc - labor
 
-print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,} = ₩{gross_calc:,}")
+print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,}" + (f" + 수기판매 {m_qty}개 ₩{m_amt:,}" if manual else "") + f" = ₩{gross_calc:,}")
 print(f"  정산비(정산대상만) ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 원가 ₩{cogs:,} / 노무 ₩{labor:,}")
 
 if gross_calc == rev["gross_revenue"]:
@@ -113,9 +121,10 @@ for month, h in sorted(history.items()):
     infs = h.get("influencers", {})
     s_q = sum(v.get("qty", 0) for v in infs.values() if not v.get("is_general"))
     g_q = sum(v.get("qty", 0) for v in infs.values() if v.get("is_general"))
-    calc = s_q * P + g_q * G
+    h_manual = sum(int(x.get("amount", 0)) for x in h.get("manual_sales", []) if x.get("product", "흑염소") == "흑염소")
+    calc = s_q * P + g_q * G + h_manual
     if calc == h["gross_revenue"]:
-        ok(f"{month}: gross ₩{h['gross_revenue']:,} (settlement {s_q}개 + general {g_q}개) ✅")
+        ok(f"{month}: gross ₩{h['gross_revenue']:,} (settlement {s_q}개 + general {g_q}개" + (f" + 수기판매 ₩{h_manual:,}" if h_manual else "") + ") ✅")
     else:
         err(f"{month}: gross 불일치 — 계산 ₩{calc:,} vs 파일 ₩{h['gross_revenue']:,}")
 

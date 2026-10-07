@@ -495,6 +495,9 @@ def main():
         f" → 광고 {mail_funnel['ad_total']} │ {settle_month} 매출 {revenue['gross_revenue']:,}원")
     if unassigned:
         log(f"[WARN] 제품 미지정 {len(unassigned)}명: {', '.join(unassigned)} — 종합 관리시트 `제품` 행에 입력 필요")
+    # run_pipeline.run_script 가 stdout 을 JSON 으로 읽으므로 요약을 출력한다
+    print(json.dumps({"ok": True, "out": str(out_path), "managed_count": len(yk_set), "months": months,
+                      "total_sent": mail_funnel["total_sent"], "unassigned": len(unassigned)}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
