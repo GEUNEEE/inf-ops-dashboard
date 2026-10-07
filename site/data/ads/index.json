@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T07:41:18",
+  "generated_at": "2026-10-07T17:17:51",
   "product": "화장품",
   "months": [
     {
@@ -95,15 +95,28 @@
     },
     {
       "month": "2026-09",
-      "spend": 538112,
-      "impressions": 12707,
-      "clicks": 279,
-      "ctr": 0.02196,
-      "purchases": 7,
-      "meta_roas": 0.6802,
-      "mall_gross": 300000,
-      "mall_orders": 6,
-      "mall_roas": 0.5575,
+      "spend": 709803,
+      "impressions": 26894,
+      "clicks": 527,
+      "ctr": 0.0196,
+      "purchases": 12,
+      "meta_roas": 0.8538,
+      "mall_gross": 499000,
+      "mall_orders": 10,
+      "mall_roas": 0.703,
+      "has_daily": true
+    },
+    {
+      "month": "2026-10",
+      "spend": 181114,
+      "impressions": 9796,
+      "clicks": 166,
+      "ctr": 0.01695,
+      "purchases": 0,
+      "meta_roas": null,
+      "mall_gross": 0,
+      "mall_orders": 0,
+      "mall_roas": null,
       "has_daily": true
     }
   ]

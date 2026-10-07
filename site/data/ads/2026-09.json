@@ -2,31 +2,31 @@
   "month": "2026-09",
   "product": "화장품",
   "account_id": "706112365442772",
-  "fetched_at": "2026-09-23",
-  "updated_at": "2026-09-23T07:41:18",
+  "fetched_at": "2026-10-07",
+  "updated_at": "2026-10-07T17:17:51",
   "totals": {
-    "spend": 538112,
-    "impressions": 12707,
-    "reach": 10035,
-    "clicks": 279,
-    "link_clicks": 261,
-    "ctr": 0.02196,
-    "cpc": 1929,
-    "cpm": 42348,
-    "purchases": 7,
-    "purchase_value": 366024,
-    "meta_roas": 0.6802,
-    "cost_per_purchase": 76873
+    "spend": 709803,
+    "impressions": 26894,
+    "reach": 20760,
+    "clicks": 527,
+    "link_clicks": 506,
+    "ctr": 0.0196,
+    "cpc": 1347,
+    "cpm": 26393,
+    "purchases": 12,
+    "purchase_value": 606030,
+    "meta_roas": 0.8538,
+    "cost_per_purchase": 59150
   },
   "mall": {
-    "orders": 6,
-    "units": 8,
-    "gross": 300000,
+    "orders": 10,
+    "units": 13,
+    "gross": 499000,
     "available": true
   },
   "roas": {
-    "meta": 0.6802,
-    "mall": 0.5575
+    "meta": 0.8538,
+    "mall": 0.703
   },
   "daily": [
     {
@@ -207,10 +207,66 @@
     },
     {
       "date": "2026-09-23",
-      "spend": 993,
-      "impressions": 64,
-      "clicks": 0,
-      "link_clicks": 0,
+      "spend": 23045,
+      "impressions": 2037,
+      "clicks": 33,
+      "link_clicks": 34,
+      "purchases": 3
+    },
+    {
+      "date": "2026-09-24",
+      "spend": 23007,
+      "impressions": 2231,
+      "clicks": 54,
+      "link_clicks": 55,
+      "purchases": 2
+    },
+    {
+      "date": "2026-09-25",
+      "spend": 20090,
+      "impressions": 2098,
+      "clicks": 45,
+      "link_clicks": 44,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-26",
+      "spend": 19288,
+      "impressions": 2021,
+      "clicks": 29,
+      "link_clicks": 26,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-27",
+      "spend": 27963,
+      "impressions": 2347,
+      "clicks": 41,
+      "link_clicks": 41,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-28",
+      "spend": 17352,
+      "impressions": 1246,
+      "clicks": 11,
+      "link_clicks": 12,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-29",
+      "spend": 20168,
+      "impressions": 1081,
+      "clicks": 16,
+      "link_clicks": 18,
+      "purchases": 0
+    },
+    {
+      "date": "2026-09-30",
+      "spend": 21771,
+      "impressions": 1190,
+      "clicks": 19,
+      "link_clicks": 15,
       "purchases": 0
     }
   ],
@@ -219,17 +275,17 @@
       "id": "120251607850920732",
       "name": "스팟이지 착색 기미 미백 스팟멜트크림",
       "status": "ACTIVE",
-      "spend": 538112,
-      "impressions": 12707,
-      "reach": 10035,
-      "clicks": 279,
-      "link_clicks": 261,
-      "ctr": 0.022,
-      "cpc": 1929,
-      "cpm": 42348,
-      "purchases": 7,
-      "meta_roas": 0.6802,
-      "cost_per_purchase": 76873
+      "spend": 709803,
+      "impressions": 26894,
+      "reach": 20760,
+      "clicks": 527,
+      "link_clicks": 506,
+      "ctr": 0.0196,
+      "cpc": 1347,
+      "cpm": 26393,
+      "purchases": 12,
+      "meta_roas": 0.8538,
+      "cost_per_purchase": 59150
     }
   ]
 }

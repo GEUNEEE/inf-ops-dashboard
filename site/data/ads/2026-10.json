@@ -1,0 +1,107 @@
+{
+  "month": "2026-10",
+  "product": "화장품",
+  "account_id": "706112365442772",
+  "fetched_at": "2026-10-07",
+  "updated_at": "2026-10-07T17:17:51",
+  "totals": {
+    "spend": 181114,
+    "impressions": 9796,
+    "reach": 7767,
+    "clicks": 166,
+    "link_clicks": 151,
+    "ctr": 0.01695,
+    "cpc": 1091,
+    "cpm": 18489,
+    "purchases": 0,
+    "purchase_value": 0,
+    "meta_roas": null,
+    "cost_per_purchase": null
+  },
+  "mall": {
+    "orders": 0,
+    "units": 0,
+    "gross": 0,
+    "available": false
+  },
+  "roas": {
+    "meta": null,
+    "mall": null
+  },
+  "daily": [
+    {
+      "date": "2026-10-01",
+      "spend": 30241,
+      "impressions": 1507,
+      "clicks": 20,
+      "link_clicks": 18,
+      "purchases": 0
+    },
+    {
+      "date": "2026-10-02",
+      "spend": 29240,
+      "impressions": 1523,
+      "clicks": 23,
+      "link_clicks": 21,
+      "purchases": 0
+    },
+    {
+      "date": "2026-10-03",
+      "spend": 28187,
+      "impressions": 1646,
+      "clicks": 28,
+      "link_clicks": 21,
+      "purchases": 0
+    },
+    {
+      "date": "2026-10-04",
+      "spend": 28308,
+      "impressions": 1846,
+      "clicks": 28,
+      "link_clicks": 25,
+      "purchases": 0
+    },
+    {
+      "date": "2026-10-05",
+      "spend": 27840,
+      "impressions": 1680,
+      "clicks": 23,
+      "link_clicks": 22,
+      "purchases": 0
+    },
+    {
+      "date": "2026-10-06",
+      "spend": 18671,
+      "impressions": 955,
+      "clicks": 25,
+      "link_clicks": 25,
+      "purchases": 0
+    },
+    {
+      "date": "2026-10-07",
+      "spend": 18627,
+      "impressions": 639,
+      "clicks": 19,
+      "link_clicks": 19,
+      "purchases": 0
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "120251607850920732",
+      "name": "스팟이지 착색 기미 미백 스팟멜트크림",
+      "status": "ACTIVE",
+      "spend": 181114,
+      "impressions": 9796,
+      "reach": 7767,
+      "clicks": 166,
+      "link_clicks": 151,
+      "ctr": 0.0169,
+      "cpc": 1091,
+      "cpm": 18489,
+      "purchases": 0,
+      "meta_roas": null,
+      "cost_per_purchase": null
+    }
+  ]
+}
