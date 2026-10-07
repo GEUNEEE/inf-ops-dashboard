@@ -1,0 +1,115 @@
+{
+  "month": "2026-10",
+  "generated_at": "2026-10-08T08:33:30",
+  "gross_revenue": 240000,
+  "net_profit": 140000,
+  "order_count": 2,
+  "unit_count": 2,
+  "operating_profit": 140000,
+  "operating_profit_rate": 0.5833,
+  "labor_cost": 0,
+  "labor_qty": 0,
+  "labor_basis": "none",
+  "total_sent": 4013,
+  "replied": 408,
+  "meeting_total": 143,
+  "exp_total": 89,
+  "ad_total": 65,
+  "reply_rate": 0.1017,
+  "exp_rate": 0.0222,
+  "ad_rate": 0.0162,
+  "meeting_rate": 0.0356,
+  "inf_status": {
+    "미팅_대기": 0,
+    "미팅_진행": 0,
+    "체험진행_1차": 27,
+    "체험진행_2차": 5,
+    "체험진행_3차": 1,
+    "광고예정_1차": 9,
+    "광고예정_2차": 0,
+    "광고완료_1차": 12,
+    "기타": 35
+  },
+  "influencers": {
+    "C맹씨": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 27,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "차사랑캠프": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 9,
+      "unit_price": 0,
+      "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "기타/일반": {
+      "order_count": 0,
+      "qty": 0,
+      "cumulative_qty": null,
+      "unit_price": null,
+      "amount": 0,
+      "is_general": true,
+      "sponsor_cost_this_month": 0
+    }
+  },
+  "by_product": {
+    "화장품": {
+      "qty": 5,
+      "order_count": 3,
+      "gross_revenue": 174000,
+      "net_profit": 123200
+    },
+    "수면영양제": {
+      "qty": 0,
+      "order_count": 7,
+      "gross_revenue": 0,
+      "net_profit": 0
+    },
+    "흑염소": {
+      "qty": 2,
+      "order_count": 2,
+      "gross_revenue": 240000,
+      "net_profit": 0
+    }
+  },
+  "by_store": {
+    "B": {
+      "qty": 2,
+      "order_count": 2,
+      "gross_revenue": 240000
+    }
+  },
+  "cosmetics_breakdown": {
+    "by_option": {
+      "단품": {
+        "orders": 1,
+        "units": 1
+      },
+      "1+1": {
+        "orders": 2,
+        "units": 4
+      }
+    },
+    "by_channel": {
+      "네이버": {
+        "orders": 3,
+        "units": 5,
+        "gross": 174000
+      }
+    },
+    "trial": {
+      "orders": 0,
+      "units": 0,
+      "gross": 0,
+      "excluded_profit": 0,
+      "buyers": []
+    }
+  }
+}
