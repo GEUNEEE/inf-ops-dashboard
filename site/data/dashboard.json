@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T08:33:31",
+  "generated_at": "2026-10-08T10:26:00",
   "current_month": "2026-10",
   "products": [
     {
@@ -39,7 +39,7 @@
     "cogs_cost": 80000,
     "labor_cost": 0,
     "labor_qty": 0,
-    "labor_basis": "none",
+    "labor_basis": "store_A",
     "net_profit": 140000,
     "operating_profit": 140000
   },
@@ -1853,7 +1853,7 @@
         "cumulative_profit": 11614000,
         "labor_cost": 0,
         "labor_qty": 0,
-        "labor_basis": "none"
+        "labor_basis": "store_A"
       }
     },
     "influencer_cumulative": {

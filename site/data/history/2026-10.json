@@ -1,6 +1,6 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-10-08T08:33:30",
+  "generated_at": "2026-10-08T10:25:59",
   "gross_revenue": 240000,
   "net_profit": 140000,
   "order_count": 2,
@@ -9,7 +9,7 @@
   "operating_profit_rate": 0.5833,
   "labor_cost": 0,
   "labor_qty": 0,
-  "labor_basis": "none",
+  "labor_basis": "store_A",
   "total_sent": 4013,
   "replied": 408,
   "meeting_total": 143,
