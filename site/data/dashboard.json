@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T10:26:00",
+  "generated_at": "2026-10-08T11:22:20",
   "current_month": "2026-10",
   "products": [
     {
@@ -2149,6 +2149,195 @@
         "박광훈",
         "이세헌"
       ]
+    }
+  },
+  "cosmetics_breakdown_by_month": {
+    "2026-06": {
+      "by_option": {
+        "단품": {
+          "orders": 1,
+          "units": 1
+        },
+        "1+1": {
+          "orders": 1,
+          "units": 2
+        }
+      },
+      "by_channel": {
+        "네이버": {
+          "orders": 2,
+          "units": 3,
+          "gross": 106000
+        }
+      },
+      "trial": {
+        "orders": 0,
+        "units": 0,
+        "gross": 0,
+        "excluded_profit": 0,
+        "buyers": []
+      }
+    },
+    "2026-07": {
+      "by_option": {
+        "단품": {
+          "orders": 10,
+          "units": 10
+        },
+        "1+1": {
+          "orders": 3,
+          "units": 6
+        },
+        "2+2": {
+          "orders": 1,
+          "units": 4
+        }
+      },
+      "by_channel": {
+        "네이버": {
+          "orders": 11,
+          "units": 14,
+          "gross": 508000
+        },
+        "쿠팡": {
+          "orders": 1,
+          "units": 1,
+          "gross": 38000
+        },
+        "자사몰": {
+          "orders": 2,
+          "units": 5,
+          "gross": 147000
+        }
+      },
+      "trial": {
+        "orders": 5,
+        "units": 5,
+        "gross": 190000,
+        "excluded_profit": 132000,
+        "buyers": [
+          "전나영",
+          "유효진",
+          "이윤희",
+          "최현",
+          "박광훈"
+        ]
+      }
+    },
+    "2026-08": {
+      "by_option": {
+        "단품": {
+          "orders": 3,
+          "units": 3
+        },
+        "1+1": {
+          "orders": 1,
+          "units": 2
+        },
+        "2+2": {
+          "orders": 3,
+          "units": 12
+        }
+      },
+      "by_channel": {
+        "네이버": {
+          "orders": 7,
+          "units": 17,
+          "gross": 498500
+        }
+      },
+      "trial": {
+        "orders": 1,
+        "units": 1,
+        "gross": 38000,
+        "excluded_profit": 26400,
+        "buyers": [
+          "이세헌"
+        ]
+      }
+    },
+    "2026-09": {
+      "by_option": {
+        "단품": {
+          "orders": 16,
+          "units": 17
+        },
+        "1+1": {
+          "orders": 5,
+          "units": 10
+        },
+        "2+2": {
+          "orders": 3,
+          "units": 12
+        }
+      },
+      "by_channel": {
+        "네이버": {
+          "orders": 14,
+          "units": 26,
+          "gross": 818500
+        },
+        "자사몰": {
+          "orders": 10,
+          "units": 13,
+          "gross": 499000
+        }
+      },
+      "trial": {
+        "orders": 0,
+        "units": 0,
+        "gross": 0,
+        "excluded_profit": 0,
+        "buyers": []
+      }
+    },
+    "2026-10": {
+      "by_option": {
+        "단품": {
+          "orders": 1,
+          "units": 1
+        },
+        "1+1": {
+          "orders": 2,
+          "units": 4
+        }
+      },
+      "by_channel": {
+        "네이버": {
+          "orders": 3,
+          "units": 5,
+          "gross": 174000
+        }
+      },
+      "trial": {
+        "orders": 0,
+        "units": 0,
+        "gross": 0,
+        "excluded_profit": 0,
+        "buyers": []
+      }
+    }
+  },
+  "product_trials_by_month": {
+    "2026-09": {
+      "수면영양제": {
+        "orders": 46,
+        "order_nos": 11,
+        "units": 60,
+        "gross": 43200,
+        "buyers": [
+          "황준호",
+          "이상은",
+          "이한솔",
+          "김민정",
+          "정지우",
+          "정진승",
+          "박진영",
+          "박신욱",
+          "김정현",
+          "정여은"
+        ]
+      }
     }
   },
   "product_trials": {

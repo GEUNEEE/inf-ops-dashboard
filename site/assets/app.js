@@ -1102,7 +1102,7 @@
         <div class="yk-mini" data-pk="yk"></div>
         <div class="card mb12" data-pk="chartcard"><div class="slbl">월별 매출 · 판매량</div><canvas data-pk="chart"></canvas></div>
         <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div><div data-pk="trialnote"></div></div>
-        <div class="card mb12" data-pk="cosmetics" style="display:none"><div class="slbl">옵션별 · 채널별 <span style="color:var(--text3);font-weight:400">(이번 달)</span></div><div data-pk="cosmetics-body"></div></div>
+        <div class="card mb12" data-pk="cosmetics" style="display:none"><div class="slbl">옵션별 · 채널별 <span style="color:var(--text3);font-weight:400" data-pk="cosmetics-scope"></span></div><div data-pk="cosmetics-body"></div></div>
         <div data-pk="empty"></div>
       </section>`).join('');
     others.forEach(p => {
@@ -1181,16 +1181,21 @@
     // 화장품 외 제품(수면영양제 등) 체험단 안내 — 월별 표 하단 (화장품은 아래 옵션/채널 카드 하단에 표시)
     const tn = q('trialnote');
     if (tn) {
-      const pt = (key === '화장품') ? null : (((gData || {}).product_trials || {})[key] || null);
+      const ptSrc = month ? (((gData || {}).product_trials_by_month || {})[month] || {}) : ((gData || {}).product_trials || {});
+      const pt = (key === '화장품') ? null : (ptSrc[key] || null);
       tn.innerHTML = (pt && (pt.order_nos || pt.orders) > 0)
         ? `<div style="font-size:10px;color:var(--text3);margin-top:10px;line-height:1.5">🧪 체험단 ${pt.order_nos || pt.orders}건${(pt.buyers && pt.buyers.length) ? ` (${pt.buyers.join(', ')})` : ''}<br>매출 ${money(pt.gross || 0)} 포함 · 수익 제외</div>`
         : '';
     }
 
-    // 화장품 전용: 옵션별·채널별 (이번 달 스냅샷 기준)
+    // 화장품 전용: 옵션별·채널별 — 월 필터 선택 시 그 달, 전체 선택 시 전체 기간 누적
     const cosCard = q('cosmetics');
     if (cosCard) {
-      const cb = (key === '화장품') ? ((gData || {}).cosmetics_breakdown || {}) : {};
+      const cb = (key !== '화장품') ? {}
+        : month ? (((gData || {}).cosmetics_breakdown_by_month || {})[month] || {})
+                : ((gData || {}).cosmetics_breakdown || {});
+      const cscope = q('cosmetics-scope');
+      if (cscope) cscope.textContent = `(${month ? monthLabel(month) : '전체 기간'})`;
       const byOpt = cb.by_option || {}, byCh = cb.by_channel || {};
       const optKeys = Object.keys(byOpt), chKeys = Object.keys(byCh);
       if (optKeys.length || chKeys.length) {
