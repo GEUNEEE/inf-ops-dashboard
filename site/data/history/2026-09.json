@@ -1,6 +1,6 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-10-07T16:35:42",
+  "generated_at": "2026-10-12T08:50:51",
   "gross_revenue": 3170000,
   "net_profit": 1350000,
   "order_count": 14,
@@ -10,15 +10,15 @@
   "labor_cost": 50000,
   "labor_qty": 5,
   "labor_basis": "store_A",
-  "total_sent": 4013,
+  "total_sent": 4234,
   "replied": 408,
   "meeting_total": 143,
   "exp_total": 89,
   "ad_total": 65,
-  "reply_rate": 0.1017,
-  "exp_rate": 0.0222,
-  "ad_rate": 0.0162,
-  "meeting_rate": 0.0356,
+  "reply_rate": 0.0964,
+  "exp_rate": 0.021,
+  "ad_rate": 0.0154,
+  "meeting_rate": 0.0338,
   "inf_status": {
     "미팅_대기": 0,
     "미팅_진행": 0,
@@ -28,7 +28,7 @@
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 12,
-    "기타": 35
+    "기타": 38
   },
   "influencers": {
     "C맹씨": {
@@ -187,10 +187,10 @@
       "net_profit": 0
     },
     "화장품": {
-      "qty": 39,
-      "order_count": 24,
-      "gross_revenue": 1317500,
-      "net_profit": 908972
+      "qty": 38,
+      "order_count": 23,
+      "gross_revenue": 1280500,
+      "net_profit": 885119
     },
     "수면영양제": {
       "qty": 60,
@@ -216,8 +216,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 16,
-        "units": 17
+        "orders": 15,
+        "units": 16
       },
       "1+1": {
         "orders": 5,
@@ -230,9 +230,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 14,
-        "units": 26,
-        "gross": 818500
+        "orders": 13,
+        "units": 25,
+        "gross": 781500
       },
       "자사몰": {
         "orders": 10,
