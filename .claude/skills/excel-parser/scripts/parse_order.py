@@ -150,7 +150,11 @@ def classify_product_store(product_id: str, product_name: str, registry: dict,
 
 
 def is_cancelled(order_status: str, claim_status: str) -> bool:
-    return "취소" in order_status or "취소완료" in claim_status
+    """취소 판정 (build_snapshot·generate_sheets·build_payout_tax 와 같은 규칙).
+    - 주문상태에 '취소' (취소 / 미결제취소)
+    - 또는 클레임상태·취소 처리상태가 취소 진행·완료 (취소요청 / 취소처리중 / 취소완료)
+    - '취소철회'(구매자가 취소 요청을 거둠)는 정상 주문"""
+    return "취소" in order_status or ("취소" in claim_status and "철회" not in claim_status)
 
 
 def main():
@@ -278,6 +282,10 @@ def main():
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     new_count = 0
     updated_count = 0
+    status_updated = 0
+    cancel_changes = []   # 기존 행의 취소 여부가 바뀐 건 (취소관리 파일 등으로 사후 취소 반영)
+    has_status_col = "주문상태" in colmap
+    has_claim_col  = any(k in colmap for k in ("클레임상태", "취소 처리상태"))
 
     for row in all_rows[header_idx + 1:]:
         order_no = safe_str(cell(row, "상품주문번호"))
@@ -288,7 +296,8 @@ def main():
         order_date   = safe_str(cell(row, "주문일시", "결제일"))  # 전체주문배송현황 양식은 결제일만 있음
         order_status = safe_str(cell(row, "주문상태"))
         delivery     = safe_str(cell(row, "배송속성", "배송방법"))
-        claim_status = safe_str(cell(row, "클레임상태"))
+        # 주문조회 양식은 '클레임상태', 취소관리 양식은 '취소 처리상태'(취소요청/취소완료/취소철회)
+        claim_status = safe_str(cell(row, "클레임상태", "취소 처리상태"))
         claim_qty    = safe_str(cell(row, "수량클레임 여부"))
         product_id   = safe_str(cell(row, "상품번호"))
         product_name = safe_str(cell(row, "상품명"))
@@ -318,8 +327,12 @@ def main():
             buckets["skipped"].append({"order_no": order_no, "ytber": ytber, "reason": "완전제외"})
             continue
 
-        # 중복 체크 (취소 건도 중복이면 스킵) — 단, 기존 행의 금액이 0으로 박제돼 있고
-        # 이번 파일엔 실제 금액이 있으면 그 자리에서 덮어써 갱신한다 (다른 필드는 건드리지 않음).
+        ytber_label = ytber or config.get("general_sales_label", "기타/일반")
+
+        # 중복 체크 (취소 건도 중복이면 새 행을 추가하지 않음) — 단,
+        #  1) 기존 행의 금액이 0으로 박제돼 있고 이번 파일엔 실제 금액이 있으면 그 자리에서 덮어써 갱신
+        #  2) 이번 파일이 주문상태/클레임상태를 갖고 있고 값이 달라졌으면(사후 취소·취소철회) 그 자리에서 갱신
+        #     (다른 필드는 건드리지 않음)
         if order_no in existing_nos:
             row_no = existing_row_map.get(order_no)
             if row_no and (amount or settle_amount):
@@ -331,9 +344,26 @@ def main():
                     print(f"[INFO] 주문금액 갱신: {order_no} 0 → {int(amount)}", file=sys.stderr)
                 if not cur_settle and settle_amount:
                     ws_raw.cell(row_no, 19, int(settle_amount))
+            if row_no and (has_status_col or has_claim_col):
+                cur_status = safe_str(ws_raw.cell(row_no, 4).value)
+                cur_claim  = safe_str(ws_raw.cell(row_no, 7).value)
+                new_status = order_status if (has_status_col and order_status) else cur_status
+                new_claim  = claim_status if has_claim_col else cur_claim
+                if (new_status, new_claim) != (cur_status, cur_claim):
+                    was_c = is_cancelled(cur_status, cur_claim)
+                    now_c = is_cancelled(new_status, new_claim)
+                    ws_raw.cell(row_no, 4, new_status)
+                    ws_raw.cell(row_no, 7, new_claim)
+                    status_updated += 1
+                    print(f"[INFO] 주문상태 갱신: {order_no} {cur_status}/{cur_claim or '-'} → "
+                          f"{new_status}/{new_claim or '-'}", file=sys.stderr)
+                    if was_c != now_c:
+                        cancel_changes.append({
+                            "order_no": order_no, "ytber": ytber_label, "qty": qty,
+                            "product": product_key, "now_cancelled": now_c,
+                            "status": new_status, "claim": new_claim,
+                        })
             continue
-
-        ytber_label = ytber or config.get("general_sales_label", "기타/일반")
 
         default_product = registry.get("default_product", "흑염소")
         if cancelled:
@@ -393,11 +423,14 @@ def main():
     rawdata_wb.save(RAWDATA_PATH)
     rawdata_wb.close()
     print(f"[INFO] Raw_Data 저장: {RAWDATA_PATH} (신규 {new_count}건"
-          + (f", 금액 갱신 {updated_count}건" if updated_count else "") + ")", file=sys.stderr)
+          + (f", 금액 갱신 {updated_count}건" if updated_count else "")
+          + (f", 상태 갱신 {status_updated}건" if status_updated else "") + ")", file=sys.stderr)
 
     result = {
         "new_count":          new_count,
         "updated_count":      updated_count,
+        "status_updated":     status_updated,
+        "cancel_changes":     cancel_changes,
         "settlement":         buckets["settlement"],
         "general":            buckets["general"],
         "excluded":           buckets["excluded"],

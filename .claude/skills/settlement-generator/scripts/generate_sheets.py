@@ -130,7 +130,7 @@ def get_month_orders(rawdata_ws, target_month: str, name_map: dict = None) -> li
             "qty":          int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0,
             "buyer_name":   str(row[13] or ""),
             "buyer_id":     str(row[14] or ""),
-            "is_cancelled": ("취소" in status or "취소완료" in claim),
+            "is_cancelled": ("취소" in status or ("취소" in claim and "철회" not in claim)),
         })
     return orders
 
@@ -157,7 +157,7 @@ def get_cumulative_qty_before(rawdata_ws, ytber_name: str, target_month: str, na
             continue
         status = str(row[RAW_COL_STATUS] or "")
         claim  = str(row[RAW_COL_CLAIM]  or "")
-        if "취소" in status or "취소완료" in claim:
+        if "취소" in status or ("취소" in claim and "철회" not in claim):
             continue
         try:
             raw_total += int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0

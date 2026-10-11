@@ -162,7 +162,7 @@ def aggregate_by_product_store(target_month: str, config: dict, name_filter=None
             continue
         status = str(row[RAW_COL_STATUS] or "")
         claim  = str(row[RAW_COL_CLAIM]  or "")
-        if "취소" in status or "취소완료" in claim:
+        if "취소" in status or ("취소" in claim and "철회" not in claim):
             continue
         ytber = str(row[RAW_COL_YTBER] or "")
         if name_filter is not None and not name_filter(ytber):
@@ -271,7 +271,7 @@ def aggregate_cosmetics_breakdown(target_month: str | None, name_filter=None) ->
         if name_filter is not None and not name_filter(str(row[RAW_COL_YTBER] or "")):
             continue
         status = str(row[RAW_COL_STATUS] or ""); claim = str(row[RAW_COL_CLAIM] or "")
-        if "취소" in status or "취소완료" in claim:
+        if "취소" in status or ("취소" in claim and "철회" not in claim):
             continue
         try:
             qty = int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0
@@ -343,7 +343,7 @@ def aggregate_product_trials(target_month: str | None, name_filter=None) -> dict
         if name_filter is not None and not name_filter(str(row[RAW_COL_YTBER] or "")):
             continue
         status = str(row[RAW_COL_STATUS] or ""); claim = str(row[RAW_COL_CLAIM] or "")
-        if "취소" in status or "취소완료" in claim:
+        if "취소" in status or ("취소" in claim and "철회" not in claim):
             continue
         try:
             qty = int(row[RAW_COL_QTY]) if row[RAW_COL_QTY] else 0

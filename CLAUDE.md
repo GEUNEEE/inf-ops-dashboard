@@ -108,13 +108,13 @@ STEP 1 JSON + STEP 2 캘린더 데이터를 통합하여 아래 규칙대로 브
 | 주문 파일 처리 요청 | 사용자가 파일 경로를 제시하거나 "최신 파일 반영" 등 언급 |
 | `과거 임포트 실행` | STEP 0 — 보유 주문 파일 일괄 처리 |
 | `대시보드 갱신` | STEP 1~2만 실행 (주문 없이 KPI만 갱신). 종합(`site/data`) 갱신 후 `build_yk.py`로 영끌러님 대시보드(`site/yk/data`)도 같이 갱신 (run_pipeline STEP 8.5 자동) |
-| `정산서까지 돌려줘` / `정산서 뽑아줘` | 신규 주문 파일 유무와 무관하게 Raw_Data 기준으로 정산서 재생성 + PNG 이미지까지 생성. `run_pipeline.py --all --rebuild --images --month YYYY-MM` (월말 전용 — 평소 주문 처리 때는 `--rebuild --images` 붙이지 않음) |
+| `정산서까지 돌려줘` / `정산서 뽑아줘` | 신규 주문 파일 유무와 무관하게 Raw_Data 기준으로 정산서 재생성 + PNG 이미지까지 생성. `run_pipeline.py --all --rebuild --images --month YYYY-MM` (월말 전용 — 평소 주문 처리 때는 `--rebuild --images` 붙이지 않음). `--images` 시 STEP 5.7에서 `output/N월 정산/` 에 정산비용(계좌 열 포함)·원천세 엑셀도 자동 생성 |
 | `퍼포먼스 갱신` | Meta 광고 → `site/performance.html` 데이터 갱신. ① Meta Ads MCP `ads_get_ad_entities`(계정 `706112365442772`, 캠페인 레벨 + `time_increment:"1"` 일별)로 당월 수집 → `output/tmp/meta_YYYY-MM.json` 저장 (원본 값 형식 그대로) ② `build_ads.py YYYY-MM` → `site/data/ads/YYYY-MM.json` + `index.json` ③ `publish.py`. 자사몰 주문은 `history/YYYY-MM.json`에서 자동 병합되므로 주문 파이프라인 먼저 돌린 뒤 실행 |
 
 ## 주문 파일 탐색 순서
 
 1. 사용자가 경로를 직접 제시한 경우 → 해당 파일 사용
-2. 그 외(기본값 `--all`) → **스케줄 → input → Downloads** 3개 폴더에서 `스마트스토어_주문조회_*.xlsx` · `스마트스토어_*발주발송관리_*.xlsx` · `스마트스토어_*주문배송현황_*.xlsx` · `calix9k_*.zip`(자사몰) 패턴 파일을 **모두 수집**해 일괄 처리 (내용이 동일한 중복 사본은 우선순위 높은 폴더 것 1개만 남기고 제외)
+2. 그 외(기본값 `--all`) → **스케줄 → input → Downloads** 3개 폴더에서 `스마트스토어_주문조회_*.xlsx` · `스마트스토어_*발주발송관리_*.xlsx` · `스마트스토어_*주문배송현황_*.xlsx` · `스마트스토어_*취소관리_*.xlsx`(취소 건) · `calix9k_*.zip`(자사몰) 패턴 파일을 **모두 수집**해 일괄 처리 (내용이 동일한 중복 사본은 우선순위 높은 폴더 것 1개만 남기고 제외)
 3. `--latest` 지정 시 → 위 3개 폴더 중 mtime이 가장 최신인 파일 **1개**만 처리
 
 ### 자사몰(spoteasy) 주문 zip
@@ -205,8 +205,11 @@ notify.py로 메시지 생성 → `KakaotalkChat-MemoChat` MCP로 전송
 | settlement | managed_set 등재 | O | O | — |
 | general | 유튜버명 패턴 없음 | O | 기타일반 시트 | — |
 | excluded | 미등재 | O | X (로그) | 즉시 발송 |
-| skipped | 취소 or 완전제외 | X | X | — |
+| cancelled | 취소 (아래 규칙) | O (취소 상태 그대로 기록) | 취소 목록 | 건수 표기 `(취소 N건)` |
+| skipped | 완전제외 | X | X | — |
 
+- **취소 판정 규칙 (parse_order·build_snapshot·generate_sheets·build_payout_tax 공통)**: 주문상태에 `취소`(취소/미결제취소) **또는** 클레임상태·`취소 처리상태`가 `취소요청`/`취소처리중`/`취소완료`. `취소철회`는 정상 주문. 취소 건은 Raw_Data에 기록되지만 매출·수량·정산 집계에서 모두 제외
+- **취소관리 파일** (`스마트스토어_*취소관리_*.xlsx`, 시트 `취소관리`, `취소 처리상태` 열): 발주발송관리 목록에 빠진 취소 건을 Raw_Data에 취소로 기록. 이미 기록된 주문이 이 파일(또는 다른 주문 파일)에서 상태가 바뀌면 `주문상태`·`클레임상태`를 제자리 갱신 (사후 취소 → 집계 제외, 취소철회 → 집계 복귀). 취소 건이 있는 날은 **발주발송관리 + 취소관리 두 파일을 모두** 다운로드해야 함
 - `우리의 서술집` → exclude 목록, Raw_Data 반영 자체 차단
 - 유튜버명 추출 정규식: `\[([^\]]+?)\s*구독자`
 - name_map 정규화: `ytber_config.json` 참조

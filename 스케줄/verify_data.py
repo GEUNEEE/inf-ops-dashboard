@@ -53,15 +53,20 @@ sponsor = sum(
     for v in inf.get("per_influencer", {}).values()
     if isinstance(v, dict)
 )
-# 2026-10부터 눈길 인건비 없음 (ytber_config labor_cost_until 이후 월은 0 — build_revenue.py 와 동일 규칙)
-_until = cfg.get("labor_cost_until")
-labor = 0 if (_until and sett["settlement_month"] > _until) else (s_qty + g_qty + m_qty) * L
+# 눈길 인건비 기준 수량 — build_revenue.labor_base_qty 와 동일 규칙
+#  (labor_cost_store="A" → 초방리 스토어 흑염소 수량 + 수기판매 labor=true 수량, labor_cost_until 이후 월은 0)
+import sys
+sys.path.insert(0, str(BASE / ".claude/skills/dashboard-builder/scripts"))
+from build_revenue import labor_base_qty
+_m_labor_qty = sum(int(m.get("qty", 0)) for m in manual if m.get("labor") is True)
+labor_qty, labor_basis = labor_base_qty(cfg, sett["settlement_month"], s_qty + g_qty + m_qty, _m_labor_qty)
+labor = labor_qty * L
 cogs  = (s_qty + g_qty + m_qty) * C
 net_calc  = gross_calc - inf_cost_calc - sponsor - cogs - m_fee
 oper_calc = net_calc - labor
 
 print(f"  settlement {s_qty}개 × ₩{P:,} + general {g_qty}개 × ₩{G:,}" + (f" + 수기판매 {m_qty}개 ₩{m_amt:,}" if manual else "") + f" = ₩{gross_calc:,}")
-print(f"  정산비(정산대상만) ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 원가 ₩{cogs:,} / 노무 ₩{labor:,}")
+print(f"  정산비(정산대상만) ₩{inf_cost_calc:,} / 협찬 ₩{sponsor:,} / 원가 ₩{cogs:,} / 노무 ₩{labor:,} ({labor_qty}개, 기준 {labor_basis})")
 
 if gross_calc == rev["gross_revenue"]:
     ok(f"gross_revenue ✅ ₩{gross_calc:,}")

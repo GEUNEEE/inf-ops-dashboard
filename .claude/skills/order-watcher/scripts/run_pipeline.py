@@ -25,9 +25,12 @@ INPUT_DIR     = BASE_DIR / "input"
 DOWNLOADS_DIR = Path.home() / "Downloads"
 ENV_PYTHONUTF8 = {"PYTHONUTF8": "1", **os.environ}
 
-# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신) + 전체주문배송현황 + 자사몰 zip + 자사몰 송장CSV
+# 주문 파일 패턴: 주문조회(구) + 발주발송관리(신) + 전체주문배송현황 + 취소관리 + 자사몰 zip + 자사몰 송장CSV
+# 취소관리 파일은 취소요청/취소완료 건만 담고 있다 — 발주발송관리에 없는 취소 건을 Raw_Data에 취소로 기록하거나,
+# 이미 기록된 주문의 상태를 취소로 갱신하기 위해 함께 수집한다.
 ORDER_PATTERNS = ("스마트스토어_주문조회_*.xlsx", "스마트스토어_*발주발송관리_*.xlsx",
-                  "스마트스토어_*주문배송현황_*.xlsx", "calix9k_*.zip", "*_orders_calix9k.csv")
+                  "스마트스토어_*주문배송현황_*.xlsx", "스마트스토어_*취소관리_*.xlsx",
+                  "calix9k_*.zip", "*_orders_calix9k.csv")
 
 
 def find_latest_order_file() -> Path | None:
@@ -183,7 +186,8 @@ def main():
     # STEP 3-4 — 복호화 + 버킷 분류 + Raw_Data 반영 (여러 파일 순차 처리, 중복 자동 제외)
     print(f"[STEP 3-4] 주문 파싱 + 버킷 분류 ({len(order_files)}개 파일)...", file=sys.stderr)
     merged = {"new_count": 0, "settlement": [], "general": [], "excluded": [],
-              "other_product": [], "unregistered": [], "cancelled_by_ytber": {}}
+              "other_product": [], "unregistered": [], "cancelled_by_ytber": {},
+              "status_updated": 0, "cancel_changes": []}
     for of in order_files:
         if of.suffix.lower() == ".zip":
             # 자사몰(spoteasy) zip — 화장품 전용, 채널=자사몰
@@ -203,7 +207,11 @@ def main():
         merged["unregistered"].extend(bd.get("unregistered", []))
         for y, lst in bd.get("cancelled_by_ytber", {}).items():
             merged["cancelled_by_ytber"].setdefault(y, []).extend(lst)
-        print(f"  - {of.name}: 신규 {n}건", file=sys.stderr)
+        merged["status_updated"] += bd.get("status_updated", 0)
+        merged["cancel_changes"].extend(bd.get("cancel_changes", []))
+        n_can = sum(len(v) for v in bd.get("cancelled_by_ytber", {}).values())
+        print(f"  - {of.name}: 신규 {n}건" + (f" (취소 {n_can}건)" if n_can else "")
+              + (f", 상태 갱신 {bd.get('status_updated', 0)}건" if bd.get("status_updated") else ""), file=sys.stderr)
 
     bucket_json = save_temp_json(merged, "bucket.json")
     new_count = merged["new_count"]

@@ -59,6 +59,9 @@ def main():
 
     new_count    = bucket.get("new_count", 0)
     unregistered = bucket.get("unregistered", [])
+    # 이번 배치의 취소 건수 = 취소 상태로 신규 기록된 건 + 기존 주문이 취소로 바뀐 건
+    cancel_n = sum(len(v) for v in bucket.get("cancelled_by_ytber", {}).values()) \
+             + sum(1 for c in bucket.get("cancel_changes", []) if c.get("now_cancelled"))
 
     # 합계 + 제품별 행
     prod_rows = []
@@ -81,7 +84,9 @@ def main():
     # 메시지 (FULL → 200자 초과 시 단계적 압축)
     head = []
     if new_count:
-        head.append(f"📦 {mlabel}월 신규 {new_count}건 처리")
+        head.append(f"📦 {mlabel}월 신규 {new_count}건 처리" + (f" (취소 {cancel_n}건)" if cancel_n else ""))
+    elif cancel_n:
+        head.append(f"📦 {mlabel}월 취소 {cancel_n}건 반영")
     # 이모지(📊)는 카톡에서 실제 렌더링 폭이 문자 길이보다 넓어 "N월 수익" 줄을 더 들여써야 "N월 매출"과 시작점이 맞음
     rev_prefix = "📊 "
     head.append(f"{rev_prefix}{mlabel}월 매출 ₩{total_rev:,}")
