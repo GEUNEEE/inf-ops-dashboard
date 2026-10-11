@@ -57,7 +57,14 @@ sponsor = sum(
 #  (labor_cost_store="A" → 초방리 스토어 흑염소 수량 + 수기판매 labor=true 수량, labor_cost_until 이후 월은 0)
 import sys
 sys.path.insert(0, str(BASE / ".claude/skills/dashboard-builder/scripts"))
-from build_revenue import labor_base_qty
+try:
+    from build_revenue import labor_base_qty
+except ImportError:  # build_revenue 구버전(스토어 기준 인건비 미지원) 호환 — 종전 규칙(전체 수량)
+    def labor_base_qty(config, target_month, total_qty, manual_qty):
+        until = config.get("labor_cost_until")
+        if until and target_month and target_month > until:
+            return 0, "none"
+        return total_qty, "all"
 _m_labor_qty = sum(int(m.get("qty", 0)) for m in manual if m.get("labor") is True)
 labor_qty, labor_basis = labor_base_qty(cfg, sett["settlement_month"], s_qty + g_qty + m_qty, _m_labor_qty)
 labor = labor_qty * L
