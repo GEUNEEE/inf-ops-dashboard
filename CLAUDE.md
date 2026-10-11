@@ -205,7 +205,7 @@ notify.py로 메시지 생성 → `KakaotalkChat-MemoChat` MCP로 전송
 | settlement | managed_set 등재 | O | O | — |
 | general | 유튜버명 패턴 없음 | O | 기타일반 시트 | — |
 | excluded | 미등재 | O | X (로그) | 즉시 발송 |
-| cancelled | 취소 (아래 규칙) | O (취소 상태 그대로 기록) | 취소 목록 | 건수 표기 `(취소 N건)` |
+| cancelled | 취소 (아래 규칙) | O (취소 상태 그대로 기록) | 취소 목록 | 표기 없음 |
 | skipped | 완전제외 | X | X | — |
 
 - **취소 판정 규칙 (parse_order·build_snapshot·generate_sheets·build_payout_tax 공통)**: 주문상태에 `취소`(취소/미결제취소) **또는** 클레임상태·`취소 처리상태`가 `취소요청`/`취소처리중`/`취소완료`. `취소철회`는 정상 주문. 취소 건은 Raw_Data에 기록되지만 매출·수량·정산 집계에서 모두 제외

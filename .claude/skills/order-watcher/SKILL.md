@@ -53,7 +53,7 @@ foreach ($f in $files) {
 
 - **취소관리 파일**은 취소요청/취소완료 건만 담고 있다 (`취소 처리상태` 열). `parse_order.py`가 같은 경로로 처리하되
   `취소 처리상태`를 클레임상태로 읽어 취소로 기록하고, 이미 Raw_Data에 있는 주문이면 주문상태·클레임상태만 제자리 갱신한다
-  (`status_updated`·`cancel_changes` 로 bucket.json에 집계 → 카톡 `(취소 N건)` 표기).
+  (`status_updated`·`cancel_changes` 로 bucket.json에 집계).
 - 취소 건이 발생한 날은 발주발송관리 파일만으로는 취소가 반영되지 않으므로 취소관리 파일도 함께 받아야 한다.
 
 ## 월말 정산서 전체 실행 (`--rebuild --images`)
