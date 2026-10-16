@@ -1421,11 +1421,19 @@
       options: {
         responsive: false,
         maintainAspectRatio: false,
+        // 월 칸(세로 한 줄) 어디에 올려도 그 달 툴팁 표시 — 제품별 매출은 그대로, 하단에 월 전체 매출
+        interaction: { mode: 'index', intersect: false },
         plugins: {
           legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
-          tooltip: { callbacks: { label: c => c.dataset.yAxisID === 'y1'
-            ? ` ${c.dataset.label}: ${c.parsed.y}개`
-            : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}` } },
+          tooltip: { callbacks: {
+            label: c => c.dataset.yAxisID === 'y1'
+              ? ` ${c.dataset.label}: ${c.parsed.y}개`
+              : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}`,
+            footer: items => {
+              const i = items.length ? items[0].dataIndex : -1;
+              return i < 0 ? '' : `전체 매출: ₩${Number(rev[i] || 0).toLocaleString('ko-KR')}`;
+            },
+          } },
         },
         scales: {
           x:  { stacked: true, grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
