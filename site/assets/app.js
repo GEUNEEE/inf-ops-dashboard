@@ -1409,7 +1409,40 @@
         backgroundColor: 'rgba(127,119,221,0.45)', yAxisID: 'y', order: 5 });
     }
 
+    // 월 칸의 빈 영역(막대·점 밖)에 마우스를 올리면 그 달 전체 매출만 표시.
+    // 색깔 막대 조각 위에서는 기존 Chart.js 툴팁(해당 제품의 월 매출)이 그대로 뜬다.
+    const monthTotalHover = {
+      id: 'monthTotalHover',
+      _idx: -1, _x: 0, _y: 0,
+      afterEvent(chart, args) {
+        const e = args.event;
+        let idx = -1;
+        if (e.type !== 'mouseout' && args.inChartArea && !chart.tooltip.getActiveElements().length) {
+          const hits = chart.getElementsAtEventForMode(e, 'index', { intersect: false }, false);
+          if (hits.length) idx = hits[0].index;
+        }
+        if (idx !== this._idx || idx >= 0) { this._idx = idx; this._x = e.x; this._y = e.y; args.changed = true; }
+      },
+      afterDraw(chart) {
+        if (this._idx < 0) return;
+        const c = chart.ctx;
+        const text = `${monthLabel(months[this._idx])} 전체 매출: ₩${Number(rev[this._idx] || 0).toLocaleString('ko-KR')}`;
+        c.save();
+        c.font = "11px 'Pretendard', -apple-system, sans-serif";
+        const w = c.measureText(text).width + 16, h = 24;
+        let x = this._x + 12, y = this._y - h - 8;
+        if (x + w > chart.width) x = this._x - w - 12;
+        if (y < 0) y = this._y + 12;
+        c.fillStyle = 'rgba(0,0,0,0.8)';
+        if (c.roundRect) { c.beginPath(); c.roundRect(x, y, w, h, 4); c.fill(); } else c.fillRect(x, y, w, h);
+        c.fillStyle = '#fff'; c.textBaseline = 'middle';
+        c.fillText(text, x + 8, y + h / 2);
+        c.restore();
+      },
+    };
+
     _sumChart = new Chart(ctx, {
+      plugins: [monthTotalHover],
       data: {
         labels,
         datasets: [
@@ -1421,19 +1454,11 @@
       options: {
         responsive: false,
         maintainAspectRatio: false,
-        // 월 칸(세로 한 줄) 어디에 올려도 그 달 툴팁 표시 — 제품별 매출은 그대로, 하단에 월 전체 매출
-        interaction: { mode: 'index', intersect: false },
         plugins: {
           legend: { position: 'top', labels: { boxWidth: 8, font: { size: 10 } } },
-          tooltip: { callbacks: {
-            label: c => c.dataset.yAxisID === 'y1'
-              ? ` ${c.dataset.label}: ${c.parsed.y}개`
-              : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}`,
-            footer: items => {
-              const i = items.length ? items[0].dataIndex : -1;
-              return i < 0 ? '' : `전체 매출: ₩${Number(rev[i] || 0).toLocaleString('ko-KR')}`;
-            },
-          } },
+          tooltip: { callbacks: { label: c => c.dataset.yAxisID === 'y1'
+            ? ` ${c.dataset.label}: ${c.parsed.y}개`
+            : ` ${c.dataset.label}: ₩${Number(c.parsed.y).toLocaleString('ko-KR')}` } },
         },
         scales: {
           x:  { stacked: true, grid: { color: '#E5E3D6' }, ticks: { font: { size: 10 } } },
