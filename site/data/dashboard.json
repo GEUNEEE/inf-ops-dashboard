@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T09:12:18",
+  "generated_at": "2026-10-19T15:16:36",
   "current_month": "2026-10",
   "products": [
     {
@@ -31,17 +31,17 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 8,
-    "unit_count": 8,
-    "gross_revenue": 970000,
-    "influencer_cost": 120000,
+    "order_count": 9,
+    "unit_count": 9,
+    "gross_revenue": 1090000,
+    "influencer_cost": 140000,
     "sponsor_cost": 0,
-    "cogs_cost": 320000,
-    "labor_cost": 10000,
-    "labor_qty": 1,
+    "cogs_cost": 360000,
+    "labor_cost": 20000,
+    "labor_qty": 2,
     "labor_basis": "store_A",
-    "net_profit": 530000,
-    "operating_profit": 520000
+    "net_profit": 590000,
+    "operating_profit": 570000
   },
   "mail_funnel": {
     "total_sent": 4234,
@@ -117,6 +117,21 @@
       "정산대상": true,
       "정산미지급": false,
       "현재상태": "1차 체험진행"
+    },
+    "낚시중독": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 7,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-04"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "기타"
     },
     "기타/일반": {
       "건수": 1,
@@ -1141,20 +1156,6 @@
       "정산대상": true,
       "현재상태": "기타"
     },
-    "낚시중독": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-04"
-      ],
-      "정산대상": true,
-      "현재상태": "기타"
-    },
     "나이스부부": {
       "건수": 0,
       "수량": 0,
@@ -1456,7 +1457,7 @@
       3570000,
       5470000,
       3170000,
-      970000
+      1090000
     ],
     "net_profit": [
       560000,
@@ -1466,7 +1467,7 @@
       2134000,
       2450000,
       1350000,
-      530000
+      590000
     ],
     "total_sent": [
       396,
@@ -1527,7 +1528,7 @@
       2014000,
       2320000,
       1300000,
-      520000
+      570000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1537,7 +1538,7 @@
       0.5641,
       0.4241,
       0.4101,
-      0.5361
+      0.5229
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1655,9 +1656,9 @@
           "net_profit": 0
         },
         "흑염소": {
-          "qty": 8,
-          "order_count": 8,
-          "gross_revenue": 970000,
+          "qty": 9,
+          "order_count": 9,
+          "gross_revenue": 1090000,
           "net_profit": 0
         }
       }
@@ -1706,9 +1707,9 @@
           "gross_revenue": 840000
         },
         "A": {
-          "qty": 1,
-          "order_count": 1,
-          "gross_revenue": 130000
+          "qty": 2,
+          "order_count": 2,
+          "gross_revenue": 250000
         }
       }
     }
@@ -1900,13 +1901,13 @@
         "labor_basis": "store_A"
       },
       "2026-10": {
-        "gross_revenue": 970000,
-        "unit_count": 8,
-        "operating_profit": 520000,
-        "operating_profit_rate": 0.5361,
-        "cumulative_profit": 11994000,
-        "labor_cost": 10000,
-        "labor_qty": 1,
+        "gross_revenue": 1090000,
+        "unit_count": 9,
+        "operating_profit": 570000,
+        "operating_profit_rate": 0.5229,
+        "cumulative_profit": 12044000,
+        "labor_cost": 20000,
+        "labor_qty": 2,
         "labor_basis": "store_A"
       }
     },
@@ -1952,9 +1953,9 @@
         "contribution": 240000
       },
       "낚시중독": {
-        "qty": 6,
-        "settlement": 120000,
-        "contribution": 360000
+        "qty": 7,
+        "settlement": 140000,
+        "contribution": 420000
       },
       "한섭프로": {
         "qty": 4,

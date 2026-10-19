@@ -1,14 +1,14 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-10-19T09:12:18",
-  "gross_revenue": 970000,
-  "net_profit": 530000,
-  "order_count": 8,
-  "unit_count": 8,
-  "operating_profit": 520000,
-  "operating_profit_rate": 0.5361,
-  "labor_cost": 10000,
-  "labor_qty": 1,
+  "generated_at": "2026-10-19T15:16:35",
+  "gross_revenue": 1090000,
+  "net_profit": 590000,
+  "order_count": 9,
+  "unit_count": 9,
+  "operating_profit": 570000,
+  "operating_profit_rate": 0.5229,
+  "labor_cost": 20000,
+  "labor_qty": 2,
   "labor_basis": "store_A",
   "total_sent": 4234,
   "replied": 408,
@@ -58,6 +58,15 @@
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
+    "낚시중독": {
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 7,
+      "unit_price": 20000,
+      "amount": 20000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
     "기타/일반": {
       "order_count": 1,
       "qty": 1,
@@ -82,9 +91,9 @@
       "net_profit": 0
     },
     "흑염소": {
-      "qty": 8,
-      "order_count": 8,
-      "gross_revenue": 970000,
+      "qty": 9,
+      "order_count": 9,
+      "gross_revenue": 1090000,
       "net_profit": 0
     }
   },
@@ -95,9 +104,9 @@
       "gross_revenue": 840000
     },
     "A": {
-      "qty": 1,
-      "order_count": 1,
-      "gross_revenue": 130000
+      "qty": 2,
+      "order_count": 2,
+      "gross_revenue": 250000
     }
   },
   "cosmetics_breakdown": {
