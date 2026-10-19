@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T14:02:50",
+  "generated_at": "2026-10-19T09:12:18",
   "current_month": "2026-10",
   "products": [
     {
@@ -1643,10 +1643,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 79,
-          "order_count": 59,
-          "gross_revenue": 2747840,
-          "net_profit": 1817936
+          "qty": 92,
+          "order_count": 68,
+          "gross_revenue": 3199840,
+          "net_profit": 2123895
         },
         "수면영양제": {
           "qty": 0,
@@ -2161,12 +2161,12 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 72,
-        "units": 73
+        "orders": 77,
+        "units": 78
       },
       "1+1": {
-        "orders": 24,
-        "units": 48
+        "orders": 28,
+        "units": 56
       },
       "2+2": {
         "orders": 9,
@@ -2175,9 +2175,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 90,
-        "units": 133,
-        "gross": 4494840
+        "orders": 97,
+        "units": 142,
+        "gross": 4810840
       },
       "쿠팡": {
         "orders": 1,
@@ -2185,9 +2185,9 @@
         "gross": 38000
       },
       "자사몰": {
-        "orders": 14,
-        "units": 23,
-        "gross": 793000
+        "orders": 16,
+        "units": 27,
+        "gross": 929000
       }
     },
     "trial": {
@@ -2348,12 +2348,12 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 43,
-          "units": 43
+          "orders": 48,
+          "units": 48
         },
         "1+1": {
-          "orders": 14,
-          "units": 28
+          "orders": 18,
+          "units": 36
         },
         "2+2": {
           "orders": 2,
@@ -2362,14 +2362,14 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 57,
-          "units": 74,
-          "gross": 2600840
+          "orders": 64,
+          "units": 83,
+          "gross": 2916840
         },
         "자사몰": {
-          "orders": 2,
-          "units": 5,
-          "gross": 147000
+          "orders": 4,
+          "units": 9,
+          "gross": 283000
         }
       },
       "trial": {
