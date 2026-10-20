@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T09:20:15",
+  "generated_at": "2026-10-21T08:59:52",
   "current_month": "2026-10",
   "products": [
     {
@@ -31,17 +31,17 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 9,
-    "unit_count": 9,
-    "gross_revenue": 1090000,
-    "influencer_cost": 140000,
+    "order_count": 10,
+    "unit_count": 10,
+    "gross_revenue": 1210000,
+    "influencer_cost": 160000,
     "sponsor_cost": 0,
-    "cogs_cost": 360000,
+    "cogs_cost": 400000,
     "labor_cost": 20000,
     "labor_qty": 2,
     "labor_basis": "store_A",
-    "net_profit": 590000,
-    "operating_profit": 570000
+    "net_profit": 650000,
+    "operating_profit": 630000
   },
   "mail_funnel": {
     "total_sent": 4234,
@@ -132,6 +132,21 @@
       "정산대상": true,
       "정산미지급": false,
       "현재상태": "기타"
+    },
+    "반짝이는 럭키": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 2,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-08"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 광고완료"
     },
     "기타/일반": {
       "건수": 1,
@@ -328,20 +343,6 @@
       ],
       "정산대상": true,
       "현재상태": "1차 체험진행"
-    },
-    "반짝이는 럭키": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-08"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 광고완료"
     },
     "내편TV": {
       "건수": 0,
@@ -1457,7 +1458,7 @@
       3570000,
       5470000,
       3170000,
-      1090000
+      1210000
     ],
     "net_profit": [
       560000,
@@ -1467,7 +1468,7 @@
       2134000,
       2450000,
       1350000,
-      590000
+      650000
     ],
     "total_sent": [
       396,
@@ -1528,7 +1529,7 @@
       2014000,
       2320000,
       1300000,
-      570000
+      630000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1538,7 +1539,7 @@
       0.5641,
       0.4241,
       0.4101,
-      0.5229
+      0.5207
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1644,10 +1645,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 96,
-          "order_count": 71,
-          "gross_revenue": 3345840,
-          "net_profit": 2222221
+          "qty": 106,
+          "order_count": 80,
+          "gross_revenue": 3715840,
+          "net_profit": 2467736
         },
         "수면영양제": {
           "qty": 0,
@@ -1656,9 +1657,9 @@
           "net_profit": 0
         },
         "흑염소": {
-          "qty": 9,
-          "order_count": 9,
-          "gross_revenue": 1090000,
+          "qty": 10,
+          "order_count": 10,
+          "gross_revenue": 1210000,
           "net_profit": 0
         }
       }
@@ -1702,9 +1703,9 @@
       },
       "2026-10": {
         "B": {
-          "qty": 7,
-          "order_count": 7,
-          "gross_revenue": 840000
+          "qty": 8,
+          "order_count": 8,
+          "gross_revenue": 960000
         },
         "A": {
           "qty": 2,
@@ -1901,11 +1902,11 @@
         "labor_basis": "store_A"
       },
       "2026-10": {
-        "gross_revenue": 1090000,
-        "unit_count": 9,
-        "operating_profit": 570000,
-        "operating_profit_rate": 0.5229,
-        "cumulative_profit": 12044000,
+        "gross_revenue": 1210000,
+        "unit_count": 10,
+        "operating_profit": 630000,
+        "operating_profit_rate": 0.5207,
+        "cumulative_profit": 12104000,
         "labor_cost": 20000,
         "labor_qty": 2,
         "labor_basis": "store_A"
@@ -2088,9 +2089,9 @@
         "contribution": -40000
       },
       "반짝이는 럭키": {
-        "qty": 1,
-        "settlement": 20000,
-        "contribution": 20000
+        "qty": 2,
+        "settlement": 40000,
+        "contribution": 80000
       },
       "내편TV": {
         "qty": 0,
@@ -2162,12 +2163,12 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 79,
-        "units": 80
+        "orders": 88,
+        "units": 89
       },
       "1+1": {
-        "orders": 29,
-        "units": 58
+        "orders": 30,
+        "units": 60
       },
       "2+2": {
         "orders": 9,
@@ -2176,19 +2177,19 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 99,
-        "units": 145,
-        "gross": 4915840
+        "orders": 106,
+        "units": 153,
+        "gross": 5206840
       },
       "쿠팡": {
-        "orders": 1,
-        "units": 1,
-        "gross": 38000
+        "orders": 3,
+        "units": 3,
+        "gross": 121600
       },
       "자사몰": {
-        "orders": 17,
-        "units": 28,
-        "gross": 970000
+        "orders": 18,
+        "units": 29,
+        "gross": 1011000
       }
     },
     "trial": {
@@ -2349,12 +2350,12 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 50,
-          "units": 50
+          "orders": 58,
+          "units": 58
         },
         "1+1": {
-          "orders": 19,
-          "units": 38
+          "orders": 20,
+          "units": 40
         },
         "2+2": {
           "orders": 2,
@@ -2363,14 +2364,19 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 66,
-          "units": 86,
-          "gross": 3021840
+          "orders": 73,
+          "units": 94,
+          "gross": 3312840
         },
         "자사몰": {
-          "orders": 5,
-          "units": 10,
-          "gross": 324000
+          "orders": 6,
+          "units": 11,
+          "gross": 365000
+        },
+        "쿠팡": {
+          "orders": 1,
+          "units": 1,
+          "gross": 38000
         }
       },
       "trial": {

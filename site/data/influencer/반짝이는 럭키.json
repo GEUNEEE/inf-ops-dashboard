@@ -1,7 +1,7 @@
 {
   "name": "반짝이는 럭키",
   "current_status": "1차 광고완료",
-  "cumulative_qty": 1,
+  "cumulative_qty": 2,
   "current_tier_price": 20000,
   "monthly_orders": [
     {
@@ -11,6 +11,11 @@
     },
     {
       "month": "2026-09",
+      "qty": 1,
+      "amount": 20000
+    },
+    {
+      "month": "2026-10",
       "qty": 1,
       "amount": 20000
     }
