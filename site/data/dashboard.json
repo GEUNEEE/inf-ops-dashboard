@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T09:00:14",
+  "generated_at": "2026-10-21T09:00:30",
   "current_month": "2026-10",
   "products": [
     {
@@ -2163,8 +2163,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 88,
-        "units": 89
+        "orders": 87,
+        "units": 88
       },
       "1+1": {
         "orders": 30,
@@ -2182,9 +2182,9 @@
         "gross": 5206840
       },
       "쿠팡": {
-        "orders": 3,
-        "units": 3,
-        "gross": 121600
+        "orders": 2,
+        "units": 2,
+        "gross": 76000
       },
       "자사몰": {
         "orders": 18,
