@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T09:16:27",
+  "generated_at": "2026-10-22T08:04:16",
   "current_month": "2026-10",
   "products": [
     {
@@ -31,17 +31,17 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 10,
-    "unit_count": 10,
-    "gross_revenue": 1210000,
-    "influencer_cost": 160000,
+    "order_count": 11,
+    "unit_count": 11,
+    "gross_revenue": 1330000,
+    "influencer_cost": 180000,
     "sponsor_cost": 0,
-    "cogs_cost": 400000,
+    "cogs_cost": 440000,
     "labor_cost": 20000,
     "labor_qty": 2,
     "labor_basis": "store_A",
-    "net_profit": 650000,
-    "operating_profit": 630000
+    "net_profit": 710000,
+    "operating_profit": 690000
   },
   "mail_funnel": {
     "total_sent": 4234,
@@ -104,11 +104,11 @@
       "현재상태": "1차 체험진행 · 정산미지급"
     },
     "더데프트": {
-      "건수": 5,
-      "수량": 5,
-      "누적수량": 5,
+      "건수": 6,
+      "수량": 6,
+      "누적수량": 6,
       "현재단가": 20000,
-      "금액": 100000,
+      "금액": 120000,
       "체험횟수": 1,
       "협찬원가": 40000,
       "체험월목록": [
@@ -1458,7 +1458,7 @@
       3570000,
       5470000,
       3170000,
-      1210000
+      1330000
     ],
     "net_profit": [
       560000,
@@ -1468,7 +1468,7 @@
       2134000,
       2450000,
       1350000,
-      650000
+      710000
     ],
     "total_sent": [
       396,
@@ -1529,7 +1529,7 @@
       2014000,
       2320000,
       1300000,
-      630000
+      690000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1539,7 +1539,7 @@
       0.5641,
       0.4241,
       0.4101,
-      0.5207
+      0.5188
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1645,10 +1645,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 107,
-          "order_count": 81,
-          "gross_revenue": 3759840,
-          "net_profit": 2499536
+          "qty": 111,
+          "order_count": 85,
+          "gross_revenue": 3911840,
+          "net_profit": 2600195
         },
         "수면영양제": {
           "qty": 0,
@@ -1657,9 +1657,9 @@
           "net_profit": 0
         },
         "흑염소": {
-          "qty": 10,
-          "order_count": 10,
-          "gross_revenue": 1210000,
+          "qty": 11,
+          "order_count": 11,
+          "gross_revenue": 1330000,
           "net_profit": 0
         }
       }
@@ -1703,9 +1703,9 @@
       },
       "2026-10": {
         "B": {
-          "qty": 8,
-          "order_count": 8,
-          "gross_revenue": 960000
+          "qty": 9,
+          "order_count": 9,
+          "gross_revenue": 1080000
         },
         "A": {
           "qty": 2,
@@ -1902,11 +1902,11 @@
         "labor_basis": "store_A"
       },
       "2026-10": {
-        "gross_revenue": 1210000,
-        "unit_count": 10,
-        "operating_profit": 630000,
-        "operating_profit_rate": 0.5207,
-        "cumulative_profit": 12104000,
+        "gross_revenue": 1330000,
+        "unit_count": 11,
+        "operating_profit": 690000,
+        "operating_profit_rate": 0.5188,
+        "cumulative_profit": 12164000,
         "labor_cost": 20000,
         "labor_qty": 2,
         "labor_basis": "store_A"
@@ -2134,9 +2134,9 @@
         "contribution": -40000
       },
       "더데프트": {
-        "qty": 5,
-        "settlement": 100000,
-        "contribution": 260000
+        "qty": 6,
+        "settlement": 120000,
+        "contribution": 320000
       },
       "부시맨의오프로드": {
         "qty": 0,
@@ -2163,8 +2163,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 88,
-        "units": 89
+        "orders": 92,
+        "units": 93
       },
       "1+1": {
         "orders": 30,
@@ -2177,9 +2177,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 106,
-        "units": 153,
-        "gross": 5206840
+        "orders": 109,
+        "units": 156,
+        "gross": 5317840
       },
       "쿠팡": {
         "orders": 3,
@@ -2187,9 +2187,9 @@
         "gross": 120000
       },
       "자사몰": {
-        "orders": 18,
-        "units": 29,
-        "gross": 1011000
+        "orders": 19,
+        "units": 30,
+        "gross": 1052000
       }
     },
     "trial": {
@@ -2350,8 +2350,8 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 59,
-          "units": 59
+          "orders": 63,
+          "units": 63
         },
         "1+1": {
           "orders": 20,
@@ -2364,14 +2364,14 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 73,
-          "units": 94,
-          "gross": 3312840
+          "orders": 76,
+          "units": 97,
+          "gross": 3423840
         },
         "자사몰": {
-          "orders": 6,
-          "units": 11,
-          "gross": 365000
+          "orders": 7,
+          "units": 12,
+          "gross": 406000
         },
         "쿠팡": {
           "orders": 2,
