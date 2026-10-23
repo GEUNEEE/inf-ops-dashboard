@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T17:17:37",
+  "generated_at": "2026-10-23T18:03:05",
   "current_month": "2026-10",
   "products": [
     {
@@ -1645,10 +1645,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 227,
-          "order_count": 164,
-          "gross_revenue": 7821160,
-          "net_profit": 5185786
+          "qty": 244,
+          "order_count": 177,
+          "gross_revenue": 8427160,
+          "net_profit": 5584638
         },
         "수면영양제": {
           "qty": 0,
@@ -2163,12 +2163,12 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 146,
-        "units": 147
+        "orders": 155,
+        "units": 156
       },
       "1+1": {
-        "orders": 51,
-        "units": 102
+        "orders": 55,
+        "units": 110
       },
       "2+2": {
         "orders": 11,
@@ -2181,9 +2181,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 179,
-        "units": 246,
-        "gross": 8489160
+        "orders": 191,
+        "units": 262,
+        "gross": 9054160
       },
       "쿠팡": {
         "orders": 5,
@@ -2191,9 +2191,9 @@
         "gross": 300000
       },
       "자사몰": {
-        "orders": 26,
-        "units": 49,
-        "gross": 1610000
+        "orders": 27,
+        "units": 50,
+        "gross": 1651000
       }
     },
     "trial": {
@@ -2354,12 +2354,12 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 117,
-          "units": 117
+          "orders": 126,
+          "units": 126
         },
         "1+1": {
-          "orders": 41,
-          "units": 82
+          "orders": 45,
+          "units": 90
         },
         "2+2": {
           "orders": 4,
@@ -2372,14 +2372,14 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 146,
-          "units": 187,
-          "gross": 6595160
+          "orders": 158,
+          "units": 203,
+          "gross": 7160160
         },
         "자사몰": {
-          "orders": 14,
-          "units": 31,
-          "gross": 964000
+          "orders": 15,
+          "units": 32,
+          "gross": 1005000
         },
         "쿠팡": {
           "orders": 4,
