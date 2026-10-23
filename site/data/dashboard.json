@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T15:03:53",
+  "generated_at": "2026-10-23T17:17:37",
   "current_month": "2026-10",
   "products": [
     {
@@ -1645,10 +1645,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 183,
-          "order_count": 137,
-          "gross_revenue": 6378160,
-          "net_profit": 4224824
+          "qty": 227,
+          "order_count": 164,
+          "gross_revenue": 7821160,
+          "net_profit": 5185786
         },
         "수면영양제": {
           "qty": 0,
@@ -2163,27 +2163,27 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 130,
-        "units": 131
+        "orders": 146,
+        "units": 147
       },
       "1+1": {
-        "orders": 42,
-        "units": 84
+        "orders": 51,
+        "units": 102
       },
       "2+2": {
-        "orders": 10,
-        "units": 40
+        "orders": 11,
+        "units": 44
       },
       "3+3": {
-        "orders": 1,
-        "units": 6
+        "orders": 2,
+        "units": 12
       }
     },
     "by_channel": {
       "네이버": {
-        "orders": 156,
-        "units": 216,
-        "gross": 7427160
+        "orders": 179,
+        "units": 246,
+        "gross": 8489160
       },
       "쿠팡": {
         "orders": 5,
@@ -2191,9 +2191,9 @@
         "gross": 300000
       },
       "자사몰": {
-        "orders": 22,
-        "units": 35,
-        "gross": 1229000
+        "orders": 26,
+        "units": 49,
+        "gross": 1610000
       }
     },
     "trial": {
@@ -2354,32 +2354,32 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 101,
-          "units": 101
+          "orders": 117,
+          "units": 117
         },
         "1+1": {
-          "orders": 32,
-          "units": 64
+          "orders": 41,
+          "units": 82
         },
         "2+2": {
-          "orders": 3,
-          "units": 12
+          "orders": 4,
+          "units": 16
         },
         "3+3": {
-          "orders": 1,
-          "units": 6
+          "orders": 2,
+          "units": 12
         }
       },
       "by_channel": {
         "네이버": {
-          "orders": 123,
-          "units": 157,
-          "gross": 5533160
+          "orders": 146,
+          "units": 187,
+          "gross": 6595160
         },
         "자사몰": {
-          "orders": 10,
-          "units": 17,
-          "gross": 583000
+          "orders": 14,
+          "units": 31,
+          "gross": 964000
         },
         "쿠팡": {
           "orders": 4,
