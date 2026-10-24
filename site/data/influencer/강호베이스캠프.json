@@ -1,0 +1,14 @@
+{
+  "name": "강호베이스캠프",
+  "current_status": "",
+  "cumulative_qty": 1,
+  "current_tier_price": 20000,
+  "monthly_orders": [
+    {
+      "month": "2026-10",
+      "qty": 1,
+      "amount": 20000
+    }
+  ],
+  "upcoming_schedule": []
+}

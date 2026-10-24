@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T14:00:56",
+  "generated_at": "2026-10-24T14:12:05",
   "current_month": "2026-10",
   "products": [
     {
@@ -31,17 +31,17 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 11,
-    "unit_count": 11,
-    "gross_revenue": 1330000,
-    "influencer_cost": 180000,
+    "order_count": 12,
+    "unit_count": 12,
+    "gross_revenue": 1450000,
+    "influencer_cost": 200000,
     "sponsor_cost": 0,
-    "cogs_cost": 440000,
+    "cogs_cost": 480000,
     "labor_cost": 20000,
     "labor_qty": 2,
     "labor_basis": "store_A",
-    "net_profit": 710000,
-    "operating_profit": 690000
+    "net_profit": 770000,
+    "operating_profit": 750000
   },
   "mail_funnel": {
     "total_sent": 4234,
@@ -147,6 +147,19 @@
       "정산대상": true,
       "정산미지급": false,
       "현재상태": "1차 광고완료"
+    },
+    "강호베이스캠프": {
+      "건수": 1,
+      "수량": 1,
+      "누적수량": 1,
+      "현재단가": 20000,
+      "금액": 20000,
+      "체험횟수": 0,
+      "협찬원가": 0,
+      "체험월목록": [],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": ""
     },
     "기타/일반": {
       "건수": 1,
@@ -1458,7 +1471,7 @@
       3570000,
       5470000,
       3170000,
-      1330000
+      1450000
     ],
     "net_profit": [
       560000,
@@ -1468,7 +1481,7 @@
       2134000,
       2450000,
       1350000,
-      710000
+      770000
     ],
     "total_sent": [
       396,
@@ -1529,7 +1542,7 @@
       2014000,
       2320000,
       1300000,
-      690000
+      750000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1539,7 +1552,7 @@
       0.5641,
       0.4241,
       0.4101,
-      0.5188
+      0.5172
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1657,9 +1670,9 @@
           "net_profit": 0
         },
         "흑염소": {
-          "qty": 11,
-          "order_count": 11,
-          "gross_revenue": 1330000,
+          "qty": 12,
+          "order_count": 12,
+          "gross_revenue": 1450000,
           "net_profit": 0
         }
       }
@@ -1703,9 +1716,9 @@
       },
       "2026-10": {
         "B": {
-          "qty": 9,
-          "order_count": 9,
-          "gross_revenue": 1080000
+          "qty": 10,
+          "order_count": 10,
+          "gross_revenue": 1200000
         },
         "A": {
           "qty": 2,
@@ -1902,11 +1915,11 @@
         "labor_basis": "store_A"
       },
       "2026-10": {
-        "gross_revenue": 1330000,
-        "unit_count": 11,
-        "operating_profit": 690000,
-        "operating_profit_rate": 0.5188,
-        "cumulative_profit": 12164000,
+        "gross_revenue": 1450000,
+        "unit_count": 12,
+        "operating_profit": 750000,
+        "operating_profit_rate": 0.5172,
+        "cumulative_profit": 12224000,
         "labor_cost": 20000,
         "labor_qty": 2,
         "labor_basis": "store_A"
@@ -2157,6 +2170,11 @@
         "qty": 3,
         "settlement": 0,
         "contribution": 120000
+      },
+      "강호베이스캠프": {
+        "qty": 1,
+        "settlement": 20000,
+        "contribution": 60000
       }
     }
   },
