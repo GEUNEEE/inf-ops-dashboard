@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:09:22",
+  "generated_at": "2026-10-26T21:13:42",
   "current_month": "2026-10",
   "products": [
     {
@@ -2480,13 +2480,13 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 0,
+          "orders": 11,
           "other": 0,
           "reserved": 0
         },
         "other_out": [],
         "reserved": [],
-        "stock": 25,
+        "stock": 14,
         "incoming": [
           {
             "date": "2026-11-15",
@@ -2504,7 +2504,7 @@
         "stockout": {
           "normal": "2026-10-26",
           "fast": "2026-10-26",
-          "slow": "2026-11-01"
+          "slow": "2026-10-29"
         },
         "gap": {
           "days": 20,
