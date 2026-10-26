@@ -1318,13 +1318,13 @@
   function invSig(d) { const s = INV_SIG[d.signal] || INV_SIG.none; return [s[0], d.signal_label || s[1]]; }
   function invMD(iso) { if (!iso) return '-'; const p = iso.split('-'); return (+p[1]) + '/' + (+p[2]); }
   function invRange(a, b) { return a === b ? String(a) : (a + '~' + b); }
-  // 입고 참고 문구: "11월 중순(11/15) 입고 3,000개 예정" — 초순 ≤10일, 중순 ≤20일, 하순 그 외
+  // 입고 참고 문구 (사용자 확정 문구 2026-10-26): "11월 중순 3,000개 입고 예정" — 초순 ≤10일, 중순 ≤20일, 하순 그 외
   function invIncomingNote(d) {
     const inc = (d.incoming || [])[0];
     if (!inc || !inc.date) return '';
     const p = inc.date.split('-'), day = +p[2];
     const part = day <= 10 ? '초순' : (day <= 20 ? '중순' : '하순');
-    return `${+p[1]}월 ${part}(${invMD(inc.date)}) 입고 ${(inc.qty || 0).toLocaleString()}개 예정`;
+    return `${+p[1]}월 ${part} ${(inc.qty || 0).toLocaleString()}개 입고 예정`;
   }
 
   function invChip(key, d, meta) {
