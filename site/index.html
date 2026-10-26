@@ -160,6 +160,20 @@
     .prod-bar-track { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 8px; }
     .prod-bar-fill  { height: 100%; background: #7F77DD; border-radius: 3px; }
 
+    /* 재고·발주 (Summary 한 줄 + 상세 카드, 제품 탭 한 줄) */
+    .inv-line  { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .inv-line:empty { display: none; }
+    .inv-chip  { background: var(--bg2); border-radius: var(--r); padding: 8px 12px; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+    .inv-chip.red { background: #FBE9E7; }
+    .inv-chip .inv-name { font-weight: 500; }
+    .inv-chip .inv-sig  { font-size: 11px; color: var(--text2); }
+    .inv-row   { padding: 8px 0; border-bottom: 0.5px solid var(--border); font-size: 12px; }
+    .inv-row:last-child { border-bottom: none; }
+    .inv-row .inv-head { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+    .inv-row .inv-name { font-weight: 500; }
+    .inv-sub   { font-size: 11px; color: var(--text2); margin-top: 3px; }
+    .inv-warn  { font-size: 11px; color: #A32D2D; margin-top: 6px; }
+
     /* 스토어 분리 카드 (흑염소) */
     .store-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .store-card { background: var(--bg2); border-radius: var(--r); padding: 12px; }
@@ -234,9 +248,17 @@
         </div>
       </div>
 
+      <!-- 재고·발주 한 줄 (월 필터와 무관, 현재 기준) -->
+      <div class="inv-line" id="summary-inventory-line"></div>
+
       <div class="card mb12">
         <div class="slbl">전체 제품 · 월별 매출 · 수익 · 판매량</div>
         <canvas id="summary-trend-chart"></canvas>
+      </div>
+
+      <div class="card mb12">
+        <div class="slbl">📦 재고 · 발주 상세</div>
+        <div id="summary-inventory-detail"></div>
       </div>
 
       <div class="card mb12">

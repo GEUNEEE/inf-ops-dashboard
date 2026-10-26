@@ -360,6 +360,7 @@
 
     // 탭 · 요약 · 제품별 · 스토어 분리 렌더
     ensureProductPanels();
+    renderInventory();
     renderSummaryFilter();
     renderSummary(null);
     renderStoreSplit(null);
@@ -1043,6 +1044,7 @@
           <div class="kpi-card"><div class="kpi-lbl">주문수</div><div class="kpi-val" data-pk="ord">-</div><div class="kpi-sub" data-pk="ord-sub"></div></div>
           <div class="kpi-card"><div class="kpi-lbl">수익</div><div class="kpi-val" data-pk="profit">-</div><div class="kpi-sub" data-pk="profit-sub"></div></div>
         </div>
+        <div class="inv-line" data-pk="inv"></div>
         <div class="card mb12" data-pk="chartcard"><div class="slbl">월별 매출 · 판매량</div><canvas data-pk="chart"></canvas></div>
         <div class="card mb12" data-pk="tablecard"><div class="slbl">월별 판매 내역</div><div data-pk="table"></div><div data-pk="trialnote"></div></div>
         <div class="card mb12" data-pk="cosmetics" style="display:none"><div class="slbl">옵션별 · 채널별 <span style="color:var(--text3);font-weight:400" data-pk="cosmetics-scope"></span></div><div data-pk="cosmetics-body"></div></div>
@@ -1308,6 +1310,78 @@
         tbl.innerHTML = `<table class="fmonth-table"><thead>${head}</thead><tbody>${rows}</tbody></table>`;
       }
     }
+  }
+
+  // ── 재고·발주 블럭 (dashboard.json inventory, 월 필터와 무관하게 현재 기준) ───────
+  // 신호등: 🔴 발주필요(발주 권장일 ≤ 오늘+28일 또는 재고 0) / 🟢 여유 / ⚪ 추정 불가 — 노란색 없음
+  const INV_SIG = { red: ['🔴', '발주필요'], green: ['🟢', '여유'], none: ['⚪', '추정 불가'] };
+  function invMD(iso) { if (!iso) return '-'; const p = iso.split('-'); return (+p[1]) + '/' + (+p[2]); }
+  function invRange(a, b) { return a === b ? String(a) : (a + '~' + b); }
+
+  function invChip(key, d, meta) {
+    const p = meta[key] || { label: key, icon: '📦' };
+    const sig = INV_SIG[d.signal] || INV_SIG.none;
+    const so = d.stock === 0 ? '품절중' : ('예측품절 ' + invMD(d.stockout && d.stockout.normal));
+    return `<div class="inv-chip ${d.signal === 'red' ? 'red' : ''}">
+      <span>${p.icon || '📦'}</span><span class="inv-name">${p.label}</span>
+      <span>재고 ${(d.stock || 0).toLocaleString()}개</span><span>·</span><span>${so}</span>
+      <span>${sig[0]}</span><span class="inv-sig">${sig[1]}</span></div>`;
+  }
+
+  function invRow(key, d, meta) {
+    const p = meta[key] || { label: key, icon: '📦' };
+    const sig = INV_SIG[d.signal] || INV_SIG.none;
+    const e = d.estimate;
+    const otherSum = (d.other_out || []).reduce((s, o) => s + (o.qty || 0), 0);
+    const otherMemo = (d.other_out || []).map(o => `${o.memo || '기타'} ${o.qty}`).join(', ');
+    const resSum = (d.reserved || []).reduce((s, r) => s + (r.qty || 0), 0);
+    const stockTxt = `재고 ${(d.stock || 0).toLocaleString()}개`
+      + (otherSum ? ` (${otherMemo} 출고 반영)` : '')
+      + (resSum ? ` · 예약 ${resSum.toLocaleString()}개 차감` : '');
+    let head, sub1 = '', sub2 = '';
+    if (!e) {
+      head = `${stockTxt} · ${d.estimate_reason || '추정 불가'} ${sig[0]} ${sig[1]}`;
+    } else {
+      const so = d.stockout;
+      head = `${stockTxt} · 하루 ${e.normal}개 (${invRange(e.slow, e.fast)}) · `
+        + (so ? `품절 ${invMD(so.normal)} (${invMD(so.fast)}~${invMD(so.slow)})` : '품절중');
+      const inc = (d.incoming || [])[0];
+      if (inc) {
+        sub1 = `입고 ${invMD(inc.date)} ${(inc.qty || 0).toLocaleString()}개`
+          + (d.gap ? ` → 공백 ${d.gap.days}일 · 놓치는 판매 약 ${invRange(d.gap.lost_min, d.gap.lost_max)}개` : ' → 품절 전 입고');
+      } else {
+        sub1 = '입고 예정 없음';
+      }
+      sub2 = `입고 후 품절 ~${d.post_incoming_stockout || '-'} → 발주 권장 ${d.reorder_by || '-'} ${sig[0]} ${sig[1]}`
+        + (e.backtest_mae_week != null ? ` · 최근 4주 예측 오차 ±${e.backtest_mae_week}개/주` : '');
+    }
+    return `<div class="inv-row">
+      <div class="inv-head"><span>${p.icon || '📦'}</span><span class="inv-name">${p.label}${d.vendor ? ' (' + d.vendor + ')' : ''}</span><span>${head}</span></div>
+      ${sub1 ? `<div class="inv-sub">${sub1}</div>` : ''}${sub2 ? `<div class="inv-sub">${sub2}</div>` : ''}
+    </div>`;
+  }
+
+  function renderInventory() {
+    const inv = (gData || {}).inventory || null;
+    const meta = {}; getProducts().forEach(p => { meta[p.key] = p; });
+    const line = el('summary-inventory-line'), detail = el('summary-inventory-detail');
+    const prods = (inv && inv.products) || {};
+    const keys = getProducts().map(p => p.key).filter(k => prods[k])
+      .concat(Object.keys(prods).filter(k => !meta[k]));
+    const warns = (inv && inv.warnings) || [];
+    if (!keys.length) {
+      if (line) line.innerHTML = '';
+      if (detail) detail.innerHTML = `<div class="inv-warn">${warns.length ? warns.join(' · ') : '스케줄\\재고.md 없음'}</div>`;
+      return;
+    }
+    if (line) line.innerHTML = keys.map(k => invChip(k, prods[k], meta)).join('');
+    if (detail) detail.innerHTML = keys.map(k => invRow(k, prods[k], meta)).join('')
+      + (warns.length ? `<div class="inv-warn">⚠️ ${warns.join(' · ')}</div>` : '');
+    keys.forEach(k => {
+      const panel = document.getElementById('panel-' + k);
+      const host = panel && panel.querySelector('[data-pk="inv"]');
+      if (host) host.innerHTML = invChip(k, prods[k], meta);
+    });
   }
 
   // ── Summary 전체 월별 매출·수익·판매량 차트 ────────────────────────────────

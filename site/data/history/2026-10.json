@@ -1,6 +1,6 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-10-26T11:18:31",
+  "generated_at": "2026-10-26T20:47:18",
   "gross_revenue": 1450000,
   "net_profit": 770000,
   "order_count": 12,
@@ -97,10 +97,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 328,
-      "order_count": 243,
-      "gross_revenue": 11326360,
-      "net_profit": 7503518
+      "qty": 329,
+      "order_count": 244,
+      "gross_revenue": 11364360,
+      "net_profit": 7529918
     },
     "수면영양제": {
       "qty": 0,
@@ -130,8 +130,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 184,
-        "units": 184
+        "orders": 185,
+        "units": 185
       },
       "1+1": {
         "orders": 50,
@@ -148,9 +148,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 213,
-        "units": 263,
-        "gross": 9347360
+        "orders": 214,
+        "units": 264,
+        "gross": 9385360
       },
       "자사몰": {
         "orders": 20,
