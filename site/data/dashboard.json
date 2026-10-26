@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:21:37",
+  "generated_at": "2026-10-26T21:44:17",
   "current_month": "2026-10",
   "products": [
     {
@@ -2470,6 +2470,7 @@
   ],
   "inventory": {
     "as_of": "2026-10-26",
+    "data_as_of": "2026-10-26T20:58",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2494,27 +2495,28 @@
           }
         ],
         "estimate": {
-          "normal": 29.8,
-          "fast": 29.8,
-          "slow": 3.9,
-          "days_of_data": 122,
-          "backtest_mae_week": 40
+          "normal": 37.9,
+          "fast": 37.9,
+          "slow": 3.6,
+          "days_of_data": 121,
+          "backtest_mae_week": 33
         },
         "estimate_reason": null,
         "stockout": {
-          "normal": "2026-10-26",
-          "fast": "2026-10-26",
-          "slow": "2026-10-31"
+          "normal": "2026-10-27",
+          "fast": "2026-10-27",
+          "slow": "2026-11-01"
         },
         "gap": {
-          "days": 20,
-          "lost_min": 78,
-          "lost_max": 596
+          "days": 18,
+          "lost_min": 65,
+          "lost_max": 682
         },
-        "post_incoming_stockout": "2027-02-23",
-        "reorder_by": "2027-01-19",
+        "post_incoming_stockout": "2027-02-02",
+        "reorder_by": "2026-12-29",
         "signal": "red",
-        "signal_label": "품절 임박"
+        "signal_label": "품절 임박",
+        "remaining_today_share": 0.128
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2542,7 +2544,8 @@
         "post_incoming_stockout": null,
         "reorder_by": null,
         "signal": "none",
-        "signal_label": "추정 불가"
+        "signal_label": "추정 불가",
+        "remaining_today_share": 0.126
       }
     }
   },
