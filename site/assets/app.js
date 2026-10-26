@@ -1313,24 +1313,34 @@
   }
 
   // ── 재고·발주 블럭 (dashboard.json inventory, 월 필터와 무관하게 현재 기준) ───────
-  // 신호등: 🔴 발주필요(발주 권장일 ≤ 오늘+28일 또는 재고 0) / 🟢 여유 / ⚪ 추정 불가 — 노란색 없음
-  const INV_SIG = { red: ['🔴', '발주필요'], green: ['🟢', '여유'], none: ['⚪', '추정 불가'] };
+  // 신호등 (라벨은 build_inventory.py signal_label 그대로): 🔴 품절중 / 품절 임박 / 발주 필요, 🟢 여유, ⚪ 추정 불가 — 노란색 없음
+  const INV_SIG = { red: ['🔴', '발주 필요'], green: ['🟢', '여유'], none: ['⚪', '추정 불가'] };
+  function invSig(d) { const s = INV_SIG[d.signal] || INV_SIG.none; return [s[0], d.signal_label || s[1]]; }
   function invMD(iso) { if (!iso) return '-'; const p = iso.split('-'); return (+p[1]) + '/' + (+p[2]); }
   function invRange(a, b) { return a === b ? String(a) : (a + '~' + b); }
+  // 입고 참고 문구: "11월 중순(11/15) 입고 3,000개 예정" — 초순 ≤10일, 중순 ≤20일, 하순 그 외
+  function invIncomingNote(d) {
+    const inc = (d.incoming || [])[0];
+    if (!inc || !inc.date) return '';
+    const p = inc.date.split('-'), day = +p[2];
+    const part = day <= 10 ? '초순' : (day <= 20 ? '중순' : '하순');
+    return `${+p[1]}월 ${part}(${invMD(inc.date)}) 입고 ${(inc.qty || 0).toLocaleString()}개 예정`;
+  }
 
   function invChip(key, d, meta) {
     const p = meta[key] || { label: key, icon: '📦' };
-    const sig = INV_SIG[d.signal] || INV_SIG.none;
+    const sig = invSig(d);
     const so = d.stock === 0 ? '품절중' : ('예측품절 ' + invMD(d.stockout && d.stockout.normal));
+    const note = invIncomingNote(d);
     return `<div class="inv-chip ${d.signal === 'red' ? 'red' : ''}">
       <span>${p.icon || '📦'}</span><span class="inv-name">${p.label}</span>
       <span>재고 ${(d.stock || 0).toLocaleString()}개</span><span>·</span><span>${so}</span>
-      <span>${sig[0]}</span><span class="inv-sig">${sig[1]}</span></div>`;
+      <span>${sig[0]}</span><span class="inv-sig">${sig[1]}</span>${note ? `<span class="inv-note">참고 ${note}</span>` : ''}</div>`;
   }
 
   function invRow(key, d, meta) {
     const p = meta[key] || { label: key, icon: '📦' };
-    const sig = INV_SIG[d.signal] || INV_SIG.none;
+    const sig = invSig(d);
     const e = d.estimate;
     const otherSum = (d.other_out || []).reduce((s, o) => s + (o.qty || 0), 0);
     const otherMemo = (d.other_out || []).map(o => `${o.memo || '기타'} ${o.qty}`).join(', ');
