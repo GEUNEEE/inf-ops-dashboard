@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T00:18:30",
+  "generated_at": "2026-10-29T00:19:57",
   "current_month": "2026-10",
   "products": [
     {
@@ -2488,6 +2488,10 @@
         "other_out": [],
         "reserved": [],
         "stock": 0,
+        "sold": {
+          "count": 20,
+          "units": 25
+        },
         "preorders": {
           "count": 61,
           "units": 82,
@@ -2538,6 +2542,10 @@
         ],
         "reserved": [],
         "stock": 980,
+        "sold": {
+          "count": 0,
+          "units": 0
+        },
         "preorders": {
           "count": 0,
           "units": 0,
