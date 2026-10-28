@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T10:07:27",
+  "generated_at": "2026-10-28T18:20:15",
   "current_month": "2026-10",
   "products": [
     {
@@ -1658,10 +1658,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 338,
-          "order_count": 251,
-          "gross_revenue": 11691360,
-          "net_profit": 7746889
+          "qty": 355,
+          "order_count": 265,
+          "gross_revenue": 12309360,
+          "net_profit": 8156233
         },
         "수면영양제": {
           "qty": 0,
@@ -2181,12 +2181,12 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 219,
-        "units": 220
+        "orders": 230,
+        "units": 231
       },
       "1+1": {
-        "orders": 62,
-        "units": 124
+        "orders": 65,
+        "units": 130
       },
       "2+2": {
         "orders": 12,
@@ -2199,9 +2199,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 253,
-        "units": 331,
-        "gross": 11565360
+        "orders": 265,
+        "units": 345,
+        "gross": 12074360
       },
       "쿠팡": {
         "orders": 11,
@@ -2209,9 +2209,9 @@
         "gross": 546000
       },
       "자사몰": {
-        "orders": 33,
-        "units": 69,
-        "gross": 2158000
+        "orders": 35,
+        "units": 72,
+        "gross": 2267000
       }
     },
     "trial": {
@@ -2372,12 +2372,12 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 190,
-          "units": 190
+          "orders": 201,
+          "units": 201
         },
         "1+1": {
-          "orders": 52,
-          "units": 104
+          "orders": 55,
+          "units": 110
         },
         "2+2": {
           "orders": 5,
@@ -2390,14 +2390,14 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 220,
-          "units": 272,
-          "gross": 9671360
+          "orders": 232,
+          "units": 286,
+          "gross": 10180360
         },
         "자사몰": {
-          "orders": 21,
-          "units": 51,
-          "gross": 1512000
+          "orders": 23,
+          "units": 54,
+          "gross": 1621000
         },
         "쿠팡": {
           "orders": 10,
@@ -2470,7 +2470,7 @@
   ],
   "inventory": {
     "as_of": "2026-10-28",
-    "data_as_of": "2026-10-28T08:01",
+    "data_as_of": "2026-10-28T18:10",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2481,13 +2481,17 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 9,
+          "orders": 26,
           "other": 0,
           "reserved": 0
         },
         "other_out": [],
         "reserved": [],
-        "stock": 16,
+        "stock": 0,
+        "preorders": {
+          "count": 1,
+          "units": 1
+        },
         "incoming": [
           {
             "date": "2026-11-15",
@@ -2502,21 +2506,18 @@
           "backtest_mae_week": 46
         },
         "estimate_reason": null,
-        "stockout": {
-          "normal": "2026-10-28",
-          "fast": "2026-10-28",
-          "slow": "2026-11-01"
-        },
+        "stockout": null,
         "gap": {
           "days": 17,
           "lost_min": 66,
-          "lost_max": 447
+          "lost_max": 447,
+          "preorder": true
         },
-        "post_incoming_stockout": "2027-04-02",
-        "reorder_by": "2027-02-26",
+        "post_incoming_stockout": "2027-03-15",
+        "reorder_by": "2027-02-08",
         "signal": "red",
-        "signal_label": "품절 임박",
-        "remaining_today_share": 0.863
+        "signal_label": "품절중",
+        "remaining_today_share": 0.305
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2536,6 +2537,10 @@
         ],
         "reserved": [],
         "stock": 980,
+        "preorders": {
+          "count": 0,
+          "units": 0
+        },
         "incoming": [],
         "estimate": null,
         "estimate_reason": "본판매 전",
@@ -2545,7 +2550,7 @@
         "reorder_by": null,
         "signal": "none",
         "signal_label": "추정 불가",
-        "remaining_today_share": 0.666
+        "remaining_today_share": 0.243
       }
     }
   },

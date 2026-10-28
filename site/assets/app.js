@@ -1332,10 +1332,17 @@
     const sig = invSig(d);
     const so = d.stock === 0 ? '품절중' : ('예측품절 ' + invMD(d.stockout && d.stockout.normal));
     const note = invIncomingNote(d);
+    const pre = invPreorder(d);
     return `<div class="inv-chip ${d.signal === 'red' ? 'red' : ''}">
       <span>${p.icon || '📦'}</span><span class="inv-name">${p.label}</span>
       <span>재고 ${(d.stock || 0).toLocaleString()}개</span><span>·</span><span>${so}</span>
-      <span>${sig[0]}</span><span class="inv-sig">${sig[1]}</span>${note ? `<span class="inv-note">참고 ${note}</span>` : ''}</div>`;
+      <span>${sig[0]}</span><span class="inv-sig">${sig[1]}</span>${note ? `<span class="inv-note">참고 ${note}</span>` : ''}
+      ${pre ? `<span class="inv-pre">${pre}</span>` : ''}</div>`;
+  }
+  // 예약 주문 (사용자 확정 문구 2026-10-28): 재고·예측품절 아래 "*현재 예약 주문건 N건" — 재고를 시간순으로 채우고 넘친 주문
+  function invPreorder(d) {
+    const n = (d.preorders && d.preorders.count) || 0;
+    return n ? `*현재 예약 주문건 ${n.toLocaleString()}건` : '';
   }
 
   function invRow(key, d, meta) {
@@ -1358,16 +1365,17 @@
       const inc = (d.incoming || [])[0];
       if (inc) {
         sub1 = `입고 ${invMD(inc.date)} ${(inc.qty || 0).toLocaleString()}개`
-          + (d.gap ? ` → 공백 ${d.gap.days}일 · 놓치는 판매 약 ${invRange(d.gap.lost_min, d.gap.lost_max)}개` : ' → 품절 전 입고');
+          + (d.gap ? ` → 공백 ${d.gap.days}일 · ${d.gap.preorder ? '추가 예약 예상' : '놓치는 판매'} 약 ${invRange(d.gap.lost_min, d.gap.lost_max)}개` : ' → 품절 전 입고');
       } else {
         sub1 = '입고 예정 없음';
       }
       sub2 = `입고 후 품절 ~${d.post_incoming_stockout || '-'} → 발주 권장 ${d.reorder_by || '-'} ${sig[0]} ${sig[1]}`
         + (e.backtest_mae_week != null ? ` · 최근 4주 예측 오차 ±${e.backtest_mae_week}개/주` : '');
     }
+    const pre = invPreorder(d);
     return `<div class="inv-row">
       <div class="inv-head"><span>${p.icon || '📦'}</span><span class="inv-name">${p.label}${d.vendor ? ' (' + d.vendor + ')' : ''}</span><span>${head}</span></div>
-      ${sub1 ? `<div class="inv-sub">${sub1}</div>` : ''}${sub2 ? `<div class="inv-sub">${sub2}</div>` : ''}
+      ${pre ? `<div class="inv-sub">${pre}</div>` : ''}${sub1 ? `<div class="inv-sub">${sub1}</div>` : ''}${sub2 ? `<div class="inv-sub">${sub2}</div>` : ''}
     </div>`;
   }
 
