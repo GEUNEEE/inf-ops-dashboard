@@ -1339,10 +1339,11 @@
       <span>${sig[0]}</span><span class="inv-sig">${sig[1]}</span>${note ? `<span class="inv-note">참고 ${note}</span>` : ''}
       ${pre ? `<span class="inv-pre">${pre}</span>` : ''}</div>`;
   }
-  // 예약 주문 (사용자 확정 문구 2026-10-28): 재고·예측품절 아래 "*현재 예약 주문건 N건" — 재고를 시간순으로 채우고 넘친 주문
+  // 예약 주문 (사용자 확정 문구 2026-10-28): 재고·예측품절 아래 "*현재 예약 주문건 N건 (매출 ₩X)" — 재고를 시간순으로 채우고 넘친 주문.
+  // 예약 매출은 전체 매출에도 포함돼 있고 여기서는 따로 보여주기만 한다
   function invPreorder(d) {
-    const n = (d.preorders && d.preorders.count) || 0;
-    return n ? `*현재 예약 주문건 ${n.toLocaleString()}건` : '';
+    const pr = d.preorders || {}, n = pr.count || 0;
+    return n ? `*현재 예약 주문건 ${n.toLocaleString()}건 (매출 ₩${(pr.revenue || 0).toLocaleString()})` : '';
   }
 
   function invRow(key, d, meta) {
