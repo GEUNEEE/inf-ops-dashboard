@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T21:08:59",
+  "generated_at": "2026-10-29T00:18:30",
   "current_month": "2026-10",
   "products": [
     {
@@ -1658,10 +1658,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 389,
-          "order_count": 290,
-          "gross_revenue": 13522360,
-          "net_profit": 8975454
+          "qty": 436,
+          "order_count": 325,
+          "gross_revenue": 15190860,
+          "net_profit": 10094787
         },
         "수면영양제": {
           "qty": 0,
@@ -2181,16 +2181,16 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 246,
-        "units": 247
+        "orders": 271,
+        "units": 272
       },
       "1+1": {
-        "orders": 74,
-        "units": 148
+        "orders": 83,
+        "units": 166
       },
       "2+2": {
-        "orders": 12,
-        "units": 48
+        "orders": 13,
+        "units": 52
       },
       "3+3": {
         "orders": 4,
@@ -2199,9 +2199,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 283,
-        "units": 369,
-        "gross": 12919360
+        "orders": 308,
+        "units": 405,
+        "gross": 14150860
       },
       "쿠팡": {
         "orders": 11,
@@ -2209,9 +2209,9 @@
         "gross": 546000
       },
       "자사몰": {
-        "orders": 42,
-        "units": 82,
-        "gross": 2635000
+        "orders": 52,
+        "units": 93,
+        "gross": 3072000
       }
     },
     "trial": {
@@ -2372,16 +2372,16 @@
     "2026-10": {
       "by_option": {
         "단품": {
-          "orders": 217,
-          "units": 217
+          "orders": 242,
+          "units": 242
         },
         "1+1": {
-          "orders": 64,
-          "units": 128
+          "orders": 73,
+          "units": 146
         },
         "2+2": {
-          "orders": 5,
-          "units": 20
+          "orders": 6,
+          "units": 24
         },
         "3+3": {
           "orders": 4,
@@ -2390,14 +2390,14 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 250,
-          "units": 310,
-          "gross": 11025360
+          "orders": 275,
+          "units": 346,
+          "gross": 12256860
         },
         "자사몰": {
-          "orders": 30,
-          "units": 64,
-          "gross": 1989000
+          "orders": 40,
+          "units": 75,
+          "gross": 2426000
         },
         "쿠팡": {
           "orders": 10,
@@ -2469,8 +2469,8 @@
     }
   ],
   "inventory": {
-    "as_of": "2026-10-28",
-    "data_as_of": "2026-10-28T21:07",
+    "as_of": "2026-10-29",
+    "data_as_of": "2026-10-29T00:13",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2481,7 +2481,7 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 60,
+          "orders": 107,
           "other": 0,
           "reserved": 0
         },
@@ -2489,9 +2489,9 @@
         "reserved": [],
         "stock": 0,
         "preorders": {
-          "count": 26,
-          "units": 35,
-          "revenue": 1250000
+          "count": 61,
+          "units": 82,
+          "revenue": 2918500
         },
         "incoming": [
           {
@@ -2500,25 +2500,25 @@
           }
         ],
         "estimate": {
-          "normal": 21.7,
-          "fast": 26.3,
-          "slow": 3.9,
-          "days_of_data": 123,
-          "backtest_mae_week": 46
+          "normal": 44.0,
+          "fast": 44.0,
+          "slow": 4.7,
+          "days_of_data": 124,
+          "backtest_mae_week": 55
         },
         "estimate_reason": null,
         "stockout": null,
         "gap": {
-          "days": 17,
-          "lost_min": 66,
-          "lost_max": 447,
+          "days": 16,
+          "lost_min": 75,
+          "lost_max": 704,
           "preorder": true
         },
-        "post_incoming_stockout": "2027-03-14",
-        "reorder_by": "2027-02-07",
+        "post_incoming_stockout": "2027-01-03",
+        "reorder_by": "2026-11-29",
         "signal": "red",
         "signal_label": "품절중",
-        "remaining_today_share": 0.115
+        "remaining_today_share": 0.984
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2552,7 +2552,7 @@
         "reorder_by": null,
         "signal": "none",
         "signal_label": "추정 불가",
-        "remaining_today_share": 0.12
+        "remaining_today_share": 0.991
       }
     }
   },

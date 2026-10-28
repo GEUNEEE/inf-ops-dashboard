@@ -1343,7 +1343,7 @@
   // 예약 매출은 전체 매출에도 포함돼 있고 여기서는 따로 보여주기만 한다
   function invPreorder(d) {
     const pr = d.preorders || {}, n = pr.count || 0;
-    return n ? `*현재 예약 주문건 ${n.toLocaleString()}건 (매출 ₩${(pr.revenue || 0).toLocaleString()})` : '';
+    return n ? `*현재 예약 주문건 ${n.toLocaleString()}건 ${(pr.units || 0).toLocaleString()}개 (매출 ₩${(pr.revenue || 0).toLocaleString()})` : '';
   }
 
   function invRow(key, d, meta) {
