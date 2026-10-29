@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T12:19:13",
+  "generated_at": "2026-10-29T12:48:27",
   "current_month": "2026-10",
   "products": [
     {
@@ -2514,6 +2514,7 @@
         "stockout": null,
         "gap": {
           "days": 16,
+          "lost": 709,
           "lost_min": 75,
           "lost_max": 709,
           "preorder": true

@@ -1361,12 +1361,12 @@
       head = `${stockTxt} · ${d.estimate_reason || '추정 불가'} ${sig[0]} ${sig[1]}`;
     } else {
       const so = d.stockout;
-      head = `${stockTxt} · 하루 ${e.normal}개 (${invRange(e.slow, e.fast)}) · `
+      head = `${stockTxt} · 하루 ${e.normal}개 · `
         + (so ? `품절 ${invMD(so.normal)} (${invMD(so.fast)}~${invMD(so.slow)})` : '품절중');
       const inc = (d.incoming || [])[0];
       if (inc) {
         sub1 = `입고 ${invMD(inc.date)} ${(inc.qty || 0).toLocaleString()}개`
-          + (d.gap ? ` → 공백 ${d.gap.days}일 · ${d.gap.preorder ? '추가 예약 예상' : '놓치는 판매'} 약 ${invRange(d.gap.lost_min, d.gap.lost_max)}개` : ' → 품절 전 입고');
+          + (d.gap ? ` → 공백 ${d.gap.days}일 · ${d.gap.preorder ? '추가 예약 예상' : '놓치는 판매'} 약 ${(d.gap.lost ?? d.gap.lost_max).toLocaleString()}개 (하루 ${e.normal}개 × ${d.gap.days}일)` : ' → 품절 전 입고');
       } else {
         sub1 = '입고 예정 없음';
       }
