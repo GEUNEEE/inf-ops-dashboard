@@ -1,12 +1,12 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-10-30T10:24:48",
-  "gross_revenue": 1570000,
-  "net_profit": 830000,
-  "order_count": 13,
-  "unit_count": 13,
-  "operating_profit": 810000,
-  "operating_profit_rate": 0.5159,
+  "generated_at": "2026-10-31T15:00:03",
+  "gross_revenue": 1690000,
+  "net_profit": 910000,
+  "order_count": 14,
+  "unit_count": 14,
+  "operating_profit": 890000,
+  "operating_profit_rate": 0.5266,
   "labor_cost": 20000,
   "labor_qty": 2,
   "labor_basis": "store_A",
@@ -41,9 +41,9 @@
       "sponsor_cost_this_month": 0
     },
     "차사랑캠프": {
-      "order_count": 1,
-      "qty": 1,
-      "cumulative_qty": 9,
+      "order_count": 2,
+      "qty": 2,
+      "cumulative_qty": 10,
       "unit_price": 0,
       "amount": 0,
       "is_general": false,
@@ -97,21 +97,21 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 581,
-      "order_count": 423,
-      "gross_revenue": 20137360,
-      "net_profit": 13393982
+      "qty": 591,
+      "order_count": 427,
+      "gross_revenue": 20422360,
+      "net_profit": 13584609
     },
     "수면영양제": {
       "qty": 0,
-      "order_count": 7,
-      "gross_revenue": 0,
+      "order_count": 10,
+      "gross_revenue": 168000,
       "net_profit": 0
     },
     "흑염소": {
-      "qty": 13,
-      "order_count": 13,
-      "gross_revenue": 1570000,
+      "qty": 14,
+      "order_count": 14,
+      "gross_revenue": 1690000,
       "net_profit": 0
     },
     "올리브오일캡슐": {
@@ -123,9 +123,9 @@
   },
   "by_store": {
     "B": {
-      "qty": 11,
-      "order_count": 11,
-      "gross_revenue": 1320000
+      "qty": 12,
+      "order_count": 12,
+      "gross_revenue": 1440000
     },
     "A": {
       "qty": 2,
@@ -136,32 +136,32 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 307,
-        "units": 307
+        "orders": 309,
+        "units": 309
       },
       "1+1": {
-        "orders": 100,
-        "units": 200
+        "orders": 101,
+        "units": 202
       },
       "2+2": {
         "orders": 11,
         "units": 44
       },
       "3+3": {
-        "orders": 5,
-        "units": 30
+        "orders": 6,
+        "units": 36
       }
     },
     "by_channel": {
       "네이버": {
-        "orders": 351,
-        "units": 453,
-        "gross": 15938360
+        "orders": 353,
+        "units": 456,
+        "gross": 16043360
       },
       "자사몰": {
-        "orders": 62,
-        "units": 113,
-        "gross": 3691000
+        "orders": 64,
+        "units": 120,
+        "gross": 3871000
       },
       "쿠팡": {
         "orders": 10,
