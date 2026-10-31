@@ -1110,7 +1110,7 @@
     q('ord-sub').textContent = scope;
     const pf = q('profit');
     if (pf) {
-      pf.textContent = totProfit ? money(totProfit) : (totRev ? '집계예정' : '—');
+      pf.textContent = totProfit ? money(totProfit) : '—';  // 수익 0 = 체험단만 있는 달 (전 제품 수익 공식 설정됨)
       pf.style.color = totProfit > 0 ? '#3B6D11' : '';
       const ps = q('profit-sub'); if (ps) ps.textContent = scope;
     }
