@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T15:00:04",
+  "generated_at": "2026-10-31T15:03:05",
   "current_month": "2026-10",
   "products": [
     {
@@ -1664,7 +1664,7 @@
           "net_profit": 13584609
         },
         "수면영양제": {
-          "qty": 0,
+          "qty": 3,
           "order_count": 10,
           "gross_revenue": 168000,
           "net_profit": 0
@@ -2536,7 +2536,7 @@
         "base_date": "2026-10-26",
         "base_stock": 1000,
         "deductions": {
-          "orders": 0,
+          "orders": 3,
           "other": 20,
           "reserved": 0
         },
@@ -2548,10 +2548,10 @@
           }
         ],
         "reserved": [],
-        "stock": 980,
+        "stock": 977,
         "sold": {
-          "count": 0,
-          "units": 0
+          "count": 3,
+          "units": 3
         },
         "preorders": {
           "count": 0,
@@ -2560,7 +2560,7 @@
         },
         "incoming": [],
         "estimate": null,
-        "estimate_reason": "본판매 전",
+        "estimate_reason": "데이터 1일",
         "stockout": null,
         "gap": null,
         "post_incoming_stockout": null,
