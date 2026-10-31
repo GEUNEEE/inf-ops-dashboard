@@ -268,7 +268,7 @@
       "qty": 17,
       "order_count": 7,
       "gross_revenue": 498500,
-      "net_profit": 311355,
+      "net_profit": 356706,
       "trial_orders": 1,
       "trial_units": 1
     },
@@ -317,7 +317,7 @@
       "orders": 1,
       "units": 1,
       "gross": 38000,
-      "excluded_profit": 26400,
+      "excluded_profit": 30200,
       "buyers": [
         "이세헌"
       ]

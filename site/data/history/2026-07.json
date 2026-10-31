@@ -187,7 +187,7 @@
       "qty": 20,
       "order_count": 14,
       "gross_revenue": 693000,
-      "net_profit": 342119,
+      "net_profit": 391265,
       "trial_orders": 5,
       "trial_units": 5
     }
@@ -206,13 +206,13 @@
   },
   "cosmetics_breakdown": {
     "by_option": {
-      "1+1": {
-        "orders": 3,
-        "units": 6
-      },
       "단품": {
         "orders": 10,
         "units": 10
+      },
+      "1+1": {
+        "orders": 3,
+        "units": 6
       },
       "2+2": {
         "orders": 1,
@@ -223,7 +223,7 @@
       "네이버": {
         "orders": 11,
         "units": 14,
-        "gross": 364000
+        "gross": 508000
       },
       "쿠팡": {
         "orders": 1,
@@ -240,7 +240,7 @@
       "orders": 5,
       "units": 5,
       "gross": 190000,
-      "excluded_profit": 132000,
+      "excluded_profit": 151000,
       "buyers": [
         "전나영",
         "유효진",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T15:11:01",
+  "generated_at": "2026-10-31T15:13:34",
   "current_month": "2026-10",
   "products": [
     {
@@ -1587,7 +1587,7 @@
           "qty": 3,
           "order_count": 2,
           "gross_revenue": 106000,
-          "net_profit": 84400
+          "net_profit": 85400
         },
         "올리브오일캡슐": {
           "qty": 2,
@@ -1607,7 +1607,7 @@
           "qty": 20,
           "order_count": 14,
           "gross_revenue": 693000,
-          "net_profit": 342119,
+          "net_profit": 391265,
           "trial_orders": 5,
           "trial_units": 5
         }
@@ -1623,7 +1623,7 @@
           "qty": 17,
           "order_count": 7,
           "gross_revenue": 498500,
-          "net_profit": 311355,
+          "net_profit": 356706,
           "trial_orders": 1,
           "trial_units": 1
         },
@@ -1645,7 +1645,7 @@
           "qty": 38,
           "order_count": 23,
           "gross_revenue": 1280500,
-          "net_profit": 885119
+          "net_profit": 1011732
         },
         "수면영양제": {
           "qty": 60,
@@ -1661,7 +1661,7 @@
           "qty": 591,
           "order_count": 427,
           "gross_revenue": 20422360,
-          "net_profit": 13584609
+          "net_profit": 15555208
         },
         "수면영양제": {
           "qty": 3,
@@ -2224,7 +2224,7 @@
       "orders": 6,
       "units": 6,
       "gross": 228000,
-      "excluded_profit": 158400,
+      "excluded_profit": 181200,
       "buyers": [
         "전나영",
         "유효진",
@@ -2298,7 +2298,7 @@
         "orders": 5,
         "units": 5,
         "gross": 190000,
-        "excluded_profit": 132000,
+        "excluded_profit": 151000,
         "buyers": [
           "전나영",
           "유효진",
@@ -2334,7 +2334,7 @@
         "orders": 1,
         "units": 1,
         "gross": 38000,
-        "excluded_profit": 26400,
+        "excluded_profit": 30200,
         "buyers": [
           "이세헌"
         ]

@@ -1,6 +1,6 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-10-31T15:11:00",
+  "generated_at": "2026-10-31T15:13:33",
   "gross_revenue": 1690000,
   "net_profit": 910000,
   "order_count": 14,
@@ -100,7 +100,7 @@
       "qty": 591,
       "order_count": 427,
       "gross_revenue": 20422360,
-      "net_profit": 13584609
+      "net_profit": 15555208
     },
     "수면영양제": {
       "qty": 3,
