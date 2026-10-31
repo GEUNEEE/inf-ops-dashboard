@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T18:49:02",
+  "generated_at": "2026-10-31T19:03:33",
   "current_month": "2026-10",
   "products": [
     {
@@ -1658,10 +1658,10 @@
       },
       "2026-10": {
         "화장품": {
-          "qty": 591,
-          "order_count": 427,
-          "gross_revenue": 20422360,
-          "net_profit": 15555208
+          "qty": 597,
+          "order_count": 428,
+          "gross_revenue": 20561360,
+          "net_profit": 15661408
         },
         "수면영양제": {
           "qty": 3,
@@ -2199,8 +2199,8 @@
         "units": 76
       },
       "3+3": {
-        "orders": 6,
-        "units": 36
+        "orders": 7,
+        "units": 42
       }
     },
     "by_channel": {
@@ -2215,9 +2215,9 @@
         "gross": 546000
       },
       "자사몰": {
-        "orders": 77,
-        "units": 142,
-        "gross": 4623000
+        "orders": 78,
+        "units": 148,
+        "gross": 4762000
       }
     },
     "trial": {
@@ -2390,8 +2390,8 @@
           "units": 44
         },
         "3+3": {
-          "orders": 6,
-          "units": 36
+          "orders": 7,
+          "units": 42
         }
       },
       "by_channel": {
@@ -2401,9 +2401,9 @@
           "gross": 16043360
         },
         "자사몰": {
-          "orders": 64,
-          "units": 120,
-          "gross": 3871000
+          "orders": 65,
+          "units": 126,
+          "gross": 4010000
         },
         "쿠팡": {
           "orders": 10,
@@ -2476,7 +2476,7 @@
   ],
   "inventory": {
     "as_of": "2026-10-31",
-    "data_as_of": "2026-10-31T12:05",
+    "data_as_of": "2026-10-31T18:10",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2487,7 +2487,7 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 262,
+          "orders": 268,
           "other": 0,
           "reserved": 0
         },
@@ -2499,9 +2499,9 @@
           "units": 25
         },
         "preorders": {
-          "count": 164,
-          "units": 237,
-          "revenue": 8157000
+          "count": 165,
+          "units": 243,
+          "revenue": 8296000
         },
         "incoming": [
           {
@@ -2529,7 +2529,7 @@
         "reorder_by": "2026-11-16",
         "signal": "red",
         "signal_label": "품절중",
-        "remaining_today_share": 0.67
+        "remaining_today_share": 0.333
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2567,7 +2567,7 @@
         "reorder_by": null,
         "signal": "none",
         "signal_label": "추정 불가",
-        "remaining_today_share": 0.497
+        "remaining_today_share": 0.243
       }
     }
   },
