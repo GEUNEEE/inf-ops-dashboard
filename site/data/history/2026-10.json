@@ -1,12 +1,12 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-10-31T19:03:32",
-  "gross_revenue": 1690000,
-  "net_profit": 910000,
-  "order_count": 14,
-  "unit_count": 14,
-  "operating_profit": 890000,
-  "operating_profit_rate": 0.5266,
+  "generated_at": "2026-11-02T08:55:23",
+  "gross_revenue": 1570000,
+  "net_profit": 830000,
+  "order_count": 13,
+  "unit_count": 13,
+  "operating_profit": 810000,
+  "operating_profit_rate": 0.5159,
   "labor_cost": 20000,
   "labor_qty": 2,
   "labor_basis": "store_A",
@@ -41,9 +41,9 @@
       "sponsor_cost_this_month": 0
     },
     "차사랑캠프": {
-      "order_count": 2,
-      "qty": 2,
-      "cumulative_qty": 10,
+      "order_count": 1,
+      "qty": 1,
+      "cumulative_qty": 9,
       "unit_price": 0,
       "amount": 0,
       "is_general": false,
@@ -97,10 +97,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 597,
-      "order_count": 428,
-      "gross_revenue": 20561360,
-      "net_profit": 15661408
+      "qty": 601,
+      "order_count": 429,
+      "gross_revenue": 20655860,
+      "net_profit": 15737940
     },
     "수면영양제": {
       "qty": 3,
@@ -109,9 +109,9 @@
       "net_profit": 112290
     },
     "흑염소": {
-      "qty": 14,
-      "order_count": 14,
-      "gross_revenue": 1690000,
+      "qty": 13,
+      "order_count": 13,
+      "gross_revenue": 1570000,
       "net_profit": 0
     },
     "올리브오일캡슐": {
@@ -123,9 +123,9 @@
   },
   "by_store": {
     "B": {
-      "qty": 12,
-      "order_count": 12,
-      "gross_revenue": 1440000
+      "qty": 11,
+      "order_count": 11,
+      "gross_revenue": 1320000
     },
     "A": {
       "qty": 2,
@@ -144,8 +144,8 @@
         "units": 202
       },
       "2+2": {
-        "orders": 11,
-        "units": 44
+        "orders": 12,
+        "units": 48
       },
       "3+3": {
         "orders": 7,
@@ -154,9 +154,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 353,
-        "units": 456,
-        "gross": 16043360
+        "orders": 354,
+        "units": 460,
+        "gross": 16137860
       },
       "자사몰": {
         "orders": 65,
