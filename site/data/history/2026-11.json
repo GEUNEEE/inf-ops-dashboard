@@ -1,12 +1,12 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-02T08:46:42",
-  "gross_revenue": 120000,
-  "net_profit": 80000,
-  "order_count": 1,
-  "unit_count": 1,
-  "operating_profit": 80000,
-  "operating_profit_rate": 0.6667,
+  "generated_at": "2026-11-02T08:55:35",
+  "gross_revenue": 600000,
+  "net_profit": 360000,
+  "order_count": 4,
+  "unit_count": 5,
+  "operating_profit": 360000,
+  "operating_profit_rate": 0.6,
   "labor_cost": 0,
   "labor_qty": 0,
   "labor_basis": "store_A",
@@ -32,11 +32,20 @@
   },
   "influencers": {
     "차사랑캠프": {
-      "order_count": 1,
-      "qty": 1,
+      "order_count": 3,
+      "qty": 3,
       "cumulative_qty": 12,
       "unit_price": 0,
       "amount": 0,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
+    "나의루루들": {
+      "order_count": 1,
+      "qty": 2,
+      "cumulative_qty": 10,
+      "unit_price": 20000,
+      "amount": 40000,
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
@@ -51,17 +60,17 @@
     }
   },
   "by_product": {
+    "흑염소": {
+      "qty": 5,
+      "order_count": 4,
+      "gross_revenue": 600000,
+      "net_profit": 0
+    },
     "화장품": {
       "qty": 16,
       "order_count": 8,
       "gross_revenue": 493000,
       "net_profit": 366216
-    },
-    "흑염소": {
-      "qty": 1,
-      "order_count": 1,
-      "gross_revenue": 120000,
-      "net_profit": 0
     },
     "올리브오일캡슐": {
       "qty": 15,
@@ -72,9 +81,9 @@
   },
   "by_store": {
     "B": {
-      "qty": 1,
-      "order_count": 1,
-      "gross_revenue": 120000
+      "qty": 5,
+      "order_count": 4,
+      "gross_revenue": 600000
     }
   },
   "cosmetics_breakdown": {
