@@ -1,6 +1,6 @@
 {
   "month": "2026-09",
-  "generated_at": "2026-10-12T09:14:40",
+  "generated_at": "2026-11-02T11:07:07",
   "gross_revenue": 3170000,
   "net_profit": 1350000,
   "order_count": 14,
@@ -28,7 +28,7 @@
     "광고예정_1차": 9,
     "광고예정_2차": 0,
     "광고완료_1차": 12,
-    "기타": 38
+    "기타": 39
   },
   "influencers": {
     "C맹씨": {
@@ -184,7 +184,11 @@
       "qty": 27,
       "order_count": 14,
       "gross_revenue": 3170000,
-      "net_profit": 0
+      "net_profit": 0,
+      "repeat": {
+        "buyers": 4,
+        "orders": 4
+      }
     },
     "화장품": {
       "qty": 38,

@@ -130,6 +130,11 @@
     set('kpi-cumulative-sub', month ? month + '까지 누계' : '전체 누계');
   }
 
+  // 재구매 (사용자 확정 2026-11-02): 월 표 하단에 조그만 글씨로 "재구매 N명 · M건" (같은 구매자가 같은 제품을 이전에 주문한 경우, 없으면 생략)
+  function repeatNote(rp) {
+    return rp && rp.orders ? `<div class="fmonth-rep">재구매 ${rp.buyers}명 · ${rp.orders}건</div>` : '';
+  }
+
   // ── 히스토리 → summary 변환 ────────────────────────────────────────────────
   function historyToSummary(influencers, settlementSummary) {
     const ss = settlementSummary || {};
@@ -1118,7 +1123,7 @@
     const body = months.map(m => {
       const d = bpm[m][key] || {};
       const cur = (m === month) ? ' class="fmonth-cur"' : '';
-      return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}</td><td>${d.qty || 0}개</td><td>${d.order_count || 0}건</td><td>${d.gross_revenue ? money(d.gross_revenue) : '-'}</td><td style="color:#3B6D11">${d.net_profit ? money(d.net_profit) : '-'}</td></tr>`;
+      return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}${repeatNote(d.repeat)}</td><td>${d.qty || 0}개</td><td>${d.order_count || 0}건</td><td>${d.gross_revenue ? money(d.gross_revenue) : '-'}</td><td style="color:#3B6D11">${d.net_profit ? money(d.net_profit) : '-'}</td></tr>`;
     }).join('');
     q('table').innerHTML = `<table class="fmonth-table"><thead><tr><th>월</th><th>판매량</th><th>주문수</th><th>매출</th><th>수익</th></tr></thead><tbody>${body}</tbody></table>`;
 
@@ -1303,7 +1308,7 @@
         const rows = months.map(m => {
           const md = bpm[m] || {};
           let rowTot = 0;
-          const cells = cols.map(k => { const v = (md[k] || {}).qty || 0; rowTot += v; return `<td>${v ? v + '개' : '-'}</td>`; }).join('');
+          const cells = cols.map(k => { const v = (md[k] || {}).qty || 0; rowTot += v; return `<td>${v ? v + '개' : '-'}${repeatNote((md[k] || {}).repeat)}</td>`; }).join('');
           const cur = (m === month) ? ' class="fmonth-cur"' : '';
           return `<tr${cur}><td>${monthLabel(m)}${m === month ? ' ★' : ''}</td>${cells}<td class="fmonth-cnt">${rowTot}개</td></tr>`;
         }).join('');
