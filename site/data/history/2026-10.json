@@ -1,6 +1,6 @@
 {
   "month": "2026-10",
-  "generated_at": "2026-11-02T09:07:39",
+  "generated_at": "2026-11-02T11:07:20",
   "gross_revenue": 1570000,
   "net_profit": 830000,
   "order_count": 13,
@@ -100,7 +100,11 @@
       "qty": 595,
       "order_count": 427,
       "gross_revenue": 20493360,
-      "net_profit": 15609571
+      "net_profit": 15609571,
+      "repeat": {
+        "buyers": 1,
+        "orders": 1
+      }
     },
     "수면영양제": {
       "qty": 0,
@@ -112,7 +116,11 @@
       "qty": 13,
       "order_count": 13,
       "gross_revenue": 1570000,
-      "net_profit": 0
+      "net_profit": 0,
+      "repeat": {
+        "buyers": 1,
+        "orders": 2
+      }
     },
     "올리브오일캡슐": {
       "qty": 4,
