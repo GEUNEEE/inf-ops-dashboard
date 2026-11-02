@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-02T09:17:00",
+  "generated_at": "2026-11-02T11:07:32",
   "gross_revenue": 600000,
   "net_profit": 360000,
   "order_count": 4,
@@ -76,7 +76,11 @@
       "qty": 5,
       "order_count": 4,
       "gross_revenue": 600000,
-      "net_profit": 0
+      "net_profit": 0,
+      "repeat": {
+        "buyers": 1,
+        "orders": 1
+      }
     },
     "올리브오일캡슐": {
       "qty": 16,
