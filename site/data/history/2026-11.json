@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-02T18:05:55",
+  "generated_at": "2026-11-03T14:02:53",
   "gross_revenue": 990000,
   "net_profit": 630000,
   "order_count": 7,
@@ -61,10 +61,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 263,
-      "order_count": 174,
-      "gross_revenue": 8883500,
-      "net_profit": 6789860,
+      "qty": 290,
+      "order_count": 193,
+      "gross_revenue": 9818000,
+      "net_profit": 7498878,
       "repeat": {
         "buyers": 1,
         "orders": 1
@@ -87,10 +87,10 @@
       }
     },
     "올리브오일캡슐": {
-      "qty": 16,
-      "order_count": 7,
-      "gross_revenue": 546000,
-      "net_profit": 385620
+      "qty": 18,
+      "order_count": 8,
+      "gross_revenue": 619000,
+      "net_profit": 438430
     }
   },
   "by_store": {
@@ -108,16 +108,16 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 115,
-        "units": 115
+        "orders": 128,
+        "units": 128
       },
       "1+1": {
-        "orders": 47,
-        "units": 94
+        "orders": 52,
+        "units": 104
       },
       "2+2": {
-        "orders": 9,
-        "units": 36
+        "orders": 10,
+        "units": 40
       },
       "3+3": {
         "orders": 3,
@@ -126,14 +126,14 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 133,
-        "units": 193,
-        "gross": 6562500
+        "orders": 149,
+        "units": 217,
+        "gross": 7374000
       },
       "자사몰": {
-        "orders": 41,
-        "units": 70,
-        "gross": 2321000
+        "orders": 44,
+        "units": 73,
+        "gross": 2444000
       }
     },
     "trial": {
