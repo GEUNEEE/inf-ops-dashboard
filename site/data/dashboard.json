@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T14:02:54",
+  "generated_at": "2026-11-03T15:01:40",
   "current_month": "2026-11",
   "products": [
     {
@@ -2634,25 +2634,19 @@
       },
       "수면영양제": {
         "vendor": "택배마스터",
-        "base_date": "2026-10-26",
-        "base_stock": 1000,
+        "base_date": "2026-11-03",
+        "base_stock": 904,
         "deductions": {
-          "orders": 3,
-          "other": 20,
+          "orders": 0,
+          "other": 0,
           "reserved": 0
         },
-        "other_out": [
-          {
-            "date": "2026-10-26",
-            "qty": 20,
-            "memo": "비에스님 선물"
-          }
-        ],
+        "other_out": [],
         "reserved": [],
-        "stock": 977,
+        "stock": 904,
         "sold": {
-          "count": 3,
-          "units": 3
+          "count": 0,
+          "units": 0
         },
         "preorders": {
           "count": 0,
