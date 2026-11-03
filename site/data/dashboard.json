@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T15:01:40",
+  "generated_at": "2026-11-03T15:10:53",
   "current_month": "2026-11",
   "products": [
     {
@@ -2630,6 +2630,29 @@
         "reorder_by": "2026-12-31",
         "signal": "red",
         "signal_label": "품절중",
+        "monthly": [
+          {
+            "month": "2026-10",
+            "opening": 25,
+            "incoming": 0,
+            "sales": 25,
+            "trial": 0,
+            "other": 0,
+            "closing": 0,
+            "current": false
+          },
+          {
+            "month": "2026-11",
+            "opening": 0,
+            "incoming": 0,
+            "sales": 0,
+            "trial": 0,
+            "other": 0,
+            "closing": 0,
+            "current": true,
+            "preorder_units": 290
+          }
+        ],
         "remaining_today_share": 0.831
       },
       "수면영양제": {
@@ -2662,6 +2685,19 @@
         "reorder_by": null,
         "signal": "none",
         "signal_label": "추정 불가",
+        "monthly": [
+          {
+            "month": "2026-11",
+            "opening": 904,
+            "incoming": 0,
+            "sales": 0,
+            "trial": 0,
+            "other": 0,
+            "closing": 904,
+            "current": true,
+            "preorder_units": 0
+          }
+        ],
         "remaining_today_share": 0.682
       }
     }

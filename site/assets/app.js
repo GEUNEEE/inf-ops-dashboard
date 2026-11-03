@@ -1083,6 +1083,7 @@
     const months = productMonths(key);
     const q = s => panel.querySelector(`[data-pk="${s}"]`);
 
+    renderInvMonth(key, month);
     const fc = q('filter');
     if (fc) fc.innerHTML = months.length
       ? [''].concat(months.slice().reverse()).map(m =>
@@ -1401,11 +1402,27 @@
     if (line) line.innerHTML = keys.map(k => invChip(k, prods[k], meta)).join('');
     if (detail) detail.innerHTML = keys.map(k => invRow(k, prods[k], meta)).join('')
       + (warns.length ? `<div class="inv-warn">⚠️ ${warns.join(' · ')}</div>` : '');
-    keys.forEach(k => {
-      const panel = document.getElementById('panel-' + k);
-      const host = panel && panel.querySelector('[data-pk="inv"]');
-      if (host) host.innerHTML = invChip(k, prods[k], meta);
-    });
+    // 제품 탭에는 합계 칩 대신 월별 재고 흐름 (합계는 summary에만 — 2026-11-03 사용자 지시)
+    keys.forEach(k => renderInvMonth(k, _prodMonth[k] || null));
+  }
+
+  // 월별 재고 흐름: 월초 → +입고 −판매 −체험 −기타 → 월말. 월 필터가 '전체'면 모든 달 표시.
+  function renderInvMonth(key, month) {
+    const panel = document.getElementById('panel-' + key);
+    const host = panel && panel.querySelector('[data-pk="inv"]');
+    if (!host) return;
+    const d = (((gData || {}).inventory || {}).products || {})[key];
+    const led = (d && d.monthly) || [];
+    const rows = led.filter(r => !month || r.month === month);
+    if (!rows.length) { host.innerHTML = ''; return; }
+    const n = v => (v || 0).toLocaleString();
+    const minus = v => v ? `<span style="color:#C62828">-${n(v)}</span>` : '-';
+    host.innerHTML = `<div class="card mb12" style="width:100%"><div class="slbl">월별 재고</div>
+      <div style="overflow-x:auto"><table class="inv-month"><thead><tr><th>월</th><th>월초</th><th>입고</th><th>판매</th><th>체험</th><th>기타(선물 등)</th><th>월말</th></tr></thead><tbody>`
+      + rows.map(r => `<tr><td>${monthLabel(r.month)}${r.current ? ' ★' : ''}</td><td>${n(r.opening)}</td><td>${r.incoming ? '+' + n(r.incoming) : '-'}</td>`
+        + `<td>${minus(r.sales)}</td><td>${minus(r.trial)}</td><td>${minus(r.other)}</td><td><b>${n(r.closing)}</b>`
+        + `${r.preorder_units ? `<div class="inv-sub" style="color:#C62828">예약 대기 ${n(r.preorder_units)}개</div>` : ''}</td></tr>`).join('')
+      + `</tbody></table></div></div>`;
   }
 
   // ── Summary 전체 월별 매출·수익·판매량 차트 ────────────────────────────────
