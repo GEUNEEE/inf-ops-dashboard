@@ -1,12 +1,12 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-04T13:17:27",
-  "gross_revenue": 990000,
-  "net_profit": 630000,
-  "order_count": 7,
-  "unit_count": 8,
-  "operating_profit": 600000,
-  "operating_profit_rate": 0.6061,
+  "generated_at": "2026-11-04T14:19:20",
+  "gross_revenue": 1230000,
+  "net_profit": 750000,
+  "order_count": 8,
+  "unit_count": 10,
+  "operating_profit": 720000,
+  "operating_profit_rate": 0.5854,
   "labor_cost": 30000,
   "labor_qty": 3,
   "labor_basis": "store_A",
@@ -49,6 +49,15 @@
       "is_general": false,
       "sponsor_cost_this_month": 0
     },
+    "인생초보": {
+      "order_count": 1,
+      "qty": 2,
+      "cumulative_qty": 2,
+      "unit_price": 20000,
+      "amount": 40000,
+      "is_general": false,
+      "sponsor_cost_this_month": 0
+    },
     "기타/일반": {
       "order_count": 3,
       "qty": 3,
@@ -77,9 +86,9 @@
       "net_profit": 112290
     },
     "흑염소": {
-      "qty": 8,
-      "order_count": 7,
-      "gross_revenue": 990000,
+      "qty": 10,
+      "order_count": 8,
+      "gross_revenue": 1230000,
       "net_profit": 0,
       "repeat": {
         "buyers": 2,
@@ -95,9 +104,9 @@
   },
   "by_store": {
     "B": {
-      "qty": 5,
-      "order_count": 4,
-      "gross_revenue": 600000
+      "qty": 7,
+      "order_count": 5,
+      "gross_revenue": 840000
     },
     "A": {
       "qty": 3,

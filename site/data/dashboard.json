@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T13:17:28",
+  "generated_at": "2026-11-04T14:19:21",
   "current_month": "2026-11",
   "products": [
     {
@@ -31,17 +31,17 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 7,
-    "unit_count": 8,
-    "gross_revenue": 990000,
-    "influencer_cost": 40000,
+    "order_count": 8,
+    "unit_count": 10,
+    "gross_revenue": 1230000,
+    "influencer_cost": 80000,
     "sponsor_cost": 0,
-    "cogs_cost": 320000,
+    "cogs_cost": 400000,
     "labor_cost": 30000,
     "labor_qty": 3,
     "labor_basis": "store_A",
-    "net_profit": 630000,
-    "operating_profit": 600000
+    "net_profit": 750000,
+    "operating_profit": 720000
   },
   "mail_funnel": {
     "total_sent": 4234,
@@ -100,6 +100,21 @@
       "정산대상": true,
       "정산미지급": false,
       "현재상태": "1차 광고예정"
+    },
+    "인생초보": {
+      "건수": 1,
+      "수량": 2,
+      "누적수량": 2,
+      "현재단가": 20000,
+      "금액": 40000,
+      "체험횟수": 1,
+      "협찬원가": 40000,
+      "체험월목록": [
+        "2026-07"
+      ],
+      "정산대상": true,
+      "정산미지급": false,
+      "현재상태": "1차 광고완료"
     },
     "기타/일반": {
       "건수": 3,
@@ -383,20 +398,6 @@
       "현재상태": "1차 광고완료"
     },
     "부남대여tv 맛있는낚시&캠핑": {
-      "건수": 0,
-      "수량": 0,
-      "누적수량": 0,
-      "현재단가": null,
-      "금액": 0,
-      "체험횟수": 1,
-      "협찬원가": 40000,
-      "체험월목록": [
-        "2026-07"
-      ],
-      "정산대상": true,
-      "현재상태": "1차 광고완료"
-    },
-    "인생초보": {
       "건수": 0,
       "수량": 0,
       "누적수량": 0,
@@ -1461,7 +1462,7 @@
       5470000,
       3170000,
       1570000,
-      990000
+      1230000
     ],
     "net_profit": [
       560000,
@@ -1472,7 +1473,7 @@
       2450000,
       1350000,
       830000,
-      630000
+      750000
     ],
     "total_sent": [
       396,
@@ -1539,7 +1540,7 @@
       2320000,
       1300000,
       810000,
-      600000
+      720000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1550,7 +1551,7 @@
       0.4241,
       0.4101,
       0.5159,
-      0.6061
+      0.5854
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1706,9 +1707,9 @@
           "net_profit": 112290
         },
         "흑염소": {
-          "qty": 8,
-          "order_count": 7,
-          "gross_revenue": 990000,
+          "qty": 10,
+          "order_count": 8,
+          "gross_revenue": 1230000,
           "net_profit": 0,
           "repeat": {
             "buyers": 2,
@@ -1774,9 +1775,9 @@
       },
       "2026-11": {
         "B": {
-          "qty": 5,
-          "order_count": 4,
-          "gross_revenue": 600000
+          "qty": 7,
+          "order_count": 5,
+          "gross_revenue": 840000
         },
         "A": {
           "qty": 3,
@@ -1983,11 +1984,11 @@
         "labor_basis": "store_A"
       },
       "2026-11": {
-        "gross_revenue": 990000,
-        "unit_count": 8,
-        "operating_profit": 600000,
-        "operating_profit_rate": 0.6061,
-        "cumulative_profit": 12884000,
+        "gross_revenue": 1230000,
+        "unit_count": 10,
+        "operating_profit": 720000,
+        "operating_profit_rate": 0.5854,
+        "cumulative_profit": 13004000,
         "labor_cost": 30000,
         "labor_qty": 3,
         "labor_basis": "store_A"
@@ -2090,9 +2091,9 @@
         "contribution": -40000
       },
       "인생초보": {
-        "qty": 0,
-        "settlement": 0,
-        "contribution": -40000
+        "qty": 2,
+        "settlement": 40000,
+        "contribution": 80000
       },
       "구십오야": {
         "qty": 0,
@@ -2577,7 +2578,7 @@
   ],
   "inventory": {
     "as_of": "2026-11-04",
-    "data_as_of": "2026-11-04T12:17",
+    "data_as_of": "2026-11-04T13:58",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2653,7 +2654,7 @@
             "preorder_units": 355
           }
         ],
-        "remaining_today_share": 0.657
+        "remaining_today_share": 0.599
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2698,7 +2699,7 @@
             "preorder_units": 0
           }
         ],
-        "remaining_today_share": 0.488
+        "remaining_today_share": 0.418
       }
     }
   },
