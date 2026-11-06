@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T13:32:00",
+  "generated_at": "2026-11-06T14:52:10",
   "current_month": "2026-11",
   "products": [
     {
@@ -1703,8 +1703,8 @@
         "수면영양제": {
           "qty": 5,
           "order_count": 5,
-          "gross_revenue": 224000,
-          "net_profit": 133920
+          "gross_revenue": 280000,
+          "net_profit": 187150
         },
         "흑염소": {
           "qty": 13,
