@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-09T08:02:51",
+  "generated_at": "2026-11-09T08:23:58",
   "gross_revenue": 1620000,
   "net_profit": 1020000,
   "order_count": 11,
@@ -70,10 +70,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 760,
-      "order_count": 502,
-      "gross_revenue": 25594000,
-      "net_profit": 19389214,
+      "qty": 758,
+      "order_count": 501,
+      "gross_revenue": 25496100,
+      "net_profit": 19304114,
       "repeat": {
         "buyers": 3,
         "orders": 3
@@ -81,9 +81,9 @@
     },
     "수면영양제": {
       "qty": 5,
-      "order_count": 5,
-      "gross_revenue": 280000,
-      "net_profit": 187150
+      "order_count": 6,
+      "gross_revenue": 377900,
+      "net_profit": 282050
     },
     "흑염소": {
       "qty": 13,
@@ -121,8 +121,8 @@
         "units": 326
       },
       "1+1": {
-        "orders": 140,
-        "units": 280
+        "orders": 139,
+        "units": 278
       },
       "2+2": {
         "orders": 31,
@@ -143,11 +143,6 @@
         "orders": 65,
         "units": 116,
         "gross": 3741000
-      },
-      "쿠팡": {
-        "orders": 1,
-        "units": 2,
-        "gross": 97900
       }
     },
     "trial": {
