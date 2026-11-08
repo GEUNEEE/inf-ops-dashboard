@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T08:23:59",
+  "generated_at": "2026-11-09T08:24:19",
   "current_month": "2026-11",
   "products": [
     {
@@ -1701,10 +1701,10 @@
           }
         },
         "수면영양제": {
-          "qty": 5,
+          "qty": 7,
           "order_count": 6,
           "gross_revenue": 377900,
-          "net_profit": 282050
+          "net_profit": 256450
         },
         "흑염소": {
           "qty": 13,
@@ -2661,16 +2661,16 @@
         "base_date": "2026-11-03",
         "base_stock": 904,
         "deductions": {
-          "orders": 1,
+          "orders": 3,
           "other": 0,
           "reserved": 0
         },
         "other_out": [],
         "reserved": [],
-        "stock": 903,
+        "stock": 901,
         "sold": {
-          "count": 1,
-          "units": 1
+          "count": 2,
+          "units": 3
         },
         "preorders": {
           "count": 0,
@@ -2691,10 +2691,10 @@
             "month": "2026-11",
             "opening": 904,
             "incoming": 0,
-            "sales": 1,
+            "sales": 3,
             "trial": 0,
             "other": 0,
-            "closing": 903,
+            "closing": 901,
             "current": true,
             "preorder_units": 0
           }
