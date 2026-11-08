@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T07:32:28",
+  "generated_at": "2026-11-09T08:02:51",
   "current_month": "2026-11",
   "products": [
     {
@@ -1691,10 +1691,10 @@
       },
       "2026-11": {
         "화장품": {
-          "qty": 758,
-          "order_count": 501,
-          "gross_revenue": 25496100,
-          "net_profit": 19304114,
+          "qty": 760,
+          "order_count": 502,
+          "gross_revenue": 25594000,
+          "net_profit": 19389214,
           "repeat": {
             "buyers": 3,
             "orders": 3
@@ -2254,8 +2254,8 @@
         "units": 554
       },
       "1+1": {
-        "orders": 205,
-        "units": 410
+        "orders": 206,
+        "units": 412
       },
       "2+2": {
         "orders": 44,
@@ -2273,9 +2273,9 @@
         "gross": 33717460
       },
       "쿠팡": {
-        "orders": 11,
-        "units": 16,
-        "gross": 546000
+        "orders": 12,
+        "units": 18,
+        "gross": 643900
       },
       "자사몰": {
         "orders": 102,
@@ -2489,8 +2489,8 @@
           "units": 326
         },
         "1+1": {
-          "orders": 139,
-          "units": 278
+          "orders": 140,
+          "units": 280
         },
         "2+2": {
           "orders": 31,
@@ -2511,6 +2511,11 @@
           "orders": 65,
           "units": 116,
           "gross": 3741000
+        },
+        "쿠팡": {
+          "orders": 1,
+          "units": 2,
+          "gross": 97900
         }
       },
       "trial": {
@@ -2589,7 +2594,7 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 783,
+          "orders": 785,
           "other": 0,
           "reserved": 0
         },
@@ -2601,9 +2606,9 @@
           "units": 25
         },
         "preorders": {
-          "count": 501,
-          "units": 758,
-          "revenue": 25496100
+          "count": 502,
+          "units": 760,
+          "revenue": 25594000
         },
         "incoming": [
           {
@@ -2612,8 +2617,8 @@
           }
         ],
         "estimate": {
-          "normal": 88.4,
-          "fast": 88.4,
+          "normal": 89.0,
+          "fast": 89.0,
           "slow": 14.9,
           "days_of_data": 135,
           "backtest_mae_week": 103
@@ -2622,9 +2627,9 @@
         "stockout": null,
         "gap": {
           "days": 5,
-          "lost": 442,
+          "lost": 445,
           "lost_min": 74,
-          "lost_max": 442,
+          "lost_max": 445,
           "preorder": true
         },
         "post_incoming_stockout": "2026-12-04",
@@ -2651,7 +2656,7 @@
             "other": 0,
             "closing": 0,
             "current": true,
-            "preorder_units": 758
+            "preorder_units": 760
           }
         ],
         "remaining_today_share": 0.917
