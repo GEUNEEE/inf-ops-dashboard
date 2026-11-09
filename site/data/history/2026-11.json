@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-09T11:16:51",
+  "generated_at": "2026-11-09T11:23:51",
   "gross_revenue": 1620000,
   "net_profit": 1020000,
   "order_count": 11,
@@ -96,10 +96,10 @@
       }
     },
     "올리브오일캡슐": {
-      "qty": 29,
-      "order_count": 15,
-      "gross_revenue": 1013000,
-      "net_profit": 721610
+      "qty": 30,
+      "order_count": 16,
+      "gross_revenue": 1056000,
+      "net_profit": 754320
     }
   },
   "by_store": {
