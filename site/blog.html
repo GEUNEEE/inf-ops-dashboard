@@ -5,16 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <title>블로그 현황</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
     --bg:#FAFAF8; --bg2:#F2F0E8; --border:#E5E3D6; --border2:#D3D1C7;
     --text1:#1A1A18; --text2:#666660; --text3:#A8A69C; --r:8px;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --grid:#ECEAE0;
     --ok:#3B6D11; --okbg:#EAF3DE; --warn:#A32D2D; --warnbg:#FCEBEB; --wait:#854F0B; --waitbg:#FAEEDA;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg:#1A1A18; --bg2:#262624; --border:#3A3A36; --border2:#4A4A44;
       --text1:#F2F0E8; --text2:#B8B6AC; --text3:#7A786E;
+      --s1:#3987e5; --s2:#d95926; --s3:#199e70; --grid:#2E2E2B;
       --ok:#A8D57A; --okbg:#24331A; --warn:#F09595; --warnbg:#3A1E1E; --wait:#EDB872; --waitbg:#3A2C16;
     }
   }
@@ -48,6 +51,16 @@
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   .tblwrap{overflow-x:auto}
   .daybar{display:flex;gap:5px;flex-wrap:wrap}
+  .vgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:8px;margin-bottom:8px}
+  .chartbox{position:relative;height:240px} .chartbox.tall{height:420px}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--text2);margin-bottom:6px}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+  .ctitle{font-size:12px;font-weight:600;margin-bottom:6px}
+  .view{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
+  .up{color:var(--ok);font-weight:600}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+  #vtable td a:hover{text-decoration:underline}
+  @media (max-width:720px){.vgrid{grid-template-columns:1fr}.chartbox.tall{height:480px}}
   @media (max-width:720px){.acc{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
@@ -66,6 +79,18 @@
   <div class="kpis" id="kpis"></div>
   <div class="slbl">계정별 예약·발행</div>
   <div class="acc" id="acc"></div>
+
+  <div class="slbl" id="vhead">조회수</div>
+  <div class="kpis" id="vkpis" style="margin-bottom:8px"></div>
+  <div class="vgrid">
+    <div class="card"><div class="ctitle">최근 14일 조회수 · 계정별 비중</div><div class="legend" id="lg1"></div><div class="chartbox"><canvas id="donut"></canvas></div></div>
+    <div class="card"><div class="ctitle">일별 조회수 (블로그 전체 방문 조회)</div><div class="legend" id="lg2"></div><div class="chartbox"><canvas id="line"></canvas></div></div>
+  </div>
+  <div class="card" style="margin-bottom:8px">
+    <div class="ctitle" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px"><span>글별 누적 조회수 상위 15 (막대 누르면 글 열림)</span><span class="daybar" id="vfilter"></span></div>
+    <div class="legend" id="lg3"></div><div class="chartbox tall"><canvas id="bars"></canvas></div>
+  </div>
+  <div class="card tblwrap"><div class="ctitle">글별 조회수 표 (최근 발행순)</div><table id="vtable"></table></div>
 
   <div class="slbl">블로그 창 로그인 점검</div>
   <div id="login" class="card"></div>
@@ -123,7 +148,7 @@ function render() {
       const img = p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : `<div class="noimg"></div>`;
       return `<a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">${img}<div>
         <div class="t">${esc(p.title)}</div>
-        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span></div></div></a>`;
+        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span>${p.read!=null?` <span class="view">· 조회 ${p.read}${p.read_delta?` <span class="up">+${p.read_delta}</span>`:""}</span>`:""}</div></div></a>`;
     }).join("");
     return `<div class="card"><h3><span>${esc(a.label)}</span><span class="cnt ${ok?"ok":"bad"}">${mine.length}/${DATA.per_day_target}</span></h3>
       <div class="sub" style="margin-bottom:4px">${esc(a.id)}</div>
@@ -157,10 +182,86 @@ function render() {
     `<tr><td colspan="3"><b>합계</b>${estBal!=null ? ` · 잔액(추정) ${estBal.toFixed(2)}` : ""}</td><td class="num"><b>${total.toFixed(2)}</b></td></tr>`;
 }
 
+const CH = {};
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const ACOL = () => Object.fromEntries(DATA.accounts.map((a,i)=>[a.id, css(`--s${i+1}`)]));
+const short = id => (DATA.accounts.find(a=>a.id===id)||{label:id}).label.split(" ")[0];
+let VF = "all";
+function legend(el){ const c=ACOL(); document.getElementById(el).innerHTML = DATA.accounts.map(a=>`<span><i style="background:${c[a.id]}"></i>${esc(a.label)}</span>`).join(""); }
+function mk(id, cfg){ if (CH[id]) CH[id].destroy(); CH[id] = new Chart(document.getElementById(id), cfg); }
+
+function renderViews(){
+  const st = DATA.stats; if (!st || typeof Chart === "undefined") { document.getElementById("vhead").textContent = st ? "조회수 (차트 라이브러리 로딩 실패)" : "조회수 (아직 수집 전)"; return; }
+  const c = ACOL(), t2 = css("--text2"), t3 = css("--text3"), grid = css("--grid"), surf = css("--bg"), FF = getComputedStyle(document.body).fontFamily;
+  Chart.defaults.font.family = FF; Chart.defaults.color = t2;
+  document.getElementById("vhead").textContent = `조회수 · 수집 ${(st.updated_at||"").replace("T"," ")}`;
+  const ids = DATA.accounts.map(a=>a.id);
+  const dates = [...new Set(ids.flatMap(id => (st.accounts[id]?.daily||[]).map(d=>d.date)))].sort().slice(-15);
+  const cv = (id,d) => ((st.accounts[id]?.daily||[]).find(x=>x.date===d)||{}).cv ?? 0;
+  const sumD = ds => ds.reduce((s,d)=>s+ids.reduce((t,id)=>t+cv(id,d),0),0);
+  const last = dates.at(-1), prev = dates.at(-2);
+  const w1 = sumD(dates.slice(-7)), w0 = sumD(dates.slice(-14,-7));
+  const pct = w0 ? Math.round((w1-w0)/w0*100) : null;
+  document.getElementById("vkpis").innerHTML = [
+    ["오늘 조회수", sumD([last]), last ? md(last)+" 수집 시점까지" : ""],
+    ["어제", sumD([prev]), prev ? md(prev) : ""],
+    ["최근 7일", w1, "3개 블로그 합계"],
+    ["전주 대비", pct==null ? "–" : (pct>=0?"▲ ":"▼ ")+Math.abs(pct)+"%", `이전 7일 ${w0}`],
+  ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
+
+  // 도넛: 최근 14일 계정별 합계
+  const d14 = dates.slice(-14), tot = ids.map(id => d14.reduce((s,d)=>s+cv(id,d),0)), all = tot.reduce((a,b)=>a+b,0);
+  legend("lg1");
+  mk("donut", {type:"doughnut", data:{labels:ids.map(short), datasets:[{data:tot, backgroundColor:ids.map(id=>c[id]), borderColor:surf, borderWidth:2, borderRadius:4, hoverOffset:4}]},
+    options:{maintainAspectRatio:false, cutout:"62%", plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:x=>` ${x.label} ${x.raw}회 (${all?Math.round(x.raw/all*100):0}%)`}}}},
+    plugins:[{id:"center", afterDraw(ch){ const {ctx,chartArea:a}=ch; const cx=(a.left+a.right)/2, cy=(a.top+a.bottom)/2; ctx.save(); ctx.textAlign="center";
+      ctx.fillStyle=css("--text1"); ctx.font="600 22px "+FF; ctx.fillText(all,cx,cy+4);
+      ctx.fillStyle=t3; ctx.font="11px "+FF; ctx.fillText("14일 합계",cx,cy+22); ctx.restore(); }},
+      {id:"lbl", afterDatasetsDraw(ch){ const {ctx}=ch; ctx.save(); ctx.font="600 11px "+FF; ctx.fillStyle="#fff"; ctx.textAlign="center";
+      ch.getDatasetMeta(0).data.forEach((arc,i)=>{ if(!all||tot[i]/all<0.08) return; const p=arc.tooltipPosition(); ctx.fillText(Math.round(tot[i]/all*100)+"%",p.x,p.y+4); }); ctx.restore(); }}]});
+
+  // 선: 일별 조회수
+  legend("lg2");
+  mk("line", {type:"line", data:{labels:dates.map(d=>d.slice(5).replace("-","/")), datasets:ids.map(id=>({label:short(id), data:dates.map(d=>cv(id,d)),
+      borderColor:c[id], backgroundColor:c[id], borderWidth:2, pointRadius:0, pointHitRadius:12, pointHoverRadius:5, pointHoverBorderColor:surf, pointHoverBorderWidth:2, tension:0.25}))},
+    options:{maintainAspectRatio:false, interaction:{mode:"index", intersect:false},
+      plugins:{legend:{display:false}, tooltip:{callbacks:{title:x=>md(dates[x[0].dataIndex]), label:x=>` ${x.dataset.label} ${x.raw}회`}}},
+      scales:{x:{grid:{display:false}, ticks:{color:t3, maxRotation:0, autoSkipPadding:10}}, y:{beginAtZero:true, grid:{color:grid}, border:{display:false}, ticks:{color:t3, precision:0}}}}});
+
+  // 막대: 글별 누적 조회수 상위 15
+  const allPosts = ids.flatMap(id => st.accounts[id]?.posts||[]);
+  document.getElementById("vfilter").innerHTML = [["all","전체"],...DATA.accounts.map(a=>[a.id,short(a.id)])].map(([k,l]) =>
+    `<button class="chip ${VF===k?"active":""}" data-k="${k}">${l}</button>`).join("");
+  document.querySelectorAll("#vfilter .chip").forEach(b=>b.onclick=()=>{VF=b.dataset.k; renderViews();});
+  const top = allPosts.filter(p=>VF==="all"||p.blog_id===VF).sort((a,b)=>b.read-a.read).slice(0,15);
+  legend("lg3");
+  const cut = s => s.length>24 ? s.slice(0,23)+"…" : s;
+  mk("bars", {type:"bar", data:{labels:top.map(p=>cut(p.title)), datasets:[{data:top.map(p=>p.read), backgroundColor:top.map(p=>c[p.blog_id]),
+      borderRadius:{topRight:4,bottomRight:4}, borderSkipped:"start", barPercentage:0.72, categoryPercentage:0.9}]},
+    options:{indexAxis:"y", maintainAspectRatio:false, layout:{padding:{right:28}},
+      onClick:(e,el)=>{ if(el[0]) window.open(top[el[0].index].url,"_blank"); },
+      onHover:(e,el)=>{ e.native.target.style.cursor = el.length?"pointer":"default"; },
+      plugins:{legend:{display:false}, tooltip:{callbacks:{title:x=>top[x[0].dataIndex].title,
+        label:x=>{const p=top[x.dataIndex]; return [` ${short(p.blog_id)} · 조회 ${p.read}회${p.delta?` (어제보다 +${p.delta})`:""}`, ` 공감 ${p.like} · 댓글 ${p.comment} · ${md(p.added)} 발행`];}}}},
+      scales:{x:{beginAtZero:true, grid:{color:grid}, border:{display:false}, ticks:{color:t3, precision:0}}, y:{grid:{display:false}, ticks:{color:t2, font:{size:11}}}}},
+    plugins:[{id:"val", afterDatasetsDraw(ch){ const {ctx}=ch; ctx.save(); ctx.fillStyle=t2; ctx.font="11px "+FF; ctx.textBaseline="middle";
+      ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(top[i].read, b.x+5, b.y)); ctx.restore(); }}]});
+
+  // 표
+  const rows = allPosts.filter(p=>VF==="all"||p.blog_id===VF).sort((a,b)=>b.added.localeCompare(a.added));
+  document.getElementById("vtable").innerHTML = `<tr><th>발행</th><th>계정</th><th>제목</th><th class="num">조회</th><th class="num">어제 대비</th><th class="num">공감</th><th class="num">댓글</th></tr>` +
+    rows.map(p=>`<tr><td style="white-space:nowrap">${md(p.added)}</td><td style="white-space:nowrap"><span class="dot" style="background:${c[p.blog_id]}"></span>${esc(short(p.blog_id))}</td>
+      <td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></td><td class="num">${p.read}</td>
+      <td class="num">${p.delta==null?"–":p.delta>0?`<span class="up">+${p.delta}</span>`:p.delta}</td><td class="num">${p.like}</td><td class="num">${p.comment}</td></tr>`).join("");
+}
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => DATA && renderViews());
+
 fetch("data/blog/blog.json?" + Date.now()).then(r => r.json()).then(d => {
   DATA = d; SEL = ymd(new Date());
   document.getElementById("gen").textContent = "갱신 " + d.generated_at.replace("T"," ");
   render();
+  try { renderViews(); } catch (e) { console.error(e); document.getElementById("vhead").textContent = "조회수 그래프 오류: " + e; }
 }).catch(e => { document.getElementById("acc").innerHTML = `<div class="warn">데이터를 불러오지 못했습니다: ${esc(e)}</div>`; });
 </script>
 </body>
