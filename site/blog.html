@@ -51,6 +51,14 @@
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
   .tblwrap{overflow-x:auto}
   .daybar{display:flex;gap:5px;flex-wrap:wrap}
+  .sum{border:0.5px solid var(--border);border-radius:var(--r);padding:14px 16px;background:var(--bg2);margin-bottom:14px}
+  .sum h2{font-size:13px;font-weight:600;margin-bottom:8px}
+  .sum ul{list-style:none;display:grid;gap:5px}
+  .sum li{font-size:12.5px;display:flex;gap:8px;align-items:baseline}
+  .sum li .k{flex:none;width:64px;color:var(--text3);font-size:11px}
+  .sum li>span:last-child{min-width:0;overflow-wrap:anywhere}
+  .sum b{font-weight:600}
+  .sum .bad{color:var(--warn);font-weight:600} .sum .good{color:var(--ok);font-weight:600}
   .vgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:8px;margin-bottom:8px}
   .chartbox{position:relative;height:240px} .chartbox.tall{height:420px}
   .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--text2);margin-bottom:6px}
@@ -74,6 +82,7 @@
     </span>
   </div>
 
+  <div class="sum" id="summary"><h2>요약</h2><div class="sub">불러오는 중…</div></div>
   <div class="daybar" id="days"></div>
   <div class="slbl" id="dayhead"></div>
   <div class="kpis" id="kpis"></div>
@@ -102,7 +111,7 @@
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
-const PAGE_VER = "20261111b";
+const PAGE_VER = "20261111c";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -115,15 +124,54 @@ function status(p) {
 }
 
 function renderDays() {
-  const today = new Date(); const t = ymd(today);
-  const tm = new Date(today); tm.setDate(tm.getDate()+1);
-  const ys = new Date(today); ys.setDate(ys.getDate()-1);
-  const opts = [[ymd(ys),"어제"],[t,"오늘"],[ymd(tm),"내일"]];
-  const dates = [...new Set(DATA.posts.map(p => p.publish_at.slice(0,10)))].filter(d => d > ymd(tm)).sort();
-  dates.forEach(d => opts.push([d, md(d)]));
+  const t = ymd(new Date()), ds = new Set();
+  for (let i = 6; i >= -1; i--) { const d = new Date(); d.setDate(d.getDate()-i); ds.add(ymd(d)); }  // 최근 7일 + 다음 날
+  DATA.posts.forEach(p => { const d = p.publish_at.slice(0,10); if (d > t) ds.add(d); });            // 예약 잡힌 이후 날짜
+  const opts = [...ds].sort().map(d => [d, md(d)]);
   document.getElementById("days").innerHTML = opts.map(([d,l]) =>
     `<button class="chip ${d===SEL?"active":""}" data-d="${d}">${l}</button>`).join("");
   document.querySelectorAll("#days .chip").forEach(b => b.onclick = () => { SEL = b.dataset.d; render(); });
+}
+
+function renderSummary() {
+  const t = ymd(new Date()); const tmD = new Date(); tmD.setDate(tmD.getDate()+1); const tm = ymd(tmD);
+  const tgt = DATA.per_day_target * DATA.accounts.length;
+  const dayLine = d => { const ps = DATA.posts.filter(p => p.publish_at.startsWith(d));
+    const done = ps.filter(p=>status(p)[0]==="ok").length, wait = ps.filter(p=>status(p)[0]==="wait").length, fail = ps.filter(p=>status(p)[0]==="bad").length;
+    const lack = DATA.accounts.filter(a => ps.filter(p=>p.blog_id===a.id).length < DATA.per_day_target).map(a=>a.label.split(" ")[0]);
+    return `<b>${ps.length}/${tgt}편</b> · 발행됨 ${done} · 예약 ${wait}${fail?` · <span class="bad">예약 실패 ${fail}</span>`:""}` +
+      (lack.length ? ` · <span class="bad">⚠ 부족: ${lack.join("·")}</span>` : ` · <span class="good">계정별 3편 채움</span>`); };
+  const li = (k, v) => `<li><span class="k">${k}</span><span>${v}</span></li>`;
+  const L = [li(`오늘 ${md(t).slice(0,5)}`, dayLine(t)), li(`내일 ${md(tm).slice(0,5)}`, dayLine(tm))];
+
+  const st = DATA.stats;
+  if (st) {
+    const ids = DATA.accounts.map(a=>a.id);
+    const dates = [...new Set(ids.flatMap(id => (st.accounts[id]?.daily||[]).map(d=>d.date)))].sort();
+    const cv = (id,d) => ((st.accounts[id]?.daily||[]).find(x=>x.date===d)||{}).cv ?? 0;
+    const sumD = ds => ds.reduce((s,d)=>s+ids.reduce((x,id)=>x+cv(id,d),0),0);
+    const w1 = sumD(dates.slice(-7)), w0 = sumD(dates.slice(-14,-7)), pct = w0 ? Math.round((w1-w0)/w0*100) : null;
+    const per = ids.map(id => [id, dates.slice(-7).reduce((s,d)=>s+cv(id,d),0)]).sort((a,b)=>b[1]-a[1]);
+    const nm = id => DATA.accounts.find(a=>a.id===id).label.split(" ")[0];
+    L.push(li("조회수", `오늘 <b>${sumD(dates.slice(-1))}</b> · 어제 ${sumD(dates.slice(-2,-1))} · 최근 7일 <b>${w1}</b>` +
+      (pct==null ? "" : ` (전주 대비 <span class="${pct>=0?"good":"bad"}">${pct>=0?"▲":"▼"}${Math.abs(pct)}%</span>)`)));
+    L.push(li("블로그별", `최근 7일 ` + per.map(([id,n]) => `${esc(nm(id))} ${n}`).join(" · ")));
+    const posts = ids.flatMap(id => st.accounts[id]?.posts||[]);
+    const top = [...posts].sort((a,b)=>b.read-a.read)[0];
+    if (top) L.push(li("조회 1위 글", `<a href="${esc(top.url)}" target="_blank" rel="noopener"><b>${esc(top.title)}</b></a> · ${esc(nm(top.blog_id))} ${top.read}회`));
+    const up = posts.filter(p=>p.delta>0).sort((a,b)=>b.delta-a.delta)[0];
+    if (up) L.push(li("어제보다 ↑", `<a href="${esc(up.url)}" target="_blank" rel="noopener">${esc(up.title)}</a> · <span class="good">+${up.delta}</span>`));
+  } else L.push(li("조회수", `<span class="sub">아직 수집 전</span>`));
+
+  const lg = DATA.login;
+  if (lg) { const bad = Object.entries(lg.accounts).filter(([,v])=>!v.ok).map(([k])=>k);
+    L.push(li("로그인", bad.length ? `<span class="bad">로그인 필요: ${esc(bad.join("·"))}</span>` : `<span class="good">3개 모두 정상</span> <span class="sub">(${esc(lg.at.replace("T"," "))})</span>`)); }
+  else L.push(li("로그인", `<span class="sub">점검 기록 없음 (매일 08:30 점검)</span>`));
+
+  const cs = DATA.costs || []; const lastBal = [...cs].reverse().find(c => c.balance != null);
+  if (lastBal) { const est = lastBal.balance - cs.slice(cs.indexOf(lastBal)+1).reduce((s,c)=>s+(+c.credits||0),0);
+    L.push(li("크레딧", `누적 사용 ${cs.reduce((s,c)=>s+(+c.credits||0),0).toFixed(2)} · 잔액(추정) <b>${est.toFixed(2)}</b>`)); }
+  document.getElementById("summary").innerHTML = `<h2>요약 <span class="sub" style="font-weight:400">· ${md(t)} 기준</span></h2><ul>${L.join("")}</ul>`;
 }
 
 function render() {
@@ -263,6 +311,7 @@ fetch("data/blog/blog.json?" + Date.now()).then(r => r.json()).then(d => {
   DATA = d; SEL = ymd(new Date());
   document.getElementById("gen").textContent = "갱신 " + d.generated_at.replace("T"," ");
   render();
+  try { renderSummary(); } catch (e) { console.error(e); }
   try { renderViews(); } catch (e) { console.error(e); document.getElementById("vhead").textContent = "조회수 그래프 오류: " + e; }
 }).catch(e => { document.getElementById("acc").innerHTML = `<div class="warn">데이터를 불러오지 못했습니다: ${esc(e)}</div>`; });
 </script>
