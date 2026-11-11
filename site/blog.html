@@ -67,6 +67,10 @@
   .view{font-size:11px;color:var(--text2);font-variant-numeric:tabular-nums}
   .up{color:var(--ok);font-weight:600}
   .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+  .rk{display:inline-block;font-size:10.5px;padding:0 5px;border-radius:4px;border:0.5px solid var(--border);color:var(--text2);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rk.top{color:var(--ok);border-color:var(--ok);font-weight:600}
+  .dn{color:var(--warn);font-weight:600}
+  #ktable td,#ktable th{white-space:nowrap} #ktable td.ttl{white-space:normal;min-width:180px}
   #vtable td a:hover{text-decoration:underline}
   @media (max-width:720px){.vgrid{grid-template-columns:1fr}.chartbox.tall{height:480px}}
   @media (max-width:720px){.acc{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -99,6 +103,13 @@
     <div class="ctitle" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px"><span>글별 누적 조회수 상위 15 (막대 누르면 글 열림)</span><span class="daybar" id="vfilter"></span></div>
     <div class="legend" id="lg3"></div><div class="chartbox tall"><canvas id="bars"></canvas></div>
   </div>
+  <div class="slbl" id="khead">키워드 순위</div>
+  <div class="kpis" id="kkpis" style="margin-bottom:8px"></div>
+  <div class="card tblwrap" style="margin-bottom:8px">
+    <div class="ctitle" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px"><span>글별 키워드 순위 (좋은 순위부터)</span><span class="daybar" id="kfilter"></span></div>
+    <div class="sub" style="margin-bottom:6px">블로그탭 = 네이버 모바일 검색 '블로그' 탭 1페이지(30개) 안 순위 · 통합 = 통합검색 첫 화면에 나온 블로그 글 중 몇 번째 · – = 순위 밖 · ▲▼ = 그 전 측정일 대비 · 매일 08:30 자동 측정</div>
+    <table id="ktable"></table></div>
+
   <div class="card tblwrap"><div class="ctitle">글별 조회수 표 (최근 발행순)</div><table id="vtable"></table></div>
 
   <div class="slbl">블로그 창 로그인 점검</div>
@@ -111,7 +122,7 @@
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
-const PAGE_VER = "20261111c";
+const PAGE_VER = "20261111d";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -163,6 +174,9 @@ function renderSummary() {
     if (up) L.push(li("어제보다 ↑", `<a href="${esc(up.url)}" target="_blank" rel="noopener">${esc(up.title)}</a> · <span class="good">+${up.delta}</span>`));
   } else L.push(li("조회수", `<span class="sub">아직 수집 전</span>`));
 
+  const kr = DATA.posts.filter(p=>p.ranks).flatMap(p=>p.ranks);
+  if (DATA.kwrank) L.push(li("키워드 순위", `블로그탭 10위 안 <b>${kr.filter(r=>r.b&&r.b<=10).length}</b>/${kr.length}개 · 1~3위 <b>${kr.filter(r=>r.b&&r.b<=3).length}</b>개` +
+      ` · 새로 진입 <span class="good">${kr.filter(r=>r.b&&r.pb===null).length}</span> · 이탈 <span class="bad">${kr.filter(r=>!r.b&&r.pb&&r.pb!=="new").length}</span>`));
   const lg = DATA.login;
   if (lg) { const bad = Object.entries(lg.accounts).filter(([,v])=>!v.ok).map(([k])=>k);
     L.push(li("로그인", bad.length ? `<span class="bad">로그인 필요: ${esc(bad.join("·"))}</span>` : `<span class="good">3개 모두 정상</span> <span class="sub">(${esc(lg.at.replace("T"," "))})</span>`)); }
@@ -172,6 +186,44 @@ function renderSummary() {
   if (lastBal) { const est = lastBal.balance - cs.slice(cs.indexOf(lastBal)+1).reduce((s,c)=>s+(+c.credits||0),0);
     L.push(li("크레딧", `누적 사용 ${cs.reduce((s,c)=>s+(+c.credits||0),0).toFixed(2)} · 잔액(추정) <b>${est.toFixed(2)}</b>`)); }
   document.getElementById("summary").innerHTML = `<h2>요약 <span class="sub" style="font-weight:400">· ${md(t)} 기준</span></h2><ul>${L.join("")}</ul>`;
+}
+
+function rkBadge(p) {
+  const r = (p.ranks||[]).filter(x=>x.b).sort((a,b)=>a.b-b.b)[0];
+  return r ? ` <span class="rk ${r.b<=3?"top":""}" title="블로그탭 순위">${esc(r.kw)} ${r.b}위</span>` : "";
+}
+const mv = (now, prev) => {  // 순위 변동: 숫자 작을수록 좋음
+  if (prev === "new" || prev === undefined) return `<span class="sub">첫 측정</span>`;
+  if (now && !prev) return `<span class="up">진입</span>`;
+  if (!now && prev) return `<span class="dn">이탈</span>`;
+  if (!now) return "–";
+  return now < prev ? `<span class="up">▲${prev-now}</span>` : now > prev ? `<span class="dn">▼${now-prev}</span>` : "=";
+};
+let KF = "rank";
+function renderRanks() {
+  const km = DATA.kwrank; const head = document.getElementById("khead");
+  if (!km) { head.textContent = "키워드 순위 (아직 측정 전)"; return; }
+  head.textContent = `키워드 순위 · 측정 ${(km.updated_at||"").replace("T"," ")}`;
+  const rows = DATA.posts.filter(p=>p.ranks).flatMap(p=>p.ranks.map((r,i)=>({...r, p, main:i===0})));
+  const cnt = f => rows.filter(f).length;
+  document.getElementById("kkpis").innerHTML = [
+    ["측정 키워드", rows.length, `글 ${DATA.posts.filter(p=>p.ranks).length}편 × 앞 3개`],
+    ["블로그탭 1~3위", cnt(r=>r.b&&r.b<=3), "키워드 수"],
+    ["블로그탭 10위 안", cnt(r=>r.b&&r.b<=10), "키워드 수"],
+    ["통합검색 노출", cnt(r=>r.t), "통합 첫 화면에 보임"],
+  ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
+  document.getElementById("kfilter").innerHTML = [["rank","순위 있는 것만"],["all","전체"],...DATA.accounts.map(a=>[a.id,a.label.split(" ")[0]])]
+    .map(([k,l])=>`<button class="chip ${KF===k?"on":""}" data-k="${k}">${esc(l)}</button>`).join("");
+  document.querySelectorAll("#kfilter .chip").forEach(b=>b.onclick=()=>{KF=b.dataset.k; renderRanks();});
+  const c = ACOL(), big = 999;
+  const list = rows.filter(r => KF==="all" || (KF==="rank" ? (r.b||r.t) : r.p.blog_id===KF))
+    .sort((a,b)=>(a.b||big)-(b.b||big) || (a.t||big)-(b.t||big) || b.p.publish_at.localeCompare(a.p.publish_at));
+  document.getElementById("ktable").innerHTML = `<tr><th>발행</th><th>계정</th><th>제목</th><th>키워드</th><th class="num">블로그탭</th><th class="num">변동</th><th class="num">통합</th><th class="num">변동</th></tr>` +
+    list.map(r=>`<tr><td>${md(r.p.publish_at.slice(0,10))}</td><td><span class="dot" style="background:${c[r.p.blog_id]}"></span>${esc(short(r.p.blog_id))}</td>
+      <td class="ttl"><a href="${esc(r.p.url)}" target="_blank" rel="noopener">${esc(r.p.title)}</a></td>
+      <td>${esc(r.kw)}${r.main?` <span class="sub">대표</span>`:""}</td>
+      <td class="num">${r.b?`<span class="rk ${r.b<=3?"top":""}">${r.b}위</span>`:"–"}</td><td class="num">${mv(r.b,r.pb)}</td>
+      <td class="num">${r.t?`${r.t}번째`:"–"}</td><td class="num">${mv(r.t,r.pt)}</td></tr>`).join("");
 }
 
 function render() {
@@ -197,7 +249,7 @@ function render() {
       const img = p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : `<div class="noimg"></div>`;
       return `<a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">${img}<div>
         <div class="t">${esc(p.title)}</div>
-        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span>${p.read!=null?` <span class="view">· 조회 ${p.read}${p.read_delta?` <span class="up">+${p.read_delta}</span>`:""}</span>`:""}</div></div></a>`;
+        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span>${p.read!=null?` <span class="view">· 조회 ${p.read}${p.read_delta?` <span class="up">+${p.read_delta}</span>`:""}</span>`:""}${rkBadge(p)}</div></div></a>`;
     }).join("");
     return `<div class="card"><h3><span>${esc(a.label)}</span><span class="cnt ${ok?"ok":"bad"}">${mine.length}/${DATA.per_day_target}</span></h3>
       <div class="sub" style="margin-bottom:4px">${esc(a.id)}</div>
@@ -313,6 +365,7 @@ fetch("data/blog/blog.json?" + Date.now()).then(r => r.json()).then(d => {
   render();
   try { renderSummary(); } catch (e) { console.error(e); }
   try { renderViews(); } catch (e) { console.error(e); document.getElementById("vhead").textContent = "조회수 그래프 오류: " + e; }
+  try { renderRanks(); } catch (e) { console.error(e); document.getElementById("khead").textContent = "키워드 순위 오류: " + e; }
 }).catch(e => { document.getElementById("acc").innerHTML = `<div class="warn">데이터를 불러오지 못했습니다: ${esc(e)}</div>`; });
 </script>
 </body>
