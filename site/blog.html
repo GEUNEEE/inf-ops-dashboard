@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>블로그 현황</title>
+<style>
+  :root {
+    --bg:#FAFAF8; --bg2:#F2F0E8; --border:#E5E3D6; --border2:#D3D1C7;
+    --text1:#1A1A18; --text2:#666660; --text3:#A8A69C; --r:8px;
+    --ok:#3B6D11; --okbg:#EAF3DE; --warn:#A32D2D; --warnbg:#FCEBEB; --wait:#854F0B; --waitbg:#FAEEDA;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:#1A1A18; --bg2:#262624; --border:#3A3A36; --border2:#4A4A44;
+      --text1:#F2F0E8; --text2:#B8B6AC; --text3:#7A786E;
+      --ok:#A8D57A; --okbg:#24331A; --warn:#F09595; --warnbg:#3A1E1E; --wait:#EDB872; --waitbg:#3A2C16;
+    }
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text1);font-family:'Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:13px;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 16px}
+  .head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .title{font-size:18px;font-weight:600}
+  .sub{font-size:11px;color:var(--text3)}
+  .chip{font-size:10px;padding:3px 9px;border-radius:11px;border:0.5px solid var(--border2);color:var(--text2);font-weight:500;cursor:pointer;background:transparent}
+  .chip.active{background:var(--text1);color:var(--bg);border-color:var(--text1)}
+  .slbl{font-size:11px;font-weight:600;color:var(--text2);margin:20px 0 8px}
+  .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+  .kpi{background:var(--bg2);border-radius:var(--r);padding:11px 13px}
+  .kpi .l{font-size:11px;color:var(--text3)} .kpi .v{font-size:22px;font-weight:500} .kpi .s{font-size:10px;color:var(--text3)}
+  .acc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .card{border:0.5px solid var(--border);border-radius:var(--r);padding:12px;background:var(--bg)}
+  .card h3{font-size:13px;font-weight:600;display:flex;justify-content:space-between;margin-bottom:8px}
+  .cnt.ok{color:var(--ok)} .cnt.bad{color:var(--warn)}
+  .post{display:flex;gap:9px;padding:7px 0;border-top:0.5px solid var(--border)}
+  .post img,.noimg{width:64px;height:64px;border-radius:6px;object-fit:cover;background:var(--bg2);flex:none}
+  .post .t{font-size:12px;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .post .m{font-size:11px;color:var(--text3);margin-top:2px}
+  .tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:9px;font-weight:600}
+  .tag.ok{background:var(--okbg);color:var(--ok)} .tag.wait{background:var(--waitbg);color:var(--wait)} .tag.bad{background:var(--warnbg);color:var(--warn)}
+  .warn{color:var(--warn);font-weight:600;font-size:12px;padding:6px 0}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th,td{text-align:left;padding:6px 8px;border-bottom:0.5px solid var(--border)}
+  th{color:var(--text3);font-weight:500;font-size:11px}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+  .tblwrap{overflow-x:auto}
+  .daybar{display:flex;gap:5px;flex-wrap:wrap}
+  @media (max-width:720px){.acc{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="title">블로그 현황</span>
+    <span style="display:flex;gap:10px;align-items:baseline">
+      <a class="chip" href="index.html">← 인플루언서</a>
+      <span class="sub" id="gen"></span>
+    </span>
+  </div>
+
+  <div class="daybar" id="days"></div>
+  <div class="slbl" id="dayhead"></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="slbl">계정별 예약·발행</div>
+  <div class="acc" id="acc"></div>
+
+  <div class="slbl">블로그 창 로그인 점검</div>
+  <div id="login" class="card"></div>
+
+  <div class="slbl">최근 14일 계정별 편수 (목표 하루 3편)</div>
+  <div class="card tblwrap"><table id="hist"></table></div>
+
+  <div class="slbl">유료 생성 비용 (크레딧)</div>
+  <div class="card tblwrap"><table id="cost"></table></div>
+</div>
+<script>
+const WEEK = "일월화수목금토";
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+const md = s => `${s.slice(5,7)}-${s.slice(8,10)}(${WEEK[new Date(s.slice(0,10)+"T00:00").getDay()]})`;
+let DATA, SEL;
+
+function status(p) {
+  if (!p.url) return ["bad","예약 실패"];
+  return new Date(p.publish_at) <= new Date() ? ["ok","발행됨"] : ["wait","예약"];
+}
+
+function renderDays() {
+  const today = new Date(); const t = ymd(today);
+  const tm = new Date(today); tm.setDate(tm.getDate()+1);
+  const ys = new Date(today); ys.setDate(ys.getDate()-1);
+  const opts = [[ymd(ys),"어제"],[t,"오늘"],[ymd(tm),"내일"]];
+  const dates = [...new Set(DATA.posts.map(p => p.publish_at.slice(0,10)))].filter(d => d > ymd(tm)).sort();
+  dates.forEach(d => opts.push([d, md(d)]));
+  document.getElementById("days").innerHTML = opts.map(([d,l]) =>
+    `<button class="chip ${d===SEL?"active":""}" data-d="${d}">${l}</button>`).join("");
+  document.querySelectorAll("#days .chip").forEach(b => b.onclick = () => { SEL = b.dataset.d; render(); });
+}
+
+function render() {
+  renderDays();
+  const posts = DATA.posts.filter(p => p.publish_at.startsWith(SEL));
+  const target = DATA.per_day_target * DATA.accounts.length;
+  const done = posts.filter(p => status(p)[0]==="ok").length;
+  const wait = posts.filter(p => status(p)[0]==="wait").length;
+  const short = DATA.accounts.filter(a => posts.filter(p => p.blog_id===a.id).length < DATA.per_day_target);
+  document.getElementById("dayhead").textContent = `📅 ${md(SEL)} 발행분`;
+  document.getElementById("kpis").innerHTML = [
+    ["전체", `${posts.length}/${target}`, "계정 3개 × 3편"],
+    ["발행됨", done, "예약 시각 지남"],
+    ["예약 대기", wait, "아직 시각 전"],
+    ["부족 계정", short.length, short.length ? short.map(a=>a.label.split(" ")[0]).join("·") : "없음"],
+  ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
+
+  document.getElementById("acc").innerHTML = DATA.accounts.map(a => {
+    const mine = posts.filter(p => p.blog_id===a.id);
+    const ok = mine.length >= DATA.per_day_target;
+    const rows = mine.map(p => {
+      const [c,l] = status(p);
+      const img = p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : `<div class="noimg"></div>`;
+      return `<a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">${img}<div>
+        <div class="t">${esc(p.title)}</div>
+        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span></div></div></a>`;
+    }).join("");
+    return `<div class="card"><h3><span>${esc(a.label)}</span><span class="cnt ${ok?"ok":"bad"}">${mine.length}/${DATA.per_day_target}</span></h3>
+      <div class="sub" style="margin-bottom:4px">${esc(a.id)}</div>
+      ${rows || ""}${ok ? "" : `<div class="warn">⚠ ${DATA.per_day_target - mine.length}편 부족</div>`}</div>`;
+  }).join("");
+
+  const lg = DATA.login;
+  document.getElementById("login").innerHTML = !lg ? `<div class="sub">아직 점검 기록 없음 (매일 08:30 브리핑 때 점검)</div>` :
+    `<div class="sub" style="margin-bottom:6px">마지막 점검 ${esc(lg.at.replace("T"," "))}</div>` +
+    Object.entries(lg.accounts).map(([k,v]) =>
+      `<div>${esc(k)} · ${esc(v.blog_id)} — ${v.ok ? '<span class="tag ok">로그인됨</span>' : '<span class="tag bad">로그인 필요</span>'}</div>`).join("");
+
+  const days = [];
+  for (let i = 13; i >= -1; i--) { const d = new Date(); d.setDate(d.getDate()-i); days.push(ymd(d)); }
+  document.getElementById("hist").innerHTML =
+    `<tr><th>날짜</th>${DATA.accounts.map(a=>`<th class="num">${esc(a.label.split(" ")[0])}</th>`).join("")}<th class="num">합계</th></tr>` +
+    days.reverse().map(d => {
+      const ps = DATA.posts.filter(p => p.publish_at.startsWith(d));
+      const cells = DATA.accounts.map(a => { const n = ps.filter(p=>p.blog_id===a.id).length;
+        return `<td class="num" style="${n<DATA.per_day_target?"color:var(--warn)":""}">${n}</td>`; }).join("");
+      return `<tr><td>${md(d)}</td>${cells}<td class="num">${ps.length}</td></tr>`;
+    }).join("");
+
+  const cs = DATA.costs || [];
+  const total = cs.reduce((s,c)=>s+(+c.credits||0),0);
+  const lastBal = [...cs].reverse().find(c => c.balance != null);
+  const estBal = lastBal ? lastBal.balance - cs.slice(cs.indexOf(lastBal)+1).reduce((s,c)=>s+(+c.credits||0),0) : null;
+  document.getElementById("cost").innerHTML =
+    `<tr><th>날짜</th><th>세트</th><th>항목</th><th class="num">크레딧</th></tr>` +
+    cs.map(c => `<tr><td>${esc(c.date)}</td><td>${esc(c.set)}</td><td>${esc(c.tool)} — ${esc(c.item)}</td><td class="num">${(+c.credits).toFixed(2)}</td></tr>`).join("") +
+    `<tr><td colspan="3"><b>합계</b>${estBal!=null ? ` · 잔액(추정) ${estBal.toFixed(2)}` : ""}</td><td class="num"><b>${total.toFixed(2)}</b></td></tr>`;
+}
+
+fetch("data/blog/blog.json?" + Date.now()).then(r => r.json()).then(d => {
+  DATA = d; SEL = ymd(new Date());
+  document.getElementById("gen").textContent = "갱신 " + d.generated_at.replace("T"," ");
+  render();
+}).catch(e => { document.getElementById("acc").innerHTML = `<div class="warn">데이터를 불러오지 못했습니다: ${esc(e)}</div>`; });
+</script>
+</body>
+</html>
