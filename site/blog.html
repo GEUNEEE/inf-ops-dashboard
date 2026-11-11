@@ -102,6 +102,7 @@
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
+const PAGE_VER = "20261111b";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -258,6 +259,7 @@ function renderViews(){
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => DATA && renderViews());
 
 fetch("data/blog/blog.json?" + Date.now()).then(r => r.json()).then(d => {
+  if (d.page_ver && d.page_ver !== PAGE_VER && !location.search.includes("v="+d.page_ver)) { location.replace("blog.html?v=" + d.page_ver); return; }  // 브라우저에 남은 옛 페이지면 새로 받기
   DATA = d; SEL = ymd(new Date());
   document.getElementById("gen").textContent = "갱신 " + d.generated_at.replace("T"," ");
   render();
