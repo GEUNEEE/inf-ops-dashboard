@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T09:27",
+ "generated_at": "2026-11-12T09:29",
  "page_ver": "20261111d",
  "accounts": [
   {
@@ -63,10 +63,10 @@
    "title": "안유진 샤넬 화보 '덜어낸 메이크업', 따라 하면 멜라닌 자국부터 보이는 이유",
    "keyword": "멜라닌",
    "thumb": "data/blog/thumbs/review_20261104_B2_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "안유진 화보",
@@ -285,10 +285,10 @@
    "title": "윤미라 '스크럽은 쓰지 않는다', 70대 피부 비결 보고 바꾼 기미크림 루틴",
    "keyword": "기미크림",
    "thumb": "data/blog/thumbs/review_20261105_B2_1.jpg",
-   "read": 10,
+   "read": 12,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "윤미라 피부",
@@ -988,10 +988,10 @@
    "title": "신민아·김유정 글로우 메이크업, 잡티 보일 때 내 기미크림추천 기준",
    "keyword": "기미크림추천",
    "thumb": "data/blog/thumbs/review_20261106_B3_1.jpg",
-   "read": 12,
+   "read": 13,
    "like": 1,
    "comment": 1,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "신민아 메이크업",
@@ -1099,10 +1099,10 @@
    "title": "검버섯크림 고르기 전에, 손등 갈색 점 보고 내가 세운 기준 4가지",
    "keyword": "검버섯크림",
    "thumb": "data/blog/thumbs/review_20261107_B1_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "검버섯크림",
@@ -1728,10 +1728,10 @@
    "title": "“미안하다” 한마디에 빵 터졌어, 황정음 민낯 근황 보고 화장대 뒤집은 밤",
    "keyword": "황정음",
    "thumb": "data/blog/thumbs/review_20261111_B10_1.jpg",
-   "read": 2,
+   "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "황정음",
@@ -1950,7 +1950,10 @@
    "title": "약국기미크림 상자 뒷면에서 내가 본 3가지",
    "keyword": "약국기미크림",
    "thumb": "data/blog/thumbs/review_20261111_B12_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "약국기미크림",
@@ -2058,7 +2061,10 @@
    "title": "“제가 너무 버틴 거다” 49세 강수정 민낯 영상 보고 찔렸어",
    "keyword": "강수정",
    "thumb": "data/blog/thumbs/review_20261112_B13_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "강수정",
@@ -2266,7 +2272,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-12T09:27",
+  "updated_at": "2026-11-12T09:29",
   "prev_snap": "2026-11-11",
   "accounts": {
    "cnsou1088": {
@@ -2329,10 +2335,36 @@
      },
      {
       "date": "2026-11-11",
-      "cv": 18
+      "cv": 21
+     },
+     {
+      "date": "2026-11-12",
+      "cv": 6
      }
     ],
     "posts": [
+     {
+      "log": "224473293484",
+      "blog_id": "cnsou1088",
+      "title": "“제가 너무 버틴 거다” 49세 강수정 민낯 영상 보고 찔렸어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-12T09:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224473293484"
+     },
+     {
+      "log": "224472979084",
+      "blog_id": "cnsou1088",
+      "title": "약국기미크림 상자 뒷면에서 내가 본 3가지",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-11T20:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224472979084"
+     },
      {
       "log": "224472975793",
       "blog_id": "cnsou1088",
@@ -2348,11 +2380,11 @@
       "log": "224472995222",
       "blog_id": "cnsou1088",
       "title": "“미안하다” 한마디에 빵 터졌어, 황정음 민낯 근황 보고 화장대 뒤집은 밤",
-      "read": 2,
+      "read": 3,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T16:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224472995222"
      },
      {
@@ -2414,22 +2446,22 @@
       "log": "224467250022",
       "blog_id": "cnsou1088",
       "title": "검버섯크림 고르기 전에, 손등 갈색 점 보고 내가 세운 기준 4가지",
-      "read": 5,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-08T09:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224467250022"
      },
      {
       "log": "224467033120",
       "blog_id": "cnsou1088",
       "title": "신민아·김유정 글로우 메이크업, 잡티 보일 때 내 기미크림추천 기준",
-      "read": 12,
+      "read": 13,
       "like": 1,
       "comment": 1,
       "added": "2026-11-07T16:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224467033120"
      },
      {
@@ -2491,11 +2523,11 @@
       "log": "224465590326",
       "blog_id": "cnsou1088",
       "title": "윤미라 '스크럽은 쓰지 않는다', 70대 피부 비결 보고 바꾼 기미크림 루틴",
-      "read": 10,
+      "read": 12,
       "like": 1,
       "comment": 0,
       "added": "2026-11-05T12:00",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224465590326"
      },
      {
@@ -2524,11 +2556,11 @@
       "log": "224464451749",
       "blog_id": "cnsou1088",
       "title": "안유진 샤넬 화보 '덜어낸 메이크업', 따라 하면 멜라닌 자국부터 보이는 이유",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T12:20",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224464451749"
      },
      {
@@ -2640,28 +2672,6 @@
       "added": "2025-12-23T13:10",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224119069266"
-     },
-     {
-      "log": "224119062301",
-      "blog_id": "cnsou1088",
-      "title": "울산 무거동 피부과 기미 때문에 소개팅도 피했던 내가 달라졌어요",
-      "read": 7,
-      "like": 2,
-      "comment": 0,
-      "added": "2025-12-23T11:50",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224119062301"
-     },
-     {
-      "log": "224115838451",
-      "blog_id": "cnsou1088",
-      "title": "연수동피부과 잡티와 기미로 무너진 자존감, 이제는 달라요",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-20T18:10",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224115838451"
      }
     ]
    },
@@ -3468,7 +3478,7 @@
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-12T09:27",
+  "updated_at": "2026-11-12T09:29",
   "date": "2026-11-12"
  }
 }
