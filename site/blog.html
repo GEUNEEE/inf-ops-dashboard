@@ -96,11 +96,11 @@
   <div class="slbl" id="vhead">조회수</div>
   <div class="kpis" id="vkpis" style="margin-bottom:8px"></div>
   <div class="vgrid">
-    <div class="card"><div class="ctitle">최근 14일 조회수 · 계정별 비중</div><div class="legend" id="lg1"></div><div class="chartbox"><canvas id="donut"></canvas></div></div>
-    <div class="card"><div class="ctitle">일별 조회수 (블로그 전체 방문 조회)</div><div class="legend" id="lg2"></div><div class="chartbox"><canvas id="line"></canvas></div></div>
+    <div class="card"><div class="ctitle" id="t_donut">계정별 비중</div><div class="legend" id="lg1"></div><div class="chartbox"><canvas id="donut"></canvas></div></div>
+    <div class="card"><div class="ctitle" id="t_line">일별 조회수 (블로그 전체 방문 조회)</div><div class="legend" id="lg2"></div><div class="chartbox"><canvas id="line"></canvas></div></div>
   </div>
   <div class="card" style="margin-bottom:8px">
-    <div class="ctitle" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px"><span>글별 누적 조회수 상위 15 (막대 누르면 글 열림)</span><span class="daybar" id="vfilter"></span></div>
+    <div class="ctitle" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px"><span id="t_bars">글별 조회수</span><span style="display:flex;gap:6px;flex-wrap:wrap"><span class="daybar" id="vmode"></span><span class="daybar" id="vfilter"></span></span></div>
     <div class="legend" id="lg3"></div><div class="chartbox tall"><canvas id="bars"></canvas></div>
   </div>
   <div class="slbl" id="khead">키워드 순위</div>
@@ -110,7 +110,7 @@
     <div class="sub" style="margin-bottom:6px">블로그탭 = 네이버 모바일 검색 '블로그' 탭 1페이지(30개) 안 순위 · 통합 = 통합검색 첫 화면에 나온 블로그 글 중 몇 번째 · – = 순위 밖 · ▲▼ = 그 전 측정일 대비 · 매일 08:30 자동 측정</div>
     <table id="ktable"></table></div>
 
-  <div class="card tblwrap"><div class="ctitle">글별 조회수 표 (최근 발행순)</div><table id="vtable"></table></div>
+  <div class="card tblwrap"><div class="ctitle" id="t_vtable">글별 조회수 표 (최근 발행순)</div><table id="vtable"></table></div>
 
   <div class="slbl">블로그 창 로그인 점검</div>
   <div id="login" class="card"></div>
@@ -122,7 +122,7 @@
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
-const PAGE_VER = "20261111d";
+const PAGE_VER = "20261112a";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -141,7 +141,7 @@ function renderDays() {
   const opts = [...ds].sort().map(d => [d, md(d)]);
   document.getElementById("days").innerHTML = opts.map(([d,l]) =>
     `<button class="chip ${d===SEL?"active":""}" data-d="${d}">${l}</button>`).join("");
-  document.querySelectorAll("#days .chip").forEach(b => b.onclick = () => { SEL = b.dataset.d; render(); });
+  document.querySelectorAll("#days .chip").forEach(b => b.onclick = () => { SEL = b.dataset.d; render(); try { renderViews(); } catch (e) { console.error(e); } });
 }
 
 function renderSummary() {
@@ -249,7 +249,7 @@ function render() {
       const img = p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : `<div class="noimg"></div>`;
       return `<a class="post" href="${esc(p.url)}" target="_blank" rel="noopener">${img}<div>
         <div class="t">${esc(p.title)}</div>
-        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span>${p.read!=null?` <span class="view">· 조회 ${p.read}${p.read_delta?` <span class="up">+${p.read_delta}</span>`:""}</span>`:""}${rkBadge(p)}</div></div></a>`;
+        <div class="m">${p.publish_at.slice(11,16)} · ${esc(p.post)} <span class="tag ${c}">${l}</span>${p.read!=null?` <span class="view" title="지금까지 누적 조회 (+ = 전 수집 대비)">· 누적 조회 ${p.read}${p.read_delta?` <span class="up">+${p.read_delta}</span>`:""}</span>`:""}${rkBadge(p)}</div></div></a>`;
     }).join("");
     return `<div class="card"><h3><span>${esc(a.label)}</span><span class="cnt ${ok?"ok":"bad"}">${mine.length}/${DATA.per_day_target}</span></h3>
       <div class="sub" style="margin-bottom:4px">${esc(a.id)}</div>
@@ -291,70 +291,109 @@ let VF = "all";
 function legend(el){ const c=ACOL(); document.getElementById(el).innerHTML = DATA.accounts.map(a=>`<span><i style="background:${c[a.id]}"></i>${esc(a.label)}</span>`).join(""); }
 function mk(id, cfg){ if (CH[id]) CH[id].destroy(); CH[id] = new Chart(document.getElementById(id), cfg); }
 
+const shiftD = (d,n) => { const x = new Date(d+"T00:00"); x.setDate(x.getDate()+n); return ymd(x); };
+const rangeD = (end,n) => Array.from({length:n}, (_,i) => shiftD(end, i-n+1));
+let VM = "gain";
 function renderViews(){
   const st = DATA.stats; if (!st || typeof Chart === "undefined") { document.getElementById("vhead").textContent = st ? "조회수 (차트 라이브러리 로딩 실패)" : "조회수 (아직 수집 전)"; return; }
   const c = ACOL(), t2 = css("--text2"), t3 = css("--text3"), grid = css("--grid"), surf = css("--bg"), FF = getComputedStyle(document.body).fontFamily;
   Chart.defaults.font.family = FF; Chart.defaults.color = t2;
-  document.getElementById("vhead").textContent = `조회수 · 수집 ${(st.updated_at||"").replace("T"," ")}`;
   const ids = DATA.accounts.map(a=>a.id);
-  const dates = [...new Set(ids.flatMap(id => (st.accounts[id]?.daily||[]).map(d=>d.date)))].sort().slice(-15);
+  const allDates = [...new Set(ids.flatMap(id => (st.accounts[id]?.daily||[]).map(d=>d.date)))].sort();
   const cv = (id,d) => ((st.accounts[id]?.daily||[]).find(x=>x.date===d)||{}).cv ?? 0;
   const sumD = ds => ds.reduce((s,d)=>s+ids.reduce((t,id)=>t+cv(id,d),0),0);
-  const last = dates.at(-1), prev = dates.at(-2);
-  const w1 = sumD(dates.slice(-7)), w0 = sumD(dates.slice(-14,-7));
-  const pct = w0 ? Math.round((w1-w0)/w0*100) : null;
+  const last = allDates.at(-1), first = allDates[0], today = ymd(new Date());
+  // 기준일 D = 선택한 날짜. 아직 집계 안 된 날(내일 이후)이면 마지막 수집일로.
+  const D = SEL > last ? last : SEL;
+  const note = SEL > last ? ` · ${md(SEL)} 아직 집계 전 → 마지막 수집일 기준` : SEL < first ? ` · ${md(first)} 이전 기록 없음` : "";
+  document.getElementById("vhead").innerHTML = `조회수 · <b>${md(D)}</b> 기준${esc(note)} <span class="sub" style="font-weight:400">· 위 날짜를 누르면 바뀜 · 수집 ${esc((st.updated_at||"").replace("T"," "))}</span>`;
+
+  const dayV = sumD([D]), prevV = sumD([shiftD(D,-1)]), dd = dayV - prevV;
+  const w1 = sumD(rangeD(D,7)), w0 = sumD(rangeD(shiftD(D,-7),7));
+  const pct = w0 >= 20 ? Math.round((w1-w0)/w0*100) : null;  // 기준이 너무 작으면 % 생략 (12→162가 ▲1250%로 보이는 문제)
+  const perD = ids.map(id => [id, cv(id,D)]).sort((a,b)=>b[1]-a[1]);
+  const lbl = md(D).slice(0,5);
   document.getElementById("vkpis").innerHTML = [
-    ["오늘 조회수", sumD([last]), last ? md(last)+" 수집 시점까지" : ""],
-    ["어제", sumD([prev]), prev ? md(prev) : ""],
-    ["최근 7일", w1, "3개 블로그 합계"],
-    ["전주 대비", pct==null ? "–" : (pct>=0?"▲ ":"▼ ")+Math.abs(pct)+"%", `이전 7일 ${w0}`],
+    [`${lbl} 조회수`, dayV, D===today ? "오늘 수집 시점까지 · 3개 합계" : "3개 블로그 합계"],
+    ["전날 대비", (dd>=0?"▲ ":"▼ ")+Math.abs(dd), `${md(shiftD(D,-1))} ${prevV}회`],
+    [`${lbl}까지 7일`, w1, pct==null ? `그 전 7일 ${w0}` : `그 전 7일 ${w0} · ${pct>=0?"▲":"▼"}${Math.abs(pct)}%`],
+    ["그날 1위 블로그", dayV ? short(perD[0][0]) : "–", dayV ? `${perD[0][1]}회 (${Math.round(perD[0][1]/dayV*100)}%)` : "조회 없음"],
   ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
 
-  // 도넛: 최근 14일 계정별 합계
-  const d14 = dates.slice(-14), tot = ids.map(id => d14.reduce((s,d)=>s+cv(id,d),0)), all = tot.reduce((a,b)=>a+b,0);
+  // 도넛: 선택일 계정별 비중 (그날 0이면 그날까지 7일)
+  const dd7 = dayV ? [D] : rangeD(D,7), tot = ids.map(id => dd7.reduce((s,d)=>s+cv(id,d),0)), all = tot.reduce((a,b)=>a+b,0);
+  const dlabel = dayV ? `${lbl} 하루` : `${lbl}까지 7일`;
+  document.getElementById("t_donut").textContent = `${dlabel} 조회수 · 계정별 비중`;
   legend("lg1");
   mk("donut", {type:"doughnut", data:{labels:ids.map(short), datasets:[{data:tot, backgroundColor:ids.map(id=>c[id]), borderColor:surf, borderWidth:2, borderRadius:4, hoverOffset:4}]},
     options:{maintainAspectRatio:false, cutout:"62%", plugins:{legend:{display:false},
       tooltip:{callbacks:{label:x=>` ${x.label} ${x.raw}회 (${all?Math.round(x.raw/all*100):0}%)`}}}},
     plugins:[{id:"center", afterDraw(ch){ const {ctx,chartArea:a}=ch; const cx=(a.left+a.right)/2, cy=(a.top+a.bottom)/2; ctx.save(); ctx.textAlign="center";
       ctx.fillStyle=css("--text1"); ctx.font="600 22px "+FF; ctx.fillText(all,cx,cy+4);
-      ctx.fillStyle=t3; ctx.font="11px "+FF; ctx.fillText("14일 합계",cx,cy+22); ctx.restore(); }},
+      ctx.fillStyle=t3; ctx.font="11px "+FF; ctx.fillText(dlabel,cx,cy+22); ctx.restore(); }},
       {id:"lbl", afterDatasetsDraw(ch){ const {ctx}=ch; ctx.save(); ctx.font="600 11px "+FF; ctx.fillStyle="#fff"; ctx.textAlign="center";
       ch.getDatasetMeta(0).data.forEach((arc,i)=>{ if(!all||tot[i]/all<0.08) return; const p=arc.tooltipPosition(); ctx.fillText(Math.round(tot[i]/all*100)+"%",p.x,p.y+4); }); ctx.restore(); }}]});
 
-  // 선: 일별 조회수
+  // 선: 기준일까지 15일, 기준일 세로 띠로 표시
+  const dates = rangeD(D,15).filter(d => d >= first);
+  const hi = dates.indexOf(D);
+  document.getElementById("t_line").textContent = `일별 조회수 (블로그 전체 방문 조회) · ${md(dates[0]).slice(0,5)}~${lbl}`;
   legend("lg2");
   mk("line", {type:"line", data:{labels:dates.map(d=>d.slice(5).replace("-","/")), datasets:ids.map(id=>({label:short(id), data:dates.map(d=>cv(id,d)),
-      borderColor:c[id], backgroundColor:c[id], borderWidth:2, pointRadius:0, pointHitRadius:12, pointHoverRadius:5, pointHoverBorderColor:surf, pointHoverBorderWidth:2, tension:0.25}))},
+      borderColor:c[id], backgroundColor:c[id], borderWidth:2, pointRadius:dates.map((d,i)=>i===hi?4:0), pointBorderColor:surf, pointBorderWidth:2,
+      pointHitRadius:12, pointHoverRadius:5, pointHoverBorderColor:surf, pointHoverBorderWidth:2, tension:0.25}))},
     options:{maintainAspectRatio:false, interaction:{mode:"index", intersect:false},
       plugins:{legend:{display:false}, tooltip:{callbacks:{title:x=>md(dates[x[0].dataIndex]), label:x=>` ${x.dataset.label} ${x.raw}회`}}},
-      scales:{x:{grid:{display:false}, ticks:{color:t3, maxRotation:0, autoSkipPadding:10}}, y:{beginAtZero:true, grid:{color:grid}, border:{display:false}, ticks:{color:t3, precision:0}}}}});
+      scales:{x:{grid:{display:false}, ticks:{color:t3, maxRotation:0, autoSkipPadding:10}}, y:{beginAtZero:true, grid:{color:grid}, border:{display:false}, ticks:{color:t3, precision:0}}}},
+    plugins:[{id:"selband", beforeDatasetsDraw(ch){ if (hi<0) return; const {ctx,chartArea:a,scales:{x}}=ch; const step = dates.length>1 ? (x.getPixelForValue(1)-x.getPixelForValue(0)) : 30;
+      const px = x.getPixelForValue(hi); ctx.save(); ctx.fillStyle = css("--grid"); ctx.globalAlpha = 0.9; ctx.fillRect(px-step/2, a.top, step, a.bottom-a.top); ctx.restore(); }}]});
 
-  // 막대: 글별 누적 조회수 상위 15
+  // 글별: 기준일(또는 그 전) 마지막 수집 스냅샷 기준
+  const SN = st.snap || {}, SA = st.snap_at || {}, snaps = Object.keys(SN).sort();
+  const sD = [...snaps].reverse().find(d => d <= D) || snaps[0];
+  const sP = sD ? [...snaps].reverse().find(d => d < sD) : null;
+  const at = d => d ? md(d).slice(0,5) + (SA[d] ? " " + SA[d].slice(11,16) : "") : "";
   const allPosts = ids.flatMap(id => st.accounts[id]?.posts||[]);
+  const rowsAll = !sD ? [] : allPosts.filter(p => p.added.slice(0,10) <= D && SN[sD][p.log] != null).map(p => {
+    const r = SN[sD][p.log], pr = sP ? SN[sP][p.log] : undefined;
+    return {...p, r, g: pr == null ? null : r - pr};
+  });
+  const vm = sP ? VM : "total";
+  document.getElementById("vmode").innerHTML = [["gain","그날 늘어난 조회"],["total","누적"]].map(([k,l]) =>
+    `<button class="chip ${vm===k?"active":""}" data-m="${k}" ${k==="gain"&&!sP?'disabled title="비교할 이전 수집이 없음"':""}>${l}</button>`).join("");
+  document.querySelectorAll("#vmode .chip").forEach(b=>b.onclick=()=>{ if (b.disabled) return; VM=b.dataset.m; renderViews(); });
   document.getElementById("vfilter").innerHTML = [["all","전체"],...DATA.accounts.map(a=>[a.id,short(a.id)])].map(([k,l]) =>
     `<button class="chip ${VF===k?"active":""}" data-k="${k}">${l}</button>`).join("");
   document.querySelectorAll("#vfilter .chip").forEach(b=>b.onclick=()=>{VF=b.dataset.k; renderViews();});
-  const top = allPosts.filter(p=>VF==="all"||p.blog_id===VF).sort((a,b)=>b.read-a.read).slice(0,15);
+  const mine = rowsAll.filter(p=>VF==="all"||p.blog_id===VF);
+  const val = p => vm==="gain" ? p.g : p.r;
+  const top = mine.filter(p => vm==="total" || p.g > 0).sort((a,b)=>val(b)-val(a)).slice(0,15);
+  const snapNote = !sD ? "글별 기록 없음" : (sD !== D ? `${md(D).slice(0,5)} 글별 기록 없음 → ${at(sD)} 수집 기준` : `${at(sD)} 수집 기준`);
+  document.getElementById("t_bars").textContent = (vm==="gain"
+      ? `글별 늘어난 조회수 상위 15 · ${snapNote} (${at(sP)} 수집 대비)`
+      : `글별 누적 조회수 상위 15 · ${snapNote}`) + (top.length ? " · 막대 누르면 글 열림" : " · 늘어난 글 없음");
   legend("lg3");
   const cut = s => s.length>24 ? s.slice(0,23)+"…" : s;
-  mk("bars", {type:"bar", data:{labels:top.map(p=>cut(p.title)), datasets:[{data:top.map(p=>p.read), backgroundColor:top.map(p=>c[p.blog_id]),
+  mk("bars", {type:"bar", data:{labels:top.map(p=>cut(p.title)), datasets:[{data:top.map(val), backgroundColor:top.map(p=>c[p.blog_id]),
       borderRadius:{topRight:4,bottomRight:4}, borderSkipped:"start", barPercentage:0.72, categoryPercentage:0.9}]},
-    options:{indexAxis:"y", maintainAspectRatio:false, layout:{padding:{right:28}},
+    options:{indexAxis:"y", maintainAspectRatio:false, layout:{padding:{right:36}},
       onClick:(e,el)=>{ if(el[0]) window.open(top[el[0].index].url,"_blank"); },
       onHover:(e,el)=>{ e.native.target.style.cursor = el.length?"pointer":"default"; },
       plugins:{legend:{display:false}, tooltip:{callbacks:{title:x=>top[x[0].dataIndex].title,
-        label:x=>{const p=top[x.dataIndex]; return [` ${short(p.blog_id)} · 조회 ${p.read}회${p.delta?` (어제보다 +${p.delta})`:""}`, ` 공감 ${p.like} · 댓글 ${p.comment} · ${md(p.added)} 발행`];}}}},
+        label:x=>{const p=top[x.dataIndex]; return [` ${short(p.blog_id)} · ${at(sD)} 누적 ${p.r}회${p.g!=null?` (전 수집 대비 +${p.g})`:""}`, ` ${md(p.added.slice(0,10))} 발행`];}}}},
       scales:{x:{beginAtZero:true, grid:{color:grid}, border:{display:false}, ticks:{color:t3, precision:0}}, y:{grid:{display:false}, ticks:{color:t2, font:{size:11}}}}},
     plugins:[{id:"val", afterDatasetsDraw(ch){ const {ctx}=ch; ctx.save(); ctx.fillStyle=t2; ctx.font="11px "+FF; ctx.textBaseline="middle";
-      ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(top[i].read, b.x+5, b.y)); ctx.restore(); }}]});
+      ch.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText((vm==="gain"?"+":"")+val(top[i]), b.x+5, b.y)); ctx.restore(); }}]});
 
-  // 표
-  const rows = allPosts.filter(p=>VF==="all"||p.blog_id===VF).sort((a,b)=>b.added.localeCompare(a.added));
-  document.getElementById("vtable").innerHTML = `<tr><th>발행</th><th>계정</th><th>제목</th><th class="num">조회</th><th class="num">어제 대비</th><th class="num">공감</th><th class="num">댓글</th></tr>` +
-    rows.map(p=>`<tr><td style="white-space:nowrap">${md(p.added)}</td><td style="white-space:nowrap"><span class="dot" style="background:${c[p.blog_id]}"></span>${esc(short(p.blog_id))}</td>
-      <td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></td><td class="num">${p.read}</td>
-      <td class="num">${p.delta==null?"–":p.delta>0?`<span class="up">+${p.delta}</span>`:p.delta}</td><td class="num">${p.like}</td><td class="num">${p.comment}</td></tr>`).join("");
+  // 표: 기준일까지 발행한 글, 기준 스냅샷 누적 + 전 수집 대비
+  document.getElementById("t_vtable").textContent = `글별 조회수 표 · ${md(D).slice(0,5)}까지 발행한 글 · ${snapNote} (최근 발행순)`;
+  const rows = [...mine].sort((a,b)=>b.added.localeCompare(a.added));
+  document.getElementById("vtable").innerHTML = `<tr><th>발행</th><th>계정</th><th>제목</th><th class="num">누적 조회</th><th class="num">전 수집 대비</th><th class="num">공감</th><th class="num">댓글</th></tr>` +
+    (rows.length ? rows.map(p=>`<tr><td style="white-space:nowrap">${md(p.added.slice(0,10))}${p.added.slice(0,10)===D?' <span class="tag ok">그날 발행</span>':""}</td><td style="white-space:nowrap"><span class="dot" style="background:${c[p.blog_id]}"></span>${esc(short(p.blog_id))}</td>
+      <td><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a></td><td class="num">${p.r}</td>
+      <td class="num">${p.g==null?"–":p.g>0?`<span class="up">+${p.g}</span>`:p.g}</td><td class="num">${p.like}</td><td class="num">${p.comment}</td></tr>`).join("")
+      : `<tr><td colspan="7" class="sub">이 날짜 기준 글별 기록 없음</td></tr>`) +
+    `<tr><td colspan="7" class="sub">공감·댓글은 지금 값 · 글별 조회는 수집할 때마다(매일 08:30 브리핑·예약 직후) 누적값을 남겨 비교함</td></tr>`;
 }
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => DATA && renderViews());
 
