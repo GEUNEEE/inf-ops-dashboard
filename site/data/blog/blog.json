@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T09:21",
+ "generated_at": "2026-11-12T09:27",
  "page_ver": "20261111d",
  "accounts": [
   {
@@ -100,10 +100,10 @@
    "title": "샘 해밍턴·곽범·카더가든·이창호, 연예인들이 말한 마운자로 이야기 정리",
    "keyword": "",
    "thumb": "data/blog/thumbs/review_20261104_D1_1.jpg",
-   "read": 22,
+   "read": 24,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "마운자로",
@@ -248,10 +248,10 @@
    "title": "손담비 '쉽게 단정 짓지 않았으면', 21kg 뺀 다이어트식단 습관 3가지",
    "keyword": "다이어트식단",
    "thumb": "data/blog/thumbs/review_20261105_D1_1.jpg",
-   "read": 26,
+   "read": 27,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "손담비 다이어트",
@@ -1210,10 +1210,10 @@
    "title": "엑스트라버진올리브유 산도 0.16% 고른 이유, 요요 끝내려고 바꾼 기름",
    "keyword": "엑스트라버진올리브유",
    "thumb": "data/blog/thumbs/review_20261109_D5_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "엑스트라버진올리브유",
@@ -1321,10 +1321,10 @@
    "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
    "keyword": "올리브유고르는법",
    "thumb": "data/blog/thumbs/review_20261109_D6_1.jpg",
-   "read": 23,
+   "read": 26,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 3,
    "ranks": [
     {
      "kw": "올리브유고르는법",
@@ -1765,10 +1765,10 @@
    "title": "“아침에 셰이크 먹었다” 이영현다이어트 보고 내 아침부터 바꿨어",
    "keyword": "이영현 다이어트",
    "thumb": "data/blog/thumbs/review_20261111_D10_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "이영현 다이어트",
@@ -1802,10 +1802,10 @@
    "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
    "keyword": "글리신",
    "thumb": "data/blog/thumbs/review_20261111_S10_1.jpg",
-   "read": 14,
+   "read": 15,
    "like": 0,
    "comment": 0,
-   "read_delta": 11,
+   "read_delta": 12,
    "ranks": [
     {
      "kw": "글리신",
@@ -1876,10 +1876,10 @@
    "title": "스페인올리브유 1리터 병 2번 버리고 바꾼 것 3가지",
    "keyword": "스페인올리브유",
    "thumb": "data/blog/thumbs/review_20261111_D11_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "스페인올리브유",
@@ -1984,7 +1984,10 @@
    "title": "올리브오일먹는법, 아침 공복에 한 숟갈이 진짜 맞아?",
    "keyword": "올리브오일먹는법",
    "thumb": "data/blog/thumbs/review_20261111_D12_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "올리브오일먹는법",
@@ -2126,7 +2129,10 @@
    "title": "“세끼 다 먹어” 정려원 식단 보고 편의점 과자 내려놨어",
    "keyword": "정려원 식단",
    "thumb": "data/blog/thumbs/review_20261112_D13_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "정려원 식단",
@@ -2225,19 +2231,19 @@
   }
  ],
  "login": {
-  "at": "2026-11-12T09:11",
+  "at": "2026-11-12T09:26",
   "accounts": {
    "뷰티": {
     "blog_id": "cnsou1088",
-    "ok": false
+    "ok": true
    },
    "슬립": {
     "blog_id": "haherin",
-    "ok": false
+    "ok": true
    },
    "다이어트및건강": {
     "blog_id": "qxcoik9423",
-    "ok": false
+    "ok": true
    }
   }
  },
@@ -2260,7 +2266,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-12T09:12",
+  "updated_at": "2026-11-12T09:27",
   "prev_snap": "2026-11-11",
   "accounts": {
    "cnsou1088": {
@@ -2723,7 +2729,7 @@
      },
      {
       "date": "2026-11-12",
-      "cv": 15
+      "cv": 16
      }
     ],
     "posts": [
@@ -2764,11 +2770,11 @@
       "log": "224472962195",
       "blog_id": "haherin",
       "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
-      "read": 14,
+      "read": 15,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T16:20",
-      "delta": 11,
+      "delta": 12,
       "url": "https://blog.naver.com/haherin/224472962195"
      },
      {
@@ -3119,30 +3125,56 @@
      },
      {
       "date": "2026-11-11",
-      "cv": 20
+      "cv": 30
+     },
+     {
+      "date": "2026-11-12",
+      "cv": 1
      }
     ],
     "posts": [
      {
-      "log": "224472988301",
+      "log": "224473302835",
       "blog_id": "qxcoik9423",
-      "title": "스페인올리브유 1리터 병 2번 버리고 바꾼 것 3가지",
+      "title": "“세끼 다 먹어” 정려원 식단 보고 편의점 과자 내려놨어",
       "read": 0,
       "like": 0,
       "comment": 0,
+      "added": "2026-11-12T09:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224473302835"
+     },
+     {
+      "log": "224472991036",
+      "blog_id": "qxcoik9423",
+      "title": "올리브오일먹는법, 아침 공복에 한 숟갈이 진짜 맞아?",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-11T20:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224472991036"
+     },
+     {
+      "log": "224472988301",
+      "blog_id": "qxcoik9423",
+      "title": "스페인올리브유 1리터 병 2번 버리고 바꾼 것 3가지",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
       "added": "2026-11-11T18:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224472988301"
      },
      {
       "log": "224472982194",
       "blog_id": "qxcoik9423",
       "title": "“아침에 셰이크 먹었다” 이영현다이어트 보고 내 아침부터 바꿨어",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T16:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224472982194"
      },
      {
@@ -3182,22 +3214,22 @@
       "log": "224470064937",
       "blog_id": "qxcoik9423",
       "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
-      "read": 23,
+      "read": 26,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:10",
-      "delta": 0,
+      "delta": 3,
       "url": "https://blog.naver.com/qxcoik9423/224470064937"
      },
      {
       "log": "224470080671",
       "blog_id": "qxcoik9423",
       "title": "엑스트라버진올리브유 산도 0.16% 고른 이유, 요요 끝내려고 바꾼 기름",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T12:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224470080671"
      },
      {
@@ -3292,22 +3324,22 @@
       "log": "224465595009",
       "blog_id": "qxcoik9423",
       "title": "손담비 '쉽게 단정 짓지 않았으면', 21kg 뺀 다이어트식단 습관 3가지",
-      "read": 26,
+      "read": 27,
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T10:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224465595009"
      },
      {
       "log": "224463845638",
       "blog_id": "qxcoik9423",
       "title": "최화정이 공복에만 먹는다는 올리브오일, 그릭요거트에 뿌려 먹는 법",
-      "read": 39,
+      "read": 40,
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T20:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224463845638"
      },
      {
@@ -3325,11 +3357,11 @@
       "log": "224464759662",
       "blog_id": "qxcoik9423",
       "title": "샘 해밍턴·곽범·카더가든·이창호, 연예인들이 말한 마운자로 이야기 정리",
-      "read": 22,
+      "read": 24,
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T15:17",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/qxcoik9423/224464759662"
      },
      {
@@ -3430,35 +3462,13 @@
       "added": "2026-01-03T09:00",
       "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224131903700"
-     },
-     {
-      "log": "224119050009",
-      "blog_id": "qxcoik9423",
-      "title": "구미 산동 피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 7,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-23T18:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/qxcoik9423/224119050009"
-     },
-     {
-      "log": "224119043086",
-      "blog_id": "qxcoik9423",
-      "title": "배곧동피부과 얼굴 전체 기미로 무너졌던 자존감, 이렇게 세웠어요",
-      "read": 47,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-23T11:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/qxcoik9423/224119043086"
      }
     ]
    }
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-12T09:21",
+  "updated_at": "2026-11-12T09:27",
   "date": "2026-11-12"
  }
 }
