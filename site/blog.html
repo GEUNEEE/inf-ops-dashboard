@@ -123,7 +123,7 @@
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
-const PAGE_VER = "20261112b";
+const PAGE_VER = "20261112c";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -139,7 +139,7 @@ function renderDays() {
   const t = ymd(new Date()), ds = new Set();
   for (let i = 6; i >= -1; i--) { const d = new Date(); d.setDate(d.getDate()-i); ds.add(ymd(d)); }  // 최근 7일 + 다음 날
   DATA.posts.forEach(p => { const d = p.publish_at.slice(0,10); if (d > t) ds.add(d); });            // 예약 잡힌 이후 날짜
-  const opts = [["all","📊 전체 요약"], ...[...ds].sort().map(d => [d, md(d)])];
+  const opts = [["all","📊 전체 요약"], ...[...ds].sort().reverse().map(d => [d, md(d)])];
   document.getElementById("days").innerHTML = opts.map(([d,l]) =>
     `<button class="chip ${d===SEL?"active":""}" data-d="${d}">${l}</button>`).join("");
   document.querySelectorAll("#days .chip").forEach(b => b.onclick = () => { SEL = b.dataset.d; render(); try { renderViews(); } catch (e) { console.error(e); } });
