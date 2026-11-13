@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T16:24",
+ "generated_at": "2026-11-13T16:31",
  "page_ver": "20261112c",
  "accounts": [
   {
@@ -211,10 +211,10 @@
    "title": "김다영 임신 중 주근깨 민낯 공개, 짙어진 주근깨 앞에서 제가 먼저 챙기는 것",
    "keyword": "주근깨",
    "thumb": "data/blog/thumbs/review_20261105_B1_1.jpg",
-   "read": 7,
+   "read": 9,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "김다영 민낯",
@@ -285,10 +285,10 @@
    "title": "윤미라 '스크럽은 쓰지 않는다', 70대 피부 비결 보고 바꾼 기미크림 루틴",
    "keyword": "기미크림",
    "thumb": "data/blog/thumbs/review_20261105_B2_1.jpg",
-   "read": 12,
+   "read": 14,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "윤미라 피부",
@@ -766,10 +766,10 @@
    "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
    "keyword": "다이소기미크림",
    "thumb": "data/blog/thumbs/review_20261107_B4_1.jpg",
-   "read": 35,
+   "read": 42,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 7,
    "ranks": [
     {
      "kw": "다이소기미크림",
@@ -1506,10 +1506,10 @@
    "title": "기미패치 붙이고 자던 내가 크림으로 바꾼 이유, 아침마다 실망했던 얘기",
    "keyword": "기미패치",
    "thumb": "data/blog/thumbs/review_20261110_B8_1.jpg",
-   "read": 1,
+   "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "기미패치",
@@ -1950,10 +1950,10 @@
    "title": "약국기미크림 상자 뒷면에서 내가 본 3가지",
    "keyword": "약국기미크림",
    "thumb": "data/blog/thumbs/review_20261111_B12_1.jpg",
-   "read": 3,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "약국기미크림",
@@ -2061,10 +2061,10 @@
    "title": "“제가 너무 버틴 거다” 49세 강수정 민낯 영상 보고 찔렸어",
    "keyword": "강수정",
    "thumb": "data/blog/thumbs/review_20261112_B13_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "강수정",
@@ -2172,10 +2172,10 @@
    "title": "기미패치 세 통 붙여보고 알았어, 내 얼룩은 점이 아니었어",
    "keyword": "기미패치",
    "thumb": "data/blog/thumbs/review_20261112_B14_1.jpg",
-   "read": 0,
+   "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 4,
    "ranks": [
     {
      "kw": "기미패치",
@@ -2283,7 +2283,10 @@
    "title": "미백크림, 결혼식 두 달 전에 시작해야 하는 거 나만 몰랐어?",
    "keyword": "미백크림",
    "thumb": "data/blog/thumbs/review_20261112_B15_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "미백크림",
@@ -2399,7 +2402,7 @@
    "post": "S15.md",
    "set": "review_20261113",
    "publish_at": "2026-11-13T17:20",
-   "url": "https://blog.naver.com/haherin/224475804191",
+   "url": "https://blog.naver.com/haherin/224475837165",
    "title": "인교진 “억울하고 화나서 잠이 안 와”, 돈 빌려준 날은 왜 유독 못 잘까?",
    "keyword": "인교진",
    "thumb": "data/blog/thumbs/review_20261113_S15_1.jpg",
@@ -2456,7 +2459,7 @@
   }
  ],
  "login": {
-  "at": "2026-11-13T16:07",
+  "at": "2026-11-13T16:26",
   "accounts": {
    "뷰티": {
     "blog_id": "cnsou1088",
@@ -2491,7 +2494,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-13T16:24",
+  "updated_at": "2026-11-13T16:31",
   "prev_snap": "2026-11-12",
   "accounts": {
    "cnsou1088": {
@@ -2558,41 +2561,56 @@
      },
      {
       "date": "2026-11-12",
-      "cv": 8
+      "cv": 18
+     },
+     {
+      "date": "2026-11-13",
+      "cv": 20
      }
     ],
     "posts": [
      {
+      "log": "224473299592",
+      "blog_id": "cnsou1088",
+      "title": "미백크림, 결혼식 두 달 전에 시작해야 하는 거 나만 몰랐어?",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-12T16:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224473299592"
+     },
+     {
       "log": "224473296836",
       "blog_id": "cnsou1088",
       "title": "기미패치 세 통 붙여보고 알았어, 내 얼룩은 점이 아니었어",
-      "read": 0,
+      "read": 4,
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T12:00",
-      "delta": 0,
+      "delta": 4,
       "url": "https://blog.naver.com/cnsou1088/224473296836"
      },
      {
       "log": "224473293484",
       "blog_id": "cnsou1088",
       "title": "“제가 너무 버틴 거다” 49세 강수정 민낯 영상 보고 찔렸어",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T09:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224473293484"
      },
      {
       "log": "224472979084",
       "blog_id": "cnsou1088",
       "title": "약국기미크림 상자 뒷면에서 내가 본 3가지",
-      "read": 3,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T20:00",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224472979084"
      },
      {
@@ -2632,11 +2650,11 @@
       "log": "224470312896",
       "blog_id": "cnsou1088",
       "title": "기미패치 붙이고 자던 내가 크림으로 바꾼 이유, 아침마다 실망했던 얘기",
-      "read": 1,
+      "read": 3,
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T12:00",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224470312896"
      },
      {
@@ -2709,11 +2727,11 @@
       "log": "224467012383",
       "blog_id": "cnsou1088",
       "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
-      "read": 35,
+      "read": 42,
       "like": 0,
       "comment": 0,
       "added": "2026-11-06T18:00",
-      "delta": 0,
+      "delta": 7,
       "url": "https://blog.naver.com/cnsou1088/224467012383"
      },
      {
@@ -2753,22 +2771,22 @@
       "log": "224465590326",
       "blog_id": "cnsou1088",
       "title": "윤미라 '스크럽은 쓰지 않는다', 70대 피부 비결 보고 바꾼 기미크림 루틴",
-      "read": 12,
+      "read": 14,
       "like": 1,
       "comment": 0,
       "added": "2026-11-05T12:00",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224465590326"
      },
      {
       "log": "224465598002",
       "blog_id": "cnsou1088",
       "title": "김다영 임신 중 주근깨 민낯 공개, 짙어진 주근깨 앞에서 제가 먼저 챙기는 것",
-      "read": 7,
+      "read": 9,
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T10:00",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224465598002"
      },
      {
@@ -2880,17 +2898,6 @@
       "added": "2026-01-03T11:20",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224131910728"
-     },
-     {
-      "log": "224119076801",
-      "blog_id": "cnsou1088",
-      "title": "송도동피부과 기미 때문에 사진 찍기 두려웠던 나의 변화 스토리",
-      "read": 1,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-23T17:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224119076801"
      }
     ]
    },
@@ -3951,17 +3958,47 @@
     "224145294097": 26,
     "224145281070": 1,
     "224145287328": 1,
-    "224131896343": 2
+    "224131896343": 2,
+    "224473299592": 3,
+    "224473296836": 4,
+    "224473293484": 1,
+    "224472979084": 5,
+    "224472975793": 0,
+    "224472995222": 3,
+    "224470317017": 3,
+    "224470312896": 3,
+    "224470308026": 0,
+    "224470058094": 9,
+    "224470053274": 1,
+    "224467250022": 6,
+    "224467033120": 14,
+    "224467022061": 2,
+    "224467012383": 42,
+    "224466986315": 1,
+    "224465786496": 1,
+    "224465593010": 0,
+    "224465590326": 14,
+    "224465598002": 9,
+    "224464340859": 5,
+    "224464451749": 6,
+    "224463922448": 11,
+    "224170403446": 15,
+    "224145301415": 1,
+    "224145308157": 3,
+    "224145314275": 0,
+    "224131917603": 0,
+    "224131923868": 0,
+    "224131910728": 1
    }
   },
   "snap_at": {
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
-   "2026-11-13": "2026-11-13T16:24"
+   "2026-11-13": "2026-11-13T16:31"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-13T16:24",
+  "updated_at": "2026-11-13T16:31",
   "date": "2026-11-13"
  }
 }
