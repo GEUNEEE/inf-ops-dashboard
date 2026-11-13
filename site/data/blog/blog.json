@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T16:37",
+ "generated_at": "2026-11-13T16:50",
  "page_ver": "20261112c",
  "accounts": [
   {
@@ -2386,6 +2386,18 @@
    ]
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B16.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T17:00",
+   "url": "https://blog.naver.com/cnsou1088/224475854894",
+   "title": "“피부과 정기권 끊었다” 정승제 말에 내가 2주마다 하게 된 것",
+   "keyword": "정승제",
+   "thumb": "data/blog/thumbs/review_20261113_B16_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D16.md",
    "set": "review_20261113",
@@ -2410,6 +2422,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B17.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224475858901",
+   "title": "기미크림 30일, 보일러 켠 날부터 매일 발라본 겨울 기록",
+   "keyword": "기미크림",
+   "thumb": "data/blog/thumbs/review_20261113_B17_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D17.md",
    "set": "review_20261113",
@@ -2430,6 +2454,18 @@
    "title": "수면보조제 세 통 뒷면 ‘이 줄’이 다 달랐는데, 나만 몰랐어?",
    "keyword": "수면보조제",
    "thumb": "data/blog/thumbs/review_20261113_S16_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B18.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T20:00",
+   "url": "https://blog.naver.com/cnsou1088/224475862569",
+   "title": "10년 쓸 여권사진에 광대 얼룩이… 기미잡티크림 뭐부터 봐야 해?",
+   "keyword": "기미잡티크림",
+   "thumb": "data/blog/thumbs/review_20261113_B18_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -2494,7 +2530,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-13T16:37",
+  "updated_at": "2026-11-13T16:50",
   "prev_snap": "2026-11-12",
   "accounts": {
    "cnsou1088": {
@@ -3994,11 +4030,11 @@
   "snap_at": {
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
-   "2026-11-13": "2026-11-13T16:37"
+   "2026-11-13": "2026-11-13T16:50"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-13T16:37",
+  "updated_at": "2026-11-13T16:50",
   "date": "2026-11-13"
  }
 }
