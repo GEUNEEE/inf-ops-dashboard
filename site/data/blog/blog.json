@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T16:00",
+ "generated_at": "2026-11-13T16:03",
  "page_ver": "20261112c",
  "accounts": [
   {
@@ -2384,6 +2384,18 @@
   },
   {
    "blog_id": "qxcoik9423",
+   "post": "D16.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T17:10",
+   "url": "https://blog.naver.com/qxcoik9423/224475799568",
+   "title": "“4자 한번 다시 그려보려고 한다” 고소영 다이어트 보고 달력부터 고쳤어",
+   "keyword": "고소영 다이어트",
+   "thumb": "data/blog/thumbs/review_20261113_D16_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
    "post": "D17.md",
    "set": "review_20261113",
    "publish_at": "2026-11-13T18:10",
@@ -2467,7 +2479,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-13T16:00",
+  "updated_at": "2026-11-13T16:03",
   "prev_snap": "2026-11-12",
   "accounts": {
    "cnsou1088": {
@@ -3933,11 +3945,11 @@
   "snap_at": {
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
-   "2026-11-13": "2026-11-13T16:00"
+   "2026-11-13": "2026-11-13T16:03"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-13T16:00",
+  "updated_at": "2026-11-13T16:03",
   "date": "2026-11-13"
  }
 }
