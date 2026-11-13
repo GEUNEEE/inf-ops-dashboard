@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T12:50",
+ "generated_at": "2026-11-13T16:00",
  "page_ver": "20261112c",
  "accounts": [
   {
@@ -1062,10 +1062,10 @@
    "title": "제이쓴 '절대적으로 잠이 부족하다', 불면증영양제보다 먼저 쓸 밤 당번표",
    "keyword": "불면증영양제",
    "thumb": "data/blog/thumbs/review_20261106_S3_1.jpg",
-   "read": 3,
+   "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "제이쓴 육아",
@@ -1247,10 +1247,10 @@
    "title": "수면패치 붙이고 자다가 바꾼 루틴, 하루 5시간 자던 내가 고른 것",
    "keyword": "수면패치",
    "thumb": "data/blog/thumbs/review_20261109_S4_1.jpg",
-   "read": 10,
+   "read": 12,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "수면패치",
@@ -1321,10 +1321,10 @@
    "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
    "keyword": "올리브유고르는법",
    "thumb": "data/blog/thumbs/review_20261109_D6_1.jpg",
-   "read": 29,
+   "read": 30,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 3,
    "ranks": [
     {
      "kw": "올리브유고르는법",
@@ -1654,10 +1654,10 @@
    "title": "올리브유 산도 숫자 보고 고른 이유, 요요 세 번 겪고 알게 된 것",
    "keyword": "올리브유산도",
    "thumb": "data/blog/thumbs/review_20261110_D9_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 1,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "올리브유산도",
@@ -1802,10 +1802,10 @@
    "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
    "keyword": "글리신",
    "thumb": "data/blog/thumbs/review_20261111_S10_1.jpg",
-   "read": 29,
+   "read": 31,
    "like": 0,
    "comment": 0,
-   "read_delta": 9,
+   "read_delta": 11,
    "ranks": [
     {
      "kw": "글리신",
@@ -1913,10 +1913,10 @@
    "title": "잠잘오는영양제 검색하면 왜 다 멜라토닌 얘기일까?",
    "keyword": "잠잘오는영양제",
    "thumb": "data/blog/thumbs/review_20261111_S11_1.jpg",
-   "read": 3,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 3,
    "ranks": [
     {
      "kw": "잠잘오는영양제",
@@ -2135,10 +2135,10 @@
    "title": "“세끼 다 먹어” 정려원 식단 보고 편의점 과자 내려놨어",
    "keyword": "정려원 식단",
    "thumb": "data/blog/thumbs/review_20261112_D13_1.jpg",
-   "read": 4,
+   "read": 6,
    "like": 1,
    "comment": 0,
-   "read_delta": 4,
+   "read_delta": 6,
    "ranks": [
     {
      "kw": "정려원 식단",
@@ -2209,10 +2209,10 @@
    "title": "다이어트식단 21일째, 빵순이 도시락에 넣은 것 4가지",
    "keyword": "다이어트식단",
    "thumb": "data/blog/thumbs/review_20261112_D14_1.jpg",
-   "read": 6,
+   "read": 8,
    "like": 1,
    "comment": 0,
-   "read_delta": 6,
+   "read_delta": 8,
    "ranks": [
     {
      "kw": "다이어트식단",
@@ -2381,6 +2381,54 @@
      "pt": "new"
     }
    ]
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D17.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224475783967",
+   "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
+   "keyword": "올리브오일추천",
+   "thumb": "data/blog/thumbs/review_20261113_D17_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S16.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T18:20",
+   "url": "https://blog.naver.com/haherin/224475792161",
+   "title": "수면보조제 세 통 뒷면 ‘이 줄’이 다 달랐는데, 나만 몰랐어?",
+   "keyword": "수면보조제",
+   "thumb": "data/blog/thumbs/review_20261113_S16_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D18.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T20:10",
+   "url": "https://blog.naver.com/qxcoik9423/224475786973",
+   "title": "공복올리브오일 한 숟갈 120kcal, 식단 앱엔 두 달을 0으로 적었어",
+   "keyword": "공복올리브오일",
+   "thumb": "data/blog/thumbs/review_20261113_D18_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S17.md",
+   "set": "review_20261113",
+   "publish_at": "2026-11-13T20:20",
+   "url": "https://blog.naver.com/haherin/224475794724",
+   "title": "불면증에좋은음식 5가지 한 달 먹어봤어, 정작 바꾼 건 저녁 시간이야",
+   "keyword": "불면증에좋은음식",
+   "thumb": "data/blog/thumbs/review_20261113_S17_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -2419,7 +2467,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-13T12:50",
+  "updated_at": "2026-11-13T16:00",
   "prev_snap": "2026-11-12",
   "accounts": {
    "cnsou1088": {
@@ -2890,7 +2938,7 @@
      },
      {
       "date": "2026-11-13",
-      "cv": 9
+      "cv": 16
      }
     ],
     "posts": [
@@ -2942,22 +2990,22 @@
       "log": "224472966006",
       "blog_id": "haherin",
       "title": "잠잘오는영양제 검색하면 왜 다 멜라토닌 얘기일까?",
-      "read": 3,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T18:20",
-      "delta": 1,
+      "delta": 3,
       "url": "https://blog.naver.com/haherin/224472966006"
      },
      {
       "log": "224472962195",
       "blog_id": "haherin",
       "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
-      "read": 29,
+      "read": 31,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T16:20",
-      "delta": 9,
+      "delta": 11,
       "url": "https://blog.naver.com/haherin/224472962195"
      },
      {
@@ -3008,22 +3056,22 @@
       "log": "224470069271",
       "blog_id": "haherin",
       "title": "수면패치 붙이고 자다가 바꾼 루틴, 하루 5시간 자던 내가 고른 것",
-      "read": 10,
+      "read": 12,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T12:20",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/haherin/224470069271"
      },
      {
       "log": "224467048010",
       "blog_id": "haherin",
       "title": "제이쓴 '절대적으로 잠이 부족하다', 불면증영양제보다 먼저 쓸 밤 당번표",
-      "read": 3,
+      "read": 4,
       "like": 0,
       "comment": 0,
       "added": "2026-11-07T16:20",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/haherin/224467048010"
      },
      {
@@ -3294,7 +3342,7 @@
      },
      {
       "date": "2026-11-13",
-      "cv": 16
+      "cv": 22
      }
     ],
     "posts": [
@@ -3313,22 +3361,22 @@
       "log": "224473305277",
       "blog_id": "qxcoik9423",
       "title": "다이어트식단 21일째, 빵순이 도시락에 넣은 것 4가지",
-      "read": 6,
+      "read": 8,
       "like": 1,
       "comment": 0,
       "added": "2026-11-12T12:10",
-      "delta": 6,
+      "delta": 8,
       "url": "https://blog.naver.com/qxcoik9423/224473305277"
      },
      {
       "log": "224473302835",
       "blog_id": "qxcoik9423",
       "title": "“세끼 다 먹어” 정려원 식단 보고 편의점 과자 내려놨어",
-      "read": 4,
+      "read": 6,
       "like": 1,
       "comment": 0,
       "added": "2026-11-12T09:10",
-      "delta": 4,
+      "delta": 6,
       "url": "https://blog.naver.com/qxcoik9423/224473302835"
      },
      {
@@ -3368,11 +3416,11 @@
       "log": "224470327866",
       "blog_id": "qxcoik9423",
       "title": "올리브유 산도 숫자 보고 고른 이유, 요요 세 번 겪고 알게 된 것",
-      "read": 5,
+      "read": 6,
       "like": 1,
       "comment": 0,
       "added": "2026-11-10T16:10",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/qxcoik9423/224470327866"
      },
      {
@@ -3401,11 +3449,11 @@
       "log": "224470064937",
       "blog_id": "qxcoik9423",
       "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
-      "read": 29,
+      "read": 30,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:10",
-      "delta": 2,
+      "delta": 3,
       "url": "https://blog.naver.com/qxcoik9423/224470064937"
      },
      {
@@ -3824,14 +3872,14 @@
     "224473314188": 4,
     "224473318908": 1,
     "224472969123": 1,
-    "224472966006": 3,
-    "224472962195": 29,
+    "224472966006": 5,
+    "224472962195": 31,
     "224470339294": 9,
     "224470335636": 4,
     "224470331610": 11,
     "224470073547": 3,
-    "224470069271": 10,
-    "224467048010": 3,
+    "224470069271": 12,
+    "224467048010": 4,
     "224467027720": 4,
     "224467016963": 7,
     "224466981565": 3,
@@ -3851,15 +3899,15 @@
     "224096008787": 2,
     "224096691455": 3,
     "224473309382": 4,
-    "224473305277": 6,
-    "224473302835": 4,
+    "224473305277": 8,
+    "224473302835": 6,
     "224472991036": 3,
     "224472988301": 6,
     "224472982194": 1,
-    "224470327866": 5,
+    "224470327866": 6,
     "224470324400": 5,
     "224470320518": 0,
-    "224470064937": 29,
+    "224470064937": 30,
     "224470080671": 2,
     "224467244253": 4,
     "224467039058": 4,
@@ -3885,11 +3933,11 @@
   "snap_at": {
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
-   "2026-11-13": "2026-11-13T12:50"
+   "2026-11-13": "2026-11-13T16:00"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-13T12:50",
+  "updated_at": "2026-11-13T16:00",
   "date": "2026-11-13"
  }
 }
