@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T10:22:56",
+  "generated_at": "2026-11-13T13:41:11",
   "current_month": "2026-11",
   "products": [
     {
@@ -1691,10 +1691,10 @@
       },
       "2026-11": {
         "화장품": {
-          "qty": 809,
-          "order_count": 573,
-          "gross_revenue": 27623300,
-          "net_profit": 20918959,
+          "qty": 808,
+          "order_count": 572,
+          "gross_revenue": 27586300,
+          "net_profit": 20891589,
           "repeat": {
             "buyers": 4,
             "orders": 4
@@ -2250,8 +2250,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 657,
-        "units": 668
+        "orders": 656,
+        "units": 667
       },
       "1+1": {
         "orders": 192,
@@ -2268,9 +2268,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 771,
-        "units": 1038,
-        "gross": 35912160
+        "orders": 770,
+        "units": 1037,
+        "gross": 35875160
       },
       "쿠팡": {
         "orders": 11,
@@ -2490,8 +2490,8 @@
     "2026-11": {
       "by_option": {
         "단품": {
-          "orders": 417,
-          "units": 427
+          "orders": 416,
+          "units": 426
         },
         "1+1": {
           "orders": 126,
@@ -2508,9 +2508,9 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 496,
-          "units": 680,
-          "gross": 23388300
+          "orders": 495,
+          "units": 679,
+          "gross": 23351300
         },
         "자사몰": {
           "orders": 76,
@@ -2599,7 +2599,7 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 832,
+          "orders": 831,
           "other": 0,
           "reserved": 0
         },
@@ -2611,9 +2611,9 @@
           "units": 25
         },
         "preorders": {
-          "count": 571,
-          "units": 807,
-          "revenue": 27548300
+          "count": 570,
+          "units": 806,
+          "revenue": 27511300
         },
         "incoming": [
           {
@@ -2623,7 +2623,7 @@
         ],
         "estimate": {
           "normal": 44.6,
-          "fast": 63.4,
+          "fast": 63.3,
           "slow": 17.6,
           "days_of_data": 139,
           "backtest_mae_week": 123
@@ -2661,7 +2661,7 @@
             "other": 0,
             "closing": 0,
             "current": true,
-            "preorder_units": 807
+            "preorder_units": 806
           }
         ],
         "remaining_today_share": 0.945
