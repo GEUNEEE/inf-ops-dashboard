@@ -1,14 +1,14 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-13T13:41:10",
-  "gross_revenue": 1620000,
-  "net_profit": 1020000,
-  "order_count": 11,
-  "unit_count": 13,
-  "operating_profit": 960000,
-  "operating_profit_rate": 0.5926,
-  "labor_cost": 60000,
-  "labor_qty": 6,
+  "generated_at": "2026-11-14T10:00:55",
+  "gross_revenue": 1880000,
+  "net_profit": 1200000,
+  "order_count": 13,
+  "unit_count": 15,
+  "operating_profit": 1120000,
+  "operating_profit_rate": 0.5957,
+  "labor_cost": 80000,
+  "labor_qty": 8,
   "labor_basis": "store_A",
   "total_sent": 4234,
   "replied": 408,
@@ -59,8 +59,8 @@
       "sponsor_cost_this_month": 0
     },
     "기타/일반": {
-      "order_count": 6,
-      "qty": 6,
+      "order_count": 8,
+      "qty": 8,
       "cumulative_qty": null,
       "unit_price": null,
       "amount": 0,
@@ -86,13 +86,13 @@
       "net_profit": 355581
     },
     "흑염소": {
-      "qty": 13,
-      "order_count": 11,
-      "gross_revenue": 1620000,
+      "qty": 15,
+      "order_count": 13,
+      "gross_revenue": 1880000,
       "net_profit": 0,
       "repeat": {
-        "buyers": 4,
-        "orders": 5
+        "buyers": 5,
+        "orders": 6
       }
     },
     "올리브오일캡슐": {
@@ -109,9 +109,9 @@
       "gross_revenue": 840000
     },
     "A": {
-      "qty": 6,
-      "order_count": 6,
-      "gross_revenue": 780000
+      "qty": 8,
+      "order_count": 8,
+      "gross_revenue": 1040000
     }
   },
   "cosmetics_breakdown": {

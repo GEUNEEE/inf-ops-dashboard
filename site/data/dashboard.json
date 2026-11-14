@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T13:41:11",
+  "generated_at": "2026-11-14T10:00:56",
   "current_month": "2026-11",
   "products": [
     {
@@ -31,17 +31,17 @@
     "B": "슬립케어랩"
   },
   "revenue": {
-    "order_count": 11,
-    "unit_count": 13,
-    "gross_revenue": 1620000,
+    "order_count": 13,
+    "unit_count": 15,
+    "gross_revenue": 1880000,
     "influencer_cost": 80000,
     "sponsor_cost": 0,
-    "cogs_cost": 520000,
-    "labor_cost": 60000,
-    "labor_qty": 6,
+    "cogs_cost": 600000,
+    "labor_cost": 80000,
+    "labor_qty": 8,
     "labor_basis": "store_A",
-    "net_profit": 1020000,
-    "operating_profit": 960000
+    "net_profit": 1200000,
+    "operating_profit": 1120000
   },
   "mail_funnel": {
     "total_sent": 4234,
@@ -117,10 +117,10 @@
       "현재상태": "1차 광고완료"
     },
     "기타/일반": {
-      "건수": 6,
-      "수량": 6,
+      "건수": 8,
+      "수량": 8,
       "단가": 84000,
-      "금액": 504000,
+      "금액": 672000,
       "정산대상": false,
       "현재상태": ""
     },
@@ -1462,7 +1462,7 @@
       5470000,
       3170000,
       1960000,
-      1620000
+      1880000
     ],
     "net_profit": [
       560000,
@@ -1473,7 +1473,7 @@
       2450000,
       1350000,
       1100000,
-      1020000
+      1200000
     ],
     "total_sent": [
       396,
@@ -1540,7 +1540,7 @@
       2320000,
       1300000,
       1050000,
-      960000
+      1120000
     ],
     "operating_profit_rate": [
       0.3833,
@@ -1551,7 +1551,7 @@
       0.4241,
       0.4101,
       0.5357,
-      0.5926
+      0.5957
     ],
     "by_product_by_month": {
       "2026-03": {
@@ -1707,13 +1707,13 @@
           "net_profit": 355581
         },
         "흑염소": {
-          "qty": 13,
-          "order_count": 11,
-          "gross_revenue": 1620000,
+          "qty": 15,
+          "order_count": 13,
+          "gross_revenue": 1880000,
           "net_profit": 0,
           "repeat": {
-            "buyers": 4,
-            "orders": 5
+            "buyers": 5,
+            "orders": 6
           }
         },
         "올리브오일캡슐": {
@@ -1780,9 +1780,9 @@
           "gross_revenue": 840000
         },
         "A": {
-          "qty": 6,
-          "order_count": 6,
-          "gross_revenue": 780000
+          "qty": 8,
+          "order_count": 8,
+          "gross_revenue": 1040000
         }
       }
     }
@@ -1984,13 +1984,13 @@
         "labor_basis": "store_A"
       },
       "2026-11": {
-        "gross_revenue": 1620000,
-        "unit_count": 13,
-        "operating_profit": 960000,
-        "operating_profit_rate": 0.5926,
-        "cumulative_profit": 13484000,
-        "labor_cost": 60000,
-        "labor_qty": 6,
+        "gross_revenue": 1880000,
+        "unit_count": 15,
+        "operating_profit": 1120000,
+        "operating_profit_rate": 0.5957,
+        "cumulative_profit": 13644000,
+        "labor_cost": 80000,
+        "labor_qty": 8,
         "labor_basis": "store_A"
       }
     },
@@ -2016,9 +2016,9 @@
         "contribution": 120000
       },
       "기타/일반": {
-        "qty": 74,
+        "qty": 76,
         "settlement": 0,
-        "contribution": 6660000
+        "contribution": 6840000
       },
       "바다로간배스": {
         "qty": 2,
@@ -2587,8 +2587,8 @@
     }
   ],
   "inventory": {
-    "as_of": "2026-11-13",
-    "data_as_of": "2026-11-13T01:32",
+    "as_of": "2026-11-14",
+    "data_as_of": "2026-11-13T08:11",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2664,7 +2664,7 @@
             "preorder_units": 806
           }
         ],
-        "remaining_today_share": 0.945
+        "remaining_today_share": 0.795
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2719,7 +2719,7 @@
             "preorder_units": 0
           }
         ],
-        "remaining_today_share": 0.936
+        "remaining_today_share": 0.659
       }
     }
   },
