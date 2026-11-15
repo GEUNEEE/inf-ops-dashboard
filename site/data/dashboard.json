@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T10:00:56",
+  "generated_at": "2026-11-16T08:52:19",
   "current_month": "2026-11",
   "products": [
     {
@@ -1701,10 +1701,14 @@
           }
         },
         "수면영양제": {
-          "qty": 10,
-          "order_count": 8,
-          "gross_revenue": 528900,
-          "net_profit": 355581
+          "qty": 12,
+          "order_count": 9,
+          "gross_revenue": 620900,
+          "net_profit": 414431,
+          "repeat": {
+            "buyers": 1,
+            "orders": 1
+          }
         },
         "흑염소": {
           "qty": 15,
@@ -2587,8 +2591,8 @@
     }
   ],
   "inventory": {
-    "as_of": "2026-11-14",
-    "data_as_of": "2026-11-13T08:11",
+    "as_of": "2026-11-16",
+    "data_as_of": "2026-11-15T15:26",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2622,23 +2626,17 @@
           }
         ],
         "estimate": {
-          "normal": 44.6,
-          "fast": 63.3,
-          "slow": 17.6,
-          "days_of_data": 139,
-          "backtest_mae_week": 123
+          "normal": 22.0,
+          "fast": 62.1,
+          "slow": 16.1,
+          "days_of_data": 141,
+          "backtest_mae_week": 137
         },
         "estimate_reason": null,
         "stockout": null,
-        "gap": {
-          "days": 1,
-          "lost": 45,
-          "lost_min": 18,
-          "lost_max": 63,
-          "preorder": true
-        },
-        "post_incoming_stockout": "2027-01-01",
-        "reorder_by": "2026-11-27",
+        "gap": null,
+        "post_incoming_stockout": "2027-02-23",
+        "reorder_by": "2027-01-19",
         "signal": "red",
         "signal_label": "품절중",
         "monthly": [
@@ -2655,7 +2653,7 @@
           {
             "month": "2026-11",
             "opening": 0,
-            "incoming": 0,
+            "incoming": 3000,
             "sales": 0,
             "trial": 0,
             "other": 0,
@@ -2664,23 +2662,23 @@
             "preorder_units": 806
           }
         ],
-        "remaining_today_share": 0.795
+        "remaining_today_share": 0.456
       },
       "수면영양제": {
         "vendor": "택배마스터",
         "base_date": "2026-11-03",
         "base_stock": 904,
         "deductions": {
-          "orders": 6,
+          "orders": 8,
           "other": 0,
           "reserved": 0
         },
         "other_out": [],
         "reserved": [],
-        "stock": 898,
+        "stock": 896,
         "sold": {
-          "count": 4,
-          "units": 6
+          "count": 5,
+          "units": 8
         },
         "preorders": {
           "count": 0,
@@ -2689,21 +2687,21 @@
         },
         "incoming": [],
         "estimate": {
-          "normal": 0.8,
-          "fast": 1.1,
+          "normal": 0.4,
+          "fast": 1.0,
           "slow": 0.3,
-          "days_of_data": 14,
+          "days_of_data": 16,
           "backtest_mae_week": null
         },
         "estimate_reason": null,
         "stockout": {
-          "normal": "2029-12-09",
-          "fast": "2029-02-06",
-          "slow": "2035-01-23"
+          "normal": "2033-01-02",
+          "fast": "2029-04-29",
+          "slow": "2035-01-19"
         },
         "gap": null,
-        "post_incoming_stockout": "2029-12-09",
-        "reorder_by": "2029-11-04",
+        "post_incoming_stockout": "2033-01-02",
+        "reorder_by": "2032-11-28",
         "signal": "green",
         "signal_label": "여유",
         "monthly": [
@@ -2711,15 +2709,15 @@
             "month": "2026-11",
             "opening": 904,
             "incoming": 0,
-            "sales": 6,
+            "sales": 8,
             "trial": 0,
             "other": 0,
-            "closing": 898,
+            "closing": 896,
             "current": true,
             "preorder_units": 0
           }
         ],
-        "remaining_today_share": 0.659
+        "remaining_today_share": 0.357
       }
     }
   },
