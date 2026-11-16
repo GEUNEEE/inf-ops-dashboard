@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T09:03:06",
+  "generated_at": "2026-11-16T09:06:45",
   "current_month": "2026-11",
   "products": [
     {
@@ -1691,10 +1691,10 @@
       },
       "2026-11": {
         "화장품": {
-          "qty": 818,
-          "order_count": 581,
-          "gross_revenue": 27966300,
-          "net_profit": 21196389,
+          "qty": 898,
+          "order_count": 654,
+          "gross_revenue": 31027300,
+          "net_profit": 23497081,
           "repeat": {
             "buyers": 4,
             "orders": 4
@@ -2254,8 +2254,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 665,
-        "units": 677
+        "orders": 738,
+        "units": 757
       },
       "1+1": {
         "orders": 192,
@@ -2272,9 +2272,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 770,
-        "units": 1037,
-        "gross": 35875160
+        "orders": 843,
+        "units": 1117,
+        "gross": 38936160
       },
       "쿠팡": {
         "orders": 11,
@@ -2494,8 +2494,8 @@
     "2026-11": {
       "by_option": {
         "단품": {
-          "orders": 425,
-          "units": 436
+          "orders": 498,
+          "units": 516
         },
         "1+1": {
           "orders": 126,
@@ -2512,9 +2512,9 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 495,
-          "units": 679,
-          "gross": 23351300
+          "orders": 568,
+          "units": 759,
+          "gross": 26412300
         },
         "자사몰": {
           "orders": 85,
@@ -2592,7 +2592,7 @@
   ],
   "inventory": {
     "as_of": "2026-11-16",
-    "data_as_of": "2026-11-15T16:48",
+    "data_as_of": "2026-11-16T07:38",
     "lead_days": 28,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2603,7 +2603,7 @@
         "base_date": "2026-10-26",
         "base_stock": 25,
         "deductions": {
-          "orders": 841,
+          "orders": 921,
           "other": 0,
           "reserved": 0
         },
@@ -2615,9 +2615,9 @@
           "units": 25
         },
         "preorders": {
-          "count": 579,
-          "units": 816,
-          "revenue": 27891300
+          "count": 652,
+          "units": 896,
+          "revenue": 30952300
         },
         "incoming": [
           {
@@ -2626,17 +2626,17 @@
           }
         ],
         "estimate": {
-          "normal": 23.8,
-          "fast": 62.3,
-          "slow": 16.6,
-          "days_of_data": 141,
-          "backtest_mae_week": 137
+          "normal": 38.1,
+          "fast": 65.7,
+          "slow": 20.6,
+          "days_of_data": 142,
+          "backtest_mae_week": 147
         },
         "estimate_reason": null,
         "stockout": null,
         "gap": null,
-        "post_incoming_stockout": "2027-02-15",
-        "reorder_by": "2027-01-11",
+        "post_incoming_stockout": "2027-01-10",
+        "reorder_by": "2026-12-06",
         "signal": "red",
         "signal_label": "품절중",
         "monthly": [
@@ -2659,10 +2659,10 @@
             "other": 0,
             "closing": 0,
             "current": true,
-            "preorder_units": 816
+            "preorder_units": 896
           }
         ],
-        "remaining_today_share": 0.39
+        "remaining_today_share": 0.834
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2687,21 +2687,21 @@
         },
         "incoming": [],
         "estimate": {
-          "normal": 0.4,
-          "fast": 1.0,
+          "normal": 0.9,
+          "fast": 1.1,
           "slow": 0.3,
-          "days_of_data": 16,
+          "days_of_data": 17,
           "backtest_mae_week": null
         },
         "estimate_reason": null,
         "stockout": {
-          "normal": "2033-01-02",
-          "fast": "2029-04-29",
+          "normal": "2029-08-07",
+          "fast": "2029-02-07",
           "slow": "2035-01-19"
         },
         "gap": null,
-        "post_incoming_stockout": "2033-01-02",
-        "reorder_by": "2032-11-28",
+        "post_incoming_stockout": "2029-08-07",
+        "reorder_by": "2029-07-03",
         "signal": "green",
         "signal_label": "여유",
         "monthly": [
@@ -2717,7 +2717,7 @@
             "preorder_units": 0
           }
         ],
-        "remaining_today_share": 0.3
+        "remaining_today_share": 0.682
       }
     }
   },
