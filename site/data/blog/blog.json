@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T01:54",
+ "generated_at": "2026-11-17T02:02",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -3295,6 +3295,18 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D26.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T09:10",
+   "url": "https://blog.naver.com/qxcoik9423/224479897413",
+   "title": "윤은혜 관리 비결 따라 해본 아침, 사흘째에 남은 건 물 한 잔",
+   "keyword": "윤은혜 관리 비결",
+   "thumb": "data/blog/thumbs/review_20261118_D26_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B27.md",
    "set": "review_20261118",
@@ -3307,6 +3319,18 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D27.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224479898568",
+   "title": "\"낮은 산도라더니\" 올리브유산도, 숫자만 보고 샀던 내가 바꾼 것",
+   "keyword": "올리브유산도",
+   "thumb": "data/blog/thumbs/review_20261118_D27_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B28.md",
    "set": "review_20261118",
@@ -3315,6 +3339,18 @@
    "title": "미백앰플 다섯 병은 서랍에, 겨울엔 크림 하나로 정착한 이야기",
    "keyword": "미백앰플",
    "thumb": "data/blog/thumbs/review_20261118_B28_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D28.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224479899775",
+   "title": "유기농엑스트라버진올리브오일, 유기농 글자 말고 뭘 봐야 해?",
+   "keyword": "유기농엑스트라버진올리브오일",
+   "thumb": "data/blog/thumbs/review_20261118_D28_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -3391,7 +3427,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-17T01:54",
+  "updated_at": "2026-11-17T02:02",
   "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
@@ -5919,11 +5955,11 @@
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
-   "2026-11-17": "2026-11-17T01:54"
+   "2026-11-17": "2026-11-17T02:02"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-17T01:54",
+  "updated_at": "2026-11-17T02:02",
   "date": "2026-11-17"
  }
 }
