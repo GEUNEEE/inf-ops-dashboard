@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T01:05",
+ "generated_at": "2026-11-17T01:24",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -3163,6 +3163,30 @@
    ]
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B24.md",
+   "set": "review_20261117",
+   "publish_at": "2026-11-17T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224479877012",
+   "title": "검버섯크림 검색하던 밤, 엄마 손등 보고 정한 두 가지",
+   "keyword": "검버섯크림",
+   "thumb": "data/blog/thumbs/review_20261117_B24_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B25.md",
+   "set": "review_20261117",
+   "publish_at": "2026-11-17T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224479878611",
+   "title": "기미크림추천 글 스무 개 읽고 메모장에 남긴 기준 세 줄",
+   "keyword": "기미크림추천",
+   "thumb": "data/blog/thumbs/review_20261117_B25_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D29.md",
    "set": "review_20261117",
@@ -3259,7 +3283,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-17T01:05",
+  "updated_at": "2026-11-17T01:24",
   "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
@@ -5787,11 +5811,11 @@
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
-   "2026-11-17": "2026-11-17T01:05"
+   "2026-11-17": "2026-11-17T01:24"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-17T01:05",
+  "updated_at": "2026-11-17T01:24",
   "date": "2026-11-17"
  }
 }
