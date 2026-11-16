@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T09:26",
+ "generated_at": "2026-11-16T09:30",
  "page_ver": "20261112c",
  "accounts": [
   {
@@ -2731,6 +2731,18 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D19.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224478706825",
+   "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
+   "keyword": "김빈우 다이어트",
+   "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "haherin",
    "post": "S18.md",
    "set": "review_20261116",
@@ -2887,7 +2899,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-16T09:26",
+  "updated_at": "2026-11-16T09:30",
   "prev_snap": "2026-11-13",
   "accounts": {
    "cnsou1088": {
@@ -4525,11 +4537,11 @@
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
-   "2026-11-16": "2026-11-16T09:26"
+   "2026-11-16": "2026-11-16T09:30"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-16T09:26",
+  "updated_at": "2026-11-16T09:30",
   "date": "2026-11-16"
  }
 }
