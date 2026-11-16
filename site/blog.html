@@ -116,14 +116,14 @@
   <div class="slbl">블로그 창 로그인 점검</div>
   <div id="login" class="card"></div>
 
-  <div class="slbl">최근 14일 계정별 편수 (목표 하루 3편)</div>
+  <div class="slbl">최근 14일 계정별 편수 (목표 하루 4편)</div>
   <div class="card tblwrap"><table id="hist"></table></div>
 
   <div class="slbl">유료 생성 비용 (크레딧)</div>
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
-const PAGE_VER = "20261112c";
+const PAGE_VER = "20261116d";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -152,7 +152,7 @@ function renderSummary() {
     const done = ps.filter(p=>status(p)[0]==="ok").length, wait = ps.filter(p=>status(p)[0]==="wait").length, fail = ps.filter(p=>status(p)[0]==="bad").length;
     const lack = DATA.accounts.filter(a => ps.filter(p=>p.blog_id===a.id).length < DATA.per_day_target).map(a=>a.label.split(" ")[0]);
     return `<b>${ps.length}/${tgt}편</b> · 발행됨 ${done} · 예약 ${wait}${fail?` · <span class="bad">예약 실패 ${fail}</span>`:""}` +
-      (lack.length ? ` · <span class="bad">⚠ 부족: ${lack.join("·")}</span>` : ` · <span class="good">계정별 3편 채움</span>`); };
+      (lack.length ? ` · <span class="bad">⚠ 부족: ${lack.join("·")}</span>` : ` · <span class="good">계정별 4편 채움</span>`); };
   const li = (k, v) => `<li><span class="k">${k}</span><span>${v}</span></li>`;
   const L = [li(`오늘 ${md(t).slice(0,5)}`, dayLine(t)), li(`내일 ${md(tm).slice(0,5)}`, dayLine(tm))];
 
@@ -248,7 +248,7 @@ function renderAll() {
   document.getElementById("kpis").innerHTML = [
     ["발행한 글", `${past.length}편`, later ? `오늘 이후 예약 ${later}편 별도` : "오늘까지"],
     ["하루 평균", `${(past.length/days.length).toFixed(1)}편`, `목표 ${T*na}편`],
-    ["목표 채운 날", `${full}/${days.length}`, "3개 계정 모두 3편"],
+    ["목표 채운 날", `${full}/${days.length}`, "3개 계정 모두 4편"],
     ["예약 실패", fail, fail ? "아래 날짜별로 확인" : "없음"],
   ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
   document.getElementById("acc").innerHTML = DATA.accounts.map(a => {
@@ -257,7 +257,7 @@ function renderAll() {
     const reads = mine.reduce((s,p)=>s+(p.read||0),0);
     const top = [...mine].filter(p=>p.read!=null).sort((x,y)=>y.read-x.read).slice(0,3);
     return `<div class="card"><h3><span>${esc(a.label)}</span><span class="cnt ${lack?"bad":"ok"}">${mine.length}편</span></h3>
-      <div class="sub" style="margin-bottom:4px">${esc(a.id)} · 글 누적 조회 ${reads} · ${lack ? `3편 못 채운 날 ${lack}일` : "매일 3편 채움"}</div>
+      <div class="sub" style="margin-bottom:4px">${esc(a.id)} · 글 누적 조회 ${reads} · ${lack ? `4편 못 채운 날 ${lack}일` : "매일 4편 채움"}</div>
       <div class="sub" style="margin:6px 0 2px">조회 많은 글 3</div>${top.map(postRow).join("") || '<div class="sub">조회 기록 없음</div>'}</div>`;
   }).join("");
 }
@@ -272,7 +272,7 @@ function render() {
   const short = DATA.accounts.filter(a => posts.filter(p => p.blog_id===a.id).length < DATA.per_day_target);
   document.getElementById("dayhead").textContent = `📅 ${md(SEL)} 발행분`;
   document.getElementById("kpis").innerHTML = [
-    ["전체", `${posts.length}/${target}`, "계정 3개 × 3편"],
+    ["전체", `${posts.length}/${target}`, "계정 3개 × 4편"],
     ["발행됨", done, "예약 시각 지남"],
     ["예약 대기", wait, "아직 시각 전"],
     ["부족 계정", short.length, short.length ? short.map(a=>a.label.split(" ")[0]).join("·") : "없음"],

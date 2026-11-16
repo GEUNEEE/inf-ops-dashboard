@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-16T16:52",
- "page_ver": "20261112c",
+ "generated_at": "2026-11-16T19:10",
+ "page_ver": "20261116d",
  "accounts": [
   {
    "id": "cnsou1088",
@@ -15,7 +15,7 @@
    "label": "슬립 (슬립이지)"
   }
  ],
- "per_day_target": 3,
+ "per_day_target": 4,
  "posts": [
   {
    "blog_id": "cnsou1088",
