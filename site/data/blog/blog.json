@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T08:31",
+ "generated_at": "2026-11-16T09:14",
  "page_ver": "20261112c",
  "accounts": [
   {
@@ -1802,10 +1802,10 @@
    "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
    "keyword": "글리신",
    "thumb": "data/blog/thumbs/review_20261111_S10_1.jpg",
-   "read": 45,
+   "read": 47,
    "like": 1,
    "comment": 0,
-   "read_delta": 12,
+   "read_delta": 14,
    "ranks": [
     {
      "kw": "글리신",
@@ -2717,6 +2717,102 @@
      "pt": null
     }
    ]
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B19.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224478669856",
+   "title": "50세 김희선 동안 비결, “시술 받겠죠?” 다음 말이 진짜였어",
+   "keyword": "김희선",
+   "thumb": "data/blog/thumbs/review_20261116_B19_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S18.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T12:20",
+   "url": "https://blog.naver.com/haherin/224478684423",
+   "title": "리센느 미나미 “잠을 많아야 하루 1시간 잔다”, 수면 부족일 때 몸이 보내는 위험 신호",
+   "keyword": "미나미",
+   "thumb": "data/blog/thumbs/review_20261116_S18_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B20.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T14:00",
+   "url": "https://blog.naver.com/cnsou1088/224478671777",
+   "title": "주근깨 겨울엔 옅어진다는데, 내 코 옆은 왜 그대로일까?",
+   "keyword": "주근깨",
+   "thumb": "data/blog/thumbs/review_20261116_B20_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D20.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T14:10",
+   "url": "https://blog.naver.com/qxcoik9423/224478678927",
+   "title": "올리브오일다이어트, 기름부터 끊었던 식단에 다시 넣어도 될까?",
+   "keyword": "올리브오일다이어트",
+   "thumb": "data/blog/thumbs/review_20261116_D20_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S19.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T14:20",
+   "url": "https://blog.naver.com/haherin/224478686615",
+   "title": "잠들다 ‘움찔’ 깨는 사람 96명의 공통점, 83%가 같은 생각을 하고 있었어",
+   "keyword": "잠",
+   "thumb": "data/blog/thumbs/review_20261116_S19_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B21.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224478674544",
+   "title": "흰머리 3가닥 뽑은 날 알게 된 멜라닌 얘기, 머리엔 모자라고 광대엔 넘쳐",
+   "keyword": "멜라닌",
+   "thumb": "data/blog/thumbs/review_20261116_B21_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D21.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224478681250",
+   "title": "올리브유효능 챙기려면 김치전은 다른 기름으로 부쳐야 했어",
+   "keyword": "올리브유효능",
+   "thumb": "data/blog/thumbs/review_20261116_D21_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S20.md",
+   "set": "review_20261116",
+   "publish_at": "2026-11-16T16:20",
+   "url": "https://blog.naver.com/haherin/224478688637",
+   "title": "수면은 길이보다 ‘시각’이었어, 2주 적어보고 주말 늦잠부터 끊은 이유",
+   "keyword": "수면",
+   "thumb": "data/blog/thumbs/review_20261116_S20_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -2755,7 +2851,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-16T08:31",
+  "updated_at": "2026-11-16T09:14",
   "prev_snap": "2026-11-13",
   "accounts": {
    "cnsou1088": {
@@ -3254,7 +3350,7 @@
      },
      {
       "date": "2026-11-16",
-      "cv": 6
+      "cv": 8
      }
     ],
     "posts": [
@@ -3350,11 +3446,11 @@
       "log": "224472962195",
       "blog_id": "haherin",
       "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
-      "read": 45,
+      "read": 47,
       "like": 1,
       "comment": 0,
       "added": "2026-11-11T16:20",
-      "delta": 12,
+      "delta": 14,
       "url": "https://blog.naver.com/haherin/224472962195"
      },
      {
@@ -4335,7 +4431,7 @@
     "224473318908": 1,
     "224472969123": 1,
     "224472966006": 8,
-    "224472962195": 45,
+    "224472962195": 47,
     "224470339294": 9,
     "224470335636": 6,
     "224470331610": 14,
@@ -4393,11 +4489,11 @@
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
-   "2026-11-16": "2026-11-16T08:31"
+   "2026-11-16": "2026-11-16T09:14"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-16T08:31",
+  "updated_at": "2026-11-16T09:14",
   "date": "2026-11-16"
  }
 }
