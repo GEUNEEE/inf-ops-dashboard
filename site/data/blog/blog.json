@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-16T21:59",
+ "generated_at": "2026-11-17T00:54",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -36,7 +36,7 @@
      "b": null,
      "t": 24,
      "pb": null,
-     "pt": 22
+     "pt": 24
     },
     {
      "kw": "루시 코스프레",
@@ -66,7 +66,7 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "안유진 화보",
@@ -103,7 +103,7 @@
    "read": 34,
    "like": 0,
    "comment": 0,
-   "read_delta": 5,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "마운자로",
@@ -114,10 +114,10 @@
     },
     {
      "kw": "마운자로 연예인",
-     "b": 5,
-     "t": 32,
-     "pb": 4,
-     "pt": 31
+     "b": 6,
+     "t": 31,
+     "pb": 5,
+     "pt": 32
     },
     {
      "kw": "마운자로 부작용",
@@ -140,7 +140,7 @@
    "read": 28,
    "like": 1,
    "comment": 0,
-   "read_delta": 3,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "위고비 요요",
@@ -214,7 +214,7 @@
    "read": 13,
    "like": 0,
    "comment": 0,
-   "read_delta": 4,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "김다영 민낯",
@@ -263,9 +263,9 @@
     {
      "kw": "손담비 21kg",
      "b": null,
-     "t": 15,
+     "t": null,
      "pb": null,
-     "pt": 11
+     "pt": 15
     },
     {
      "kw": "손담비 마운자로",
@@ -293,14 +293,14 @@
     {
      "kw": "윤미라 피부",
      "b": 9,
-     "t": 17,
-     "pb": 8,
-     "pt": 6
+     "t": 16,
+     "pb": 9,
+     "pt": 17
     },
     {
      "kw": "윤미라 스크럽",
      "b": 2,
-     "t": 1,
+     "t": 2,
      "pb": 2,
      "pt": 1
     },
@@ -325,27 +325,27 @@
    "read": 14,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "고경표 다이어트",
      "b": 10,
      "t": null,
-     "pb": 11,
+     "pb": 10,
      "pt": null
     },
     {
      "kw": "고경표 감량",
      "b": 1,
-     "t": null,
+     "t": 34,
      "pb": 1,
      "pt": null
     },
     {
      "kw": "잠들기 전 공복",
-     "b": 12,
+     "b": 14,
      "t": null,
-     "pb": 13,
+     "pb": 12,
      "pt": null
     }
    ]
@@ -373,9 +373,9 @@
     },
     {
      "kw": "장원영 인기가요",
-     "b": 29,
+     "b": 30,
      "t": null,
-     "pb": 28,
+     "pb": 29,
      "pt": null
     },
     {
@@ -411,7 +411,7 @@
     {
      "kw": "나나 메이크업",
      "b": null,
-     "t": 31,
+     "t": 32,
      "pb": null,
      "pt": 31
     },
@@ -436,27 +436,27 @@
    "read": 25,
    "like": 0,
    "comment": 0,
-   "read_delta": 4,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "백지영 아침 식단",
      "b": 2,
      "t": 3,
-     "pb": 1,
+     "pb": 2,
      "pt": 3
     },
     {
      "kw": "홍진경 식단",
-     "b": 6,
+     "b": 5,
      "t": 23,
      "pb": 6,
      "pt": 23
     },
     {
      "kw": "신애라 토마토 스프",
-     "b": 18,
+     "b": 19,
      "t": null,
-     "pb": 20,
+     "pb": 18,
      "pt": null
     }
    ]
@@ -478,9 +478,9 @@
     {
      "kw": "바비킴 육아",
      "b": null,
-     "t": 16,
+     "t": 15,
      "pb": null,
-     "pt": 15
+     "pt": 16
     },
     {
      "kw": "바비킴 딸",
@@ -494,7 +494,7 @@
      "b": 3,
      "t": 29,
      "pb": 3,
-     "pt": 22
+     "pt": 29
     }
    ]
   },
@@ -516,15 +516,15 @@
      "kw": "이미숙 숙면",
      "b": 10,
      "t": 11,
-     "pb": 8,
-     "pt": null
+     "pb": 10,
+     "pt": 11
     },
     {
      "kw": "이미숙 안대",
      "b": 2,
      "t": 4,
      "pb": 2,
-     "pt": 5
+     "pt": 4
     },
     {
      "kw": "입벌림 방지 테이프",
@@ -658,7 +658,7 @@
    "read": 2,
    "like": 0,
    "comment": 2,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "기미크림",
@@ -670,9 +670,9 @@
     {
      "kw": "기미크림 고르는법",
      "b": 3,
-     "t": 12,
+     "t": 23,
      "pb": 3,
-     "pt": 22
+     "pt": 12
     },
     {
      "kw": "기미잡티크림",
@@ -732,13 +732,13 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면보조제",
-     "b": 21,
+     "b": 29,
      "t": null,
-     "pb": 20,
+     "pb": 21,
      "pt": null
     },
     {
@@ -766,23 +766,23 @@
    "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
    "keyword": "다이소기미크림",
    "thumb": "data/blog/thumbs/review_20261107_B4_1.jpg",
-   "read": 51,
+   "read": 53,
    "like": 0,
    "comment": 0,
-   "read_delta": 7,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "다이소기미크림",
-     "b": 4,
+     "b": 5,
      "t": 7,
      "pb": 4,
      "pt": 7
     },
     {
      "kw": "다이소 기미크림",
-     "b": 4,
+     "b": 5,
      "t": 7,
-     "pb": 3,
+     "pb": 4,
      "pt": 7
     },
     {
@@ -855,9 +855,9 @@
     {
      "kw": "수면영양제 고르는 법",
      "b": 3,
-     "t": 23,
+     "t": 20,
      "pb": 3,
-     "pt": 26
+     "pt": 23
     },
     {
      "kw": "장뇌상관",
@@ -880,7 +880,7 @@
    "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "정가은 동안 비결",
@@ -991,7 +991,7 @@
    "read": 17,
    "like": 2,
    "comment": 1,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "신민아 메이크업",
@@ -1002,17 +1002,17 @@
     },
     {
      "kw": "김유정 메이크업",
-     "b": 8,
-     "t": 7,
-     "pb": 7,
+     "b": 9,
+     "t": 24,
+     "pb": 8,
      "pt": 7
     },
     {
      "kw": "글로우 메이크업",
      "b": 3,
-     "t": 9,
-     "pb": 2,
-     "pt": 24
+     "t": 26,
+     "pb": 3,
+     "pt": 9
     }
    ]
   },
@@ -1028,7 +1028,7 @@
    "read": 11,
    "like": 1,
    "comment": 1,
-   "read_delta": 4,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "이수현 다이어트",
@@ -1065,7 +1065,7 @@
    "read": 8,
    "like": 0,
    "comment": 0,
-   "read_delta": 4,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "제이쓴 육아",
@@ -1076,9 +1076,9 @@
     },
     {
      "kw": "제이쓴 동치미",
-     "b": 11,
+     "b": 12,
      "t": null,
-     "pb": 10,
+     "pb": 11,
      "pt": null
     },
     {
@@ -1102,27 +1102,27 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 3,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "검버섯크림",
-     "b": 4,
-     "t": 36,
+     "b": 3,
+     "t": 35,
      "pb": 4,
-     "pt": 34
-    },
-    {
-     "kw": "손등 검버섯",
-     "b": 25,
-     "t": null,
-     "pb": 22,
-     "pt": null
+     "pt": 36
     },
     {
      "kw": "검버섯",
      "b": null,
      "t": null,
      "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "손등 검버섯",
+     "b": 22,
+     "t": null,
+     "pb": 25,
      "pt": null
     }
    ]
@@ -1139,13 +1139,13 @@
    "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브오일캡슐추천",
-     "b": 7,
+     "b": 8,
      "t": null,
-     "pb": 6,
+     "pb": 7,
      "pt": null
     },
     {
@@ -1224,9 +1224,9 @@
     },
     {
      "kw": "올리브유 산도",
-     "b": 7,
+     "b": null,
      "t": null,
-     "pb": 6,
+     "pb": 7,
      "pt": null
     },
     {
@@ -1250,13 +1250,13 @@
    "read": 14,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면패치",
      "b": 6,
      "t": null,
-     "pb": 1,
+     "pb": 6,
      "pt": null
     },
     {
@@ -1284,10 +1284,10 @@
    "title": "기미앰플 3병 비우고 크림으로 갈아탄 이유, 레이저 다음 관리 기록",
    "keyword": "기미앰플",
    "thumb": "data/blog/thumbs/review_20261109_B6_1.jpg",
-   "read": 9,
+   "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "기미앰플",
@@ -1324,21 +1324,21 @@
    "read": 44,
    "like": 0,
    "comment": 0,
-   "read_delta": 12,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브유고르는법",
      "b": 1,
      "t": null,
      "pb": 1,
-     "pt": 37
+     "pt": null
     },
     {
      "kw": "올리브유 고르는 법",
      "b": 1,
      "t": null,
      "pb": 1,
-     "pt": 36
+     "pt": null
     },
     {
      "kw": "엑스트라버진",
@@ -1398,14 +1398,14 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "강수정 피부",
-     "b": 15,
-     "t": 19,
-     "pb": 16,
-     "pt": null
+     "b": 13,
+     "t": null,
+     "pb": 15,
+     "pt": 19
     },
     {
      "kw": "강수정",
@@ -1472,13 +1472,13 @@
    "read": 18,
    "like": 0,
    "comment": 0,
-   "read_delta": 7,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "하루 4시간 수면",
      "b": 2,
-     "t": 3,
-     "pb": 1,
+     "t": null,
+     "pb": 2,
      "pt": 3
     },
     {
@@ -1513,10 +1513,10 @@
    "ranks": [
     {
      "kw": "기미패치",
-     "b": 9,
-     "t": 12,
+     "b": 11,
+     "t": null,
      "pb": 9,
-     "pt": null
+     "pt": 12
     },
     {
      "kw": "기미크림",
@@ -1546,13 +1546,13 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "유기농엑스트라버진올리브오일",
-     "b": 20,
+     "b": 23,
      "t": null,
-     "pb": 21,
+     "pb": 20,
      "pt": null
     },
     {
@@ -1583,13 +1583,13 @@
    "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "타트체리",
-     "b": 16,
+     "b": 19,
      "t": null,
-     "pb": 17,
+     "pb": 16,
      "pt": null
     },
     {
@@ -1657,7 +1657,7 @@
    "read": 7,
    "like": 1,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브유산도",
@@ -1694,14 +1694,14 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "감태효능",
      "b": 2,
-     "t": 31,
+     "t": 27,
      "pb": 2,
-     "pt": null
+     "pt": 31
     },
     {
      "kw": "감태",
@@ -1713,9 +1713,9 @@
     {
      "kw": "감태 추출물",
      "b": null,
-     "t": 25,
+     "t": 24,
      "pb": null,
-     "pt": 22
+     "pt": 25
     }
    ]
   },
@@ -1731,7 +1731,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "황정음",
@@ -1745,14 +1745,14 @@
      "b": null,
      "t": 23,
      "pb": null,
-     "pt": 30
+     "pt": 23
     },
     {
      "kw": "황정음민낯",
-     "b": 5,
+     "b": 6,
      "t": 2,
-     "pb": 7,
-     "pt": 3
+     "pb": 5,
+     "pt": 2
     }
    ]
   },
@@ -1802,31 +1802,31 @@
    "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
    "keyword": "글리신",
    "thumb": "data/blog/thumbs/review_20261111_S10_1.jpg",
-   "read": 53,
+   "read": 54,
    "like": 1,
    "comment": 0,
-   "read_delta": 20,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "글리신",
      "b": 7,
-     "t": 6,
-     "pb": 8,
-     "pt": 10
+     "t": 8,
+     "pb": 7,
+     "pt": 6
     },
     {
      "kw": "글리신 효능",
      "b": 14,
-     "t": 10,
+     "t": 29,
      "pb": 14,
-     "pt": 9
+     "pt": 10
     },
     {
      "kw": "글리신 음식",
      "b": 1,
      "t": 3,
      "pb": 1,
-     "pt": 4
+     "pt": 3
     }
    ]
   },
@@ -1848,7 +1848,7 @@
      "kw": "멜라닌색소",
      "b": 14,
      "t": null,
-     "pb": 15,
+     "pb": 14,
      "pt": null
     },
     {
@@ -1856,7 +1856,7 @@
      "b": null,
      "t": null,
      "pb": null,
-     "pt": 23
+     "pt": null
     },
     {
      "kw": "기미",
@@ -1879,28 +1879,28 @@
    "read": 12,
    "like": 0,
    "comment": 0,
-   "read_delta": 6,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "스페인올리브유",
      "b": 10,
-     "t": 26,
-     "pb": 7,
-     "pt": 27
+     "t": null,
+     "pb": 10,
+     "pt": 26
     },
     {
      "kw": "스페인산 올리브유",
-     "b": 11,
-     "t": 19,
-     "pb": 17,
-     "pt": 22
+     "b": 8,
+     "t": 24,
+     "pb": 11,
+     "pt": 19
     },
     {
      "kw": "올리브유 보관",
-     "b": 24,
-     "t": 36,
-     "pb": 25,
-     "pt": 33
+     "b": 25,
+     "t": null,
+     "pb": 24,
+     "pt": 36
     }
    ]
   },
@@ -1916,28 +1916,28 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 4,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠잘오는영양제",
-     "b": 5,
-     "t": 25,
-     "pb": 3,
-     "pt": 7
+     "b": 6,
+     "t": null,
+     "pb": 5,
+     "pt": 25
     },
     {
      "kw": "잠 잘 오는 영양제 고르는 법",
      "b": 2,
-     "t": 23,
+     "t": 21,
      "pb": 2,
      "pt": 23
     },
     {
      "kw": "멜라토닌 없는",
      "b": 2,
-     "t": 14,
+     "t": 31,
      "pb": 2,
-     "pt": 7
+     "pt": 14
     }
    ]
   },
@@ -1953,13 +1953,13 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "약국기미크림",
-     "b": 14,
+     "b": 16,
      "t": null,
-     "pb": 18,
+     "pb": 14,
      "pt": null
     },
     {
@@ -1990,28 +1990,28 @@
    "read": 11,
    "like": 0,
    "comment": 0,
-   "read_delta": 8,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브오일먹는법",
      "b": 4,
      "t": null,
-     "pb": 6,
+     "pb": 4,
      "pt": null
     },
     {
      "kw": "올리브유 먹는법",
      "b": null,
-     "t": 43,
+     "t": null,
      "pb": null,
-     "pt": null
+     "pt": 43
     },
     {
      "kw": "올리브유 공복",
      "b": null,
-     "t": 39,
+     "t": null,
      "pb": null,
-     "pt": null
+     "pt": 39
     }
    ]
   },
@@ -2027,7 +2027,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "지수 불면증",
@@ -2083,9 +2083,9 @@
     {
      "kw": "강수정피부",
      "b": 25,
-     "t": null,
-     "pb": 27,
-     "pt": 20
+     "t": 16,
+     "pb": 25,
+     "pt": null
     }
    ]
   },
@@ -2108,14 +2108,14 @@
      "b": null,
      "t": null,
      "pb": null,
-     "pt": 20
+     "pt": null
     },
     {
      "kw": "장재인 근긴장이상증",
      "b": null,
-     "t": 19,
+     "t": null,
      "pb": null,
-     "pt": null
+     "pt": 19
     },
     {
      "kw": "장재인 투병",
@@ -2138,28 +2138,28 @@
    "read": 9,
    "like": 1,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "정려원 식단",
      "b": 4,
-     "t": 3,
-     "pb": 5,
+     "t": 1,
+     "pb": 4,
      "pt": 3
     },
     {
      "kw": "정려원 다이어트",
-     "b": 9,
-     "t": 5,
+     "b": 8,
+     "t": 2,
      "pb": 9,
-     "pt": 3
+     "pt": 5
     },
     {
      "kw": "삼시세끼 다이어트",
-     "b": 9,
+     "b": 7,
      "t": 19,
-     "pb": 8,
-     "pt": 32
+     "pb": 9,
+     "pt": 19
     }
    ]
   },
@@ -2175,14 +2175,14 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": 3,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "기미패치",
      "b": null,
-     "t": null,
+     "t": 8,
      "pb": null,
-     "pt": 11
+     "pt": null
     },
     {
      "kw": "기미",
@@ -2196,7 +2196,7 @@
      "b": null,
      "t": 38,
      "pb": null,
-     "pt": 34
+     "pt": 38
     }
    ]
   },
@@ -2212,7 +2212,7 @@
    "read": 14,
    "like": 1,
    "comment": 0,
-   "read_delta": 5,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이어트식단",
@@ -2230,10 +2230,10 @@
     },
     {
      "kw": "빵순이 다이어트",
-     "b": 26,
-     "t": 10,
+     "b": 20,
+     "t": 27,
      "pb": 26,
-     "pt": 7
+     "pt": 10
     }
    ]
   },
@@ -2246,22 +2246,22 @@
    "title": "수면패치 3종 붙여본 2주, 결국 패치 옆에 ‘이것’까지 둔 이유",
    "keyword": "수면패치",
    "thumb": "data/blog/thumbs/review_20261112_S13_1.jpg",
-   "read": 21,
+   "read": 22,
    "like": 0,
    "comment": 0,
-   "read_delta": 17,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "수면패치",
      "b": 1,
-     "t": 5,
-     "pb": 6,
-     "pt": 3
+     "t": 3,
+     "pb": 1,
+     "pt": 5
     },
     {
      "kw": "수면패치 추천",
      "b": 1,
-     "t": 2,
+     "t": 1,
      "pb": 1,
      "pt": 2
     },
@@ -2286,7 +2286,7 @@
    "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "미백크림",
@@ -2323,14 +2323,14 @@
    "read": 15,
    "like": 0,
    "comment": 1,
-   "read_delta": 8,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "엑스트라버진올리브유",
      "b": null,
      "t": null,
      "pb": null,
-     "pt": 10
+     "pt": null
     },
     {
      "kw": "올리브유 고르는 법",
@@ -2342,9 +2342,9 @@
     {
      "kw": "올리브유 등급",
      "b": 9,
-     "t": 33,
-     "pb": null,
-     "pt": 32
+     "t": 32,
+     "pb": 9,
+     "pt": 33
     }
    ]
   },
@@ -2394,10 +2394,10 @@
    "title": "“피부과 정기권 끊었다” 정승제 말에 내가 2주마다 하게 된 것",
    "keyword": "정승제",
    "thumb": "data/blog/thumbs/review_20261113_B16_1.jpg",
-   "read": 6,
+   "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": 4,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "정승제",
@@ -2408,10 +2408,10 @@
     },
     {
      "kw": "정승제피부과",
-     "b": 11,
-     "t": 16,
-     "pb": 13,
-     "pt": 17
+     "b": 14,
+     "t": 19,
+     "pb": 11,
+     "pt": 16
     },
     {
      "kw": "옥탑방의문제아들",
@@ -2434,14 +2434,14 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "고소영 다이어트",
      "b": null,
-     "t": 22,
+     "t": 24,
      "pb": null,
-     "pt": 17
+     "pt": 22
     },
     {
      "kw": "고소영 49kg",
@@ -2471,7 +2471,7 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": 7,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "인교진",
@@ -2489,10 +2489,10 @@
     },
     {
      "kw": "이호선 상담소 불면증",
-     "b": 3,
-     "t": 8,
+     "b": 6,
+     "t": 14,
      "pb": 3,
-     "pt": 11
+     "pt": 8
     }
    ]
   },
@@ -2508,7 +2508,7 @@
    "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 6,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "기미크림",
@@ -2520,9 +2520,9 @@
     {
      "kw": "겨울기미크림",
      "b": 1,
-     "t": 5,
+     "t": 9,
      "pb": 1,
-     "pt": 2
+     "pt": 5
     },
     {
      "kw": "겨울기미",
@@ -2542,14 +2542,14 @@
    "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
    "keyword": "올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261113_D17_1.jpg",
-   "read": 33,
+   "read": 35,
    "like": 0,
    "comment": 0,
-   "read_delta": 32,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "올리브오일추천",
-     "b": null,
+     "b": 8,
      "t": null,
      "pb": null,
      "pt": null
@@ -2586,10 +2586,10 @@
    "ranks": [
     {
      "kw": "수면보조제",
-     "b": 24,
-     "t": 7,
-     "pb": 17,
-     "pt": 8
+     "b": 23,
+     "t": 28,
+     "pb": 24,
+     "pt": 7
     },
     {
      "kw": "수면보조제 고르는법",
@@ -2601,7 +2601,7 @@
     {
      "kw": "수면보조제 성분",
      "b": 6,
-     "t": 28,
+     "t": 29,
      "pb": 6,
      "pt": 28
     }
@@ -2619,7 +2619,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "기미잡티크림",
@@ -2656,7 +2656,7 @@
    "read": 1,
    "like": 1,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "공복올리브오일",
@@ -2667,17 +2667,17 @@
     },
     {
      "kw": "올리브오일 칼로리",
-     "b": 19,
-     "t": 28,
-     "pb": 16,
-     "pt": 27
+     "b": null,
+     "t": 33,
+     "pb": 19,
+     "pt": 28
     },
     {
      "kw": "올리브오일 한 숟갈",
-     "b": 6,
-     "t": null,
+     "b": 7,
+     "t": 7,
      "pb": 6,
-     "pt": 9
+     "pt": null
     }
    ]
   },
@@ -2693,7 +2693,7 @@
    "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 5,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "불면증에좋은음식",
@@ -2727,31 +2727,31 @@
    "title": "50세 김희선 동안 비결, “시술 받겠죠?” 다음 말이 진짜였어",
    "keyword": "김희선",
    "thumb": "data/blog/thumbs/review_20261116_B19_1.jpg",
-   "read": 3,
+   "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 7,
    "ranks": [
     {
      "kw": "김희선",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "김희선동안비결",
-     "b": 15,
-     "t": 14,
-     "pb": "new",
-     "pt": "new"
+     "b": 19,
+     "t": 17,
+     "pb": 15,
+     "pt": 14
     },
     {
      "kw": "놀면뭐하니",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -2764,31 +2764,31 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 5,
+   "read": 9,
    "like": 1,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 4,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
-     "b": 5,
-     "t": 3,
-     "pb": "new",
-     "pt": "new"
+     "b": 6,
+     "t": 5,
+     "pb": 5,
+     "pt": 3
     },
     {
      "kw": "김빈우 몸무게",
-     "b": 11,
-     "t": 1,
-     "pb": "new",
-     "pt": "new"
+     "b": 14,
+     "t": 13,
+     "pb": 11,
+     "pt": 1
     },
     {
      "kw": "매일 체중 재기",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -2804,28 +2804,28 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "미나미",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "리센느 미나미",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "미나미 하루 1시간",
      "b": null,
-     "t": 2,
-     "pb": "new",
-     "pt": "new"
+     "t": null,
+     "pb": null,
+     "pt": 2
     }
    ]
   },
@@ -2841,28 +2841,28 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "주근깨",
      "b": null,
-     "t": 21,
-     "pb": "new",
-     "pt": "new"
+     "t": 24,
+     "pb": null,
+     "pt": 21
     },
     {
      "kw": "기미주근깨차이",
      "b": null,
-     "t": 29,
-     "pb": "new",
-     "pt": "new"
+     "t": null,
+     "pb": null,
+     "pt": 29
     },
     {
      "kw": "주근깨크림",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -2878,28 +2878,28 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브오일다이어트",
-     "b": 7,
-     "t": 13,
-     "pb": "new",
-     "pt": "new"
+     "b": 9,
+     "t": 14,
+     "pb": 7,
+     "pt": 13
     },
     {
      "kw": "다이어트 식단 지방",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "불포화지방",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -2915,28 +2915,28 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "잠들 때 움찔",
      "b": null,
-     "t": 5,
-     "pb": "new",
-     "pt": "new"
+     "t": null,
+     "pb": null,
+     "pt": 5
     },
     {
      "kw": "잠 안 올 때",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -2949,31 +2949,31 @@
    "title": "흰머리 3가닥 뽑은 날 알게 된 멜라닌 얘기, 머리엔 모자라고 광대엔 넘쳐",
    "keyword": "멜라닌",
    "thumb": "data/blog/thumbs/review_20261116_B21_1.jpg",
-   "read": 3,
+   "read": 4,
    "like": 1,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "멜라닌",
      "b": null,
-     "t": 18,
-     "pb": "new",
-     "pt": "new"
+     "t": 20,
+     "pb": null,
+     "pt": 18
     },
     {
      "kw": "멜라닌색소",
      "b": null,
-     "t": null,
-     "pb": "new",
-     "pt": "new"
+     "t": 28,
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "멜라닌크림",
      "b": null,
      "t": 5,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": 5
     }
    ]
   },
@@ -2986,31 +2986,31 @@
    "title": "올리브유효능 챙기려면 김치전은 다른 기름으로 부쳐야 했어",
    "keyword": "올리브유효능",
    "thumb": "data/blog/thumbs/review_20261116_D21_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "올리브유효능",
      "b": null,
-     "t": null,
-     "pb": "new",
-     "pt": "new"
+     "t": 37,
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "올리브유 발연점",
      "b": null,
-     "t": null,
-     "pb": "new",
-     "pt": "new"
+     "t": 36,
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "엑스트라버진 올리브유",
      "b": null,
-     "t": null,
-     "pb": "new",
-     "pt": "new"
+     "t": 9,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3026,28 +3026,28 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "수면 규칙성",
      "b": null,
-     "t": null,
-     "pb": "new",
-     "pt": "new"
+     "t": 29,
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "수면 시간",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3063,28 +3063,28 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "40대피부관리",
      "b": null,
-     "t": 28,
-     "pb": "new",
-     "pt": "new"
+     "t": 27,
+     "pb": null,
+     "pt": 28
     },
     {
      "kw": "40대홈케어",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "40대선크림",
      "b": 7,
      "t": 19,
-     "pb": "new",
-     "pt": "new"
+     "pb": 7,
+     "pt": 19
     }
    ]
   },
@@ -3100,28 +3100,28 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브오일캡슐",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     },
     {
      "kw": "올리브유 보관",
      "b": null,
      "t": 28,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": 28
     },
     {
      "kw": "올리브유 굳음",
      "b": 3,
      "t": 7,
-     "pb": "new",
-     "pt": "new"
+     "pb": 3,
+     "pt": 7
     }
    ]
   },
@@ -3134,33 +3134,57 @@
    "title": "하루4시간수면으로 석 달 버틴 나, 정말 멀쩡했을까?",
    "keyword": "하루4시간수면",
    "thumb": "data/blog/thumbs/review_20261116_S21_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "하루4시간수면",
      "b": 6,
      "t": 3,
-     "pb": "new",
-     "pt": "new"
+     "pb": 6,
+     "pt": 3
     },
     {
      "kw": "4시간 수면",
      "b": 6,
-     "t": 2,
-     "pb": "new",
-     "pt": "new"
+     "t": 3,
+     "pb": 6,
+     "pt": 2
     },
     {
      "kw": "쇼트 슬리퍼",
      "b": null,
      "t": null,
-     "pb": "new",
-     "pt": "new"
+     "pb": null,
+     "pt": null
     }
    ]
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D29.md",
+   "set": "review_20261117",
+   "publish_at": "2026-11-17T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224479846250",
+   "title": "스페인올리브오일추천 글 대신, 스페인 뉴스 보고 바꾼 내 기준 5줄",
+   "keyword": "스페인올리브오일추천",
+   "thumb": "data/blog/thumbs/review_20261117_D29_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S28.md",
+   "set": "review_20261117",
+   "publish_at": "2026-11-17T18:20",
+   "url": "https://blog.naver.com/haherin/224479848378",
+   "title": "수면에좋은음식 찾다가 맥주 한 캔부터 끊었어, 8시 반 주방 마감 6주",
+   "keyword": "수면에좋은음식",
+   "thumb": "data/blog/thumbs/review_20261117_S28_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -3199,8 +3223,8 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-16T21:59",
-  "prev_snap": "2026-11-13",
+  "updated_at": "2026-11-17T00:41",
+  "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
     "daily": [
@@ -3282,7 +3306,11 @@
      },
      {
       "date": "2026-11-16",
-      "cv": 20
+      "cv": 31
+     },
+     {
+      "date": "2026-11-17",
+      "cv": 1
      }
     ],
     "posts": [
@@ -3294,18 +3322,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T18:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224478693226"
      },
      {
       "log": "224478674544",
       "blog_id": "cnsou1088",
       "title": "흰머리 3가닥 뽑은 날 알게 된 멜라닌 얘기, 머리엔 모자라고 광대엔 넘쳐",
-      "read": 3,
+      "read": 4,
       "like": 1,
       "comment": 1,
       "added": "2026-11-16T16:00",
-      "delta": null,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224478674544"
      },
      {
@@ -3316,18 +3344,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T14:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224478671777"
      },
      {
       "log": "224478669856",
       "blog_id": "cnsou1088",
       "title": "50세 김희선 동안 비결, “시술 받겠죠?” 다음 말이 진짜였어",
-      "read": 3,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T12:00",
-      "delta": null,
+      "delta": 7,
       "url": "https://blog.naver.com/cnsou1088/224478669856"
      },
      {
@@ -3338,7 +3366,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T20:00",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224475862569"
      },
      {
@@ -3349,18 +3377,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T18:00",
-      "delta": 6,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224475858901"
      },
      {
       "log": "224475854894",
       "blog_id": "cnsou1088",
       "title": "“피부과 정기권 끊었다” 정승제 말에 내가 2주마다 하게 된 것",
-      "read": 6,
+      "read": 7,
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T17:00",
-      "delta": 4,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224475854894"
      },
      {
@@ -3371,7 +3399,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T16:00",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224473299592"
      },
      {
@@ -3382,7 +3410,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T12:00",
-      "delta": 3,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224473296836"
      },
      {
@@ -3404,7 +3432,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T20:00",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224472979084"
      },
      {
@@ -3426,7 +3454,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T16:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224472995222"
      },
      {
@@ -3459,18 +3487,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T09:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224470308026"
      },
      {
       "log": "224470058094",
       "blog_id": "cnsou1088",
       "title": "기미앰플 3병 비우고 크림으로 갈아탄 이유, 레이저 다음 관리 기록",
-      "read": 9,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224470058094"
      },
      {
@@ -3492,7 +3520,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-08T09:00",
-      "delta": 3,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224467250022"
      },
      {
@@ -3503,7 +3531,7 @@
       "like": 2,
       "comment": 1,
       "added": "2026-11-07T16:00",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224467033120"
      },
      {
@@ -3514,18 +3542,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-07T09:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224467022061"
      },
      {
       "log": "224467012383",
       "blog_id": "cnsou1088",
       "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
-      "read": 51,
+      "read": 53,
       "like": 0,
       "comment": 0,
       "added": "2026-11-06T18:00",
-      "delta": 7,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224467012383"
      },
      {
@@ -3536,7 +3564,7 @@
       "like": 0,
       "comment": 2,
       "added": "2026-11-06T13:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224466986315"
      },
      {
@@ -3580,7 +3608,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T10:00",
-      "delta": 4,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224465598002"
      },
      {
@@ -3602,7 +3630,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T12:20",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224464451749"
      },
      {
@@ -3701,7 +3729,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-23T17:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224119076801"
      },
      {
@@ -3712,7 +3740,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-23T13:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224119069266"
      },
      {
@@ -3723,7 +3751,7 @@
       "like": 2,
       "comment": 0,
       "added": "2025-12-23T11:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224119062301"
      },
      {
@@ -3734,7 +3762,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-20T18:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224115838451"
      },
      {
@@ -3745,7 +3773,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-20T12:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224115828056"
      },
      {
@@ -3756,7 +3784,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-20T10:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224115833700"
      },
      {
@@ -3767,7 +3795,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-19T14:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224114588584"
      },
      {
@@ -3778,7 +3806,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-19T10:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224114593769"
      },
      {
@@ -3789,7 +3817,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-19T09:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224114599643"
      },
      {
@@ -3800,7 +3828,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-17T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224111969319"
      },
      {
@@ -3811,7 +3839,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-17T17:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224111961384"
      },
      {
@@ -3822,7 +3850,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-17T15:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224111977417"
      },
      {
@@ -3833,7 +3861,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-15T17:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224110131874"
      },
      {
@@ -3844,7 +3872,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-15T17:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224110123254"
      },
      {
@@ -3855,7 +3883,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-15T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224110109419"
      },
      {
@@ -3866,7 +3894,7 @@
       "like": 2,
       "comment": 0,
       "added": "2025-12-13T10:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224107817796"
      },
      {
@@ -3877,7 +3905,7 @@
       "like": 2,
       "comment": 0,
       "added": "2025-12-13T10:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224107823949"
      },
      {
@@ -3888,7 +3916,7 @@
       "like": 3,
       "comment": 0,
       "added": "2025-12-13T09:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224107830302"
      },
      {
@@ -3899,7 +3927,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-06T11:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224096110369"
      },
      {
@@ -3910,7 +3938,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-06T11:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224097482412"
      },
      {
@@ -3921,7 +3949,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-05T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224097465383"
      },
      {
@@ -3932,7 +3960,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-04T08:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224097478767"
      },
      {
@@ -3943,7 +3971,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-04T07:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224096096111"
      }
     ]
@@ -4028,7 +4056,11 @@
      },
      {
       "date": "2026-11-16",
-      "cv": 28
+      "cv": 30
+     },
+     {
+      "date": "2026-11-17",
+      "cv": 1
      }
     ],
     "posts": [
@@ -4036,11 +4068,11 @@
       "log": "224478702258",
       "blog_id": "haherin",
       "title": "하루4시간수면으로 석 달 버틴 나, 정말 멀쩡했을까?",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T18:20",
-      "delta": null,
+      "delta": 1,
       "url": "https://blog.naver.com/haherin/224478702258"
      },
      {
@@ -4051,7 +4083,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224478688637"
      },
      {
@@ -4062,7 +4094,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T14:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224478686615"
      },
      {
@@ -4073,7 +4105,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224478684423"
      },
      {
@@ -4084,7 +4116,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T20:20",
-      "delta": 5,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224475845262"
      },
      {
@@ -4106,7 +4138,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T17:20",
-      "delta": 7,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224475837165"
      },
      {
@@ -4124,11 +4156,11 @@
       "log": "224473314188",
       "blog_id": "haherin",
       "title": "수면패치 3종 붙여본 2주, 결국 패치 옆에 ‘이것’까지 둔 이유",
-      "read": 21,
+      "read": 22,
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T12:20",
-      "delta": 17,
+      "delta": 1,
       "url": "https://blog.naver.com/haherin/224473314188"
      },
      {
@@ -4150,7 +4182,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T20:20",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224472969123"
      },
      {
@@ -4161,18 +4193,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T18:20",
-      "delta": 4,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224472966006"
      },
      {
       "log": "224472962195",
       "blog_id": "haherin",
       "title": "글리신 3g 기사 보고 족발까지 먹어본 2주, 결국 내가 정한 기준 4개",
-      "read": 53,
+      "read": 54,
       "like": 1,
       "comment": 0,
       "added": "2026-11-11T16:20",
-      "delta": 20,
+      "delta": 1,
       "url": "https://blog.naver.com/haherin/224472962195"
      },
      {
@@ -4183,7 +4215,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T16:20",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224470339294"
      },
      {
@@ -4194,7 +4226,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T12:20",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224470335636"
      },
      {
@@ -4205,7 +4237,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T09:20",
-      "delta": 7,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224470331610"
      },
      {
@@ -4227,7 +4259,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T12:20",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224470069271"
      },
      {
@@ -4238,7 +4270,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-07T16:20",
-      "delta": 4,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224467048010"
      },
      {
@@ -4271,7 +4303,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-06T13:20",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/haherin/224466981565"
      },
      {
@@ -4444,7 +4476,11 @@
      },
      {
       "date": "2026-11-16",
-      "cv": 32
+      "cv": 39
+     },
+     {
+      "date": "2026-11-17",
+      "cv": 2
      }
     ],
     "posts": [
@@ -4456,18 +4492,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T18:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224478698571"
      },
      {
       "log": "224478681250",
       "blog_id": "qxcoik9423",
       "title": "올리브유효능 챙기려면 김치전은 다른 기름으로 부쳐야 했어",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T16:10",
-      "delta": null,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224478681250"
      },
      {
@@ -4478,18 +4514,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T14:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224478678927"
      },
      {
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 5,
+      "read": 9,
       "like": 1,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": null,
+      "delta": 4,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -4500,18 +4536,18 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-13T20:10",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224475786973"
      },
      {
       "log": "224475783967",
       "blog_id": "qxcoik9423",
       "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
-      "read": 33,
+      "read": 35,
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T18:10",
-      "delta": 32,
+      "delta": 2,
       "url": "https://blog.naver.com/qxcoik9423/224475783967"
      },
      {
@@ -4522,7 +4558,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T17:10",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224475799568"
      },
      {
@@ -4533,7 +4569,7 @@
       "like": 0,
       "comment": 1,
       "added": "2026-11-12T16:10",
-      "delta": 8,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224473309382"
      },
      {
@@ -4544,7 +4580,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-12T12:10",
-      "delta": 5,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224473305277"
      },
      {
@@ -4555,7 +4591,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-12T09:10",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224473302835"
      },
      {
@@ -4566,7 +4602,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T20:10",
-      "delta": 8,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224472991036"
      },
      {
@@ -4577,7 +4613,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T18:10",
-      "delta": 6,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224472988301"
      },
      {
@@ -4599,7 +4635,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-10T16:10",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224470327866"
      },
      {
@@ -4610,7 +4646,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T12:10",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224470324400"
      },
      {
@@ -4632,7 +4668,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:10",
-      "delta": 12,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224470064937"
      },
      {
@@ -4654,7 +4690,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-08T09:10",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224467244253"
      },
      {
@@ -4665,7 +4701,7 @@
       "like": 1,
       "comment": 1,
       "added": "2026-11-07T16:10",
-      "delta": 4,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224467039058"
      },
      {
@@ -4720,7 +4756,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T16:10",
-      "delta": 4,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224465591998"
      },
      {
@@ -4731,7 +4767,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T12:10",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224465589678"
      },
      {
@@ -4749,11 +4785,11 @@
       "log": "224463845638",
       "blog_id": "qxcoik9423",
       "title": "최화정이 공복에만 먹는다는 올리브오일, 그릭요거트에 뿌려 먹는 법",
-      "read": 46,
+      "read": 48,
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T20:00",
-      "delta": 3,
+      "delta": 2,
       "url": "https://blog.naver.com/qxcoik9423/224463845638"
      },
      {
@@ -4764,7 +4800,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-04T16:30",
-      "delta": 3,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224464762376"
      },
      {
@@ -4775,7 +4811,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T15:17",
-      "delta": 5,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224464759662"
      },
      {
@@ -4863,7 +4899,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-01-03T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224131889735"
      },
      {
@@ -4874,7 +4910,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-01-03T09:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224131903700"
      },
      {
@@ -4885,7 +4921,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-23T18:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224119050009"
      },
      {
@@ -4896,7 +4932,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-23T11:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224119043086"
      },
      {
@@ -4907,7 +4943,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-23T09:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224119036086"
      },
      {
@@ -4918,7 +4954,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-20T15:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224115813785"
      },
      {
@@ -4929,7 +4965,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-20T14:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224115819177"
      },
      {
@@ -4940,7 +4976,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-20T13:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224115808463"
      },
      {
@@ -4951,7 +4987,7 @@
       "like": 1,
       "comment": 1,
       "added": "2025-12-19T17:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224114554321"
      },
      {
@@ -4962,7 +4998,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-19T11:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224114548284"
      },
      {
@@ -4973,7 +5009,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-19T09:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224114564691"
      },
      {
@@ -4984,7 +5020,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-18T19:29",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224114558958"
      },
      {
@@ -4995,7 +5031,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-17T19:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224111948602"
      },
      {
@@ -5006,7 +5042,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-17T17:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224111940141"
      },
      {
@@ -5017,7 +5053,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-15T13:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224110081795"
      },
      {
@@ -5028,7 +5064,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-15T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224110090298"
      },
      {
@@ -5039,7 +5075,7 @@
       "like": 2,
       "comment": 0,
       "added": "2025-12-13T13:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224107795189"
      },
      {
@@ -5050,7 +5086,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-13T10:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224107800603"
      },
      {
@@ -5061,7 +5097,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-13T08:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224107805962"
      },
      {
@@ -5072,7 +5108,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-07T19:10",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224097443595"
      },
      {
@@ -5083,7 +5119,7 @@
       "like": 2,
       "comment": 0,
       "added": "2025-12-07T17:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224099784893"
      },
      {
@@ -5094,7 +5130,7 @@
       "like": 1,
       "comment": 1,
       "added": "2025-12-07T12:50",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224099790696"
      },
      {
@@ -5105,7 +5141,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-07T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224099796902"
      }
     ]
@@ -5556,17 +5592,170 @@
     "224096096111": 92,
     "224478702258": 0,
     "224478698571": 0
+   },
+   "2026-11-17": {
+    "224478693226": 1,
+    "224478674544": 4,
+    "224478671777": 0,
+    "224478669856": 10,
+    "224475862569": 2,
+    "224475858901": 6,
+    "224475854894": 7,
+    "224473299592": 5,
+    "224473296836": 7,
+    "224473293484": 1,
+    "224472979084": 7,
+    "224472975793": 0,
+    "224472995222": 4,
+    "224470317017": 3,
+    "224470312896": 3,
+    "224470308026": 1,
+    "224470058094": 10,
+    "224470053274": 1,
+    "224467250022": 10,
+    "224467033120": 17,
+    "224467022061": 3,
+    "224467012383": 53,
+    "224466986315": 2,
+    "224465786496": 1,
+    "224465593010": 0,
+    "224465590326": 14,
+    "224465598002": 13,
+    "224464340859": 5,
+    "224464451749": 7,
+    "224463922448": 11,
+    "224170403446": 15,
+    "224145301415": 1,
+    "224145308157": 3,
+    "224145314275": 0,
+    "224131917603": 0,
+    "224131923868": 0,
+    "224131910728": 1,
+    "224119076801": 1,
+    "224119069266": 0,
+    "224119062301": 7,
+    "224115838451": 0,
+    "224115828056": 3,
+    "224115833700": 1,
+    "224114588584": 1,
+    "224114593769": 145,
+    "224114599643": 12,
+    "224111969319": 25,
+    "224111961384": 7,
+    "224111977417": 24,
+    "224110131874": 13,
+    "224110123254": 6,
+    "224110109419": 20,
+    "224107817796": 4,
+    "224107823949": 9,
+    "224107830302": 25,
+    "224096110369": 2,
+    "224097482412": 7,
+    "224097465383": 0,
+    "224097478767": 26,
+    "224096096111": 92,
+    "224478702258": 1,
+    "224478688637": 0,
+    "224478686615": 2,
+    "224478684423": 0,
+    "224475845262": 5,
+    "224475842674": 0,
+    "224475837165": 7,
+    "224473316313": 0,
+    "224473314188": 22,
+    "224473318908": 1,
+    "224472969123": 2,
+    "224472966006": 10,
+    "224472962195": 54,
+    "224470339294": 10,
+    "224470335636": 6,
+    "224470331610": 18,
+    "224470073547": 3,
+    "224470069271": 14,
+    "224467048010": 8,
+    "224467027720": 4,
+    "224467016963": 7,
+    "224466981565": 4,
+    "224465793060": 0,
+    "224465782055": 6,
+    "224465800347": 4,
+    "224465754921": 2,
+    "224145257131": 2,
+    "224145264518": 5,
+    "224145249881": 0,
+    "224099098155": 9,
+    "224478698571": 0,
+    "224478681250": 2,
+    "224478678927": 0,
+    "224478706825": 9,
+    "224475786973": 1,
+    "224475783967": 35,
+    "224475799568": 4,
+    "224473309382": 15,
+    "224473305277": 14,
+    "224473302835": 9,
+    "224472991036": 11,
+    "224472988301": 12,
+    "224472982194": 1,
+    "224470327866": 7,
+    "224470324400": 7,
+    "224470320518": 0,
+    "224470064937": 44,
+    "224470080671": 2,
+    "224467244253": 6,
+    "224467039058": 11,
+    "224467044693": 9,
+    "224467005849": 10,
+    "224467000090": 5,
+    "224465789865": 1,
+    "224465591998": 25,
+    "224465589678": 14,
+    "224465595009": 28,
+    "224463845638": 48,
+    "224464762376": 28,
+    "224464759662": 34,
+    "224463836066": 4,
+    "224463835284": 3,
+    "224170417093": 31,
+    "224145294097": 26,
+    "224145281070": 1,
+    "224145287328": 1,
+    "224131896343": 2,
+    "224131889735": 7,
+    "224131903700": 9,
+    "224119050009": 7,
+    "224119043086": 47,
+    "224119036086": 2,
+    "224115813785": 36,
+    "224115819177": 1,
+    "224115808463": 5,
+    "224114554321": 297,
+    "224114548284": 21,
+    "224114564691": 55,
+    "224114558958": 28,
+    "224111948602": 82,
+    "224111940141": 8,
+    "224110081795": 56,
+    "224110090298": 13,
+    "224107795189": 9,
+    "224107800603": 35,
+    "224107805962": 32,
+    "224097443595": 1,
+    "224099784893": 11,
+    "224099790696": 9,
+    "224099796902": 4
    }
   },
   "snap_at": {
    "2026-11-11": null,
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
-   "2026-11-16": "2026-11-16T21:59"
+   "2026-11-16": "2026-11-16T21:59",
+   "2026-11-17": "2026-11-17T00:41"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-16T21:59",
-  "date": "2026-11-16"
+  "updated_at": "2026-11-17T00:53",
+  "date": "2026-11-17"
  }
 }
