@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T01:45",
+ "generated_at": "2026-11-17T01:54",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -3284,6 +3284,42 @@
   },
   {
    "blog_id": "cnsou1088",
+   "post": "B26.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T09:00",
+   "url": "https://blog.naver.com/cnsou1088/224479892631",
+   "title": "뛰면 얼굴 늙는다는 말 진짜야? 48세 정가은 러닝 기사에 답이 있었어",
+   "keyword": "정가은",
+   "thumb": "data/blog/thumbs/review_20261118_B26_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B27.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224479894069",
+   "title": "멜라닌크림 사기 전에 블라인드부터 내렸어, 창가 자리 3주 기록",
+   "keyword": "멜라닌크림",
+   "thumb": "data/blog/thumbs/review_20261118_B27_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B28.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224479895490",
+   "title": "미백앰플 다섯 병은 서랍에, 겨울엔 크림 하나로 정착한 이야기",
+   "keyword": "미백앰플",
+   "thumb": "data/blog/thumbs/review_20261118_B28_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
    "post": "B30.md",
    "set": "review_20261118",
    "publish_at": "2026-11-18T18:00",
@@ -3355,7 +3391,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-17T01:45",
+  "updated_at": "2026-11-17T01:54",
   "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
@@ -5883,11 +5919,11 @@
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
-   "2026-11-17": "2026-11-17T01:45"
+   "2026-11-17": "2026-11-17T01:54"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-17T01:45",
+  "updated_at": "2026-11-17T01:54",
   "date": "2026-11-17"
  }
 }
