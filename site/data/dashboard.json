@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T12:52:27",
+  "generated_at": "2026-11-16T21:19:12",
   "current_month": "2026-11",
   "products": [
     {
@@ -2600,31 +2600,26 @@
     "products": {
       "화장품": {
         "vendor": "태림로지스",
-        "base_date": "2026-10-26",
-        "base_stock": 25,
+        "base_date": "2026-10-31",
+        "base_stock": 3021,
         "deductions": {
-          "orders": 881,
+          "orders": 672,
           "other": 0,
           "reserved": 0
         },
         "other_out": [],
         "reserved": [],
-        "stock": 0,
+        "stock": 2349,
         "sold": {
-          "count": 20,
-          "units": 25
+          "count": 498,
+          "units": 672
         },
         "preorders": {
-          "count": 621,
-          "units": 856,
-          "revenue": 29502300
+          "count": 0,
+          "units": 0,
+          "revenue": 0
         },
-        "incoming": [
-          {
-            "date": "2026-11-15",
-            "qty": 3000
-          }
-        ],
+        "incoming": [],
         "estimate": {
           "normal": 37.2,
           "fast": 63.6,
@@ -2633,33 +2628,37 @@
           "backtest_mae_week": 143
         },
         "estimate_reason": null,
-        "stockout": null,
+        "stockout": {
+          "normal": "2027-01-18",
+          "fast": "2026-12-23",
+          "slow": "2027-03-13"
+        },
         "gap": null,
-        "post_incoming_stockout": "2027-01-13",
-        "reorder_by": "2026-12-09",
+        "post_incoming_stockout": "2027-01-18",
+        "reorder_by": "2026-12-14",
         "signal": "red",
-        "signal_label": "품절중",
+        "signal_label": "발주 필요",
         "monthly": [
           {
             "month": "2026-10",
-            "opening": 25,
+            "opening": 3021,
             "incoming": 0,
-            "sales": 25,
+            "sales": 18,
             "trial": 0,
             "other": 0,
-            "closing": 0,
+            "closing": 3003,
             "current": false
           },
           {
             "month": "2026-11",
-            "opening": 0,
-            "incoming": 3000,
-            "sales": 0,
+            "opening": 3003,
+            "incoming": 0,
+            "sales": 654,
             "trial": 0,
             "other": 0,
-            "closing": 0,
+            "closing": 2349,
             "current": true,
-            "preorder_units": 856
+            "preorder_units": 0
           }
         ],
         "remaining_today_share": 0.593
