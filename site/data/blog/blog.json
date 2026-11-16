@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T00:54",
+ "generated_at": "2026-11-17T01:05",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -3185,6 +3185,42 @@
    "thumb": "data/blog/thumbs/review_20261117_S28_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B30.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224479860835",
+   "title": "착색크림 장바구니 세 개 비우고 습도계부터 샀어, 턱 자국 6주",
+   "keyword": "착색크림",
+   "thumb": "data/blog/thumbs/review_20261118_B30_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D30.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224479864300",
+   "title": "올리브유먹는법 공복 한 숟갈 끊고 버터 자리에 넣었어, 두 달 후기",
+   "keyword": "올리브유먹는법",
+   "thumb": "data/blog/thumbs/review_20261118_D30_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "haherin",
+   "post": "S29.md",
+   "set": "review_20261118",
+   "publish_at": "2026-11-18T18:20",
+   "url": "https://blog.naver.com/haherin/224479866102",
+   "title": "숙면에좋은차 찾다가 저녁 녹차 두 잔부터 바꿨어, 대추차·캐모마일 6주",
+   "keyword": "숙면에좋은차",
+   "thumb": "data/blog/thumbs/review_20261118_S29_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -3223,7 +3259,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-17T00:41",
+  "updated_at": "2026-11-17T01:05",
   "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
@@ -5751,11 +5787,11 @@
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
-   "2026-11-17": "2026-11-17T00:41"
+   "2026-11-17": "2026-11-17T01:05"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-17T00:53",
+  "updated_at": "2026-11-17T01:05",
   "date": "2026-11-17"
  }
 }
