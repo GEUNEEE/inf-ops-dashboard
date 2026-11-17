@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T18:09",
+ "generated_at": "2026-11-17T21:31",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -766,10 +766,10 @@
    "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
    "keyword": "다이소기미크림",
    "thumb": "data/blog/thumbs/review_20261107_B4_1.jpg",
-   "read": 53,
+   "read": 54,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 3,
    "ranks": [
     {
      "kw": "다이소기미크림",
@@ -1025,10 +1025,10 @@
    "title": "이수현 찹쌀떡에 '10km 뛰어야', 30kg 감량 루틴과 올리브오일효능 얘기",
    "keyword": "올리브오일효능",
    "thumb": "data/blog/thumbs/review_20261106_D3_1.jpg",
-   "read": 11,
+   "read": 12,
    "like": 1,
    "comment": 1,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "이수현 다이어트",
@@ -1321,10 +1321,10 @@
    "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
    "keyword": "올리브유고르는법",
    "thumb": "data/blog/thumbs/review_20261109_D6_1.jpg",
-   "read": 45,
+   "read": 46,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "올리브유고르는법",
@@ -1876,10 +1876,10 @@
    "title": "스페인올리브유 1리터 병 2번 버리고 바꾼 것 3가지",
    "keyword": "스페인올리브유",
    "thumb": "data/blog/thumbs/review_20261111_D11_1.jpg",
-   "read": 12,
+   "read": 13,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "스페인올리브유",
@@ -2283,10 +2283,10 @@
    "title": "미백크림, 결혼식 두 달 전에 시작해야 하는 거 나만 몰랐어?",
    "keyword": "미백크림",
    "thumb": "data/blog/thumbs/review_20261112_B15_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "미백크림",
@@ -2542,10 +2542,10 @@
    "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
    "keyword": "올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261113_D17_1.jpg",
-   "read": 40,
+   "read": 42,
    "like": 0,
    "comment": 0,
-   "read_delta": 7,
+   "read_delta": 9,
    "ranks": [
     {
      "kw": "올리브오일추천",
@@ -2764,10 +2764,10 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 14,
+   "read": 17,
    "like": 1,
    "comment": 1,
-   "read_delta": 9,
+   "read_delta": 12,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
@@ -3208,7 +3208,7 @@
    "title": "11kg 뺀 신봉선 다이어트, 요즘 밥상에 올린다는 '이것'",
    "keyword": "신봉선 다이어트",
    "thumb": "data/blog/thumbs/review_20261117_D23_1.jpg",
-   "read": 6,
+   "read": 7,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3245,7 +3245,7 @@
    "title": "새벽 5시 기상 김민하 “너무 졸리다”, 비결은 아침이 아니라 밤 10시였어",
    "keyword": "김민하",
    "thumb": "data/blog/thumbs/review_20261117_S22_1.jpg",
-   "read": 13,
+   "read": 16,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3282,7 +3282,7 @@
    "title": "검버섯크림 검색하던 밤, 엄마 손등 보고 정한 두 가지",
    "keyword": "검버섯크림",
    "thumb": "data/blog/thumbs/review_20261117_B24_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3319,7 +3319,7 @@
    "title": "올리브오일효능, 원샷보다 '어떻게 먹느냐'가 먼저였어",
    "keyword": "올리브오일효능",
    "thumb": "data/blog/thumbs/review_20261117_D24_1.jpg",
-   "read": 2,
+   "read": 3,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3393,7 +3393,7 @@
    "title": "기미크림추천 글 스무 개 읽고 메모장에 남긴 기준 세 줄",
    "keyword": "기미크림추천",
    "thumb": "data/blog/thumbs/review_20261117_B25_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3430,7 +3430,7 @@
    "title": "올리브유고르는법, 색깔 말고 내가 보는 4가지",
    "keyword": "올리브유고르는법",
    "thumb": "data/blog/thumbs/review_20261117_D25_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3541,8 +3541,33 @@
    "title": "스페인올리브오일추천 글 대신, 스페인 뉴스 보고 바꾼 내 기준 5줄",
    "keyword": "스페인올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261117_D29_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "스페인올리브오일추천",
+     "b": 16,
+     "t": 11,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "스페인 올리브유",
+     "b": null,
+     "t": 19,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "엑스트라버진 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -3553,8 +3578,33 @@
    "title": "수면에좋은음식 찾다가 맥주 한 캔부터 끊었어, 8시 반 주방 마감 6주",
    "keyword": "수면에좋은음식",
    "thumb": "data/blog/thumbs/review_20261117_S28_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "수면에좋은음식",
+     "b": 3,
+     "t": 28,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "잠 잘 오는 음식",
+     "b": null,
+     "t": 30,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "야식 수면",
+     "b": null,
+     "t": 28,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -3737,7 +3787,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-17T18:09",
+  "updated_at": "2026-11-17T21:31",
   "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
@@ -3824,7 +3874,7 @@
      },
      {
       "date": "2026-11-17",
-      "cv": 27
+      "cv": 31
      }
     ],
     "posts": [
@@ -3843,7 +3893,7 @@
       "log": "224479878611",
       "blog_id": "cnsou1088",
       "title": "기미크림추천 글 스무 개 읽고 메모장에 남긴 기준 세 줄",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T16:00",
@@ -3854,7 +3904,7 @@
       "log": "224479877012",
       "blog_id": "cnsou1088",
       "title": "검버섯크림 검색하던 밤, 엄마 손등 보고 정한 두 가지",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T12:00",
@@ -3953,11 +4003,11 @@
       "log": "224473299592",
       "blog_id": "cnsou1088",
       "title": "미백크림, 결혼식 두 달 전에 시작해야 하는 거 나만 몰랐어?",
-      "read": 5,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T16:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224473299592"
      },
      {
@@ -4107,11 +4157,11 @@
       "log": "224467012383",
       "blog_id": "cnsou1088",
       "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
-      "read": 53,
+      "read": 54,
       "like": 0,
       "comment": 0,
       "added": "2026-11-06T18:00",
-      "delta": 2,
+      "delta": 3,
       "url": "https://blog.naver.com/cnsou1088/224467012383"
      },
      {
@@ -4574,10 +4624,21 @@
      },
      {
       "date": "2026-11-17",
-      "cv": 25
+      "cv": 29
      }
     ],
     "posts": [
+     {
+      "log": "224479848378",
+      "blog_id": "haherin",
+      "title": "수면에좋은음식 찾다가 맥주 한 캔부터 끊었어, 8시 반 주방 마감 6주",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-17T18:20",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224479848378"
+     },
      {
       "log": "224479890622",
       "blog_id": "haherin",
@@ -4604,7 +4665,7 @@
       "log": "224479886876",
       "blog_id": "haherin",
       "title": "새벽 5시 기상 김민하 “너무 졸리다”, 비결은 아침이 아니라 밤 10시였어",
-      "read": 13,
+      "read": 16,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T09:20",
@@ -4907,6 +4968,160 @@
       "added": "2026-01-14T20:00",
       "delta": 0,
       "url": "https://blog.naver.com/haherin/224145257131"
+     },
+     {
+      "log": "224145264518",
+      "blog_id": "haherin",
+      "title": "수송동피부과 색소침착 심한 피부 레이저 가능성",
+      "read": 5,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-01-14T14:00",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224145264518"
+     },
+     {
+      "log": "224145249881",
+      "blog_id": "haherin",
+      "title": "송도동피부과 얼굴 잡티 홈케어의 명확한 한계",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-01-14T13:10",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224145249881"
+     },
+     {
+      "log": "224099098155",
+      "blog_id": "haherin",
+      "title": "배방역피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
+      "read": 9,
+      "like": 0,
+      "comment": 1,
+      "added": "2025-12-06T16:20",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224099098155"
+     },
+     {
+      "log": "224100188663",
+      "blog_id": "haherin",
+      "title": "연신내피부과 기미 때문에 선글라스 벗지 못했던 나의 변화 과정",
+      "read": 30,
+      "like": 2,
+      "comment": 0,
+      "added": "2025-12-06T12:20",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224100188663"
+     },
+     {
+      "log": "224097304091",
+      "blog_id": "haherin",
+      "title": "수정동피부과 기미 때문에 친구 약속 미뤘던 나, 이제는 먼저 연락해요",
+      "read": 0,
+      "like": 1,
+      "comment": 0,
+      "added": "2025-12-06T10:20",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224097304091"
+     },
+     {
+      "log": "224096708102",
+      "blog_id": "haherin",
+      "title": "광명역피부과 잡티 기미 극복! 아침 거울이 행복해진 나의 변화",
+      "read": 2,
+      "like": 1,
+      "comment": 0,
+      "added": "2025-12-06T07:20",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224096708102"
+     },
+     {
+      "log": "224098801925",
+      "blog_id": "haherin",
+      "title": "동매역피부과 기미 색소침착 완전 정복! 내가 실천한 방법",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2025-12-05T20:10",
+      "delta": 0,
+      "url": "https://blog.naver.com/haherin/224098801925"
+     },
+     {
+      "log": "224096725400",
+      "blog_id": "haherin",
+      "title": "대사역피부과 기미 색소침착 극복! 거울 보는 게 행복해졌어요",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2025-12-05T17:40",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224096725400"
+     },
+     {
+      "log": "224096008787",
+      "blog_id": "haherin",
+      "title": "거진읍피부과 칙칙한 기미 피부에서 투명 피부로 변신 성공",
+      "read": 2,
+      "like": 1,
+      "comment": 0,
+      "added": "2025-12-05T10:40",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224096008787"
+     },
+     {
+      "log": "224096691455",
+      "blog_id": "haherin",
+      "title": "고촌읍피부과 기미 색소침착으로 거울 보기 싫었던 내가 사랑하게 된 얼굴",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2025-12-04T11:00",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224096691455"
+     },
+     {
+      "log": "224097358285",
+      "blog_id": "haherin",
+      "title": "어은동피부과 얼굴 가득 번진 기미, 이렇게 해결했습니다",
+      "read": 11,
+      "like": 2,
+      "comment": 0,
+      "added": "2025-12-03T23:23",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224097358285"
+     },
+     {
+      "log": "224096699694",
+      "blog_id": "haherin",
+      "title": "이의동피부과 기미로 컨디션 안 좋다 핑계 댔던 나의 180도 변화",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2025-12-03T19:20",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224096699694"
+     },
+     {
+      "log": "224096001205",
+      "blog_id": "haherin",
+      "title": "수안동피부과 기미 때문에 사진 찍기 두려웠던 나의 변화 스토리",
+      "read": 18,
+      "like": 3,
+      "comment": 0,
+      "added": "2025-12-03T11:50",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224096001205"
+     },
+     {
+      "log": "224065983491",
+      "blog_id": "haherin",
+      "title": "오늘 하루 화이트태닝 재구매 각 후기",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2025-11-05T20:39",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224065983491"
      }
     ]
    },
@@ -4994,15 +5209,26 @@
      },
      {
       "date": "2026-11-17",
-      "cv": 34
+      "cv": 45
      }
     ],
     "posts": [
      {
+      "log": "224479846250",
+      "blog_id": "qxcoik9423",
+      "title": "스페인올리브오일추천 글 대신, 스페인 뉴스 보고 바꾼 내 기준 5줄",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-17T18:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224479846250"
+     },
+     {
       "log": "224479884848",
       "blog_id": "qxcoik9423",
       "title": "올리브유고르는법, 색깔 말고 내가 보는 4가지",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T16:10",
@@ -5013,7 +5239,7 @@
       "log": "224479883658",
       "blog_id": "qxcoik9423",
       "title": "올리브오일효능, 원샷보다 '어떻게 먹느냐'가 먼저였어",
-      "read": 2,
+      "read": 3,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T12:10",
@@ -5024,7 +5250,7 @@
       "log": "224479880969",
       "blog_id": "qxcoik9423",
       "title": "11kg 뺀 신봉선 다이어트, 요즘 밥상에 올린다는 '이것'",
-      "read": 6,
+      "read": 7,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T09:10",
@@ -5068,11 +5294,11 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 14,
+      "read": 17,
       "like": 1,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": 9,
+      "delta": 12,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -5090,11 +5316,11 @@
       "log": "224475783967",
       "blog_id": "qxcoik9423",
       "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
-      "read": 40,
+      "read": 42,
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T18:10",
-      "delta": 7,
+      "delta": 9,
       "url": "https://blog.naver.com/qxcoik9423/224475783967"
      },
      {
@@ -5156,11 +5382,11 @@
       "log": "224472988301",
       "blog_id": "qxcoik9423",
       "title": "스페인올리브유 1리터 병 2번 버리고 바꾼 것 3가지",
-      "read": 12,
+      "read": 13,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T18:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224472988301"
      },
      {
@@ -5211,11 +5437,11 @@
       "log": "224470064937",
       "blog_id": "qxcoik9423",
       "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
-      "read": 45,
+      "read": 46,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:10",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/qxcoik9423/224470064937"
      },
      {
@@ -5244,11 +5470,11 @@
       "log": "224467039058",
       "blog_id": "qxcoik9423",
       "title": "이수현 찹쌀떡에 '10km 뛰어야', 30kg 감량 루틴과 올리브오일효능 얘기",
-      "read": 11,
+      "read": 12,
       "like": 1,
       "comment": 1,
       "added": "2026-11-07T16:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224467039058"
      },
      {
@@ -5646,17 +5872,6 @@
       "added": "2025-12-13T08:20",
       "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224107805962"
-     },
-     {
-      "log": "224097443595",
-      "blog_id": "qxcoik9423",
-      "title": "장천동피부과 얼굴 전체 기미로 무너졌던 자존감, 이렇게 세웠어요",
-      "read": 1,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-07T19:10",
-      "delta": 0,
-      "url": "https://blog.naver.com/qxcoik9423/224097443595"
      }
     ]
    }
@@ -6115,7 +6330,7 @@
     "224475862569": 2,
     "224475858901": 6,
     "224475854894": 7,
-    "224473299592": 5,
+    "224473299592": 6,
     "224473296836": 8,
     "224473293484": 1,
     "224472979084": 7,
@@ -6129,7 +6344,7 @@
     "224467250022": 10,
     "224467033120": 17,
     "224467022061": 3,
-    "224467012383": 53,
+    "224467012383": 54,
     "224466986315": 2,
     "224465786496": 1,
     "224465593010": 0,
@@ -6201,23 +6416,23 @@
     "224478698571": 0,
     "224478681250": 4,
     "224478678927": 1,
-    "224478706825": 14,
+    "224478706825": 17,
     "224475786973": 1,
-    "224475783967": 40,
+    "224475783967": 42,
     "224475799568": 4,
     "224473309382": 16,
     "224473305277": 15,
     "224473302835": 9,
     "224472991036": 12,
-    "224472988301": 12,
+    "224472988301": 13,
     "224472982194": 1,
     "224470327866": 8,
     "224470324400": 7,
     "224470320518": 0,
-    "224470064937": 45,
+    "224470064937": 46,
     "224470080671": 2,
     "224467244253": 6,
-    "224467039058": 11,
+    "224467039058": 12,
     "224467044693": 9,
     "224467005849": 10,
     "224467000090": 5,
@@ -6258,16 +6473,29 @@
     "224099784893": 11,
     "224099790696": 9,
     "224099796902": 4,
-    "224479880969": 6,
+    "224479880969": 7,
     "224479906388": 8,
-    "224479886876": 13,
-    "224479877012": 0,
+    "224479886876": 16,
+    "224479877012": 1,
     "224479889440": 0,
-    "224479883658": 2,
-    "224479878611": 0,
+    "224479883658": 3,
+    "224479878611": 1,
     "224479890622": 0,
-    "224479884848": 1,
-    "224480132133": 0
+    "224479884848": 2,
+    "224480132133": 0,
+    "224479848378": 1,
+    "224100188663": 30,
+    "224097304091": 0,
+    "224096708102": 2,
+    "224098801925": 0,
+    "224096725400": 0,
+    "224096008787": 2,
+    "224096691455": 3,
+    "224097358285": 11,
+    "224096699694": 2,
+    "224096001205": 18,
+    "224065983491": 0,
+    "224479846250": 0
    }
   },
   "snap_at": {
@@ -6275,11 +6503,11 @@
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
-   "2026-11-17": "2026-11-17T18:09"
+   "2026-11-17": "2026-11-17T21:31"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-17T18:09",
+  "updated_at": "2026-11-17T21:31",
   "date": "2026-11-17"
  }
 }
