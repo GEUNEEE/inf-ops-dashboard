@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T09:19",
+ "generated_at": "2026-11-17T09:25",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -2246,10 +2246,10 @@
    "title": "수면패치 3종 붙여본 2주, 결국 패치 옆에 ‘이것’까지 둔 이유",
    "keyword": "수면패치",
    "thumb": "data/blog/thumbs/review_20261112_S13_1.jpg",
-   "read": 22,
+   "read": 23,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "수면패치",
@@ -2727,10 +2727,10 @@
    "title": "50세 김희선 동안 비결, “시술 받겠죠?” 다음 말이 진짜였어",
    "keyword": "김희선",
    "thumb": "data/blog/thumbs/review_20261116_B19_1.jpg",
-   "read": 10,
+   "read": 12,
    "like": 0,
    "comment": 0,
-   "read_delta": 7,
+   "read_delta": 9,
    "ranks": [
     {
      "kw": "김희선",
@@ -2801,10 +2801,10 @@
    "title": "리센느 미나미 “잠을 많아야 하루 1시간 잔다”, 수면 부족일 때 몸이 보내는 위험 신호",
    "keyword": "미나미",
    "thumb": "data/blog/thumbs/review_20261116_S18_1.jpg",
-   "read": 0,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "미나미",
@@ -2912,10 +2912,10 @@
    "title": "잠들다 ‘움찔’ 깨는 사람 96명의 공통점, 83%가 같은 생각을 하고 있었어",
    "keyword": "잠",
    "thumb": "data/blog/thumbs/review_20261116_S19_1.jpg",
-   "read": 2,
+   "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "잠",
@@ -3060,10 +3060,10 @@
    "title": "40대피부관리 결론은 선크림 두 번, 500만원 얘기 듣고 바꾼 한 달",
    "keyword": "40대피부관리",
    "thumb": "data/blog/thumbs/review_20261116_B22_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "40대피부관리",
@@ -3171,7 +3171,10 @@
    "title": "“투자해야 예뻐진다” 82세 선우용여 276만원 크림 기사 읽고 내 화장대를 엎어봤어",
    "keyword": "선우용여",
    "thumb": "data/blog/thumbs/review_20261117_B23_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "선우용여",
@@ -3242,8 +3245,33 @@
    "title": "새벽 5시 기상 김민하 “너무 졸리다”, 비결은 아침이 아니라 밤 10시였어",
    "keyword": "김민하",
    "thumb": "data/blog/thumbs/review_20261117_S22_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "김민하",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "김민하 새벽 5시",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "김민하 루틴",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -3314,6 +3342,18 @@
    "title": "불면증영양제 세 통을 아무 때나 먹던 나, 먹는 시각만 열흘 적어봤더니",
    "keyword": "불면증영양제",
    "thumb": "data/blog/thumbs/review_20261117_S24_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B29.md",
+   "set": "review_20261117",
+   "publish_at": "2026-11-17T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224480132133",
+   "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
+   "keyword": "기미없애는방법",
+   "thumb": "data/blog/thumbs/review_20261117_B29_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -3522,7 +3562,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-17T09:19",
+  "updated_at": "2026-11-17T09:25",
   "prev_snap": "2026-11-16",
   "accounts": {
    "cnsou1088": {
@@ -3609,19 +3649,30 @@
      },
      {
       "date": "2026-11-17",
-      "cv": 1
+      "cv": 8
      }
     ],
     "posts": [
      {
-      "log": "224478693226",
+      "log": "224479906388",
       "blog_id": "cnsou1088",
-      "title": "40대피부관리 결론은 선크림 두 번, 500만원 얘기 듣고 바꾼 한 달",
+      "title": "“투자해야 예뻐진다” 82세 선우용여 276만원 크림 기사 읽고 내 화장대를 엎어봤어",
       "read": 1,
       "like": 0,
       "comment": 0,
+      "added": "2026-11-17T09:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224479906388"
+     },
+     {
+      "log": "224478693226",
+      "blog_id": "cnsou1088",
+      "title": "40대피부관리 결론은 선크림 두 번, 500만원 얘기 듣고 바꾼 한 달",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
       "added": "2026-11-16T18:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224478693226"
      },
      {
@@ -3650,11 +3701,11 @@
       "log": "224478669856",
       "blog_id": "cnsou1088",
       "title": "50세 김희선 동안 비결, “시술 받겠죠?” 다음 말이 진짜였어",
-      "read": 10,
+      "read": 12,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T12:00",
-      "delta": 7,
+      "delta": 9,
       "url": "https://blog.naver.com/cnsou1088/224478669856"
      },
      {
@@ -4261,17 +4312,6 @@
       "added": "2025-12-04T08:50",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224097478767"
-     },
-     {
-      "log": "224096096111",
-      "blog_id": "cnsou1088",
-      "title": "기장역피부과 얼굴 전체 번진 기미, 3개월 만에 이렇게 달라졌어요",
-      "read": 92,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-04T07:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224096096111"
      }
     ]
    },
@@ -4359,10 +4399,21 @@
      },
      {
       "date": "2026-11-17",
-      "cv": 1
+      "cv": 8
      }
     ],
     "posts": [
+     {
+      "log": "224479886876",
+      "blog_id": "haherin",
+      "title": "새벽 5시 기상 김민하 “너무 졸리다”, 비결은 아침이 아니라 밤 10시였어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-17T09:20",
+      "delta": null,
+      "url": "https://blog.naver.com/haherin/224479886876"
+     },
      {
       "log": "224478702258",
       "blog_id": "haherin",
@@ -4389,22 +4440,22 @@
       "log": "224478686615",
       "blog_id": "haherin",
       "title": "잠들다 ‘움찔’ 깨는 사람 96명의 공통점, 83%가 같은 생각을 하고 있었어",
-      "read": 2,
+      "read": 3,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T14:20",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/haherin/224478686615"
      },
      {
       "log": "224478684423",
       "blog_id": "haherin",
       "title": "리센느 미나미 “잠을 많아야 하루 1시간 잔다”, 수면 부족일 때 몸이 보내는 위험 신호",
-      "read": 0,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T12:20",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/haherin/224478684423"
      },
      {
@@ -4455,11 +4506,11 @@
       "log": "224473314188",
       "blog_id": "haherin",
       "title": "수면패치 3종 붙여본 2주, 결국 패치 옆에 ‘이것’까지 둔 이유",
-      "read": 22,
+      "read": 23,
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T12:20",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/haherin/224473314188"
      },
      {
@@ -4681,17 +4732,6 @@
       "added": "2026-01-14T13:10",
       "delta": 0,
       "url": "https://blog.naver.com/haherin/224145249881"
-     },
-     {
-      "log": "224099098155",
-      "blog_id": "haherin",
-      "title": "배방역피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 9,
-      "like": 0,
-      "comment": 1,
-      "added": "2025-12-06T16:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/haherin/224099098155"
      }
     ]
    },
@@ -5893,10 +5933,10 @@
     "224478698571": 0
    },
    "2026-11-17": {
-    "224478693226": 1,
+    "224478693226": 2,
     "224478674544": 4,
     "224478671777": 0,
-    "224478669856": 10,
+    "224478669856": 12,
     "224475862569": 2,
     "224475858901": 6,
     "224475854894": 7,
@@ -5955,13 +5995,13 @@
     "224096096111": 92,
     "224478702258": 1,
     "224478688637": 0,
-    "224478686615": 2,
-    "224478684423": 0,
+    "224478686615": 3,
+    "224478684423": 2,
     "224475845262": 5,
     "224475842674": 0,
     "224475837165": 7,
     "224473316313": 0,
-    "224473314188": 22,
+    "224473314188": 23,
     "224473318908": 1,
     "224472969123": 2,
     "224472966006": 10,
@@ -6043,7 +6083,9 @@
     "224099784893": 11,
     "224099790696": 9,
     "224099796902": 4,
-    "224479880969": 0
+    "224479880969": 0,
+    "224479906388": 1,
+    "224479886876": 0
    }
   },
   "snap_at": {
@@ -6051,11 +6093,11 @@
    "2026-11-12": "2026-11-12T12:41",
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
-   "2026-11-17": "2026-11-17T09:19"
+   "2026-11-17": "2026-11-17T09:25"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-17T09:19",
+  "updated_at": "2026-11-17T09:25",
   "date": "2026-11-17"
  }
 }
