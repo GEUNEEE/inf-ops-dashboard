@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T11:07:42",
+  "generated_at": "2026-11-17T18:02:25",
   "current_month": "2026-11",
   "products": [
     {
@@ -2669,12 +2669,23 @@
         "base_stock": 904,
         "deductions": {
           "orders": 8,
-          "other": 0,
+          "other": 12,
           "reserved": 0
         },
-        "other_out": [],
+        "other_out": [
+          {
+            "date": "2026-11-17",
+            "qty": 2,
+            "memo": "약국 시딩"
+          },
+          {
+            "date": "2026-11-17",
+            "qty": 10,
+            "memo": "비에스님 시딩"
+          }
+        ],
         "reserved": [],
-        "stock": 896,
+        "stock": 884,
         "sold": {
           "count": 5,
           "units": 8
@@ -2694,13 +2705,13 @@
         },
         "estimate_reason": null,
         "stockout": {
-          "normal": "2030-12-19",
-          "fast": "2029-02-08",
-          "slow": "2035-01-21"
+          "normal": "2030-11-29",
+          "fast": "2029-01-29",
+          "slow": "2034-12-12"
         },
         "gap": null,
-        "post_incoming_stockout": "2030-12-19",
-        "reorder_by": "2030-11-14",
+        "post_incoming_stockout": "2030-11-29",
+        "reorder_by": "2030-10-25",
         "signal": "green",
         "signal_label": "여유",
         "monthly": [
@@ -2710,8 +2721,8 @@
             "incoming": 0,
             "sales": 8,
             "trial": 0,
-            "other": 0,
-            "closing": 896,
+            "other": 12,
+            "closing": 884,
             "current": true,
             "preorder_units": 0
           }
