@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T10:32",
+ "generated_at": "2026-11-18T12:52",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -3727,7 +3727,29 @@
    "keyword": "멜라닌크림",
    "thumb": "data/blog/thumbs/review_20261118_B27_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "멜라닌크림",
+     "b": 5,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "멜라닌케어",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "광대기미",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -3739,7 +3761,29 @@
    "keyword": "올리브유산도",
    "thumb": "data/blog/thumbs/review_20261118_D27_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "올리브유산도",
+     "b": 16,
+     "t": 27,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 산도",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브유 캡슐",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -3751,7 +3795,29 @@
    "keyword": "수면영양제",
    "thumb": "data/blog/thumbs/review_20261118_S26_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "수면영양제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "수면영양제 추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "수면 부채",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4006,7 +4072,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-18T10:32",
+  "updated_at": "2026-11-18T12:51",
   "prev_snap": "2026-11-17",
   "accounts": {
    "cnsou1088": {
@@ -6914,11 +6980,11 @@
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
-   "2026-11-18": "2026-11-18T10:32"
+   "2026-11-18": "2026-11-18T12:51"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-18T10:32",
+  "updated_at": "2026-11-18T12:52",
   "date": "2026-11-18"
  }
 }
