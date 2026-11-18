@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T21:04",
+ "generated_at": "2026-11-18T21:14",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4101,6 +4101,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B32.md",
+   "set": "review_20261119b",
+   "publish_at": "2026-11-19T09:30",
+   "url": "https://blog.naver.com/cakkee9/224482500021",
+   "title": "나이아신아마이드크림 20% 사려다 멈추고 정한 기준 3가지",
+   "keyword": "나이아신아마이드크림",
+   "thumb": "data/blog/thumbs/review_20261119b_B32_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B39.md",
    "set": "review_20261119",
@@ -4137,6 +4149,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B41.md",
+   "set": "review_20261119b",
+   "publish_at": "2026-11-19T12:30",
+   "url": "https://blog.naver.com/cakkee9/224482503265",
+   "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
+   "keyword": "다이소화장품추천",
+   "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B40.md",
    "set": "review_20261119",
@@ -4169,6 +4193,18 @@
    "title": "다이소마그네슘 매장 세 곳 돌아서 산 3천 원 한 통, 잠 고민까지 맡겨도 될까?",
    "keyword": "다이소마그네슘",
    "thumb": "data/blog/thumbs/review_20261119_S39_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B42.md",
+   "set": "review_20261119b",
+   "publish_at": "2026-11-19T16:30",
+   "url": "https://blog.naver.com/cakkee9/224482506653",
+   "title": "다이소앰플 고를 때 성분표가 먼저야, 제형이 먼저야? 광대 얼룩 있는 내 기준",
+   "keyword": "다이소앰플",
+   "thumb": "data/blog/thumbs/review_20261119b_B42_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -4245,7 +4281,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-18T21:04",
+  "updated_at": "2026-11-18T21:14",
   "prev_snap": "2026-11-17",
   "accounts": {
    "cnsou1088": {
@@ -7542,11 +7578,11 @@
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
-   "2026-11-18": "2026-11-18T21:04"
+   "2026-11-18": "2026-11-18T21:14"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-18T21:04",
+  "updated_at": "2026-11-18T21:14",
   "date": "2026-11-18"
  }
 }
