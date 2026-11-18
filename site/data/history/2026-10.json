@@ -97,10 +97,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 354,
-      "order_count": 263,
-      "gross_revenue": 12265360,
-      "net_profit": 9314296
+      "qty": 349,
+      "order_count": 260,
+      "gross_revenue": 12088360,
+      "net_profit": 9170696
     },
     "수면영양제": {
       "qty": 0,
@@ -140,12 +140,12 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 198,
-        "units": 198
+        "orders": 197,
+        "units": 197
       },
       "1+1": {
-        "orders": 56,
-        "units": 112
+        "orders": 54,
+        "units": 108
       },
       "2+2": {
         "orders": 5,
@@ -163,9 +163,9 @@
         "gross": 10068360
       },
       "자사몰": {
-        "orders": 24,
-        "units": 56,
-        "gross": 1689000
+        "orders": 21,
+        "units": 51,
+        "gross": 1512000
       },
       "쿠팡": {
         "orders": 10,
