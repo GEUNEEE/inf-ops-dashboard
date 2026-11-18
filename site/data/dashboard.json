@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T14:01:07",
+  "generated_at": "2026-11-18T14:14:19",
   "current_month": "2026-11",
   "products": [
     {
@@ -1694,8 +1694,8 @@
         "화장품": {
           "qty": 907,
           "order_count": 665,
-          "gross_revenue": 31268800,
-          "net_profit": 23642141,
+          "gross_revenue": 31278800,
+          "net_profit": 23666841,
           "repeat": {
             "buyers": 3,
             "orders": 3
@@ -2275,7 +2275,7 @@
       "네이버": {
         "orders": 867,
         "units": 1144,
-        "gross": 39820160
+        "gross": 39880660
       },
       "쿠팡": {
         "orders": 12,
@@ -2296,8 +2296,8 @@
     "trial": {
       "orders": 6,
       "units": 6,
-      "gross": 228000,
-      "excluded_profit": 181200,
+      "gross": 228500,
+      "excluded_profit": 181700,
       "buyers": [
         "전나영",
         "유효진",
@@ -2354,7 +2354,7 @@
         "네이버": {
           "orders": 11,
           "units": 14,
-          "gross": 508000
+          "gross": 519000
         },
         "쿠팡": {
           "orders": 1,
@@ -2400,14 +2400,14 @@
         "네이버": {
           "orders": 7,
           "units": 17,
-          "gross": 498500
+          "gross": 500000
         }
       },
       "trial": {
         "orders": 1,
         "units": 1,
-        "gross": 38000,
-        "excluded_profit": 30200,
+        "gross": 38500,
+        "excluded_profit": 30700,
         "buyers": [
           "이세헌"
         ]
@@ -2432,7 +2432,7 @@
         "네이버": {
           "orders": 13,
           "units": 25,
-          "gross": 781500
+          "gross": 792500
         },
         "자사몰": {
           "orders": 10,
@@ -2471,7 +2471,7 @@
         "네이버": {
           "orders": 242,
           "units": 299,
-          "gross": 10629860
+          "gross": 10656860
         },
         "자사몰": {
           "orders": 21,
@@ -2515,7 +2515,7 @@
         "네이버": {
           "orders": 592,
           "units": 786,
-          "gross": 27296300
+          "gross": 27306300
         },
         "자사몰": {
           "orders": 70,
