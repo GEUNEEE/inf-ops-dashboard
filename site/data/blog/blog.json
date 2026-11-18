@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T10:02",
+ "generated_at": "2026-11-18T10:07",
  "page_ver": "20261116d",
  "accounts": [
   {
@@ -3838,6 +3838,18 @@
    "ranks": null
   },
   {
+   "blog_id": "haherin",
+   "post": "S30.md",
+   "set": "review_20261119",
+   "publish_at": "2026-11-19T09:20",
+   "url": "https://blog.naver.com/haherin/224481624350",
+   "title": "수능 “내 안경도 의심받을까”, 그 불안 보니 내 수능 전날 ‘이것’이 생각났어",
+   "keyword": "수능",
+   "thumb": "data/blog/thumbs/review_20261119_S30_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D39.md",
    "set": "review_20261119",
@@ -3946,7 +3958,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-18T10:02",
+  "updated_at": "2026-11-18T10:07",
   "prev_snap": "2026-11-17",
   "accounts": {
    "cnsou1088": {
@@ -6854,11 +6866,11 @@
    "2026-11-13": "2026-11-13T21:31",
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
-   "2026-11-18": "2026-11-18T10:02"
+   "2026-11-18": "2026-11-18T10:07"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-18T10:02",
+  "updated_at": "2026-11-18T10:07",
   "date": "2026-11-18"
  }
 }
