@@ -1,18 +1,29 @@
 {
- "generated_at": "2026-11-18T16:51",
- "page_ver": "20261116d",
+ "generated_at": "2026-11-18T19:54",
+ "page_ver": "20261118a",
  "accounts": [
   {
    "id": "cnsou1088",
    "label": "뷰티 (스팟멜트)"
   },
   {
+   "id": "cakkee9",
+   "label": "뷰티2 (스팟멜트)",
+   "from": "2026-11-18"
+  },
+  {
    "id": "qxcoik9423",
    "label": "다이어트 (올유핏)"
   },
   {
+   "id": "oileeoil",
+   "label": "슬립 (슬립이지)",
+   "from": "2026-11-18"
+  },
+  {
    "id": "haherin",
-   "label": "슬립 (슬립이지)"
+   "label": "옛슬립 (haherin·중지)",
+   "until": "2026-11-19"
   }
  ],
  "per_day_target": 4,

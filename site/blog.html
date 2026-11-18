@@ -10,14 +10,14 @@
   :root {
     --bg:#FAFAF8; --bg2:#F2F0E8; --border:#E5E3D6; --border2:#D3D1C7;
     --text1:#1A1A18; --text2:#666660; --text3:#A8A69C; --r:8px;
-    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --grid:#ECEAE0;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#8a5cd6; --s5:#9a9a92; --grid:#ECEAE0;
     --ok:#3B6D11; --okbg:#EAF3DE; --warn:#A32D2D; --warnbg:#FCEBEB; --wait:#854F0B; --waitbg:#FAEEDA;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg:#1A1A18; --bg2:#262624; --border:#3A3A36; --border2:#4A4A44;
       --text1:#F2F0E8; --text2:#B8B6AC; --text3:#7A786E;
-      --s1:#3987e5; --s2:#d95926; --s3:#199e70; --grid:#2E2E2B;
+      --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#9b72e8; --s5:#7d7d76; --grid:#2E2E2B;
       --ok:#A8D57A; --okbg:#24331A; --warn:#F09595; --warnbg:#3A1E1E; --wait:#EDB872; --waitbg:#3A2C16;
     }
   }
@@ -123,7 +123,7 @@
   <div class="card tblwrap"><table id="cost"></table></div>
 </div>
 <script>
-const PAGE_VER = "20261116d";
+const PAGE_VER = "20261118a";
 const WEEK = "일월화수목금토";
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -145,12 +145,14 @@ function renderDays() {
   document.querySelectorAll("#days .chip").forEach(b => b.onclick = () => { SEL = b.dataset.d; render(); try { renderViews(); } catch (e) { console.error(e); } });
 }
 
+// 그날 운영 중인 계정 (accounts[].from/until, 2026-11-18 cakkee9·oileeoil 추가, haherin 중지)
+function act(d) { return DATA.accounts.filter(a => (!a.from || d >= a.from) && (!a.until || d <= a.until)); }
+
 function renderSummary() {
   const t = ymd(new Date()); const tmD = new Date(); tmD.setDate(tmD.getDate()+1); const tm = ymd(tmD);
-  const tgt = DATA.per_day_target * DATA.accounts.length;
-  const dayLine = d => { const ps = DATA.posts.filter(p => p.publish_at.startsWith(d));
+  const dayLine = d => { const tgt = DATA.per_day_target * act(d).length; const ps = DATA.posts.filter(p => p.publish_at.startsWith(d));
     const done = ps.filter(p=>status(p)[0]==="ok").length, wait = ps.filter(p=>status(p)[0]==="wait").length, fail = ps.filter(p=>status(p)[0]==="bad").length;
-    const lack = DATA.accounts.filter(a => ps.filter(p=>p.blog_id===a.id).length < DATA.per_day_target).map(a=>a.label.split(" ")[0]);
+    const lack = act(d).filter(a => ps.filter(p=>p.blog_id===a.id).length < DATA.per_day_target).map(a=>a.label.split(" ")[0]);
     return `<b>${ps.length}/${tgt}편</b> · 발행됨 ${done} · 예약 ${wait}${fail?` · <span class="bad">예약 실패 ${fail}</span>`:""}` +
       (lack.length ? ` · <span class="bad">⚠ 부족: ${lack.join("·")}</span>` : ` · <span class="good">계정별 4편 채움</span>`); };
   const li = (k, v) => `<li><span class="k">${k}</span><span>${v}</span></li>`;
@@ -241,19 +243,19 @@ function renderAll() {
   const d0 = past.map(p=>p.publish_at.slice(0,10)).sort()[0] || t;
   const days = []; for (let d = d0; d <= t; d = shiftD(d,1)) days.push(d);
   const cnt = (d,id) => past.filter(p => p.publish_at.startsWith(d) && (!id || p.blog_id===id)).length;
-  const full = days.filter(d => DATA.accounts.every(a => cnt(d,a.id) >= T)).length;
+  const full = days.filter(d => act(d).every(a => cnt(d,a.id) >= T)).length;
   const fail = DATA.posts.filter(p => status(p)[0]==="bad").length;
   const later = DATA.posts.filter(p => p.publish_at.slice(0,10) > t).length;
   document.getElementById("dayhead").textContent = `📊 전체 요약 · ${md(d0)} ~ ${md(t)} (${days.length}일)`;
   document.getElementById("kpis").innerHTML = [
     ["발행한 글", `${past.length}편`, later ? `오늘 이후 예약 ${later}편 별도` : "오늘까지"],
-    ["하루 평균", `${(past.length/days.length).toFixed(1)}편`, `목표 ${T*na}편`],
-    ["목표 채운 날", `${full}/${days.length}`, "3개 계정 모두 4편"],
+    ["하루 평균", `${(past.length/days.length).toFixed(1)}편`, `목표 ${T*act(t).length}편`],
+    ["목표 채운 날", `${full}/${days.length}`, "운영 계정 모두 4편"],
     ["예약 실패", fail, fail ? "아래 날짜별로 확인" : "없음"],
   ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
   document.getElementById("acc").innerHTML = DATA.accounts.map(a => {
     const mine = past.filter(p => p.blog_id===a.id);
-    const lack = days.filter(d => cnt(d,a.id) < T).length;
+    const lack = days.filter(d => act(d).includes(a) && cnt(d,a.id) < T).length;
     const reads = mine.reduce((s,p)=>s+(p.read||0),0);
     const top = [...mine].filter(p=>p.read!=null).sort((x,y)=>y.read-x.read).slice(0,3);
     return `<div class="card"><h3><span>${esc(a.label)}</span><span class="cnt ${lack?"bad":"ok"}">${mine.length}편</span></h3>
@@ -266,19 +268,19 @@ function render() {
   renderDays();
   if (SEL === "all") { renderAll(); renderRest(); return; }
   const posts = DATA.posts.filter(p => p.publish_at.startsWith(SEL));
-  const target = DATA.per_day_target * DATA.accounts.length;
+  const target = DATA.per_day_target * act(SEL).length;
   const done = posts.filter(p => status(p)[0]==="ok").length;
   const wait = posts.filter(p => status(p)[0]==="wait").length;
-  const short = DATA.accounts.filter(a => posts.filter(p => p.blog_id===a.id).length < DATA.per_day_target);
+  const short = act(SEL).filter(a => posts.filter(p => p.blog_id===a.id).length < DATA.per_day_target);
   document.getElementById("dayhead").textContent = `📅 ${md(SEL)} 발행분`;
   document.getElementById("kpis").innerHTML = [
-    ["전체", `${posts.length}/${target}`, "계정 3개 × 4편"],
+    ["전체", `${posts.length}/${target}`, `계정 ${act(SEL).length}개 × 4편`],
     ["발행됨", done, "예약 시각 지남"],
     ["예약 대기", wait, "아직 시각 전"],
     ["부족 계정", short.length, short.length ? short.map(a=>a.label.split(" ")[0]).join("·") : "없음"],
   ].map(([l,v,s]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${esc(s)}</div></div>`).join("");
 
-  document.getElementById("acc").innerHTML = DATA.accounts.map(a => {
+  document.getElementById("acc").innerHTML = DATA.accounts.filter(a => act(SEL).includes(a) || posts.some(p => p.blog_id===a.id)).map(a => {
     const mine = posts.filter(p => p.blog_id===a.id);
     const ok = mine.length >= DATA.per_day_target;
     const rows = mine.map(p => {
@@ -309,7 +311,7 @@ function renderRest() {
     days.reverse().map(d => {
       const ps = DATA.posts.filter(p => p.publish_at.startsWith(d));
       const cells = DATA.accounts.map(a => { const n = ps.filter(p=>p.blog_id===a.id).length;
-        return `<td class="num" style="${n<DATA.per_day_target?"color:var(--warn)":""}">${n}</td>`; }).join("");
+        return `<td class="num" style="${n<DATA.per_day_target && act(d).includes(a)?"color:var(--warn)":""}">${n}</td>`; }).join("");
       return `<tr><td>${md(d)}</td>${cells}<td class="num">${ps.length}</td></tr>`;
     }).join("");
 
