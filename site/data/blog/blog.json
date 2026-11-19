@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T12:51",
+ "generated_at": "2026-11-19T13:04",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -2775,10 +2775,10 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 54,
+   "read": 55,
    "like": 2,
    "comment": 1,
-   "read_delta": 10,
+   "read_delta": 11,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
@@ -4351,7 +4351,10 @@
    "title": "혼자 사는 남동생이 남자수면영양제 링크 3개 보냈길래, 강재준 기사부터 보내줬어",
    "keyword": "남자수면영양제",
    "thumb": "data/blog/thumbs/review_20261119c_S44_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "남자수면영양제",
@@ -4385,7 +4388,10 @@
    "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "다이소화장품추천",
@@ -4927,6 +4933,30 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D43.md",
+   "set": "review_20261122d",
+   "publish_at": "2026-11-22T09:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483291203",
+   "title": "이세영다이어트 8kg 얘기 듣고 밥부터 뺐다가 사흘 만에 무너졌어",
+   "keyword": "이세영다이어트",
+   "thumb": "data/blog/thumbs/review_20261122d_D43_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D44.md",
+   "set": "review_20261122d",
+   "publish_at": "2026-11-22T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483293793",
+   "title": "이탈리아올리브오일추천 해달래서 찬장 병부터 봤더니 반이 남아 있었어",
+   "keyword": "이탈리아올리브오일추천",
+   "thumb": "data/blog/thumbs/review_20261122d_D44_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B61.md",
    "set": "review_20261122b",
@@ -4935,6 +4965,30 @@
    "title": "무릎착색 찜질방에서 들킨 뒤 바꾼 습관, 때수건부터 치웠어",
    "keyword": "무릎착색",
    "thumb": "data/blog/thumbs/review_20261122b_B61_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D45.md",
+   "set": "review_20261122d",
+   "publish_at": "2026-11-22T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483297701",
+   "title": "1000mg올리브오일캡슐로 바꾼 이유, 작은 알 두 통 먹고 알았어",
+   "keyword": "1000mg올리브오일캡슐",
+   "thumb": "data/blog/thumbs/review_20261122d_D45_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D46.md",
+   "set": "review_20261122d",
+   "publish_at": "2026-11-22T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483302153",
+   "title": "올리브오일선물세트 작년에 드린 두 병, 엄마네 찬장에 그대로 있었어",
+   "keyword": "올리브오일선물세트",
+   "thumb": "data/blog/thumbs/review_20261122d_D46_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -4991,7 +5045,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T12:51",
+  "updated_at": "2026-11-19T13:04",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -6455,7 +6509,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 28
+      "cv": 29
      }
     ],
     "posts": [
@@ -6595,11 +6649,11 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 54,
+      "read": 55,
       "like": 2,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": 10,
+      "delta": 11,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -7185,10 +7239,21 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 0
+      "cv": 1
      }
     ],
     "posts": [
+     {
+      "log": "224482503265",
+      "blog_id": "cakkee9",
+      "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T12:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224482503265"
+     },
      {
       "log": "224482500021",
       "blog_id": "cakkee9",
@@ -7424,6 +7489,17 @@
      }
     ],
     "posts": [
+     {
+      "log": "224483055391",
+      "blog_id": "oileeoil",
+      "title": "혼자 사는 남동생이 남자수면영양제 링크 3개 보냈길래, 강재준 기사부터 보내줬어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T12:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483055391"
+     },
      {
       "log": "224114689210",
       "blog_id": "oileeoil",
@@ -8413,7 +8489,7 @@
     "224478698571": 1,
     "224478681250": 5,
     "224478678927": 1,
-    "224478706825": 54,
+    "224478706825": 55,
     "224475786973": 3,
     "224475783967": 49,
     "224475799568": 4,
@@ -8463,7 +8539,9 @@
     "224111940141": 8,
     "224110081795": 56,
     "224481634830": 0,
-    "224482040719": 0
+    "224482040719": 0,
+    "224482503265": 1,
+    "224483055391": 0
    }
   },
   "snap_at": {
@@ -8473,11 +8551,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T12:51"
+   "2026-11-19": "2026-11-19T13:04"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T12:51",
+  "updated_at": "2026-11-19T13:04",
   "date": "2026-11-19"
  }
 }
