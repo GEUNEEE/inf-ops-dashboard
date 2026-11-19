@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T10:04",
+ "generated_at": "2026-11-19T10:08",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4401,6 +4401,18 @@
    "thumb": "data/blog/thumbs/review_20261119c_S46_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S43.md",
+   "set": "review_20261119c",
+   "publish_at": "2026-11-20T08:20",
+   "url": "https://blog.naver.com/oileeoil/224483069973",
+   "title": "입면에만 40분 걸리던 내가 수면양말 신고 잔 2주, ‘머리만 대면’ 자는 남편이 더 걱정됐어",
+   "keyword": "입면",
+   "thumb": "data/blog/thumbs/review_20261119c_S43_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -4443,7 +4455,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T10:01",
+  "updated_at": "2026-11-19T10:08",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -7923,11 +7935,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T10:01"
+   "2026-11-19": "2026-11-19T10:08"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T10:04",
+  "updated_at": "2026-11-19T10:08",
   "date": "2026-11-19"
  }
 }
