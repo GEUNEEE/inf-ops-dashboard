@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T15:51",
+ "generated_at": "2026-11-19T15:58",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -5366,6 +5366,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B73.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224483528662",
+   "title": "트라넥삼산효능 찾다가 알게 된 것, 성분 하나로 끝나는 게 아니더라",
+   "keyword": "트라넥삼산효능",
+   "thumb": "data/blog/thumbs/review_20261124_B73_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D52.md",
    "set": "review_20261124d",
@@ -5390,6 +5402,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B74.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224483531898",
+   "title": "흑자크림 찾기 전에 피부과부터 간 이유, 기미랑 다르다는 걸 알고",
+   "keyword": "흑자크림",
+   "thumb": "data/blog/thumbs/review_20261124_B74_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D53.md",
    "set": "review_20261124d",
@@ -5410,6 +5434,18 @@
    "title": "30대여자선물 후배 생일에 디퓨저 대신 고른 것, 기준 세 개",
    "keyword": "30대여자선물",
    "thumb": "data/blog/thumbs/review_20261124b_B78_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B75.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224483534778",
+   "title": "연말선물추천 리스트 보다가 엄마 선물은 결국 매일 쓰는 걸로",
+   "keyword": "연말선물추천",
+   "thumb": "data/blog/thumbs/review_20261124_B75_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5478,7 +5514,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T15:51",
+  "updated_at": "2026-11-19T15:58",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8996,11 +9032,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T15:51"
+   "2026-11-19": "2026-11-19T15:58"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T15:51",
+  "updated_at": "2026-11-19T15:58",
   "date": "2026-11-19"
  }
 }
