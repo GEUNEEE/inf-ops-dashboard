@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T10:57",
+ "generated_at": "2026-11-19T11:08",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -2183,10 +2183,10 @@
    "title": "기미패치 세 통 붙여보고 알았어, 내 얼룩은 점이 아니었어",
    "keyword": "기미패치",
    "thumb": "data/blog/thumbs/review_20261112_B14_1.jpg",
-   "read": 10,
+   "read": 11,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "기미패치",
@@ -4451,6 +4451,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B44.md",
+   "set": "review_20261120b",
+   "publish_at": "2026-11-20T09:30",
+   "url": "https://blog.naver.com/cakkee9/224483144586",
+   "title": "주지훈 안색 논란 보다가 남편이 나한테도 ‘얼굴 왜 이렇게 어두워’ 했던 날",
+   "keyword": "안색",
+   "thumb": "data/blog/thumbs/review_20261120b_B44_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B36.md",
    "set": "review_20261120",
@@ -4483,6 +4495,18 @@
    "title": "갱년기불면증인 줄만 알았던 엄마, 메모리폼 토퍼 걷고 면 요 한 장 깐 21일",
    "keyword": "갱년기불면증",
    "thumb": "data/blog/thumbs/review_20261119b_S32_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B45.md",
+   "set": "review_20261120b",
+   "publish_at": "2026-11-20T12:30",
+   "url": "https://blog.naver.com/cakkee9/224483147353",
+   "title": "피부착색연고 사러 약국 갔다가, 약사님이 먼저 물어본 건 ‘언제 생긴 자국이에요?’",
+   "keyword": "피부착색연고",
+   "thumb": "data/blog/thumbs/review_20261120b_B45_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -4523,6 +4547,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B46.md",
+   "set": "review_20261120b",
+   "publish_at": "2026-11-20T16:30",
+   "url": "https://blog.naver.com/cakkee9/224483150643",
+   "title": "나이아신아마이드세럼 20% 샀다가 일주일 만에 따가워서 5%로 내려온 얘기",
+   "keyword": "나이아신아마이드세럼",
+   "thumb": "data/blog/thumbs/review_20261120b_B46_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B38.md",
    "set": "review_20261120",
@@ -4555,6 +4591,18 @@
    "title": "잠 설친 날 빈속 커피 두 잔, 매일 숙면 7%뿐이라는 기사 보고 순서만 바꾼 2주",
    "keyword": "잠 설친 날",
    "thumb": "data/blog/thumbs/review_20261120_S34_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B47.md",
+   "set": "review_20261120b",
+   "publish_at": "2026-11-20T18:30",
+   "url": "https://blog.naver.com/cakkee9/224483153446",
+   "title": "겨울피부건조 때문에 보습크림 비싼 거 사려다, 소비자원 8종 비교 보고 장바구니 비웠어",
+   "keyword": "겨울피부건조",
+   "thumb": "data/blog/thumbs/review_20261120b_B47_1.jpg",
    "read": null,
    "ranks": null
   }
@@ -4599,7 +4647,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T10:57",
+  "updated_at": "2026-11-19T11:08",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -4694,7 +4742,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 7
+      "cv": 8
      }
     ],
     "posts": [
@@ -4889,11 +4937,11 @@
       "log": "224473296836",
       "blog_id": "cnsou1088",
       "title": "기미패치 세 통 붙여보고 알았어, 내 얼룩은 점이 아니었어",
-      "read": 10,
+      "read": 11,
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T12:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224473296836"
      },
      {
@@ -7959,7 +8007,7 @@
     "224475858901": 7,
     "224475854894": 7,
     "224473299592": 7,
-    "224473296836": 10,
+    "224473296836": 11,
     "224473293484": 1,
     "224472979084": 7,
     "224472975793": 0,
@@ -8079,11 +8127,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T10:57"
+   "2026-11-19": "2026-11-19T11:08"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T10:57",
+  "updated_at": "2026-11-19T11:08",
   "date": "2026-11-19"
  }
 }
