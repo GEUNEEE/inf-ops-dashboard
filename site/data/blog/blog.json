@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T14:35",
+ "generated_at": "2026-11-19T14:47",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4388,7 +4388,7 @@
    "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -5150,6 +5150,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S52.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T08:20",
+   "url": "https://blog.naver.com/oileeoil/224483428018",
+   "title": "수면부족을 주말에 몰아 자서 갚으려다, 기상 시간부터 고정했어",
+   "keyword": "수면부족",
+   "thumb": "data/blog/thumbs/review_20261123_S52_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D47.md",
    "set": "review_20261123d",
@@ -5186,6 +5198,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S53.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T12:20",
+   "url": "https://blog.naver.com/oileeoil/224483431237",
+   "title": "잠안올때 폰은 거실에 두고 왔어, 침실 온도까지 적어보니",
+   "keyword": "잠안올때",
+   "thumb": "data/blog/thumbs/review_20261123_S53_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B69.md",
    "set": "review_20261123b",
@@ -5210,6 +5234,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S54.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T16:20",
+   "url": "https://blog.naver.com/oileeoil/224483434223",
+   "title": "숙면영양제 장바구니 10개를 3개로 줄인 기준, 성분 하나만 믿지 않기",
+   "keyword": "숙면영양제",
+   "thumb": "data/blog/thumbs/review_20261123_S54_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B70.md",
    "set": "review_20261123b",
@@ -5230,6 +5266,18 @@
    "title": "40대다이어트 저녁 굶기 사흘 만에 무너지고 바꾼 한 달",
    "keyword": "40대다이어트",
    "thumb": "data/blog/thumbs/review_20261123d_D50_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S55.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T18:20",
+   "url": "https://blog.naver.com/oileeoil/224483438012",
+   "title": "잠잘자는법 수십 개 중에 기상 시간이랑 베개 두 개만 바꿨어",
+   "keyword": "잠잘자는법",
+   "thumb": "data/blog/thumbs/review_20261123_S55_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5286,7 +5334,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T14:35",
+  "updated_at": "2026-11-19T14:47",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -7480,7 +7528,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 7
+      "cv": 8
      }
     ],
     "posts": [
@@ -7488,7 +7536,7 @@
       "log": "224482503265",
       "blog_id": "cakkee9",
       "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:30",
@@ -8792,7 +8840,7 @@
     "224110081795": 56,
     "224481634830": 0,
     "224482040719": 0,
-    "224482503265": 4,
+    "224482503265": 5,
     "224483055391": 0,
     "224483082223": 0
    }
@@ -8804,11 +8852,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T14:35"
+   "2026-11-19": "2026-11-19T14:47"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T14:35",
+  "updated_at": "2026-11-19T14:47",
   "date": "2026-11-19"
  }
 }
