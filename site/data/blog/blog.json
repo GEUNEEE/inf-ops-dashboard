@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T10:28",
+ "generated_at": "2026-11-19T10:42",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4427,6 +4427,30 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D35.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T09:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483104046",
+   "title": "“지나친 절식은 폭식으로” 신지 다이어트 보고 밤 9시에 부엌 불부터 껐어",
+   "keyword": "신지 다이어트",
+   "thumb": "data/blog/thumbs/review_20261120_D35_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D36.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483108327",
+   "title": "올리브오일캡슐효능 찾다가 ‘이것’ 한 줄 보고 아침 숟가락부터 내려놨어",
+   "keyword": "올리브오일캡슐효능",
+   "thumb": "data/blog/thumbs/review_20261120_D36_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "oileeoil",
    "post": "S32.md",
    "set": "review_20261119b",
@@ -4439,6 +4463,18 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D37.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483112422",
+   "title": "코스트코올리브오일추천 보다가 멈칫, 큰 병 석 달 안에 다 쓸 수 있어?",
+   "keyword": "코스트코올리브오일추천",
+   "thumb": "data/blog/thumbs/review_20261120_D37_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "oileeoil",
    "post": "S41.md",
    "set": "review_20261119b",
@@ -4447,6 +4483,18 @@
    "title": "다이소수면안대 2천 원짜리 셋 돌려 써보니, 눈 말고 가릴 게 따로 있었어",
    "keyword": "다이소수면안대",
    "thumb": "data/blog/thumbs/review_20261119b_S41_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D38.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483116883",
+   "title": "아침공복올리브오일 한 숟갈 들고 3분 서 있다가, 미지근한 물부터 마셨어",
+   "keyword": "아침공복올리브오일",
+   "thumb": "data/blog/thumbs/review_20261120_D38_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -4503,7 +4551,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T10:28",
+  "updated_at": "2026-11-19T10:42",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -7983,11 +8031,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T10:28"
+   "2026-11-19": "2026-11-19T10:42"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T10:28",
+  "updated_at": "2026-11-19T10:42",
   "date": "2026-11-19"
  }
 }
