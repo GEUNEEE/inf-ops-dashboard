@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T11:13",
+ "generated_at": "2026-11-19T11:20",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -3182,10 +3182,10 @@
    "title": "“투자해야 예뻐진다” 82세 선우용여 276만원 크림 기사 읽고 내 화장대를 엎어봤어",
    "keyword": "선우용여",
    "thumb": "data/blog/thumbs/review_20261117_B23_1.jpg",
-   "read": 10,
+   "read": 11,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "선우용여",
@@ -4617,6 +4617,30 @@
    "thumb": "data/blog/thumbs/review_20261120b_B47_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D41.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-21T09:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483167202",
+   "title": "다이소다이어트 소품 다섯 개 사서 3주 써보니 남은 건 두 개였어",
+   "keyword": "다이소다이어트",
+   "thumb": "data/blog/thumbs/review_20261120_D41_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D42.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-21T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483171056",
+   "title": "다이소올리브오일 소포장 들고 출근했다가 키보드에 기름 묻힌 날",
+   "keyword": "다이소올리브오일",
+   "thumb": "data/blog/thumbs/review_20261120_D42_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -4659,7 +4683,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T11:13",
+  "updated_at": "2026-11-19T11:20",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -4754,7 +4778,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 8
+      "cv": 9
      }
     ],
     "posts": [
@@ -4850,11 +4874,11 @@
       "log": "224479906388",
       "blog_id": "cnsou1088",
       "title": "“투자해야 예뻐진다” 82세 선우용여 276만원 크림 기사 읽고 내 화장대를 엎어봤어",
-      "read": 10,
+      "read": 11,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T09:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224479906388"
      },
      {
@@ -8010,7 +8034,7 @@
     "224480132133": 1,
     "224479878611": 4,
     "224479877012": 2,
-    "224479906388": 10,
+    "224479906388": 11,
     "224478693226": 5,
     "224478674544": 5,
     "224478671777": 0,
@@ -8139,11 +8163,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T11:13"
+   "2026-11-19": "2026-11-19T11:20"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T11:13",
+  "updated_at": "2026-11-19T11:20",
   "date": "2026-11-19"
  }
 }
