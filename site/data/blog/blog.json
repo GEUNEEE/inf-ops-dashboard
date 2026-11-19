@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T11:20",
+ "generated_at": "2026-11-19T11:27",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4641,6 +4641,30 @@
    "thumb": "data/blog/thumbs/review_20261120_D42_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D32.md",
+   "set": "review_20261119",
+   "publish_at": "2026-11-21T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483177334",
+   "title": "올리브유캡슐 30알, 요일 약통에 덜었다 쏟고 정한 기준 3개",
+   "keyword": "올리브유캡슐",
+   "thumb": "data/blog/thumbs/review_20261119_D32_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D33.md",
+   "set": "review_20261119",
+   "publish_at": "2026-11-21T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483180811",
+   "title": "올리브유레몬즙효능, 결론은 빈속 원샷 말고 저녁 샐러드 접시였어",
+   "keyword": "올리브유레몬즙효능",
+   "thumb": "data/blog/thumbs/review_20261119_D33_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -4683,7 +4707,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T11:20",
+  "updated_at": "2026-11-19T11:27",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8163,11 +8187,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T11:20"
+   "2026-11-19": "2026-11-19T11:27"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T11:20",
+  "updated_at": "2026-11-19T11:27",
   "date": "2026-11-19"
  }
 }
