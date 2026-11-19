@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T13:13",
+ "generated_at": "2026-11-19T13:23",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4933,6 +4933,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S48.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T08:20",
+   "url": "https://blog.naver.com/oileeoil/224483317588",
+   "title": "겨울잠 자고 싶은 아침, 곰 기사 보고 일어나는 시간부터 바꿨어",
+   "keyword": "겨울잠",
+   "thumb": "data/blog/thumbs/review_20261122_S48_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D43.md",
    "set": "review_20261122d",
@@ -4969,6 +4981,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S49.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T12:20",
+   "url": "https://blog.naver.com/oileeoil/224483319916",
+   "title": "수면유지영양제 찾다가 알게 된 것, 새벽 3시에 깨는 사람 나만이 아니었어",
+   "keyword": "수면유지영양제",
+   "thumb": "data/blog/thumbs/review_20261122_S49_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B61.md",
    "set": "review_20261122b",
@@ -4993,6 +5017,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S50.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T16:20",
+   "url": "https://blog.naver.com/oileeoil/224483322998",
+   "title": "부모님크리스마스선물 고민하다 엄마 통화에서 답을 찾았어",
+   "keyword": "부모님크리스마스선물",
+   "thumb": "data/blog/thumbs/review_20261122_S50_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B62.md",
    "set": "review_20261122b",
@@ -5013,6 +5049,18 @@
    "title": "올리브오일선물세트 작년에 드린 두 병, 엄마네 찬장에 그대로 있었어",
    "keyword": "올리브오일선물세트",
    "thumb": "data/blog/thumbs/review_20261122d_D46_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S51.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T18:20",
+   "url": "https://blog.naver.com/oileeoil/224483325281",
+   "title": "약국수면유도제 사러 갔다가 상담만 받고 나온 날, 내 잠은 조기 각성이었어",
+   "keyword": "약국수면유도제",
+   "thumb": "data/blog/thumbs/review_20261122_S51_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5069,7 +5117,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T13:13",
+  "updated_at": "2026-11-19T13:23",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8575,11 +8623,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T13:13"
+   "2026-11-19": "2026-11-19T13:23"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T13:13",
+  "updated_at": "2026-11-19T13:23",
   "date": "2026-11-19"
  }
 }
