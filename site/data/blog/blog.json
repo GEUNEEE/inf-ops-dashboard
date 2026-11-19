@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T16:10",
+ "generated_at": "2026-11-19T16:14",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4499,8 +4499,33 @@
    "title": "트레이더스올리브오일 큰 통 실었다가 계산대 줄에서 라벨 보고 돌아섰어",
    "keyword": "트레이더스올리브오일",
    "thumb": "data/blog/thumbs/review_20261119_D40_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "트레이더스올리브오일",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "트레이더스 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 등급",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -5379,6 +5404,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B72.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T09:00",
+   "url": "https://blog.naver.com/cnsou1088/224483556108",
+   "title": "톤업크림추천 글 다 보고 고른 기준, 목까지 바를 수 있는지",
+   "keyword": "톤업크림추천",
+   "thumb": "data/blog/thumbs/review_20261124_B72_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D51.md",
    "set": "review_20261124d",
@@ -5587,7 +5624,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T16:09",
+  "updated_at": "2026-11-19T16:14",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -7056,6 +7093,17 @@
     ],
     "posts": [
      {
+      "log": "224482048365",
+      "blog_id": "qxcoik9423",
+      "title": "트레이더스올리브오일 큰 통 실었다가 계산대 줄에서 라벨 보고 돌아섰어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T16:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224482048365"
+     },
+     {
       "log": "224482040719",
       "blog_id": "qxcoik9423",
       "title": "쿠팡블랙프라이데이 장바구니에 올리브오일 담았다가 결제 직전에 뺀 이유",
@@ -7703,17 +7751,6 @@
       "added": "2025-12-17T19:50",
       "delta": 0,
       "url": "https://blog.naver.com/qxcoik9423/224111948602"
-     },
-     {
-      "log": "224111940141",
-      "blog_id": "qxcoik9423",
-      "title": "구의동피부과 기미 잡티 때문에 포기했던 나, 이제는 자신감 UP",
-      "read": 8,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-17T17:00",
-      "delta": 0,
-      "url": "https://blog.naver.com/qxcoik9423/224111940141"
      }
     ]
    },
@@ -9096,7 +9133,8 @@
     "224482503265": 7,
     "224483055391": 0,
     "224483082223": 2,
-    "224482014524": 0
+    "224482014524": 0,
+    "224482048365": 0
    }
   },
   "snap_at": {
@@ -9106,11 +9144,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T16:09"
+   "2026-11-19": "2026-11-19T16:14"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T16:10",
+  "updated_at": "2026-11-19T16:14",
   "date": "2026-11-19"
  }
 }
