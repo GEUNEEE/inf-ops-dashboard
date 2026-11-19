@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T10:53",
+ "generated_at": "2026-11-19T10:57",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4415,6 +4415,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B43.md",
+   "set": "review_20261120b",
+   "publish_at": "2026-11-19T18:30",
+   "url": "https://blog.naver.com/cakkee9/224483138010",
+   "title": "30대크리스마스선물, 향초 말고 매일 쓰는 걸로 골랐어",
+   "keyword": "30대크리스마스선물",
+   "thumb": "data/blog/thumbs/review_20261120b_B43_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "oileeoil",
    "post": "S43.md",
    "set": "review_20261119c",
@@ -4587,7 +4599,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T10:53",
+  "updated_at": "2026-11-19T10:57",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8067,11 +8079,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T10:53"
+   "2026-11-19": "2026-11-19T10:57"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T10:53",
+  "updated_at": "2026-11-19T10:57",
   "date": "2026-11-19"
  }
 }
