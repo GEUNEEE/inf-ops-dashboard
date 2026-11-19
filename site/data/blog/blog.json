@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T11:44",
+ "generated_at": "2026-11-19T11:49",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4619,6 +4619,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S47.md",
+   "set": "review_20261121",
+   "publish_at": "2026-11-21T08:20",
+   "url": "https://blog.naver.com/oileeoil/224483209785",
+   "title": "수면캡슐 검색했더니 캡슐 침대만 나왔어, 잠은 뇌만의 문제가 아니래",
+   "keyword": "수면캡슐",
+   "thumb": "data/blog/thumbs/review_20261121_S47_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D41.md",
    "set": "review_20261120",
@@ -4755,7 +4767,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T11:44",
+  "updated_at": "2026-11-19T11:49",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8235,11 +8247,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T11:44"
+   "2026-11-19": "2026-11-19T11:49"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T11:44",
+  "updated_at": "2026-11-19T11:49",
   "date": "2026-11-19"
  }
 }
