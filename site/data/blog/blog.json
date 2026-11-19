@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T14:30",
+ "generated_at": "2026-11-19T14:35",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -5210,6 +5210,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B70.md",
+   "set": "review_20261123b",
+   "publish_at": "2026-11-23T16:30",
+   "url": "https://blog.naver.com/cakkee9/224483422457",
+   "title": "겨울보습크림 바꾸기 전에 침실 습도부터 재 봤어, 일주일 기록",
+   "keyword": "겨울보습크림",
+   "thumb": "data/blog/thumbs/review_20261123b_B70_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D50.md",
    "set": "review_20261123d",
@@ -5274,7 +5286,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T14:30",
+  "updated_at": "2026-11-19T14:35",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8792,11 +8804,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T14:30"
+   "2026-11-19": "2026-11-19T14:35"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T14:30",
+  "updated_at": "2026-11-19T14:35",
   "date": "2026-11-19"
  }
 }
