@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T15:58",
+ "generated_at": "2026-11-19T16:10",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4388,7 +4388,7 @@
    "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
-   "read": 6,
+   "read": 7,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4462,8 +4462,33 @@
    "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
    "keyword": "다이소수분크림",
    "thumb": "data/blog/thumbs/review_20261119_B40_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "다이소수분크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "겨울수분크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -5342,6 +5367,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S56.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T08:20",
+   "url": "https://blog.naver.com/oileeoil/224483540769",
+   "title": "수면에좋은영양제 직구하려다 멈춘 이유, 멜라토닌은 국내선 의약품이래",
+   "keyword": "수면에좋은영양제",
+   "thumb": "data/blog/thumbs/review_20261124_S56_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D51.md",
    "set": "review_20261124d",
@@ -5390,6 +5427,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S57.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T12:20",
+   "url": "https://blog.naver.com/oileeoil/224483543864",
+   "title": "테아닌영양제 따로 사기 전에, 오후 커피부터 줄여본 3주",
+   "keyword": "테아닌영양제",
+   "thumb": "data/blog/thumbs/review_20261124_S57_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B77.md",
    "set": "review_20261124b",
@@ -5426,6 +5475,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S58.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T16:20",
+   "url": "https://blog.naver.com/oileeoil/224483547090",
+   "title": "불면증원인 찾아보다 알게 된 내 문제, 자기 싫어서 미루던 밤",
+   "keyword": "불면증원인",
+   "thumb": "data/blog/thumbs/review_20261124_S58_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B78.md",
    "set": "review_20261124b",
@@ -5458,6 +5519,18 @@
    "title": "부모님건강선물 작년 상자가 찬장에 남아 올해 바꾼 기준",
    "keyword": "부모님건강선물",
    "thumb": "data/blog/thumbs/review_20261124d_D54_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S59.md",
+   "set": "review_20261124",
+   "publish_at": "2026-11-24T18:20",
+   "url": "https://blog.naver.com/oileeoil/224483549982",
+   "title": "잠잘오는음식 찾다가 바꾼 건 메뉴보다 먹는 시간이었어",
+   "keyword": "잠잘오는음식",
+   "thumb": "data/blog/thumbs/review_20261124_S59_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5514,7 +5587,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T15:58",
+  "updated_at": "2026-11-19T16:09",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -5613,6 +5686,17 @@
      }
     ],
     "posts": [
+     {
+      "log": "224482014524",
+      "blog_id": "cnsou1088",
+      "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T16:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224482014524"
+     },
      {
       "log": "224481634830",
       "blog_id": "cnsou1088",
@@ -6261,17 +6345,6 @@
       "added": "2025-12-17T15:30",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224111977417"
-     },
-     {
-      "log": "224110131874",
-      "blog_id": "cnsou1088",
-      "title": "별내동피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 13,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-15T17:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224110131874"
      }
     ]
    },
@@ -7708,7 +7781,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 11
+      "cv": 12
      }
     ],
     "posts": [
@@ -7716,7 +7789,7 @@
       "log": "224482503265",
       "blog_id": "cakkee9",
       "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
-      "read": 6,
+      "read": 7,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:30",
@@ -9020,9 +9093,10 @@
     "224110081795": 56,
     "224481634830": 0,
     "224482040719": 0,
-    "224482503265": 6,
+    "224482503265": 7,
     "224483055391": 0,
-    "224483082223": 2
+    "224483082223": 2,
+    "224482014524": 0
    }
   },
   "snap_at": {
@@ -9032,11 +9106,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T15:58"
+   "2026-11-19": "2026-11-19T16:09"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T15:58",
+  "updated_at": "2026-11-19T16:10",
   "date": "2026-11-19"
  }
 }
