@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T14:08",
+ "generated_at": "2026-11-19T14:22",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -2775,10 +2775,10 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 56,
+   "read": 59,
    "like": 2,
    "comment": 1,
-   "read_delta": 12,
+   "read_delta": 15,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
@@ -4426,7 +4426,29 @@
    "keyword": "다이소영양제",
    "thumb": "data/blog/thumbs/review_20261119b_S40_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소영양제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소 영양제 추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "소용량 건기식",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -5125,6 +5147,54 @@
    "ranks": null
   },
   {
+   "blog_id": "qxcoik9423",
+   "post": "D47.md",
+   "set": "review_20261123d",
+   "publish_at": "2026-11-23T09:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483389722",
+   "title": "강재준다이어트 9km 따라 뛰다가 일주일 만에 멈춘 이유",
+   "keyword": "강재준다이어트",
+   "thumb": "data/blog/thumbs/review_20261123d_D47_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D48.md",
+   "set": "review_20261123d",
+   "publish_at": "2026-11-23T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483393083",
+   "title": "이마트블랙프라이데이 전에 작년 장바구니부터 꺼내봤어",
+   "keyword": "이마트블랙프라이데이",
+   "thumb": "data/blog/thumbs/review_20261123d_D48_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D49.md",
+   "set": "review_20261123d",
+   "publish_at": "2026-11-23T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483400162",
+   "title": "쿠팡올리브오일 후기 순으로 샀다가 라벨 보는 법을 배웠어",
+   "keyword": "쿠팡올리브오일",
+   "thumb": "data/blog/thumbs/review_20261123d_D49_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D50.md",
+   "set": "review_20261123d",
+   "publish_at": "2026-11-23T18:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483403166",
+   "title": "40대다이어트 저녁 굶기 사흘 만에 무너지고 바꾼 한 달",
+   "keyword": "40대다이어트",
+   "thumb": "data/blog/thumbs/review_20261123d_D50_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B71.md",
    "set": "review_20261123b",
@@ -5177,7 +5247,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T14:08",
+  "updated_at": "2026-11-19T14:22",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -6641,7 +6711,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 30
+      "cv": 33
      }
     ],
     "posts": [
@@ -6781,11 +6851,11 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 56,
+      "read": 59,
       "like": 2,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": 12,
+      "delta": 15,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -8621,7 +8691,7 @@
     "224478698571": 1,
     "224478681250": 5,
     "224478678927": 1,
-    "224478706825": 56,
+    "224478706825": 59,
     "224475786973": 3,
     "224475783967": 49,
     "224475799568": 4,
@@ -8683,11 +8753,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T14:08"
+   "2026-11-19": "2026-11-19T14:22"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T14:08",
+  "updated_at": "2026-11-19T14:22",
   "date": "2026-11-19"
  }
 }
