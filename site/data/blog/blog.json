@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T13:23",
+ "generated_at": "2026-11-19T13:35",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4098,7 +4098,7 @@
    "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
    "keyword": "박보영",
    "thumb": "data/blog/thumbs/review_20261119_B31_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4388,7 +4388,7 @@
    "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4945,6 +4945,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B56.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T09:00",
+   "url": "https://blog.naver.com/cnsou1088/224483330879",
+   "title": "무신사블랙프라이데이 장바구니 60만 원을 21만 원으로 줄인 방법",
+   "keyword": "무신사블랙프라이데이",
+   "thumb": "data/blog/thumbs/review_20261122_B56_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D43.md",
    "set": "review_20261122d",
@@ -4965,6 +4977,18 @@
    "title": "목주름크림 찾다가 배윤정 목 거상 기사 보고 먼저 바꾼 세 가지",
    "keyword": "목주름크림",
    "thumb": "data/blog/thumbs/review_20261122b_B60_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B57.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224483333870",
+   "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
+   "keyword": "다이소미백크림",
+   "thumb": "data/blog/thumbs/review_20261122_B57_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5005,6 +5029,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B58.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224483336158",
+   "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
+   "keyword": "아젤라익산크림",
+   "thumb": "data/blog/thumbs/review_20261122_B58_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D45.md",
    "set": "review_20261122d",
@@ -5037,6 +5073,18 @@
    "title": "직장동료크리스마스선물 일곱 명 전부 챙긴 후기, 계약직 빼빼로 기사 보고 정한 기준",
    "keyword": "직장동료크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261122b_B62_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B59.md",
+   "set": "review_20261122",
+   "publish_at": "2026-11-22T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224483338765",
+   "title": "약국화장품이면 다 좋은 줄 알았는데, 약사님이 먼저 보라고 한 건",
+   "keyword": "약국화장품",
+   "thumb": "data/blog/thumbs/review_20261122_B59_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5117,7 +5165,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T13:23",
+  "updated_at": "2026-11-19T13:35",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -5212,7 +5260,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 10
+      "cv": 11
      }
     ],
     "posts": [
@@ -5231,7 +5279,7 @@
       "log": "224481659589",
       "blog_id": "cnsou1088",
       "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:00",
@@ -7311,7 +7359,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 1
+      "cv": 2
      }
     ],
     "posts": [
@@ -7319,7 +7367,7 @@
       "log": "224482503265",
       "blog_id": "cakkee9",
       "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:30",
@@ -8482,7 +8530,7 @@
     "224099567408": 7,
     "224096252064": 27,
     "224066133561": 0,
-    "224481659589": 1,
+    "224481659589": 2,
     "224479860835": 0,
     "224479895490": 2,
     "224479894069": 1,
@@ -8612,7 +8660,7 @@
     "224110081795": 56,
     "224481634830": 0,
     "224482040719": 0,
-    "224482503265": 1,
+    "224482503265": 2,
     "224483055391": 0
    }
   },
@@ -8623,11 +8671,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T13:23"
+   "2026-11-19": "2026-11-19T13:35"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T13:23",
+  "updated_at": "2026-11-19T13:35",
   "date": "2026-11-19"
  }
 }
