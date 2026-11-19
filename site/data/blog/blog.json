@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T12:14",
+ "generated_at": "2026-11-19T12:20",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4318,7 +4318,29 @@
    "keyword": "다이소멜라토닌",
    "thumb": "data/blog/thumbs/review_20261119_S38_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소 멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "식물성 멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4330,7 +4352,29 @@
    "keyword": "남자수면영양제",
    "thumb": "data/blog/thumbs/review_20261119c_S44_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "남자수면영양제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "남자 수면",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "러닝 후 잠",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4717,6 +4761,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B49.md",
+   "set": "review_20261121",
+   "publish_at": "2026-11-21T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224483248904",
+   "title": "지성톤업크림 찾다가 본 이지아 영상, 나도 목까지 바르기 시작했어",
+   "keyword": "지성톤업크림",
+   "thumb": "data/blog/thumbs/review_20261121_B49_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D42.md",
    "set": "review_20261120",
@@ -4889,7 +4945,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T12:13",
+  "updated_at": "2026-11-19T12:20",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8371,11 +8427,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T12:13"
+   "2026-11-19": "2026-11-19T12:20"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T12:14",
+  "updated_at": "2026-11-19T12:20",
   "date": "2026-11-19"
  }
 }
