@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T11:49",
+ "generated_at": "2026-11-19T11:59",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4098,7 +4098,7 @@
    "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
    "keyword": "박보영",
    "thumb": "data/blog/thumbs/review_20261119_B31_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4667,6 +4667,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S35.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-21T12:20",
+   "url": "https://blog.naver.com/oileeoil/224483215260",
+   "title": "잠안올때자는법 5개 닷새 밤 하나씩 해보고, 엿새째엔 양말까지 신었어",
+   "keyword": "잠안올때자는법",
+   "thumb": "data/blog/thumbs/review_20261120_S35_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B53.md",
    "set": "review_20261121b",
@@ -4691,6 +4703,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S36.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-21T16:20",
+   "url": "https://blog.naver.com/oileeoil/224483218252",
+   "title": "꿀잠 자려고 90분 계산기 두드린 2주, 8시간 그래프 지우고 나서야 잤어",
+   "keyword": "꿀잠",
+   "thumb": "data/blog/thumbs/review_20261120_S36_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B54.md",
    "set": "review_20261121b",
@@ -4711,6 +4735,18 @@
    "title": "올리브유레몬즙효능, 결론은 빈속 원샷 말고 저녁 샐러드 접시였어",
    "keyword": "올리브유레몬즙효능",
    "thumb": "data/blog/thumbs/review_20261119_D33_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S37.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-21T18:20",
+   "url": "https://blog.naver.com/oileeoil/224483223309",
+   "title": "여자수면영양제, 손발은 차갑고 얼굴은 화끈하던 언니가 밤에 '이것'부터 바꾼 2주",
+   "keyword": "여자수면영양제",
+   "thumb": "data/blog/thumbs/review_20261120_S37_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -4767,7 +4803,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T11:49",
+  "updated_at": "2026-11-19T11:59",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -4862,7 +4898,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 9
+      "cv": 10
      }
     ],
     "posts": [
@@ -4870,7 +4906,7 @@
       "log": "224481659589",
       "blog_id": "cnsou1088",
       "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:00",
@@ -8110,7 +8146,7 @@
     "224099567408": 7,
     "224096252064": 27,
     "224066133561": 0,
-    "224481659589": 0,
+    "224481659589": 1,
     "224479860835": 0,
     "224479895490": 2,
     "224479894069": 1,
@@ -8247,11 +8283,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T11:49"
+   "2026-11-19": "2026-11-19T11:59"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T11:49",
+  "updated_at": "2026-11-19T11:59",
   "date": "2026-11-19"
  }
 }
