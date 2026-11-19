@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T12:20",
+ "generated_at": "2026-11-19T12:51",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -2775,10 +2775,10 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 52,
+   "read": 54,
    "like": 2,
    "comment": 1,
-   "read_delta": 8,
+   "read_delta": 10,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
@@ -4386,7 +4386,29 @@
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소화장품추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소화장품",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소뷰티",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4903,6 +4925,30 @@
    "thumb": "data/blog/thumbs/review_20261121b_B55_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B61.md",
+   "set": "review_20261122b",
+   "publish_at": "2026-11-22T12:30",
+   "url": "https://blog.naver.com/cakkee9/224483280672",
+   "title": "무릎착색 찜질방에서 들킨 뒤 바꾼 습관, 때수건부터 치웠어",
+   "keyword": "무릎착색",
+   "thumb": "data/blog/thumbs/review_20261122b_B61_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B63.md",
+   "set": "review_20261122b",
+   "publish_at": "2026-11-22T18:30",
+   "url": "https://blog.naver.com/cakkee9/224483285807",
+   "title": "눈가주름크림 고르다 이효리 기사 보고 고친 습관, 한 달 뒤 웃는 사진",
+   "keyword": "눈가주름크림",
+   "thumb": "data/blog/thumbs/review_20261122b_B63_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -4945,7 +4991,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T12:20",
+  "updated_at": "2026-11-19T12:51",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -6409,7 +6455,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 26
+      "cv": 28
      }
     ],
     "posts": [
@@ -6549,11 +6595,11 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 52,
+      "read": 54,
       "like": 2,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": 8,
+      "delta": 10,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -8367,7 +8413,7 @@
     "224478698571": 1,
     "224478681250": 5,
     "224478678927": 1,
-    "224478706825": 52,
+    "224478706825": 54,
     "224475786973": 3,
     "224475783967": 49,
     "224475799568": 4,
@@ -8427,11 +8473,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T12:20"
+   "2026-11-19": "2026-11-19T12:51"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T12:20",
+  "updated_at": "2026-11-19T12:51",
   "date": "2026-11-19"
  }
 }
