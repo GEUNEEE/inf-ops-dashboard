@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T10:42",
+ "generated_at": "2026-11-19T10:53",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4439,6 +4439,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B36.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224483125518",
+   "title": "기미앰플 바르기 전에 팔 안쪽에 열흘, 해본 사람 나야?",
+   "keyword": "기미앰플",
+   "thumb": "data/blog/thumbs/review_20261120_B36_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D36.md",
    "set": "review_20261120",
@@ -4463,6 +4475,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B37.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224483128812",
+   "title": "색소침착, 기름 튄 손등 자국 짜고 뜯다가 실패하고 정한 기준",
+   "keyword": "색소침착",
+   "thumb": "data/blog/thumbs/review_20261120_B37_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D37.md",
    "set": "review_20261120",
@@ -4483,6 +4507,18 @@
    "title": "다이소수면안대 2천 원짜리 셋 돌려 써보니, 눈 말고 가릴 게 따로 있었어",
    "keyword": "다이소수면안대",
    "thumb": "data/blog/thumbs/review_20261119b_S41_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B38.md",
+   "set": "review_20261120",
+   "publish_at": "2026-11-20T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224483132317",
+   "title": "기미팩 색 변하면 다 흡수된 줄 알았어, 붙인 채 잠들던 내가 바꾼 '이것'",
+   "keyword": "기미팩",
+   "thumb": "data/blog/thumbs/review_20261120_B38_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -4551,7 +4587,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T10:42",
+  "updated_at": "2026-11-19T10:53",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8031,11 +8067,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T10:42"
+   "2026-11-19": "2026-11-19T10:53"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T10:42",
+  "updated_at": "2026-11-19T10:53",
   "date": "2026-11-19"
  }
 }
