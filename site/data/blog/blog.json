@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T09:21",
+ "generated_at": "2026-11-19T09:37",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -3883,7 +3883,7 @@
    "keyword": "수능",
    "thumb": "data/blog/thumbs/review_20261119_S30_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": []
   },
   {
    "blog_id": "cakkee9",
@@ -4070,7 +4070,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T09:11",
+  "updated_at": "2026-11-19T09:26",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -6428,140 +6428,66 @@
      },
      {
       "date": "2026-11-05",
-      "cv": 0
+      "cv": 61
      },
      {
       "date": "2026-11-06",
-      "cv": 0
+      "cv": 26
      },
      {
       "date": "2026-11-07",
-      "cv": 0
+      "cv": 23
      },
      {
       "date": "2026-11-08",
-      "cv": 0
+      "cv": 13
      },
      {
       "date": "2026-11-09",
-      "cv": 0
+      "cv": 16
      },
      {
       "date": "2026-11-10",
-      "cv": 0
+      "cv": 29
      },
      {
       "date": "2026-11-11",
-      "cv": 0
+      "cv": 30
      },
      {
       "date": "2026-11-12",
-      "cv": 0
+      "cv": 27
      },
      {
       "date": "2026-11-13",
-      "cv": 0
+      "cv": 43
      },
      {
       "date": "2026-11-14",
-      "cv": 0
+      "cv": 42
      },
      {
       "date": "2026-11-15",
-      "cv": 0
+      "cv": 36
      },
      {
       "date": "2026-11-16",
-      "cv": 1
+      "cv": 39
      },
      {
       "date": "2026-11-17",
-      "cv": 0
+      "cv": 55
      },
      {
       "date": "2026-11-18",
-      "cv": 0
+      "cv": 75
+     },
+     {
+      "date": "2026-11-19",
+      "cv": 21
      }
     ],
-    "posts": [
-     {
-      "log": "224114689210",
-      "blog_id": "oileeoil",
-      "title": "김포 피부과 기미로 파운데이션 두껍게 발랐던 내가 쿠션만 쓰는 이유",
-      "read": 8,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-19T17:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224114689210"
-     },
-     {
-      "log": "224114695316",
-      "blog_id": "oileeoil",
-      "title": "김포장기동 피부과 얼굴 기미로 주눅들었던 내가 당당해진 이유",
-      "read": 54,
-      "like": 2,
-      "comment": 0,
-      "added": "2025-12-19T12:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224114695316"
-     },
-     {
-      "log": "224114701369",
-      "blog_id": "oileeoil",
-      "title": "운양동 피부과 기미 색소침착 완전 정복! 내가 실천한 방법",
-      "read": 8,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-19T09:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224114701369"
-     },
-     {
-      "log": "224096232173",
-      "blog_id": "oileeoil",
-      "title": "부산해운대구피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 3,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-05T10:00",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224096232173"
-     },
-     {
-      "log": "224096235350",
-      "blog_id": "oileeoil",
-      "title": "보령피부과 기미 때문에 친구 약속 미뤘던 나, 이제는 먼저 연락해요",
-      "read": 14,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-04T09:50",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224096235350"
-     },
-     {
-      "log": "224096228316",
-      "blog_id": "oileeoil",
-      "title": "가수원동피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 12,
-      "like": 2,
-      "comment": 0,
-      "added": "2025-12-03T20:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224096228316"
-     },
-     {
-      "log": "224066115551",
-      "blog_id": "oileeoil",
-      "title": "오늘 하루 화이트태닝 꾸준 사용기",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-11-05T23:01",
-      "delta": 0,
-      "url": "https://blog.naver.com/oileeoil/224066115551"
-     }
-    ]
+    "posts": []
    }
   },
   "snap": {
@@ -7463,11 +7389,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T09:11"
+   "2026-11-19": "2026-11-19T09:26"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T09:21",
+  "updated_at": "2026-11-19T09:37",
   "date": "2026-11-19"
  }
 }
