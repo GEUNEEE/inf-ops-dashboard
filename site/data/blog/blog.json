@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T16:14",
+ "generated_at": "2026-11-19T21:32",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4537,7 +4537,29 @@
    "keyword": "다이소마그네슘",
    "thumb": "data/blog/thumbs/review_20261119_S39_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소마그네슘",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소 마그네슘 재입고",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "마그네슘 수면",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4549,7 +4571,29 @@
    "keyword": "일본수면보조제",
    "thumb": "data/blog/thumbs/review_20261119c_S45_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "일본수면보조제",
+     "b": 1,
+     "t": 4,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "일본 여행",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "해외직구",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4561,7 +4605,29 @@
    "keyword": "다이소앰플",
    "thumb": "data/blog/thumbs/review_20261119b_B42_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소앰플",
+     "b": null,
+     "t": 34,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소앰플추천",
+     "b": null,
+     "t": 8,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "앰플고르는법",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4573,7 +4639,29 @@
    "keyword": "40대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261119_B34_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "40대크리스마스선물",
+     "b": 4,
+     "t": 1,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "엄마크리스마스선물",
+     "b": 6,
+     "t": 3,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "40대여자선물",
+     "b": null,
+     "t": 3,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4585,7 +4673,29 @@
    "keyword": "이마트올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261119_D34_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "이마트올리브오일추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "이마트 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 고르는법",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -4597,7 +4707,29 @@
    "keyword": "잠안올때영양제",
    "thumb": "data/blog/thumbs/review_20261119_S33_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "잠안올때영양제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "잠 안 올 때 영양제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "수면영양제 고르는 법",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4609,7 +4741,29 @@
    "keyword": "수면유도제가격",
    "thumb": "data/blog/thumbs/review_20261119c_S46_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "수면유도제가격",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "수면유도제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "부모님 잠",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4621,7 +4775,29 @@
    "keyword": "30대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261120b_B43_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "30대크리스마스선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "30대 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -5624,7 +5800,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T16:14",
+  "updated_at": "2026-11-19T21:30",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -9144,11 +9320,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T16:14"
+   "2026-11-19": "2026-11-19T21:30"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T16:14",
+  "updated_at": "2026-11-19T21:32",
   "date": "2026-11-19"
  }
 }
