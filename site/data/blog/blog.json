@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T13:04",
+ "generated_at": "2026-11-19T13:09",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -4945,6 +4945,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B60.md",
+   "set": "review_20261122b",
+   "publish_at": "2026-11-22T09:30",
+   "url": "https://blog.naver.com/cakkee9/224483307451",
+   "title": "목주름크림 찾다가 배윤정 목 거상 기사 보고 먼저 바꾼 세 가지",
+   "keyword": "목주름크림",
+   "thumb": "data/blog/thumbs/review_20261122b_B60_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D44.md",
    "set": "review_20261122d",
@@ -5045,7 +5057,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T13:04",
+  "updated_at": "2026-11-19T13:09",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -8551,11 +8563,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T13:04"
+   "2026-11-19": "2026-11-19T13:09"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T13:04",
+  "updated_at": "2026-11-19T13:09",
   "date": "2026-11-19"
  }
 }
