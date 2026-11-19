@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T14:47",
+ "generated_at": "2026-11-19T15:00",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -2220,10 +2220,10 @@
    "title": "다이어트식단 21일째, 빵순이 도시락에 넣은 것 4가지",
    "keyword": "다이어트식단",
    "thumb": "data/blog/thumbs/review_20261112_D14_1.jpg",
-   "read": 16,
+   "read": 17,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "다이어트식단",
@@ -2775,10 +2775,10 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 60,
+   "read": 63,
    "like": 2,
    "comment": 1,
-   "read_delta": 16,
+   "read_delta": 19,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
@@ -4098,7 +4098,7 @@
    "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
    "keyword": "박보영",
    "thumb": "data/blog/thumbs/review_20261119_B31_1.jpg",
-   "read": 3,
+   "read": 4,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -5162,6 +5162,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B64.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T09:00",
+   "url": "https://blog.naver.com/cnsou1088/224483445619",
+   "title": "겨울선물 3주 고민 끝에, 친구 고민부터 물어보고 정했어",
+   "keyword": "겨울선물",
+   "thumb": "data/blog/thumbs/review_20261123_B64_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D47.md",
    "set": "review_20261123d",
@@ -5182,6 +5194,18 @@
    "title": "겨드랑이착색 필라테스에서 팔 못 올린 날, 니트랑 면도부터 바꿨어",
    "keyword": "겨드랑이착색",
    "thumb": "data/blog/thumbs/review_20261123b_B68_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B65.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224483450007",
+   "title": "피부하얘지는법 한 달 검색 끝에 화장·습관·크림 셋으로 나눴어",
+   "keyword": "피부하얘지는법",
+   "thumb": "data/blog/thumbs/review_20261123_B65_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5222,6 +5246,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cnsou1088",
+   "post": "B66.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224483453605",
+   "title": "바디톤업크림 대신 평소 팔꿈치 관리로 바꾼 결혼식 한 달 전",
+   "keyword": "바디톤업크림",
+   "thumb": "data/blog/thumbs/review_20261123_B66_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "qxcoik9423",
    "post": "D49.md",
    "set": "review_20261123d",
@@ -5254,6 +5290,18 @@
    "title": "겨울보습크림 바꾸기 전에 침실 습도부터 재 봤어, 일주일 기록",
    "keyword": "겨울보습크림",
    "thumb": "data/blog/thumbs/review_20261123b_B70_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B67.md",
+   "set": "review_20261123",
+   "publish_at": "2026-11-23T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224483456794",
+   "title": "피부미백 성분표 40장 캡처하고 내린 결론, 퍼센트보다 매일 바를 수 있는지",
+   "keyword": "피부미백",
+   "thumb": "data/blog/thumbs/review_20261123_B67_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -5334,7 +5382,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T14:47",
+  "updated_at": "2026-11-19T15:00",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -5429,7 +5477,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 13
+      "cv": 14
      }
     ],
     "posts": [
@@ -5448,7 +5496,7 @@
       "log": "224481659589",
       "blog_id": "cnsou1088",
       "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
-      "read": 3,
+      "read": 4,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:00",
@@ -6798,7 +6846,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 36
+      "cv": 40
      }
     ],
     "posts": [
@@ -6938,11 +6986,11 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 60,
+      "read": 63,
       "like": 2,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": 16,
+      "delta": 19,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -6993,11 +7041,11 @@
       "log": "224473305277",
       "blog_id": "qxcoik9423",
       "title": "다이어트식단 21일째, 빵순이 도시락에 넣은 것 4가지",
-      "read": 16,
+      "read": 17,
       "like": 1,
       "comment": 0,
       "added": "2026-11-12T12:10",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/qxcoik9423/224473305277"
      },
      {
@@ -8710,7 +8758,7 @@
     "224099567408": 7,
     "224096252064": 27,
     "224066133561": 0,
-    "224481659589": 3,
+    "224481659589": 4,
     "224479860835": 0,
     "224479895490": 2,
     "224479894069": 1,
@@ -8789,12 +8837,12 @@
     "224478698571": 1,
     "224478681250": 5,
     "224478678927": 1,
-    "224478706825": 60,
+    "224478706825": 63,
     "224475786973": 3,
     "224475783967": 49,
     "224475799568": 4,
     "224473309382": 16,
-    "224473305277": 16,
+    "224473305277": 17,
     "224473302835": 9,
     "224472991036": 14,
     "224472988301": 13,
@@ -8852,11 +8900,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T14:47"
+   "2026-11-19": "2026-11-19T15:00"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T14:47",
+  "updated_at": "2026-11-19T15:00",
   "date": "2026-11-19"
  }
 }
