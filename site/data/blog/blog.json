@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T15:00",
+ "generated_at": "2026-11-19T15:44",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -2553,10 +2553,10 @@
    "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
    "keyword": "올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261113_D17_1.jpg",
-   "read": 49,
+   "read": 50,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "올리브오일추천",
@@ -2775,10 +2775,10 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 63,
+   "read": 64,
    "like": 2,
    "comment": 1,
-   "read_delta": 19,
+   "read_delta": 20,
    "ranks": [
     {
      "kw": "김빈우 다이어트",
@@ -4098,7 +4098,7 @@
    "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
    "keyword": "박보영",
    "thumb": "data/blog/thumbs/review_20261119_B31_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4206,7 +4206,7 @@
    "title": "나이아신아마이드크림 20% 사려다 멈추고 정한 기준 3가지",
    "keyword": "나이아신아마이드크림",
    "thumb": "data/blog/thumbs/review_20261119b_B32_1.jpg",
-   "read": 3,
+   "read": 4,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4388,7 +4388,7 @@
    "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4425,7 +4425,7 @@
    "title": "다이소영양제는 체험판으로 딱이었어, 열흘씩 세 통 먹고 알게 된 내 밤 순서",
    "keyword": "다이소영양제",
    "thumb": "data/blog/thumbs/review_20261119b_S40_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -5340,6 +5340,90 @@
    "thumb": "data/blog/thumbs/review_20261123b_B71_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D51.md",
+   "set": "review_20261124d",
+   "publish_at": "2026-11-24T09:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483506315",
+   "title": "심진화다이어트 블루베리 한 줌을 한 통으로 먹었던 일주일",
+   "keyword": "심진화다이어트",
+   "thumb": "data/blog/thumbs/review_20261124d_D51_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B76.md",
+   "set": "review_20261124b",
+   "publish_at": "2026-11-24T09:30",
+   "url": "https://blog.naver.com/cakkee9/224483504777",
+   "title": "사타구니착색 찜질방에서 동생이 물어본 날, 면도랑 레깅스부터 바꿨어",
+   "keyword": "사타구니착색",
+   "thumb": "data/blog/thumbs/review_20261124b_B76_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D52.md",
+   "set": "review_20261124d",
+   "publish_at": "2026-11-24T12:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483510208",
+   "title": "코스트코블랙프라이데이 연회비 본전 찾다 냉동실 터진 작년",
+   "keyword": "코스트코블랙프라이데이",
+   "thumb": "data/blog/thumbs/review_20261124d_D52_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B77.md",
+   "set": "review_20261124b",
+   "publish_at": "2026-11-24T12:30",
+   "url": "https://blog.naver.com/cakkee9/224483508551",
+   "title": "에이블리블랙프라이데이 장바구니 23만 원에서 9만 원으로 줄인 기준",
+   "keyword": "에이블리블랙프라이데이",
+   "thumb": "data/blog/thumbs/review_20261124b_B77_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "qxcoik9423",
+   "post": "D53.md",
+   "set": "review_20261124d",
+   "publish_at": "2026-11-24T16:10",
+   "url": "https://blog.naver.com/qxcoik9423/224483515006",
+   "title": "올리브오일하루섭취량 모르고 다섯 스푼 먹다 늘어난 한 달",
+   "keyword": "올리브오일하루섭취량",
+   "thumb": "data/blog/thumbs/review_20261124d_D53_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B78.md",
+   "set": "review_20261124b",
+   "publish_at": "2026-11-24T16:30",
+   "url": "https://blog.naver.com/cakkee9/224483512991",
+   "title": "30대여자선물 후배 생일에 디퓨저 대신 고른 것, 기준 세 개",
+   "keyword": "30대여자선물",
+   "thumb": "data/blog/thumbs/review_20261124b_B78_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B79.md",
+   "set": "review_20261124b",
+   "publish_at": "2026-11-24T18:30",
+   "url": "https://blog.naver.com/cakkee9/224483516561",
+   "title": "여드름자국 엘리베이터에서 들킨 날, 각질 패드 끊고 바꾼 습관",
+   "keyword": "여드름자국",
+   "thumb": "data/blog/thumbs/review_20261124b_B79_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -5382,7 +5466,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-19T15:00",
+  "updated_at": "2026-11-19T15:44",
   "prev_snap": "2026-11-18",
   "accounts": {
    "cnsou1088": {
@@ -5477,7 +5561,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 14
+      "cv": 15
      }
     ],
     "posts": [
@@ -5496,7 +5580,7 @@
       "log": "224481659589",
       "blog_id": "cnsou1088",
       "title": "“왜 안 늙지?” 박보영 민낯 사진 보고 나도 민낯 출근 실험해봤어",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:00",
@@ -6846,7 +6930,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 40
+      "cv": 42
      }
     ],
     "posts": [
@@ -6986,11 +7070,11 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 63,
+      "read": 64,
       "like": 2,
       "comment": 1,
       "added": "2026-11-16T12:10",
-      "delta": 19,
+      "delta": 20,
       "url": "https://blog.naver.com/qxcoik9423/224478706825"
      },
      {
@@ -7008,11 +7092,11 @@
       "log": "224475783967",
       "blog_id": "qxcoik9423",
       "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
-      "read": 49,
+      "read": 50,
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T18:10",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/qxcoik9423/224475783967"
      },
      {
@@ -7576,7 +7660,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 8
+      "cv": 10
      }
     ],
     "posts": [
@@ -7584,7 +7668,7 @@
       "log": "224482503265",
       "blog_id": "cakkee9",
       "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
-      "read": 5,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:30",
@@ -7595,7 +7679,7 @@
       "log": "224482500021",
       "blog_id": "cakkee9",
       "title": "나이아신아마이드크림 20% 사려다 멈추고 정한 기준 3가지",
-      "read": 3,
+      "read": 4,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:30",
@@ -7822,7 +7906,7 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 5
+      "cv": 6
      }
     ],
     "posts": [
@@ -7830,7 +7914,7 @@
       "log": "224483082223",
       "blog_id": "oileeoil",
       "title": "다이소영양제는 체험판으로 딱이었어, 열흘씩 세 통 먹고 알게 된 내 밤 순서",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T14:20",
@@ -8758,7 +8842,7 @@
     "224099567408": 7,
     "224096252064": 27,
     "224066133561": 0,
-    "224481659589": 4,
+    "224481659589": 5,
     "224479860835": 0,
     "224479895490": 2,
     "224479894069": 1,
@@ -8818,7 +8902,7 @@
     "224111977417": 24,
     "224110131874": 13,
     "224110123254": 6,
-    "224482500021": 3,
+    "224482500021": 4,
     "224114689210": 8,
     "224114695316": 54,
     "224114701369": 8,
@@ -8837,9 +8921,9 @@
     "224478698571": 1,
     "224478681250": 5,
     "224478678927": 1,
-    "224478706825": 63,
+    "224478706825": 64,
     "224475786973": 3,
-    "224475783967": 49,
+    "224475783967": 50,
     "224475799568": 4,
     "224473309382": 16,
     "224473305277": 17,
@@ -8888,9 +8972,9 @@
     "224110081795": 56,
     "224481634830": 0,
     "224482040719": 0,
-    "224482503265": 5,
+    "224482503265": 6,
     "224483055391": 0,
-    "224483082223": 0
+    "224483082223": 1
    }
   },
   "snap_at": {
@@ -8900,11 +8984,11 @@
    "2026-11-16": "2026-11-16T21:59",
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
-   "2026-11-19": "2026-11-19T15:00"
+   "2026-11-19": "2026-11-19T15:44"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-19T15:00",
+  "updated_at": "2026-11-19T15:44",
   "date": "2026-11-19"
  }
 }
