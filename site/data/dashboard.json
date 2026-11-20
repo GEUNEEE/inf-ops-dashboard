@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T18:50:31",
+  "generated_at": "2026-11-20T20:31:03",
   "current_month": "2026-11",
   "products": [
     {
@@ -2609,7 +2609,7 @@
   "inventory": {
     "as_of": "2026-11-20",
     "data_as_of": "2026-11-20T17:42",
-    "lead_days": 28,
+    "lead_days": 35,
     "buffer_days": 7,
     "alert_days": 28,
     "warnings": [],
@@ -2637,7 +2637,7 @@
         },
         "incoming": [
           {
-            "date": "2026-12-18",
+            "date": "2026-12-25",
             "qty": 5000
           }
         ],
@@ -2655,13 +2655,13 @@
           "slow": "2027-01-18"
         },
         "gap": {
-          "days": 11,
-          "lost": 1130,
-          "lost_min": 300,
-          "lost_max": 1130,
+          "days": 18,
+          "lost": 1849,
+          "lost_min": 491,
+          "lost_max": 1849,
           "preorder": false
         },
-        "post_incoming_stockout": "2027-02-04",
+        "post_incoming_stockout": "2027-02-11",
         "reorder_by": "2026-12-31",
         "signal": "red",
         "signal_label": "품절 임박",
@@ -2738,7 +2738,7 @@
         },
         "gap": null,
         "post_incoming_stockout": "2038-12-27",
-        "reorder_by": "2038-11-22",
+        "reorder_by": "2038-11-15",
         "signal": "green",
         "signal_label": "여유",
         "monthly": [
