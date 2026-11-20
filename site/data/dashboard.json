@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T18:14:28",
+  "generated_at": "2026-11-20T18:50:31",
   "current_month": "2026-11",
   "products": [
     {
@@ -2635,7 +2635,12 @@
           "units": 0,
           "revenue": 0
         },
-        "incoming": [],
+        "incoming": [
+          {
+            "date": "2026-12-18",
+            "qty": 5000
+          }
+        ],
         "estimate": {
           "normal": 102.7,
           "fast": 102.7,
@@ -2649,9 +2654,15 @@
           "fast": "2026-12-06",
           "slow": "2027-01-18"
         },
-        "gap": null,
-        "post_incoming_stockout": "2026-12-06",
-        "reorder_by": "2026-11-01",
+        "gap": {
+          "days": 11,
+          "lost": 1130,
+          "lost_min": 300,
+          "lost_max": 1130,
+          "preorder": false
+        },
+        "post_incoming_stockout": "2027-02-04",
+        "reorder_by": "2026-12-31",
         "signal": "red",
         "signal_label": "품절 임박",
         "monthly": [
