@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-20T10:59:32",
+  "generated_at": "2026-11-20T11:26:40",
   "gross_revenue": 2240000,
   "net_profit": 1440000,
   "order_count": 15,
@@ -79,10 +79,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 1528,
-      "order_count": 1182,
-      "gross_revenue": 55314180,
-      "net_profit": 42522590,
+      "qty": 1536,
+      "order_count": 1188,
+      "gross_revenue": 55640680,
+      "net_profit": 42780668,
       "repeat": {
         "buyers": 4,
         "orders": 4
@@ -130,8 +130,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 1034,
-        "units": 1164
+        "orders": 1040,
+        "units": 1172
       },
       "1+1": {
         "orders": 119,
@@ -148,9 +148,9 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 1064,
-        "units": 1352,
-        "gross": 49026680
+        "orders": 1068,
+        "units": 1357,
+        "gross": 49221180
       },
       "자사몰": {
         "orders": 98,
@@ -163,9 +163,9 @@
         "gross": 92000
       },
       "쿠팡": {
-        "orders": 18,
-        "units": 18,
-        "gross": 789000
+        "orders": 20,
+        "units": 21,
+        "gross": 921000
       }
     },
     "trial": {
