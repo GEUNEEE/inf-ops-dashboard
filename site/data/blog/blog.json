@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T12:58",
+ "generated_at": "2026-11-20T16:51",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -37,10 +37,10 @@
    "title": "지수 할로윈 루시 메이크업, 진한 화장 다음 날 기미잡티크림보다 먼저 할 것",
    "keyword": "기미잡티크림",
    "thumb": "data/blog/thumbs/review_20261104_B1_1.jpg",
-   "read": 13,
+   "read": 14,
    "like": 1,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "지수 할로윈",
@@ -999,10 +999,10 @@
    "title": "신민아·김유정 글로우 메이크업, 잡티 보일 때 내 기미크림추천 기준",
    "keyword": "기미크림추천",
    "thumb": "data/blog/thumbs/review_20261106_B3_1.jpg",
-   "read": 19,
-   "like": 2,
-   "comment": 1,
-   "read_delta": 0,
+   "read": 20,
+   "like": 3,
+   "comment": 2,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "신민아 메이크업",
@@ -1295,10 +1295,10 @@
    "title": "기미앰플 3병 비우고 크림으로 갈아탄 이유, 레이저 다음 관리 기록",
    "keyword": "기미앰플",
    "thumb": "data/blog/thumbs/review_20261109_B6_1.jpg",
-   "read": 28,
+   "read": 29,
    "like": 0,
    "comment": 0,
-   "read_delta": 16,
+   "read_delta": 17,
    "ranks": [
     {
      "kw": "기미앰플",
@@ -4845,7 +4845,7 @@
    "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
    "keyword": "올리브영기미크림",
    "thumb": "data/blog/thumbs/review_20261120_B35_1.jpg",
-   "read": 3,
+   "read": 9,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -5089,8 +5089,33 @@
    "title": "색소침착, 기름 튄 손등 자국 짜고 뜯다가 실패하고 정한 기준",
    "keyword": "색소침착",
    "thumb": "data/blog/thumbs/review_20261120_B37_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "색소침착",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "손등색소침착",
+     "b": 2,
+     "t": 21,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "여드름색소침착",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -5102,7 +5127,29 @@
    "keyword": "코스트코올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261120_D37_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "코스트코올리브오일추천",
+     "b": null,
+     "t": 9,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "코스트코 올리브오일",
+     "b": null,
+     "t": 9,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 대용량",
+     "b": null,
+     "t": 13,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -5114,7 +5161,29 @@
    "keyword": "다이소수면안대",
    "thumb": "data/blog/thumbs/review_20261119b_S41_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소수면안대",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소 수면안대 추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "냉감 수면안대",
+     "b": null,
+     "t": 9,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -5126,7 +5195,29 @@
    "keyword": "나이아신아마이드세럼",
    "thumb": "data/blog/thumbs/review_20261120b_B46_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "나이아신아마이드세럼",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "나이아신아마이드 농도",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "나이아신아마이드 5%",
+     "b": null,
+     "t": 24,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -5985,7 +6076,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-20T12:50",
+  "updated_at": "2026-11-20T16:50",
   "prev_snap": "2026-11-19",
   "accounts": {
    "cnsou1088": {
@@ -6084,10 +6175,21 @@
      },
      {
       "date": "2026-11-20",
-      "cv": 15
+      "cv": 24
      }
     ],
     "posts": [
+     {
+      "log": "224483128812",
+      "blog_id": "cnsou1088",
+      "title": "색소침착, 기름 튄 손등 자국 짜고 뜯다가 실패하고 정한 기준",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T16:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483128812"
+     },
      {
       "log": "224483125518",
       "blog_id": "cnsou1088",
@@ -6103,7 +6205,7 @@
       "log": "224483160484",
       "blog_id": "cnsou1088",
       "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
-      "read": 3,
+      "read": 9,
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T09:00",
@@ -6422,11 +6524,11 @@
       "log": "224470058094",
       "blog_id": "cnsou1088",
       "title": "기미앰플 3병 비우고 크림으로 갈아탄 이유, 레이저 다음 관리 기록",
-      "read": 28,
+      "read": 29,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:00",
-      "delta": 16,
+      "delta": 17,
       "url": "https://blog.naver.com/cnsou1088/224470058094"
      },
      {
@@ -6455,11 +6557,11 @@
       "log": "224467033120",
       "blog_id": "cnsou1088",
       "title": "신민아·김유정 글로우 메이크업, 잡티 보일 때 내 기미크림추천 기준",
-      "read": 19,
-      "like": 2,
-      "comment": 1,
+      "read": 20,
+      "like": 3,
+      "comment": 2,
       "added": "2026-11-07T16:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224467033120"
      },
      {
@@ -6565,11 +6667,11 @@
       "log": "224463922448",
       "blog_id": "cnsou1088",
       "title": "지수 할로윈 루시 메이크업, 진한 화장 다음 날 기미잡티크림보다 먼저 할 것",
-      "read": 13,
+      "read": 14,
       "like": 1,
       "comment": 0,
       "added": "2026-11-04T08:40",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224463922448"
      },
      {
@@ -6736,17 +6838,6 @@
       "added": "2025-12-19T10:10",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224114593769"
-     },
-     {
-      "log": "224114599643",
-      "blog_id": "cnsou1088",
-      "title": "화명동 피부과 기미 색소침착 고민 끝! 내가 한 3가지 방법",
-      "read": 12,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-19T09:50",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224114599643"
      }
     ]
    },
@@ -9530,10 +9621,10 @@
     "224470317017": 3,
     "224470312896": 3,
     "224470308026": 3,
-    "224470058094": 28,
+    "224470058094": 29,
     "224470053274": 1,
     "224467250022": 11,
-    "224467033120": 19,
+    "224467033120": 20,
     "224467022061": 3,
     "224467012383": 60,
     "224466986315": 2,
@@ -9543,7 +9634,7 @@
     "224465598002": 14,
     "224464340859": 5,
     "224464451749": 7,
-    "224463922448": 13,
+    "224463922448": 14,
     "224170403446": 15,
     "224145301415": 1,
     "224145308157": 3,
@@ -9563,7 +9654,8 @@
     "224111969319": 25,
     "224111961384": 7,
     "224483125518": 0,
-    "224483160484": 3
+    "224483160484": 9,
+    "224483128812": 0
    }
   },
   "snap_at": {
@@ -9574,11 +9666,11 @@
    "2026-11-17": "2026-11-17T21:31",
    "2026-11-18": "2026-11-18T21:31",
    "2026-11-19": "2026-11-19T21:30",
-   "2026-11-20": "2026-11-20T12:50"
+   "2026-11-20": "2026-11-20T16:50"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-20T12:58",
+  "updated_at": "2026-11-20T16:51",
   "date": "2026-11-20"
  }
 }
