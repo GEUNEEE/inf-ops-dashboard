@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T16:51",
+ "generated_at": "2026-11-21T21:31",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -5228,10 +5228,10 @@
    "title": "기미팩 색 변하면 다 흡수된 줄 알았어, 붙인 채 잠들던 내가 바꾼 '이것'",
    "keyword": "기미팩",
    "thumb": "data/blog/thumbs/review_20261120_B38_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "기미팩",
@@ -5506,7 +5506,7 @@
    "title": "지성톤업크림 찾다가 본 이지아 영상, 나도 목까지 바르기 시작했어",
    "keyword": "지성톤업크림",
    "thumb": "data/blog/thumbs/review_20261121_B49_1.jpg",
-   "read": 2,
+   "read": 3,
    "like": 1,
    "comment": 0,
    "read_delta": null,
@@ -5645,7 +5645,7 @@
    "title": "일본기미화장품 사다 달라고 했다가, AI 가짜 의사 광고 기사 보고 취소했어",
    "keyword": "일본기미화장품",
    "thumb": "data/blog/thumbs/review_20261121_B50_1.jpg",
-   "read": 2,
+   "read": 3,
    "like": 0,
    "comment": 1,
    "read_delta": null,
@@ -5784,8 +5784,33 @@
    "title": "아내크리스마스선물 검색창 열어둔 남편, 결국 내가 쓰는 크림이랑 마켓 데이트",
    "keyword": "아내크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261121_B51_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "아내크리스마스선물",
+     "b": 9,
+     "t": 1,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "롯데타운 크리스마스 마켓",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -5797,7 +5822,29 @@
    "keyword": "올리브유레몬즙효능",
    "thumb": "data/blog/thumbs/review_20261119_D33_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "올리브유레몬즙효능",
+     "b": 1,
+     "t": 13,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브유 레몬즙",
+     "b": null,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브유 레몬 샷",
+     "b": null,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -5809,7 +5856,29 @@
    "keyword": "여자수면영양제",
    "thumb": "data/blog/thumbs/review_20261120_S37_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "여자수면영양제",
+     "b": 2,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "손발 차가움",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "상열하한",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -5821,7 +5890,29 @@
    "keyword": "팔꿈치착색크림",
    "thumb": "data/blog/thumbs/review_20261121b_B55_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "팔꿈치착색크림",
+     "b": 2,
+     "t": 4,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "팔꿈치 착색 크림",
+     "b": 2,
+     "t": 5,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "팔꿈치 착색",
+     "b": 10,
+     "t": 23,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -6440,7 +6531,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-21T16:50",
+  "updated_at": "2026-11-21T21:30",
   "prev_snap": "2026-11-20",
   "accounts": {
    "cnsou1088": {
@@ -6543,15 +6634,26 @@
      },
      {
       "date": "2026-11-21",
-      "cv": 10
+      "cv": 14
      }
     ],
     "posts": [
      {
+      "log": "224483241186",
+      "blog_id": "cnsou1088",
+      "title": "아내크리스마스선물 검색창 열어둔 남편, 결국 내가 쓰는 크림이랑 마켓 데이트",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T18:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483241186"
+     },
+     {
       "log": "224483237650",
       "blog_id": "cnsou1088",
       "title": "일본기미화장품 사다 달라고 했다가, AI 가짜 의사 광고 기사 보고 취소했어",
-      "read": 2,
+      "read": 3,
       "like": 0,
       "comment": 1,
       "added": "2026-11-21T16:00",
@@ -6562,7 +6664,7 @@
       "log": "224483248904",
       "blog_id": "cnsou1088",
       "title": "지성톤업크림 찾다가 본 이지아 영상, 나도 목까지 바르기 시작했어",
-      "read": 2,
+      "read": 3,
       "like": 1,
       "comment": 0,
       "added": "2026-11-21T12:00",
@@ -6584,11 +6686,11 @@
       "log": "224483132317",
       "blog_id": "cnsou1088",
       "title": "기미팩 색 변하면 다 흡수된 줄 알았어, 붙인 채 잠들던 내가 바꾼 '이것'",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T18:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224483132317"
      },
      {
@@ -7195,17 +7297,6 @@
       "added": "2025-12-23T11:50",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224119062301"
-     },
-     {
-      "log": "224115838451",
-      "blog_id": "cnsou1088",
-      "title": "연수동피부과 잡티와 기미로 무너진 자존감, 이제는 달라요",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-20T18:10",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224115838451"
      }
     ]
    },
@@ -10027,7 +10118,7 @@
     "224483132317": 0
    },
    "2026-11-21": {
-    "224483132317": 1,
+    "224483132317": 2,
     "224483128812": 0,
     "224483125518": 2,
     "224483160484": 13,
@@ -10087,9 +10178,10 @@
     "224115828056": 3,
     "224115833700": 1,
     "224114588584": 1,
-    "224483248904": 2,
+    "224483248904": 3,
     "224483229106": 0,
-    "224483237650": 2
+    "224483237650": 3,
+    "224483241186": 1
    }
   },
   "snap_at": {
@@ -10101,11 +10193,11 @@
    "2026-11-18": "2026-11-18T21:31",
    "2026-11-19": "2026-11-19T21:30",
    "2026-11-20": "2026-11-20T21:30",
-   "2026-11-21": "2026-11-21T16:50"
+   "2026-11-21": "2026-11-21T21:30"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-21T16:51",
+  "updated_at": "2026-11-21T21:31",
   "date": "2026-11-21"
  }
 }
