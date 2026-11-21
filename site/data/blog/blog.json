@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T12:59",
+ "generated_at": "2026-11-21T16:51",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -5506,8 +5506,8 @@
    "title": "지성톤업크림 찾다가 본 이지아 영상, 나도 목까지 바르기 시작했어",
    "keyword": "지성톤업크림",
    "thumb": "data/blog/thumbs/review_20261121_B49_1.jpg",
-   "read": 0,
-   "like": 0,
+   "read": 2,
+   "like": 1,
    "comment": 0,
    "read_delta": null,
    "ranks": [
@@ -5645,8 +5645,33 @@
    "title": "일본기미화장품 사다 달라고 했다가, AI 가짜 의사 광고 기사 보고 취소했어",
    "keyword": "일본기미화장품",
    "thumb": "data/blog/thumbs/review_20261121_B50_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 2,
+   "like": 0,
+   "comment": 1,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "일본기미화장품",
+     "b": 1,
+     "t": 7,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "기미 화장품",
+     "b": null,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "AI 가짜 의사 광고",
+     "b": null,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -5658,7 +5683,29 @@
    "keyword": "올리브유캡슐",
    "thumb": "data/blog/thumbs/review_20261119_D32_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "올리브유캡슐",
+     "b": null,
+     "t": 8,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 캡슐",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브유 캡슐 보관",
+     "b": 6,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -5670,7 +5717,29 @@
    "keyword": "꿀잠",
    "thumb": "data/blog/thumbs/review_20261120_S36_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "꿀잠",
+     "b": null,
+     "t": 21,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "꿀잠 자는 법",
+     "b": null,
+     "t": 10,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "수면 주기 90분",
+     "b": null,
+     "t": 5,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -5682,7 +5751,29 @@
    "keyword": "손등검버섯",
    "thumb": "data/blog/thumbs/review_20261121b_B54_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "손등검버섯",
+     "b": null,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "손등 검버섯",
+     "b": null,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "손등 흑자",
+     "b": null,
+     "t": 22,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -6349,7 +6440,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-21T12:50",
+  "updated_at": "2026-11-21T16:50",
   "prev_snap": "2026-11-20",
   "accounts": {
    "cnsou1088": {
@@ -6452,16 +6543,27 @@
      },
      {
       "date": "2026-11-21",
-      "cv": 6
+      "cv": 10
      }
     ],
     "posts": [
      {
+      "log": "224483237650",
+      "blog_id": "cnsou1088",
+      "title": "일본기미화장품 사다 달라고 했다가, AI 가짜 의사 광고 기사 보고 취소했어",
+      "read": 2,
+      "like": 0,
+      "comment": 1,
+      "added": "2026-11-21T16:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483237650"
+     },
+     {
       "log": "224483248904",
       "blog_id": "cnsou1088",
       "title": "지성톤업크림 찾다가 본 이지아 영상, 나도 목까지 바르기 시작했어",
-      "read": 0,
-      "like": 0,
+      "read": 2,
+      "like": 1,
       "comment": 0,
       "added": "2026-11-21T12:00",
       "delta": null,
@@ -7104,17 +7206,6 @@
       "added": "2025-12-20T18:10",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224115838451"
-     },
-     {
-      "log": "224115828056",
-      "blog_id": "cnsou1088",
-      "title": "석전동피부과 기미로 자존감 바닥이었던 나, 이제는 빛나요",
-      "read": 3,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-20T12:50",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224115828056"
      }
     ]
    },
@@ -9996,8 +10087,9 @@
     "224115828056": 3,
     "224115833700": 1,
     "224114588584": 1,
-    "224483248904": 0,
-    "224483229106": 0
+    "224483248904": 2,
+    "224483229106": 0,
+    "224483237650": 2
    }
   },
   "snap_at": {
@@ -10009,11 +10101,11 @@
    "2026-11-18": "2026-11-18T21:31",
    "2026-11-19": "2026-11-19T21:30",
    "2026-11-20": "2026-11-20T21:30",
-   "2026-11-21": "2026-11-21T12:50"
+   "2026-11-21": "2026-11-21T16:50"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-21T12:59",
+  "updated_at": "2026-11-21T16:51",
   "date": "2026-11-21"
  }
 }
