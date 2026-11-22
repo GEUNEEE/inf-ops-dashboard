@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T13:04",
+ "generated_at": "2026-11-22T16:52",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -222,10 +222,10 @@
    "title": "김다영 임신 중 주근깨 민낯 공개, 짙어진 주근깨 앞에서 제가 먼저 챙기는 것",
    "keyword": "주근깨",
    "thumb": "data/blog/thumbs/review_20261105_B1_1.jpg",
-   "read": 15,
+   "read": 16,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "김다영 민낯",
@@ -777,10 +777,10 @@
    "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
    "keyword": "다이소기미크림",
    "thumb": "data/blog/thumbs/review_20261107_B4_1.jpg",
-   "read": 61,
+   "read": 62,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "다이소기미크림",
@@ -3193,6 +3193,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "선우용여",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "선우용여화장품",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 15
     }
    ]
   },
@@ -3690,7 +3704,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "김동현",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "김동현 사남매",
+     "b": 12,
+     "t": 1,
+     "pb": 13,
+     "pt": 1
+    },
+    {
+     "kw": "동현이넷",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -3786,6 +3822,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "수면영양제 추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "수면 부채",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 11
     }
    ]
   },
@@ -3843,6 +3893,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "유기농 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "엑스트라버진 뜻",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3859,6 +3923,20 @@
    "ranks": [
     {
      "kw": "테아닌",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "테아닌 먹는 시간",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "테아닌 영양제",
      "b": null,
      "t": null,
      "pb": null,
@@ -4384,10 +4462,10 @@
    "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
    "keyword": "다이소수분크림",
    "thumb": "data/blog/thumbs/review_20261119_B40_1.jpg",
-   "read": 12,
+   "read": 13,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "다이소수분크림",
@@ -4767,10 +4845,10 @@
    "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
    "keyword": "올리브영기미크림",
    "thumb": "data/blog/thumbs/review_20261120_B35_1.jpg",
-   "read": 13,
+   "read": 14,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "올리브영기미크림",
@@ -5567,10 +5645,10 @@
    "title": "일본기미화장품 사다 달라고 했다가, AI 가짜 의사 광고 기사 보고 취소했어",
    "keyword": "일본기미화장품",
    "thumb": "data/blog/thumbs/review_20261121_B50_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 1,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "일본기미화장품",
@@ -5984,7 +6062,7 @@
    "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
    "keyword": "다이소미백크림",
    "thumb": "data/blog/thumbs/review_20261122_B57_1.jpg",
-   "read": 1,
+   "read": 5,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -6123,8 +6201,33 @@
    "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
    "keyword": "아젤라익산크림",
    "thumb": "data/blog/thumbs/review_20261122_B58_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "아젤라익산크림",
+     "b": 6,
+     "t": 28,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "아젤라익산",
+     "b": 14,
+     "t": 19,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "주사",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -6136,7 +6239,29 @@
    "keyword": "1000mg올리브오일캡슐",
    "thumb": "data/blog/thumbs/review_20261122d_D45_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "1000mg올리브오일캡슐",
+     "b": 1,
+     "t": 9,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "1000mg 올리브오일 캡슐",
+     "b": 1,
+     "t": 9,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 캡슐 용량",
+     "b": null,
+     "t": 5,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -6148,7 +6273,29 @@
    "keyword": "부모님크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261122_S50_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "부모님크리스마스선물",
+     "b": 21,
+     "t": 3,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "크리스마스 마켓",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "대추차",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -6160,7 +6307,29 @@
    "keyword": "직장동료크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261122b_B62_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "직장동료크리스마스선물",
+     "b": 10,
+     "t": 3,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "직장동료 크리스마스 선물",
+     "b": 11,
+     "t": 3,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "회사 크리스마스 선물",
+     "b": null,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -6635,7 +6804,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-22T12:50",
+  "updated_at": "2026-11-22T16:50",
   "prev_snap": "2026-11-21",
   "accounts": {
    "cnsou1088": {
@@ -6742,15 +6911,26 @@
      },
      {
       "date": "2026-11-22",
-      "cv": 9
+      "cv": 18
      }
     ],
     "posts": [
      {
+      "log": "224483336158",
+      "blog_id": "cnsou1088",
+      "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T16:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483336158"
+     },
+     {
       "log": "224483333870",
       "blog_id": "cnsou1088",
       "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
-      "read": 1,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T12:00",
@@ -6783,11 +6963,11 @@
       "log": "224483237650",
       "blog_id": "cnsou1088",
       "title": "일본기미화장품 사다 달라고 했다가, AI 가짜 의사 광고 기사 보고 취소했어",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 1,
       "added": "2026-11-21T16:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224483237650"
      },
      {
@@ -6849,11 +7029,11 @@
       "log": "224483160484",
       "blog_id": "cnsou1088",
       "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
-      "read": 13,
+      "read": 14,
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T09:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224483160484"
      },
      {
@@ -6871,11 +7051,11 @@
       "log": "224482014524",
       "blog_id": "cnsou1088",
       "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
-      "read": 12,
+      "read": 13,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T16:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224482014524"
      },
      {
@@ -7223,11 +7403,11 @@
       "log": "224467012383",
       "blog_id": "cnsou1088",
       "title": "다이소기미크림 사러 갔다가 장바구니 앞에서 멈춘 이유, 기미크림 고를 때 본 3가지",
-      "read": 61,
+      "read": 62,
       "like": 0,
       "comment": 0,
       "added": "2026-11-06T18:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224467012383"
      },
      {
@@ -7278,11 +7458,11 @@
       "log": "224465598002",
       "blog_id": "cnsou1088",
       "title": "김다영 임신 중 주근깨 민낯 공개, 짙어진 주근깨 앞에서 제가 먼저 챙기는 것",
-      "read": 15,
+      "read": 16,
       "like": 1,
       "comment": 0,
       "added": "2026-11-05T10:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224465598002"
      },
      {
@@ -7394,17 +7574,6 @@
       "added": "2026-01-03T11:20",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224131910728"
-     },
-     {
-      "log": "224119076801",
-      "blog_id": "cnsou1088",
-      "title": "송도동피부과 기미 때문에 사진 찍기 두려웠던 나의 변화 스토리",
-      "read": 1,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-23T17:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224119076801"
      }
     ]
    },
@@ -10293,15 +10462,15 @@
    },
    "2026-11-22": {
     "224483241186": 1,
-    "224483237650": 4,
+    "224483237650": 5,
     "224483248904": 4,
     "224483229106": 0,
     "224483132317": 2,
     "224483128812": 0,
     "224483125518": 2,
-    "224483160484": 13,
+    "224483160484": 14,
     "224482025396": 3,
-    "224482014524": 12,
+    "224482014524": 13,
     "224481634830": 2,
     "224481659589": 9,
     "224479860835": 0,
@@ -10333,12 +10502,12 @@
     "224467250022": 12,
     "224467033120": 20,
     "224467022061": 3,
-    "224467012383": 61,
+    "224467012383": 62,
     "224466986315": 2,
     "224465786496": 1,
     "224465593010": 0,
     "224465590326": 14,
-    "224465598002": 15,
+    "224465598002": 16,
     "224464340859": 5,
     "224464451749": 7,
     "224463922448": 17,
@@ -10352,8 +10521,9 @@
     "224119076801": 1,
     "224119069266": 0,
     "224119062301": 7,
-    "224483333870": 1,
-    "224483330879": 1
+    "224483333870": 5,
+    "224483330879": 1,
+    "224483336158": 0
    }
   },
   "snap_at": {
@@ -10366,11 +10536,11 @@
    "2026-11-19": "2026-11-19T21:30",
    "2026-11-20": "2026-11-20T21:30",
    "2026-11-21": "2026-11-21T21:30",
-   "2026-11-22": "2026-11-22T12:50"
+   "2026-11-22": "2026-11-22T16:50"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-22T13:04",
+  "updated_at": "2026-11-22T16:52",
   "date": "2026-11-22"
  }
 }
