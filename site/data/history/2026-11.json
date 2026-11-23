@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-20T20:31:02",
+  "generated_at": "2026-11-23T10:02:01",
   "gross_revenue": 2370000,
   "net_profit": 1530000,
   "order_count": 16,
@@ -79,10 +79,10 @@
   },
   "by_product": {
     "화장품": {
-      "qty": 1591,
-      "order_count": 1238,
-      "gross_revenue": 57452180,
-      "net_profit": 44199163,
+      "qty": 1670,
+      "order_count": 1304,
+      "gross_revenue": 60678830,
+      "net_profit": 46756726,
       "repeat": {
         "buyers": 4,
         "orders": 4
@@ -109,10 +109,10 @@
       }
     },
     "올리브오일캡슐": {
-      "qty": 31,
-      "order_count": 17,
-      "gross_revenue": 1097000,
-      "net_profit": 785090
+      "qty": 33,
+      "order_count": 18,
+      "gross_revenue": 1170000,
+      "net_profit": 837900
     }
   },
   "by_store": {
@@ -130,8 +130,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 1090,
-        "units": 1227
+        "orders": 1156,
+        "units": 1306
       },
       "1+1": {
         "orders": 119,
@@ -148,14 +148,14 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 1112,
-        "units": 1407,
-        "gross": 50816180
+        "orders": 1160,
+        "units": 1466,
+        "gross": 53186830
       },
       "자사몰": {
-        "orders": 103,
-        "units": 161,
-        "gross": 5619000
+        "orders": 114,
+        "units": 173,
+        "gross": 6123000
       },
       "지마켓": {
         "orders": 3,
@@ -163,9 +163,9 @@
         "gross": 138000
       },
       "쿠팡": {
-        "orders": 19,
-        "units": 19,
-        "gross": 833000
+        "orders": 26,
+        "units": 27,
+        "gross": 1185000
       },
       "옥션": {
         "orders": 1,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T20:31:03",
+  "generated_at": "2026-11-23T10:02:02",
   "current_month": "2026-11",
   "products": [
     {
@@ -1692,10 +1692,10 @@
       },
       "2026-11": {
         "화장품": {
-          "qty": 1591,
-          "order_count": 1238,
-          "gross_revenue": 57452180,
-          "net_profit": 44199163,
+          "qty": 1670,
+          "order_count": 1304,
+          "gross_revenue": 60678830,
+          "net_profit": 46756726,
           "repeat": {
             "buyers": 4,
             "orders": 4
@@ -1722,10 +1722,10 @@
           }
         },
         "올리브오일캡슐": {
-          "qty": 31,
-          "order_count": 17,
-          "gross_revenue": 1097000,
-          "net_profit": 785090
+          "qty": 33,
+          "order_count": 18,
+          "gross_revenue": 1170000,
+          "net_profit": 837900
         }
       }
     },
@@ -2255,8 +2255,8 @@
   "cosmetics_breakdown": {
     "by_option": {
       "단품": {
-        "orders": 1328,
-        "units": 1466
+        "orders": 1394,
+        "units": 1545
       },
       "1+1": {
         "orders": 183,
@@ -2273,19 +2273,19 @@
     },
     "by_channel": {
       "네이버": {
-        "orders": 1387,
-        "units": 1765,
-        "gross": 63340040
+        "orders": 1435,
+        "units": 1824,
+        "gross": 65710690
       },
       "쿠팡": {
-        "orders": 30,
-        "units": 35,
-        "gross": 1379000
+        "orders": 37,
+        "units": 43,
+        "gross": 1731000
       },
       "자사몰": {
-        "orders": 136,
-        "units": 230,
-        "gross": 7777000
+        "orders": 147,
+        "units": 242,
+        "gross": 8281000
       },
       "지마켓": {
         "orders": 3,
@@ -2500,8 +2500,8 @@
     "2026-11": {
       "by_option": {
         "단품": {
-          "orders": 1090,
-          "units": 1227
+          "orders": 1156,
+          "units": 1306
         },
         "1+1": {
           "orders": 119,
@@ -2518,14 +2518,14 @@
       },
       "by_channel": {
         "네이버": {
-          "orders": 1112,
-          "units": 1407,
-          "gross": 50816180
+          "orders": 1160,
+          "units": 1466,
+          "gross": 53186830
         },
         "자사몰": {
-          "orders": 103,
-          "units": 161,
-          "gross": 5619000
+          "orders": 114,
+          "units": 173,
+          "gross": 6123000
         },
         "지마켓": {
           "orders": 3,
@@ -2533,9 +2533,9 @@
           "gross": 138000
         },
         "쿠팡": {
-          "orders": 19,
-          "units": 19,
-          "gross": 833000
+          "orders": 26,
+          "units": 27,
+          "gross": 1185000
         },
         "옥션": {
           "orders": 1,
@@ -2607,8 +2607,8 @@
     }
   ],
   "inventory": {
-    "as_of": "2026-11-20",
-    "data_as_of": "2026-11-20T17:42",
+    "as_of": "2026-11-23",
+    "data_as_of": "2026-11-23T06:21",
     "lead_days": 35,
     "buffer_days": 7,
     "alert_days": 28,
@@ -2619,16 +2619,16 @@
         "base_date": "2026-10-31",
         "base_stock": 3021,
         "deductions": {
-          "orders": 1411,
+          "orders": 1490,
           "other": 0,
           "reserved": 0
         },
         "other_out": [],
         "reserved": [],
-        "stock": 1610,
+        "stock": 1531,
         "sold": {
-          "count": 1118,
-          "units": 1411
+          "count": 1184,
+          "units": 1490
         },
         "preorders": {
           "count": 0,
@@ -2642,27 +2642,27 @@
           }
         ],
         "estimate": {
-          "normal": 102.7,
-          "fast": 102.7,
+          "normal": 106.5,
+          "fast": 106.5,
           "slow": 27.3,
-          "days_of_data": 146,
-          "backtest_mae_week": 161
+          "days_of_data": 149,
+          "backtest_mae_week": 208
         },
         "estimate_reason": null,
         "stockout": {
-          "normal": "2026-12-06",
-          "fast": "2026-12-06",
+          "normal": "2026-12-07",
+          "fast": "2026-12-07",
           "slow": "2027-01-18"
         },
         "gap": {
-          "days": 18,
-          "lost": 1849,
-          "lost_min": 491,
-          "lost_max": 1849,
+          "days": 17,
+          "lost": 1810,
+          "lost_min": 464,
+          "lost_max": 1810,
           "preorder": false
         },
-        "post_incoming_stockout": "2027-02-11",
-        "reorder_by": "2026-12-31",
+        "post_incoming_stockout": "2027-02-09",
+        "reorder_by": "2026-12-29",
         "signal": "red",
         "signal_label": "품절 임박",
         "monthly": [
@@ -2680,15 +2680,15 @@
             "month": "2026-11",
             "opening": 3003,
             "incoming": 0,
-            "sales": 1393,
+            "sales": 1472,
             "trial": 0,
             "other": 0,
-            "closing": 1610,
+            "closing": 1531,
             "current": true,
             "preorder_units": 0
           }
         ],
-        "remaining_today_share": 0.331
+        "remaining_today_share": 0.88
       },
       "수면영양제": {
         "vendor": "택배마스터",
@@ -2724,21 +2724,21 @@
         },
         "incoming": [],
         "estimate": {
-          "normal": 0.2,
-          "fast": 1.0,
+          "normal": 0.1,
+          "fast": 0.9,
           "slow": 0.1,
-          "days_of_data": 21,
+          "days_of_data": 24,
           "backtest_mae_week": 3
         },
         "estimate_reason": null,
         "stockout": {
-          "normal": "2038-12-27",
-          "fast": "2029-04-22",
-          "slow": "2051-02-02"
+          "normal": "2051-02-05",
+          "fast": "2029-08-01",
+          "slow": "2051-02-05"
         },
         "gap": null,
-        "post_incoming_stockout": "2038-12-27",
-        "reorder_by": "2038-11-15",
+        "post_incoming_stockout": "2051-02-05",
+        "reorder_by": "2050-12-25",
         "signal": "green",
         "signal_label": "여유",
         "monthly": [
@@ -2754,7 +2754,7 @@
             "preorder_units": 0
           }
         ],
-        "remaining_today_share": 0.263
+        "remaining_today_share": 0.735
       }
     }
   },
