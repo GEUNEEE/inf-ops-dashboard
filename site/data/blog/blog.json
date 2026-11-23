@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T09:44",
+ "generated_at": "2026-11-23T13:05",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -296,10 +296,10 @@
    "title": "윤미라 '스크럽은 쓰지 않는다', 70대 피부 비결 보고 바꾼 기미크림 루틴",
    "keyword": "기미크림",
    "thumb": "data/blog/thumbs/review_20261105_B2_1.jpg",
-   "read": 14,
+   "read": 15,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "윤미라 피부",
@@ -3045,6 +3045,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "수면 규칙성",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "수면 시간",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3068,6 +3082,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "40대홈케어",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "40대선크림",
+     "b": 8,
+     "t": 28,
+     "pb": 7,
+     "pt": 27
     }
    ]
   },
@@ -3158,7 +3186,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "선우용여",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "선우용여화장품",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "선우용여크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -3469,7 +3519,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "기미없애는방법",
+     "b": 7,
+     "t": null,
+     "pb": 8,
+     "pt": null
+    },
+    {
+     "kw": "겨울 기미",
+     "b": 16,
+     "t": null,
+     "pb": 16,
+     "pt": null
+    },
+    {
+     "kw": "광대 기미",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -3565,6 +3637,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "정가은러닝",
+     "b": 12,
+     "t": null,
+     "pb": 14,
+     "pt": null
+    },
+    {
+     "kw": "러너스페이스",
+     "b": null,
+     "t": 28,
+     "pb": null,
+     "pt": 33
     }
    ]
   },
@@ -3581,7 +3667,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "윤은혜 관리 비결",
+     "b": 4,
+     "t": 1,
+     "pb": 3,
+     "pt": 1
+    },
+    {
+     "kw": "윤은혜 모닝 루틴",
+     "b": 2,
+     "t": 2,
+     "pb": 2,
+     "pt": 3
+    },
+    {
+     "kw": "당근 라페",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -3596,7 +3704,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "김동현",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "김동현 사남매",
+     "b": 12,
+     "t": 1,
+     "pb": 12,
+     "pt": 1
+    },
+    {
+     "kw": "동현이넷",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -3621,6 +3751,13 @@
     },
     {
      "kw": "광대기미",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "멜라닌케어",
      "b": null,
      "t": null,
      "pb": null,
@@ -3655,6 +3792,13 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "올리브유 캡슐",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3674,6 +3818,20 @@
    "ranks": [
     {
      "kw": "수면영양제",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "수면영양제 추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "수면 부채",
      "b": null,
      "t": null,
      "pb": null,
@@ -3708,6 +3866,13 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "앰플크림순서",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3724,6 +3889,20 @@
    "ranks": [
     {
      "kw": "유기농엑스트라버진올리브오일",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "유기농 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "엑스트라버진 뜻",
      "b": null,
      "t": null,
      "pb": null,
@@ -3751,6 +3930,13 @@
     },
     {
      "kw": "테아닌 영양제",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "테아닌 먹는 시간",
      "b": null,
      "t": null,
      "pb": null,
@@ -3886,6 +4072,20 @@
      "t": null,
      "pb": 32,
      "pt": null
+    },
+    {
+     "kw": "기미주근깨크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "여행선크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -3902,7 +4102,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "박보영",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "박보영민낯",
+     "b": 9,
+     "t": 5,
+     "pb": 12,
+     "pt": 2
+    },
+    {
+     "kw": "박보영동안",
+     "b": 8,
+     "t": 12,
+     "pb": 7,
+     "pt": 3
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -3917,7 +4139,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "박영선 다이어트",
+     "b": 4,
+     "t": 6,
+     "pb": 3,
+     "pt": 4
+    },
+    {
+     "kw": "박영선 식단",
+     "b": 2,
+     "t": 9,
+     "pb": 2,
+     "pt": 7
+    },
+    {
+     "kw": "박영선 오리백숙",
+     "b": 3,
+     "t": 9,
+     "pb": 2,
+     "pt": 9
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -3929,7 +4173,29 @@
    "keyword": "수능",
    "thumb": "data/blog/thumbs/review_20261119_S30_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "수능",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "수능 전날",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "수능 컨디션",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -3944,7 +4210,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "나이아신아마이드크림",
+     "b": 5,
+     "t": null,
+     "pb": 1,
+     "pt": null
+    },
+    {
+     "kw": "나이아신아마이드농도",
+     "b": 13,
+     "t": null,
+     "pb": 10,
+     "pt": 11
+    },
+    {
+     "kw": "나이아신아마이드비타민C",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -3959,7 +4247,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "올리브영블프",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "올영블프",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "올리브영블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -3974,7 +4284,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "쿠팡블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "쿠팡 블프",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "쿠팡 블랙프라이데이 기간",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -3986,7 +4318,29 @@
    "keyword": "다이소멜라토닌",
    "thumb": "data/blog/thumbs/review_20261119_S38_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "다이소 멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "식물성 멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4001,7 +4355,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "남자수면영양제",
+     "b": 1,
+     "t": 5,
+     "pb": 1,
+     "pt": 5
+    },
+    {
+     "kw": "남자 수면",
+     "b": 9,
+     "t": 7,
+     "pb": 10,
+     "pt": 4
+    },
+    {
+     "kw": "러닝 후 잠",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4016,7 +4392,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소화장품추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 10
+    },
+    {
+     "kw": "다이소화장품",
+     "b": null,
+     "t": 35,
+     "pb": null,
+     "pt": 36
+    },
+    {
+     "kw": "다이소뷰티",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4031,7 +4429,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소영양제",
+     "b": 18,
+     "t": null,
+     "pb": null,
+     "pt": 38
+    },
+    {
+     "kw": "다이소 영양제 추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "소용량 건기식",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4042,11 +4462,33 @@
    "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
    "keyword": "다이소수분크림",
    "thumb": "data/blog/thumbs/review_20261119_B40_1.jpg",
-   "read": 16,
+   "read": 17,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
-   "ranks": []
+   "read_delta": 3,
+   "ranks": [
+    {
+     "kw": "다이소수분크림",
+     "b": 27,
+     "t": null,
+     "pb": 26,
+     "pt": null
+    },
+    {
+     "kw": "다이소크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "겨울수분크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4061,7 +4503,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "트레이더스올리브오일",
+     "b": 3,
+     "t": 11,
+     "pb": 3,
+     "pt": 11
+    },
+    {
+     "kw": "트레이더스 올리브오일",
+     "b": 3,
+     "t": 11,
+     "pb": 3,
+     "pt": 11
+    },
+    {
+     "kw": "올리브오일 등급",
+     "b": 14,
+     "t": 32,
+     "pb": 13,
+     "pt": 31
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -4073,7 +4537,29 @@
    "keyword": "다이소마그네슘",
    "thumb": "data/blog/thumbs/review_20261119_S39_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소마그네슘",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "다이소 마그네슘 재입고",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "마그네슘 수면",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4085,7 +4571,29 @@
    "keyword": "일본수면보조제",
    "thumb": "data/blog/thumbs/review_20261119c_S45_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "일본수면보조제",
+     "b": 2,
+     "t": 4,
+     "pb": 2,
+     "pt": 4
+    },
+    {
+     "kw": "일본 여행",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "해외직구",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4097,7 +4605,29 @@
    "keyword": "다이소앰플",
    "thumb": "data/blog/thumbs/review_20261119b_B42_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소앰플",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "다이소앰플추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "앰플고르는법",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4112,7 +4642,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "40대크리스마스선물",
+     "b": 4,
+     "t": 6,
+     "pb": 4,
+     "pt": 2
+    },
+    {
+     "kw": "엄마크리스마스선물",
+     "b": 9,
+     "t": 10,
+     "pb": 6,
+     "pt": 8
+    },
+    {
+     "kw": "40대여자선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 33
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4124,7 +4676,29 @@
    "keyword": "이마트올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261119_D34_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "이마트올리브오일추천",
+     "b": 2,
+     "t": 9,
+     "pb": 7,
+     "pt": 9
+    },
+    {
+     "kw": "이마트 올리브오일",
+     "b": 3,
+     "t": 7,
+     "pb": 9,
+     "pt": 7
+    },
+    {
+     "kw": "올리브오일 고르는법",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "haherin",
@@ -4143,6 +4717,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "잠안올때영양제",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "잠 안 올 때 영양제",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -4156,7 +4744,29 @@
    "keyword": "수면유도제가격",
    "thumb": "data/blog/thumbs/review_20261119c_S46_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "수면유도제가격",
+     "b": 7,
+     "t": 28,
+     "pb": 7,
+     "pt": 9
+    },
+    {
+     "kw": "수면유도제",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "부모님 잠",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4168,7 +4778,29 @@
    "keyword": "30대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261120b_B43_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "30대크리스마스선물",
+     "b": 13,
+     "t": 12,
+     "pb": 10,
+     "pt": 7
+    },
+    {
+     "kw": "30대 선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4180,7 +4812,29 @@
    "keyword": "입면",
    "thumb": "data/blog/thumbs/review_20261119c_S43_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "입면",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "입면 시간",
+     "b": 10,
+     "t": 26,
+     "pb": 10,
+     "pt": 9
+    },
+    {
+     "kw": "수면양말",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4191,11 +4845,33 @@
    "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
    "keyword": "올리브영기미크림",
    "thumb": "data/blog/thumbs/review_20261120_B35_1.jpg",
-   "read": 14,
+   "read": 15,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
-   "ranks": []
+   "read_delta": 1,
+   "ranks": [
+    {
+     "kw": "올리브영기미크림",
+     "b": 7,
+     "t": 10,
+     "pb": 6,
+     "pt": 10
+    },
+    {
+     "kw": "올리브영미백",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 27
+    },
+    {
+     "kw": "올리브영기미패치",
+     "b": 4,
+     "t": 34,
+     "pb": 4,
+     "pt": 34
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4207,7 +4883,29 @@
    "keyword": "신지 다이어트",
    "thumb": "data/blog/thumbs/review_20261120_D35_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "신지 다이어트",
+     "b": null,
+     "t": 20,
+     "pb": null,
+     "pt": 18
+    },
+    {
+     "kw": "신지 식단",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "문소리 도시락",
+     "b": 5,
+     "t": 23,
+     "pb": 5,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4219,7 +4917,29 @@
    "keyword": "안색",
    "thumb": "data/blog/thumbs/review_20261120b_B44_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "안색",
+     "b": 14,
+     "t": null,
+     "pb": 20,
+     "pt": null
+    },
+    {
+     "kw": "안색 어두움",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "칙칙한 안색",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4239,6 +4959,20 @@
      "kw": "기미앰플",
      "b": null,
      "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "기미앰플추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "앰플바르는순서",
+     "b": null,
+     "t": 37,
      "pb": null,
      "pt": null
     }
@@ -4261,6 +4995,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "올리브오일캡슐효능",
+     "b": 3,
+     "t": null,
+     "pb": 3,
+     "pt": null
+    },
+    {
+     "kw": "올리브유 캡슐 함량",
+     "b": 1,
+     "t": 10,
+     "pb": 1,
+     "pt": 10
     }
    ]
   },
@@ -4274,7 +5022,29 @@
    "keyword": "갱년기불면증",
    "thumb": "data/blog/thumbs/review_20261119b_S32_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "갱년기불면증",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "갱년기 잠",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "엄마 수면",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4286,7 +5056,29 @@
    "keyword": "피부착색연고",
    "thumb": "data/blog/thumbs/review_20261120b_B45_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "피부착색연고",
+     "b": 4,
+     "t": 25,
+     "pb": 5,
+     "pt": 21
+    },
+    {
+     "kw": "착색 연고",
+     "b": 13,
+     "t": 23,
+     "pb": 17,
+     "pt": 22
+    },
+    {
+     "kw": "상처 자국",
+     "b": 11,
+     "t": null,
+     "pb": 11,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4308,6 +5100,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "손등색소침착",
+     "b": 2,
+     "t": 21,
+     "pb": 2,
+     "pt": 21
+    },
+    {
+     "kw": "여드름색소침착",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -4321,7 +5127,29 @@
    "keyword": "코스트코올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261120_D37_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "코스트코올리브오일추천",
+     "b": 10,
+     "t": 12,
+     "pb": null,
+     "pt": 12
+    },
+    {
+     "kw": "코스트코 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "올리브오일 대용량",
+     "b": 2,
+     "t": 3,
+     "pb": 2,
+     "pt": 4
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4333,7 +5161,29 @@
    "keyword": "다이소수면안대",
    "thumb": "data/blog/thumbs/review_20261119b_S41_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소수면안대",
+     "b": 2,
+     "t": 3,
+     "pb": 2,
+     "pt": 3
+    },
+    {
+     "kw": "다이소 수면안대 추천",
+     "b": 2,
+     "t": 6,
+     "pb": 2,
+     "pt": 6
+    },
+    {
+     "kw": "냉감 수면안대",
+     "b": 6,
+     "t": 2,
+     "pb": 3,
+     "pt": 2
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4345,7 +5195,29 @@
    "keyword": "나이아신아마이드세럼",
    "thumb": "data/blog/thumbs/review_20261120b_B46_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "나이아신아마이드세럼",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "나이아신아마이드 농도",
+     "b": null,
+     "t": 13,
+     "pb": null,
+     "pt": 12
+    },
+    {
+     "kw": "나이아신아마이드 5%",
+     "b": null,
+     "t": 4,
+     "pb": null,
+     "pt": 4
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4360,7 +5232,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "기미팩",
+     "b": 16,
+     "t": 5,
+     "pb": 18,
+     "pt": 3
+    },
+    {
+     "kw": "기미마스크팩",
+     "b": null,
+     "t": 6,
+     "pb": null,
+     "pt": 6
+    },
+    {
+     "kw": "마스크팩사용시간",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4372,7 +5266,29 @@
    "keyword": "아침공복올리브오일",
    "thumb": "data/blog/thumbs/review_20261120_D38_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "아침공복올리브오일",
+     "b": null,
+     "t": null,
+     "pb": 30,
+     "pt": 33
+    },
+    {
+     "kw": "공복 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "아침 공복 음식",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4384,7 +5300,29 @@
    "keyword": "잠 설친 날",
    "thumb": "data/blog/thumbs/review_20261120_S34_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "잠 설친 날",
+     "b": 7,
+     "t": 1,
+     "pb": 7,
+     "pt": 1
+    },
+    {
+     "kw": "빈속 커피",
+     "b": 22,
+     "t": null,
+     "pb": 20,
+     "pt": null
+    },
+    {
+     "kw": "아침 커피 순서",
+     "b": 11,
+     "t": 30,
+     "pb": 10,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4396,7 +5334,29 @@
    "keyword": "겨울피부건조",
    "thumb": "data/blog/thumbs/review_20261120b_B47_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "겨울피부건조",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "겨울 보습",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "보습크림 고르기",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4415,6 +5375,20 @@
      "t": 7,
      "pb": 3,
      "pt": 6
+    },
+    {
+     "kw": "수면캡슐",
+     "b": 3,
+     "t": 2,
+     "pb": 2,
+     "pt": 2
+    },
+    {
+     "kw": "핑크노이즈",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -4438,6 +5412,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "검버섯없애는법",
+     "b": 14,
+     "t": 29,
+     "pb": 14,
+     "pt": 33
+    },
+    {
+     "kw": "흑자",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -4451,7 +5439,29 @@
    "keyword": "다이소다이어트",
    "thumb": "data/blog/thumbs/review_20261120_D41_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소다이어트",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 7
+    },
+    {
+     "kw": "다이소 다이어트",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 27
+    },
+    {
+     "kw": "다이소 식단 용기",
+     "b": 1,
+     "t": 8,
+     "pb": 1,
+     "pt": 8
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4463,7 +5473,29 @@
    "keyword": "50대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261121b_B52_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "50대크리스마스선물",
+     "b": 2,
+     "t": 3,
+     "pb": 2,
+     "pt": 2
+    },
+    {
+     "kw": "50대 크리스마스 선물",
+     "b": 2,
+     "t": 3,
+     "pb": 2,
+     "pt": 2
+    },
+    {
+     "kw": "엄마 크리스마스 선물",
+     "b": 1,
+     "t": 16,
+     "pb": 1,
+     "pt": 13
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4478,7 +5510,29 @@
    "like": 1,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "지성톤업크림",
+     "b": 1,
+     "t": 2,
+     "pb": 1,
+     "pt": 6
+    },
+    {
+     "kw": "톤업크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "지성 피부",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4490,7 +5544,29 @@
    "keyword": "다이소올리브오일",
    "thumb": "data/blog/thumbs/review_20261120_D42_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소올리브오일",
+     "b": 4,
+     "t": 5,
+     "pb": 4,
+     "pt": 5
+    },
+    {
+     "kw": "다이소 올리브오일",
+     "b": 4,
+     "t": 5,
+     "pb": 4,
+     "pt": 5
+    },
+    {
+     "kw": "다이소 건강식품",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4509,6 +5585,20 @@
      "t": null,
      "pb": null,
      "pt": 27
+    },
+    {
+     "kw": "잠안올때자는법",
+     "b": 5,
+     "t": 30,
+     "pb": 2,
+     "pt": 18
+    },
+    {
+     "kw": "4-7-8 호흡",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 26
     }
    ]
   },
@@ -4522,7 +5612,29 @@
    "keyword": "여자친구크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261121b_B53_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "여자친구크리스마스선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "여자친구 크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4537,7 +5649,29 @@
    "like": 0,
    "comment": 1,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "일본기미화장품",
+     "b": 1,
+     "t": 7,
+     "pb": 1,
+     "pt": 7
+    },
+    {
+     "kw": "기미 화장품",
+     "b": 28,
+     "t": null,
+     "pb": 22,
+     "pt": null
+    },
+    {
+     "kw": "AI 가짜 의사 광고",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 3
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4556,6 +5690,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "올리브유캡슐",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "올리브유 캡슐 보관",
+     "b": 6,
+     "t": null,
+     "pb": 6,
+     "pt": 6
     }
    ]
   },
@@ -4569,7 +5717,29 @@
    "keyword": "꿀잠",
    "thumb": "data/blog/thumbs/review_20261120_S36_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "꿀잠",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 21
+    },
+    {
+     "kw": "꿀잠 자는 법",
+     "b": null,
+     "t": 13,
+     "pb": null,
+     "pt": 8
+    },
+    {
+     "kw": "수면 주기 90분",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 7
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4595,6 +5765,13 @@
      "t": 28,
      "pb": 17,
      "pt": 6
+    },
+    {
+     "kw": "손등 흑자",
+     "b": 1,
+     "t": 22,
+     "pb": 4,
+     "pt": 22
     }
    ]
   },
@@ -4611,7 +5788,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "아내크리스마스선물",
+     "b": 9,
+     "t": 4,
+     "pb": 8,
+     "pt": 3
+    },
+    {
+     "kw": "크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "롯데타운 크리스마스 마켓",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4623,7 +5822,29 @@
    "keyword": "올리브유레몬즙효능",
    "thumb": "data/blog/thumbs/review_20261119_D33_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "올리브유레몬즙효능",
+     "b": 1,
+     "t": 12,
+     "pb": 1,
+     "pt": 13
+    },
+    {
+     "kw": "올리브유 레몬즙",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 22
+    },
+    {
+     "kw": "올리브유 레몬 샷",
+     "b": 2,
+     "t": 12,
+     "pb": 2,
+     "pt": 7
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4635,7 +5856,29 @@
    "keyword": "여자수면영양제",
    "thumb": "data/blog/thumbs/review_20261120_S37_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "여자수면영양제",
+     "b": 1,
+     "t": 2,
+     "pb": 2,
+     "pt": 2
+    },
+    {
+     "kw": "손발 차가움",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "상열하한",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4647,7 +5890,29 @@
    "keyword": "팔꿈치착색크림",
    "thumb": "data/blog/thumbs/review_20261121b_B55_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "팔꿈치착색크림",
+     "b": 1,
+     "t": 6,
+     "pb": 1,
+     "pt": 4
+    },
+    {
+     "kw": "팔꿈치 착색 크림",
+     "b": 1,
+     "t": 4,
+     "pb": 1,
+     "pt": 4
+    },
+    {
+     "kw": "팔꿈치 착색",
+     "b": 11,
+     "t": 6,
+     "pb": 10,
+     "pt": 5
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4659,7 +5924,29 @@
    "keyword": "겨울잠",
    "thumb": "data/blog/thumbs/review_20261122_S48_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "겨울잠",
+     "b": null,
+     "t": 28,
+     "pb": null,
+     "pt": 25
+    },
+    {
+     "kw": "겨울 아침",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "생체 리듬",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4674,7 +5961,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "무신사블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 9
+    },
+    {
+     "kw": "블프 장바구니",
+     "b": null,
+     "t": 8,
+     "pb": null,
+     "pt": 1
+    },
+    {
+     "kw": "무신사 약국",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4686,7 +5995,29 @@
    "keyword": "이세영다이어트",
    "thumb": "data/blog/thumbs/review_20261122d_D43_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "이세영다이어트",
+     "b": 34,
+     "t": 11,
+     "pb": 32,
+     "pt": 2
+    },
+    {
+     "kw": "이세영 다이어트",
+     "b": 34,
+     "t": 12,
+     "pb": 32,
+     "pt": 2
+    },
+    {
+     "kw": "이세영 8kg 감량",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4698,7 +6029,29 @@
    "keyword": "목주름크림",
    "thumb": "data/blog/thumbs/review_20261122b_B60_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "목주름크림",
+     "b": null,
+     "t": 5,
+     "pb": null,
+     "pt": 3
+    },
+    {
+     "kw": "목주름 크림",
+     "b": null,
+     "t": 5,
+     "pb": null,
+     "pt": 2
+    },
+    {
+     "kw": "목주름",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4713,7 +6066,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 3,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "다이소미백크림",
+     "b": 3,
+     "t": 2,
+     "pb": 3,
+     "pt": 2
+    },
+    {
+     "kw": "다이소 크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "후시덤",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4725,7 +6100,29 @@
    "keyword": "이탈리아올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261122d_D44_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "이탈리아올리브오일추천",
+     "b": 3,
+     "t": 37,
+     "pb": 3,
+     "pt": 17
+    },
+    {
+     "kw": "이탈리아 올리브오일 추천",
+     "b": 3,
+     "t": 36,
+     "pb": 3,
+     "pt": 17
+    },
+    {
+     "kw": "이탈리아 올리브오일",
+     "b": 4,
+     "t": 7,
+     "pb": 4,
+     "pt": 9
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4737,7 +6134,29 @@
    "keyword": "수면유지영양제",
    "thumb": "data/blog/thumbs/review_20261122_S49_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "수면유지영양제",
+     "b": 2,
+     "t": 6,
+     "pb": 2,
+     "pt": 6
+    },
+    {
+     "kw": "새벽에 깸",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "중간 각성",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4749,7 +6168,29 @@
    "keyword": "무릎착색",
    "thumb": "data/blog/thumbs/review_20261122b_B61_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "무릎착색",
+     "b": 6,
+     "t": 25,
+     "pb": 9,
+     "pt": 24
+    },
+    {
+     "kw": "무릎 착색",
+     "b": 6,
+     "t": 25,
+     "pb": 10,
+     "pt": 23
+    },
+    {
+     "kw": "무릎 각질",
+     "b": null,
+     "t": 27,
+     "pb": null,
+     "pt": 5
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4760,11 +6201,33 @@
    "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
    "keyword": "아젤라익산크림",
    "thumb": "data/blog/thumbs/review_20261122_B58_1.jpg",
-   "read": 3,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 3,
-   "ranks": []
+   "read_delta": 5,
+   "ranks": [
+    {
+     "kw": "아젤라익산크림",
+     "b": 3,
+     "t": 28,
+     "pb": 6,
+     "pt": 28
+    },
+    {
+     "kw": "아젤라익산",
+     "b": 6,
+     "t": 19,
+     "pb": 14,
+     "pt": 19
+    },
+    {
+     "kw": "주사",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4776,7 +6239,29 @@
    "keyword": "1000mg올리브오일캡슐",
    "thumb": "data/blog/thumbs/review_20261122d_D45_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "1000mg올리브오일캡슐",
+     "b": 1,
+     "t": 3,
+     "pb": 1,
+     "pt": 9
+    },
+    {
+     "kw": "1000mg 올리브오일 캡슐",
+     "b": 1,
+     "t": 3,
+     "pb": 1,
+     "pt": 9
+    },
+    {
+     "kw": "올리브오일 캡슐 용량",
+     "b": null,
+     "t": 4,
+     "pb": null,
+     "pt": 5
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4795,6 +6280,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "부모님크리스마스선물",
+     "b": 20,
+     "t": 27,
+     "pb": 21,
+     "pt": 3
+    },
+    {
+     "kw": "크리스마스 마켓",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -4808,7 +6307,29 @@
    "keyword": "직장동료크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261122b_B62_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "직장동료크리스마스선물",
+     "b": 8,
+     "t": 3,
+     "pb": 10,
+     "pt": 3
+    },
+    {
+     "kw": "직장동료 크리스마스 선물",
+     "b": 8,
+     "t": 3,
+     "pb": 11,
+     "pt": 3
+    },
+    {
+     "kw": "회사 크리스마스 선물",
+     "b": 4,
+     "t": 2,
+     "pb": null,
+     "pt": 2
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4823,7 +6344,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 2,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "약국화장품",
+     "b": null,
+     "t": 19,
+     "pb": null,
+     "pt": 23
+    },
+    {
+     "kw": "약국 크림",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "기능성 표시",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4835,7 +6378,29 @@
    "keyword": "올리브오일선물세트",
    "thumb": "data/blog/thumbs/review_20261122d_D46_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "올리브오일선물세트",
+     "b": 3,
+     "t": 2,
+     "pb": 3,
+     "pt": 1
+    },
+    {
+     "kw": "올리브오일 선물세트",
+     "b": 3,
+     "t": 1,
+     "pb": 3,
+     "pt": 1
+    },
+    {
+     "kw": "연말 선물 추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4847,7 +6412,29 @@
    "keyword": "약국수면유도제",
    "thumb": "data/blog/thumbs/review_20261122_S51_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "약국수면유도제",
+     "b": 19,
+     "t": 31,
+     "pb": 20,
+     "pt": 28
+    },
+    {
+     "kw": "약사 상담",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "조기 각성",
+     "b": 3,
+     "t": 6,
+     "pb": 3,
+     "pt": 16
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4859,7 +6446,29 @@
    "keyword": "눈가주름크림",
    "thumb": "data/blog/thumbs/review_20261122b_B63_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "눈가주름크림",
+     "b": null,
+     "t": 9,
+     "pb": null,
+     "pt": 6
+    },
+    {
+     "kw": "눈가 주름 크림",
+     "b": null,
+     "t": 9,
+     "pb": null,
+     "pt": 6
+    },
+    {
+     "kw": "눈가주름",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 30
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4871,7 +6480,29 @@
    "keyword": "수면부족",
    "thumb": "data/blog/thumbs/review_20261123_S52_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "수면부족",
+     "b": null,
+     "t": 25,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "생체시계",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "기상 시간",
+     "b": 11,
+     "t": 21,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4882,8 +6513,33 @@
    "title": "겨울선물 3주 고민 끝에, 친구 고민부터 물어보고 정했어",
    "keyword": "겨울선물",
    "thumb": "data/blog/thumbs/review_20261123_B64_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "겨울선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "연말 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "크리스마스 마켓",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4895,7 +6551,29 @@
    "keyword": "강재준다이어트",
    "thumb": "data/blog/thumbs/review_20261123d_D47_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "강재준다이어트",
+     "b": null,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "강재준 다이어트",
+     "b": null,
+     "t": 1,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "강재준 14kg 감량",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4907,7 +6585,29 @@
    "keyword": "겨드랑이착색",
    "thumb": "data/blog/thumbs/review_20261123b_B68_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "겨드랑이착색",
+     "b": 12,
+     "t": 7,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "겨드랑이 착색",
+     "b": 12,
+     "t": 7,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "겨드랑이 미백",
+     "b": null,
+     "t": 25,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -4918,8 +6618,33 @@
    "title": "피부하얘지는법 한 달 검색 끝에 화장·습관·크림 셋으로 나눴어",
    "keyword": "피부하얘지는법",
    "thumb": "data/blog/thumbs/review_20261123_B65_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "피부하얘지는법",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "라벤더 베이스",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "칙칙한 톤",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -4931,7 +6656,29 @@
    "keyword": "이마트블랙프라이데이",
    "thumb": "data/blog/thumbs/review_20261123d_D48_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "이마트블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "이마트 블랙프라이데이",
+     "b": null,
+     "t": 22,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "이마트 방한대전",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -4943,7 +6690,29 @@
    "keyword": "잠안올때",
    "thumb": "data/blog/thumbs/review_20261123_S53_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "잠안올때",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "SNS 줄이기",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "침실 온도",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -4955,7 +6724,29 @@
    "keyword": "엄마선물",
    "thumb": "data/blog/thumbs/review_20261123b_B69_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "엄마선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "엄마 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "50대 엄마 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -5286,7 +7077,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-23T08:32",
+  "updated_at": "2026-11-23T12:50",
   "prev_snap": "2026-11-22",
   "accounts": {
    "cnsou1088": {
@@ -5397,10 +7188,32 @@
      },
      {
       "date": "2026-11-23",
-      "cv": 4
+      "cv": 9
      }
     ],
     "posts": [
+     {
+      "log": "224483450007",
+      "blog_id": "cnsou1088",
+      "title": "피부하얘지는법 한 달 검색 끝에 화장·습관·크림 셋으로 나눴어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T12:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483450007"
+     },
+     {
+      "log": "224483445619",
+      "blog_id": "cnsou1088",
+      "title": "겨울선물 3주 고민 끝에, 친구 고민부터 물어보고 정했어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T09:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483445619"
+     },
      {
       "log": "224483338765",
       "blog_id": "cnsou1088",
@@ -5416,11 +7229,11 @@
       "log": "224483336158",
       "blog_id": "cnsou1088",
       "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
-      "read": 3,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T16:00",
-      "delta": 3,
+      "delta": 5,
       "url": "https://blog.naver.com/cnsou1088/224483336158"
      },
      {
@@ -5526,11 +7339,11 @@
       "log": "224483160484",
       "blog_id": "cnsou1088",
       "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
-      "read": 14,
+      "read": 15,
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T09:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224483160484"
      },
      {
@@ -5548,11 +7361,11 @@
       "log": "224482014524",
       "blog_id": "cnsou1088",
       "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
-      "read": 16,
+      "read": 17,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T16:00",
-      "delta": 2,
+      "delta": 3,
       "url": "https://blog.naver.com/cnsou1088/224482014524"
      },
      {
@@ -5944,11 +7757,11 @@
       "log": "224465590326",
       "blog_id": "cnsou1088",
       "title": "윤미라 '스크럽은 쓰지 않는다', 70대 피부 비결 보고 바꾼 기미크림 루틴",
-      "read": 14,
+      "read": 15,
       "like": 1,
       "comment": 0,
       "added": "2026-11-05T12:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224465590326"
      },
      {
@@ -6038,28 +7851,6 @@
       "added": "2026-01-14T09:30",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224145314275"
-     },
-     {
-      "log": "224131917603",
-      "blog_id": "cnsou1088",
-      "title": "덕정동피부과 레이저 후 색소 진해져서 겁나는 분들",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-03T13:00",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224131917603"
-     },
-     {
-      "log": "224131923868",
-      "blog_id": "cnsou1088",
-      "title": "망우동피부과 40~50대 색소 문제 젊을 때랑 달라서 힘들어요",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-03T12:20",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224131923868"
      }
     ]
    },
@@ -9014,7 +10805,7 @@
    },
    "2026-11-23": {
     "224483338765": 4,
-    "224483336158": 3,
+    "224483336158": 5,
     "224483333870": 8,
     "224483330879": 1,
     "224483241186": 1,
@@ -9024,9 +10815,9 @@
     "224483132317": 2,
     "224483128812": 0,
     "224483125518": 2,
-    "224483160484": 14,
+    "224483160484": 15,
     "224482025396": 3,
-    "224482014524": 16,
+    "224482014524": 17,
     "224481634830": 2,
     "224481659589": 9,
     "224479860835": 0,
@@ -9062,7 +10853,7 @@
     "224466986315": 2,
     "224465786496": 1,
     "224465593010": 0,
-    "224465590326": 14,
+    "224465590326": 15,
     "224465598002": 16,
     "224464340859": 5,
     "224464451749": 7,
@@ -9072,7 +10863,9 @@
     "224145308157": 3,
     "224145314275": 0,
     "224131917603": 0,
-    "224131923868": 0
+    "224131923868": 0,
+    "224483450007": 0,
+    "224483445619": 0
    }
   },
   "snap_at": {
@@ -9086,11 +10879,11 @@
    "2026-11-20": "2026-11-20T21:30",
    "2026-11-21": "2026-11-21T21:30",
    "2026-11-22": "2026-11-22T21:30",
-   "2026-11-23": "2026-11-23T08:32"
+   "2026-11-23": "2026-11-23T12:50"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-23T09:44",
+  "updated_at": "2026-11-23T13:05",
   "date": "2026-11-23"
  }
 }
