@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T13:05",
+ "generated_at": "2026-11-23T16:51",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -3515,10 +3515,10 @@
    "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
    "keyword": "기미없애는방법",
    "thumb": "data/blog/thumbs/review_20261117_B29_1.jpg",
-   "read": 2,
+   "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "기미없애는방법",
@@ -4845,10 +4845,10 @@
    "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
    "keyword": "올리브영기미크림",
    "thumb": "data/blog/thumbs/review_20261120_B35_1.jpg",
-   "read": 15,
+   "read": 18,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 4,
    "ranks": [
     {
      "kw": "올리브영기미크림",
@@ -6201,10 +6201,10 @@
    "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
    "keyword": "아젤라익산크림",
    "thumb": "data/blog/thumbs/review_20261122_B58_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 5,
+   "read_delta": 6,
    "ranks": [
     {
      "kw": "아젤라익산크림",
@@ -6340,10 +6340,10 @@
    "title": "약국화장품이면 다 좋은 줄 알았는데, 약사님이 먼저 보라고 한 건",
    "keyword": "약국화장품",
    "thumb": "data/blog/thumbs/review_20261122_B59_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 3,
    "ranks": [
     {
      "kw": "약국화장품",
@@ -6757,8 +6757,33 @@
    "title": "바디톤업크림 대신 평소 팔꿈치 관리로 바꾼 결혼식 한 달 전",
    "keyword": "바디톤업크림",
    "thumb": "data/blog/thumbs/review_20261123_B66_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "바디톤업크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "팔꿈치 칙칙함",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "목 뒤",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -6770,7 +6795,29 @@
    "keyword": "쿠팡올리브오일",
    "thumb": "data/blog/thumbs/review_20261123d_D49_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "쿠팡올리브오일",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "쿠팡 올리브오일",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 라벨 보는 법",
+     "b": null,
+     "t": 33,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -6782,7 +6829,29 @@
    "keyword": "숙면영양제",
    "thumb": "data/blog/thumbs/review_20261123_S54_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "숙면영양제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "테아닌",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "멜라토닌",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -6794,7 +6863,29 @@
    "keyword": "겨울보습크림",
    "thumb": "data/blog/thumbs/review_20261123b_B70_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "겨울보습크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "겨울 보습크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "겨울 보습",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -7077,7 +7168,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-23T12:50",
+  "updated_at": "2026-11-23T16:50",
   "prev_snap": "2026-11-22",
   "accounts": {
    "cnsou1088": {
@@ -7188,10 +7279,21 @@
      },
      {
       "date": "2026-11-23",
-      "cv": 9
+      "cv": 15
      }
     ],
     "posts": [
+     {
+      "log": "224483453605",
+      "blog_id": "cnsou1088",
+      "title": "바디톤업크림 대신 평소 팔꿈치 관리로 바꾼 결혼식 한 달 전",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T16:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483453605"
+     },
      {
       "log": "224483450007",
       "blog_id": "cnsou1088",
@@ -7218,22 +7320,22 @@
       "log": "224483338765",
       "blog_id": "cnsou1088",
       "title": "약국화장품이면 다 좋은 줄 알았는데, 약사님이 먼저 보라고 한 건",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T18:00",
-      "delta": 2,
+      "delta": 3,
       "url": "https://blog.naver.com/cnsou1088/224483338765"
      },
      {
       "log": "224483336158",
       "blog_id": "cnsou1088",
       "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
-      "read": 5,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T16:00",
-      "delta": 5,
+      "delta": 6,
       "url": "https://blog.naver.com/cnsou1088/224483336158"
      },
      {
@@ -7339,11 +7441,11 @@
       "log": "224483160484",
       "blog_id": "cnsou1088",
       "title": "올리브영기미크림 진열대 앞 20분, 광대에 바를 건 결국 따로 골랐어",
-      "read": 15,
+      "read": 18,
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T09:00",
-      "delta": 1,
+      "delta": 4,
       "url": "https://blog.naver.com/cnsou1088/224483160484"
      },
      {
@@ -7438,11 +7540,11 @@
       "log": "224480132133",
       "blog_id": "cnsou1088",
       "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
-      "read": 2,
+      "read": 3,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T18:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224480132133"
      },
      {
@@ -7840,17 +7942,6 @@
       "added": "2026-01-14T09:40",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224145308157"
-     },
-     {
-      "log": "224145314275",
-      "blog_id": "cnsou1088",
-      "title": "부산 덕천 피부과 재발 걱정으로 밤잠 설쳤던 경험담",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-14T09:30",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224145314275"
      }
     ]
    },
@@ -10804,8 +10895,8 @@
     "224483338765": 2
    },
    "2026-11-23": {
-    "224483338765": 4,
-    "224483336158": 5,
+    "224483338765": 5,
+    "224483336158": 6,
     "224483333870": 8,
     "224483330879": 1,
     "224483241186": 1,
@@ -10815,7 +10906,7 @@
     "224483132317": 2,
     "224483128812": 0,
     "224483125518": 2,
-    "224483160484": 15,
+    "224483160484": 18,
     "224482025396": 3,
     "224482014524": 17,
     "224481634830": 2,
@@ -10824,7 +10915,7 @@
     "224479895490": 2,
     "224479894069": 1,
     "224479892631": 6,
-    "224480132133": 2,
+    "224480132133": 3,
     "224479878611": 4,
     "224479877012": 3,
     "224479906388": 11,
@@ -10865,7 +10956,8 @@
     "224131917603": 0,
     "224131923868": 0,
     "224483450007": 0,
-    "224483445619": 0
+    "224483445619": 0,
+    "224483453605": 0
    }
   },
   "snap_at": {
@@ -10879,11 +10971,11 @@
    "2026-11-20": "2026-11-20T21:30",
    "2026-11-21": "2026-11-21T21:30",
    "2026-11-22": "2026-11-22T21:30",
-   "2026-11-23": "2026-11-23T12:50"
+   "2026-11-23": "2026-11-23T16:50"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-23T13:05",
+  "updated_at": "2026-11-23T16:51",
   "date": "2026-11-23"
  }
 }
