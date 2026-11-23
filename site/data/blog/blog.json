@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-23T16:51",
+ "generated_at": "2026-11-23T21:32",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -111,7 +111,7 @@
    "title": "샘 해밍턴·곽범·카더가든·이창호, 연예인들이 말한 마운자로 이야기 정리",
    "keyword": "",
    "thumb": "data/blog/thumbs/review_20261104_D1_1.jpg",
-   "read": 39,
+   "read": 42,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -222,10 +222,10 @@
    "title": "김다영 임신 중 주근깨 민낯 공개, 짙어진 주근깨 앞에서 제가 먼저 챙기는 것",
    "keyword": "주근깨",
    "thumb": "data/blog/thumbs/review_20261105_B1_1.jpg",
-   "read": 16,
+   "read": 17,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "김다영 민낯",
@@ -259,7 +259,7 @@
    "title": "손담비 '쉽게 단정 짓지 않았으면', 21kg 뺀 다이어트식단 습관 3가지",
    "keyword": "다이어트식단",
    "thumb": "data/blog/thumbs/review_20261105_D1_1.jpg",
-   "read": 28,
+   "read": 29,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -333,7 +333,7 @@
    "title": "고경표 15kg 감량, 올리브오일다이어트보다 먼저 '잠들기 4시간 전 공복'",
    "keyword": "올리브오일다이어트",
    "thumb": "data/blog/thumbs/review_20261105_D2_1.jpg",
-   "read": 15,
+   "read": 16,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -444,7 +444,7 @@
    "title": "백지영·홍진경·신애라 아침 식단, 올리브유효능보다 눈에 띈 건 '먹는 법'",
    "keyword": "올리브유효능",
    "thumb": "data/blog/thumbs/review_20261105_D3_1.jpg",
-   "read": 26,
+   "read": 29,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -925,7 +925,7 @@
    "title": "이영현 33kg 감량, '간식 끊고 5kg 아령'부터 올리브오일추천 기준까지",
    "keyword": "올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261106_D2_1.jpg",
-   "read": 9,
+   "read": 10,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -1036,7 +1036,7 @@
    "title": "이수현 찹쌀떡에 '10km 뛰어야', 30kg 감량 루틴과 올리브오일효능 얘기",
    "keyword": "올리브오일효능",
    "thumb": "data/blog/thumbs/review_20261106_D3_1.jpg",
-   "read": 13,
+   "read": 14,
    "like": 1,
    "comment": 1,
    "read_delta": null,
@@ -1332,7 +1332,7 @@
    "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
    "keyword": "올리브유고르는법",
    "thumb": "data/blog/thumbs/review_20261109_D6_1.jpg",
-   "read": 48,
+   "read": 55,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -1517,10 +1517,10 @@
    "title": "기미패치 붙이고 자던 내가 크림으로 바꾼 이유, 아침마다 실망했던 얘기",
    "keyword": "기미패치",
    "thumb": "data/blog/thumbs/review_20261110_B8_1.jpg",
-   "read": 3,
+   "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "기미패치",
@@ -1665,7 +1665,7 @@
    "title": "올리브유 산도 숫자 보고 고른 이유, 요요 세 번 겪고 알게 된 것",
    "keyword": "올리브유산도",
    "thumb": "data/blog/thumbs/review_20261110_D9_1.jpg",
-   "read": 9,
+   "read": 10,
    "like": 1,
    "comment": 0,
    "read_delta": null,
@@ -1998,7 +1998,7 @@
    "title": "올리브오일먹는법, 아침 공복에 한 숟갈이 진짜 맞아?",
    "keyword": "올리브오일먹는법",
    "thumb": "data/blog/thumbs/review_20261111_D12_1.jpg",
-   "read": 14,
+   "read": 20,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -2146,7 +2146,7 @@
    "title": "“세끼 다 먹어” 정려원 식단 보고 편의점 과자 내려놨어",
    "keyword": "정려원 식단",
    "thumb": "data/blog/thumbs/review_20261112_D13_1.jpg",
-   "read": 9,
+   "read": 11,
    "like": 1,
    "comment": 0,
    "read_delta": null,
@@ -2331,7 +2331,7 @@
    "title": "엑스트라버진올리브유, 진짜인지 병만 보고 알 수 있어?",
    "keyword": "엑스트라버진올리브유",
    "thumb": "data/blog/thumbs/review_20261112_D15_1.jpg",
-   "read": 16,
+   "read": 18,
    "like": 0,
    "comment": 1,
    "read_delta": null,
@@ -2442,7 +2442,7 @@
    "title": "“4자 한번 다시 그려보려고 한다” 고소영 다이어트 보고 달력부터 고쳤어",
    "keyword": "고소영 다이어트",
    "thumb": "data/blog/thumbs/review_20261113_D16_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -2553,7 +2553,7 @@
    "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
    "keyword": "올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261113_D17_1.jpg",
-   "read": 50,
+   "read": 65,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -2775,7 +2775,7 @@
    "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
    "keyword": "김빈우 다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D19_1.jpg",
-   "read": 64,
+   "read": 79,
    "like": 2,
    "comment": 1,
    "read_delta": null,
@@ -2886,7 +2886,7 @@
    "title": "올리브오일다이어트, 기름부터 끊었던 식단에 다시 넣어도 될까?",
    "keyword": "올리브오일다이어트",
    "thumb": "data/blog/thumbs/review_20261116_D20_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -2997,7 +2997,7 @@
    "title": "올리브유효능 챙기려면 김치전은 다른 기름으로 부쳐야 했어",
    "keyword": "올리브유효능",
    "thumb": "data/blog/thumbs/review_20261116_D21_1.jpg",
-   "read": 5,
+   "read": 10,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3108,7 +3108,7 @@
    "title": "베란다에서 하얗게 굳은 병 보고 올리브오일캡슐로 바꾼 날",
    "keyword": "올리브오일캡슐",
    "thumb": "data/blog/thumbs/review_20261116_D22_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3219,7 +3219,7 @@
    "title": "11kg 뺀 신봉선 다이어트, 요즘 밥상에 올린다는 '이것'",
    "keyword": "신봉선 다이어트",
    "thumb": "data/blog/thumbs/review_20261117_D23_1.jpg",
-   "read": 21,
+   "read": 31,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3330,7 +3330,7 @@
    "title": "올리브오일효능, 원샷보다 '어떻게 먹느냐'가 먼저였어",
    "keyword": "올리브오일효능",
    "thumb": "data/blog/thumbs/review_20261117_D24_1.jpg",
-   "read": 11,
+   "read": 16,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3441,7 +3441,7 @@
    "title": "올리브유고르는법, 색깔 말고 내가 보는 4가지",
    "keyword": "올리브유고르는법",
    "thumb": "data/blog/thumbs/review_20261117_D25_1.jpg",
-   "read": 7,
+   "read": 12,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3552,7 +3552,7 @@
    "title": "스페인올리브오일추천 글 대신, 스페인 뉴스 보고 바꾼 내 기준 5줄",
    "keyword": "스페인올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261117_D29_1.jpg",
-   "read": 4,
+   "read": 6,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3663,7 +3663,7 @@
    "title": "윤은혜 관리 비결 따라 해본 아침, 사흘째에 남은 건 물 한 잔",
    "keyword": "윤은혜 관리 비결",
    "thumb": "data/blog/thumbs/review_20261118_D26_1.jpg",
-   "read": 7,
+   "read": 8,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3774,7 +3774,7 @@
    "title": "\"낮은 산도라더니\" 올리브유산도, 숫자만 보고 샀던 내가 바꾼 것",
    "keyword": "올리브유산도",
    "thumb": "data/blog/thumbs/review_20261118_D27_1.jpg",
-   "read": 0,
+   "read": 5,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -3990,7 +3990,7 @@
    "title": "올리브유먹는법 공복 한 숟갈 끊고 버터 자리에 넣었어, 두 달 후기",
    "keyword": "올리브유먹는법",
    "thumb": "data/blog/thumbs/review_20261118_D30_1.jpg",
-   "read": 4,
+   "read": 23,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4061,7 +4061,7 @@
    "title": "기미주근깨크림 챙기다가 비행기 창가에서 알게 된 '이것'",
    "keyword": "기미주근깨크림",
    "thumb": "data/blog/thumbs/review_20261118b_B33_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4135,7 +4135,7 @@
    "title": "박영선 다이어트, 밥은 반 공기에 오리는 한 번 삶아 버린다는 58세 식탁",
    "keyword": "박영선 다이어트",
    "thumb": "data/blog/thumbs/review_20261119_D31_1.jpg",
-   "read": 0,
+   "read": 3,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4206,8 +4206,8 @@
    "title": "나이아신아마이드크림 20% 사려다 멈추고 정한 기준 3가지",
    "keyword": "나이아신아마이드크림",
    "thumb": "data/blog/thumbs/review_20261119b_B32_1.jpg",
-   "read": 5,
-   "like": 0,
+   "read": 13,
+   "like": 1,
    "comment": 0,
    "read_delta": null,
    "ranks": [
@@ -4280,7 +4280,7 @@
    "title": "쿠팡블랙프라이데이 장바구니에 올리브오일 담았다가 결제 직전에 뺀 이유",
    "keyword": "쿠팡블랙프라이데이",
    "thumb": "data/blog/thumbs/review_20261119_D39_1.jpg",
-   "read": 0,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4388,7 +4388,7 @@
    "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
    "keyword": "다이소화장품추천",
    "thumb": "data/blog/thumbs/review_20261119b_B41_1.jpg",
-   "read": 7,
+   "read": 52,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4425,7 +4425,7 @@
    "title": "다이소영양제는 체험판으로 딱이었어, 열흘씩 세 통 먹고 알게 된 내 밤 순서",
    "keyword": "다이소영양제",
    "thumb": "data/blog/thumbs/review_20261119b_S40_1.jpg",
-   "read": 2,
+   "read": 8,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4499,7 +4499,7 @@
    "title": "트레이더스올리브오일 큰 통 실었다가 계산대 줄에서 라벨 보고 돌아섰어",
    "keyword": "트레이더스올리브오일",
    "thumb": "data/blog/thumbs/review_20261119_D40_1.jpg",
-   "read": 0,
+   "read": 42,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -4570,7 +4570,10 @@
    "title": "일본수면보조제 사다 달라고 하려다, 관세청 직구 68.3% 기사 보고 카톡 지웠어",
    "keyword": "일본수면보조제",
    "thumb": "data/blog/thumbs/review_20261119c_S45_1.jpg",
-   "read": null,
+   "read": 9,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "일본수면보조제",
@@ -4604,7 +4607,10 @@
    "title": "다이소앰플 고를 때 성분표가 먼저야, 제형이 먼저야? 광대 얼룩 있는 내 기준",
    "keyword": "다이소앰플",
    "thumb": "data/blog/thumbs/review_20261119b_B42_1.jpg",
-   "read": null,
+   "read": 7,
+   "like": 2,
+   "comment": 1,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "다이소앰플",
@@ -4675,7 +4681,10 @@
    "title": "이마트올리브오일추천 글 보고 냉장고에 넣어본 병, 이틀 지나도 안 굳어서 더 헷갈렸어",
    "keyword": "이마트올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261119_D34_1.jpg",
-   "read": null,
+   "read": 12,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "이마트올리브오일추천",
@@ -4743,7 +4752,10 @@
    "title": "수면유도제가격 검색하다 멈춘 이유, 일흔둘 아빠 약 상자 뒷면에 없던 한 줄",
    "keyword": "수면유도제가격",
    "thumb": "data/blog/thumbs/review_20261119c_S46_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "수면유도제가격",
@@ -4777,7 +4789,10 @@
    "title": "30대크리스마스선물, 향초 말고 매일 쓰는 걸로 골랐어",
    "keyword": "30대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261120b_B43_1.jpg",
-   "read": null,
+   "read": 8,
+   "like": 0,
+   "comment": 1,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "30대크리스마스선물",
@@ -4811,7 +4826,10 @@
    "title": "입면에만 40분 걸리던 내가 수면양말 신고 잔 2주, ‘머리만 대면’ 자는 남편이 더 걱정됐어",
    "keyword": "입면",
    "thumb": "data/blog/thumbs/review_20261119c_S43_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "입면",
@@ -4882,7 +4900,10 @@
    "title": "“지나친 절식은 폭식으로” 신지 다이어트 보고 밤 9시에 부엌 불부터 껐어",
    "keyword": "신지 다이어트",
    "thumb": "data/blog/thumbs/review_20261120_D35_1.jpg",
-   "read": null,
+   "read": 4,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "신지 다이어트",
@@ -4916,7 +4937,10 @@
    "title": "주지훈 안색 논란 보다가 남편이 나한테도 ‘얼굴 왜 이렇게 어두워’ 했던 날",
    "keyword": "안색",
    "thumb": "data/blog/thumbs/review_20261120b_B44_1.jpg",
-   "read": null,
+   "read": 60,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "안색",
@@ -4987,7 +5011,10 @@
    "title": "올리브오일캡슐효능 찾다가 ‘이것’ 한 줄 보고 아침 숟가락부터 내려놨어",
    "keyword": "올리브오일캡슐효능",
    "thumb": "data/blog/thumbs/review_20261120_D36_1.jpg",
-   "read": null,
+   "read": 6,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "올리브오일 캡슐",
@@ -5021,7 +5048,10 @@
    "title": "갱년기불면증인 줄만 알았던 엄마, 메모리폼 토퍼 걷고 면 요 한 장 깐 21일",
    "keyword": "갱년기불면증",
    "thumb": "data/blog/thumbs/review_20261119b_S32_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "갱년기불면증",
@@ -5055,7 +5085,10 @@
    "title": "피부착색연고 사러 약국 갔다가, 약사님이 먼저 물어본 건 ‘언제 생긴 자국이에요?’",
    "keyword": "피부착색연고",
    "thumb": "data/blog/thumbs/review_20261120b_B45_1.jpg",
-   "read": null,
+   "read": 4,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "피부착색연고",
@@ -5126,7 +5159,10 @@
    "title": "코스트코올리브오일추천 보다가 멈칫, 큰 병 석 달 안에 다 쓸 수 있어?",
    "keyword": "코스트코올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261120_D37_1.jpg",
-   "read": null,
+   "read": 18,
+   "like": 1,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "코스트코올리브오일추천",
@@ -5160,7 +5196,10 @@
    "title": "다이소수면안대 2천 원짜리 셋 돌려 써보니, 눈 말고 가릴 게 따로 있었어",
    "keyword": "다이소수면안대",
    "thumb": "data/blog/thumbs/review_20261119b_S41_1.jpg",
-   "read": null,
+   "read": 29,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "다이소수면안대",
@@ -5194,7 +5233,10 @@
    "title": "나이아신아마이드세럼 20% 샀다가 일주일 만에 따가워서 5%로 내려온 얘기",
    "keyword": "나이아신아마이드세럼",
    "thumb": "data/blog/thumbs/review_20261120b_B46_1.jpg",
-   "read": null,
+   "read": 5,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "나이아신아마이드세럼",
@@ -5265,7 +5307,10 @@
    "title": "아침공복올리브오일 한 숟갈 들고 3분 서 있다가, 미지근한 물부터 마셨어",
    "keyword": "아침공복올리브오일",
    "thumb": "data/blog/thumbs/review_20261120_D38_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "아침공복올리브오일",
@@ -5299,7 +5344,10 @@
    "title": "잠 설친 날 빈속 커피 두 잔, 매일 숙면 7%뿐이라는 기사 보고 순서만 바꾼 2주",
    "keyword": "잠 설친 날",
    "thumb": "data/blog/thumbs/review_20261120_S34_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "잠 설친 날",
@@ -5333,7 +5381,10 @@
    "title": "겨울피부건조 때문에 보습크림 비싼 거 사려다, 소비자원 8종 비교 보고 장바구니 비웠어",
    "keyword": "겨울피부건조",
    "thumb": "data/blog/thumbs/review_20261120b_B47_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "겨울피부건조",
@@ -5367,7 +5418,10 @@
    "title": "수면캡슐 검색했더니 캡슐 침대만 나왔어, 잠은 뇌만의 문제가 아니래",
    "keyword": "수면캡슐",
    "thumb": "data/blog/thumbs/review_20261121_S47_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "장뇌상관",
@@ -5438,7 +5492,10 @@
    "title": "다이소다이어트 소품 다섯 개 사서 3주 써보니 남은 건 두 개였어",
    "keyword": "다이소다이어트",
    "thumb": "data/blog/thumbs/review_20261120_D41_1.jpg",
-   "read": null,
+   "read": 9,
+   "like": 1,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "다이소다이어트",
@@ -5472,7 +5529,10 @@
    "title": "50대크리스마스선물 고르다가 엄마가 '사진 찍기 싫다'고 해서 바꾼 것",
    "keyword": "50대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261121b_B52_1.jpg",
-   "read": null,
+   "read": 6,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "50대크리스마스선물",
@@ -5543,7 +5603,10 @@
    "title": "다이소올리브오일 소포장 들고 출근했다가 키보드에 기름 묻힌 날",
    "keyword": "다이소올리브오일",
    "thumb": "data/blog/thumbs/review_20261120_D42_1.jpg",
-   "read": null,
+   "read": 4,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "다이소올리브오일",
@@ -5577,7 +5640,10 @@
    "title": "잠안올때자는법 5개 닷새 밤 하나씩 해보고, 엿새째엔 양말까지 신었어",
    "keyword": "잠안올때자는법",
    "thumb": "data/blog/thumbs/review_20261120_S35_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "잠 안 올 때",
@@ -5611,7 +5677,10 @@
    "title": "여자친구크리스마스선물 검색하던 남자친구한테 내가 콕 집어 말한 것",
    "keyword": "여자친구크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261121b_B53_1.jpg",
-   "read": null,
+   "read": 7,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "여자친구크리스마스선물",
@@ -5682,7 +5751,10 @@
    "title": "올리브유캡슐 30알, 요일 약통에 덜었다 쏟고 정한 기준 3개",
    "keyword": "올리브유캡슐",
    "thumb": "data/blog/thumbs/review_20261119_D32_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "올리브오일 캡슐",
@@ -5716,7 +5788,10 @@
    "title": "꿀잠 자려고 90분 계산기 두드린 2주, 8시간 그래프 지우고 나서야 잤어",
    "keyword": "꿀잠",
    "thumb": "data/blog/thumbs/review_20261120_S36_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "꿀잠",
@@ -5750,7 +5825,10 @@
    "title": "손등검버섯인 줄 알았던 갈색 점, 피부과부터 가고 집에서 바꾼 손등 루틴",
    "keyword": "손등검버섯",
    "thumb": "data/blog/thumbs/review_20261121b_B54_1.jpg",
-   "read": null,
+   "read": 4,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "손등검버섯",
@@ -5821,7 +5899,10 @@
    "title": "올리브유레몬즙효능, 결론은 빈속 원샷 말고 저녁 샐러드 접시였어",
    "keyword": "올리브유레몬즙효능",
    "thumb": "data/blog/thumbs/review_20261119_D33_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 1,
+   "comment": 1,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "올리브유레몬즙효능",
@@ -5855,7 +5936,10 @@
    "title": "여자수면영양제, 손발은 차갑고 얼굴은 화끈하던 언니가 밤에 '이것'부터 바꾼 2주",
    "keyword": "여자수면영양제",
    "thumb": "data/blog/thumbs/review_20261120_S37_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "여자수면영양제",
@@ -5889,7 +5973,10 @@
    "title": "팔꿈치착색크림 찾기 전에 때수건부터 내려놓은 이유, 한 달 바른 후기",
    "keyword": "팔꿈치착색크림",
    "thumb": "data/blog/thumbs/review_20261121b_B55_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "팔꿈치착색크림",
@@ -5923,7 +6010,10 @@
    "title": "겨울잠 자고 싶은 아침, 곰 기사 보고 일어나는 시간부터 바꿨어",
    "keyword": "겨울잠",
    "thumb": "data/blog/thumbs/review_20261122_S48_1.jpg",
-   "read": null,
+   "read": 4,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "겨울잠",
@@ -5994,7 +6084,10 @@
    "title": "이세영다이어트 8kg 얘기 듣고 밥부터 뺐다가 사흘 만에 무너졌어",
    "keyword": "이세영다이어트",
    "thumb": "data/blog/thumbs/review_20261122d_D43_1.jpg",
-   "read": null,
+   "read": 4,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "이세영다이어트",
@@ -6028,7 +6121,10 @@
    "title": "목주름크림 찾다가 배윤정 목 거상 기사 보고 먼저 바꾼 세 가지",
    "keyword": "목주름크림",
    "thumb": "data/blog/thumbs/review_20261122b_B60_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "목주름크림",
@@ -6099,7 +6195,10 @@
    "title": "이탈리아올리브오일추천 해달래서 찬장 병부터 봤더니 반이 남아 있었어",
    "keyword": "이탈리아올리브오일추천",
    "thumb": "data/blog/thumbs/review_20261122d_D44_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "이탈리아올리브오일추천",
@@ -6133,7 +6232,10 @@
    "title": "수면유지영양제 찾다가 알게 된 것, 새벽 3시에 깨는 사람 나만이 아니었어",
    "keyword": "수면유지영양제",
    "thumb": "data/blog/thumbs/review_20261122_S49_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "수면유지영양제",
@@ -6167,7 +6269,10 @@
    "title": "무릎착색 찜질방에서 들킨 뒤 바꾼 습관, 때수건부터 치웠어",
    "keyword": "무릎착색",
    "thumb": "data/blog/thumbs/review_20261122b_B61_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "무릎착색",
@@ -6238,7 +6343,10 @@
    "title": "1000mg올리브오일캡슐로 바꾼 이유, 작은 알 두 통 먹고 알았어",
    "keyword": "1000mg올리브오일캡슐",
    "thumb": "data/blog/thumbs/review_20261122d_D45_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "1000mg올리브오일캡슐",
@@ -6272,7 +6380,10 @@
    "title": "부모님크리스마스선물 고민하다 엄마 통화에서 답을 찾았어",
    "keyword": "부모님크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261122_S50_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 1,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "대추차",
@@ -6306,7 +6417,10 @@
    "title": "직장동료크리스마스선물 일곱 명 전부 챙긴 후기, 계약직 빼빼로 기사 보고 정한 기준",
    "keyword": "직장동료크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261122b_B62_1.jpg",
-   "read": null,
+   "read": 23,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "직장동료크리스마스선물",
@@ -6340,10 +6454,10 @@
    "title": "약국화장품이면 다 좋은 줄 알았는데, 약사님이 먼저 보라고 한 건",
    "keyword": "약국화장품",
    "thumb": "data/blog/thumbs/review_20261122_B59_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 3,
+   "read_delta": 4,
    "ranks": [
     {
      "kw": "약국화장품",
@@ -6377,7 +6491,10 @@
    "title": "올리브오일선물세트 작년에 드린 두 병, 엄마네 찬장에 그대로 있었어",
    "keyword": "올리브오일선물세트",
    "thumb": "data/blog/thumbs/review_20261122d_D46_1.jpg",
-   "read": null,
+   "read": 3,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "올리브오일선물세트",
@@ -6411,7 +6528,10 @@
    "title": "약국수면유도제 사러 갔다가 상담만 받고 나온 날, 내 잠은 조기 각성이었어",
    "keyword": "약국수면유도제",
    "thumb": "data/blog/thumbs/review_20261122_S51_1.jpg",
-   "read": null,
+   "read": 6,
+   "like": 1,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "약국수면유도제",
@@ -6445,7 +6565,10 @@
    "title": "눈가주름크림 고르다 이효리 기사 보고 고친 습관, 한 달 뒤 웃는 사진",
    "keyword": "눈가주름크림",
    "thumb": "data/blog/thumbs/review_20261122b_B63_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "눈가주름크림",
@@ -6479,7 +6602,10 @@
    "title": "수면부족을 주말에 몰아 자서 갚으려다, 기상 시간부터 고정했어",
    "keyword": "수면부족",
    "thumb": "data/blog/thumbs/review_20261123_S52_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "수면부족",
@@ -6550,7 +6676,10 @@
    "title": "강재준다이어트 9km 따라 뛰다가 일주일 만에 멈춘 이유",
    "keyword": "강재준다이어트",
    "thumb": "data/blog/thumbs/review_20261123d_D47_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "강재준다이어트",
@@ -6584,7 +6713,10 @@
    "title": "겨드랑이착색 필라테스에서 팔 못 올린 날, 니트랑 면도부터 바꿨어",
    "keyword": "겨드랑이착색",
    "thumb": "data/blog/thumbs/review_20261123b_B68_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "겨드랑이착색",
@@ -6655,7 +6787,10 @@
    "title": "이마트블랙프라이데이 전에 작년 장바구니부터 꺼내봤어",
    "keyword": "이마트블랙프라이데이",
    "thumb": "data/blog/thumbs/review_20261123d_D48_1.jpg",
-   "read": null,
+   "read": 7,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "이마트블랙프라이데이",
@@ -6689,7 +6824,10 @@
    "title": "잠안올때 폰은 거실에 두고 왔어, 침실 온도까지 적어보니",
    "keyword": "잠안올때",
    "thumb": "data/blog/thumbs/review_20261123_S53_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "잠안올때",
@@ -6723,7 +6861,10 @@
    "title": "엄마선물 고민하다 동생 수능 끝난 날 준 것, 현금·안마기 뺀 이유",
    "keyword": "엄마선물",
    "thumb": "data/blog/thumbs/review_20261123b_B69_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "엄마선물",
@@ -6794,7 +6935,10 @@
    "title": "쿠팡올리브오일 후기 순으로 샀다가 라벨 보는 법을 배웠어",
    "keyword": "쿠팡올리브오일",
    "thumb": "data/blog/thumbs/review_20261123d_D49_1.jpg",
-   "read": null,
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "쿠팡올리브오일",
@@ -6828,7 +6972,10 @@
    "title": "숙면영양제 장바구니 10개를 3개로 줄인 기준, 성분 하나만 믿지 않기",
    "keyword": "숙면영양제",
    "thumb": "data/blog/thumbs/review_20261123_S54_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "숙면영양제",
@@ -6862,7 +7009,10 @@
    "title": "겨울보습크림 바꾸기 전에 침실 습도부터 재 봤어, 일주일 기록",
    "keyword": "겨울보습크림",
    "thumb": "data/blog/thumbs/review_20261123b_B70_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "겨울보습크림",
@@ -6896,8 +7046,33 @@
    "title": "피부미백 성분표 40장 캡처하고 내린 결론, 퍼센트보다 매일 바를 수 있는지",
    "keyword": "피부미백",
    "thumb": "data/blog/thumbs/review_20261123_B67_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "피부미백",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "나이아신아마이드",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "광대 기미",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -6908,8 +7083,33 @@
    "title": "40대다이어트 저녁 굶기 사흘 만에 무너지고 바꾼 한 달",
    "keyword": "40대다이어트",
    "thumb": "data/blog/thumbs/review_20261123d_D50_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "40대다이어트",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "40대 다이어트",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "40대 저녁 식단",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -6920,8 +7120,33 @@
    "title": "잠잘자는법 수십 개 중에 기상 시간이랑 베개 두 개만 바꿨어",
    "keyword": "잠잘자는법",
    "thumb": "data/blog/thumbs/review_20261123_S55_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 2,
+   "like": 0,
+   "comment": 1,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "잠잘자는법",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "수면 자세",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "베개 높이",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -6932,8 +7157,33 @@
    "title": "입가주름 신경 쓰여서 빨대 텀블러부터 치웠어, 황정음 기사 보고 바꾼 습관",
    "keyword": "입가주름",
    "thumb": "data/blog/thumbs/review_20261123b_B71_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "입가주름",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "입가 주름",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "팔자주름",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -7168,7 +7418,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-23T16:50",
+  "updated_at": "2026-11-23T21:31",
   "prev_snap": "2026-11-22",
   "accounts": {
    "cnsou1088": {
@@ -7279,10 +7529,21 @@
      },
      {
       "date": "2026-11-23",
-      "cv": 15
+      "cv": 18
      }
     ],
     "posts": [
+     {
+      "log": "224483456794",
+      "blog_id": "cnsou1088",
+      "title": "피부미백 성분표 40장 캡처하고 내린 결론, 퍼센트보다 매일 바를 수 있는지",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T18:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483456794"
+     },
      {
       "log": "224483453605",
       "blog_id": "cnsou1088",
@@ -7320,11 +7581,11 @@
       "log": "224483338765",
       "blog_id": "cnsou1088",
       "title": "약국화장품이면 다 좋은 줄 알았는데, 약사님이 먼저 보라고 한 건",
-      "read": 5,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T18:00",
-      "delta": 3,
+      "delta": 4,
       "url": "https://blog.naver.com/cnsou1088/224483338765"
      },
      {
@@ -7738,11 +7999,11 @@
       "log": "224470312896",
       "blog_id": "cnsou1088",
       "title": "기미패치 붙이고 자던 내가 크림으로 바꾼 이유, 아침마다 실망했던 얘기",
-      "read": 3,
+      "read": 4,
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T12:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224470312896"
      },
      {
@@ -7870,11 +8131,11 @@
       "log": "224465598002",
       "blog_id": "cnsou1088",
       "title": "김다영 임신 중 주근깨 민낯 공개, 짙어진 주근깨 앞에서 제가 먼저 챙기는 것",
-      "read": 16,
+      "read": 17,
       "like": 1,
       "comment": 0,
       "added": "2026-11-05T10:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224465598002"
      },
      {
@@ -7931,17 +8192,6 @@
       "added": "2026-01-14T11:40",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224145301415"
-     },
-     {
-      "log": "224145308157",
-      "blog_id": "cnsou1088",
-      "title": "괘법동피부과 잡티 제거 실패 후 성공한 경로",
-      "read": 3,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-14T09:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224145308157"
      }
     ]
    },
@@ -8648,15 +8898,218 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 42
+      "cv": 66
+     },
+     {
+      "date": "2026-11-20",
+      "cv": 66
+     },
+     {
+      "date": "2026-11-21",
+      "cv": 58
+     },
+     {
+      "date": "2026-11-22",
+      "cv": 67
+     },
+     {
+      "date": "2026-11-23",
+      "cv": 49
      }
     ],
     "posts": [
      {
+      "log": "224483403166",
+      "blog_id": "qxcoik9423",
+      "title": "40대다이어트 저녁 굶기 사흘 만에 무너지고 바꾼 한 달",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T18:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483403166"
+     },
+     {
+      "log": "224483400162",
+      "blog_id": "qxcoik9423",
+      "title": "쿠팡올리브오일 후기 순으로 샀다가 라벨 보는 법을 배웠어",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T16:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483400162"
+     },
+     {
+      "log": "224483393083",
+      "blog_id": "qxcoik9423",
+      "title": "이마트블랙프라이데이 전에 작년 장바구니부터 꺼내봤어",
+      "read": 7,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T12:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483393083"
+     },
+     {
+      "log": "224483389722",
+      "blog_id": "qxcoik9423",
+      "title": "강재준다이어트 9km 따라 뛰다가 일주일 만에 멈춘 이유",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T09:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483389722"
+     },
+     {
+      "log": "224483302153",
+      "blog_id": "qxcoik9423",
+      "title": "올리브오일선물세트 작년에 드린 두 병, 엄마네 찬장에 그대로 있었어",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T18:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483302153"
+     },
+     {
+      "log": "224483297701",
+      "blog_id": "qxcoik9423",
+      "title": "1000mg올리브오일캡슐로 바꾼 이유, 작은 알 두 통 먹고 알았어",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T16:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483297701"
+     },
+     {
+      "log": "224483293793",
+      "blog_id": "qxcoik9423",
+      "title": "이탈리아올리브오일추천 해달래서 찬장 병부터 봤더니 반이 남아 있었어",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T12:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483293793"
+     },
+     {
+      "log": "224483291203",
+      "blog_id": "qxcoik9423",
+      "title": "이세영다이어트 8kg 얘기 듣고 밥부터 뺐다가 사흘 만에 무너졌어",
+      "read": 4,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T09:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483291203"
+     },
+     {
+      "log": "224483180811",
+      "blog_id": "qxcoik9423",
+      "title": "올리브유레몬즙효능, 결론은 빈속 원샷 말고 저녁 샐러드 접시였어",
+      "read": 3,
+      "like": 1,
+      "comment": 1,
+      "added": "2026-11-21T18:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483180811"
+     },
+     {
+      "log": "224483177334",
+      "blog_id": "qxcoik9423",
+      "title": "올리브유캡슐 30알, 요일 약통에 덜었다 쏟고 정한 기준 3개",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T16:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483177334"
+     },
+     {
+      "log": "224483171056",
+      "blog_id": "qxcoik9423",
+      "title": "다이소올리브오일 소포장 들고 출근했다가 키보드에 기름 묻힌 날",
+      "read": 4,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T12:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483171056"
+     },
+     {
+      "log": "224483167202",
+      "blog_id": "qxcoik9423",
+      "title": "다이소다이어트 소품 다섯 개 사서 3주 써보니 남은 건 두 개였어",
+      "read": 9,
+      "like": 1,
+      "comment": 0,
+      "added": "2026-11-21T09:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483167202"
+     },
+     {
+      "log": "224483116883",
+      "blog_id": "qxcoik9423",
+      "title": "아침공복올리브오일 한 숟갈 들고 3분 서 있다가, 미지근한 물부터 마셨어",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T18:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483116883"
+     },
+     {
+      "log": "224483112422",
+      "blog_id": "qxcoik9423",
+      "title": "코스트코올리브오일추천 보다가 멈칫, 큰 병 석 달 안에 다 쓸 수 있어?",
+      "read": 18,
+      "like": 1,
+      "comment": 0,
+      "added": "2026-11-20T16:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483112422"
+     },
+     {
+      "log": "224483108327",
+      "blog_id": "qxcoik9423",
+      "title": "올리브오일캡슐효능 찾다가 ‘이것’ 한 줄 보고 아침 숟가락부터 내려놨어",
+      "read": 6,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T12:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483108327"
+     },
+     {
+      "log": "224483104046",
+      "blog_id": "qxcoik9423",
+      "title": "“지나친 절식은 폭식으로” 신지 다이어트 보고 밤 9시에 부엌 불부터 껐어",
+      "read": 4,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T09:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224483104046"
+     },
+     {
+      "log": "224482059051",
+      "blog_id": "qxcoik9423",
+      "title": "이마트올리브오일추천 글 보고 냉장고에 넣어본 병, 이틀 지나도 안 굳어서 더 헷갈렸어",
+      "read": 12,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T18:10",
+      "delta": null,
+      "url": "https://blog.naver.com/qxcoik9423/224482059051"
+     },
+     {
       "log": "224482048365",
       "blog_id": "qxcoik9423",
       "title": "트레이더스올리브오일 큰 통 실었다가 계산대 줄에서 라벨 보고 돌아섰어",
-      "read": 0,
+      "read": 42,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T16:10",
@@ -8667,7 +9120,7 @@
       "log": "224482040719",
       "blog_id": "qxcoik9423",
       "title": "쿠팡블랙프라이데이 장바구니에 올리브오일 담았다가 결제 직전에 뺀 이유",
-      "read": 0,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:10",
@@ -8678,7 +9131,7 @@
       "log": "224482032710",
       "blog_id": "qxcoik9423",
       "title": "박영선 다이어트, 밥은 반 공기에 오리는 한 번 삶아 버린다는 58세 식탁",
-      "read": 0,
+      "read": 3,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:10",
@@ -8689,7 +9142,7 @@
       "log": "224479864300",
       "blog_id": "qxcoik9423",
       "title": "올리브유먹는법 공복 한 숟갈 끊고 버터 자리에 넣었어, 두 달 후기",
-      "read": 4,
+      "read": 23,
       "like": 0,
       "comment": 0,
       "added": "2026-11-18T18:10",
@@ -8700,7 +9153,7 @@
       "log": "224479898568",
       "blog_id": "qxcoik9423",
       "title": "\"낮은 산도라더니\" 올리브유산도, 숫자만 보고 샀던 내가 바꾼 것",
-      "read": 0,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-18T12:10",
@@ -8711,7 +9164,7 @@
       "log": "224479897413",
       "blog_id": "qxcoik9423",
       "title": "윤은혜 관리 비결 따라 해본 아침, 사흘째에 남은 건 물 한 잔",
-      "read": 7,
+      "read": 8,
       "like": 0,
       "comment": 0,
       "added": "2026-11-18T09:10",
@@ -8722,7 +9175,7 @@
       "log": "224479846250",
       "blog_id": "qxcoik9423",
       "title": "스페인올리브오일추천 글 대신, 스페인 뉴스 보고 바꾼 내 기준 5줄",
-      "read": 4,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T18:10",
@@ -8733,7 +9186,7 @@
       "log": "224479884848",
       "blog_id": "qxcoik9423",
       "title": "올리브유고르는법, 색깔 말고 내가 보는 4가지",
-      "read": 7,
+      "read": 12,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T16:10",
@@ -8744,7 +9197,7 @@
       "log": "224479883658",
       "blog_id": "qxcoik9423",
       "title": "올리브오일효능, 원샷보다 '어떻게 먹느냐'가 먼저였어",
-      "read": 11,
+      "read": 16,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T12:10",
@@ -8755,7 +9208,7 @@
       "log": "224479880969",
       "blog_id": "qxcoik9423",
       "title": "11kg 뺀 신봉선 다이어트, 요즘 밥상에 올린다는 '이것'",
-      "read": 21,
+      "read": 31,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T09:10",
@@ -8766,7 +9219,7 @@
       "log": "224478698571",
       "blog_id": "qxcoik9423",
       "title": "베란다에서 하얗게 굳은 병 보고 올리브오일캡슐로 바꾼 날",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T18:10",
@@ -8777,7 +9230,7 @@
       "log": "224478681250",
       "blog_id": "qxcoik9423",
       "title": "올리브유효능 챙기려면 김치전은 다른 기름으로 부쳐야 했어",
-      "read": 5,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T16:10",
@@ -8788,7 +9241,7 @@
       "log": "224478678927",
       "blog_id": "qxcoik9423",
       "title": "올리브오일다이어트, 기름부터 끊었던 식단에 다시 넣어도 될까?",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-16T14:10",
@@ -8799,7 +9252,7 @@
       "log": "224478706825",
       "blog_id": "qxcoik9423",
       "title": "83kg에서 52kg 김빈우 다이어트, \"9년째\" 매일 아침 한다는 이것",
-      "read": 64,
+      "read": 79,
       "like": 2,
       "comment": 1,
       "added": "2026-11-16T12:10",
@@ -8821,7 +9274,7 @@
       "log": "224475783967",
       "blog_id": "qxcoik9423",
       "title": "올리브오일추천, 9천 원이랑 4만 원이 둘 다 엑스트라버진이면 뭘 사?",
-      "read": 50,
+      "read": 65,
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T18:10",
@@ -8832,7 +9285,7 @@
       "log": "224475799568",
       "blog_id": "qxcoik9423",
       "title": "“4자 한번 다시 그려보려고 한다” 고소영 다이어트 보고 달력부터 고쳤어",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-13T17:10",
@@ -8843,7 +9296,7 @@
       "log": "224473309382",
       "blog_id": "qxcoik9423",
       "title": "엑스트라버진올리브유, 진짜인지 병만 보고 알 수 있어?",
-      "read": 16,
+      "read": 18,
       "like": 0,
       "comment": 1,
       "added": "2026-11-12T16:10",
@@ -8865,7 +9318,7 @@
       "log": "224473302835",
       "blog_id": "qxcoik9423",
       "title": "“세끼 다 먹어” 정려원 식단 보고 편의점 과자 내려놨어",
-      "read": 9,
+      "read": 11,
       "like": 1,
       "comment": 0,
       "added": "2026-11-12T09:10",
@@ -8876,7 +9329,7 @@
       "log": "224472991036",
       "blog_id": "qxcoik9423",
       "title": "올리브오일먹는법, 아침 공복에 한 숟갈이 진짜 맞아?",
-      "read": 14,
+      "read": 20,
       "like": 0,
       "comment": 0,
       "added": "2026-11-11T20:10",
@@ -8909,7 +9362,7 @@
       "log": "224470327866",
       "blog_id": "qxcoik9423",
       "title": "올리브유 산도 숫자 보고 고른 이유, 요요 세 번 겪고 알게 된 것",
-      "read": 9,
+      "read": 10,
       "like": 1,
       "comment": 0,
       "added": "2026-11-10T16:10",
@@ -8942,7 +9395,7 @@
       "log": "224470064937",
       "blog_id": "qxcoik9423",
       "title": "올리브유고르는법 7가지, 퓨어 등급 샀다가 실패하고 정리한 기준",
-      "read": 48,
+      "read": 55,
       "like": 0,
       "comment": 0,
       "added": "2026-11-09T16:10",
@@ -8975,7 +9428,7 @@
       "log": "224467039058",
       "blog_id": "qxcoik9423",
       "title": "이수현 찹쌀떡에 '10km 뛰어야', 30kg 감량 루틴과 올리브오일효능 얘기",
-      "read": 13,
+      "read": 14,
       "like": 1,
       "comment": 1,
       "added": "2026-11-07T16:10",
@@ -8986,7 +9439,7 @@
       "log": "224467044693",
       "blog_id": "qxcoik9423",
       "title": "이영현 33kg 감량, '간식 끊고 5kg 아령'부터 올리브오일추천 기준까지",
-      "read": 9,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-07T09:10",
@@ -9030,7 +9483,7 @@
       "log": "224465591998",
       "blog_id": "qxcoik9423",
       "title": "백지영·홍진경·신애라 아침 식단, 올리브유효능보다 눈에 띈 건 '먹는 법'",
-      "read": 26,
+      "read": 29,
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T16:10",
@@ -9041,7 +9494,7 @@
       "log": "224465589678",
       "blog_id": "qxcoik9423",
       "title": "고경표 15kg 감량, 올리브오일다이어트보다 먼저 '잠들기 4시간 전 공복'",
-      "read": 15,
+      "read": 16,
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T12:10",
@@ -9052,7 +9505,7 @@
       "log": "224465595009",
       "blog_id": "qxcoik9423",
       "title": "손담비 '쉽게 단정 짓지 않았으면', 21kg 뺀 다이어트식단 습관 3가지",
-      "read": 28,
+      "read": 29,
       "like": 0,
       "comment": 0,
       "added": "2026-11-05T10:10",
@@ -9063,7 +9516,7 @@
       "log": "224463845638",
       "blog_id": "qxcoik9423",
       "title": "최화정이 공복에만 먹는다는 올리브오일, 그릭요거트에 뿌려 먹는 법",
-      "read": 50,
+      "read": 54,
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T20:00",
@@ -9085,7 +9538,7 @@
       "log": "224464759662",
       "blog_id": "qxcoik9423",
       "title": "샘 해밍턴·곽범·카더가든·이창호, 연예인들이 말한 마운자로 이야기 정리",
-      "read": 39,
+      "read": 42,
       "like": 0,
       "comment": 0,
       "added": "2026-11-04T15:17",
@@ -9124,193 +9577,6 @@
       "added": "2026-02-03T18:44",
       "delta": null,
       "url": "https://blog.naver.com/qxcoik9423/224170417093"
-     },
-     {
-      "log": "224145294097",
-      "blog_id": "qxcoik9423",
-      "title": "여수서피부과 점빼기 후 재생 과정 사진 공유",
-      "read": 26,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-14T20:30",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224145294097"
-     },
-     {
-      "log": "224145281070",
-      "blog_id": "qxcoik9423",
-      "title": "응암동피부과 색소 레이저 통증 실제 경험담",
-      "read": 1,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-14T15:30",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224145281070"
-     },
-     {
-      "log": "224145287328",
-      "blog_id": "qxcoik9423",
-      "title": "분평동피부과 흑자 빼기 전 필수 확인사항",
-      "read": 1,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-14T09:40",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224145287328"
-     },
-     {
-      "log": "224131896343",
-      "blog_id": "qxcoik9423",
-      "title": "분평동피부과 48세 기미 치료 신중하게 접근하는 병원 찾아요",
-      "read": 2,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-03T15:20",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224131896343"
-     },
-     {
-      "log": "224131889735",
-      "blog_id": "qxcoik9423",
-      "title": "연수동피부과 색소침착 생활습관 개선으로 변화 느낀 후기",
-      "read": 7,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-03T12:20",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224131889735"
-     },
-     {
-      "log": "224131903700",
-      "blog_id": "qxcoik9423",
-      "title": "고덕동피부과 48세 색소 고민 조심스럽게 치료하는 곳 필요해요",
-      "read": 9,
-      "like": 0,
-      "comment": 0,
-      "added": "2026-01-03T09:00",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224131903700"
-     },
-     {
-      "log": "224119050009",
-      "blog_id": "qxcoik9423",
-      "title": "구미 산동 피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 7,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-23T18:40",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224119050009"
-     },
-     {
-      "log": "224119043086",
-      "blog_id": "qxcoik9423",
-      "title": "배곧동피부과 얼굴 전체 기미로 무너졌던 자존감, 이렇게 세웠어요",
-      "read": 47,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-23T11:20",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224119043086"
-     },
-     {
-      "log": "224119036086",
-      "blog_id": "qxcoik9423",
-      "title": "연수동피부과 기미 색소침착 완전 정복! 내가 실천한 방법",
-      "read": 2,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-23T09:50",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224119036086"
-     },
-     {
-      "log": "224115813785",
-      "blog_id": "qxcoik9423",
-      "title": "연수구 송도동 피부과 기미 잡티 때문에 쌩얼 못 보여줬던 내가 달라졌어요",
-      "read": 36,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-20T15:10",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224115813785"
-     },
-     {
-      "log": "224115819177",
-      "blog_id": "qxcoik9423",
-      "title": "울산 무거동 피부과 잡티 기미로 사람 만나기 두려웠던 나의 변신",
-      "read": 1,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-20T14:10",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224115819177"
-     },
-     {
-      "log": "224115808463",
-      "blog_id": "qxcoik9423",
-      "title": "금천동피부과 광대 콧등 기미가 옅어진 내돈내산 관리 루틴",
-      "read": 5,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-20T13:40",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224115808463"
-     },
-     {
-      "log": "224114554321",
-      "blog_id": "qxcoik9423",
-      "title": "장기동해날피부과 기미 때문에 헤어 넘기기 무서웠던 나의 자신감 회복",
-      "read": 297,
-      "like": 1,
-      "comment": 1,
-      "added": "2025-12-19T17:50",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224114554321"
-     },
-     {
-      "log": "224114548284",
-      "blog_id": "qxcoik9423",
-      "title": "덕천 피부과 기미 잡티로 거울 보기 싫었던 내가 달라진 이유",
-      "read": 21,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-19T11:50",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224114548284"
-     },
-     {
-      "log": "224114564691",
-      "blog_id": "qxcoik9423",
-      "title": "덕천역 피부과 기미 고민 10년 차, 드디어 찾은 피부 해답",
-      "read": 55,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-19T09:00",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224114564691"
-     },
-     {
-      "log": "224114558958",
-      "blog_id": "qxcoik9423",
-      "title": "폐경기 나잇살 나만 몰랐던 비밀?? feat.올유핏 올리브오일",
-      "read": 28,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-18T19:29",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224114558958"
-     },
-     {
-      "log": "224111948602",
-      "blog_id": "qxcoik9423",
-      "title": "하남시상일동피부과미엘 얼굴 전체 번진 기미, 3개월 만에 이렇게 달라졌어요",
-      "read": 82,
-      "like": 1,
-      "comment": 0,
-      "added": "2025-12-17T19:50",
-      "delta": null,
-      "url": "https://blog.naver.com/qxcoik9423/224111948602"
      }
     ]
    },
@@ -9378,15 +9644,229 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 12
+      "cv": 28
+     },
+     {
+      "date": "2026-11-20",
+      "cv": 72
+     },
+     {
+      "date": "2026-11-21",
+      "cv": 39
+     },
+     {
+      "date": "2026-11-22",
+      "cv": 41
+     },
+     {
+      "date": "2026-11-23",
+      "cv": 40
      }
     ],
     "posts": [
      {
+      "log": "224483383491",
+      "blog_id": "cakkee9",
+      "title": "입가주름 신경 쓰여서 빨대 텀블러부터 치웠어, 황정음 기사 보고 바꾼 습관",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T18:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483383491"
+     },
+     {
+      "log": "224483422457",
+      "blog_id": "cakkee9",
+      "title": "겨울보습크림 바꾸기 전에 침실 습도부터 재 봤어, 일주일 기록",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T16:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483422457"
+     },
+     {
+      "log": "224483415330",
+      "blog_id": "cakkee9",
+      "title": "엄마선물 고민하다 동생 수능 끝난 날 준 것, 현금·안마기 뺀 이유",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T12:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483415330"
+     },
+     {
+      "log": "224483409036",
+      "blog_id": "cakkee9",
+      "title": "겨드랑이착색 필라테스에서 팔 못 올린 날, 니트랑 면도부터 바꿨어",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T09:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483409036"
+     },
+     {
+      "log": "224483285807",
+      "blog_id": "cakkee9",
+      "title": "눈가주름크림 고르다 이효리 기사 보고 고친 습관, 한 달 뒤 웃는 사진",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T18:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483285807"
+     },
+     {
+      "log": "224483312858",
+      "blog_id": "cakkee9",
+      "title": "직장동료크리스마스선물 일곱 명 전부 챙긴 후기, 계약직 빼빼로 기사 보고 정한 기준",
+      "read": 23,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T16:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483312858"
+     },
+     {
+      "log": "224483280672",
+      "blog_id": "cakkee9",
+      "title": "무릎착색 찜질방에서 들킨 뒤 바꾼 습관, 때수건부터 치웠어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T12:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483280672"
+     },
+     {
+      "log": "224483307451",
+      "blog_id": "cakkee9",
+      "title": "목주름크림 찾다가 배윤정 목 거상 기사 보고 먼저 바꾼 세 가지",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T09:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483307451"
+     },
+     {
+      "log": "224483204373",
+      "blog_id": "cakkee9",
+      "title": "팔꿈치착색크림 찾기 전에 때수건부터 내려놓은 이유, 한 달 바른 후기",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T18:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483204373"
+     },
+     {
+      "log": "224483200834",
+      "blog_id": "cakkee9",
+      "title": "손등검버섯인 줄 알았던 갈색 점, 피부과부터 가고 집에서 바꾼 손등 루틴",
+      "read": 4,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T16:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483200834"
+     },
+     {
+      "log": "224483196950",
+      "blog_id": "cakkee9",
+      "title": "여자친구크리스마스선물 검색하던 남자친구한테 내가 콕 집어 말한 것",
+      "read": 7,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T12:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483196950"
+     },
+     {
+      "log": "224483194227",
+      "blog_id": "cakkee9",
+      "title": "50대크리스마스선물 고르다가 엄마가 '사진 찍기 싫다'고 해서 바꾼 것",
+      "read": 6,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T09:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483194227"
+     },
+     {
+      "log": "224483153446",
+      "blog_id": "cakkee9",
+      "title": "겨울피부건조 때문에 보습크림 비싼 거 사려다, 소비자원 8종 비교 보고 장바구니 비웠어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T18:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483153446"
+     },
+     {
+      "log": "224483150643",
+      "blog_id": "cakkee9",
+      "title": "나이아신아마이드세럼 20% 샀다가 일주일 만에 따가워서 5%로 내려온 얘기",
+      "read": 5,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T16:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483150643"
+     },
+     {
+      "log": "224483147353",
+      "blog_id": "cakkee9",
+      "title": "피부착색연고 사러 약국 갔다가, 약사님이 먼저 물어본 건 ‘언제 생긴 자국이에요?’",
+      "read": 4,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T12:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483147353"
+     },
+     {
+      "log": "224483144586",
+      "blog_id": "cakkee9",
+      "title": "주지훈 안색 논란 보다가 남편이 나한테도 ‘얼굴 왜 이렇게 어두워’ 했던 날",
+      "read": 60,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T09:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483144586"
+     },
+     {
+      "log": "224483138010",
+      "blog_id": "cakkee9",
+      "title": "30대크리스마스선물, 향초 말고 매일 쓰는 걸로 골랐어",
+      "read": 8,
+      "like": 0,
+      "comment": 1,
+      "added": "2026-11-19T18:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224483138010"
+     },
+     {
+      "log": "224482506653",
+      "blog_id": "cakkee9",
+      "title": "다이소앰플 고를 때 성분표가 먼저야, 제형이 먼저야? 광대 얼룩 있는 내 기준",
+      "read": 7,
+      "like": 2,
+      "comment": 1,
+      "added": "2026-11-19T16:30",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224482506653"
+     },
+     {
       "log": "224482503265",
       "blog_id": "cakkee9",
       "title": "다이소화장품추천 6가지, 한 달 써본 내 점수표랑 비어 있던 한 칸",
-      "read": 7,
+      "read": 52,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:30",
@@ -9397,8 +9877,8 @@
       "log": "224482500021",
       "blog_id": "cakkee9",
       "title": "나이아신아마이드크림 20% 사려다 멈추고 정한 기준 3가지",
-      "read": 5,
-      "like": 0,
+      "read": 13,
+      "like": 1,
       "comment": 0,
       "added": "2026-11-19T09:30",
       "delta": null,
@@ -9408,7 +9888,7 @@
       "log": "224482493665",
       "blog_id": "cakkee9",
       "title": "기미주근깨크림 챙기다가 비행기 창가에서 알게 된 '이것'",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-18T21:30",
@@ -9513,50 +9993,6 @@
       "added": "2025-12-20T10:50",
       "delta": null,
       "url": "https://blog.naver.com/cakkee9/224116300643"
-     },
-     {
-      "log": "224100262653",
-      "blog_id": "cakkee9",
-      "title": "두암동피부과 기미 칙칙한거 없애고 싶은데 ㅜㅜㅜ",
-      "read": 482,
-      "like": 5,
-      "comment": 0,
-      "added": "2025-12-06T14:01",
-      "delta": null,
-      "url": "https://blog.naver.com/cakkee9/224100262653"
-     },
-     {
-      "log": "224099567408",
-      "blog_id": "cakkee9",
-      "title": "광화문피부과전문의 얼굴 기미로 밝은 조명 피했던 나의 피부 혁명",
-      "read": 7,
-      "like": 4,
-      "comment": 0,
-      "added": "2025-12-06T09:20",
-      "delta": null,
-      "url": "https://blog.naver.com/cakkee9/224099567408"
-     },
-     {
-      "log": "224096252064",
-      "blog_id": "cakkee9",
-      "title": "방이동피부과 잡티 기미로 사람 만나기 두려웠던 나의 변신",
-      "read": 27,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-03T12:10",
-      "delta": null,
-      "url": "https://blog.naver.com/cakkee9/224096252064"
-     },
-     {
-      "log": "224066133561",
-      "blog_id": "cakkee9",
-      "title": "오늘 하루 화이트태닝 사용법과 후기",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-11-05T23:21",
-      "delta": null,
-      "url": "https://blog.naver.com/cakkee9/224066133561"
      }
     ]
    },
@@ -9624,15 +10060,229 @@
      },
      {
       "date": "2026-11-19",
-      "cv": 7
+      "cv": 12
+     },
+     {
+      "date": "2026-11-20",
+      "cv": 18
+     },
+     {
+      "date": "2026-11-21",
+      "cv": 16
+     },
+     {
+      "date": "2026-11-22",
+      "cv": 23
+     },
+     {
+      "date": "2026-11-23",
+      "cv": 26
      }
     ],
     "posts": [
      {
+      "log": "224483438012",
+      "blog_id": "oileeoil",
+      "title": "잠잘자는법 수십 개 중에 기상 시간이랑 베개 두 개만 바꿨어",
+      "read": 2,
+      "like": 0,
+      "comment": 1,
+      "added": "2026-11-23T18:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483438012"
+     },
+     {
+      "log": "224483434223",
+      "blog_id": "oileeoil",
+      "title": "숙면영양제 장바구니 10개를 3개로 줄인 기준, 성분 하나만 믿지 않기",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T16:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483434223"
+     },
+     {
+      "log": "224483431237",
+      "blog_id": "oileeoil",
+      "title": "잠안올때 폰은 거실에 두고 왔어, 침실 온도까지 적어보니",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T12:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483431237"
+     },
+     {
+      "log": "224483428018",
+      "blog_id": "oileeoil",
+      "title": "수면부족을 주말에 몰아 자서 갚으려다, 기상 시간부터 고정했어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-23T08:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483428018"
+     },
+     {
+      "log": "224483325281",
+      "blog_id": "oileeoil",
+      "title": "약국수면유도제 사러 갔다가 상담만 받고 나온 날, 내 잠은 조기 각성이었어",
+      "read": 6,
+      "like": 1,
+      "comment": 0,
+      "added": "2026-11-22T18:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483325281"
+     },
+     {
+      "log": "224483322998",
+      "blog_id": "oileeoil",
+      "title": "부모님크리스마스선물 고민하다 엄마 통화에서 답을 찾았어",
+      "read": 1,
+      "like": 0,
+      "comment": 1,
+      "added": "2026-11-22T16:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483322998"
+     },
+     {
+      "log": "224483319916",
+      "blog_id": "oileeoil",
+      "title": "수면유지영양제 찾다가 알게 된 것, 새벽 3시에 깨는 사람 나만이 아니었어",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T12:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483319916"
+     },
+     {
+      "log": "224483317588",
+      "blog_id": "oileeoil",
+      "title": "겨울잠 자고 싶은 아침, 곰 기사 보고 일어나는 시간부터 바꿨어",
+      "read": 4,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-22T08:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483317588"
+     },
+     {
+      "log": "224483223309",
+      "blog_id": "oileeoil",
+      "title": "여자수면영양제, 손발은 차갑고 얼굴은 화끈하던 언니가 밤에 '이것'부터 바꾼 2주",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T18:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483223309"
+     },
+     {
+      "log": "224483218252",
+      "blog_id": "oileeoil",
+      "title": "꿀잠 자려고 90분 계산기 두드린 2주, 8시간 그래프 지우고 나서야 잤어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T16:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483218252"
+     },
+     {
+      "log": "224483215260",
+      "blog_id": "oileeoil",
+      "title": "잠안올때자는법 5개 닷새 밤 하나씩 해보고, 엿새째엔 양말까지 신었어",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T12:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483215260"
+     },
+     {
+      "log": "224483209785",
+      "blog_id": "oileeoil",
+      "title": "수면캡슐 검색했더니 캡슐 침대만 나왔어, 잠은 뇌만의 문제가 아니래",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-21T08:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483209785"
+     },
+     {
+      "log": "224483097857",
+      "blog_id": "oileeoil",
+      "title": "잠 설친 날 빈속 커피 두 잔, 매일 숙면 7%뿐이라는 기사 보고 순서만 바꾼 2주",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T18:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483097857"
+     },
+     {
+      "log": "224483091875",
+      "blog_id": "oileeoil",
+      "title": "다이소수면안대 2천 원짜리 셋 돌려 써보니, 눈 말고 가릴 게 따로 있었어",
+      "read": 29,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T16:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483091875"
+     },
+     {
+      "log": "224483087415",
+      "blog_id": "oileeoil",
+      "title": "갱년기불면증인 줄만 알았던 엄마, 메모리폼 토퍼 걷고 면 요 한 장 깐 21일",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T12:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483087415"
+     },
+     {
+      "log": "224483069973",
+      "blog_id": "oileeoil",
+      "title": "입면에만 40분 걸리던 내가 수면양말 신고 잔 2주, ‘머리만 대면’ 자는 남편이 더 걱정됐어",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-20T08:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483069973"
+     },
+     {
+      "log": "224483060326",
+      "blog_id": "oileeoil",
+      "title": "수면유도제가격 검색하다 멈춘 이유, 일흔둘 아빠 약 상자 뒷면에 없던 한 줄",
+      "read": 3,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T18:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483060326"
+     },
+     {
+      "log": "224483057741",
+      "blog_id": "oileeoil",
+      "title": "일본수면보조제 사다 달라고 하려다, 관세청 직구 68.3% 기사 보고 카톡 지웠어",
+      "read": 9,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-19T16:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224483057741"
+     },
+     {
       "log": "224483082223",
       "blog_id": "oileeoil",
       "title": "다이소영양제는 체험판으로 딱이었어, 열흘씩 세 통 먹고 알게 된 내 밤 순서",
-      "read": 2,
+      "read": 8,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T14:20",
@@ -10895,7 +11545,7 @@
     "224483338765": 2
    },
    "2026-11-23": {
-    "224483338765": 5,
+    "224483338765": 6,
     "224483336158": 6,
     "224483333870": 8,
     "224483330879": 1,
@@ -10933,7 +11583,7 @@
     "224472975793": 0,
     "224472995222": 4,
     "224470317017": 3,
-    "224470312896": 3,
+    "224470312896": 4,
     "224470308026": 3,
     "224470058094": 30,
     "224470053274": 1,
@@ -10945,7 +11595,7 @@
     "224465786496": 1,
     "224465593010": 0,
     "224465590326": 15,
-    "224465598002": 16,
+    "224465598002": 17,
     "224464340859": 5,
     "224464451749": 7,
     "224463922448": 18,
@@ -10957,7 +11607,125 @@
     "224131923868": 0,
     "224483450007": 0,
     "224483445619": 0,
-    "224483453605": 0
+    "224483453605": 0,
+    "224483456794": 0,
+    "224483383491": 0,
+    "224483422457": 0,
+    "224483415330": 1,
+    "224483409036": 2,
+    "224483285807": 2,
+    "224483312858": 23,
+    "224483280672": 0,
+    "224483307451": 2,
+    "224483204373": 2,
+    "224483200834": 4,
+    "224483196950": 7,
+    "224483194227": 6,
+    "224483153446": 0,
+    "224483150643": 5,
+    "224483147353": 4,
+    "224483144586": 60,
+    "224483138010": 8,
+    "224482506653": 7,
+    "224482503265": 52,
+    "224482500021": 13,
+    "224482493665": 1,
+    "224131980784": 9,
+    "224131975246": 0,
+    "224131968835": 12,
+    "224119140086": 0,
+    "224119147052": 64,
+    "224119153340": 7,
+    "224116310046": 4,
+    "224116305142": 4,
+    "224116300643": 8,
+    "224483438012": 2,
+    "224483434223": 0,
+    "224483431237": 0,
+    "224483428018": 0,
+    "224483325281": 6,
+    "224483322998": 1,
+    "224483319916": 3,
+    "224483317588": 4,
+    "224483223309": 1,
+    "224483218252": 0,
+    "224483215260": 3,
+    "224483209785": 1,
+    "224483097857": 2,
+    "224483091875": 29,
+    "224483087415": 0,
+    "224483069973": 2,
+    "224483060326": 3,
+    "224483057741": 9,
+    "224483082223": 8,
+    "224483055391": 0,
+    "224114689210": 8,
+    "224114695316": 54,
+    "224114701369": 8,
+    "224096232173": 3,
+    "224096235350": 14,
+    "224096228316": 12,
+    "224066115551": 0,
+    "224483403166": 1,
+    "224483400162": 2,
+    "224483393083": 7,
+    "224483389722": 2,
+    "224483302153": 3,
+    "224483297701": 3,
+    "224483293793": 2,
+    "224483291203": 4,
+    "224483180811": 3,
+    "224483177334": 0,
+    "224483171056": 4,
+    "224483167202": 9,
+    "224483116883": 1,
+    "224483112422": 18,
+    "224483108327": 6,
+    "224483104046": 4,
+    "224482059051": 12,
+    "224482048365": 42,
+    "224482040719": 2,
+    "224482032710": 3,
+    "224479864300": 23,
+    "224479898568": 5,
+    "224479897413": 8,
+    "224479846250": 6,
+    "224479884848": 12,
+    "224479883658": 16,
+    "224479880969": 31,
+    "224478698571": 2,
+    "224478681250": 10,
+    "224478678927": 2,
+    "224478706825": 79,
+    "224475786973": 3,
+    "224475783967": 65,
+    "224475799568": 5,
+    "224473309382": 18,
+    "224473305277": 17,
+    "224473302835": 11,
+    "224472991036": 20,
+    "224472988301": 13,
+    "224472982194": 1,
+    "224470327866": 10,
+    "224470324400": 8,
+    "224470320518": 0,
+    "224470064937": 55,
+    "224470080671": 2,
+    "224467244253": 6,
+    "224467039058": 14,
+    "224467044693": 10,
+    "224467005849": 10,
+    "224467000090": 6,
+    "224465789865": 1,
+    "224465591998": 29,
+    "224465589678": 16,
+    "224465595009": 29,
+    "224463845638": 54,
+    "224464762376": 28,
+    "224464759662": 42,
+    "224463836066": 4,
+    "224463835284": 3,
+    "224170417093": 31
    }
   },
   "snap_at": {
@@ -10971,11 +11739,11 @@
    "2026-11-20": "2026-11-20T21:30",
    "2026-11-21": "2026-11-21T21:30",
    "2026-11-22": "2026-11-22T21:30",
-   "2026-11-23": "2026-11-23T16:50"
+   "2026-11-23": "2026-11-23T21:31"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-23T16:51",
+  "updated_at": "2026-11-23T21:32",
   "date": "2026-11-23"
  }
 }
