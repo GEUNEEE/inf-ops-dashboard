@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T16:57",
+ "generated_at": "2026-11-24T21:32",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -37,10 +37,10 @@
    "title": "지수 할로윈 루시 메이크업, 진한 화장 다음 날 기미잡티크림보다 먼저 할 것",
    "keyword": "기미잡티크림",
    "thumb": "data/blog/thumbs/review_20261104_B1_1.jpg",
-   "read": 18,
+   "read": 19,
    "like": 1,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "지수 할로윈",
@@ -3515,10 +3515,10 @@
    "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
    "keyword": "기미없애는방법",
    "thumb": "data/blog/thumbs/review_20261117_B29_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "기미없애는방법",
@@ -6158,10 +6158,10 @@
    "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
    "keyword": "다이소미백크림",
    "thumb": "data/blog/thumbs/review_20261122_B57_1.jpg",
-   "read": 8,
+   "read": 9,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "다이소미백크림",
@@ -6306,10 +6306,10 @@
    "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
    "keyword": "아젤라익산크림",
    "thumb": "data/blog/thumbs/review_20261122_B58_1.jpg",
-   "read": 8,
+   "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 4,
    "ranks": [
     {
      "kw": "아젤라익산크림",
@@ -6898,10 +6898,10 @@
    "title": "바디톤업크림 대신 평소 팔꿈치 관리로 바꾼 결혼식 한 달 전",
    "keyword": "바디톤업크림",
    "thumb": "data/blog/thumbs/review_20261123_B66_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "바디톤업크림",
@@ -7209,6 +7209,13 @@
      "t": null,
      "pb": "new",
      "pt": "new"
+    },
+    {
+     "kw": "수면에좋은영양제",
+     "b": 1,
+     "t": 31,
+     "pb": "new",
+     "pt": "new"
     }
    ]
   },
@@ -7337,6 +7344,20 @@
      "t": null,
      "pb": "new",
      "pt": "new"
+    },
+    {
+     "kw": "트라넥삼산효능",
+     "b": 20,
+     "t": 5,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "트라넥삼산",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
     }
    ]
   },
@@ -7398,6 +7419,13 @@
      "t": null,
      "pb": "new",
      "pt": "new"
+    },
+    {
+     "kw": "테아닌영양제",
+     "b": null,
+     "t": 11,
+     "pb": "new",
+     "pt": "new"
     }
    ]
   },
@@ -7444,11 +7472,33 @@
    "title": "흑자크림 찾기 전에 피부과부터 간 이유, 기미랑 다르다는 걸 알고",
    "keyword": "흑자크림",
    "thumb": "data/blog/thumbs/review_20261124_B74_1.jpg",
-   "read": 0,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "흑자크림",
+     "b": 4,
+     "t": 2,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "흑자",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "기미",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -7460,7 +7510,29 @@
    "keyword": "올리브오일하루섭취량",
    "thumb": "data/blog/thumbs/review_20261124d_D53_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "올리브오일하루섭취량",
+     "b": 4,
+     "t": 11,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 하루 섭취량",
+     "b": 4,
+     "t": 11,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "올리브오일 1큰술 칼로리",
+     "b": null,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -7539,8 +7611,33 @@
    "title": "연말선물추천 리스트 보다가 엄마 선물은 결국 매일 쓰는 걸로",
    "keyword": "연말선물추천",
    "thumb": "data/blog/thumbs/review_20261124_B75_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 2,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "연말선물추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "엄마 선물",
+     "b": null,
+     "t": 4,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "크리스마스",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -7552,7 +7649,29 @@
    "keyword": "부모님건강선물",
    "thumb": "data/blog/thumbs/review_20261124d_D54_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "부모님건강선물",
+     "b": null,
+     "t": 4,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "부모님 건강선물",
+     "b": null,
+     "t": 4,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "부모님 연말선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -7564,7 +7683,29 @@
    "keyword": "잠잘오는음식",
    "thumb": "data/blog/thumbs/review_20261124_S59_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "잠잘오는음식",
+     "b": 6,
+     "t": 27,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "야식",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "저녁 시간",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -7576,7 +7717,29 @@
    "keyword": "여드름자국",
    "thumb": "data/blog/thumbs/review_20261124b_B79_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "여드름자국",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "여드름 자국",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "턱 여드름",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   }
  ],
  "login": {
@@ -7619,7 +7782,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-24T16:50",
+  "updated_at": "2026-11-24T21:30",
   "prev_snap": "2026-11-23",
   "accounts": {
    "cnsou1088": {
@@ -7734,15 +7897,26 @@
      },
      {
       "date": "2026-11-24",
-      "cv": 21
+      "cv": 31
      }
     ],
     "posts": [
      {
+      "log": "224483534778",
+      "blog_id": "cnsou1088",
+      "title": "연말선물추천 리스트 보다가 엄마 선물은 결국 매일 쓰는 걸로",
+      "read": 2,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-24T18:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224483534778"
+     },
+     {
       "log": "224483531898",
       "blog_id": "cnsou1088",
       "title": "흑자크림 찾기 전에 피부과부터 간 이유, 기미랑 다르다는 걸 알고",
-      "read": 0,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T16:00",
@@ -7786,11 +7960,11 @@
       "log": "224483453605",
       "blog_id": "cnsou1088",
       "title": "바디톤업크림 대신 평소 팔꿈치 관리로 바꾼 결혼식 한 달 전",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T16:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224483453605"
      },
      {
@@ -7830,22 +8004,22 @@
       "log": "224483336158",
       "blog_id": "cnsou1088",
       "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
-      "read": 8,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T16:00",
-      "delta": 2,
+      "delta": 4,
       "url": "https://blog.naver.com/cnsou1088/224483336158"
      },
      {
       "log": "224483333870",
       "blog_id": "cnsou1088",
       "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
-      "read": 8,
+      "read": 9,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T12:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224483333870"
      },
      {
@@ -8039,11 +8213,11 @@
       "log": "224480132133",
       "blog_id": "cnsou1088",
       "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T18:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224480132133"
      },
      {
@@ -8402,11 +8576,11 @@
       "log": "224463922448",
       "blog_id": "cnsou1088",
       "title": "지수 할로윈 루시 메이크업, 진한 화장 다음 날 기미잡티크림보다 먼저 할 것",
-      "read": 18,
+      "read": 19,
       "like": 1,
       "comment": 0,
       "added": "2026-11-04T08:40",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224463922448"
      },
      {
@@ -8716,17 +8890,6 @@
       "added": "2025-12-05T09:30",
       "delta": null,
       "url": "https://blog.naver.com/cnsou1088/224097465383"
-     },
-     {
-      "log": "224097478767",
-      "blog_id": "cnsou1088",
-      "title": "김제피부과 얼굴 가득 기미로 취업 면접도 떨렸던 내가 당당해진 이유",
-      "read": 26,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-04T08:50",
-      "delta": null,
-      "url": "https://blog.naver.com/cnsou1088/224097478767"
      }
     ]
    },
@@ -12264,12 +12427,12 @@
    },
    "2026-11-24": {
     "224483456794": 0,
-    "224483453605": 1,
+    "224483453605": 2,
     "224483450007": 0,
     "224483445619": 0,
     "224483338765": 8,
-    "224483336158": 8,
-    "224483333870": 8,
+    "224483336158": 10,
+    "224483333870": 9,
     "224483330879": 1,
     "224483241186": 2,
     "224483237650": 6,
@@ -12287,7 +12450,7 @@
     "224479895490": 2,
     "224479894069": 2,
     "224479892631": 7,
-    "224480132133": 4,
+    "224480132133": 5,
     "224479878611": 4,
     "224479877012": 3,
     "224479906388": 11,
@@ -12320,7 +12483,7 @@
     "224465598002": 18,
     "224464340859": 5,
     "224464451749": 7,
-    "224463922448": 18,
+    "224463922448": 19,
     "224170403446": 15,
     "224145301415": 1,
     "224483528662": 0,
@@ -12353,7 +12516,8 @@
     "224097465383": 0,
     "224097478767": 26,
     "224096096111": 92,
-    "224483531898": 0
+    "224483531898": 2,
+    "224483534778": 2
    }
   },
   "snap_at": {
@@ -12368,11 +12532,11 @@
    "2026-11-21": "2026-11-21T21:30",
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
-   "2026-11-24": "2026-11-24T16:50"
+   "2026-11-24": "2026-11-24T21:30"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-24T16:57",
+  "updated_at": "2026-11-24T21:32",
   "date": "2026-11-24"
  }
 }
