@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T19:48",
+ "generated_at": "2026-11-25T20:01",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -7923,7 +7923,29 @@
    "keyword": "다이소크림",
    "thumb": "data/blog/thumbs/review_20261125b_B85_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "다이소크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소 크림",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다이소 화장품",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -8152,6 +8174,54 @@
    "thumb": "data/blog/thumbs/review_20261126b_B95_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B96.md",
+   "set": "review_20261127",
+   "publish_at": "2026-11-27T09:00",
+   "url": "https://blog.naver.com/cnsou1088/224491954345",
+   "title": "눈밑기미였어, 다크서클인 줄 알고 컨실러만 덧발랐지",
+   "keyword": "눈밑기미",
+   "thumb": "data/blog/thumbs/review_20261127_B96_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B97.md",
+   "set": "review_20261127",
+   "publish_at": "2026-11-27T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224491956990",
+   "title": "미백화장품 숫자만 보고 세 개 샀다가 광대가 따끔했어",
+   "keyword": "미백화장품",
+   "thumb": "data/blog/thumbs/review_20261127_B97_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B98.md",
+   "set": "review_20261127",
+   "publish_at": "2026-11-27T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224491960157",
+   "title": "여자친구연말선물 고민하던 동생, 향수 말리고 고른 구성",
+   "keyword": "여자친구연말선물",
+   "thumb": "data/blog/thumbs/review_20261127_B98_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B99.md",
+   "set": "review_20261127",
+   "publish_at": "2026-11-27T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224491962978",
+   "title": "하얀피부라고 선크림 안 발랐다가, 겨울에 점이 올라왔어",
+   "keyword": "하얀피부",
+   "thumb": "data/blog/thumbs/review_20261127_B99_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -8194,7 +8264,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T19:48",
+  "updated_at": "2026-11-25T20:01",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -13153,11 +13223,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T19:48"
+   "2026-11-25": "2026-11-25T20:01"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T19:48",
+  "updated_at": "2026-11-25T20:01",
   "date": "2026-11-25"
  }
 }
