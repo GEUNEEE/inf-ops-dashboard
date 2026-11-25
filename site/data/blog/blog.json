@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T18:51",
+ "generated_at": "2026-11-25T19:05",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -7886,7 +7886,29 @@
    "keyword": "나이아신아마이드효능",
    "thumb": "data/blog/thumbs/review_20261125_B81_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "나이아신아마이드효능",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "나이아신아마이드",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "농도",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -7897,6 +7919,18 @@
    "title": "다이소크림 진열대 앞 20분, 1만 3천 원어치 사 보고 나눈 역할",
    "keyword": "다이소크림",
    "thumb": "data/blog/thumbs/review_20261125b_B85_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S60.md",
+   "set": "review_20261125",
+   "publish_at": "2026-11-25T20:20",
+   "url": "https://blog.naver.com/oileeoil/224491886953",
+   "title": "마그네슘수면효과 기대하고 먹어봤다가, 결국 같이 바꾼 저녁",
+   "keyword": "마그네슘수면효과",
+   "thumb": "data/blog/thumbs/review_20261125_S60_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -7913,6 +7947,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S61.md",
+   "set": "review_20261125",
+   "publish_at": "2026-11-25T21:20",
+   "url": "https://blog.naver.com/oileeoil/224491889653",
+   "title": "수면유도제효과 궁금해서 먹어본 다음 날, 약사님이 해준 말",
+   "keyword": "수면유도제효과",
+   "thumb": "data/blog/thumbs/review_20261125_S61_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B86.md",
    "set": "review_20261125b",
@@ -7925,6 +7971,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S62.md",
+   "set": "review_20261125",
+   "publish_at": "2026-11-25T22:20",
+   "url": "https://blog.naver.com/oileeoil/224491892870",
+   "title": "잠잘오는방법 다 해봤는데, 내 밤엔 하나씩 빼는 게 맞았어",
+   "keyword": "잠잘오는방법",
+   "thumb": "data/blog/thumbs/review_20261125_S62_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B87.md",
    "set": "review_20261125b",
@@ -7933,6 +7991,18 @@
    "title": "각질제거 이태리타월로 박박 밀다 더 일어난 팔꿈치, 횟수 줄이고 3분 보습",
    "keyword": "각질제거",
    "thumb": "data/blog/thumbs/review_20261125b_B87_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S63.md",
+   "set": "review_20261125",
+   "publish_at": "2026-11-25T23:20",
+   "url": "https://blog.naver.com/oileeoil/224491895337",
+   "title": "갱년기수면장애로 새벽마다 깼던 엄마, 같이 바꿔본 밤 습관",
+   "keyword": "갱년기수면장애",
+   "thumb": "data/blog/thumbs/review_20261125_S63_1.jpg",
    "read": null,
    "ranks": null
   }
@@ -7977,7 +8047,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T18:48",
+  "updated_at": "2026-11-25T19:05",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -12935,11 +13005,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T18:48"
+   "2026-11-25": "2026-11-25T19:05"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T18:51",
+  "updated_at": "2026-11-25T19:05",
   "date": "2026-11-25"
  }
 }
