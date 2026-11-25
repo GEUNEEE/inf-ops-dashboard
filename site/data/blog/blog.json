@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T20:01",
+ "generated_at": "2026-11-25T20:16",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -7922,7 +7922,10 @@
    "title": "다이소크림 진열대 앞 20분, 1만 3천 원어치 사 보고 나눈 역할",
    "keyword": "다이소크림",
    "thumb": "data/blog/thumbs/review_20261125b_B85_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "다이소크림",
@@ -8188,6 +8191,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B100.md",
+   "set": "review_20261127b",
+   "publish_at": "2026-11-27T09:30",
+   "url": "https://blog.naver.com/cakkee9/224491970401",
+   "title": "이마주름 놀란 표정 소리 듣고 알았어, 안경 도수부터 바꾼 4주",
+   "keyword": "이마주름",
+   "thumb": "data/blog/thumbs/review_20261127b_B100_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B97.md",
    "set": "review_20261127",
@@ -8196,6 +8211,18 @@
    "title": "미백화장품 숫자만 보고 세 개 샀다가 광대가 따끔했어",
    "keyword": "미백화장품",
    "thumb": "data/blog/thumbs/review_20261127_B97_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B101.md",
+   "set": "review_20261127b",
+   "publish_at": "2026-11-27T12:30",
+   "url": "https://blog.naver.com/cakkee9/224491973938",
+   "title": "바디미백크림 찾다가 목욕 습관부터 고쳤어, 반팔 니트 입은 3주 후기",
+   "keyword": "바디미백크림",
+   "thumb": "data/blog/thumbs/review_20261127b_B101_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -8212,6 +8239,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B102.md",
+   "set": "review_20261127b",
+   "publish_at": "2026-11-27T16:30",
+   "url": "https://blog.naver.com/cakkee9/224491977021",
+   "title": "넥크림 따로 살까 하다가 노트북 높이부터 바꿨어, 목 가로줄 한 달",
+   "keyword": "넥크림",
+   "thumb": "data/blog/thumbs/review_20261127b_B102_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B99.md",
    "set": "review_20261127",
@@ -8220,6 +8259,18 @@
    "title": "하얀피부라고 선크림 안 발랐다가, 겨울에 점이 올라왔어",
    "keyword": "하얀피부",
    "thumb": "data/blog/thumbs/review_20261127_B99_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B103.md",
+   "set": "review_20261127b",
+   "publish_at": "2026-11-27T18:30",
+   "url": "https://blog.naver.com/cakkee9/224491979854",
+   "title": "팔뚝착색 왼팔만 어두웠던 이유, 운전석 창문이랑 때수건이었어",
+   "keyword": "팔뚝착색",
+   "thumb": "data/blog/thumbs/review_20261127b_B103_1.jpg",
    "read": null,
    "ranks": null
   }
@@ -8264,7 +8315,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T20:01",
+  "updated_at": "2026-11-25T20:16",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -10857,6 +10908,17 @@
     ],
     "posts": [
      {
+      "log": "224491871181",
+      "blog_id": "cakkee9",
+      "title": "다이소크림 진열대 앞 20분, 1만 3천 원어치 사 보고 나눈 역할",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-25T20:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cakkee9/224491871181"
+     },
+     {
       "log": "224491325460",
       "blog_id": "cakkee9",
       "title": "겨울수분크림 바꾸기 전에 습도 28%부터 고쳤어, 오후 3시 각질 사라진 루틴",
@@ -11174,17 +11236,6 @@
       "added": "2026-01-03T12:00",
       "delta": null,
       "url": "https://blog.naver.com/cakkee9/224131968835"
-     },
-     {
-      "log": "224119140086",
-      "blog_id": "cakkee9",
-      "title": "망우동피부과 얼굴 전체 기미로 무너졌던 자존감, 이렇게 세웠어요",
-      "read": 0,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-23T16:20",
-      "delta": null,
-      "url": "https://blog.naver.com/cakkee9/224119140086"
      }
     ]
    },
@@ -13207,7 +13258,8 @@
     "224131975246": 0,
     "224131968835": 12,
     "224119140086": 0,
-    "224491838729": 1
+    "224491838729": 1,
+    "224491871181": 0
    }
   },
   "snap_at": {
@@ -13223,11 +13275,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T20:01"
+   "2026-11-25": "2026-11-25T20:16"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T20:01",
+  "updated_at": "2026-11-25T20:16",
   "date": "2026-11-25"
  }
 }
