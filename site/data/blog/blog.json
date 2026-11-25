@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T19:35",
+ "generated_at": "2026-11-25T19:48",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -7592,7 +7592,7 @@
    "title": "30대여자선물 후배 생일에 디퓨저 대신 고른 것, 기준 세 개",
    "keyword": "30대여자선물",
    "thumb": "data/blog/thumbs/review_20261124b_B78_1.jpg",
-   "read": 6,
+   "read": 7,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -8010,6 +8010,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S64.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T08:20",
+   "url": "https://blog.naver.com/oileeoil/224491937846",
+   "title": "수면영양제추천 받기 전에, 멜라토닌 함량부터 봤어",
+   "keyword": "수면영양제추천",
+   "thumb": "data/blog/thumbs/review_20261126_S64_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B88.md",
    "set": "review_20261126",
@@ -8046,6 +8058,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S65.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T12:20",
+   "url": "https://blog.naver.com/oileeoil/224491940791",
+   "title": "불면증에좋은차 찾아 마셔보다가, 저녁 루틴까지 바꿨어",
+   "keyword": "불면증에좋은차",
+   "thumb": "data/blog/thumbs/review_20261126_S65_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B93.md",
    "set": "review_20261126b",
@@ -8070,6 +8094,18 @@
    "ranks": null
   },
   {
+   "blog_id": "oileeoil",
+   "post": "S66.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T16:20",
+   "url": "https://blog.naver.com/oileeoil/224491943729",
+   "title": "L테아닌효능 궁금해서 찾아봤다가, 오후 커피부터 줄였어",
+   "keyword": "L테아닌효능",
+   "thumb": "data/blog/thumbs/review_20261126_S66_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cakkee9",
    "post": "B94.md",
    "set": "review_20261126b",
@@ -8090,6 +8126,18 @@
    "title": "화이트닝크림 얼굴만 바르다가, 목까지 챙기게 된 이유",
    "keyword": "화이트닝크림",
    "thumb": "data/blog/thumbs/review_20261126_B91_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "oileeoil",
+   "post": "S67.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T18:20",
+   "url": "https://blog.naver.com/oileeoil/224491947054",
+   "title": "잠이안와요 검색하던 새벽, 휴대폰부터 내려놨어",
+   "keyword": "잠이안와요",
+   "thumb": "data/blog/thumbs/review_20261126_S67_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -8146,7 +8194,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T19:35",
+  "updated_at": "2026-11-25T19:48",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -10734,7 +10782,7 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 25
+      "cv": 26
      }
     ],
     "posts": [
@@ -10764,7 +10812,7 @@
       "log": "224483512991",
       "blog_id": "cakkee9",
       "title": "30대여자선물 후배 생일에 디퓨저 대신 고른 것, 기준 세 개",
-      "read": 6,
+      "read": 7,
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T16:30",
@@ -13061,7 +13109,7 @@
     "224491284532": 1,
     "224491325460": 1,
     "224483516561": 1,
-    "224483512991": 6,
+    "224483512991": 7,
     "224483508551": 9,
     "224483504777": 0,
     "224483383491": 6,
@@ -13105,11 +13153,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T19:35"
+   "2026-11-25": "2026-11-25T19:48"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T19:35",
+  "updated_at": "2026-11-25T19:48",
   "date": "2026-11-25"
  }
 }
