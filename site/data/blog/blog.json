@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T19:05",
+ "generated_at": "2026-11-25T19:20",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -7774,7 +7774,7 @@
    "title": "색소침착연고 찾다가 알게 된 것, 여드름 자국도 종류가 달랐어",
    "keyword": "색소침착연고",
    "thumb": "data/blog/thumbs/review_20261125_B80_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -7885,7 +7885,10 @@
    "title": "나이아신아마이드효능 찾아보다가, 농도 숫자보다 먼저 본 것",
    "keyword": "나이아신아마이드효능",
    "thumb": "data/blog/thumbs/review_20261125_B81_1.jpg",
-   "read": null,
+   "read": 1,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": [
     {
      "kw": "나이아신아마이드효능",
@@ -8005,6 +8008,54 @@
    "thumb": "data/blog/thumbs/review_20261125_S63_1.jpg",
    "read": null,
    "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B88.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T09:00",
+   "url": "https://blog.naver.com/cnsou1088/224491902999",
+   "title": "기미연고 찾다가 알게 된 것, 연고랑 크림은 따로였어",
+   "keyword": "기미연고",
+   "thumb": "data/blog/thumbs/review_20261126_B88_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B89.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T12:00",
+   "url": "https://blog.naver.com/cnsou1088/224491906185",
+   "title": "바르고자는톤업크림 찾다가, 밤엔 순서부터 바꿨어",
+   "keyword": "바르고자는톤업크림",
+   "thumb": "data/blog/thumbs/review_20261126_B89_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B90.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T16:00",
+   "url": "https://blog.naver.com/cnsou1088/224491909344",
+   "title": "기미화장품 고를 때 상자 뒷면부터 봤어, 겨울에도 해가 있더라",
+   "keyword": "기미화장품",
+   "thumb": "data/blog/thumbs/review_20261126_B90_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cnsou1088",
+   "post": "B91.md",
+   "set": "review_20261126",
+   "publish_at": "2026-11-26T18:00",
+   "url": "https://blog.naver.com/cnsou1088/224491912968",
+   "title": "화이트닝크림 얼굴만 바르다가, 목까지 챙기게 된 이유",
+   "keyword": "화이트닝크림",
+   "thumb": "data/blog/thumbs/review_20261126_B91_1.jpg",
+   "read": null,
+   "ranks": null
   }
  ],
  "login": {
@@ -8047,7 +8098,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T19:05",
+  "updated_at": "2026-11-25T19:20",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -8166,10 +8217,21 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 17
+      "cv": 19
      }
     ],
     "posts": [
+     {
+      "log": "224491838729",
+      "blog_id": "cnsou1088",
+      "title": "나이아신아마이드효능 찾아보다가, 농도 숫자보다 먼저 본 것",
+      "read": 1,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-25T19:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224491838729"
+     },
      {
       "log": "224491291640",
       "blog_id": "cnsou1088",
@@ -8185,7 +8247,7 @@
       "log": "224491284532",
       "blog_id": "cnsou1088",
       "title": "색소침착연고 찾다가 알게 된 것, 여드름 자국도 종류가 달랐어",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T12:40",
@@ -9148,17 +9210,6 @@
       "added": "2025-12-13T09:10",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224107830302"
-     },
-     {
-      "log": "224096110369",
-      "blog_id": "cnsou1088",
-      "title": "동작구피부과 기미 잡티 때문에 포기했던 나, 이제는 자신감 UP",
-      "read": 2,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-06T11:10",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224096110369"
      }
     ]
    },
@@ -12959,7 +13010,7 @@
     "224096235350": 14,
     "224096228316": 12,
     "224491291640": 0,
-    "224491284532": 0,
+    "224491284532": 1,
     "224491325460": 1,
     "224483516561": 1,
     "224483512991": 6,
@@ -12989,7 +13040,8 @@
     "224131980784": 9,
     "224131975246": 0,
     "224131968835": 12,
-    "224119140086": 0
+    "224119140086": 0,
+    "224491838729": 1
    }
   },
   "snap_at": {
@@ -13005,11 +13057,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T19:05"
+   "2026-11-25": "2026-11-25T19:20"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T19:05",
+  "updated_at": "2026-11-25T19:20",
   "date": "2026-11-25"
  }
 }
