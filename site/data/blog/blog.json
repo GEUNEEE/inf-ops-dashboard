@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T18:35",
+ "generated_at": "2026-11-25T18:51",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -6158,10 +6158,10 @@
    "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
    "keyword": "다이소미백크림",
    "thumb": "data/blog/thumbs/review_20261122_B57_1.jpg",
-   "read": 9,
+   "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "다이소미백크림",
@@ -6657,6 +6657,13 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "연말 선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -6747,7 +6754,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 0,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "피부하얘지는법",
+     "b": 5,
+     "t": null,
+     "pb": 5,
+     "pt": 31
+    },
+    {
+     "kw": "라벤더 베이스",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "칙칙한 톤",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -6873,7 +6902,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 1,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "바디톤업크림",
+     "b": null,
+     "t": null,
+     "pb": 2,
+     "pt": 2
+    },
+    {
+     "kw": "팔꿈치 칙칙함",
+     "b": 3,
+     "t": null,
+     "pb": 2,
+     "pt": 9
+    },
+    {
+     "kw": "목 뒤",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -7002,6 +7053,20 @@
    "ranks": [
     {
      "kw": "광대 기미",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "피부미백",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "나이아신아마이드",
      "b": null,
      "t": null,
      "pb": null,
@@ -7147,6 +7212,13 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "수면에좋은영양제",
+     "b": 1,
+     "t": 30,
+     "pb": 1,
+     "pt": 31
     }
    ]
   },
@@ -7163,7 +7235,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 1,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "톤업크림추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 26
+    },
+    {
+     "kw": "목 톤",
+     "b": 1,
+     "t": 3,
+     "pb": 1,
+     "pt": 1
+    },
+    {
+     "kw": "백탁",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -7175,7 +7269,29 @@
    "keyword": "심진화다이어트",
    "thumb": "data/blog/thumbs/review_20261124d_D51_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "심진화다이어트",
+     "b": 21,
+     "t": 3,
+     "pb": 20,
+     "pt": 12
+    },
+    {
+     "kw": "심진화 다이어트",
+     "b": 21,
+     "t": 3,
+     "pb": 20,
+     "pt": 3
+    },
+    {
+     "kw": "심진화 20kg 감량",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -7190,7 +7306,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "사타구니착색",
+     "b": 15,
+     "t": 21,
+     "pb": 14,
+     "pt": 17
+    },
+    {
+     "kw": "사타구니 착색",
+     "b": 15,
+     "t": 22,
+     "pb": 14,
+     "pt": 18
+    },
+    {
+     "kw": "사타구니 미백",
+     "b": null,
+     "t": 8,
+     "pb": null,
+     "pt": 6
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -7205,7 +7343,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": 1,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "트라넥삼산효능",
+     "b": 22,
+     "t": 27,
+     "pb": 20,
+     "pt": 5
+    },
+    {
+     "kw": "트라넥삼산",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "나이아신아마이드",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "qxcoik9423",
@@ -7217,7 +7377,29 @@
    "keyword": "코스트코블랙프라이데이",
    "thumb": "data/blog/thumbs/review_20261124d_D52_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "코스트코블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "코스트코 블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "코스트코 블프",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -7239,6 +7421,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "테아닌영양제",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": 11
+    },
+    {
+     "kw": "카페인",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -7255,7 +7451,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "에이블리블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "에이블리 블랙프라이데이",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "에블프",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -7284,6 +7502,13 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "흑자크림",
+     "b": 3,
+     "t": 2,
+     "pb": 4,
+     "pt": 2
     }
    ]
   },
@@ -7297,7 +7522,29 @@
    "keyword": "올리브오일하루섭취량",
    "thumb": "data/blog/thumbs/review_20261124d_D53_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "올리브오일하루섭취량",
+     "b": 3,
+     "t": 11,
+     "pb": 4,
+     "pt": 11
+    },
+    {
+     "kw": "올리브오일 하루 섭취량",
+     "b": 3,
+     "t": 10,
+     "pb": 4,
+     "pt": 11
+    },
+    {
+     "kw": "올리브오일 1큰술 칼로리",
+     "b": null,
+     "t": 7,
+     "pb": null,
+     "pt": 6
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -7312,7 +7559,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "불면증원인",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "취침 미루기",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "지루함",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -7327,7 +7596,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "30대여자선물",
+     "b": null,
+     "t": 5,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "30대 여자 선물",
+     "b": null,
+     "t": 26,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "30대 여자 생일선물",
+     "b": null,
+     "t": 7,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -7349,6 +7640,20 @@
      "t": null,
      "pb": null,
      "pt": 4
+    },
+    {
+     "kw": "연말선물추천",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "크리스마스",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -7362,7 +7667,29 @@
    "keyword": "부모님건강선물",
    "thumb": "data/blog/thumbs/review_20261124d_D54_1.jpg",
    "read": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "부모님건강선물",
+     "b": null,
+     "t": 5,
+     "pb": null,
+     "pt": 4
+    },
+    {
+     "kw": "부모님 건강선물",
+     "b": null,
+     "t": 9,
+     "pb": null,
+     "pt": 4
+    },
+    {
+     "kw": "부모님 연말선물",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -7377,7 +7704,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "잠잘오는음식",
+     "b": 6,
+     "t": 27,
+     "pb": 6,
+     "pt": 27
+    },
+    {
+     "kw": "야식",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "저녁 시간",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -7399,6 +7748,20 @@
      "t": null,
      "pb": null,
      "pt": null
+    },
+    {
+     "kw": "여드름자국",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
+    },
+    {
+     "kw": "턱 여드름",
+     "b": null,
+     "t": null,
+     "pb": null,
+     "pt": null
     }
    ]
   },
@@ -7415,7 +7778,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "색소침착연고",
+     "b": null,
+     "t": 26,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "여드름 자국",
+     "b": null,
+     "t": 24,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "갈색 자국",
+     "b": null,
+     "t": 4,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -7444,6 +7829,13 @@
      "t": null,
      "pb": "new",
      "pt": "new"
+    },
+    {
+     "kw": "겨울 수분크림",
+     "b": null,
+     "t": 11,
+     "pb": "new",
+     "pt": "new"
     }
    ]
   },
@@ -7460,7 +7852,29 @@
    "like": 0,
    "comment": 0,
    "read_delta": null,
-   "ranks": []
+   "ranks": [
+    {
+     "kw": "남자톤업크림",
+     "b": null,
+     "t": 6,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "남편 피부",
+     "b": null,
+     "t": 3,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "톤 보정",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cnsou1088",
@@ -7475,6 +7889,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B85.md",
+   "set": "review_20261125b",
+   "publish_at": "2026-11-25T20:00",
+   "url": "https://blog.naver.com/cakkee9/224491871181",
+   "title": "다이소크림 진열대 앞 20분, 1만 3천 원어치 사 보고 나눈 역할",
+   "keyword": "다이소크림",
+   "thumb": "data/blog/thumbs/review_20261125b_B85_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B82.md",
    "set": "review_20261125",
@@ -7483,6 +7909,30 @@
    "title": "크리스마스선물추천 리스트만 보다가, 결국 엄마한테 물어본 것",
    "keyword": "크리스마스선물추천",
    "thumb": "data/blog/thumbs/review_20261125_B82_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B86.md",
+   "set": "review_20261125b",
+   "publish_at": "2026-11-25T21:30",
+   "url": "https://blog.naver.com/cakkee9/224491874940",
+   "title": "50대여성선물 큰이모 생신에 홍삼·스카프 실패하고 고른 크림 하나",
+   "keyword": "50대여성선물",
+   "thumb": "data/blog/thumbs/review_20261125b_B86_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B87.md",
+   "set": "review_20261125b",
+   "publish_at": "2026-11-25T23:00",
+   "url": "https://blog.naver.com/cakkee9/224491877264",
+   "title": "각질제거 이태리타월로 박박 밀다 더 일어난 팔꿈치, 횟수 줄이고 3분 보습",
+   "keyword": "각질제거",
+   "thumb": "data/blog/thumbs/review_20261125b_B87_1.jpg",
    "read": null,
    "ranks": null
   }
@@ -7527,7 +7977,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T18:17",
+  "updated_at": "2026-11-25T18:48",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -7646,7 +8096,7 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 16
+      "cv": 17
      }
     ],
     "posts": [
@@ -7786,11 +8236,11 @@
       "log": "224483333870",
       "blog_id": "cnsou1088",
       "title": "다이소미백크림 사러 갔다가 빈 매대만 보고 온 날, 뒷면부터 봤어",
-      "read": 9,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T12:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224483333870"
      },
      {
@@ -12328,7 +12778,7 @@
     "224483445619": 2,
     "224483338765": 9,
     "224483336158": 11,
-    "224483333870": 9,
+    "224483333870": 10,
     "224483330879": 1,
     "224483241186": 2,
     "224483237650": 6,
@@ -12485,11 +12935,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T18:17"
+   "2026-11-25": "2026-11-25T18:48"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T18:35",
+  "updated_at": "2026-11-25T18:51",
   "date": "2026-11-25"
  }
 }
