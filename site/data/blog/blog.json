@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T20:27",
+ "generated_at": "2026-11-25T21:33",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -5122,10 +5122,10 @@
    "title": "색소침착, 기름 튄 손등 자국 짜고 뜯다가 실패하고 정한 기준",
    "keyword": "색소침착",
    "thumb": "data/blog/thumbs/review_20261120_B37_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 1,
    "comment": 1,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "색소침착",
@@ -7484,10 +7484,10 @@
    "title": "흑자크림 찾기 전에 피부과부터 간 이유, 기미랑 다르다는 걸 알고",
    "keyword": "흑자크림",
    "thumb": "data/blog/thumbs/review_20261124_B74_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 3,
    "ranks": [
     {
      "kw": "기미",
@@ -7922,7 +7922,7 @@
    "title": "다이소크림 진열대 앞 20분, 1만 3천 원어치 사 보고 나눈 역할",
    "keyword": "다이소크림",
    "thumb": "data/blog/thumbs/review_20261125b_B85_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -7959,7 +7959,7 @@
    "title": "마그네슘수면효과 기대하고 먹어봤다가, 결국 같이 바꾼 저녁",
    "keyword": "마그네슘수면효과",
    "thumb": "data/blog/thumbs/review_20261125_S60_1.jpg",
-   "read": 0,
+   "read": 1,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -7996,8 +7996,33 @@
    "title": "크리스마스선물추천 리스트만 보다가, 결국 엄마한테 물어본 것",
    "keyword": "크리스마스선물추천",
    "thumb": "data/blog/thumbs/review_20261125_B82_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 1,
+   "like": 1,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "크리스마스선물추천",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "크리스마스 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "엄마 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -8008,8 +8033,33 @@
    "title": "수면유도제효과 궁금해서 먹어본 다음 날, 약사님이 해준 말",
    "keyword": "수면유도제효과",
    "thumb": "data/blog/thumbs/review_20261125_S61_1.jpg",
-   "read": null,
-   "ranks": null
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
+   "ranks": [
+    {
+     "kw": "수면유도제효과",
+     "b": null,
+     "t": 31,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "약국 수면유도제",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "다음 날 졸림",
+     "b": null,
+     "t": 8,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "cakkee9",
@@ -8021,7 +8071,29 @@
    "keyword": "50대여성선물",
    "thumb": "data/blog/thumbs/review_20261125b_B86_1.jpg",
    "read": null,
-   "ranks": null
+   "ranks": [
+    {
+     "kw": "50대여성선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "50대 여성 선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    },
+    {
+     "kw": "50대 생일선물",
+     "b": null,
+     "t": null,
+     "pb": "new",
+     "pt": "new"
+    }
+   ]
   },
   {
    "blog_id": "oileeoil",
@@ -8388,7 +8460,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T20:27",
+  "updated_at": "2026-11-25T21:32",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -8507,10 +8579,21 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 19
+      "cv": 22
      }
     ],
     "posts": [
+     {
+      "log": "224491842002",
+      "blog_id": "cnsou1088",
+      "title": "크리스마스선물추천 리스트만 보다가, 결국 엄마한테 물어본 것",
+      "read": 1,
+      "like": 1,
+      "comment": 0,
+      "added": "2026-11-25T21:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224491842002"
+     },
      {
       "log": "224491838729",
       "blog_id": "cnsou1088",
@@ -8559,11 +8642,11 @@
       "log": "224483531898",
       "blog_id": "cnsou1088",
       "title": "흑자크림 찾기 전에 피부과부터 간 이유, 기미랑 다르다는 걸 알고",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T16:00",
-      "delta": 2,
+      "delta": 3,
       "url": "https://blog.naver.com/cnsou1088/224483531898"
      },
      {
@@ -8735,11 +8818,11 @@
       "log": "224483128812",
       "blog_id": "cnsou1088",
       "title": "색소침착, 기름 튄 손등 자국 짜고 뜯다가 실패하고 정한 기준",
-      "read": 0,
+      "read": 1,
       "like": 1,
       "comment": 1,
       "added": "2026-11-20T16:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224483128812"
      },
      {
@@ -9489,17 +9572,6 @@
       "added": "2025-12-13T10:40",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224107823949"
-     },
-     {
-      "log": "224107830302",
-      "blog_id": "cnsou1088",
-      "title": "산곡동피부과 칙칙한 기미 얼굴에서 맑은 피부로 변신한 후기",
-      "read": 25,
-      "like": 3,
-      "comment": 0,
-      "added": "2025-12-13T09:10",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224107830302"
      }
     ]
    },
@@ -10976,7 +11048,7 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 27
+      "cv": 29
      }
     ],
     "posts": [
@@ -10984,7 +11056,7 @@
       "log": "224491871181",
       "blog_id": "cakkee9",
       "title": "다이소크림 진열대 앞 20분, 1만 3천 원어치 사 보고 나눈 역할",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T20:00",
@@ -11400,15 +11472,26 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 20
+      "cv": 21
      }
     ],
     "posts": [
      {
+      "log": "224491889653",
+      "blog_id": "oileeoil",
+      "title": "수면유도제효과 궁금해서 먹어본 다음 날, 약사님이 해준 말",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-25T21:20",
+      "delta": null,
+      "url": "https://blog.naver.com/oileeoil/224491889653"
+     },
+     {
       "log": "224491886953",
       "blog_id": "oileeoil",
       "title": "마그네슘수면효과 기대하고 먹어봤다가, 결국 같이 바꾼 저녁",
-      "read": 0,
+      "read": 1,
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T20:20",
@@ -11722,17 +11805,6 @@
       "added": "2025-12-05T10:00",
       "delta": null,
       "url": "https://blog.naver.com/oileeoil/224096232173"
-     },
-     {
-      "log": "224096235350",
-      "blog_id": "oileeoil",
-      "title": "보령피부과 기미 때문에 친구 약속 미뤘던 나, 이제는 먼저 연락해요",
-      "read": 14,
-      "like": 0,
-      "comment": 0,
-      "added": "2025-12-04T09:50",
-      "delta": null,
-      "url": "https://blog.naver.com/oileeoil/224096235350"
      }
     ]
    }
@@ -13180,7 +13252,7 @@
    },
    "2026-11-25": {
     "224483534778": 3,
-    "224483531898": 4,
+    "224483531898": 5,
     "224483528662": 1,
     "224483556108": 4,
     "224483456794": 0,
@@ -13196,7 +13268,7 @@
     "224483248904": 5,
     "224483229106": 1,
     "224483132317": 2,
-    "224483128812": 0,
+    "224483128812": 1,
     "224483125518": 2,
     "224483160484": 21,
     "224482025396": 4,
@@ -13332,8 +13404,10 @@
     "224131968835": 12,
     "224119140086": 0,
     "224491838729": 1,
-    "224491871181": 1,
-    "224491886953": 0
+    "224491871181": 2,
+    "224491886953": 1,
+    "224491842002": 1,
+    "224491889653": 0
    }
   },
   "snap_at": {
@@ -13349,11 +13423,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T20:27"
+   "2026-11-25": "2026-11-25T21:32"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T20:27",
+  "updated_at": "2026-11-25T21:33",
   "date": "2026-11-25"
  }
 }
