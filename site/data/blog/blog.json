@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T19:20",
+ "generated_at": "2026-11-25T19:35",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -5677,7 +5677,7 @@
    "title": "여자친구크리스마스선물 검색하던 남자친구한테 내가 콕 집어 말한 것",
    "keyword": "여자친구크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261121b_B53_1.jpg",
-   "read": 9,
+   "read": 10,
    "like": 0,
    "comment": 0,
    "read_delta": null,
@@ -8022,6 +8022,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B92.md",
+   "set": "review_20261126b",
+   "publish_at": "2026-11-26T09:30",
+   "url": "https://blog.naver.com/cakkee9/224491920641",
+   "title": "손등주름 얼굴만 챙기다 생긴 거였어, 설거지 물 온도부터 바꾼 3주",
+   "keyword": "손등주름",
+   "thumb": "data/blog/thumbs/review_20261126b_B92_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B89.md",
    "set": "review_20261126",
@@ -8030,6 +8042,18 @@
    "title": "바르고자는톤업크림 찾다가, 밤엔 순서부터 바꿨어",
    "keyword": "바르고자는톤업크림",
    "thumb": "data/blog/thumbs/review_20261126_B89_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B93.md",
+   "set": "review_20261126b",
+   "publish_at": "2026-11-26T12:30",
+   "url": "https://blog.naver.com/cakkee9/224491924024",
+   "title": "엉덩이착색 때수건 버리고 달라졌어, 하루 9시간 앉는 사람의 한 달 루틴",
+   "keyword": "엉덩이착색",
+   "thumb": "data/blog/thumbs/review_20261126b_B93_1.jpg",
    "read": null,
    "ranks": null
   },
@@ -8046,6 +8070,18 @@
    "ranks": null
   },
   {
+   "blog_id": "cakkee9",
+   "post": "B94.md",
+   "set": "review_20261126b",
+   "publish_at": "2026-11-26T16:30",
+   "url": "https://blog.naver.com/cakkee9/224491927345",
+   "title": "팔자주름 송년회 사진 보고 충격, 마사지 끊고 겨울 선크림부터 챙긴 3주",
+   "keyword": "팔자주름",
+   "thumb": "data/blog/thumbs/review_20261126b_B94_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
    "blog_id": "cnsou1088",
    "post": "B91.md",
    "set": "review_20261126",
@@ -8054,6 +8090,18 @@
    "title": "화이트닝크림 얼굴만 바르다가, 목까지 챙기게 된 이유",
    "keyword": "화이트닝크림",
    "thumb": "data/blog/thumbs/review_20261126_B91_1.jpg",
+   "read": null,
+   "ranks": null
+  },
+  {
+   "blog_id": "cakkee9",
+   "post": "B95.md",
+   "set": "review_20261126b",
+   "publish_at": "2026-11-26T18:30",
+   "url": "https://blog.naver.com/cakkee9/224491931120",
+   "title": "잡티제거 여름 휴가 점이 11월까지 그대로, 긁던 손 끊고 바꾼 한 달",
+   "keyword": "잡티제거",
+   "thumb": "data/blog/thumbs/review_20261126b_B95_1.jpg",
    "read": null,
    "ranks": null
   }
@@ -8098,7 +8146,7 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T19:20",
+  "updated_at": "2026-11-25T19:35",
   "prev_snap": "2026-11-24",
   "accounts": {
    "cnsou1088": {
@@ -10686,7 +10734,7 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 24
+      "cv": 25
      }
     ],
     "posts": [
@@ -10859,7 +10907,7 @@
       "log": "224483196950",
       "blog_id": "cakkee9",
       "title": "여자친구크리스마스선물 검색하던 남자친구한테 내가 콕 집어 말한 것",
-      "read": 9,
+      "read": 10,
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T12:30",
@@ -13026,7 +13074,7 @@
     "224483307451": 4,
     "224483204373": 3,
     "224483200834": 7,
-    "224483196950": 9,
+    "224483196950": 10,
     "224483194227": 10,
     "224483153446": 0,
     "224483150643": 5,
@@ -13057,11 +13105,11 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T19:20"
+   "2026-11-25": "2026-11-25T19:35"
   }
  },
  "kwrank": {
-  "updated_at": "2026-11-25T19:20",
+  "updated_at": "2026-11-25T19:35",
   "date": "2026-11-25"
  }
 }
