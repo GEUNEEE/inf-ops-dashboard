@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T21:33",
+ "generated_at": "2026-11-26T09:23",
  "page_ver": "20261118a",
  "accounts": [
   {
@@ -999,10 +999,10 @@
    "title": "신민아·김유정 글로우 메이크업, 잡티 보일 때 내 기미크림추천 기준",
    "keyword": "기미크림추천",
    "thumb": "data/blog/thumbs/review_20261106_B3_1.jpg",
-   "read": 21,
+   "read": 23,
    "like": 3,
    "comment": 2,
-   "read_delta": 1,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "글로우 메이크업",
@@ -1110,10 +1110,10 @@
    "title": "검버섯크림 고르기 전에, 손등 갈색 점 보고 내가 세운 기준 4가지",
    "keyword": "검버섯크림",
    "thumb": "data/blog/thumbs/review_20261107_B1_1.jpg",
-   "read": 15,
+   "read": 16,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "검버섯크림",
@@ -1409,7 +1409,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "강수정 피부",
@@ -1520,7 +1520,7 @@
    "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "기미크림",
@@ -2297,7 +2297,7 @@
    "read": 8,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "미백크림",
@@ -3515,10 +3515,10 @@
    "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
    "keyword": "기미없애는방법",
    "thumb": "data/blog/thumbs/review_20261117_B29_1.jpg",
-   "read": 5,
+   "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "기미없애는방법",
@@ -3740,7 +3740,7 @@
    "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "멜라닌크림",
@@ -4064,7 +4064,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "주근깨크림",
@@ -4101,7 +4101,7 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "박보영",
@@ -4209,7 +4209,7 @@
    "read": 15,
    "like": 1,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "나이아신아마이드크림",
@@ -4354,7 +4354,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "남자수면영양제",
@@ -4391,7 +4391,7 @@
    "read": 64,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이소화장품추천",
@@ -4428,7 +4428,7 @@
    "read": 9,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이소영양제",
@@ -4462,7 +4462,7 @@
    "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
    "keyword": "다이소수분크림",
    "thumb": "data/blog/thumbs/review_20261119_B40_1.jpg",
-   "read": 18,
+   "read": 19,
    "like": 0,
    "comment": 0,
    "read_delta": 1,
@@ -4573,7 +4573,7 @@
    "read": 14,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "일본수면보조제",
@@ -4610,7 +4610,7 @@
    "read": 7,
    "like": 2,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이소앰플",
@@ -4644,10 +4644,10 @@
    "title": "40대크리스마스선물 결론은 크림, 55만원 케이크 기사 보고 엄마랑 언니 거 두 통",
    "keyword": "40대크리스마스선물",
    "thumb": "data/blog/thumbs/review_20261119_B34_1.jpg",
-   "read": 4,
+   "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": 0,
+   "read_delta": 2,
    "ranks": [
     {
      "kw": "40대크리스마스선물",
@@ -4755,7 +4755,7 @@
    "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면유도제가격",
@@ -4792,7 +4792,7 @@
    "read": 10,
    "like": 0,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "30대크리스마스선물",
@@ -4829,7 +4829,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "입면",
@@ -4866,7 +4866,7 @@
    "read": 21,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "올리브영기미크림",
@@ -4940,7 +4940,7 @@
    "read": 61,
    "like": 0,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "안색",
@@ -5051,7 +5051,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "갱년기불면증",
@@ -5088,7 +5088,7 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "피부착색연고",
@@ -5125,7 +5125,7 @@
    "read": 1,
    "like": 1,
    "comment": 1,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "색소침착",
@@ -5199,7 +5199,7 @@
    "read": 46,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이소수면안대",
@@ -5236,7 +5236,7 @@
    "read": 5,
    "like": 1,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "나이아신아마이드세럼",
@@ -5347,7 +5347,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠 설친 날",
@@ -5384,7 +5384,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "겨울피부건조",
@@ -5421,7 +5421,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "장뇌상관",
@@ -5532,7 +5532,7 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "50대크리스마스선물",
@@ -5643,7 +5643,7 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠 안 올 때",
@@ -5680,7 +5680,7 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "여자친구크리스마스선물",
@@ -5791,7 +5791,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "꿀잠",
@@ -5828,7 +5828,7 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "손등 검버섯",
@@ -5939,7 +5939,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "여자수면영양제",
@@ -5976,7 +5976,7 @@
    "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "팔꿈치착색크림",
@@ -6013,7 +6013,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "겨울잠",
@@ -6124,7 +6124,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "목주름크림",
@@ -6161,7 +6161,7 @@
    "read": 10,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이소미백크림",
@@ -6235,7 +6235,7 @@
    "read": 8,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면유지영양제",
@@ -6272,7 +6272,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "무릎착색",
@@ -6306,7 +6306,7 @@
    "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
    "keyword": "아젤라익산크림",
    "thumb": "data/blog/thumbs/review_20261122_B58_1.jpg",
-   "read": 11,
+   "read": 12,
    "like": 0,
    "comment": 0,
    "read_delta": 1,
@@ -6383,7 +6383,7 @@
    "read": 1,
    "like": 0,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "대추차",
@@ -6420,7 +6420,7 @@
    "read": 33,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "직장동료크리스마스선물",
@@ -6457,7 +6457,7 @@
    "read": 9,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "약국화장품",
@@ -6531,7 +6531,7 @@
    "read": 9,
    "like": 1,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "약국수면유도제",
@@ -6568,7 +6568,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "눈가 주름 크림",
@@ -6605,7 +6605,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면부족",
@@ -6642,7 +6642,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": 2,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "겨울선물",
@@ -6716,7 +6716,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "겨드랑이착색",
@@ -6827,7 +6827,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠안올때",
@@ -6864,7 +6864,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "엄마선물",
@@ -6901,7 +6901,7 @@
    "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "바디톤업크림",
@@ -6975,7 +6975,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "테아닌",
@@ -7012,7 +7012,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "겨울 보습",
@@ -7123,7 +7123,7 @@
    "read": 2,
    "like": 0,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠잘자는법",
@@ -7160,7 +7160,7 @@
    "read": 6,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "입가주름",
@@ -7197,7 +7197,7 @@
    "read": 4,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "해외직구",
@@ -7231,7 +7231,7 @@
    "title": "톤업크림추천 글 다 보고 고른 기준, 목까지 바를 수 있는지",
    "keyword": "톤업크림추천",
    "thumb": "data/blog/thumbs/review_20261124_B72_1.jpg",
-   "read": 4,
+   "read": 5,
    "like": 0,
    "comment": 0,
    "read_delta": 1,
@@ -7305,7 +7305,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "사타구니착색",
@@ -7342,7 +7342,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "트라넥삼산효능",
@@ -7413,7 +7413,7 @@
    "read": 1,
    "like": 0,
    "comment": 1,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "L-테아닌",
@@ -7450,7 +7450,7 @@
    "read": 9,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "에이블리블랙프라이데이",
@@ -7487,7 +7487,7 @@
    "read": 5,
    "like": 0,
    "comment": 0,
-   "read_delta": 3,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "기미",
@@ -7558,7 +7558,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "불면증원인",
@@ -7595,7 +7595,7 @@
    "read": 7,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "30대여자선물",
@@ -7632,7 +7632,7 @@
    "read": 3,
    "like": 0,
    "comment": 0,
-   "read_delta": 1,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "엄마 선물",
@@ -7703,7 +7703,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "잠잘오는음식",
@@ -7740,7 +7740,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "여드름 자국",
@@ -7774,10 +7774,10 @@
    "title": "색소침착연고 찾다가 알게 된 것, 여드름 자국도 종류가 달랐어",
    "keyword": "색소침착연고",
    "thumb": "data/blog/thumbs/review_20261125_B80_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "색소침착연고",
@@ -7814,7 +7814,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "겨울수분크림",
@@ -7851,7 +7851,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "남자톤업크림",
@@ -7888,7 +7888,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "나이아신아마이드효능",
@@ -7925,7 +7925,7 @@
    "read": 2,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "다이소크림",
@@ -7962,7 +7962,7 @@
    "read": 1,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "마그네슘수면효과",
@@ -7996,10 +7996,10 @@
    "title": "크리스마스선물추천 리스트만 보다가, 결국 엄마한테 물어본 것",
    "keyword": "크리스마스선물추천",
    "thumb": "data/blog/thumbs/review_20261125_B82_1.jpg",
-   "read": 1,
+   "read": 2,
    "like": 1,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 1,
    "ranks": [
     {
      "kw": "크리스마스선물추천",
@@ -8036,7 +8036,7 @@
    "read": 0,
    "like": 0,
    "comment": 0,
-   "read_delta": null,
+   "read_delta": 0,
    "ranks": [
     {
      "kw": "수면유도제효과",
@@ -8152,7 +8152,10 @@
    "title": "기미연고 찾다가 알게 된 것, 연고랑 크림은 따로였어",
    "keyword": "기미연고",
    "thumb": "data/blog/thumbs/review_20261126_B88_1.jpg",
-   "read": null,
+   "read": 0,
+   "like": 0,
+   "comment": 0,
+   "read_delta": null,
    "ranks": null
   },
   {
@@ -8421,7 +8424,7 @@
   }
  ],
  "login": {
-  "at": "2026-11-25T08:31",
+  "at": "2026-11-26T08:31",
   "accounts": {
    "뷰티": {
     "blog_id": "cnsou1088",
@@ -8460,8 +8463,8 @@
   }
  ],
  "stats": {
-  "updated_at": "2026-11-25T21:32",
-  "prev_snap": "2026-11-24",
+  "updated_at": "2026-11-26T09:23",
+  "prev_snap": "2026-11-25",
   "accounts": {
    "cnsou1088": {
     "daily": [
@@ -8579,19 +8582,34 @@
      },
      {
       "date": "2026-11-25",
-      "cv": 22
+      "cv": 28
+     },
+     {
+      "date": "2026-11-26",
+      "cv": 6
      }
     ],
     "posts": [
      {
+      "log": "224491902999",
+      "blog_id": "cnsou1088",
+      "title": "기미연고 찾다가 알게 된 것, 연고랑 크림은 따로였어",
+      "read": 0,
+      "like": 0,
+      "comment": 0,
+      "added": "2026-11-26T09:00",
+      "delta": null,
+      "url": "https://blog.naver.com/cnsou1088/224491902999"
+     },
+     {
       "log": "224491842002",
       "blog_id": "cnsou1088",
       "title": "크리스마스선물추천 리스트만 보다가, 결국 엄마한테 물어본 것",
-      "read": 1,
+      "read": 2,
       "like": 1,
       "comment": 0,
       "added": "2026-11-25T21:00",
-      "delta": null,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224491842002"
      },
      {
@@ -8602,7 +8620,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T19:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224491838729"
      },
      {
@@ -8613,18 +8631,18 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T18:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224491291640"
      },
      {
       "log": "224491284532",
       "blog_id": "cnsou1088",
       "title": "색소침착연고 찾다가 알게 된 것, 여드름 자국도 종류가 달랐어",
-      "read": 1,
+      "read": 2,
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T12:40",
-      "delta": null,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224491284532"
      },
      {
@@ -8635,7 +8653,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T18:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483534778"
      },
      {
@@ -8646,7 +8664,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T16:00",
-      "delta": 3,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483531898"
      },
      {
@@ -8657,14 +8675,14 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T12:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483528662"
      },
      {
       "log": "224483556108",
       "blog_id": "cnsou1088",
       "title": "톤업크림추천 글 다 보고 고른 기준, 목까지 바를 수 있는지",
-      "read": 4,
+      "read": 5,
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T09:00",
@@ -8690,7 +8708,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T16:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483453605"
      },
      {
@@ -8712,7 +8730,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T09:00",
-      "delta": 2,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483445619"
      },
      {
@@ -8723,14 +8741,14 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T18:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483338765"
      },
      {
       "log": "224483336158",
       "blog_id": "cnsou1088",
       "title": "아젤라익산크림 써보라던 친구 말, 기사 두 개 읽고 생각이 바뀌었어",
-      "read": 11,
+      "read": 12,
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T16:00",
@@ -8745,7 +8763,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T12:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483333870"
      },
      {
@@ -8822,7 +8840,7 @@
       "like": 1,
       "comment": 1,
       "added": "2026-11-20T16:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483128812"
      },
      {
@@ -8844,25 +8862,25 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T09:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224483160484"
      },
      {
       "log": "224482025396",
       "blog_id": "cnsou1088",
       "title": "40대크리스마스선물 결론은 크림, 55만원 케이크 기사 보고 엄마랑 언니 거 두 통",
-      "read": 4,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T18:00",
-      "delta": 0,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224482025396"
      },
      {
       "log": "224482014524",
       "blog_id": "cnsou1088",
       "title": "다이소수분크림으로 속당김은 끝, 4주 써보고 광대에 남은 숙제 하나",
-      "read": 18,
+      "read": 19,
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T16:00",
@@ -8888,7 +8906,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T09:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224481659589"
      },
      {
@@ -8921,7 +8939,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-18T12:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224479894069"
      },
      {
@@ -8939,11 +8957,11 @@
       "log": "224480132133",
       "blog_id": "cnsou1088",
       "title": "기미없애는방법 찾다가 스크럽부터 뺐어, 겨울 5주 기록",
-      "read": 5,
+      "read": 6,
       "like": 0,
       "comment": 0,
       "added": "2026-11-17T18:00",
-      "delta": 0,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224480132133"
      },
      {
@@ -9064,7 +9082,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-12T16:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224473299592"
      },
      {
@@ -9141,7 +9159,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T12:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224470312896"
      },
      {
@@ -9152,7 +9170,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-10T09:00",
-      "delta": 1,
+      "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224470308026"
      },
      {
@@ -9181,22 +9199,22 @@
       "log": "224467250022",
       "blog_id": "cnsou1088",
       "title": "검버섯크림 고르기 전에, 손등 갈색 점 보고 내가 세운 기준 4가지",
-      "read": 15,
+      "read": 16,
       "like": 0,
       "comment": 0,
       "added": "2026-11-08T09:00",
-      "delta": 2,
+      "delta": 1,
       "url": "https://blog.naver.com/cnsou1088/224467250022"
      },
      {
       "log": "224467033120",
       "blog_id": "cnsou1088",
       "title": "신민아·김유정 글로우 메이크업, 잡티 보일 때 내 기미크림추천 기준",
-      "read": 21,
+      "read": 23,
       "like": 3,
       "comment": 2,
       "added": "2026-11-07T16:00",
-      "delta": 1,
+      "delta": 2,
       "url": "https://blog.naver.com/cnsou1088/224467033120"
      },
      {
@@ -9561,17 +9579,6 @@
       "added": "2025-12-13T10:50",
       "delta": 0,
       "url": "https://blog.naver.com/cnsou1088/224107817796"
-     },
-     {
-      "log": "224107823949",
-      "blog_id": "cnsou1088",
-      "title": "달동피부과 기미 잡티 때문에 포기했던 나, 이제는 자신감 UP",
-      "read": 9,
-      "like": 2,
-      "comment": 0,
-      "added": "2025-12-13T10:40",
-      "delta": 0,
-      "url": "https://blog.naver.com/cnsou1088/224107823949"
      }
     ]
    },
@@ -11060,7 +11067,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T20:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224491871181"
      },
      {
@@ -11071,7 +11078,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T14:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224491325460"
      },
      {
@@ -11082,7 +11089,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T18:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483516561"
      },
      {
@@ -11093,7 +11100,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483512991"
      },
      {
@@ -11104,7 +11111,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T12:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483508551"
      },
      {
@@ -11115,7 +11122,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483504777"
      },
      {
@@ -11126,7 +11133,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T18:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483383491"
      },
      {
@@ -11137,7 +11144,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483422457"
      },
      {
@@ -11148,7 +11155,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T12:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483415330"
      },
      {
@@ -11159,7 +11166,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483409036"
      },
      {
@@ -11170,7 +11177,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T18:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483285807"
      },
      {
@@ -11181,7 +11188,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483312858"
      },
      {
@@ -11192,7 +11199,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T12:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483280672"
      },
      {
@@ -11203,7 +11210,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483307451"
      },
      {
@@ -11214,7 +11221,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T18:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483204373"
      },
      {
@@ -11225,7 +11232,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483200834"
      },
      {
@@ -11236,7 +11243,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T12:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483196950"
      },
      {
@@ -11247,7 +11254,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483194227"
      },
      {
@@ -11258,7 +11265,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T18:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483153446"
      },
      {
@@ -11269,7 +11276,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-20T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483150643"
      },
      {
@@ -11280,7 +11287,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T12:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483147353"
      },
      {
@@ -11291,7 +11298,7 @@
       "like": 0,
       "comment": 1,
       "added": "2026-11-20T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483144586"
      },
      {
@@ -11302,7 +11309,7 @@
       "like": 0,
       "comment": 1,
       "added": "2026-11-19T18:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224483138010"
      },
      {
@@ -11313,7 +11320,7 @@
       "like": 2,
       "comment": 1,
       "added": "2026-11-19T16:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224482506653"
      },
      {
@@ -11324,7 +11331,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224482503265"
      },
      {
@@ -11335,7 +11342,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-19T09:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224482500021"
      },
      {
@@ -11346,7 +11353,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-18T21:30",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224482493665"
      },
      {
@@ -11357,7 +11364,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-01-03T14:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224131980784"
      },
      {
@@ -11368,7 +11375,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-01-03T13:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224131975246"
      },
      {
@@ -11379,7 +11386,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-01-03T12:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/cakkee9/224131968835"
      }
     ]
@@ -11484,7 +11491,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T21:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224491889653"
      },
      {
@@ -11495,7 +11502,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-25T20:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224491886953"
      },
      {
@@ -11506,7 +11513,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483549982"
      },
      {
@@ -11517,7 +11524,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483547090"
      },
      {
@@ -11528,7 +11535,7 @@
       "like": 0,
       "comment": 1,
       "added": "2026-11-24T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483543864"
      },
      {
@@ -11539,7 +11546,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-24T08:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483540769"
      },
      {
@@ -11550,7 +11557,7 @@
       "like": 0,
       "comment": 1,
       "added": "2026-11-23T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483438012"
      },
      {
@@ -11561,7 +11568,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483434223"
      },
      {
@@ -11572,7 +11579,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483431237"
      },
      {
@@ -11583,7 +11590,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-23T08:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483428018"
      },
      {
@@ -11594,7 +11601,7 @@
       "like": 1,
       "comment": 0,
       "added": "2026-11-22T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483325281"
      },
      {
@@ -11605,7 +11612,7 @@
       "like": 0,
       "comment": 1,
       "added": "2026-11-22T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483322998"
      },
      {
@@ -11616,7 +11623,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483319916"
      },
      {
@@ -11627,7 +11634,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-22T08:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483317588"
      },
      {
@@ -11638,7 +11645,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483223309"
      },
      {
@@ -11649,7 +11656,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483218252"
      },
      {
@@ -11660,7 +11667,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483215260"
      },
      {
@@ -11671,7 +11678,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-21T08:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483209785"
      },
      {
@@ -11682,7 +11689,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483097857"
      },
      {
@@ -11693,7 +11700,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483091875"
      },
      {
@@ -11704,7 +11711,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483087415"
      },
      {
@@ -11715,7 +11722,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-20T08:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483069973"
      },
      {
@@ -11726,7 +11733,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T18:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483060326"
      },
      {
@@ -11737,7 +11744,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T16:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483057741"
      },
      {
@@ -11748,7 +11755,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T14:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483082223"
      },
      {
@@ -11759,7 +11766,7 @@
       "like": 0,
       "comment": 0,
       "added": "2026-11-19T12:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224483055391"
      },
      {
@@ -11770,7 +11777,7 @@
       "like": 1,
       "comment": 0,
       "added": "2025-12-19T17:20",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224114689210"
      },
      {
@@ -11781,7 +11788,7 @@
       "like": 2,
       "comment": 0,
       "added": "2025-12-19T12:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224114695316"
      },
      {
@@ -11792,7 +11799,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-19T09:40",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224114701369"
      },
      {
@@ -11803,7 +11810,7 @@
       "like": 0,
       "comment": 0,
       "added": "2025-12-05T10:00",
-      "delta": null,
+      "delta": 0,
       "url": "https://blog.naver.com/oileeoil/224096232173"
      }
     ]
@@ -13408,6 +13415,99 @@
     "224491886953": 1,
     "224491842002": 1,
     "224491889653": 0
+   },
+   "2026-11-26": {
+    "224491842002": 2,
+    "224491838729": 1,
+    "224491291640": 0,
+    "224491284532": 2,
+    "224483534778": 3,
+    "224483531898": 5,
+    "224483528662": 1,
+    "224483556108": 5,
+    "224483456794": 0,
+    "224483453605": 3,
+    "224483450007": 0,
+    "224483445619": 2,
+    "224483338765": 9,
+    "224483336158": 12,
+    "224483333870": 10,
+    "224483330879": 1,
+    "224483241186": 2,
+    "224483237650": 6,
+    "224483248904": 5,
+    "224483229106": 1,
+    "224483132317": 2,
+    "224483128812": 1,
+    "224483125518": 2,
+    "224483160484": 21,
+    "224482025396": 6,
+    "224482014524": 19,
+    "224481634830": 2,
+    "224481659589": 10,
+    "224479860835": 0,
+    "224479895490": 2,
+    "224479894069": 3,
+    "224479892631": 7,
+    "224480132133": 6,
+    "224479878611": 4,
+    "224479877012": 3,
+    "224479906388": 11,
+    "224478693226": 6,
+    "224478674544": 8,
+    "224478671777": 0,
+    "224478669856": 20,
+    "224475862569": 3,
+    "224475858901": 7,
+    "224475854894": 7,
+    "224473299592": 8,
+    "224473296836": 15,
+    "224473293484": 1,
+    "224472979084": 7,
+    "224472975793": 0,
+    "224472995222": 4,
+    "224470317017": 3,
+    "224470312896": 5,
+    "224470308026": 4,
+    "224470058094": 31,
+    "224470053274": 1,
+    "224467250022": 16,
+    "224467033120": 23,
+    "224467022061": 3,
+    "224467012383": 64,
+    "224466986315": 2,
+    "224465786496": 1,
+    "224465593010": 0,
+    "224465590326": 16,
+    "224465598002": 18,
+    "224464340859": 5,
+    "224464451749": 7,
+    "224463922448": 19,
+    "224170403446": 15,
+    "224145301415": 1,
+    "224145308157": 3,
+    "224145314275": 0,
+    "224131917603": 0,
+    "224131923868": 0,
+    "224131910728": 1,
+    "224119076801": 1,
+    "224119069266": 0,
+    "224119062301": 7,
+    "224115838451": 0,
+    "224115828056": 3,
+    "224115833700": 1,
+    "224114588584": 1,
+    "224114593769": 145,
+    "224114599643": 12,
+    "224111969319": 25,
+    "224111961384": 7,
+    "224111977417": 24,
+    "224110131874": 13,
+    "224110123254": 6,
+    "224110109419": 20,
+    "224107817796": 4,
+    "224107823949": 9,
+    "224491902999": 0
    }
   },
   "snap_at": {
@@ -13423,7 +13523,8 @@
    "2026-11-22": "2026-11-22T21:30",
    "2026-11-23": "2026-11-23T21:31",
    "2026-11-24": "2026-11-24T21:30",
-   "2026-11-25": "2026-11-25T21:32"
+   "2026-11-25": "2026-11-25T21:32",
+   "2026-11-26": "2026-11-26T09:23"
   }
  },
  "kwrank": {
