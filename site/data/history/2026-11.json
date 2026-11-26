@@ -1,6 +1,6 @@
 {
   "month": "2026-11",
-  "generated_at": "2026-11-25T13:31:48",
+  "generated_at": "2026-11-26T10:00:14",
   "gross_revenue": 2370000,
   "net_profit": 1530000,
   "order_count": 16,
@@ -81,8 +81,8 @@
     "화장품": {
       "qty": 1692,
       "order_count": 1323,
-      "gross_revenue": 61498830,
-      "net_profit": 47419226,
+      "gross_revenue": 61499830,
+      "net_profit": 47422130,
       "repeat": {
         "buyers": 4,
         "orders": 4
@@ -150,7 +150,7 @@
       "네이버": {
         "orders": 1170,
         "units": 1478,
-        "gross": 53581830
+        "gross": 53582830
       },
       "자사몰": {
         "orders": 119,
